@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>DocInspector – Pricing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand = link to home -->
+            <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="price.html" class="active">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports &amp; Feedback</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRICING MAIN -->
+    <main class="pricing-main">
+        <div class="container">
+
+            <!-- top intro -->
+            <header class="pricing-header">
+                <h1>Price &amp; plans</h1>
+                <p>
+                    Two desktop editions, one engine. Basic keeps the core tools, Pro unlocks the full
+                    evidence workflow and multi-action runs (rebuild + flatten + watermark in one pass).
+                </p>
+
+            <!-- billing toggle -->
+                <div class="billing-toggle">
+                    <span class="billing-label">Billing:</span>
+                    <button class="billing-btn active" data-period="monthly">Monthly</button>
+                    <button class="billing-btn" data-period="yearly">
+                        Yearly <span class="billing-save">-10%</span>
+                    </button>
+                </div>
+
+                <div class="pricing-pill-row">
+                    <div class="pricing-pill">Basic: €9.99 / month</div>
+                    <div class="pricing-pill">Pro: €15 / month</div>
+                    <div class="pricing-pill subtle">All processing happens locally on your Windows machine.</div>
+                </div>
+            </header>
+
+            <!-- pricing cards -->
+            <section class="pricing-grid">
+
+                <!-- BASIC -->
+                <article class="pricing-card" data-plan="basic">
+                    <div class="pricing-card-header">
+                        <div class="pricing-plan-name">Basic</div>
+                        <div class="pricing-plan-tagline">
+                            Core tools for rebuilding and sharing safer evidence bundles.
+                        </div>
+                    </div>
+
+                    <div class="pricing-price">
+                        <div class="pricing-price-value"
+                             data-monthly="9.99"
+                             data-yearly="107.90">
+                            € 9.99
+                        </div>
+                        <div class="pricing-price-label" data-label-monthly="per month"
+                             data-label-yearly="per year (billed annually)">
+                            per month
+                        </div>
+                        <div class="pricing-price-note" data-note-monthly="Cancel or upgrade any time."
+                             data-note-yearly="Billed once per year with ~10% discount.">
+                            Cancel or upgrade any time.
+                        </div>
+                    </div>
+
+                    <div class="pricing-divider"></div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">PDF Repair &amp; Hardening</div>
+
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Rebuild + OCR PDF</strong> (fix scanned / broken PDFs)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Flatten to Image-Only PDF</strong> (image-only, no text layer)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Office PDF Converter</strong> (Word / Excel → PDF)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Add Watermark</strong> on batches of PDFs</span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">Reporting &amp; Evidence</div>
+
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Bundle summary</strong> for PDFs (simple borderou)</span>
+                        </div>
+
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Advanced bundle report</span>
+                        </div>
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Folder evidence report</span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">Audit &amp; Security</div>
+
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Sanitize documents (bulk cleaning)</span>
+                        </div>
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Audit this PC</span>
+                        </div>
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Secure delete + audit trail</span>
+                        </div>
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Find &amp; remove sensitive content</span>
+                        </div>
+                        <div class="pricing-feature not-included">
+                            <span class="pf-icon">–</span>
+                            <span class="pf-text">Encryption of final evidence bundles</span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-cta">
+                        <a href="contact.html" class="btn btn-outline">Start with Basic</a>
+                    </div>
+                </article>
+
+                <!-- PRO -->
+                <article class="pricing-card pricing-card-pro" data-plan="pro">
+                    <div class="pricing-badge">Most popular</div>
+
+                    <div class="pricing-card-header">
+                        <div class="pricing-plan-name">Pro</div>
+                        <div class="pricing-plan-tagline">
+                            Full toolkit: audits, advanced reports and multi-action processing in a single run.
+                        </div>
+                    </div>
+
+                    <div class="pricing-price">
+                        <div class="pricing-price-value"
+                             data-monthly="15"
+                             data-yearly="162">
+                            € 15
+                        </div>
+                        <div class="pricing-price-label" data-label-monthly="per month"
+                             data-label-yearly="per year (billed annually)">
+                            per month
+                        </div>
+                        <div class="pricing-price-note" data-note-monthly="Best option for active cases and teams."
+                             data-note-yearly="Billed once per year with 10% discount.">
+                            Best option for active cases and teams.
+                        </div>
+                    </div>
+
+                    <div class="pricing-divider"></div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">Everything in Basic</div>
+
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text">Rebuild + OCR PDF</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text">Flatten to Image-Only PDF</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text">Office PDF Converter</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text">Add Watermark</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text">Bundle summary for PDFs</span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">Extra in Pro</div>
+
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Advanced bundle report</strong> (PDF + Word + Excel, extended metadata)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Folder evidence report</strong> for full trees</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Sanitize docs</strong> (bulk metadata &amp; hidden content cleaning)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Audit this PC</strong> (discover sensitive documents)</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Secure delete + audit trail</strong></span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Find &amp; remove</strong> sensitive content in PDFs</span>
+                        </div>
+                        <div class="pricing-feature included">
+                            <span class="pf-icon">✔</span>
+                            <span class="pf-text"><strong>Encryption</strong> for final evidence packages</span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-feature-group">
+                        <div class="pricing-group-title">Multi-action runs</div>
+
+                        <div class="pricing-feature included highlight">
+                            <span class="pf-icon">★</span>
+                            <span class="pf-text">
+                                Run <strong>multiple actions at once</strong> on the same folder:
+                                e.g. Rebuild + Flatten + Add watermark in a single output pass.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pricing-cta">
+                        <a href="contact.html" class="btn btn-primary">Go Pro</a>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Company / multiple licenses -->
+            <section class="pricing-company">
+                <h2>Teams &amp; companies</h2>
+                <p>
+                    Need multiple seats, per-department licensing or a company-wide rollout?
+                    You can purchase several licenses at once and mix Basic and Pro per user.
+                </p>
+
+                <div class="company-grid">
+                    <div class="company-card">
+                        <div class="company-title">Small teams</div>
+                        <div class="company-sub">2 – 10 seats</div>
+                        <p>Ideal for small legal teams, compliance, or internal audit groups.</p>
+                        <ul>
+                            <li>Mix Basic / Pro per user</li>
+                            <li>Centralised invoicing</li>
+                            <li>One contact for support</li>
+                        </ul>
+                    </div>
+                    <div class="company-card">
+                        <div class="company-title">Departments</div>
+                        <div class="company-sub">10 – 50 seats</div>
+                        <p>For law firms, shared service centres or corporate security teams.</p>
+                        <ul>
+                            <li>Volume pricing options</li>
+                            <li>Standardised configuration</li>
+                            <li>Optional training sessions</li>
+                        </ul>
+                    </div>
+                    <div class="company-card">
+                        <div class="company-title">Enterprise</div>
+                        <div class="company-sub">50+ seats</div>
+                        <p>Custom deployment scenarios, multiple locations and stricter policies.</p>
+                        <ul>
+                            <li>Custom licensing terms</li>
+                            <li>Integration discussions</li>
+                            <li>Dedicated point of contact</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="company-cta">
+                    <a href="contact.html" class="btn btn-outline">Request a company quote</a>
+                </div>
+ 
+            </section>
+
+            <!-- small note -->
+            <section class="pricing-footnote">
+                <p>
+                    
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- Small JS for billing toggle -->
+<script>
+    const billingButtons = document.querySelectorAll('.billing-btn');
+    let currentPeriod = 'monthly';
+
+    function updatePrices(period) {
+        document.querySelectorAll('.pricing-price-value').forEach(el => {
+            const monthly = el.getAttribute('data-monthly');
+            const yearly = el.getAttribute('data-yearly');
+            if (period === 'monthly') {
+                el.textContent = '€ ' + monthly;
+            } else {
+                el.textContent = '€ ' + yearly;
+            }
+        });
+
+        document.querySelectorAll('.pricing-price-label').forEach(el => {
+            const labelMonthly = el.getAttribute('data-label-monthly');
+            const labelYearly = el.getAttribute('data-label-yearly');
+            el.textContent = (period === 'monthly') ? labelMonthly : labelYearly;
+        });
+
+        document.querySelectorAll('.pricing-price-note').forEach(el => {
+            const noteMonthly = el.getAttribute('data-note-monthly');
+            const noteYearly = el.getAttribute('data-note-yearly');
+            el.textContent = (period === 'monthly') ? noteMonthly : noteYearly;
+        });
+    }
+
+    billingButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const period = btn.getAttribute('data-period');
+            if (period === currentPeriod) return;
+
+            currentPeriod = period;
+            billingButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updatePrices(period);
+        });
+    });
+
+    // set implicit monthly on load
+    updatePrices('monthly');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Guide – Audit &amp; Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand = link to home -->
+            <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="price.html">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports &amp; Feedback</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="section">
+        <div class="container">
+
+            <header class="section-header">
+                <h1 class="section-title">Audit &amp; Security – User Guide</h1>
+                <p class="section-subtitle">
+                    This section explains how the workstation audit and future security tools behave:
+                    what they scan, what they change (if anything), what reports and logs they produce,
+                    and how you can use them in internal investigations or compliance work.
+                </p>
+            </header>
+
+            <!-- SUMMARY TILE -->
+            <div class="bottom-card" style="margin-bottom:1.75rem;">
+                <h3 class="bottom-title">High-level behaviour</h3>
+                <p>
+                    Audit tools in this group are designed to run against <strong>existing folders or PCs</strong>
+                    without silently modifying evidence. By default, they scan paths, collect metadata about files,
+                    and write reports or logs to a chosen Output location. Only explicit “Secure Delete” actions are
+                    allowed to actually remove files, and those actions are meant to be logged.
+                </p>
+            </div>
+
+            <!-- CARDS PER BUTTON -->
+            <div class="modules-column">
+
+                <!-- 1. Sanitize Docs -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-audit.png" alt="Sanitize Docs">
+                        </div>
+                        <div>
+                            <div class="module-title">Sanitize Docs</div>
+                            <div class="module-tagline">
+                                Clean metadata, comments and hidden data from supported documents in bulk.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Sanitize Docs”</strong> scans the Input folder for supported document
+                                    types and creates <strong>cleaned copies</strong> in the Output folder with
+                                    metadata, comments and other hidden content removed where possible.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Meant for “clean before sending” workflows, not for deep forensics.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Reads the full folder tree from the chosen Input path.</li>
+                                        <li>Targets common document formats (PDF and office documents).</li>
+                                        <li>Leaves other formats either untouched or simply copied, depending on configuration.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                The exact set of formats and cleaning rules may evolve between versions.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Output structure</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Rebuilds the same relative folder tree under the Output path.</li>
+                                        <li>Saves sanitized copies there; originals in Input are not overwritten.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Typical use: compare originals and sanitized copies in a safe review environment.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing steps</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Enumerates files under Input with supported extensions.</li>
+                                        <li>For each, opens or parses the file to locate metadata and hidden data.</li>
+                                        <li>Removes or resets fields that should not leave your organisation.</li>
+                                        <li>Writes a sanitized copy into the mirrored Output path.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Some fields cannot be fully stripped in all formats; always validate with spot checks.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 2. Audit This PC -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-audit.png" alt="Audit This PC">
+                        </div>
+                        <div>
+                            <div class="module-title">Audit This PC</div>
+                            <div class="module-tagline">
+                                Scan drives or folders and build an inventory of potentially sensitive documents.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Audit This PC”</strong> scans the selected folder or drive, identifies
+                                    files that match certain patterns (documents, archives, media, etc.), and builds
+                                    a report of what was found for later analysis.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Intended as a discovery / mapping tool, not as a cleaning module.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Scope &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Can be pointed at a specific folder, a mapped drive or a removable disk.</li>
+                                        <li>Records information about document formats, archives and potentially media files.</li>
+                                        <li>Ignores many system and temporary files to avoid noise.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Scope is deliberately broad enough for incident response and internal audits.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Output structure</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Produces one or more reports in the chosen Output folder (typically Excel or CSV).</li>
+                                        <li>May also write a log file summarising the scan configuration and any errors.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                The original disk / folder is not changed by the scan.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Typical columns</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li><strong>FullPath</strong>, <strong>Extension</strong>, <strong>SizeKB</strong>.</li>
+                                        <li>Created / Modified timestamps from the file system.</li>
+                                        <li>Possibly a simple “category” (Document, Media, Archive, Other).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Use filters in Excel to narrow down to high-risk file types or suspicious locations.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 3. Secure Delete + Audit Trail (Planned) -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-audit.png" alt="Secure Delete + Audit Trail">
+                        </div>
+                        <div>
+                            <div class="module-title">
+                                Secure Delete + Audit Trail <span class="status-pill planned">Planned</span>
+                            </div>
+                            <div class="module-tagline">
+                                Controlled removal of selected files with a clear audit log (future module).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Concept</div>
+                                <div class="feature-desc">
+                                    This planned module is designed to securely delete specific files
+                                    <strong>only when a user explicitly confirms</strong> and to write an audit record
+                                    of what was deleted, when, and from where.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Nothing here runs automatically; it is intended as a deliberate, supervised action.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Expected behaviour</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Show a list of candidate files to delete (e.g. from a previous report).</li>
+                                        <li>Require explicit confirmation before any file is removed.</li>
+                                        <li>Write an audit log that can be attached to internal records.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Exact implementation and data fields may change as the module is developed.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 4. Encryption (Planned) -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-audit.png" alt="Encryption">
+                        </div>
+                        <div>
+                            <div class="module-title">
+                                Encryption <span class="status-pill planned">Planned</span>
+                            </div>
+                            <div class="module-tagline">
+                                One-click packaging of bundles into encrypted containers (future module).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Concept</div>
+                                <div class="feature-desc">
+                                    The Encryption module is intended to take an already hardened bundle
+                                    and wrap it into an encrypted container or password-protected archive,
+                                    suitable for sending to external counsel or regulators.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                It builds on top of other modules – it does not change how documents are cleaned.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Expected behaviour</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Let you pick a folder with finalized, hardened documents.</li>
+                                        <li>Create an encrypted package at the Output location.</li>
+                                        <li>Optionally write a small manifest or log file with basic details.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Algorithm choice and packaging format will be documented once the module is available.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+<!-- LINK BACK TO HUB -->
+<div class="container" style="margin-top:2.5rem;">
+    <a href="user-guide.html" class="btn btn-outline">
+        Back to User Guide overview
+    </a>
+</div>
+
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

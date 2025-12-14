@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Guide – PDF Repair &amp; Hardening</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="price.html">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports &amp; Feedback</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="section">
+        <div class="container">
+
+            <header class="section-header">
+                <h1 class="section-title">PDF Repair &amp; Hardening – User Guide</h1>
+                <p class="section-subtitle">
+                    This section explains, for each button in the “PDF Repair and Hardening” group,
+                    how folder trees are processed, which file types are touched, and what output you get.
+                    Everything here runs on top of your existing folders without changing the originals.
+                </p>
+            </header>
+
+            <!-- SUMMARY TILE -->
+            <div class="bottom-card" style="margin-bottom:1.75rem;">
+                <h3 class="bottom-title">High-level behaviour</h3>
+                <p>
+                    All tools in this group work with an <strong>Input folder</strong> and an
+                    <strong>Output folder</strong>. The suite traverses the Input tree, mirrors the same
+                    subfolder structure under Output and processes only the targeted file types (PDF / Office).
+                    Other files are either ignored or copied untouched, depending on the button.
+                </p>
+            </div>
+
+            <!-- CARDS PER BUTTON -->
+            <div class="modules-column">
+
+                <!-- 1. Rebuild + OCR PDF -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
+                        </div>
+                        <div>
+                            <div class="module-title">Rebuild + OCR PDF</div>
+                            <div class="module-tagline">
+                                Normalize problematic or scanned PDFs at a controlled DPI and rebuild them with a fresh text layer.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    When you select an Input folder, Output folder and press
+                                    <strong>“Rebuild + OCR PDF”</strong>, DocInspector Pro walks the folder tree,
+                                    finds all PDFs and recreates them from images at the chosen DPI, then runs OCR so
+                                    the new PDFs stay searchable.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Recursively scans the selected <strong>Input</strong> folder for PDF files.</li>
+                                        <li>Computes each file’s <strong>relative path</strong> inside the Input root.</li>
+                                        <li>Recreates the same subfolder structure under the <strong>Output</strong> folder.</li>
+                                        <li>Processes only PDFs – other file types are not touched by this action.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing pipeline</div>
+                                <div class="feature-desc">
+                                    For each PDF:
+                                    <ol>
+                                        <li>Each page is rendered to an image at the DPI you set in the main GUI.</li>
+                                        <li>Temporary images are stored under the configured TMP folder while processing.</li>
+                                        <li>An OCR engine analyzes the images and extracts text.</li>
+                                        <li>A new PDF is built by combining the rasterized pages with the OCR text layer.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Resulting output</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Each input PDF is replaced by a “normalized” PDF in the Output tree.</li>
+                                        <li>Page count is preserved; pages become more consistent and easier to render.</li>
+                                        <li>Text is searchable thanks to the OCR step.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 2. Flatten to Image-Only PDF -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
+                        </div>
+                        <div>
+                            <div class="module-title">Flatten to Image-Only PDF</div>
+                            <div class="module-tagline">
+                                Strip all text and interactive layers and keep only bitmap images of each page.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Flatten to Image-Only PDF”</strong> converts every page of each input PDF
+                                    into an image and rebuilds a new PDF that contains only those images – no searchable
+                                    text, no form fields, no comments, no hidden objects.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Recursively scans the Input folder for PDFs.</li>
+                                        <li>Recreates the same folder structure under Output.</li>
+                                        <li>Only PDFs are flattened; non-PDF files in the tree are ignored.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing pipeline</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Each page is rendered to a high-quality image at the selected DPI.</li>
+                                        <li>Images are optionally compressed to balance size vs. quality.</li>
+                                        <li>A new PDF is assembled from the image sequence only (no OCR step).</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Resulting output</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Output PDFs are fully flattened and resistant to most text-layer tricks.</li>
+                                        <li>Any redactions baked into images cannot be trivially removed.</li>
+                                        <li>File size depends heavily on DPI and compression settings chosen.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 3. Office PDF Converter -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
+                        </div>
+                        <div>
+                            <div class="module-title">Office PDF Converter</div>
+                            <div class="module-tagline">
+                                Convert Word and Excel files to PDFs while preserving the original folder layout.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Office PDF Converter”</strong> scans the Input folder for Word and Excel
+                                    documents and exports them to PDF, writing the resulting PDFs into the mirrored
+                                    Output tree. Original Office documents remain unchanged.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Recursively enumerates common Office formats (DOC, DOCX, XLS, XLSX).</li>
+                                        <li>Builds the same relative paths under the Output folder.</li>
+                                        <li>Existing PDFs or other formats are not altered by this tool.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing pipeline</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Ensures the Output and temporary folders exist.</li>
+                                        <li>Opens each document in the appropriate Office application.</li>
+                                        <li>Exports or prints the document to PDF using standard export options.</li>
+                                        <li>Saves the PDF into the mirrored Output path.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Resulting output</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>A consistent set of PDFs that match the original Word/Excel files.</li>
+                                        <li>Same folder layout, ready to be passed into other DocInspector modules.</li>
+                                        <li>Original Office files stay in place under the Input folder.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 4. Add Watermark -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
+                        </div>
+                        <div>
+                            <div class="module-title">Add Watermark</div>
+                            <div class="module-tagline">
+                                Apply consistent text watermarks across a batch of PDFs in one run.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Add Watermark”</strong> overlays a configurable text watermark
+                                    (e.g., “CONFIDENTIAL”, case reference, recipient) on every page and writes the
+                                    result to the Output tree.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Walks the Input folder recursively and targets PDF files only.</li>
+                                        <li>Recreates the same subfolders in the Output path.</li>
+                                        <li>Writes watermarked copies to Output; originals remain unchanged.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Resulting output</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>All output PDFs carry the watermark on each page.</li>
+                                        <li>File names and folder structure are preserved.</li>
+                                        <li>Watermark is baked into page content (not just a removable note).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- LINK BACK TO HUB -->
+            <div style="margin-top:2rem;">
+                <a href="user-guide.html" class="btn btn-outline">Back to User Guide overview</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

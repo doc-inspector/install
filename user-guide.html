@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Guide – DocInspector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand = link to home -->
+            <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="price.html">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports &amp; Feedback</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- USER GUIDE CONTENT -->
+    <main class="guide-main">
+        <div class="container">
+
+            <!-- Intro card -->
+            <section class="guide-intro-card">
+                <div class="guide-intro-text">
+                    <h1>User Guide</h1>
+                    <p>
+                        Here you can see, for each module, exactly what happens when you press a button:
+                        how folder trees are processed, what happens with PDFs vs Word/Excel,
+                        and what final output you should expect.
+                    </p>
+                    <p class="guide-intro-note">
+                        Start with <strong>PDF Repair &amp; Hardening</strong> if you mainly fix or harden evidence PDFs.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GRID CU 3 CARDURI MARI (IMAGINE + TEXT) -->
+            <section class="guide-grid">
+
+                <!-- CARD 1: PDF Repair & Hardening -->
+                <article class="guide-card">
+                    <div class="guide-card-image">
+                        <img src="assets/guide-pdf-repair.png" alt="PDF Repair and Hardening overview">
+                    </div>
+                    <div class="guide-card-body">
+                        <h2>PDF Repair &amp; Hardening</h2>
+                        <p class="guide-card-lead">
+                            Everything that happens with scanned, corrupt or sensitive PDFs:
+                            rebuild, OCR, flatten and watermark – while keeping your folder structure intact.
+                        </p>
+
+                        <div class="guide-card-points">
+                            <div>
+                                <h3>What’s inside</h3>
+                                <ul>
+                                    <li><strong>Rebuild + OCR PDF</strong> – rebuilds problematic or scanned PDFs from images, then runs OCR so text stays searchable.</li>
+                                    <li><strong>Flatten to Image-Only PDF</strong> – converts each page into a bitmap image, stripping editable layers and hidden content.</li>
+                                    <li><strong>Office PDF Converter</strong> – converts Word and Excel files into consistent, hardened PDFs while preserving structure.</li>
+                                    <li><strong>Add Watermark</strong> – burns text watermarks (like “CONFIDENTIAL” or case IDs) directly into page content.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Folder &amp; file behaviour</h3>
+                                <ul>
+                                    <li>Mirrors the Input folder tree under Output.</li>
+                                    <li>Processes only relevant types (PDF / Office).</li>
+                                    <li>Other files are ignored or copied untouched (per module).</li>
+                                    <li>Output is safe to send, archive or use as evidence.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="guide-card-cta">
+                            <a href="user-guide-pdf-repair.html" class="btn btn-outline">
+                                Open detailed PDF Repair Guide
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Reporting & Evidence -->
+                <article class="guide-card">
+                    <div class="guide-card-image">
+                        <img src="assets/guide-reporting.png" alt="Reporting and Evidence overview">
+                    </div>
+                    <div class="guide-card-body">
+                        <h2>Reporting &amp; Evidence</h2>
+                        <p class="guide-card-lead">
+                            How DocInspector Pro counts pages, builds borderou reports and indexes
+                            all files in a case so you can attach clean Excel/PDF summaries.
+                        </p>
+
+                        <div class="guide-card-points">
+                            <div>
+                                <h3>What’s inside</h3>
+                                <ul>
+                                    <li><strong>PDF Bundle Summary</strong> – scans PDFs in a folder tree and builds a simple “borderou” with names, sizes and page counts.</li>
+                                    <li><strong>Advanced Bundle Report</strong> – adds Word, Excel and other office formats with smarter page counting and more columns.</li>
+                                    <li><strong>Folder Evidence Report</strong> – inventories every supported file in a folder structure for legal or audit purposes.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>What you get</h3>
+                                <ul>
+                                    <li>Excel/PDF reports with page counts and totals.</li>
+                                    <li>Support for PDFs, Word, Excel and other formats.</li>
+                                    <li>Clear mapping between folder tree and evidence list.</li>
+                                    <li>Ready to attach to legal or audit files.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="guide-card-cta">
+                            <a href="user-guide-reporting.html" class="btn btn-outline">
+                                Open Reporting Guide
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Audit & Security -->
+                <article class="guide-card">
+                    <div class="guide-card-image">
+                        <img src="assets/guide-audit.png" alt="Audit and Security overview">
+                    </div>
+                    <div class="guide-card-body">
+                        <h2>Audit &amp; Security</h2>
+                        <p class="guide-card-lead">
+                            How workstation audits, secure deletion and (future) encryption modules
+                            work behind the scenes and what logs are produced.
+                        </p>
+
+                        <div class="guide-card-points">
+                            <div>
+                                <h3>What’s inside</h3>
+                                <ul>
+                                    <li><strong>Audit This PC</strong> – scans selected folders or drives and lists documents and other files that may contain sensitive information.</li>
+                                    <li><strong>Secure Delete + Audit Trail</strong> – securely deletes selected files while keeping an audit log of what was removed.</li>
+                                    <li><strong>Encryption</strong> – future module for packaging hardened bundles into encrypted containers.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Use cases</h3>
+                                <ul>
+                                    <li>Incident response and forensics.</li>
+                                    <li>GDPR / internal investigation support.</li>
+                                    <li>Controlled secure deletion with proof.</li>
+                                    <li>Encrypted evidence handover (future module).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="guide-card-cta">
+                            <a href="user-guide-audit.html" class="btn btn-outline">
+                                Open Audit Guide
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

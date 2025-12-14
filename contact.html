@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact – DocInspector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+   <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand = link to home -->
+          <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="price.html">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports & Feedback</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- CONTACT PAGE BODY -->
+    <section class="section">
+        <div class="container">
+
+            <header class="section-header">
+                <h1 class="section-title">Contact & Support</h1>
+                <p class="section-subtitle">
+                    If you have questions about licensing, installation, performance issues or integration,
+                    use the form below or contact us directly by email.
+                </p>
+            </header>
+
+            <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.9fr);gap:2rem;align-items:flex-start;">
+
+                <!-- CONTACT FORM -->
+                <form method="post" action="#"
+                      style="background:rgba(5,18,32,0.9);border-radius:16px;padding:1.2rem 1.2rem 1.35rem;
+                             border:1px solid rgba(61,131,182,0.7);box-shadow:0 18px 40px rgba(0,0,0,0.9);font-size:0.86rem;">
+                    
+                    <div style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:0.75rem;">
+                        <label for="name" style="font-size:0.8rem;color:#c9e0ff;">Your name</label>
+                        <input id="name" name="name" type="text" required placeholder="John Doe"
+                               style="border-radius:8px;border:1px solid rgba(88,131,176,0.8);background:#030b15;
+                                      color:#e5f6ff;padding:0.45rem 0.55rem;font:inherit;">
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:0.75rem;">
+                        <label for="email" style="font-size:0.8rem;color:#c9e0ff;">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="you@company.com"
+                               style="border-radius:8px;border:1px solid rgba(88,131,176,0.8);background:#030b15;
+                                      color:#e5f6ff;padding:0.45rem 0.55rem;font:inherit;">
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:0.75rem;">
+                        <label for="subject" style="font-size:0.8rem;color:#c9e0ff;">Subject</label>
+                        <select id="subject" name="subject"
+                                style="border-radius:8px;border:1px solid rgba(88,131,176,0.8);background:#030b15;
+                                       color:#e5f6ff;padding:0.45rem 0.55rem;font:inherit;">
+                            <option>General question</option>
+                            <option>Installation issue</option>
+                            <option>License & activation</option>
+                            <option>Integration & automation</option>
+                            <option>Technical support</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:0.75rem;">
+                        <label for="msg" style="font-size:0.8rem;color:#c9e0ff;">Message</label>
+                        <textarea id="msg" name="message" rows="6" required
+                                  placeholder="Describe your question or issue..."
+                                  style="border-radius:8px;border:1px solid rgba(88,131,176,0.8);background:#030b15;
+                                         color:#e5f6ff;padding:0.45rem 0.55rem;font:inherit;resize:vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top:0.6rem;">Send message</button>
+                </form>
+
+
+                <!-- SIDE CONTACT INFO -->
+                <aside style="font-size:0.85rem;color:#b1c9ea;">
+
+                    <h2 style="font-size:0.98rem;margin-bottom:0.4rem;">Direct support</h2>
+                    <p style="margin-bottom:1rem;">
+                        If your request is urgent or related to licensing / activation, contact us directly:
+                        <br><strong>support@doc-inspector.com</strong>
+                    </p>
+
+                    <h2 style="font-size:0.98rem;margin-bottom:0.4rem;">Hours</h2>
+                    <p style="margin-bottom:1rem;">
+                        Monday – Friday <br>
+                        09:00 – 18:00 (GMT+2)
+                    </p>
+
+                    <h2 style="font-size:0.98rem;margin-bottom:0.4rem;">Response time</h2>
+                    <p style="margin-bottom:1rem;">
+                        Typical response time: <strong>2–12 hours</strong><br>
+                        Max 24h during peak periods.
+                    </p>
+
+                    <h2 style="font-size:0.98rem;margin-bottom:0.4rem;">Before contacting us</h2>
+                    <ul style="margin-top:0.4rem;padding-left:1.1rem;">
+                        <li>Ensure you use the latest version of the application.</li>
+                        <li>Try reproducing the problem with a smaller test folder.</li>
+                        <li>Include any relevant log files or screenshots.</li>
+                    </ul>
+                </aside>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER IDENTIC CU HOME -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

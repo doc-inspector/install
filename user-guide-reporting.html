@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Guide – Reporting &amp; Evidence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand = link to home -->
+            <a href="index.html" class="brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">DocInspector</div>
+                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+                </div>
+            </a>
+
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="price.html">Price</a>
+                <a href="user-guide.html">User Guide</a>
+                <a href="reports.html">Reports &amp; Feedback</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="lang-switcher">
+                <button class="active">EN</button>
+                <button>RO</button>
+                <button>RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="section">
+        <div class="container">
+
+            <header class="section-header">
+                <h1 class="section-title">Reporting &amp; Evidence – User Guide</h1>
+                <p class="section-subtitle">
+                    This section explains, for each button in the “Reporting and Evidence” group,
+                    how folder trees are processed, which file types are included, how page counts are calculated
+                    and what Excel reports you get at the end.
+                </p>
+            </header>
+
+            <!-- SUMMARY TILE -->
+            <div class="bottom-card" style="margin-bottom:1.75rem;">
+                <h3 class="bottom-title">High-level behaviour</h3>
+                <p>
+                    All reporting tools in this group work with an <strong>Input folder</strong> and an
+                    <strong>Output folder</strong>. The suite traverses the Input tree, mirrors the same folder
+                    structure under Output (where needed) and creates one or more Excel reports that describe the
+                    evidence set: file paths, sizes, page counts, and other metadata. Original files remain in place.
+                </p>
+            </div>
+
+            <!-- CARDS PER BUTTON -->
+            <div class="modules-column">
+
+                <!-- 1. PDF Bundle Summary -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-reporting.png" alt="PDF Bundle Summary">
+                        </div>
+                        <div>
+                            <div class="module-title">PDF Bundle Summary</div>
+                            <div class="module-tagline">
+                                Quick “borderou” for PDFs: file list with page counts and sizes, ready to attach to a bundle.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    When you choose an Input folder, Output folder and press
+                                    <strong>“PDF Bundle Summary”</strong>, DocInspector Pro walks the folder tree,
+                                    finds all PDF files and generates a compact Excel file with one row per PDF.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Useful as a simple borderou when you only need to track PDFs in a matter folder.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Recursively scans the entire <strong>Input</strong> folder.</li>
+                                        <li>Includes only files with <code>.pdf</code> extension.</li>
+                                        <li>Skips temporary files and obviously invalid PDFs.</li>
+                                        <li>Other formats (Word, Excel, images, audio) are ignored in this report.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                For mixed folders, this report is deliberately focused on PDFs only.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Output structure</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Creates one Excel file in the root of your chosen <strong>Output</strong> folder.</li>
+                                        <li>Does not duplicate or move any original files.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Typical name: something like <code>PDF_Bundle_Summary.xlsx</code>.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Columns in the report</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li><strong>FullPath</strong> – full path to the PDF file.</li>
+                                        <li><strong>RelativePath</strong> – path relative to the Input folder.</li>
+                                        <li><strong>FileName</strong> – file name only.</li>
+                                        <li><strong>Pages</strong> – page count for that PDF.</li>
+                                        <li><strong>SizeKB</strong> – file size in kilobytes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Exact column names may change slightly between versions, but this is the general layout.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing steps</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Enumerates all PDF files under Input.</li>
+                                        <li>For each PDF, reads basic info and page count via a PDF analysis library.</li>
+                                        <li>Builds rows in memory (one row per PDF).</li>
+                                        <li>Writes everything into a new Excel workbook in Output.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Large folders may take some time – the progress bar in the GUI shows how far it is.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 2. Advanced Bundle Report -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-reporting.png" alt="Advanced Bundle Report">
+                        </div>
+                        <div>
+                            <div class="module-title">Advanced Bundle Report</div>
+                            <div class="module-tagline">
+                                Richer Excel inventory: PDFs, Word, Excel and other formats, with more metadata.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Advanced Bundle Report”</strong> builds a more complete evidence list:
+                                    not only PDFs, but also Word, Excel and other office documents in the folder tree.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Designed for more complex cases, e-discovery and internal investigations.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Recursively scans the <strong>Input</strong> folder, like the simple summary.</li>
+                                        <li>Includes PDFs, Word, Excel and potentially other office formats.</li>
+                                        <li>Very large or unsupported files may be listed with partial info.</li>
+                                        <li>Non-document formats (audio, video, images, archives) can be listed with generic stats.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Exact set of included extensions can evolve between versions.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Output structure</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Writes one Excel workbook in the selected <strong>Output</strong> folder.</li>
+                                        <li>Optionally, a log file can be written alongside (for troubleshooting).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Check the log when something looks off (missing page counts, access denied, etc.).
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Typical columns</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li><strong>RelativePath</strong>, <strong>FileName</strong>, <strong>Extension</strong>.</li>
+                                        <li><strong>Pages</strong> (when the format supports page counting).</li>
+                                        <li><strong>SizeKB</strong>, <strong>Created</strong>, <strong>Modified</strong>.</li>
+                                        <li>Optionally, hash or internal ID columns in future versions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Use Excel filters to slice by extension, page count, size, or date ranges.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing steps</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Enumerates files under Input with supported extensions.</li>
+                                        <li>For each, collects size and timestamps from the file system.</li>
+                                        <li>For PDFs and other supported types, calculates page counts.</li>
+                                        <li>Builds up the Excel rows and saves the workbook.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                The more file types you include, the longer this report takes to build.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- 3. Folder Evidence Report -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <img src="assets/guide-reporting.png" alt="Folder Evidence Report">
+                        </div>
+                        <div>
+                            <div class="module-title">Folder Evidence Report</div>
+                            <div class="module-tagline">
+                                Full inventory of a folder tree, suitable for attaching to legal / audit files.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-divider"></div>
+
+                    <div class="feature-list" style="gap:0.6rem;">
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">What this button does</div>
+                                <div class="feature-desc">
+                                    <strong>“Folder Evidence Report”</strong> is the most exhaustive report: it lists
+                                    every supported file under the Input path, regardless of type, and exports a single
+                                    Excel workbook that acts as an evidence inventory.
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Ideal when regulators or internal auditors ask “show us everything in this folder tree”.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Folder tree &amp; file types</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Traverses the entire Input folder, including nested subfolders.</li>
+                                        <li>Includes PDFs, Word, Excel, images, audio, video, archives and more.</li>
+                                        <li>May skip system files, temporary files or unsupported extensions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                The goal is a realistic picture of “what lives here”, not just documents.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Output structure</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li>Creates a single Excel report in the chosen Output folder.</li>
+                                        <li>Does not move, copy or touch the original files.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                You can safely re-run the report later to compare before/after states.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Typical columns</div>
+                                <div class="feature-desc">
+                                    <ul>
+                                        <li><strong>RelativePath</strong>, <strong>FileName</strong>, <strong>Extension</strong>.</li>
+                                        <li><strong>SizeKB</strong>, <strong>Created</strong>, <strong>Modified</strong>.</li>
+                                        <li>Optional indicators for “isPDF”, “isOffice”, “isMedia”, etc.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                Page counts may be omitted for formats where counting is too slow or not supported.
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">Processing steps</div>
+                                <div class="feature-desc">
+                                    <ol>
+                                        <li>Enumerates every file under Input (subject to internal filters).</li>
+                                        <li>Reads file system metadata (size, timestamps) for each file.</li>
+                                        <li>Classifies files by extension into simple categories.</li>
+                                        <li>Writes the final Excel workbook with all rows.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="feature-meta">
+                                For huge trees, consider running this on a copy or a mounted snapshot.
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    
+<!-- LINK BACK TO HUB -->
+<div class="container" style="margin-top:2.5rem;">
+    <a href="user-guide.html" class="btn btn-outline">
+        Back to User Guide overview
+    </a>
+</div>
+
+
+</main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Vladimir Tonu – All rights reserved</div>
+            <div class="footer-links">
+                <a href="reports.html">Report a bug</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
