@@ -1,10 +1,12 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>DocInspector Pro – Document Manager, Repair & Audit Suite</title>
+    <title>DocInspector – Document Manager, Repair & Audit Suite</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
 </head>
 <body>
 <div class="page">
@@ -12,40 +14,37 @@
     <!-- HEADER -->
     <header class="site-header">
         <div class="container navbar">
-            <div class="brand">
+            <!-- Brand = link to home -->
+            <a href="index.html" class="brand">
                 <div class="brand-logo">
-                    <!-- 1) LOGO NOU -->
-                    <img src="assets/logo.png" alt="DocInspector Pro logo">
+                    <img src="assets/logo.png" alt="DocInspector logo">
                 </div>
                 <div class="brand-text">
-                    <div class="brand-name">DocInspector Pro</div>
+                    <div class="brand-name">DocInspector</div>
                     <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
                 </div>
-            </div>
+            </a>
 
-            <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-            </button>
-
-            <nav class="nav-links" id="primaryNav">
-                <a href="/#home">Home</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
                 <a href="price.html">Price</a>
                 <a href="user-guide.html">User Guide</a>
-                <!-- 3) Bug + reviews mutat pe altă pagină -->
                 <a href="reports.html">Reports &amp; Feedback</a>
                 <a href="contact.html">Contact</a>
             </nav>
 
-<button class="nav-toggle" type="button"
-        aria-label="Open menu"
-        aria-controls="primaryNav"
-        aria-expanded="false">
-  <span class="nav-toggle-bar"></span>
-  <span class="nav-toggle-bar"></span>
-  <span class="nav-toggle-bar"></span>
+
+<button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
 </button>
+
+<div class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="price.html">Price</a>
+  <a href="user-guide.html">User Guide</a>
+  <a href="reports.html">Reports &amp; Feedback</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 
 
@@ -79,15 +78,16 @@
                 </ul>
 
                 <div class="button-row" id="download">
-                    <a href="#" class="btn btn-primary">Download trial</a>
-                    <a href="price.html" class="btn btn-outline">View pricing</a>
+                <a href="#" class="btn btn-primary">Download trial</a>
+		<a href="price.html" class="btn btn-outline">View pricing</a>
+
                 </div>
                 <div class="hero-footnote">
                     No always-on agent. Runs on demand, produces exportable logs and reports.
                 </div>
             </section>
 
-            <!-- 4) HERO SCREENSHOT – click => modal cu mai multe imagini -->
+            <!-- HERO SCREENSHOT – auto slider + modal -->
             <aside class="hero-screenshot-wrapper">
                 <div class="hero-screenshot" id="guiScreenshot">
                     <img src="assets/gui-main.png" alt="DocInspector Pro main interface">
@@ -99,7 +99,7 @@
         </div>
     </main>
 
-    <!-- MODULES – VERTICAL, CU CARDS ÎNĂUNTRU -->
+    <!-- MODULES – 3 CATEGORIES VERTICAL -->
     <section id="modules" class="section">
         <div class="container">
             <header class="section-header">
@@ -112,10 +112,12 @@
 
             <div class="modules-column">
 
-                <!-- PDF REPAIR -->
+                <!-- 1. PDF REPAIR & HARDENING -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">🛡️</div>
+                        <div class="module-icon">
+                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
+                        </div>
                         <div>
                             <div class="module-title">PDF Repair and Hardening</div>
                             <div class="module-tagline">
@@ -128,74 +130,77 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-main">
-                                <div class="feature-name">Rebuild + OCR PDF</div>
-                                <div class="feature-desc">
-                                    Rasterizes pages at the chosen DPI, runs OCR (tesseract) and rebuilds a clean, searchable PDF.
+                                <div class="feature-name">
+                                    <span class="feature-icon">🛠️</span>
+                                    Rebuild + OCR PDF
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Use when you receive corrupt or very large PDFs and need a normalized, evidence-ready copy.
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-main">
-                                <div class="feature-name">Flatten to Image-Only PDF</div>
                                 <div class="feature-desc">
-                                    Creates image-only hardened PDFs – removes editable layers, comments and hidden objects.
+                                    Rasterizes each page at the chosen DPI, runs OCR, and rebuilds a clean, searchable PDF that
+                                    is easier to archive and share.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Ideal for bundles you must disclose but don’t want recipients to modify or redact further.
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
                                 <div class="feature-name">
+                                    <span class="feature-icon">🖼️</span>
+                                    Flatten to Image-Only PDF
+                                </div>
+                                <div class="feature-desc">
+                                    Converts each page into a bitmap image, stripping editable layers, comments and hidden objects,
+                                    leaving only what you can literally see.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">
+                                    <span class="feature-icon">📄</span>
                                     Office PDF Converter <span class="status-pill planned">Planned</span>
                                 </div>
                                 <div class="feature-desc">
-                                    Centralized conversion of Word and Excel files into hardened PDF, preserving folder structure.
+                                    Batch-convert Word and Excel documents to PDFs using a controlled pipeline, preserving
+                                    your folder structure.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Replace ad-hoc “Print to PDF” and keep consistent layout across the whole bundle.
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-main">
-                                <div class="feature-name">Add Watermark</div>
-                                <div class="feature-desc">
-                                    Apply consistent text watermarks such as “CONFIDENTIAL”, case IDs or internal routing tags.
-                                </div>
-                            </div>
-                            <div class="feature-meta">
-                                Watermarks are burned into the pages while your original folder structure is preserved.
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
                                 <div class="feature-name">
+                                    <span class="feature-icon">🏷️</span>
+                                    Add Watermark
+                                </div>
+                                <div class="feature-desc">
+                                    Apply consistent text watermarks (for example “CONFIDENTIAL” or case IDs) across a full
+                                    batch of PDFs in one go.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">
+                                    <span class="feature-icon">🔍</span>
                                     Find and Remove <span class="status-pill planned">Planned</span>
                                 </div>
                                 <div class="feature-desc">
-                                    Scan PDFs for sensitive phrases or patterns and automatically redact or strip matching content.
+                                    Scan PDFs for sensitive phrases or patterns and automatically clean or redact the detected
+                                    content before disclosure.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Adobe-style clean-up before disclosure – especially for bulk DSAR / GDPR responses.
                             </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- REPORTING -->
+                <!-- 2. REPORTING & EVIDENCE -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">📊</div>
+                        <div class="module-icon">
+                            <img src="assets/guide-reporting.png" alt="Reporting &amp; Evidence">
+                        </div>
                         <div>
                             <div class="module-title">Reporting and Evidence</div>
                             <div class="module-tagline">
@@ -208,46 +213,51 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-main">
-                                <div class="feature-name">PDF Bundle Summary</div>
-                                <div class="feature-desc">
-                                    Quick overview of all PDFs in a folder tree: file names, page counts, sizes and basic metadata.
+                                <div class="feature-name">
+                                    <span class="feature-icon">📊</span>
+                                    PDF Bundle Summary
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Attach the summary to your bundle or use it as an intake checklist before disclosure.
+                                <div class="feature-desc">
+                                    Scans PDFs in a folder tree and generates a simple “borderou” with file names, sizes
+                                    and page counts.
+                                </div>
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
-                                <div class="feature-name">Advanced Bundle Report</div>
-                                <div class="feature-desc">
-                                    Extended Excel report including Word, Excel and other formats in the evidence set.
+                                <div class="feature-name">
+                                    <span class="feature-icon">📈</span>
+                                    Advanced Bundle Report
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Ideal for corporate, e-discovery or internal investigations where every file must be tracked.
+                                <div class="feature-desc">
+                                    Produces a richer Excel report including Word, Excel and other formats, with smarter
+                                    page counting and more columns.
+                                </div>
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
-                                <div class="feature-name">Folder Evidence Report</div>
-                                <div class="feature-desc">
-                                    Maps every document in a folder structure, ready to attach to audit or incident reports.
+                                <div class="feature-name">
+                                    <span class="feature-icon">📁</span>
+                                    Folder Evidence Report
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Uses hashes, owners and timestamps to help reviewers verify integrity and provenance.
+                                <div class="feature-desc">
+                                    Inventories every supported file in a folder structure so you can attach the report to
+                                    legal or audit paperwork.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- AUDIT & SECURITY -->
+                <!-- 3. AUDIT & SECURITY -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">🔍</div>
+                        <div class="module-icon">
+                            <img src="assets/guide-audit.png" alt="Audit &amp; Security">
+                        </div>
                         <div>
                             <div class="module-title">Audit and Security</div>
                             <div class="module-tagline">
@@ -260,53 +270,53 @@
                     <div class="feature-list">
                         <div class="feature-item">
                             <div class="feature-main">
-                                <div class="feature-name">Sanitize Docs</div>
-                                <div class="feature-desc">
-                                    Clean metadata, comments and hidden content from supported document types in bulk.
+                                <div class="feature-name">
+                                    <span class="feature-icon">🧹</span>
+                                    Sanitize Docs
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Run before sending bundles outside your organization or uploading to third-party portals.
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-main">
-                                <div class="feature-name">Audit This PC</div>
                                 <div class="feature-desc">
-                                    Scan fixed drives and standard locations to build an inventory of potentially sensitive documents.
+                                    Clean metadata, comments and hidden content from supported document types in bulk,
+                                    before sending them out.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Produces CSV / JSON exports with hashes, owners and timestamps for incident response teams.
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
                                 <div class="feature-name">
+                                    <span class="feature-icon">💻</span>
+                                    Audit This PC
+                                </div>
+                                <div class="feature-desc">
+                                    Scan fixed drives and standard locations to identify and list documents that may contain
+                                    sensitive information.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-main">
+                                <div class="feature-name">
+                                    <span class="feature-icon">🗑️</span>
                                     Secure Delete + Audit Trail <span class="status-pill planned">Planned</span>
                                 </div>
                                 <div class="feature-desc">
-                                    Securely delete selected files while keeping a signed audit log for compliance.
+                                    Securely delete selected files while keeping a clear audit log of what was removed
+                                    and when.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                Targeted at environments where you must prove when specific artefacts were disposed of.
                             </div>
                         </div>
 
                         <div class="feature-item">
                             <div class="feature-main">
                                 <div class="feature-name">
+                                    <span class="feature-icon">🔐</span>
                                     Encryption <span class="status-pill planned">Planned</span>
                                 </div>
                                 <div class="feature-desc">
-                                    Package hardened bundles into encrypted containers or password-protected archives.
+                                    Package hardened bundles into encrypted containers or password-protected archives,
+                                    ready to send externally.
                                 </div>
-                            </div>
-                            <div class="feature-meta">
-                                One-click creation of “ready to ship” encrypted evidence sets for external counsel or regulators.
                             </div>
                         </div>
                     </div>
@@ -316,7 +326,7 @@
         </div>
     </section>
 
-    <!-- WORKFLOW / STORY SECTION CU IMAGINE -->
+    <!-- WORKFLOW / STORY SECTION -->
     <section id="workflow" class="section workflow-section">
         <div class="container workflow-grid">
             <div>
@@ -330,7 +340,7 @@
                     <li>Drag a matter folder into the tool, pick modules and let the suite rebuild, flatten and sanitize.</li>
                     <li>Generate Excel overviews that show every file, page count and hash – attach them directly to case files.</li>
                     <li>Detect stray documents on workstations and pull them into controlled, logged evidence locations.</li>
-                    <li>Non-PDF files (audio, images, videos) stay together with the bundle so context is never lost.</li>
+                    <li>Non-PDF files (audio, images, videos) stay with the bundle so context is never lost.</li>
                 </ul>
             </div>
 
@@ -347,8 +357,8 @@
                 <h3 class="bottom-title">How DocInspector Pro keeps your folder structure</h3>
                 <p>
                     Input and Output are separate – you always choose a clean output root. For each processed file,
-                    the original folder structure is re-created under the Output path. Non-PDF files are copied as-is
-                    (audio, images, archives, emails) so you can keep the bundle together.
+                    the original folder structure is re-created under the Output path. Non-PDF files (audio, images,
+                    archives, emails) can be copied as-is so you keep the bundle together.
                 </p>
             </article>
 
@@ -376,14 +386,26 @@
 
 </div>
 
+
+
 <!-- MODAL GUI – MULTIPLE IMAGES + SCROLL -->
 <div class="modal-backdrop" id="screenshotModal">
     <div class="modal-image-wrapper">
         <div class="modal-images">
-            <img src="assets/gui-main.png" alt="DocInspector Pro interface screenshot 1">
-            <img src="assets/gui-step2.png" alt="DocInspector Pro interface screenshot 2">
-            <img src="assets/gui-step3.png" alt="DocInspector Pro interface screenshot 3">
-        </div>
+            	<img src="assets/gui-main.png" alt="DocInspector Pro interface screenshot 1">
+            	<img src="assets/gui-main1.png" alt="DocInspector Pro interface screenshot 2">
+            	<img src="assets/gui-main2.png" alt="DocInspector Pro interface screenshot 3">
+        	<img src="assets/gui-main3.png" alt="DocInspector Pro interface screenshot 4">
+		<img src="assets/gui-main4.png" alt="DocInspector Pro interface screenshot 5">
+		<img src="assets/gui-main5.png" alt="DocInspector Pro interface screenshot 6">
+		<img src="assets/gui-main6.png" alt="DocInspector Pro interface screenshot 7">
+		<img src="assets/gui-main7.png" alt="DocInspector Pro interface screenshot 8">
+		<img src="assets/gui-main8.png" alt="DocInspector Pro interface screenshot 9">
+		<img src="assets/gui-main9.png" alt="DocInspector Pro interface screenshot 10">
+		<img src="assets/gui-main10.png" alt="DocInspector Pro interface screenshot 11">
+		<img src="assets/gui-main11.png" alt="DocInspector Pro interface screenshot 12">
+
+</div>
     </div>
 </div>
 
@@ -391,11 +413,49 @@
     const screenshot = document.getElementById('guiScreenshot');
     const modal = document.getElementById('screenshotModal');
 
+    // --- HERO SLIDER LOGIC (din imaginile din modal) ---
+    const heroImage = screenshot ? screenshot.querySelector('img') : null;
+
+    // luăm toate imaginile din modal și le folosim ca slide-uri
+    let heroSlides = [];
+    if (modal) {
+        heroSlides = Array.from(
+            modal.querySelectorAll('.modal-images img')
+        ).map(img => ({
+            src: img.getAttribute('src'),
+            alt: img.getAttribute('alt') || ''
+        }));
+    }
+
+    let heroIndex = 0;
+
+    // dacă avem mai mult de 1 imagine => facem slider
+    if (heroImage && heroSlides.length > 1) {
+        // setăm prima imagine din listă
+        heroImage.src = heroSlides[0].src;
+        heroImage.alt = heroSlides[0].alt;
+
+        setInterval(() => {
+            heroIndex = (heroIndex + 1) % heroSlides.length;
+
+            heroImage.classList.add('fade-out');
+
+            setTimeout(() => {
+                heroImage.src = heroSlides[heroIndex].src;
+                heroImage.alt = heroSlides[heroIndex].alt;
+                heroImage.classList.remove('fade-out');
+            }, 220);
+        }, 6000); // 6 secunde
+    }
+    // dacă heroSlides.length === 1 sau 0, imaginea rămâne statică
+
+    // --- MODAL OPEN/CLOSE ---
     if (screenshot && modal) {
         screenshot.addEventListener('click', () => modal.classList.add('active'));
         modal.addEventListener('click', () => modal.classList.remove('active'));
     }
 
+    // --- Language switcher vizual ---
     document.querySelectorAll('.lang-switcher button').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.lang-switcher button').forEach(b => b.classList.remove('active'));
@@ -404,34 +464,41 @@
     });
 </script>
 
+// --- Mobile burger menu ---
+const navToggle = document.getElementById('navToggle');
+const navDrawer = document.getElementById('navDrawer');
 
-<script>
-(() => {
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('primaryNav');
-  if (!btn || !nav) return;
-
-  const setOpen = (open) => {
-    nav.classList.toggle('open', open);
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  };
-
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    setOpen(!nav.classList.contains('open'));
+if (navToggle && navDrawer) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navDrawer.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navDrawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
   });
 
-  document.addEventListener('click', () => setOpen(false));
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
+  // close on link click
+  navDrawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navDrawer.setAttribute('aria-hidden', 'true');
+    });
   });
 
-  nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) setOpen(false);
+  // close on outside click
+  document.addEventListener('click', (e) => {
+    if (!navDrawer.classList.contains('open')) return;
+    const clickInside = navDrawer.contains(e.target) || navToggle.contains(e.target);
+    if (!clickInside) {
+      navDrawer.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navDrawer.setAttribute('aria-hidden', 'true');
+    }
   });
-})();
-</script>
+}
+
 
 
 </body>
