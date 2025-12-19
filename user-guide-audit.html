@@ -12,34 +12,48 @@
 
   <!-- HEADER -->
     <header class="site-header">
-        <div class="container navbar">
-            <!-- Brand = link to home -->
-            <a href="index.html" class="brand">
-                <div class="brand-logo">
-                    <img src="assets/logo.png" alt="DocInspector logo">
-                </div>
-                <div class="brand-text">
-                    <div class="brand-name">DocInspector</div>
-                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
-                </div>
-            </a>
-
-
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="price.html">Price</a>
-                <a href="user-guide.html">User Guide</a>
-                <a href="reports.html">Reports &amp; Feedback</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-
-            <div class="lang-switcher">
-                <button class="active">EN</button>
-                <button>RO</button>
-                <button>RU</button>
-            </div>
+  <div class="container">
+    <div class="navbar">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">
+          <img src="assets/logo.png" alt="DocInspector logo">
         </div>
-    </header>
+        <div class="brand-text">
+          <div class="brand-name">DocInspector</div>
+          <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="price.html">Price</a>
+        <a href="user-guide.html">User Guide</a>
+        <a href="reports.html">Reports &amp; Feedback</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button class="lang-item active" data-lang="EN" role="menuitem">EN</button>
+            <button class="lang-item" data-lang="RO" role="menuitem">RO</button>
+            <button class="lang-item" data-lang="RU" role="menuitem">RU</button>
+          </div>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
 
     <!-- CONTENT -->
     <main class="section">
@@ -361,5 +375,80 @@
     </footer>
 
 </div>
+
+<script>
+  // ===== Language dropdown =====
+  (() => {
+    const dd = document.getElementById('langDropdown');
+    const btn = document.getElementById('langBtn');
+    const menu = document.getElementById('langMenu');
+    if (!dd || !btn || !menu) return;
+
+    const setOpen = (open) => {
+      dd.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    menu.querySelectorAll('.lang-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const lang = item.getAttribute('data-lang') || item.textContent.trim();
+        menu.querySelectorAll('.lang-item').forEach(x => x.classList.remove('active'));
+        item.classList.add('active');
+        btn.querySelector('.lang-pill').textContent = lang;
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && setOpen(false));
+  })();
+</script>
+
+<script>
+  // ===== Mobile nav (burger) =====
+  (() => {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (!navToggle || !navLinks) return;
+
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    };
+
+    const openMenu = () => {
+      navLinks.classList.add('open');
+      navToggle.classList.add('is-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+    };
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('open')) return;
+      const inside = navLinks.contains(e.target) || navToggle.contains(e.target);
+      if (!inside) closeMenu();
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) closeMenu();
+    });
+  })();
+</script>
+
 </body>
 </html>

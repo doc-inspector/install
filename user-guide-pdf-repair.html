@@ -5,39 +5,55 @@
     <title>User Guide – PDF Repair &amp; Hardening</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
 </head>
 <body>
 <div class="page">
 
-    <!-- HEADER -->
+  <!-- HEADER -->
     <header class="site-header">
-        <div class="container navbar">
-            <a href="index.html" class="brand">
-                <div class="brand-logo">
-                    <img src="assets/logo.png" alt="DocInspector logo">
-                </div>
-                <div class="brand-text">
-                    <div class="brand-name">DocInspector</div>
-                    <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
-                </div>
-            </a>
-
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="price.html">Price</a>
-                <a href="user-guide.html">User Guide</a>
-                <a href="reports.html">Reports &amp; Feedback</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-
-            <div class="lang-switcher">
-                <button class="active">EN</button>
-                <button>RO</button>
-                <button>RU</button>
-            </div>
+  <div class="container">
+    <div class="navbar">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">
+          <img src="assets/logo.png" alt="DocInspector logo">
         </div>
-    </header>
+        <div class="brand-text">
+          <div class="brand-name">DocInspector</div>
+          <div class="brand-subtitle">Document Manager, Repair &amp; Audit Suite</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="price.html">Price</a>
+        <a href="user-guide.html">User Guide</a>
+        <a href="reports.html">Reports &amp; Feedback</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button class="lang-item active" data-lang="EN" role="menuitem">EN</button>
+            <button class="lang-item" data-lang="RO" role="menuitem">RO</button>
+            <button class="lang-item" data-lang="RU" role="menuitem">RU</button>
+          </div>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
 
     <!-- CONTENT -->
     <main class="section">
@@ -69,9 +85,7 @@
                 <!-- 1. Rebuild + OCR PDF -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">
-                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
-                        </div>
+                        <div class="module-icon">🧩</div>
                         <div>
                             <div class="module-title">Rebuild + OCR PDF</div>
                             <div class="module-tagline">
@@ -79,7 +93,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="module-divider"></div>
 
                     <div class="feature-list" style="gap:0.6rem;">
@@ -93,6 +106,9 @@
                                     finds all PDFs and recreates them from images at the chosen DPI, then runs OCR so
                                     the new PDFs stay searchable.
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Ideal for corrupt PDFs, legacy scans, faxes or files with broken text layers.
                             </div>
                         </div>
 
@@ -108,6 +124,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                Example: <code>C:\cases\Matter01\A\doc1.pdf</code> → <code>D:\output\Matter01\A\doc1.pdf</code>.
+                            </div>
                         </div>
 
                         <div class="feature-item">
@@ -118,10 +137,13 @@
                                     <ol>
                                         <li>Each page is rendered to an image at the DPI you set in the main GUI.</li>
                                         <li>Temporary images are stored under the configured TMP folder while processing.</li>
-                                        <li>An OCR engine analyzes the images and extracts text.</li>
+                                        <li>An OCR engine analyzes the images (typically Romanian + English) and extracts text.</li>
                                         <li>A new PDF is built by combining the rasterized pages with the OCR text layer.</li>
                                     </ol>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                DPI, OCR language and job parallelism are controlled from the main app settings.
                             </div>
                         </div>
 
@@ -132,9 +154,12 @@
                                     <ul>
                                         <li>Each input PDF is replaced by a “normalized” PDF in the Output tree.</li>
                                         <li>Page count is preserved; pages become more consistent and easier to render.</li>
-                                        <li>Text is searchable thanks to the OCR step.</li>
+                                        <li>Text is searchable again thanks to the OCR step.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Recommended as a first pass for problematic bundles before any further processing.
                             </div>
                         </div>
 
@@ -144,9 +169,7 @@
                 <!-- 2. Flatten to Image-Only PDF -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">
-                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
-                        </div>
+                        <div class="module-icon">🖼️</div>
                         <div>
                             <div class="module-title">Flatten to Image-Only PDF</div>
                             <div class="module-tagline">
@@ -154,7 +177,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="module-divider"></div>
 
                     <div class="feature-list" style="gap:0.6rem;">
@@ -167,6 +189,9 @@
                                     into an image and rebuilds a new PDF that contains only those images – no searchable
                                     text, no form fields, no comments, no hidden objects.
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Use when you want to eliminate any hidden or removable layers and keep only what is visible.
                             </div>
                         </div>
 
@@ -181,6 +206,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                Works well for final disclosure sets where you don’t want any live text layer.
+                            </div>
                         </div>
 
                         <div class="feature-item">
@@ -194,6 +222,9 @@
                                     </ol>
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                Resulting PDFs behave like scanned documents: viewable and printable, but not text-searchable.
+                            </div>
                         </div>
 
                         <div class="feature-item">
@@ -201,11 +232,14 @@
                                 <div class="feature-name">Resulting output</div>
                                 <div class="feature-desc">
                                     <ul>
-                                        <li>Output PDFs are fully flattened and resistant to most text-layer tricks.</li>
+                                        <li>Output PDFs are fully “flattened” and resistant to most annotation / text-layer tricks.</li>
                                         <li>Any redactions baked into images cannot be trivially removed.</li>
                                         <li>File size depends heavily on DPI and compression settings chosen.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                A good option when security and simplicity are more important than text search.
                             </div>
                         </div>
 
@@ -215,9 +249,7 @@
                 <!-- 3. Office PDF Converter -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">
-                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
-                        </div>
+                        <div class="module-icon">📄</div>
                         <div>
                             <div class="module-title">Office PDF Converter</div>
                             <div class="module-tagline">
@@ -225,7 +257,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="module-divider"></div>
 
                     <div class="feature-list" style="gap:0.6rem;">
@@ -239,6 +270,9 @@
                                     Output tree. Original Office documents remain unchanged.
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                Helps bring mixed bundles (DOCX, XLSX) into a single, PDF-only evidence set.
+                            </div>
                         </div>
 
                         <div class="feature-item">
@@ -251,6 +285,9 @@
                                         <li>Existing PDFs or other formats are not altered by this tool.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Example: <code>C:\case\Input\docs\letter1.docx</code> → <code>D:\Output\docs\letter1.pdf</code>.
                             </div>
                         </div>
 
@@ -266,6 +303,9 @@
                                     </ol>
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                For workbooks with multiple sheets, the behaviour depends on Office export settings (all sheets vs. active sheet).
+                            </div>
                         </div>
 
                         <div class="feature-item">
@@ -279,6 +319,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="feature-meta">
+                                Recommended as a preparatory step before running rebuild / flatten / watermark.
+                            </div>
                         </div>
 
                     </div>
@@ -287,9 +330,7 @@
                 <!-- 4. Add Watermark -->
                 <article class="module-card">
                     <div class="module-header">
-                        <div class="module-icon">
-                            <img src="assets/guide-pdf-repair.png" alt="PDF Repair &amp; Hardening">
-                        </div>
+                        <div class="module-icon">🏷️</div>
                         <div>
                             <div class="module-title">Add Watermark</div>
                             <div class="module-tagline">
@@ -297,7 +338,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="module-divider"></div>
 
                     <div class="feature-list" style="gap:0.6rem;">
@@ -306,10 +346,13 @@
                             <div class="feature-main">
                                 <div class="feature-name">What this button does</div>
                                 <div class="feature-desc">
-                                    <strong>“Add Watermark”</strong> overlays a configurable text watermark
-                                    (e.g., “CONFIDENTIAL”, case reference, recipient) on every page and writes the
-                                    result to the Output tree.
+                                    <strong>“Add Watermark”</strong> opens each PDF in the Input tree and overlays a
+                                    configurable text watermark (for example “CONFIDENTIAL”, a case reference or a
+                                    recipient name) on every page, writing the result to the Output tree.
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Text, position, angle, size and opacity are chosen from the GUI before starting the run.
                             </div>
                         </div>
 
@@ -320,9 +363,12 @@
                                     <ul>
                                         <li>Walks the Input folder recursively and targets PDF files only.</li>
                                         <li>Recreates the same subfolders in the Output path.</li>
-                                        <li>Writes watermarked copies to Output; originals remain unchanged.</li>
+                                        <li>Writes watermarked copies to Output; originals in Input remain unchanged.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Lets you keep a “clean” source bundle and a separate, clearly marked disclosure bundle.
                             </div>
                         </div>
 
@@ -331,11 +377,14 @@
                                 <div class="feature-name">Resulting output</div>
                                 <div class="feature-desc">
                                     <ul>
-                                        <li>All output PDFs carry the watermark on each page.</li>
+                                        <li>All PDFs in the Output tree carry the configured watermark on each page.</li>
                                         <li>File names and folder structure are preserved.</li>
-                                        <li>Watermark is baked into page content (not just a removable note).</li>
+                                        <li>Watermarks are baked into page content, not just annotations.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="feature-meta">
+                                Useful when evidence must clearly indicate classification or recipient without editing each file manually.
                             </div>
                         </div>
 
@@ -364,5 +413,80 @@
     </footer>
 
 </div>
+
+<script>
+  // ===== Language dropdown =====
+  (() => {
+    const dd = document.getElementById('langDropdown');
+    const btn = document.getElementById('langBtn');
+    const menu = document.getElementById('langMenu');
+    if (!dd || !btn || !menu) return;
+
+    const setOpen = (open) => {
+      dd.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    menu.querySelectorAll('.lang-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const lang = item.getAttribute('data-lang') || item.textContent.trim();
+        menu.querySelectorAll('.lang-item').forEach(x => x.classList.remove('active'));
+        item.classList.add('active');
+        btn.querySelector('.lang-pill').textContent = lang;
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && setOpen(false));
+  })();
+</script>
+
+<script>
+  // ===== Mobile nav (burger) =====
+  (() => {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (!navToggle || !navLinks) return;
+
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    };
+
+    const openMenu = () => {
+      navLinks.classList.add('open');
+      navToggle.classList.add('is-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+    };
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('open')) return;
+      const inside = navLinks.contains(e.target) || navToggle.contains(e.target);
+      if (!inside) closeMenu();
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) closeMenu();
+    });
+  })();
+</script>
+
 </body>
 </html>
