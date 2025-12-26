@@ -79,7 +79,7 @@
 
                     
 <input type="hidden" name="_subject" value="Contact – DocInspector">
-<input type="hidden" name="_next" value="thanks.html">
+
 
 <!-- Anti-spam (honeypot) -->
 <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
@@ -258,33 +258,6 @@
   })();
 </script>
 
-<script>
-(() => {
-  const f = document.getElementById('contactForm');
-  if (!f) return;
-
-  const ts = document.getElementById('form_ts');
-  if (ts) ts.value = Date.now().toString();
-
-  f.addEventListener('submit', (e) => {
-    // time gate: block ultra-fast bot submits (< 3s)
-    const started = parseInt((ts && ts.value) || "0", 10);
-    if (started && (Date.now() - started) < 3000) {
-      e.preventDefault();
-      alert("Please wait 3 seconds and try again.");
-      return;
-    }
-
-    // honeypot: if filled => block silently
-    const hp = f.querySelector('input[name="company"]');
-    if (hp && hp.value.trim() !== "") {
-      e.preventDefault();
-      return;
-    }
-  });
-})();
-</script>
-
 
 <script>
 (() => {
@@ -292,21 +265,28 @@
   if (!f) return;
 
   const endpoint = "https://formspree.io/f/xreggdqk";
-
-  // time-gate token
   const ts = document.getElementById('form_ts');
-  if (ts) ts.value = Date.now().toString();
+
+  // pornește timer-ul când userul chiar interacționează
+  const arm = () => {
+    if (ts && !ts.value) ts.value = Date.now().toString();
+  };
+  f.addEventListener('input', arm, { once: true });
+  f.addEventListener('focusin', arm, { once: true });
 
   f.addEventListener('submit', async (e) => {
-    e.preventDefault(); // nu mai navighează spre formspree.io/thanks
-
-    // time gate
-    const started = parseInt((ts && ts.value) || "0", 10);
-    if (started && (Date.now() - started) < 3000) return;
+    e.preventDefault();
 
     // honeypot
     const hp = f.querySelector('input[name="company"]');
     if (hp && hp.value.trim() !== "") return;
+
+    // time gate: 3 sec de la prima interacțiune
+    const started = parseInt((ts && ts.value) || "0", 10);
+    if (!started || (Date.now() - started) < 3000) {
+      alert("Please wait 3 seconds and try again.");
+      return;
+    }
 
     const res = await fetch(endpoint, {
       method: "POST",
@@ -314,14 +294,12 @@
       headers: { "Accept": "application/json" }
     });
 
-    if (res.ok) {
-      window.location.href = "/thanks.html";
-    } else {
-      alert("Submit failed. Try again.");
-    }
+    if (res.ok) window.location.href = "/thanks.html";
+    else alert("Submit failed. Try again.");
   });
 })();
 </script>
+
 
 
 </body>
