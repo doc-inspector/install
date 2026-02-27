@@ -244,8 +244,9 @@ body {
 
 /* ====== Download Trial (animated CTA) ====== */
 .pricing-download-row{
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   display: flex;
+  justify-content: center;
   gap: .9rem;
   align-items: center;
   flex-wrap: wrap;
