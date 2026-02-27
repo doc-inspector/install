@@ -242,6 +242,86 @@ body {
     border-color: rgba(255, 158, 80, 0.9);
 }
 
+/* ====== Download Trial (animated CTA) ====== */
+.pricing-download-row{
+  margin-top: 1rem;
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-download{
+  position: relative;
+  overflow: hidden;
+  padding: 0.85rem 1.55rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.85);
+  transform: translateZ(0);
+}
+
+/* soft breathing pulse */
+.btn-download{
+  animation: ctaPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes ctaPulse{
+  0%,100% { transform: translateY(0); filter: brightness(1); }
+  50%     { transform: translateY(-1px); filter: brightness(1.05); }
+}
+
+/* shimmer sweep */
+.btn-download::before{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-60%;
+  width: 55%;
+  height: 180%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.00),
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.00)
+  );
+  transform: rotate(12deg);
+  animation: ctaShimmer 2.2s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes ctaShimmer{
+  0%   { left:-70%; }
+  100% { left:130%; }
+}
+
+/* glow ring on hover */
+.btn-download:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 22px 55px rgba(0,0,0,0.92),
+    0 0 0 1px rgba(255,255,255,0.10),
+    0 0 28px rgba(29, 224, 255, 0.18),
+    0 0 32px rgba(255, 179, 71, 0.22);
+}
+
+.btn-download-arrow{
+  display: inline-flex;
+  margin-left: .15rem;
+  transition: transform .16s ease;
+}
+
+.btn-download:hover .btn-download-arrow{
+  transform: translateX(3px);
+}
+
+/* accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .btn-download{ animation: none; }
+  .btn-download::before{ animation: none; display:none; }
+  .btn-download-arrow{ transition:none; }
+}
+
+
 .hero-footnote {
     font-size: 0.8rem;
     color: #8dadcf;
