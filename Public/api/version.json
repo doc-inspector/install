@@ -1,0 +1,45 @@
+{
+  "version": "2.1.9",
+  "last_update": "2026-03-13T17:15",
+  "download_url": "https://github.com/tonuvlad1/doc-inspector-site/releases/download/v2.1.9/DocInspector_Setup.exe",
+  "history": [
+    {
+      "version": "2.1.9",
+      "date": "March 13, 2026",
+      "changes_en": [
+        "Fixed progress bar visibility for reporting options (PDF Bundle Summary, Advanced Bundle Report, Folder Evidence Report).",
+        "Optimized installer size by removing redundant binary files.",
+        "Added real-time progress tracking for batch tasks."
+      ],
+      "changes_ro": [
+        "S-a corectat vizibilitatea barei de progres pentru opțiunile de raportare.",
+        "Dimensiunea kit-ului de instalare a fost optimizată prin eliminarea fișierelor binare redundante.",
+        "S-a adăugat urmărirea progresului în timp real pentru sarcinile batch."
+      ],
+      "changes_ru": [
+        "Исправлена видимость индикатора выполнения для отчетов.",
+        "Оптимизирован размер установщика за счет удаления лишних файлов.",
+        "Добавлено отслеживание выполнения задач в реальном времени."
+      ]
+    },
+    {
+      "version": "2.1.8",
+      "date": "March 12, 2026",
+      "changes_en": [
+        "Initial release with batch document repair and auditing.",
+        "Preserved folder trees in output.",
+        "Local-only processing for GDPR compliance."
+      ],
+      "changes_ro": [
+        "Lansare inițială cu repararea și auditarea documentelor în batch.",
+        "Păstrarea arborilor de directoare în output.",
+        "Procesare locală pentru conformitate GDPR."
+      ],
+      "changes_ru": [
+        "Первый выпуск с пакетным восстановлением и аудитом документов.",
+        "Сохранение структуры папок в выводе.",
+        "Локальная обработка для соответствия GDPR."
+      ]
+    }
+  ]
+}
