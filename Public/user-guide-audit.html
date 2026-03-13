@@ -1,0 +1,222 @@
+<!-- user-guide-audit.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Learn how to use DocInspector's Audit & Security module to discover hidden sensitive documents, sanitize metadata, and perform secure shredding across your PC.">
+  <meta name="keywords"
+    content="document audit, sanitize metadata, secure file deletion, PC scanner, DocInspector security">
+  <title>Audit & Security - User Guide | DocInspector</title>
+  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container">
+        <div class="navbar">
+          <a href="index.html" class="brand">
+            <div class="brand-logo"><img src="assets/logo.png" alt="logo"></div>
+            <div class="brand-text">
+              <div class="brand-name" data-i18n="brand.name">DocInspector</div>
+              <div class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &
+                Audit Suite</div>
+            </div>
+          </a>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="download.html" data-i18n="nav.download">Download</a>
+            <a href="price.html" data-i18n="nav.price">Price</a>
+            <a href="user-guide.html" class="active" data-i18n="nav.guide">User Guide</a>
+            <a href="reports.html" data-i18n="nav.reports">Reports &amp; Feedback</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+
+            <div class="lang-dropdown mobile-only">
+              <button class="lang-btn"><span class="lang-pill">EN</span> <span class="chev">▾</span></button>
+              <div class="lang-menu">
+                <button class="lang-item" data-lang="EN">EN</button>
+                <button class="lang-item" data-lang="RO">RO</button>
+                <button class="lang-item" data-lang="RU">RU</button>
+              </div>
+            </div>
+          </nav>
+
+          <div class="nav-actions">
+            <div class="lang-dropdown desktop-only">
+              <button class="lang-btn" id="langBtn"><span class="lang-pill">EN</span> <span
+                  class="chev">▾</span></button>
+              <div class="lang-menu" id="langMenu">
+                <button class="lang-item" data-lang="EN">EN</button>
+                <button class="lang-item" data-lang="RO">RO</button>
+                <button class="lang-item" data-lang="RU">RU</button>
+              </div>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <header class="section-header" style="position: relative; text-align: center; margin-bottom: 4rem;">
+          <div class="guide-badge" style="position: absolute; top: 0; left: 0;" data-i18n="ug.badge.aud">
+            Security Module</div>
+          <h1 class="section-title text-gradient" data-i18n="ug.aud.title">Audit & Security</h1>
+          <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;" data-i18n="ug.aud.sub">
+            Discover, sanitize, and track
+            sensitive data across any machine or
+            network drive.</p>
+        </header>
+
+        <div class="detailed-guide-grid">
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🔍</div>
+              <h2 data-i18n="ug.aud.c1.t">Audit This PC</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c1.p">Leaked sensitive
+                  documents
+                  scattered across workstation drives.</span>
+              </p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c1.s">Deep scans
+                  selected folders or
+                  entire drives for specific
+                  document formats and sensitive patterns.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c1.l1">Maps local, mapped, and removable disks.</li>
+                <li data-i18n="ug.aud.c1.l2">Flag sensitive PDF, Word, and Excel files.</li>
+                <li data-i18n="ug.aud.c1.l3">High-performance scanning with low CPU footprint.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">⚙️</div>
+              <h2 data-i18n="ug.aud.c2.t">Sanitize Docs</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c2.p">Hidden metadata,
+                  authors, and
+                  edit histories in shared files.</span>
+              </p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c2.s">Bulk cleans
+                  metadata and
+                  strips hidden content from PDF and
+                  Office documents without altering visuals.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c2.l1">Removes Author, Company, and GPS metadata.</li>
+                <li data-i18n="ug.aud.c2.l2">Cleans edit history and undo stacks.</li>
+                <li data-i18n="ug.aud.c2.l3">Forensic-grade sanitization for high-sec environments.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🗑️</div>
+              <h2 data-i18n="ug.aud.c3.t">Secure Delete + Audit Trail</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c3.p">Need proof of
+                  permanent deletion
+                  for compliance.</span></p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c3.s">Professional
+                  multi-pass file
+                  shredding followed by the
+                  generation of a verified Audit Log.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c3.l1">Exceeds standard formatting or simple deletion.</li>
+                <li data-i18n="ug.aud.c3.l2">Detailed PDF/Excel log of deleted files.</li>
+                <li data-i18n="ug.aud.c3.l3">Essential for data retention compliance.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🔐</div>
+              <h2 data-i18n="ug.aud.c4.t">Encryption (Planned)</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><span data-i18n-html="ug.aud.c4.p_label"><strong>Future Module:</strong></span> <span
+                  data-i18n="ug.aud.c4.p">Advanced packaging for hardened bundles into secure,
+                  encrypted containers.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c4.l1">AES-256 batch encryption.</li>
+                <li data-i18n="ug.aud.c4.l2">Secure key management integration.</li>
+                <li data-i18n="ug.aud.c4.l3">Sealed forensic delivery packages.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top: 4rem;">
+          <a href="user-guide.html" class="btn btn-outline" data-i18n-html="guide.back">&larr; Back to
+            Guides</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div data-i18n="footer.copyright">© 2025 Vladimir Tonu</div>
+        <div class="footer-links" style="align-items: center;">
+          <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link"
+            title="TikTok">
+            <svg width="20" height="20" viewBox="0 0 448 512" style="fill: currentColor; vertical-align: middle;">
+              <path
+                d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+            </svg>
+          </a>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="refund.html" data-i18n="footer.refund">Refund Policy</a>
+          
+          <a href="reports.html" class="btn btn-outline btn-sm" data-i18n="footer.bug"
+            style="border-radius: 50px; padding: 0.4rem 1rem;">Report a bug</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
+  <script>
+    (() => {
+      const btns = document.querySelectorAll('.lang-btn');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      btns.forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const dd = btn.closest('.lang-dropdown');
+          dd.classList.toggle('open');
+        };
+      });
+
+      document.querySelectorAll('.lang-item').forEach(i => {
+        i.onclick = () => {
+          if (window.__i18n) window.__i18n.setLang(i.dataset.lang);
+          document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
+        };
+      });
+
+      if (navToggle) navToggle.onclick = () => {
+        navLinks.classList.toggle('active');
+        navToggle.classList.toggle('open');
+      };
+
+      document.onclick = () => document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
+    })();
+  </script>
+</body>
+
+</html>

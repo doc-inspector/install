@@ -1,0 +1,383 @@
+<!-- price.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="View transparent pricing plans for DocInspector. Choose between the Basic toolkit for PDF rebuilding or the Pro fully equipped suite with folder level reports and multi-action batch processing.">
+  <meta name="keywords"
+    content="DocInspector pricing, buy DocInspector, document repair software cost, Windows batch processor license, PDF hardening tools">
+  <title>DocInspector - Pricing</title>
+  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container">
+        <div class="navbar">
+          <a href="index.html" class="brand">
+            <div class="brand-logo">
+              <img src="assets/logo.png" alt="DocInspector Repair logo">
+            </div>
+            <div class="brand-text">
+              <div class="brand-name" data-i18n="brand.name">DocInspector</div>
+              <div class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &
+                Audit Suite</div>
+            </div>
+          </a>
+
+          <nav class="nav-links" id="navLinks" aria-label="Primary">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="download.html" data-i18n="nav.download">Download</a>
+            <a href="price.html" class="active" data-i18n="nav.price">Price</a>
+            <a href="user-guide.html" data-i18n="nav.guide">User Guide</a>
+            <a href="reports.html" data-i18n="nav.reports">Reports &amp; Feedback</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+
+            <div class="lang-dropdown mobile-only">
+              <button class="lang-btn"><span class="lang-pill">EN</span> <span class="chev">▾</span></button>
+              <div class="lang-menu">
+                <button class="lang-item" data-lang="EN">EN</button>
+                <button class="lang-item" data-lang="RO">RO</button>
+                <button class="lang-item" data-lang="RU">RU</button>
+              </div>
+            </div>
+          </nav>
+
+          <div class="nav-actions">
+            <div class="lang-dropdown desktop-only">
+              <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+                <span class="lang-pill">EN</span>
+                <span class="chev">▾</span>
+              </button>
+              <div class="lang-menu" id="langMenu" role="menu">
+                <button class="lang-item" data-lang="EN" role="menuitem">EN</button>
+                <button class="lang-item" data-lang="RO" role="menuitem">RO</button>
+                <button class="lang-item" data-lang="RU" role="menuitem">RU</button>
+              </div>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <h1 class="section-title text-gradient" data-i18n-html="price.title">Professional Licensing</h1>
+          <p class="section-subtitle" data-i18n="price.subtitle">Choose the plan that fits your volume. All plans include 100% local
+            processing and folder structure preservation.</p>
+
+          <div class="billing-toggle-container" style="margin-top:2rem;">
+            <div class="billing-switcher" id="billingSwitcher">
+              <button class="toggle-btn active" data-billing="monthly" data-i18n="price.monthly">Monthly</button>
+              <button class="toggle-btn" data-billing="yearly" data-i18n="price.yearly">Yearly</button>
+              <div class="billing-slider"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="pricing-grid-premium">
+
+          <!-- Basic Plan -->
+          <article class="pricing-card-v3">
+            <h3 class="plan-name">Basic</h3>
+            <p class="plan-tagline">Core tools for rebuilding and sharing safer evidence bundles.</p>
+
+            <div class="plan-price">
+              <span class="currency">€</span><span class="price-val" id="price-basic"> 9.99</span>
+            </div>
+            <div class="period" id="period-basic">PER MONTH</div>
+            <p class="price-disclaimer">Cancel or upgrade any time.</p>
+
+            <hr class="price-divider">
+
+            <div class="feature-group">
+              <div class="fg-title" data-i18n="price.feat.pdf">PDF REPAIR & HARDENING</div>
+              <ul class="fg-list">
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.pdf.1">Rebuild + OCR
+                    PDF</strong> <span class="li-muted" data-i18n="p.pdf.1.d">(fix scanned / broken
+                    PDFs)</span></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.pdf.2">Flatten to Image-Only
+                    PDF</strong> <span class="li-muted" data-i18n="p.pdf.2.d">(image-only, no text
+                    layer)</span></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.pdf.3">Office PDF
+                    Converter</strong> <span class="li-muted" data-i18n="p.pdf.3.d">(Word / Excel →
+                    PDF)</span></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.pdf.4">Add Watermark</strong>
+                  <span class="li-muted" data-i18n="p.pdf.4.d">on batches of PDFs</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-group">
+              <div class="fg-title" data-i18n="price.feat.rep">REPORTING & EVIDENCE</div>
+              <ul class="fg-list">
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.rep.1">Bundle
+                    summary</strong> <span class="li-muted" data-i18n="p.rep.1.d">for PDFs (simple
+                    borderou)</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.rep.2">Advanced
+                    bundle report</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.rep.3">Folder
+                    evidence report</span></li>
+              </ul>
+            </div>
+
+            <div class="feature-group">
+              <div class="fg-title" data-i18n="price.feat.aud">AUDIT & SECURITY</div>
+              <ul class="fg-list">
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.aud.1">Sanitize
+                    documents</span> <span class="li-muted" data-i18n="p.aud.1.d">(bulk
+                    cleaning)</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.aud.2">Audit
+                    this PC</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.aud.3">Secure
+                    delete + audit trail</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.aud.4">Find &
+                    remove</span> <span class="li-muted" data-i18n="p.aud.4.d">sensitive
+                    content</span></li>
+                <li class="disabled"><span class="icon-dash">-</span> <span data-i18n="p.aud.5">Encryption</span> <span
+                    class="li-muted" data-i18n="p.aud.5.d">of final evidence bundles</span></li>
+              </ul>
+            </div>
+
+            <div class="plan-cta" style="margin-bottom: 0; text-align: center;">
+              <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/ae3bba3b-6d09-4cbf-921a-460d843cbc28"
+                id="btn-basic" class="btn btn-outline lemonsqueezy-button"
+                style="border-radius:24px; padding: 0.8rem 2rem; font-size:1rem;">Start with Basic</a>
+            </div>
+            <div class="trial-hint"
+              style="display:flex; justify-content:center; align-items:center; margin-top:1rem; opacity:0.8;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2012_%28dark_blue%29.svg"
+                alt="Windows" style="width:12px; height:12px; filter: brightness(0) invert(1); margin-right:6px;">
+              <span data-i18n="p.win">Only for Windows 10 / 11</span>
+            </div>
+          </article>
+
+          <!-- Pro Plan -->
+          <article class="pricing-card-v3 pro-card">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3 class="plan-name">Pro</h3>
+            <p class="plan-tagline">Full toolkit: audits, advanced reports and multi-action processing in a
+              single run.</p>
+
+            <div class="plan-price">
+              <span class="currency">€</span><span class="price-val" id="price-pro"> 15</span>
+            </div>
+            <div class="period" id="period-pro">PER MONTH</div>
+            <p class="price-disclaimer">Best option for active cases and teams.</p>
+
+            <hr class="price-divider">
+
+            <div class="feature-group hide-on-mobile">
+              <div class="fg-title" data-i18n="p.pro.inc1">EVERYTHING IN BASIC +</div>
+              <ul class="fg-list">
+                <li><span class="icon-check">✔</span> <span data-i18n="p.pdf.1">Rebuild + OCR PDF</span>
+                </li>
+                <li><span class="icon-check">✔</span> <span data-i18n="p.pdf.2">Flatten to Image-Only
+                    PDF</span></li>
+                <li><span class="icon-check">✔</span> <span data-i18n="p.pdf.3">Office PDF
+                    Converter</span></li>
+                <li><span class="icon-check">✔</span> <span data-i18n="p.pdf.4">Add Watermark</span>
+                </li>
+                <li><span class="icon-check">✔</span> <span data-i18n="p.rep.1">Bundle summary</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-group">
+              <div class="fg-title" data-i18n="p.pro.inc2">EXTRA IN PRO</div>
+              <ul class="fg-list">
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.rep.2">Advanced bundle
+                    report</strong> <span class="li-muted" data-i18n="p.pro.rep.2.d">(PDF + Word +
+                    Excel, extended metadata)</span></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.rep.3">Folder evidence
+                    report</strong> <span class="li-muted" data-i18n="p.pro.rep.3.d">for full
+                    trees</span></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.aud.1">Sanitize docs</strong>
+                  <span class="li-muted" data-i18n="p.pro.aud.1.d">(bulk metadata & hidden content
+                    cleaning)</span>
+                </li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.aud.2">Audit this PC</strong>
+                  <span class="li-muted" data-i18n="p.pro.aud.2.d">(discover sensitive
+                    documents)</span>
+                </li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.aud.3">Secure delete + audit
+                    trail</strong></li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.aud.4">Find & remove</strong>
+                  <span class="li-muted" data-i18n="p.pro.aud.4.d">sensitive content in PDFs</span>
+                </li>
+                <li><span class="icon-check">✔</span> <strong data-i18n="p.aud.5">Encryption</strong>
+                  <span class="li-muted" data-i18n="p.pro.aud.5.d">for final evidence packages</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-group">
+              <div class="fg-title" data-i18n="p.pro.multi">MULTI-ACTION RUNS</div>
+              <div class="highlight-box">
+                <span style="color:#ff9900; margin-right:8px;">★</span> <span data-i18n-html="p.pro.multi.desc">Run
+                  <strong>multiple actions at
+                    once</strong> on the same folder: e.g. Rebuild + Flatten + Add watermark in a
+                  single
+                  output pass.</span>
+              </div>
+            </div>
+
+            <div class="plan-cta" style="margin-bottom: 0; text-align: center;">
+              <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98"
+                id="btn-pro" class="btn btn-primary lemonsqueezy-button"
+                style="border-radius:24px; padding: 0.8rem 2rem; font-size:1rem; box-shadow: var(--cyan-glow);">Go
+                Pro</a>
+            </div>
+            <div class="trial-hint"
+              style="display:flex; justify-content:center; align-items:center; margin-top:1rem; opacity:0.8;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2012_%28dark_blue%29.svg"
+                alt="Windows" style="width:12px; height:12px; filter: brightness(0) invert(1); margin-right:6px;">
+              <span data-i18n="p.win">Only for Windows 10 / 11</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div data-i18n="footer.copyright">© 2025 Vladimir Tonu – All rights reserved</div>
+        <div class="footer-links" style="align-items: center;">
+          <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link"
+            title="TikTok">
+            <svg width="20" height="20" viewBox="0 0 448 512" style="fill: currentColor; vertical-align: middle;">
+              <path
+                d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+            </svg>
+          </a>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="refund.html" data-i18n="footer.refund">Refund Policy</a>
+
+          <a href="https://doc-inspector.com/reports" class="btn btn-outline btn-sm" data-i18n="footer.bug"
+            style="border-radius: 50px; padding: 0.4rem 1rem;">Report a bug</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="i18n-dict.js"></script>
+  <script src="i18n.js"></script>
+  <script>
+    (() => {
+      const btns = document.querySelectorAll('.lang-btn');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      btns.forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const dd = btn.closest('.lang-dropdown');
+          if (dd) dd.classList.toggle('open');
+        };
+      });
+
+      document.querySelectorAll('.lang-item').forEach(i => {
+        i.onclick = () => {
+          if (window.__i18n) window.__i18n.setLang(i.dataset.lang);
+          document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
+        };
+      });
+
+      if (navToggle) navToggle.onclick = () => {
+        navLinks.classList.toggle('active');
+        navToggle.classList.toggle('open');
+      };
+
+      document.onclick = () => document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
+
+      // Pricing Toggle Logic
+      const toggleBtns = document.querySelectorAll('.toggle-btn');
+      const switcher = document.getElementById('billingSwitcher');
+      const priceBasic = document.getElementById('price-basic');
+      const periodBasic = document.getElementById('period-basic');
+      const pricePro = document.getElementById('price-pro');
+      const periodPro = document.getElementById('period-pro');
+      const btnBasic = document.getElementById('btn-basic');
+      const btnPro = document.getElementById('btn-pro');
+
+      const urls = {
+        monthly: {
+          basic: 'https://doc-inspector.lemonsqueezy.com/checkout/buy/ae3bba3b-6d09-4cbf-921a-460d843cbc28',
+          pro: 'https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98'
+        },
+        yearly: {
+          basic: 'https://doc-inspector.lemonsqueezy.com/checkout/buy/25e8d287-e494-4650-9857-d8aa98ca3faa',
+          pro: 'https://doc-inspector.lemonsqueezy.com/checkout/buy/6b685102-e6f8-4cd7-bdf3-a55c1d89bc05'
+        }
+      };
+
+      const prices = {
+        monthly: { basic: ' 9.99', pro: ' 15', period: 'PER MONTH' },
+        yearly: { basic: ' 99', pro: ' 149', period: 'PER YEAR' }
+      };
+
+      function updatePricing(billing) {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        const activeBtn = Array.from(toggleBtns).find(b => b.dataset.billing === billing);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        if (billing === 'yearly') switcher.classList.add('yearly');
+        else switcher.classList.remove('yearly');
+
+        if (priceBasic) priceBasic.textContent = prices[billing].basic;
+        if (periodBasic) periodBasic.textContent = prices[billing].period;
+        if (pricePro) pricePro.textContent = prices[billing].pro;
+        if (periodPro) periodPro.textContent = prices[billing].period;
+
+        if (btnBasic) btnBasic.href = urls[billing].basic;
+        if (btnPro) btnPro.href = urls[billing].pro;
+      }
+
+      toggleBtns.forEach(btn => {
+        btn.onclick = () => updatePricing(btn.dataset.billing);
+      });
+
+      // Initial call to ensure everything is in sync
+      updatePricing('monthly');
+
+      // Lemon Squeezy Overlay Setup
+      window.createLemonSqueezy = function() {
+        if (typeof LemonSqueezy !== 'undefined') {
+          LemonSqueezy.Setup({
+            eventHandler: (event) => {
+              if (event.event === 'Checkout.Success') {
+                console.log('Lemon Squeezy Checkout Success');
+              }
+            }
+          });
+        }
+      };
+      
+      // Initialize if LemonSqueezy is already loaded, or it will be called by script load
+      if (typeof LemonSqueezy !== 'undefined') {
+        window.createLemonSqueezy();
+      } else {
+        window.addEventListener('LemonSqueezy.Setup', function() {
+          window.createLemonSqueezy();
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>
