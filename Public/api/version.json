@@ -1,8 +1,34 @@
 {
-  "version": "2.1.9",
-  "last_update": "2026-03-13T17:15",
+  "version": "2.2.0",
+  "last_update": "2026-03-17T17:15",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+
+
+
+{
+      "version": "2.2.0",
+      "date": "March 17, 2026",
+      "changes_en": [
+        "Performance Improvements:",
+        "- Fixed OCR Micro-thrashing: Lifted static image memory cap thresholds in OcrEngine.cs that choked 600 DPI processing into loop-stuck disk buffers.",
+        "- Dynamic Buffering: Processes safely utilize available total RAM dynamically scaling with host workstation power."
+      ],
+      "changes_ro": [
+        "Îmbunătățiri de performanță:",
+        "- S-a remediat micro-thrashing-ul OCR: au fost ridicate pragurile statice ale limitelor de memorie pentru imagini în OcrEngine.cs, care sufocau procesarea la 600 DPI și o blocau în bucle de buffering pe disc.",
+        "- Bufferizare dinamică: procesele pot utiliza în siguranță memoria RAM totală disponibilă, scalându-se dinamic în funcție de puterea stației de lucru gazdă."
+      ],
+      "changes_ru": [
+        "Улучшения производительности:",
+        "- Исправлен micro-thrashing OCR: были повышены статические пороги лимитов памяти для изображений в OcrEngine.cs, которые перегружали обработку 600 DPI и приводили к зацикливанию буферов на диске.",
+        "- Динамическая буферизация: процессы могут безопасно использовать всю доступную оперативную память, динамически масштабируясь в зависимости от мощности хостовой рабочей станции."
+      ]
+    },
+
+
+    
+    
     {
       "version": "2.1.9",
       "date": "March 13, 2026",
@@ -22,6 +48,11 @@
         "Добавлено отслеживание выполнения задач в реальном времени."
       ]
     },
+   
+    
+    
+    
+    
     {
       "version": "2.1.8",
       "date": "March 12, 2026",
