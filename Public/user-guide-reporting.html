@@ -10,11 +10,14 @@
   <meta name="keywords"
     content="PDF bundle summary, folder evidence report, file metadata extraction, generate excel report from folder, document auditing tool">
   <title>Reporting & Evidence - User Guide | DocInspector</title>
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="style.css?v=8" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
 </head>
 
-<body>
+<body style="background:#0a1628;color:#f1f5f9">
   <div class="page">
     <header class="site-header">
       <div class="container">
@@ -61,10 +64,12 @@
       </div>
     </header>
 
-    <main class="section">
+    <main class="section" style="position:relative;overflow:hidden;">
+      <div class="cyber-grid"></div>
+      <div class="scan-line"></div>
       <div class="container">
-        <header class="section-header" style="position: relative; text-align: center; margin-bottom: 4rem;">
-          <div class="guide-badge" style="position: absolute; top: 0; left: 0;" data-i18n="ug.badge.rep">Batch
+        <header class="section-header reveal-flip" style="position: relative; text-align: center; margin-bottom: 4rem;">
+          <div class="guide-badge" style="display:inline-block;margin-bottom:1rem;" data-i18n="ug.badge.rep">Batch
             Module</div>
           <h1 class="section-title text-gradient" data-i18n="ug.rep.title">Reporting & Evidence</h1>
           <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;" data-i18n="ug.rep.sub">Build
@@ -73,7 +78,7 @@
             files.</p>
         </header>
 
-        <div class="detailed-guide-grid">
+        <div class="detailed-guide-grid stagger-3d">
           <article class="guide-card-v2">
             <div class="guide-card-header">
               <div class="g-icon">📊</div>
@@ -171,35 +176,7 @@
   </div>
   <script src="i18n-dict.js"></script>
   <script src="i18n.js"></script>
-  <script>
-    (() => {
-      const btns = document.querySelectorAll('.lang-btn');
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.getElementById('navLinks');
-
-      btns.forEach(btn => {
-        btn.onclick = (e) => {
-          e.stopPropagation();
-          const dd = btn.closest('.lang-dropdown');
-          dd.classList.toggle('open');
-        };
-      });
-
-      document.querySelectorAll('.lang-item').forEach(i => {
-        i.onclick = () => {
-          if (window.__i18n) window.__i18n.setLang(i.dataset.lang);
-          document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
-        };
-      });
-
-      if (navToggle) navToggle.onclick = () => {
-        navLinks.classList.toggle('active');
-        navToggle.classList.toggle('open');
-      };
-
-      document.onclick = () => document.querySelectorAll('.lang-dropdown.open').forEach(dd => dd.classList.remove('open'));
-    })();
-  </script>
+  <script src="scroll-fx.js?v=8"></script>
 </body>
 
 </html>
