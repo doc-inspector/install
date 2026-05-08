@@ -45,7 +45,7 @@ window.I18N = {
 
     // PRIVACY SECTION
     "privacy.eyebrow": "Privacy First",
-    "privacy.title": "Your Data Stays <span class=\"text-gradient\">Strictly Local</span>",
+    "privacy.title": "Your Data Stays Strictly Local",
     "privacy.lead": "Professional environments require absolute data integrity. DocInspector ensures every bit of sensitive information is processed entirely on your workstation – no external calls, no cloud storage, no AI risk.",
     "privacy.btn": "Read Privacy Policy →",
     "privacy.local.title": "100% Local",
@@ -78,7 +78,7 @@ window.I18N = {
     "module.audit.f3.name": "Macro Detection",
 
     // CTA
-    "cta.title": "Ready to <span class=\"text-gradient\">harden your documents</span>?",
+    "cta.title": "Ready to harden your documents?",
     "cta.subtitle": "Download the free 3-day trial. No registration, no credit card. Just install and go.",
 
     // PRICING PAGE
@@ -400,7 +400,7 @@ window.I18N = {
 
     // PRIVACY SECTION
     "privacy.eyebrow": "Confidențialitate",
-    "privacy.title": "Datele tale rămân <span class=\"text-gradient\">strict locale</span>",
+    "privacy.title": "Datele tale rămân strict locale",
     "privacy.lead": "Mediile profesionale necesită integritate absolută a datelor. DocInspector se asigură că fiecare bit de informație sensibilă este procesat în întregime pe stația ta de lucru – fără apeluri externe, fără stocare în cloud, fără riscuri AI.",
     "privacy.btn": "Citește Politica de Confidențialitate →",
     "privacy.local.title": "100% Local",
@@ -433,7 +433,7 @@ window.I18N = {
     "module.audit.f3.name": "Detectare Macro-uri",
 
     // CTA
-    "cta.title": "Gata să-ți <span class=\"text-gradient\">securizezi documentele</span>?",
+    "cta.title": "Gata să-ți securizezi documentele?",
     "cta.subtitle": "Descarcă versiunea trial gratuită de 3 zile. Fără înregistrare, fără card de credit. Doar instalează și începe.",
 
     // PRICING PAGE
@@ -751,7 +751,7 @@ window.I18N = {
 
     // PRIVACY SECTION
     "privacy.eyebrow": "Конфиденциальность",
-    "privacy.title": "Ваши данные остаются <span class=\"text-gradient\">строго локальными</span>",
+    "privacy.title": "Ваши данные остаются строго локальными",
     "privacy.lead": "Профессиональная среда требует абсолютной целостности данных. DocInspector гарантирует, что конфиденциальная информация обрабатывается исключительно на вашей рабочей станции.",
     "privacy.btn": "Читать политику конфиденциальности →",
     "privacy.local.title": "100% Локально",
@@ -784,7 +784,7 @@ window.I18N = {
     "module.audit.f3.name": "Обнаружение макросов",
 
     // CTA
-    "cta.title": "Готовы <span class=\"text-gradient\">защитить ваши документы</span>?",
+    "cta.title": "Готовы защитить ваши документы?",
     "cta.subtitle": "Скачайте бесплатную пробную версию на 3 дня. Без регистрации, без кредитной карты.",
 
     // PRICING PAGE
