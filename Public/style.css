@@ -857,7 +857,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── PRICING ─────────────────────────────────────────────── */
-.pricing-section { padding: 5rem 0 6rem; }
+.pricing-section { padding-top: 10rem; padding-bottom: 6rem; }
 .billing-toggle-wrap { display: flex; justify-content: center; margin-top: 2rem; }
 .billing-toggle {
   display: inline-flex; background: var(--bg-glass);
