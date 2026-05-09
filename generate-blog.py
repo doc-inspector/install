@@ -1,0 +1,529 @@
+#!/usr/bin/env python3
+"""Generate blog system for doc-inspector.com"""
+import os, json, datetime
+
+DIR = "/home/user/doc-inspector-redesign/Public"
+BLOG_DIR = os.path.join(DIR, "blog")
+os.makedirs(BLOG_DIR, exist_ok=True)
+
+TODAY = datetime.date(2026, 5, 9)
+
+# 20 articles with translations
+ARTICLES = [
+    {
+        "slug": "how-to-repair-corrupted-pdf",
+        "date": "2026-05-09",
+        "category": "how-to",
+        "en": {
+            "title": "How to Repair a Corrupted PDF File in Seconds",
+            "desc": "PDF won't open? Learn how to fix corrupted PDF files using DocInspector's batch repair tool. Works 100% offline.",
+            "body": """
+<p>We've all been there — you try to open an important PDF and get a cryptic error message. The file is corrupted, and your deadline is in 30 minutes.</p>
+
+<h2>Why do PDFs get corrupted?</h2>
+<p>PDF corruption happens more often than you'd think. Common causes include:</p>
+<ul>
+  <li><strong>Incomplete downloads</strong> — your browser cut the connection before the file finished</li>
+  <li><strong>Email attachment damage</strong> — some email servers modify binary attachments</li>
+  <li><strong>Storage failures</strong> — bad sectors on your drive, USB safely-removed too early</li>
+  <li><strong>Software crashes</strong> — the app that created the PDF crashed mid-save</li>
+</ul>
+
+<h2>The quick fix with DocInspector</h2>
+<p>Instead of trying random online tools (which upload your documents to unknown servers), DocInspector repairs PDFs entirely on your computer:</p>
+<ol>
+  <li>Open DocInspector and drag your corrupted PDF into the file list</li>
+  <li>Click <strong>"Repair & Rebuild"</strong> in the PDF Repair module</li>
+  <li>DocInspector reconstructs the PDF structure, recovers pages, and saves a clean copy</li>
+</ol>
+<p>The whole process takes seconds, even for large files. And because everything happens locally, your sensitive documents never leave your machine.</p>
+
+<h2>Batch repair: when it's not just one file</h2>
+<p>Got a whole folder of questionable PDFs? Drop the entire folder into DocInspector. It will scan and repair every PDF it finds, preserving your original folder structure. Lawyers and accountants love this feature when processing evidence bundles or client document packages.</p>
+
+<h2>What if the PDF is too damaged?</h2>
+<p>Some files are beyond repair — if the data is physically gone, no software can bring it back. But DocInspector will tell you exactly what it could and couldn't recover, so you know where you stand.</p>
+"""
+        },
+        "ro": {
+            "title": "Cum să repari un fișier PDF corupt în câteva secunde",
+            "desc": "PDF-ul nu se deschide? Învață cum să repari fișiere PDF corupte cu DocInspector. Funcționează 100% offline.",
+            "body": """
+<p>Cu toții am trecut prin asta — încerci să deschizi un PDF important și primești un mesaj de eroare criptic. Fișierul e corupt, iar deadline-ul e peste 30 de minute.</p>
+
+<h2>De ce se corup PDF-urile?</h2>
+<p>Coruperea PDF-urilor se întâmplă mai des decât crezi. Cauzele frecvente:</p>
+<ul>
+  <li><strong>Descărcări incomplete</strong> — browser-ul a întrerupt conexiunea înainte ca fișierul să se termine</li>
+  <li><strong>Deteriorare prin email</strong> — unele servere de email modifică atașamentele binare</li>
+  <li><strong>Probleme de stocare</strong> — sectoare defecte pe disc, USB scos prematur</li>
+  <li><strong>Crash-uri software</strong> — aplicația care a creat PDF-ul s-a blocat la salvare</li>
+</ul>
+
+<h2>Reparația rapidă cu DocInspector</h2>
+<p>În loc să folosești tool-uri online dubioase (care îți încarcă documentele pe servere necunoscute), DocInspector repară PDF-urile direct pe calculatorul tău:</p>
+<ol>
+  <li>Deschide DocInspector și trage PDF-ul corupt în lista de fișiere</li>
+  <li>Click pe <strong>„Repair & Rebuild"</strong> în modulul PDF Repair</li>
+  <li>DocInspector reconstruiește structura PDF-ului, recuperează paginile și salvează o copie curată</li>
+</ol>
+<p>Totul durează câteva secunde, chiar și pentru fișiere mari. Și pentru că totul se întâmplă local, documentele tale sensibile nu părăsesc niciodată calculatorul.</p>
+
+<h2>Reparare în masă: când nu e vorba de un singur fișier</h2>
+<p>Ai un folder întreg cu PDF-uri problematice? Trage tot folderul în DocInspector. Va scana și repara fiecare PDF găsit, păstrând structura originală. Avocații și contabilii adoră această funcție când procesează dosare de probe sau pachete de documente de la clienți.</p>
+
+<h2>Ce se întâmplă dacă PDF-ul e prea deteriorat?</h2>
+<p>Unele fișiere sunt irecuperabile — dacă datele sunt fizic pierdute, niciun software nu le poate readuce. Dar DocInspector îți spune exact ce a putut și ce nu a putut recupera.</p>
+"""
+        },
+        "ru": {
+            "title": "Как восстановить повреждённый PDF-файл за несколько секунд",
+            "desc": "PDF не открывается? Узнайте, как исправить повреждённые PDF-файлы с помощью DocInspector. Работает 100% офлайн.",
+            "body": """
+<p>Все через это проходили — пытаешься открыть важный PDF и получаешь загадочную ошибку. Файл повреждён, а дедлайн через 30 минут.</p>
+
+<h2>Почему PDF-файлы повреждаются?</h2>
+<p>Повреждение PDF происходит чаще, чем вы думаете. Частые причины:</p>
+<ul>
+  <li><strong>Неполная загрузка</strong> — браузер прервал соединение до окончания загрузки</li>
+  <li><strong>Повреждение через email</strong> — некоторые почтовые серверы модифицируют бинарные вложения</li>
+  <li><strong>Сбои хранилища</strong> — битые сектора на диске, USB извлечён преждевременно</li>
+  <li><strong>Сбои программ</strong> — приложение, создавшее PDF, зависло при сохранении</li>
+</ul>
+
+<h2>Быстрое исправление с DocInspector</h2>
+<p>Вместо использования сомнительных онлайн-инструментов (которые загружают ваши документы на неизвестные серверы), DocInspector восстанавливает PDF полностью на вашем компьютере:</p>
+<ol>
+  <li>Откройте DocInspector и перетащите повреждённый PDF в список файлов</li>
+  <li>Нажмите <strong>«Repair & Rebuild»</strong> в модуле PDF Repair</li>
+  <li>DocInspector восстановит структуру PDF, вернёт страницы и сохранит чистую копию</li>
+</ol>
+<p>Весь процесс занимает секунды, даже для больших файлов. А поскольку всё происходит локально, ваши конфиденциальные документы никогда не покидают компьютер.</p>
+
+<h2>Пакетное восстановление: когда повреждён не один файл</h2>
+<p>Целая папка с проблемными PDF? Перетащите всю папку в DocInspector. Он просканирует и восстановит каждый найденный PDF, сохранив оригинальную структуру папок. Юристы и бухгалтеры ценят эту функцию при обработке доказательных пакетов.</p>
+
+<h2>Что если PDF слишком повреждён?</h2>
+<p>Некоторые файлы невосстановимы — если данные физически утрачены, никакое ПО не вернёт их. Но DocInspector точно покажет, что удалось и что не удалось восстановить.</p>
+"""
+        }
+    },
+    {
+        "slug": "hidden-metadata-in-your-documents",
+        "date": "2026-05-10",
+        "category": "security",
+        "en": {
+            "title": "The Hidden Data Inside Your Documents (And Why It Matters)",
+            "desc": "Your PDFs and Word files contain hidden metadata that can expose personal info, edit history, and GPS locations. Here's what to do about it.",
+            "body": """
+<p>Every document you create carries invisible baggage. Author names, edit timestamps, software versions, GPS coordinates from photos, tracked changes, hidden comments — it's all embedded in your files, silently waiting to be discovered.</p>
+
+<h2>What kind of metadata are we talking about?</h2>
+<ul>
+  <li><strong>Author & organization name</strong> — whoever's Microsoft Office license created the file</li>
+  <li><strong>Edit history</strong> — when the document was created, modified, printed, and by whom</li>
+  <li><strong>Hidden comments & tracked changes</strong> — "deleted" text that's still in the file</li>
+  <li><strong>Embedded objects</strong> — images that may contain EXIF data with GPS coordinates</li>
+  <li><strong>Software fingerprint</strong> — exact version of the tool that created the document</li>
+  <li><strong>File paths</strong> — the full folder path where the document was saved (e.g., <code>C:\\Users\JohnDoe\Legal Cases\Smith vs Jones\</code>)</li>
+</ul>
+
+<h2>Why should you care?</h2>
+<p>If you're a lawyer sending documents to opposing counsel, that metadata could reveal your case strategy. If you're a business sending proposals, competitors could see your internal file organization. If you're submitting documents for compliance, hidden data could trigger GDPR violations.</p>
+
+<h2>How to clean your documents</h2>
+<p>DocInspector's Audit module scans your entire folder tree and shows you exactly what metadata exists in every file. You can then sanitize documents in batch — removing author info, edit history, comments, and embedded objects in one click. All locally, all offline.</p>
+
+<p>Don't let your documents say more than you intended.</p>
+"""
+        },
+        "ro": {
+            "title": "Datele ascunse din documentele tale (și de ce contează)",
+            "desc": "PDF-urile și fișierele Word conțin metadata ascunsă care poate expune informații personale. Iată ce trebuie să faci.",
+            "body": """
+<p>Fiecare document pe care îl creezi poartă un bagaj invizibil. Nume de autori, timestamp-uri, versiuni de software, coordonate GPS din fotografii, modificări tracked, comentarii ascunse — totul e înglobat în fișierele tale.</p>
+
+<h2>Ce fel de metadata discutăm?</h2>
+<ul>
+  <li><strong>Numele autorului și al organizației</strong> — licența Microsoft Office care a creat fișierul</li>
+  <li><strong>Istoricul editărilor</strong> — când a fost creat, modificat, printat documentul</li>
+  <li><strong>Comentarii ascunse și tracked changes</strong> — text „șters" care încă există în fișier</li>
+  <li><strong>Obiecte încorporate</strong> — imagini care pot conține date EXIF cu coordonate GPS</li>
+  <li><strong>Amprenta software</strong> — versiunea exactă a tool-ului care a creat documentul</li>
+  <li><strong>Căi de fișiere</strong> — calea completă unde a fost salvat (ex: <code>C:\\Users\IonPopescu\Cazuri Legale\</code>)</li>
+</ul>
+
+<h2>De ce ar trebui să-ți pese?</h2>
+<p>Dacă ești avocat și trimiți documente părții adverse, metadata poate dezvălui strategia ta. Dacă ești o firmă care trimite oferte, concurenții pot vedea organizarea ta internă. Dacă depui documente pentru conformitate, datele ascunse pot declanșa încălcări GDPR.</p>
+
+<h2>Cum să-ți cureți documentele</h2>
+<p>Modulul Audit din DocInspector scanează întregul arbore de foldere și îți arată exact ce metadata există în fiecare fișier. Poți apoi sanitiza documentele în masă — eliminând informații despre autor, istoric, comentarii și obiecte încorporate cu un singur click. Totul local, totul offline.</p>
+
+<p>Nu lăsa documentele tale să spună mai mult decât ai intenționat.</p>
+"""
+        },
+        "ru": {
+            "title": "Скрытые данные в ваших документах (и почему это важно)",
+            "desc": "Ваши PDF и Word файлы содержат скрытые метаданные, которые могут раскрыть личную информацию. Вот что с этим делать.",
+            "body": """
+<p>Каждый документ, который вы создаёте, несёт невидимый багаж. Имена авторов, временные метки, версии ПО, GPS-координаты из фотографий, отслеживаемые изменения, скрытые комментарии — всё это встроено в ваши файлы.</p>
+
+<h2>О каких метаданных идёт речь?</h2>
+<ul>
+  <li><strong>Имя автора и организации</strong> — чья лицензия Microsoft Office создала файл</li>
+  <li><strong>История редактирования</strong> — когда документ был создан, изменён, распечатан</li>
+  <li><strong>Скрытые комментарии и tracked changes</strong> — «удалённый» текст, который всё ещё в файле</li>
+  <li><strong>Встроенные объекты</strong> — изображения с EXIF-данными и GPS-координатами</li>
+  <li><strong>Отпечаток ПО</strong> — точная версия инструмента, создавшего документ</li>
+  <li><strong>Пути файлов</strong> — полный путь сохранения (напр.: <code>C:\\Users\ИванИванов\Дела\</code>)</li>
+</ul>
+
+<h2>Почему это важно?</h2>
+<p>Если вы юрист, отправляющий документы противной стороне, метаданные могут раскрыть вашу стратегию. Если бизнес отправляет предложения, конкуренты увидят внутреннюю организацию. При подаче документов на соответствие скрытые данные могут вызвать нарушения GDPR.</p>
+
+<h2>Как очистить документы</h2>
+<p>Модуль Audit в DocInspector сканирует всё дерево папок и показывает, какие метаданные есть в каждом файле. Затем можно очистить документы пакетно — удалив информацию об авторе, историю, комментарии одним кликом. Всё локально, всё офлайн.</p>
+
+<p>Не позволяйте документам говорить больше, чем вы хотели.</p>
+"""
+        }
+    },
+    {
+        "slug": "pdf-a-vs-regular-pdf",
+        "date": "2026-05-11",
+        "category": "education",
+        "en": {
+            "title": "PDF/A vs Regular PDF — When to Use Each Format",
+            "desc": "Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.",
+            "body": """
+<p>You've probably seen PDF/A mentioned in legal or archival contexts. But what exactly is it, and should you care?</p>
+
+<h2>Regular PDF: the everyday format</h2>
+<p>A standard PDF can contain just about anything — fonts, JavaScript, embedded videos, 3D models, form fields, digital signatures. It's flexible, powerful, and the default choice for most documents.</p>
+
+<h2>PDF/A: the archival format</h2>
+<p>PDF/A is a restricted subset of PDF designed for long-term preservation. It strips out anything that might not work in 50 years:</p>
+<ul>
+  <li>No external font references — all fonts must be embedded</li>
+  <li>No JavaScript or executable content</li>
+  <li>No encryption or password protection</li>
+  <li>No audio/video streams</li>
+  <li>Color profiles must be embedded</li>
+</ul>
+
+<h2>When to use PDF/A</h2>
+<ul>
+  <li><strong>Legal filings</strong> — many courts now require PDF/A for electronic submissions</li>
+  <li><strong>Government archives</strong> — official records need guaranteed long-term readability</li>
+  <li><strong>Financial records</strong> — audit trails that must be preserved unchanged</li>
+  <li><strong>Evidence bundles</strong> — ensuring documents can't contain hidden executable content</li>
+</ul>
+
+<h2>How DocInspector helps</h2>
+<p>DocInspector can flatten any PDF into a hardened, image-based format — effectively creating documents that are even more restrictive than PDF/A. This is especially useful for evidence bundles where you need to guarantee the document contains exactly what you see and nothing more.</p>
+"""
+        },
+        "ro": {
+            "title": "PDF/A vs PDF obișnuit — când să folosești fiecare format",
+            "desc": "Nu toate PDF-urile sunt la fel. Află diferența dintre PDF/A și PDF standard, și când să folosești fiecare.",
+            "body": """
+<p>Probabil ai văzut PDF/A menționat în contexte legale sau de arhivare. Dar ce este exact și ar trebui să te intereseze?</p>
+
+<h2>PDF obișnuit: formatul de zi cu zi</h2>
+<p>Un PDF standard poate conține aproape orice — fonturi, JavaScript, video-uri, modele 3D, câmpuri de formular, semnături digitale. E flexibil, puternic și alegerea implicită.</p>
+
+<h2>PDF/A: formatul de arhivare</h2>
+<p>PDF/A este un subset restricționat al PDF-ului, proiectat pentru păstrare pe termen lung. Elimină tot ce ar putea să nu funcționeze peste 50 de ani:</p>
+<ul>
+  <li>Fără referințe la fonturi externe — toate fonturile trebuie încorporate</li>
+  <li>Fără JavaScript sau conținut executabil</li>
+  <li>Fără criptare sau protecție cu parolă</li>
+  <li>Fără stream-uri audio/video</li>
+  <li>Profilurile de culoare trebuie încorporate</li>
+</ul>
+
+<h2>Când să folosești PDF/A</h2>
+<ul>
+  <li><strong>Depuneri legale</strong> — multe instanțe cer PDF/A pentru documente electronice</li>
+  <li><strong>Arhive guvernamentale</strong> — documentele oficiale necesită lizibilitate garantată</li>
+  <li><strong>Evidențe financiare</strong> — audit trails care trebuie păstrate neschimbate</li>
+  <li><strong>Dosare de probe</strong> — garantarea că documentele nu conțin conținut executabil ascuns</li>
+</ul>
+
+<h2>Cum te ajută DocInspector</h2>
+<p>DocInspector poate aplati orice PDF într-un format hardened, bazat pe imagini — creând documente chiar mai restrictive decât PDF/A. Util mai ales pentru dosare de probe unde trebuie să garantezi că documentul conține exact ce vezi.</p>
+"""
+        },
+        "ru": {
+            "title": "PDF/A vs обычный PDF — когда использовать каждый формат",
+            "desc": "Не все PDF одинаковы. Узнайте разницу между PDF/A и стандартным PDF и когда использовать каждый.",
+            "body": """
+<p>Вы наверняка встречали PDF/A в юридическом или архивном контексте. Но что это такое и стоит ли обращать внимание?</p>
+
+<h2>Обычный PDF: повседневный формат</h2>
+<p>Стандартный PDF может содержать практически всё — шрифты, JavaScript, встроенное видео, 3D-модели, поля форм, цифровые подписи. Он гибкий, мощный и выбор по умолчанию.</p>
+
+<h2>PDF/A: архивный формат</h2>
+<p>PDF/A — это ограниченное подмножество PDF, предназначенное для долгосрочного хранения. Из него убрано всё, что может не работать через 50 лет:</p>
+<ul>
+  <li>Нет внешних ссылок на шрифты — все шрифты должны быть встроены</li>
+  <li>Нет JavaScript или исполняемого содержимого</li>
+  <li>Нет шифрования или защиты паролем</li>
+  <li>Нет аудио/видео потоков</li>
+  <li>Цветовые профили должны быть встроены</li>
+</ul>
+
+<h2>Когда использовать PDF/A</h2>
+<ul>
+  <li><strong>Судебные подачи</strong> — многие суды требуют PDF/A для электронных документов</li>
+  <li><strong>Государственные архивы</strong> — официальные записи требуют гарантированной читаемости</li>
+  <li><strong>Финансовые записи</strong> — аудиторские следы, которые должны храниться без изменений</li>
+  <li><strong>Доказательные пакеты</strong> — гарантия отсутствия скрытого исполняемого кода</li>
+</ul>
+
+<h2>Как помогает DocInspector</h2>
+<p>DocInspector может преобразовать любой PDF в защищённый формат на основе изображений — создавая документы ещё более ограничительные, чем PDF/A. Особенно полезно для доказательных пакетов, где нужно гарантировать, что документ содержит ровно то, что вы видите.</p>
+"""
+        }
+    },
+    {
+        "slug": "5-things-you-didnt-know-about-pdfs",
+        "date": "2026-05-12",
+        "category": "education",
+        "en": {
+            "title": "5 Things You Didn't Know About PDF Files",
+            "desc": "PDFs seem simple, but they hide surprising complexity. Here are 5 facts about PDF files that most people don't know.",
+            "body": """
+<p>PDFs are everywhere — so common that we take them for granted. But there's more to this format than meets the eye.</p>
+
+<h2>1. A PDF can contain executable code</h2>
+<p>Yes, really. PDFs can include JavaScript that runs when you open the file. While most PDF viewers sandbox this code, it's been exploited in the past for malware delivery. That "innocent" PDF attachment in your email? It could potentially run code on your machine.</p>
+
+<h2>2. "Deleted" text might still be there</h2>
+<p>When you use a black rectangle to "redact" text in a PDF, the original text often stays in the file — just hidden behind the rectangle. Anyone with a basic PDF editor can remove the rectangle and read everything. Proper redaction requires actually removing the text data, not just covering it.</p>
+
+<h2>3. PDFs can be over 10 GB</h2>
+<p>The PDF specification allows files up to 10 GB in size. Engineering firms routinely work with multi-gigabyte PDFs containing detailed technical drawings. DocInspector handles these large files through streaming — processing them without loading everything into memory.</p>
+
+<h2>4. Every PDF has a creation fingerprint</h2>
+<p>Open any PDF's properties and you'll find the exact software that created it, the creation date, modification dates, and often the author's name and organization. This metadata persists through email forwards, cloud sharing, and file copies.</p>
+
+<h2>5. A single corrupted byte can make a PDF unreadable</h2>
+<p>PDFs rely on a cross-reference table at the end of the file to locate all objects. If this table gets corrupted, the entire file becomes unreadable — even if 99.99% of the data is intact. DocInspector's repair module rebuilds this cross-reference table from scratch, recovering otherwise "dead" files.</p>
+"""
+        },
+        "ro": {
+            "title": "5 lucruri pe care nu le știai despre fișierele PDF",
+            "desc": "PDF-urile par simple, dar ascund o complexitate surprinzătoare. Iată 5 fapte pe care majoritatea nu le cunosc.",
+            "body": """
+<p>PDF-urile sunt peste tot — atât de comune încât le luăm de bune. Dar formatul ascunde mai mult decât pare.</p>
+
+<h2>1. Un PDF poate conține cod executabil</h2>
+<p>Da, serios. PDF-urile pot include JavaScript care rulează când deschizi fișierul. Deși majoritatea viewer-elor izolează acest cod, a fost exploatat în trecut pentru livrarea de malware. Acel atașament PDF „inocent"? Ar putea rula cod pe mașina ta.</p>
+
+<h2>2. Textul „șters" ar putea fi încă acolo</h2>
+<p>Când folosești un dreptunghi negru pentru a „redacta" text într-un PDF, textul original rămâne adesea în fișier — doar ascuns sub dreptunghi. Oricine cu un editor PDF basic poate elimina dreptunghiul și citi totul. Redactarea corectă necesită eliminarea efectivă a datelor text.</p>
+
+<h2>3. PDF-urile pot depăși 10 GB</h2>
+<p>Specificația PDF permite fișiere de până la 10 GB. Firmele de inginerie lucrează curent cu PDF-uri multi-gigabyte conținând desene tehnice detaliate. DocInspector gestionează aceste fișiere mari prin streaming.</p>
+
+<h2>4. Fiecare PDF are o amprentă de creare</h2>
+<p>Deschide proprietățile oricărui PDF și vei găsi exact software-ul care l-a creat, data creării, datele de modificare și adesea numele autorului. Această metadata persistă prin forward-uri email, cloud sharing și copii.</p>
+
+<h2>5. Un singur byte corupt poate face un PDF ilizibil</h2>
+<p>PDF-urile se bazează pe un tabel de referințe încrucișate la sfârșitul fișierului. Dacă acest tabel se corupte, întregul fișier devine ilizibil — chiar dacă 99,99% din date sunt intacte. Modulul de reparare DocInspector reconstruiește acest tabel de la zero, recuperând fișiere altfel „moarte".</p>
+"""
+        },
+        "ru": {
+            "title": "5 вещей, которые вы не знали о PDF-файлах",
+            "desc": "PDF кажутся простыми, но скрывают удивительную сложность. Вот 5 фактов о PDF, которые большинство не знает.",
+            "body": """
+<p>PDF повсюду — настолько обычны, что мы принимаем их как должное. Но в этом формате скрыто больше, чем кажется.</p>
+
+<h2>1. PDF может содержать исполняемый код</h2>
+<p>Да, серьёзно. PDF может включать JavaScript, который запускается при открытии файла. Хотя большинство просмотрщиков изолируют этот код, он использовался для доставки вредоносного ПО. То «невинное» PDF-вложение в email? Оно может запустить код на вашем компьютере.</p>
+
+<h2>2. «Удалённый» текст может всё ещё быть на месте</h2>
+<p>Когда вы используете чёрный прямоугольник для «редактирования» текста в PDF, оригинальный текст часто остаётся в файле — просто скрыт за прямоугольником. Любой с базовым PDF-редактором может убрать прямоугольник и прочитать всё. Правильное редактирование требует фактического удаления данных.</p>
+
+<h2>3. PDF может быть больше 10 ГБ</h2>
+<p>Спецификация PDF допускает файлы до 10 ГБ. Инженерные фирмы регулярно работают с многогигабайтными PDF с детальными чертежами. DocInspector обрабатывает такие файлы потоково.</p>
+
+<h2>4. Каждый PDF имеет отпечаток создания</h2>
+<p>Откройте свойства любого PDF и найдёте точное ПО, создавшее его, дату создания, даты изменений и часто имя автора. Эти метаданные сохраняются через пересылку email, облачный обмен и копирование.</p>
+
+<h2>5. Один повреждённый байт может сделать PDF нечитаемым</h2>
+<p>PDF опирается на таблицу перекрёстных ссылок в конце файла. Если эта таблица повреждена, весь файл становится нечитаемым — даже если 99,99% данных целы. Модуль восстановления DocInspector перестраивает эту таблицу с нуля, восстанавливая «мёртвые» файлы.</p>
+"""
+        }
+    },
+    {
+        "slug": "gdpr-document-compliance",
+        "date": "2026-05-13",
+        "category": "security",
+        "en": {
+            "title": "GDPR and Document Metadata: Are Your Files Compliant?",
+            "desc": "Document metadata can contain personal data that violates GDPR. Learn how to audit and clean your documents for compliance.",
+            "body": """
+<p>GDPR requires organizations to know what personal data they hold and control how it's shared. But most companies forget about the personal data hiding inside their documents.</p>
+
+<h2>What GDPR says about document metadata</h2>
+<p>Under GDPR, personal data includes any information that can identify an individual — directly or indirectly. Document metadata often contains:</p>
+<ul>
+  <li>Full names of document authors</li>
+  <li>Email addresses embedded in document properties</li>
+  <li>Computer usernames and network paths</li>
+  <li>GPS coordinates from embedded images</li>
+</ul>
+<p>All of this qualifies as personal data under GDPR.</p>
+
+<h2>The risk</h2>
+<p>Every time you share a document externally, you might be sharing personal data without consent. A law firm sending discovery documents, a hospital sharing patient records, a company distributing internal reports — metadata travels with the file.</p>
+
+<h2>The solution: audit and sanitize</h2>
+<p>DocInspector was built with this exact problem in mind. The Audit module scans entire folder structures, identifies all metadata across hundreds of documents, and generates a comprehensive report. You can then batch-sanitize everything — removing personal data while keeping the document content intact.</p>
+
+<p>Best of all, since DocInspector processes everything locally on your machine, the audit itself doesn't create additional data processing risks. No cloud uploads, no third-party access to your documents.</p>
+"""
+        },
+        "ro": {
+            "title": "GDPR și metadata documentelor: sunt fișierele tale conforme?",
+            "desc": "Metadata documentelor poate conține date personale care încalcă GDPR. Află cum să auditezi și cureți documentele.",
+            "body": """
+<p>GDPR cere organizațiilor să știe ce date personale dețin și să controleze cum sunt partajate. Dar majoritatea companiilor uită de datele personale ascunse în documente.</p>
+
+<h2>Ce spune GDPR despre metadata documentelor</h2>
+<p>Sub GDPR, datele personale includ orice informație care poate identifica o persoană — direct sau indirect. Metadata documentelor conține adesea:</p>
+<ul>
+  <li>Numele complet al autorilor</li>
+  <li>Adrese email în proprietățile documentului</li>
+  <li>Nume de utilizator și căi de rețea</li>
+  <li>Coordonate GPS din imagini încorporate</li>
+</ul>
+<p>Toate acestea sunt date personale sub GDPR.</p>
+
+<h2>Riscul</h2>
+<p>De fiecare dată când partajezi un document extern, s-ar putea să partajezi date personale fără consimțământ. O firmă de avocatură, un spital, o companie — metadata călătorește cu fișierul.</p>
+
+<h2>Soluția: auditează și sanitizează</h2>
+<p>DocInspector a fost creat exact pentru această problemă. Modulul Audit scanează structuri întregi de foldere, identifică toată metadata și generează un raport comprehensiv. Poți apoi sanitiza totul în masă.</p>
+
+<p>Și pentru că DocInspector procesează totul local, auditul în sine nu creează riscuri suplimentare de procesare a datelor.</p>
+"""
+        },
+        "ru": {
+            "title": "GDPR и метаданные документов: соответствуют ли ваши файлы?",
+            "desc": "Метаданные документов могут содержать персональные данные, нарушающие GDPR. Узнайте, как проверить и очистить документы.",
+            "body": """
+<p>GDPR требует от организаций знать, какие персональные данные они хранят. Но большинство компаний забывают о персональных данных, скрытых в документах.</p>
+
+<h2>Что GDPR говорит о метаданных документов</h2>
+<p>По GDPR персональные данные включают любую информацию, позволяющую идентифицировать человека. Метаданные документов часто содержат:</p>
+<ul>
+  <li>Полные имена авторов документов</li>
+  <li>Email-адреса в свойствах документа</li>
+  <li>Имена пользователей и сетевые пути</li>
+  <li>GPS-координаты из встроенных изображений</li>
+</ul>
+<p>Всё это — персональные данные по GDPR.</p>
+
+<h2>Риск</h2>
+<p>Каждый раз, когда вы делитесь документом, вы можете передавать персональные данные без согласия. Юридическая фирма, больница, компания — метаданные путешествуют с файлом.</p>
+
+<h2>Решение: аудит и очистка</h2>
+<p>DocInspector создан именно для этой проблемы. Модуль Audit сканирует целые структуры папок, находит все метаданные и генерирует подробный отчёт. Затем можно пакетно очистить всё.</p>
+
+<p>Поскольку DocInspector обрабатывает всё локально, сам аудит не создаёт дополнительных рисков обработки данных.</p>
+"""
+        }
+    },
+]
+
+# Store articles data for later use
+print(f"Defined {len(ARTICLES)} articles in first batch")
+# We need 20 total, let me add 15 more
+ARTICLES_MORE = [
+    {"slug": "batch-watermark-pdfs", "date": "2026-05-14", "category": "how-to",
+     "en": {"title": "How to Add Watermarks to Hundreds of PDFs at Once", "desc": "Need to watermark an entire folder of PDFs? Here's how to batch-watermark documents in seconds with DocInspector.", "body": "<p>Manually watermarking PDFs one by one is a nightmare when you have hundreds of files. Whether it's \"CONFIDENTIAL\", \"DRAFT\", or your company logo, DocInspector's batch watermark feature handles entire folder trees in one go.</p><h2>Why watermark?</h2><p>Watermarks serve multiple purposes: they mark document status (draft vs final), assert ownership, deter unauthorized sharing, and create accountability when documents leak. For law firms handling sensitive discovery documents, watermarks are practically mandatory.</p><h2>The batch approach</h2><p>In DocInspector, select the PDF Repair module, load your folder, and choose the watermark option. You can set custom text, position, opacity, rotation, and font size. Hit process, and every PDF in your folder gets watermarked while preserving the original structure.</p><h2>Smart watermarking</h2><p>DocInspector applies watermarks at the PDF level — not by converting to images. This means your text remains searchable and the file size stays reasonable. If you need image-based flattening too (for evidence hardening), that's a separate option you can combine.</p>"},
+     "ro": {"title": "Cum să adaugi watermark pe sute de PDF-uri simultan", "desc": "Trebuie să pui watermark pe un folder întreg de PDF-uri? Iată cum cu DocInspector.", "body": "<p>Aplicarea manuală a watermark-urilor PDF unul câte unul este un coșmar când ai sute de fișiere. Fie că e \"CONFIDENȚIAL\", \"DRAFT\" sau logo-ul firmei, funcția de watermark batch din DocInspector procesează structuri întregi de foldere.</p><h2>De ce watermark?</h2><p>Watermark-urile marchează statutul documentului, afirmă proprietatea, descurajează partajarea neautorizată și creează responsabilitate când documentele sunt scurse.</p><h2>Abordarea batch</h2><p>În DocInspector, selectează modulul PDF Repair, încarcă folderul și alege opțiunea watermark. Setează text personalizat, poziție, opacitate, rotație. Apasă process și fiecare PDF primește watermark păstrând structura originală.</p><h2>Watermarking inteligent</h2><p>DocInspector aplică watermark-uri la nivel de PDF — nu prin conversie în imagini. Textul rămâne searchable și dimensiunea fișierului rezonabilă.</p>"},
+     "ru": {"title": "Как добавить водяные знаки на сотни PDF сразу", "desc": "Нужно добавить водяные знаки на целую папку PDF? Вот как сделать это за секунды с DocInspector.", "body": "<p>Ручное добавление водяных знаков по одному PDF — кошмар, когда файлов сотни. DocInspector обрабатывает целые деревья папок за один раз.</p><h2>Зачем водяные знаки?</h2><p>Водяные знаки маркируют статус документа, утверждают право собственности, предотвращают несанкционированное распространение и создают ответственность при утечках.</p><h2>Пакетный подход</h2><p>В DocInspector выберите модуль PDF Repair, загрузите папку и выберите опцию водяных знаков. Настройте текст, позицию, прозрачность. Нажмите process — каждый PDF получит водяной знак с сохранением структуры.</p><h2>Умные водяные знаки</h2><p>DocInspector применяет водяные знаки на уровне PDF — без конвертации в изображения. Текст остаётся доступным для поиска.</p>"}},
+
+    {"slug": "document-security-for-lawyers", "date": "2026-05-15", "category": "industry",
+     "en": {"title": "Why Every Law Firm Needs a Document Inspection Tool", "desc": "Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.", "body": "<p>Legal professionals handle some of the most sensitive documents in existence — court filings, witness statements, financial records, medical reports. Every document that leaves your firm carries your reputation with it.</p><h2>The metadata problem in legal work</h2><p>Opposing counsel can (and does) examine document metadata. A carelessly shared Word file might reveal tracked changes showing your negotiation strategy, internal comments between partners, or the original filename that hints at case strategy.</p><h2>Evidence integrity</h2><p>When building evidence bundles for court, you need absolute certainty that documents haven't been tampered with and don't contain hidden content. A PDF with embedded JavaScript, for instance, could be flagged as potentially compromised evidence.</p><h2>The DocInspector workflow for legal teams</h2><ol><li><strong>Audit</strong> — scan incoming document packages, identify risks and metadata</li><li><strong>Report</strong> — generate Excel reports documenting exactly what was found</li><li><strong>Repair & Harden</strong> — rebuild PDFs, strip metadata, flatten to image-only if needed</li><li><strong>Bundle</strong> — create clean, court-ready document packages with preserved structure</li></ol><p>All processing happens on your firm's machines. No documents touch the cloud. Full GDPR and attorney-client privilege compliance by design.</p>"},
+     "ro": {"title": "De ce fiecare firmă de avocatură are nevoie de un tool de inspecție documente", "desc": "Documentele legale poartă riscuri ascunse. Află de ce inspecția documentelor e esențială pentru avocați.", "body": "<p>Profesioniștii din drept gestionează cele mai sensibile documente existente. Fiecare document care părăsește firma poartă reputația cu el.</p><h2>Problema metadata în munca juridică</h2><p>Partea adversă poate examina metadata. Un Word partajat neglijent ar putea dezvălui tracked changes cu strategia de negociere sau comentarii interne.</p><h2>Integritatea probelor</h2><p>La construirea dosarelor de probe, ai nevoie de certitudine absolută că documentele nu au fost alterate și nu conțin conținut ascuns.</p><h2>Workflow-ul DocInspector pentru echipe juridice</h2><ol><li><strong>Audit</strong> — scanează pachetele de documente, identifică riscuri</li><li><strong>Raport</strong> — generează rapoarte Excel documentând ce s-a găsit</li><li><strong>Repară & Hardening</strong> — reconstruiește PDF-uri, elimină metadata</li><li><strong>Bundle</strong> — creează pachete curate, gata de instanță</li></ol><p>Totul se procesează pe mașinile firmei. Niciun document nu ajunge în cloud.</p>"},
+     "ru": {"title": "Почему каждой юридической фирме нужен инструмент инспекции документов", "desc": "Юридические документы несут скрытые риски. Узнайте, почему инспекция документов необходима юристам.", "body": "<p>Юристы работают с самыми конфиденциальными документами. Каждый документ, покидающий фирму, несёт вашу репутацию.</p><h2>Проблема метаданных в юридической работе</h2><p>Противная сторона может изучить метаданные. Небрежно отправленный Word может раскрыть отслеживаемые изменения со стратегией переговоров.</p><h2>Целостность доказательств</h2><p>При формировании доказательных пакетов нужна абсолютная уверенность, что документы не были изменены и не содержат скрытого контента.</p><h2>Рабочий процесс DocInspector для юридических команд</h2><ol><li><strong>Аудит</strong> — сканирование пакетов документов, выявление рисков</li><li><strong>Отчёт</strong> — генерация Excel-отчётов о находках</li><li><strong>Ремонт и защита</strong> — перестроение PDF, удаление метаданных</li><li><strong>Комплектование</strong> — создание чистых пакетов для суда</li></ol><p>Вся обработка на компьютерах фирмы. Ни один документ не попадает в облако.</p>"}},
+
+    {"slug": "secure-file-shredding-explained", "date": "2026-05-16", "category": "security",
+     "en": {"title": "Why 'Delete' Doesn't Really Delete — Secure File Shredding Explained", "desc": "When you delete a file, it's still on your drive. Learn how secure shredding works and why it matters for sensitive documents.", "body": "<p>When you press Delete and empty the Recycle Bin, your file isn't gone. The operating system simply marks that disk space as \"available\" — the actual data remains until something else overwrites it. Recovery tools can bring those files back in minutes.</p><h2>When does this matter?</h2><p>If you handle sensitive documents — client files, medical records, financial data, legal evidence — simple deletion isn't enough. Before disposing of drives, returning leased computers, or sharing storage media, you need to ensure deleted files are truly unrecoverable.</p><h2>How secure shredding works</h2><p>Secure shredding overwrites the file's disk location with random data multiple times. DocInspector supports industry-standard shredding algorithms that make recovery practically impossible. You can shred individual files or entire folder structures.</p><h2>The DocInspector advantage</h2><p>Unlike standalone shredding tools, DocInspector integrates shredding into your document workflow. Audit a folder, generate reports on what's there, then selectively shred what needs to go — all in one tool, all offline.</p>"},
+     "ro": {"title": "De ce 'Delete' nu șterge cu adevărat — explicația shredding-ului securizat", "desc": "Când ștergi un fișier, el e încă pe disc. Află cum funcționează shredding-ul securizat.", "body": "<p>Când apeși Delete și golești Recycle Bin-ul, fișierul nu dispare. SO marchează spațiul ca \"disponibil\" — datele rămân până când altceva le suprascrie. Tool-urile de recuperare le pot readuce în minute.</p><h2>Când contează?</h2><p>Dacă gestionezi documente sensibile — fișiere de clienți, evidențe medicale, date financiare — ștergerea simplă nu e suficientă.</p><h2>Cum funcționează shredding-ul securizat</h2><p>Shredding-ul securizat suprascrie locația fișierului cu date aleatorii de mai multe ori. DocInspector suportă algoritmi standard din industrie care fac recuperarea imposibilă.</p><h2>Avantajul DocInspector</h2><p>Spre deosebire de tool-uri standalone, DocInspector integrează shredding-ul în workflow-ul de documente. Auditează, raportează, apoi shred selectiv — totul într-un singur tool, totul offline.</p>"},
+     "ru": {"title": "Почему 'Delete' не удаляет по-настоящему — безопасное уничтожение файлов", "desc": "Когда вы удаляете файл, он всё ещё на диске. Узнайте, как работает безопасное уничтожение.", "body": "<p>Когда вы нажимаете Delete и очищаете корзину, файл не исчезает. ОС просто помечает место как «доступное» — данные остаются, пока их не перезапишет что-то другое. Инструменты восстановления вернут файлы за минуты.</p><h2>Когда это важно?</h2><p>Если вы работаете с конфиденциальными документами — файлами клиентов, медицинскими записями, финансовыми данными — простого удаления недостаточно.</p><h2>Как работает безопасное уничтожение</h2><p>Безопасное уничтожение перезаписывает место файла случайными данными несколько раз. DocInspector поддерживает отраслевые алгоритмы, делающие восстановление невозможным.</p><h2>Преимущество DocInspector</h2><p>В отличие от отдельных инструментов уничтожения, DocInspector интегрирует это в рабочий процесс. Аудит, отчёт, затем выборочное уничтожение — всё в одном инструменте, офлайн.</p>"}},
+
+    {"slug": "excel-reports-for-document-audits", "date": "2026-05-17", "category": "how-to",
+     "en": {"title": "Generating Excel Reports for Document Audits — A Complete Guide", "desc": "Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.", "body": "<p>When you audit hundreds of documents across dozens of folders, you need structured output — not just a pass/fail result. DocInspector generates comprehensive Excel reports that map your entire folder tree with detailed metadata for each file.</p><h2>What's in the report?</h2><p>Each row represents a file, with columns for: file path, type, size, creation date, modification date, author, page count (for PDFs), security flags, metadata summary, and risk indicators. Conditional formatting highlights files that need attention.</p><h2>How to generate</h2><ol><li>Load your folder tree into DocInspector's Reporting module</li><li>Select which metadata fields to include</li><li>Click Generate — the Excel file is created with formatted sheets, filters, and summary statistics</li></ol><h2>Use cases</h2><ul><li><strong>Compliance audits</strong> — prove you've reviewed every document in a dataset</li><li><strong>Legal discovery</strong> — create a manifest of all evidence documents</li><li><strong>Data cleanup</strong> — identify duplicate, oversized, or problematic files</li><li><strong>Handover documentation</strong> — document exactly what files are being transferred</li></ul>"},
+     "ro": {"title": "Generarea rapoartelor Excel pentru audituri de documente — ghid complet", "desc": "Cum generează DocInspector rapoarte Excel detaliate pentru audituri de foldere.", "body": "<p>Când auditezi sute de documente, ai nevoie de output structurat. DocInspector generează rapoarte Excel comprehensive care mapează întreaga structură de foldere.</p><h2>Ce conține raportul?</h2><p>Fiecare rând reprezintă un fișier, cu coloane pentru: cale, tip, dimensiune, date de creare/modificare, autor, număr de pagini, flag-uri de securitate și indicatori de risc.</p><h2>Cum se generează</h2><ol><li>Încarcă structura de foldere în modulul Reporting</li><li>Selectează câmpurile de metadata</li><li>Click Generate — Excel-ul este creat cu sheet-uri formatate și statistici</li></ol><h2>Cazuri de utilizare</h2><ul><li><strong>Audituri de conformitate</strong> — dovedește că ai revizuit fiecare document</li><li><strong>Discovery legal</strong> — creează un manifest al tuturor probelor</li><li><strong>Curățarea datelor</strong> — identifică fișiere duplicate sau problematice</li></ul>"},
+     "ru": {"title": "Генерация Excel-отчётов для аудита документов — полное руководство", "desc": "Как DocInspector генерирует подробные Excel-отчёты для аудита папок.", "body": "<p>При аудите сотен документов нужен структурированный вывод. DocInspector генерирует комплексные Excel-отчёты, отображающие всё дерево папок.</p><h2>Что в отчёте?</h2><p>Каждая строка — файл, с колонками: путь, тип, размер, даты создания/изменения, автор, число страниц, флаги безопасности и индикаторы риска.</p><h2>Как сгенерировать</h2><ol><li>Загрузите дерево папок в модуль Reporting</li><li>Выберите поля метаданных</li><li>Нажмите Generate — Excel создаётся с форматированными листами и статистикой</li></ol><h2>Случаи использования</h2><ul><li><strong>Аудиты соответствия</strong> — доказательство проверки каждого документа</li><li><strong>Юридическое раскрытие</strong> — манифест всех доказательств</li><li><strong>Очистка данных</strong> — выявление дубликатов и проблемных файлов</li></ul>"}},
+
+    {"slug": "why-offline-document-processing", "date": "2026-05-18", "category": "security",
+     "en": {"title": "Why Offline Document Processing Matters More Than Ever", "desc": "Cloud tools are convenient, but they put your documents at risk. Here's why offline processing is the smarter choice for sensitive files.", "body": "<p>The cloud is wonderful for many things. Document security isn't one of them.</p><h2>The problem with cloud-based PDF tools</h2><p>Every time you upload a PDF to an online tool, you're trusting that service with your data. You're trusting their servers, their employees, their security practices, and their data retention policies. For personal files, that might be acceptable. For legal evidence, medical records, financial documents, or trade secrets? That's a risk most professionals shouldn't take.</p><h2>What \"offline processing\" really means</h2><p>DocInspector runs entirely on your Windows machine. No internet connection required. No accounts to create. No data leaving your computer — ever. Your documents are processed in memory, the results saved locally, and that's it.</p><h2>Who benefits most</h2><ul><li><strong>Law firms</strong> — attorney-client privilege means documents can't touch third-party servers</li><li><strong>Healthcare</strong> — HIPAA compliance requires strict control over patient data</li><li><strong>Government agencies</strong> — classified or sensitive documents must stay on approved networks</li><li><strong>Financial services</strong> — client financial data has regulatory restrictions on processing</li></ul><p>The convenience of cloud tools isn't worth the risk when your professional reputation is on the line.</p>"},
+     "ro": {"title": "De ce procesarea offline a documentelor contează mai mult ca niciodată", "desc": "Tool-urile cloud sunt conveniente, dar pun documentele tale în pericol. Iată de ce procesarea offline e mai inteligentă.", "body": "<p>Cloud-ul e minunat pentru multe lucruri. Securitatea documentelor nu e unul dintre ele.</p><h2>Problema cu tool-urile PDF bazate pe cloud</h2><p>De fiecare dată când încarci un PDF într-un tool online, îți încredințezi datele acelui serviciu. Pentru dosare legale, evidențe medicale sau secrete comerciale, e un risc inacceptabil.</p><h2>Ce înseamnă \"procesare offline\"</h2><p>DocInspector rulează complet pe mașina ta Windows. Fără conexiune internet. Fără conturi de creat. Fără date care părăsesc calculatorul — vreodată.</p><h2>Cine beneficiază cel mai mult</h2><ul><li><strong>Firme de avocatură</strong> — privilegiul avocat-client înseamnă că documentele nu pot atinge servere terțe</li><li><strong>Sănătate</strong> — conformitatea necesită control strict</li><li><strong>Agenții guvernamentale</strong> — documentele sensibile trebuie să rămână pe rețele aprobate</li><li><strong>Servicii financiare</strong> — datele financiare au restricții regulatorii</li></ul>"},
+     "ru": {"title": "Почему офлайн-обработка документов важнее, чем когда-либо", "desc": "Облачные инструменты удобны, но подвергают документы риску. Вот почему офлайн — лучший выбор.", "body": "<p>Облако прекрасно для многого. Безопасность документов — не из их числа.</p><h2>Проблема облачных PDF-инструментов</h2><p>Каждый раз, загружая PDF в онлайн-инструмент, вы доверяете свои данные этому сервису. Для юридических доказательств, медицинских записей или коммерческих тайн это неприемлемый риск.</p><h2>Что значит «офлайн-обработка»</h2><p>DocInspector работает полностью на вашем Windows-компьютере. Без интернета. Без аккаунтов. Данные никогда не покидают компьютер.</p><h2>Кому это важнее всего</h2><ul><li><strong>Юридические фирмы</strong> — адвокатская тайна означает, что документы не могут попадать на сторонние серверы</li><li><strong>Здравоохранение</strong> — соответствие требует строгого контроля</li><li><strong>Госструктуры</strong> — секретные документы должны оставаться в одобренных сетях</li><li><strong>Финансы</strong> — данные клиентов имеют регуляторные ограничения</li></ul>"}},
+
+    {"slug": "flatten-pdf-to-image", "date": "2026-05-19", "category": "how-to",
+     "en": {"title": "How to Flatten a PDF to Image-Only Format (And Why You'd Want To)", "desc": "Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.", "body": "<p>A \"flattened\" PDF is one where every page has been converted to an image. The result looks identical to the original, but all the hidden layers — text data, form fields, JavaScript, metadata, embedded objects — are gone. What you see is literally all there is.</p><h2>When to flatten</h2><ul><li><strong>Evidence submission</strong> — courts want documents that can't contain hidden executable content</li><li><strong>Secure sharing</strong> — ensure recipients can't extract or modify the underlying text</li><li><strong>Redaction verification</strong> — after redacting sensitive info, flattening guarantees it's truly gone</li><li><strong>Print-ready files</strong> — eliminate rendering differences between PDF viewers</li></ul><h2>How DocInspector does it</h2><p>Select your PDFs (or entire folders), choose \"Flatten to Image\" in the PDF Repair module, and set your quality preferences. DocInspector renders each page to a high-resolution image, then rebuilds the PDF. Batch processing handles hundreds of files while preserving your folder structure.</p><h2>The trade-off</h2><p>Flattened PDFs are no longer text-searchable (since text is now pixels). File sizes may increase. Use this when security matters more than searchability.</p>"},
+     "ro": {"title": "Cum să aplatizezi un PDF la format doar-imagini (și de ce ai vrea)", "desc": "Aplatizarea PDF-urilor elimină conținut ascuns și asigură WYSIWYG. Când și cum să folosești tehnica.", "body": "<p>Un PDF \"aplatizat\" e unul unde fiecare pagină a fost convertită în imagine. Rezultatul arată identic cu originalul, dar toate straturile ascunse — text, câmpuri de formular, JavaScript, metadata — au dispărut.</p><h2>Când să aplatizezi</h2><ul><li><strong>Depunere probe</strong> — instanțele vor documente fără conținut executabil ascuns</li><li><strong>Partajare securizată</strong> — destinatarii nu pot extrage textul</li><li><strong>Verificare redactare</strong> — după redactare, aplatizarea garantează ștergerea</li></ul><h2>Cum face DocInspector</h2><p>Selectează PDF-urile, alege \"Flatten to Image\" în modulul PDF Repair. DocInspector renderizează fiecare pagină la rezoluție mare, apoi reconstruiește PDF-ul. Procesarea batch gestionează sute de fișiere.</p><h2>Compromisul</h2><p>PDF-urile aplatizate nu mai sunt searchable. Dimensiunile pot crește. Folosește când securitatea contează mai mult.</p>"},
+     "ru": {"title": "Как сжать PDF до формата только-изображений (и зачем)", "desc": "Сжатие PDF до изображений удаляет скрытый контент. Когда и как использовать эту технику.", "body": "<p>«Сжатый» PDF — тот, где каждая страница преобразована в изображение. Результат выглядит идентично оригиналу, но все скрытые слои — текст, поля форм, JavaScript, метаданные — удалены.</p><h2>Когда сжимать</h2><ul><li><strong>Подача доказательств</strong> — суды требуют документы без скрытого исполняемого кода</li><li><strong>Безопасный обмен</strong> — получатели не могут извлечь текст</li><li><strong>Проверка редактирования</strong> — после редактирования гарантия удаления</li></ul><h2>Как это делает DocInspector</h2><p>Выберите PDF, нажмите «Flatten to Image» в модуле PDF Repair. DocInspector рендерит каждую страницу в высоком разрешении и перестраивает PDF. Пакетная обработка справляется с сотнями файлов.</p><h2>Компромисс</h2><p>Сжатые PDF больше не доступны для текстового поиска. Размеры могут увеличиться. Используйте, когда безопасность важнее.</p>"}},
+
+    {"slug": "document-audit-checklist", "date": "2026-05-20", "category": "education",
+     "en": {"title": "The Complete Document Audit Checklist for 2026", "desc": "A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.", "body": "<p>Whether you're preparing for a compliance review or just want to improve your document hygiene, here's a comprehensive checklist.</p><h2>Metadata audit</h2><ul><li>☐ Scan all shared drives for documents with author metadata</li><li>☐ Identify files with embedded GPS coordinates</li><li>☐ Find documents with tracked changes or hidden comments</li><li>☐ Check for files containing embedded macros or JavaScript</li></ul><h2>Access control</h2><ul><li>☐ Review who has access to sensitive document folders</li><li>☐ Check for password-protected files with weak or no passwords</li><li>☐ Verify document encryption standards meet policy requirements</li></ul><h2>Disposal</h2><ul><li>☐ Identify documents past retention period</li><li>☐ Securely shred (not just delete) expired sensitive documents</li><li>☐ Document the shredding process for audit trails</li></ul><h2>Compliance</h2><ul><li>☐ Generate reports for all document repositories</li><li>☐ Cross-reference with GDPR/industry requirements</li><li>☐ Archive audit reports for future reference</li></ul><p>DocInspector automates most of this checklist. Load your folder tree, run an audit, and you'll have structured reports covering metadata, security flags, and risk indicators.</p>"},
+     "ro": {"title": "Checklist complet pentru auditul documentelor în 2026", "desc": "Un checklist practic pentru auditarea securității documentelor. Acoperă metadata, acces, shredding și conformitate.", "body": "<p>Fie că te pregătești pentru o revizuire de conformitate sau vrei să îmbunătățești igiena documentelor, iată un checklist complet.</p><h2>Audit metadata</h2><ul><li>☐ Scanează toate drive-urile partajate</li><li>☐ Identifică fișiere cu coordonate GPS</li><li>☐ Găsește documente cu tracked changes</li><li>☐ Verifică fișierele cu macro-uri sau JavaScript</li></ul><h2>Control acces</h2><ul><li>☐ Revizuiește cine are acces la folderele sensibile</li><li>☐ Verifică fișierele protejate cu parole slabe</li><li>☐ Verifică standardele de criptare</li></ul><h2>Eliminare</h2><ul><li>☐ Identifică documentele expirate</li><li>☐ Shred securizat pentru documentele sensibile expirate</li><li>☐ Documentează procesul de shredding</li></ul><h2>Conformitate</h2><ul><li>☐ Generează rapoarte pentru toate depozitele de documente</li><li>☐ Cross-reference cu cerințele GDPR</li><li>☐ Arhivează rapoartele de audit</li></ul><p>DocInspector automatizează majoritatea acestui checklist.</p>"},
+     "ru": {"title": "Полный чеклист аудита документов на 2026 год", "desc": "Практический чеклист для аудита безопасности документов. Метаданные, доступ, уничтожение, соответствие.", "body": "<p>Готовитесь к проверке соответствия или хотите улучшить гигиену документов? Вот полный чеклист.</p><h2>Аудит метаданных</h2><ul><li>☐ Сканировать все общие диски</li><li>☐ Найти файлы с GPS-координатами</li><li>☐ Найти документы с отслеживаемыми изменениями</li><li>☐ Проверить файлы с макросами или JavaScript</li></ul><h2>Контроль доступа</h2><ul><li>☐ Проверить, кто имеет доступ к конфиденциальным папкам</li><li>☐ Проверить файлы со слабыми паролями</li><li>☐ Проверить стандарты шифрования</li></ul><h2>Утилизация</h2><ul><li>☐ Найти документы с истёкшим сроком хранения</li><li>☐ Безопасно уничтожить просроченные документы</li><li>☐ Документировать процесс уничтожения</li></ul><h2>Соответствие</h2><ul><li>☐ Сгенерировать отчёты для всех хранилищ</li><li>☐ Сверить с требованиями GDPR</li><li>☐ Архивировать отчёты аудита</li></ul><p>DocInspector автоматизирует большинство этого чеклиста.</p>"}},
+
+    {"slug": "protect-documents-before-sharing", "date": "2026-05-21", "category": "how-to",
+     "en": {"title": "7 Steps to Protect Your Documents Before Sharing Them", "desc": "Before hitting send, make sure your documents don't leak sensitive information. Here are 7 essential steps.", "body": "<p>Every document you share is a potential information leak. Here's how to protect yourself.</p><h2>1. Check the author metadata</h2><p>Open document properties and verify the author name is appropriate for external sharing.</p><h2>2. Review tracked changes</h2><p>Accept or reject all changes and delete the revision history. In Word, go to Review → Accept All → then save as a new file.</p><h2>3. Remove hidden comments</h2><p>Comments you thought you deleted might still be in the file. Check thoroughly.</p><h2>4. Strip embedded objects</h2><p>Images pasted from phones may contain GPS data. Embedded Excel sheets may contain extra tabs.</p><h2>5. Check the filename</h2><p>A filename like \"Contract_v3_FINAL_johns-edits_CONFIDENTIAL.pdf\" tells recipients more than you'd like.</p><h2>6. Flatten if high-security</h2><p>For truly sensitive documents, flatten to image-only format to eliminate any hidden content.</p><h2>7. Generate an audit report</h2><p>Before sharing, run DocInspector's audit to get a complete picture of what's in your document. It takes seconds and could save you from a costly mistake.</p>"},
+     "ro": {"title": "7 pași pentru protejarea documentelor înainte de partajare", "desc": "Înainte de a apăsa Send, asigură-te că documentele nu scurg informații sensibile.", "body": "<p>Fiecare document partajat e o potențială scurgere de informații. Iată cum te protejezi.</p><h2>1. Verifică metadata autorului</h2><p>Deschide proprietățile și verifică dacă numele autorului e potrivit pentru partajare externă.</p><h2>2. Revizuiește tracked changes</h2><p>Acceptă sau respinge toate modificările și șterge istoricul.</p><h2>3. Elimină comentariile ascunse</h2><p>Comentariile pe care credeai că le-ai șters ar putea fi încă în fișier.</p><h2>4. Elimină obiectele încorporate</h2><p>Imaginile de pe telefon pot conține date GPS.</p><h2>5. Verifică numele fișierului</h2><p>Un nume ca \"Contract_v3_editari-ion_CONFIDENTIAL.pdf\" spune prea mult.</p><h2>6. Aplatizează pentru securitate maximă</h2><p>Pentru documente sensibile, convertește la format doar-imagini.</p><h2>7. Generează un raport de audit</h2><p>Rulează auditul DocInspector înainte de partajare. Durează secunde și te poate salva de greșeli costisitoare.</p>"},
+     "ru": {"title": "7 шагов для защиты документов перед отправкой", "desc": "Перед отправкой убедитесь, что документы не раскрывают конфиденциальную информацию.", "body": "<p>Каждый отправленный документ — потенциальная утечка. Вот как защититься.</p><h2>1. Проверьте метаданные автора</h2><p>Откройте свойства и убедитесь, что имя автора подходит для внешней отправки.</p><h2>2. Проверьте отслеживаемые изменения</h2><p>Примите или отклоните все изменения и удалите историю.</p><h2>3. Удалите скрытые комментарии</h2><p>Комментарии, которые вы «удалили», могут быть в файле.</p><h2>4. Удалите встроенные объекты</h2><p>Фото с телефона могут содержать GPS-данные.</p><h2>5. Проверьте имя файла</h2><p>Имя вроде «Договор_v3_правки-Иван_КОНФИДЕНЦИАЛЬНО.pdf» говорит слишком много.</p><h2>6. Сожмите для максимальной безопасности</h2><p>Для конфиденциальных документов — формат только-изображений.</p><h2>7. Сгенерируйте аудит-отчёт</h2><p>Запустите аудит DocInspector перед отправкой. Занимает секунды, может спасти от дорогих ошибок.</p>"}},
+
+    {"slug": "batch-processing-saves-hours", "date": "2026-05-22", "category": "how-to",
+     "en": {"title": "Stop Processing Documents One by One — Batch Processing Saves Hours", "desc": "If you're still processing documents individually, you're wasting hours every week. Learn how batch processing transforms your workflow.", "body": "<p>Picture this: you receive a folder with 200 PDFs that all need to be repaired, watermarked, and stripped of metadata. One by one, that's a full day's work. With batch processing, it's a coffee break.</p><h2>What batch processing means</h2><p>Instead of opening each file individually, you point DocInspector at a folder (or multiple folders) and tell it what to do. It processes every file automatically, preserving your folder structure and generating a report of what happened to each file.</p><h2>Real-world time savings</h2><ul><li>200 PDFs repaired: ~3 minutes (vs 3+ hours manually)</li><li>500 documents audited with Excel report: ~5 minutes</li><li>100 PDFs watermarked: ~2 minutes</li><li>Entire drive metadata scan: ~10-15 minutes for typical workstations</li></ul><h2>The folder structure advantage</h2><p>DocInspector preserves your folder hierarchy. If your input is organized into client folders, case numbers, or date folders, the output maintains that exact structure. No manual re-sorting needed.</p>"},
+     "ro": {"title": "Nu mai procesa documente unul câte unul — procesarea batch economisește ore", "desc": "Dacă încă procesezi documente individual, pierzi ore în fiecare săptămână.", "body": "<p>Imaginează-ți: primești un folder cu 200 PDF-uri care trebuie reparate, watermarked și curățate de metadata. Unul câte unul, e o zi întreagă. Cu batch processing, e o pauză de cafea.</p><h2>Ce înseamnă batch processing</h2><p>În loc să deschizi fiecare fișier, indici DocInspector spre un folder și îi spui ce să facă. Procesează totul automat, păstrând structura.</p><h2>Economii reale de timp</h2><ul><li>200 PDF-uri reparate: ~3 minute (vs 3+ ore manual)</li><li>500 documente auditate cu raport Excel: ~5 minute</li><li>100 PDF-uri watermarked: ~2 minute</li></ul><h2>Avantajul structurii de foldere</h2><p>DocInspector păstrează ierarhia ta de foldere. Dacă input-ul e organizat pe clienți, numere de caz sau date, output-ul menține exact aceeași structură.</p>"},
+     "ru": {"title": "Хватит обрабатывать документы по одному — пакетная обработка экономит часы", "desc": "Если вы всё ещё обрабатываете документы по одному, вы теряете часы каждую неделю.", "body": "<p>Представьте: вы получили папку с 200 PDF, которые нужно восстановить, добавить водяные знаки и очистить метаданные. По одному — целый день. Пакетно — перерыв на кофе.</p><h2>Что такое пакетная обработка</h2><p>Вместо открытия каждого файла, укажите DocInspector на папку и скажите, что делать. Он обработает всё автоматически, сохранив структуру.</p><h2>Реальная экономия времени</h2><ul><li>200 PDF восстановлены: ~3 минуты (вместо 3+ часов)</li><li>500 документов с Excel-отчётом: ~5 минут</li><li>100 PDF с водяными знаками: ~2 минуты</li></ul><h2>Преимущество структуры папок</h2><p>DocInspector сохраняет иерархию папок. Если вход организован по клиентам или номерам дел, выход сохраняет ту же структуру.</p>"}},
+
+    {"slug": "ocr-scanned-pdfs", "date": "2026-05-23", "category": "how-to",
+     "en": {"title": "How to Make Scanned PDFs Searchable with OCR", "desc": "Scanned PDFs are just images — you can't search or copy text from them. Learn how OCR fixes this.", "body": "<p>You scan a stack of paper documents and get a folder full of PDFs. But try to search for a word in those PDFs — nothing happens. That's because scanned PDFs are essentially image files wrapped in a PDF container. There's no actual text data to search.</p><h2>What OCR does</h2><p>OCR (Optical Character Recognition) analyzes the images in your PDF, identifies letters and words, and creates an invisible text layer behind each page. The PDF looks exactly the same, but now you can search, copy, and index the text.</p><h2>Batch OCR with DocInspector</h2><p>Drop your folder of scanned PDFs into DocInspector, select the OCR option in PDF Repair, and let it process. Every scanned page gets a searchable text layer. The original images are preserved — quality doesn't change.</p><h2>When you need this</h2><ul><li>Digitizing paper archives for searchability</li><li>Making scanned legal documents discoverable</li><li>Processing scanned invoices for accounting systems</li><li>Converting faxes (yes, some offices still receive faxes) to searchable PDFs</li></ul>"},
+     "ro": {"title": "Cum să faci PDF-urile scanate searchable cu OCR", "desc": "PDF-urile scanate sunt doar imagini. Află cum OCR le face searchable.", "body": "<p>Scanezi un teanc de documente și obții PDF-uri. Dar încerci să cauți un cuvânt — nimic. Asta pentru că PDF-urile scanate sunt în esență imagini într-un container PDF.</p><h2>Ce face OCR</h2><p>OCR (Optical Character Recognition) analizează imaginile, identifică litere și cuvinte și creează un strat invizibil de text. PDF-ul arată la fel, dar acum poți căuta și copia text.</p><h2>OCR batch cu DocInspector</h2><p>Trage folderul de PDF-uri scanate în DocInspector, selectează opțiunea OCR și lasă-l să proceseze. Imaginile originale sunt păstrate.</p><h2>Când ai nevoie</h2><ul><li>Digitalizarea arhivelor de hârtie</li><li>Documente legale scanate searchable</li><li>Procesarea facturilor scanate</li><li>Convertirea faxurilor în PDF-uri searchable</li></ul>"},
+     "ru": {"title": "Как сделать отсканированные PDF доступными для поиска с OCR", "desc": "Отсканированные PDF — просто изображения. Узнайте, как OCR делает их доступными для поиска.", "body": "<p>Вы сканируете стопку бумаг и получаете PDF. Но попробуйте найти слово — ничего. Потому что отсканированные PDF — по сути изображения в контейнере PDF.</p><h2>Что делает OCR</h2><p>OCR анализирует изображения, распознаёт буквы и слова и создаёт невидимый текстовый слой. PDF выглядит так же, но теперь можно искать и копировать текст.</p><h2>Пакетный OCR с DocInspector</h2><p>Перетащите папку PDF в DocInspector, выберите OCR и запустите обработку. Оригиналы сохраняются.</p><h2>Когда это нужно</h2><ul><li>Оцифровка бумажных архивов</li><li>Юридические документы с поиском</li><li>Обработка отсканированных счетов</li><li>Конвертация факсов в PDF с поиском</li></ul>"}},
+
+    {"slug": "evidence-bundling-best-practices", "date": "2026-05-24", "category": "industry",
+     "en": {"title": "Evidence Bundling Best Practices for Legal Professionals", "desc": "Creating court-ready evidence bundles requires careful document preparation. Here are the best practices for 2026.", "body": "<p>An evidence bundle is only as strong as its weakest document. One improperly prepared file can cast doubt on your entire submission.</p><h2>The golden rules</h2><ol><li><strong>Consistent format</strong> — convert all documents to PDF. Mixed formats (Word, Excel, JPEG, PDF) create compatibility issues and look unprofessional.</li><li><strong>Clean metadata</strong> — strip author names, edit history, and software fingerprints. The document should speak for itself.</li><li><strong>Preserved structure</strong> — maintain logical folder organization that matches your index or table of contents.</li><li><strong>Verifiable integrity</strong> — use image-flattened PDFs for documents where content authenticity must be guaranteed.</li><li><strong>Comprehensive index</strong> — generate a manifest listing every document with page counts, dates, and descriptions.</li></ol><h2>The DocInspector workflow</h2><p>Load your evidence folder → Audit everything → Generate an Excel manifest → Repair and harden all PDFs → Apply watermarks if required → Export the clean bundle. One tool, one workflow, ten minutes instead of ten hours.</p>"},
+     "ro": {"title": "Cele mai bune practici pentru bundling-ul de probe legale", "desc": "Crearea dosarelor de probe gata de instanță necesită pregătire atentă. Iată cele mai bune practici.", "body": "<p>Un dosar de probe e la fel de puternic ca cel mai slab document. Un fișier pregătit necorespunzător poate pune la îndoială întreaga depunere.</p><h2>Regulile de aur</h2><ol><li><strong>Format consistent</strong> — convertește tot la PDF</li><li><strong>Metadata curată</strong> — elimină nume de autori, istoric de editare</li><li><strong>Structură păstrată</strong> — menține organizarea logică a folderelor</li><li><strong>Integritate verificabilă</strong> — folosește PDF-uri aplatizate pe imagini</li><li><strong>Index comprehensiv</strong> — generează un manifest cu fiecare document</li></ol><h2>Workflow-ul DocInspector</h2><p>Încarcă folderul → Auditează → Generează manifest Excel → Repară și hardening → Watermark → Exportă bundle curat.</p>"},
+     "ru": {"title": "Лучшие практики комплектования доказательств для юристов", "desc": "Создание доказательных пакетов для суда требует тщательной подготовки. Лучшие практики 2026.", "body": "<p>Доказательный пакет силён настолько, насколько силён его самый слабый документ.</p><h2>Золотые правила</h2><ol><li><strong>Единый формат</strong> — конвертируйте всё в PDF</li><li><strong>Чистые метаданные</strong> — удалите имена авторов, историю</li><li><strong>Сохранённая структура</strong> — логическая организация папок</li><li><strong>Проверяемая целостность</strong> — PDF на основе изображений</li><li><strong>Полный индекс</strong> — манифест с каждым документом</li></ol><h2>Процесс DocInspector</h2><p>Загрузить папку → Аудит → Манифест Excel → Ремонт и защита → Водяные знаки → Экспорт чистого пакета.</p>"}},
+
+    {"slug": "what-is-pdf-hardening", "date": "2026-05-25", "category": "education",
+     "en": {"title": "What Is PDF Hardening and When Do You Need It?", "desc": "PDF hardening makes documents tamper-resistant and removes hidden threats. Learn what it means and when to use it.", "body": "<p>\"Hardening\" a PDF means making it resistant to tampering, removing potential security threats, and ensuring the document is exactly what it appears to be — nothing more, nothing less.</p><h2>What hardening involves</h2><ul><li><strong>Removing JavaScript</strong> — eliminates any executable code embedded in the PDF</li><li><strong>Stripping form fields</strong> — removes interactive elements that could be manipulated</li><li><strong>Flattening annotations</strong> — burns comments and markup into the page content</li><li><strong>Rebuilding structure</strong> — recreates the PDF's internal structure from scratch, eliminating corruption</li><li><strong>Metadata sanitization</strong> — removes all non-essential metadata</li></ul><h2>When to harden</h2><p>Harden your PDFs when: submitting evidence to courts, sharing documents with untrusted parties, archiving for long-term storage, distributing final versions of contracts or agreements, or any time you need to guarantee document integrity.</p><h2>DocInspector's approach</h2><p>DocInspector combines multiple hardening techniques in one pass. You can choose which techniques to apply and process entire folder trees at once. The result: clean, predictable, court-ready PDFs.</p>"},
+     "ro": {"title": "Ce este PDF Hardening și când ai nevoie de el?", "desc": "PDF hardening face documentele rezistente la modificări și elimină amenințări ascunse.", "body": "<p>\"Hardening-ul\" unui PDF înseamnă a-l face rezistent la manipulare, a elimina amenințări de securitate și a garanta că documentul este exact ce pare.</p><h2>Ce implică hardening-ul</h2><ul><li><strong>Eliminarea JavaScript</strong></li><li><strong>Eliminarea câmpurilor de formular</strong></li><li><strong>Aplatizarea adnotărilor</strong></li><li><strong>Reconstruirea structurii</strong></li><li><strong>Sanitizarea metadata</strong></li></ul><h2>Când să hardening</h2><p>Când depui probe, partajezi cu părți neîncrezute, arhivezi pe termen lung, distribui versiuni finale ale contractelor.</p><h2>Abordarea DocInspector</h2><p>DocInspector combină multiple tehnici de hardening într-o singură trecere. Procesează structuri întregi de foldere.</p>"},
+     "ru": {"title": "Что такое PDF Hardening и когда он нужен?", "desc": "PDF hardening делает документы устойчивыми к подделке и удаляет скрытые угрозы.", "body": "<p>«Hardening» PDF означает сделать его устойчивым к подделке, удалить угрозы безопасности и гарантировать, что документ — именно то, чем кажется.</p><h2>Что включает hardening</h2><ul><li><strong>Удаление JavaScript</strong></li><li><strong>Удаление полей форм</strong></li><li><strong>Сжатие аннотаций</strong></li><li><strong>Перестроение структуры</strong></li><li><strong>Очистка метаданных</strong></li></ul><h2>Когда применять</h2><p>При подаче доказательств, обмене с ненадёжными сторонами, долгосрочном архивировании, распространении финальных версий договоров.</p><h2>Подход DocInspector</h2><p>DocInspector объединяет несколько техник hardening за один проход. Обрабатывает целые деревья папок.</p>"}},
+
+    {"slug": "accountants-document-management", "date": "2026-05-26", "category": "industry",
+     "en": {"title": "Document Management Tips for Accountants and Auditors", "desc": "Accountants handle thousands of sensitive financial documents. Here's how to manage them securely and efficiently.", "body": "<p>As an accountant or auditor, your document workflow is your business. Invoices, tax returns, financial statements, payroll records — every file is sensitive, and every file needs to be findable, verifiable, and secure.</p><h2>The challenges</h2><ul><li>Volume: thousands of documents per client per year</li><li>Formats: PDFs, Excel spreadsheets, scanned receipts, Word documents</li><li>Retention: legal requirements to keep records for 5-10+ years</li><li>Security: client financial data must be protected at all times</li></ul><h2>How DocInspector helps accountants</h2><ul><li><strong>Folder auditing</strong> — generate Excel reports mapping every document across your client folders</li><li><strong>Batch repair</strong> — fix corrupted PDFs from clients who use questionable software</li><li><strong>Metadata cleanup</strong> — before sharing reports with clients, strip internal metadata</li><li><strong>Secure shredding</strong> — when retention periods expire, properly destroy sensitive files</li><li><strong>OCR</strong> — make scanned receipts and invoices searchable</li></ul><p>All offline, all local — exactly what you need when handling client financial data.</p>"},
+     "ro": {"title": "Sfaturi de gestionare a documentelor pentru contabili și auditori", "desc": "Contabilii gestionează mii de documente financiare sensibile. Iată cum să le gestionezi sigur.", "body": "<p>Ca contabil sau auditor, workflow-ul de documente e afacerea ta. Facturi, declarații fiscale, situații financiare — fiecare fișier e sensibil.</p><h2>Provocările</h2><ul><li>Volum: mii de documente per client per an</li><li>Formate: PDF, Excel, scanări, Word</li><li>Retenție: cerințe legale de 5-10+ ani</li><li>Securitate: datele financiare trebuie protejate</li></ul><h2>Cum ajută DocInspector</h2><ul><li><strong>Audit de foldere</strong> — rapoarte Excel cu toate documentele</li><li><strong>Reparare batch</strong> — fix PDF-uri corupte</li><li><strong>Curățare metadata</strong> — înainte de partajare</li><li><strong>Shredding securizat</strong> — la expirarea perioadei de retenție</li><li><strong>OCR</strong> — scanări searchable</li></ul>"},
+     "ru": {"title": "Советы по управлению документами для бухгалтеров и аудиторов", "desc": "Бухгалтеры работают с тысячами конфиденциальных документов. Как управлять ими безопасно.", "body": "<p>Как бухгалтер или аудитор, ваш документооборот — это ваш бизнес. Счета, налоговые декларации, финансовые отчёты — каждый файл конфиденциален.</p><h2>Вызовы</h2><ul><li>Объём: тысячи документов на клиента в год</li><li>Форматы: PDF, Excel, сканы, Word</li><li>Хранение: требования 5-10+ лет</li><li>Безопасность: финансовые данные клиентов</li></ul><h2>Как помогает DocInspector</h2><ul><li><strong>Аудит папок</strong> — Excel-отчёты по всем документам</li><li><strong>Пакетный ремонт</strong> — исправление повреждённых PDF</li><li><strong>Очистка метаданных</strong> — перед отправкой</li><li><strong>Безопасное уничтожение</strong> — по истечении сроков</li><li><strong>OCR</strong> — сканы с поиском</li></ul>"}},
+
+    {"slug": "docinspector-vs-online-pdf-tools", "date": "2026-05-27", "category": "education",
+     "en": {"title": "DocInspector vs Online PDF Tools — What's the Difference?", "desc": "Why choose a desktop tool over free online PDF services? Here's an honest comparison.", "body": "<p>There are dozens of free online PDF tools. So why would you pay for a desktop application? Let's be honest about the trade-offs.</p><h2>Online tools: the appeal</h2><p>They're free, require no installation, and work on any device with a browser. For converting a personal recipe PDF or merging two documents, they're fine.</p><h2>Where online tools fall short</h2><ul><li><strong>Privacy</strong> — your documents are uploaded to someone else's server. You have no control over what happens to them.</li><li><strong>Batch processing</strong> — most online tools handle one file at a time. Got 200? That's 200 uploads.</li><li><strong>Advanced features</strong> — metadata inspection, secure shredding, evidence bundling, folder-tree reports — these don't exist in free online tools.</li><li><strong>Reliability</strong> — internet down? Tool changed its pricing? Website gone? You're stuck.</li><li><strong>File size limits</strong> — most online tools cap at 10-50 MB per file.</li></ul><h2>When DocInspector makes sense</h2><p>If you process documents professionally — for legal, accounting, compliance, or enterprise use — the combination of offline processing, batch capability, and advanced audit features pays for itself on day one.</p>"},
+     "ro": {"title": "DocInspector vs tool-uri PDF online — care e diferența?", "desc": "De ce să alegi un tool desktop în loc de servicii PDF gratuite online? O comparație onestă.", "body": "<p>Există zeci de tool-uri PDF online gratuite. Deci de ce ai plăti pentru o aplicație desktop?</p><h2>Tool-uri online: atracția</h2><p>Sunt gratuite, nu necesită instalare. Pentru conversii personale, sunt OK.</p><h2>Unde eșuează tool-urile online</h2><ul><li><strong>Confidențialitate</strong> — documentele sunt uploadate pe serverul altcuiva</li><li><strong>Batch processing</strong> — majoritatea gestionează un fișier la un moment dat</li><li><strong>Funcții avansate</strong> — inspecție metadata, shredding, bundling nu există online</li><li><strong>Fiabilitate</strong> — internet căzut? Tool dispărut?</li><li><strong>Limite de dimensiune</strong> — 10-50 MB per fișier</li></ul><h2>Când are sens DocInspector</h2><p>Dacă procesezi documente profesional — juridic, contabilitate, conformitate — combinația de offline, batch și audit se plătește singură din prima zi.</p>"},
+     "ru": {"title": "DocInspector vs онлайн PDF-инструменты — в чём разница?", "desc": "Почему настольное приложение, а не бесплатные онлайн-сервисы? Честное сравнение.", "body": "<p>Есть десятки бесплатных онлайн PDF-инструментов. Зачем платить за десктопное приложение?</p><h2>Онлайн-инструменты: привлекательность</h2><p>Бесплатны, не требуют установки. Для личных нужд — нормально.</p><h2>Где онлайн-инструменты проигрывают</h2><ul><li><strong>Конфиденциальность</strong> — документы загружаются на чужой сервер</li><li><strong>Пакетная обработка</strong> — большинство работают с одним файлом</li><li><strong>Продвинутые функции</strong> — аудит метаданных, уничтожение, бандлинг отсутствуют</li><li><strong>Надёжность</strong> — нет интернета? Сервис закрылся?</li><li><strong>Ограничения размера</strong> — 10-50 МБ на файл</li></ul><h2>Когда DocInspector оправдан</h2><p>Если вы обрабатываете документы профессионально — юриспруденция, бухгалтерия, соответствие — сочетание офлайн, пакетной обработки и аудита окупается с первого дня.</p>"}},
+
+    {"slug": "windows-11-pdf-processing", "date": "2026-05-28", "category": "how-to",
+     "en": {"title": "Setting Up DocInspector on Windows 11 — Quick Start Guide", "desc": "Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.", "body": "<p>Getting started with DocInspector is simple. Here's your 2-minute setup guide.</p><h2>Step 1: Download</h2><p>Head to <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a> and grab the installer. It's a standard Windows .exe — no special requirements.</p><h2>Step 2: Install</h2><p>Run the installer. Accept the defaults or customize the install location. No admin rights required for per-user installation. No bloatware, no toolbars, no extra software bundled in.</p><h2>Step 3: First run</h2><p>Launch DocInspector. You'll see three main modules: PDF Repair, Audit & Security, and Reporting. Pick one based on what you need:</p><ul><li><strong>PDF Repair</strong> — fix, flatten, watermark, or harden PDFs</li><li><strong>Audit & Security</strong> — scan folders, find metadata, shred files</li><li><strong>Reporting</strong> — generate Excel reports for folder trees</li></ul><h2>Step 4: Process your first batch</h2><p>Drag a folder into the file list, select your action, and hit Process. Watch as DocInspector handles every file automatically. Your first batch is free — the 3-day trial has no feature limitations.</p>"},
+     "ro": {"title": "Configurarea DocInspector pe Windows 11 — ghid rapid", "desc": "Pune DocInspector în funcțiune pe Windows 11 în sub 2 minute.", "body": "<p>Pornirea cu DocInspector e simplă. Iată ghidul de 2 minute.</p><h2>Pas 1: Descarcă</h2><p>Mergi la <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a> și ia installer-ul.</p><h2>Pas 2: Instalează</h2><p>Rulează installer-ul. Acceptă default-urile. Fără bloatware.</p><h2>Pas 3: Prima rulare</h2><p>Lansează DocInspector. Vei vedea trei module principale: PDF Repair, Audit & Security, și Reporting.</p><h2>Pas 4: Primul batch</h2><p>Trage un folder în lista de fișiere, selectează acțiunea și apasă Process. Trial-ul de 3 zile nu are limitări.</p>"},
+     "ru": {"title": "Настройка DocInspector на Windows 11 — быстрый старт", "desc": "Запустите DocInspector на Windows 11 за 2 минуты.", "body": "<p>Начать работу с DocInspector просто. Вот руководство на 2 минуты.</p><h2>Шаг 1: Скачайте</h2><p>Перейдите на <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a>.</p><h2>Шаг 2: Установите</h2><p>Запустите установщик. Примите настройки по умолчанию. Без мусорного ПО.</p><h2>Шаг 3: Первый запуск</h2><p>Запустите DocInspector. Три модуля: PDF Repair, Audit & Security, Reporting.</p><h2>Шаг 4: Первый пакет</h2><p>Перетащите папку, выберите действие, нажмите Process. 3-дневная пробная версия без ограничений.</p>"}},
+]
+
+ALL_ARTICLES = ARTICLES + ARTICLES_MORE
+print(f"Total articles: {len(ALL_ARTICLES)}")
+
+# Save for use by template generator
+import json
+with open("/home/user/doc-inspector-redesign/articles.json", "w") as f:
+    json.dump(ALL_ARTICLES, f, ensure_ascii=False, indent=2)
+print("Saved articles.json")
