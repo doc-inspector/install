@@ -170,6 +170,7 @@
 <div class="blog-hero">
   <h1 data-i18n="blog.pageTitle">Blog</h1>
   <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
+  <div class="blog-count" id="blogCount" style="color:#64748b; font-size:0.9rem; margin-top:1rem; font-weight:500;">Loading articles...</div>
   <div class="blog-search-wrap">
     <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <input type="text" class="blog-search" id="blogSearch" placeholder="Search articles..." data-i18n-placeholder="blog.searchPlaceholder">
@@ -588,6 +589,8 @@
     const start = (currentPage - 1) * PER_PAGE;
     grid.innerHTML = '';
     filtered.slice(start, start + PER_PAGE).forEach(c => grid.appendChild(c));
+    const countEl = document.getElementById('blogCount');
+    if (countEl) countEl.textContent = `Total: ${filtered.length} articles`;
     if(pagination) {
       pagination.innerHTML = '';
       if(totalPages > 1) {
