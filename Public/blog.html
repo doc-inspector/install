@@ -486,6 +486,7 @@
 })();
 </script>
 
+
 <script>
 (async function(){
   const PER_PAGE = 20;
@@ -514,9 +515,12 @@
           const fileResp = await fetch(file.download_url);
           const html = await fileResp.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
+          
+          // DETECT CATEGORY FROM META OR FALLBACK TO HOW-TO
+          const category = doc.querySelector('meta[name="category"]')?.content || 'how-to';
           const title = doc.querySelector('title')?.innerText || file.name;
           const desc = doc.querySelector('meta[name="description"]')?.content || '';
-          const date = file.name.match(/\\d{4}-\\d{2}-\\d{2}/)?.[0] || '2026-05-11';
+          const date = file.name.match(/\d{4}-\d{2}-\d{2}/)?.[0] || '2026-05-11';
           
           const card = document.createElement('a');
           card.className = 'blog-card reveal visible';
@@ -524,8 +528,9 @@
           card.style.transform = 'none';
           card.href = `/blog/${file.name}`;
           card.dataset.date = date;
-          card.dataset.category = 'how-to';
-          card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time datetime="${date}">${date}</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read article &rarr;</span>`;
+          card.dataset.category = category;
+          
+          card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">${category}</span><time datetime="${date}">${date}</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read article &rarr;</span>`;
           allCards.push(card);
         } catch(e) {}
       }
@@ -581,6 +586,7 @@
   loadAll();
 })();
 </script>
+
 
 </body>
 </html>
