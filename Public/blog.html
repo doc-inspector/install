@@ -112,12 +112,7 @@
     .blog-page-info { color:#64748b; font-size:.82rem; margin:0 .5rem; }
 
     @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
-  
-  #blogGrid { margin-top: 1.5rem !important; padding-top: 0 !important; }
-  .blog-card.reveal { opacity: 1 !important; transform: none !important; visibility: visible !important; }
-  .blog-filter-container { margin-bottom: 1rem !important; }
-
-</style>
+  </style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <div class="page">
@@ -489,37 +484,6 @@
 
 <script>
 (async function(){
-  const grid = document.getElementById('blogGrid');
-  const repo = 'doc-inspector/install';
-  try {
-    const resp = await fetch(`https://api.github.com/repos/${repo}/contents/Public/blog`);
-    const files = await resp.json();
-    if (!Array.isArray(files)) return;
-    
-    // Find files that are NOT already in the DOM (we check the href)
-    const existingHrefs = Array.from(grid.querySelectorAll('a')).map(a => a.getAttribute('href'));
-    const newFiles = files.filter(f => f.name.endsWith('.html') && !existingHrefs.includes(`/blog/${f.name}`)).reverse();
-    
-    for (const file of newFiles) {
-      const fileResp = await fetch(file.download_url);
-      const html = await fileResp.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      const title = doc.querySelector('title')?.innerText || file.name;
-      const desc = doc.querySelector('meta[name="description"]')?.content || '';
-      
-      const card = document.createElement('a');
-      card.className = 'blog-card reveal';
-      card.href = `/blog/${file.name}`;
-      card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time>New</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read more</span>`;
-      grid.prepend(card); // ADD TO TOP instead of replacing
-    }
-  } catch (e) { console.log('Auto-discovery paused (Rate limit)'); }
-})();
-</script>
-
-
-<script>
-(async function(){
   const PER_PAGE = 20;
   const grid = document.getElementById('blogGrid');
   const pagination = document.getElementById('blogPagination');
@@ -538,7 +502,6 @@
       if (!Array.isArray(files)) return;
       
       const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
-      
       for (const file of htmlFiles) {
         try {
           const fileResp = await fetch(file.download_url);
@@ -556,18 +519,9 @@
           const date = file.name.match(/\\d{4}-\\d{2}-\\d{2}/)?.[0] || '2026-05-11';
           
           card.dataset.date = date;
-          card.dataset.category = 'how-to';
+          card.dataset.category = 'how-to'; // Defaulting to how-to
           
-          // PREMIUM HTML STRUCTURE
-          card.innerHTML = `
-            <div class="blog-card-meta">
-              <span class="blog-category">how-to</span>
-              <time datetime="${date}">${date}</time>
-            </div>
-            <h3>${title}</h3>
-            <p>${desc}</p>
-            <span class="blog-read-more">Read article &rarr;</span>
-          `;
+          card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time datetime="${date}">${date}</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read article &rarr;</span>`;
           allCards.push(card);
         } catch(e) {}
       }
@@ -595,16 +549,17 @@
         pagination.innerHTML = '';
         if(totalPages > 1) {
             for(let i=1; i<=totalPages; i++){
-              const btn = document.createElement('button');
-              btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
-              btn.textContent = i;
-              btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
-              pagination.appendChild(btn);
+                const btn = document.createElement('button');
+                btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
+                btn.textContent = i;
+                btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
+                pagination.appendChild(btn);
             }
         }
     }
   }
 
+  // Re-enable existing filter buttons
   document.querySelectorAll('.blog-filter-btn').forEach(btn => {
     btn.onclick = () => {
       document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
