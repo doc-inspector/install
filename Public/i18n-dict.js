@@ -1,6 +1,8 @@
 // i18n-dict.js
 window.I18N = {
   EN: {
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
@@ -431,6 +433,8 @@ window.I18N = {
   },
 
   RO: {
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
@@ -859,6 +863,8 @@ window.I18N = {
   },
 
   RU: {
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
+    "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
