@@ -1,6 +1,8 @@
 // i18n-dict.js
 window.I18N = {
   EN: {
+    "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
+    "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
@@ -433,6 +435,8 @@ window.I18N = {
   },
 
   RO: {
+    "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
+    "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
@@ -863,6 +867,8 @@ window.I18N = {
   },
 
   RU: {
+    "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
+    "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.title": "The 5 Most Publicized PDF Security Breaches and How to Avoid Them",
     "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
