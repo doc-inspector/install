@@ -389,7 +389,134 @@
 </div>
 <script src="i18n-dict.js?v=10"></script>
 <script src="i18n.js"></script>
-<script src="scroll-fx.js"></script>
+<script src="scroll-fx.js?v=9"></script>
+<script>
+(function(){
+  const PER_PAGE = 20;
+  const grid = document.getElementById('blogGrid');
+  const searchInput = document.getElementById('blogSearch');
+  const noResults = document.getElementById('blogNoResults');
+  const pagination = document.getElementById('blogPagination');
+  const allCards = Array.from(grid.querySelectorAll('.blog-card'));
+  let currentFilter = 'all';
+  let currentSearch = '';
+  let currentPage = 1;
+
+  function getFilteredCards(){
+    return allCards.filter(function(card){
+      var cat = card.dataset.category || '';
+      var matchCat = currentFilter === 'all' || cat === currentFilter;
+      if(!matchCat) return false;
+      if(!currentSearch) return true;
+      var text = (card.querySelector('h3')?.textContent||'') + ' ' + (card.querySelector('p')?.textContent||'');
+      return text.toLowerCase().indexOf(currentSearch.toLowerCase()) !== -1;
+    });
+  }
+
+  function render(){
+    var filtered = getFilteredCards();
+    var totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+    if(currentPage > totalPages) currentPage = totalPages;
+    var start = (currentPage - 1) * PER_PAGE;
+    var end = start + PER_PAGE;
+
+    allCards.forEach(function(c){ c.classList.add('hidden'); });
+    filtered.slice(start, end).forEach(function(c){ c.classList.remove('hidden'); });
+
+    noResults.classList.toggle('show', filtered.length === 0);
+    renderPagination(totalPages, filtered.length);
+  }
+
+  function renderPagination(totalPages, total){
+    pagination.innerHTML = '';
+    if(totalPages <= 1) return;
+
+    // Prev
+    var prev = document.createElement('button');
+    prev.className = 'blog-page-btn' + (currentPage <= 1 ? ' disabled' : '');
+    prev.innerHTML = '←';
+    prev.onclick = function(){ if(currentPage > 1){ currentPage--; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
+    pagination.appendChild(prev);
+
+    for(var i = 1; i <= totalPages; i++){
+      var btn = document.createElement('button');
+      btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
+      btn.textContent = i;
+      btn.dataset.page = i;
+      btn.onclick = function(){ currentPage = parseInt(this.dataset.page); render(); window.scrollTo({top:0,behavior:'smooth'}); };
+      pagination.appendChild(btn);
+    }
+
+    // Next
+    var next = document.createElement('button');
+    next.className = 'blog-page-btn' + (currentPage >= totalPages ? ' disabled' : '');
+    next.innerHTML = '→';
+    next.onclick = function(){ if(currentPage < totalPages){ currentPage++; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
+    pagination.appendChild(next);
+
+    // Info
+    var info = document.createElement('span');
+    info.className = 'blog-page-info';
+    info.textContent = total + ' articles';
+    pagination.appendChild(info);
+  }
+
+  // Filter buttons
+  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      currentPage = 1;
+      render();
+    });
+  });
+
+  // Search
+  var searchTimeout;
+  searchInput.addEventListener('input', function(){
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(function(){
+      currentSearch = searchInput.value.trim();
+      currentPage = 1;
+      render();
+    }, 250);
+  });
+
+  render();
+})();
+</script>
+
+<script>
+(async function(){
+  const grid = document.getElementById('blogGrid');
+  const repo = 'doc-inspector/install';
+  try {
+    const resp = await fetch(`https://api.github.com/repos/${repo}/contents/Public/blog`);
+    const files = await resp.json();
+    if (!Array.isArray(files)) return;
+    
+    // Find files that are NOT already in the DOM (we check the href)
+    const existingHrefs = Array.from(grid.querySelectorAll('a')).map(a => a.getAttribute('href'));
+    const newFiles = files.filter(f => f.name.endsWith('.html') && !existingHrefs.includes(`/blog/${f.name}`)).reverse();
+    
+    for (const file of newFiles) {
+      const fileResp = await fetch(file.download_url);
+      const html = await fileResp.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const title = doc.querySelector('title')?.innerText || file.name;
+      const desc = doc.querySelector('meta[name="description"]')?.content || '';
+      
+      const card = document.createElement('a');
+      card.className = 'blog-card reveal';
+      card.href = `/blog/${file.name}`;
+      card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time>New</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read more</span>`;
+      grid.prepend(card); // ADD TO TOP instead of replacing
+    }
+  } catch (e) { console.log('Auto-discovery paused (Rate limit)'); }
+})();
+</script>
+
 
 <script>
 (async function(){
@@ -417,15 +544,30 @@
           const fileResp = await fetch(file.download_url);
           const html = await fileResp.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
-          const title = doc.querySelector('title')?.innerText || file.name;
-          const desc = doc.querySelector('meta[name="description"]')?.content || '';
+          
           const card = document.createElement('a');
           card.className = 'blog-card reveal visible';
           card.style.opacity = '1';
+          card.style.transform = 'none';
           card.href = `/blog/${file.name}`;
-          card.dataset.date = file.name.match(/\d{4}-\d{2}-\d{2}/)?.[0] || '2026-05-11';
+          
+          const title = doc.querySelector('title')?.innerText || file.name;
+          const desc = doc.querySelector('meta[name="description"]')?.content || '';
+          const date = file.name.match(/\\d{4}-\\d{2}-\\d{2}/)?.[0] || '2026-05-11';
+          
+          card.dataset.date = date;
           card.dataset.category = 'how-to';
-          card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time>${card.dataset.date}</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read more</span>`;
+          
+          // PREMIUM HTML STRUCTURE
+          card.innerHTML = `
+            <div class="blog-card-meta">
+              <span class="blog-category">how-to</span>
+              <time datetime="${date}">${date}</time>
+            </div>
+            <h3>${title}</h3>
+            <p>${desc}</p>
+            <span class="blog-read-more">Read article &rarr;</span>
+          `;
           allCards.push(card);
         } catch(e) {}
       }
@@ -445,21 +587,21 @@
 
     const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
     const start = (currentPage - 1) * PER_PAGE;
+    
     grid.innerHTML = '';
     filtered.slice(start, start + PER_PAGE).forEach(c => grid.appendChild(c));
-    renderPagination(totalPages);
-  }
-
-  function renderPagination(totalPages){
-    if(!pagination) return;
-    pagination.innerHTML = '';
-    if(totalPages <= 1) return;
-    for(let i=1; i<=totalPages; i++){
-      const btn = document.createElement('button');
-      btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
-      btn.textContent = i;
-      btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
-      pagination.appendChild(btn);
+    
+    if(pagination) {
+        pagination.innerHTML = '';
+        if(totalPages > 1) {
+            for(let i=1; i<=totalPages; i++){
+              const btn = document.createElement('button');
+              btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
+              btn.textContent = i;
+              btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
+              pagination.appendChild(btn);
+            }
+        }
     }
   }
 
@@ -484,5 +626,6 @@
   loadAll();
 })();
 </script>
+
 </body>
 </html>
