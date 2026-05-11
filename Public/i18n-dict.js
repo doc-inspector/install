@@ -1,6 +1,8 @@
 // i18n-dict.js
 window.I18N = {
   EN: {
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.body": "",
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.title": "Protect Your Business from the Risks of Unauthorized Document Sharing",
     "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
     "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
@@ -437,6 +439,8 @@ window.I18N = {
   },
 
   RO: {
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.body": "",
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.title": "Protect Your Business from the Risks of Unauthorized Document Sharing",
     "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
     "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
@@ -871,6 +875,8 @@ window.I18N = {
   },
 
   RU: {
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.body": "",
+    "blog.preventing-sensitive-documents-from-ending-up-on-the-dark-web.title": "Protect Your Business from the Risks of Unauthorized Document Sharing",
     "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
     "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
