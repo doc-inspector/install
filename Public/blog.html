@@ -31,149 +31,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=9">
   <style>
-    /* ── Blog Grid Background ── */
-    .blog-bg-grid {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none; z-index: 0;
-      background-image:
-        linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 0%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 0%, transparent 70%);
-    }
-    .blog-bg-grid::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        linear-gradient(rgba(6,182,212,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6,182,212,0.025) 1px, transparent 1px);
-      background-size: 15px 15px;
-      mask-image: radial-gradient(ellipse 60% 50% at 50% 25%, black 0%, transparent 60%);
-      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 25%, black 0%, transparent 60%);
-    }
-    .blog-bg-glow {
-      position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 500px;
-      background: radial-gradient(ellipse, rgba(6,182,212,0.08) 0%, transparent 60%);
-      pointer-events: none; z-index: 0;
-    }
-
-    /* ── Blog Hero ── */
-    .blog-hero { text-align:center; padding:8rem 1.5rem 2rem; position: relative; z-index: 1; }
-    .blog-hero h1 { font-family:'Outfit',sans-serif; font-size:clamp(2.2rem,5vw,3.2rem); font-weight:900; background:linear-gradient(135deg,#fff 0%,#67e8f9 50%,#06b6d4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.6rem; }
+    .blog-hero { text-align:center; padding:4rem 1.5rem 2rem; }
+    .blog-hero h1 { font-family:'Outfit',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:900; background:linear-gradient(135deg,#fff 0%,#60a5fa 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:.5rem; }
     .blog-hero p { color:#94a3b8; font-size:1.1rem; max-width:600px; margin:0 auto; }
-
-    /* ── Search ── */
-    .blog-search-wrap { max-width:480px; margin:1.5rem auto 0; position:relative; }
-    .blog-search {
-      width:100%; padding:.7rem 1rem .7rem 2.8rem;
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
-      border-radius:999px; color:#e2e8f0; font-size:.92rem; outline:none;
-      transition:all .2s;
-    }
-    .blog-search:focus { border-color:rgba(6,182,212,.4); background:rgba(255,255,255,.06); box-shadow:0 0 20px rgba(6,182,212,.1); }
-    .blog-search::placeholder { color:#64748b; }
-    .blog-search-icon { position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:#64748b; pointer-events:none; }
-
-    /* ── Filter ── */
-    .blog-filter { display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; padding:1.5rem 1.5rem 2rem; position:relative; z-index:1; }
+    .blog-filter { display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; padding:0 1.5rem 2rem; }
     .blog-filter-btn { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); color:#94a3b8; padding:.45rem 1rem; border-radius:999px; font-size:.85rem; cursor:pointer; transition:all .2s; }
-    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(6,182,212,.15); border-color:rgba(6,182,212,.3); color:#67e8f9; }
-
-    /* ── Grid ── */
-    .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; padding:0 1.5rem 2rem; position:relative; z-index:1; }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(59,130,246,.15); border-color:rgba(59,130,246,.3); color:#60a5fa; }
+    .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; padding:0 1.5rem 4rem; }
     .blog-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:1rem; padding:1.5rem; text-decoration:none; color:inherit; transition:all .25s; display:flex; flex-direction:column; }
-    .blog-card:hover { background:rgba(6,182,212,.06); border-color:rgba(6,182,212,.2); transform:translateY(-2px); }
-    .blog-card.hidden { display:none; }
+    .blog-card:hover { background:rgba(59,130,246,.06); border-color:rgba(59,130,246,.2); transform:translateY(-2px); }
     .blog-card-meta { display:flex; align-items:center; gap:.7rem; margin-bottom:.8rem; font-size:.82rem; color:#64748b; }
-    .blog-category { background:rgba(6,182,212,.15); color:#67e8f9; padding:.18rem .6rem; border-radius:999px; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.04em; }
+    .blog-category { background:rgba(59,130,246,.15); color:#60a5fa; padding:.18rem .6rem; border-radius:999px; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.04em; }
     .blog-card h3 { font-family:'Outfit',sans-serif; font-size:1.15rem; font-weight:700; color:#f1f5f9; margin-bottom:.5rem; line-height:1.3; }
     .blog-card p { font-size:.92rem; color:#94a3b8; line-height:1.55; flex:1; margin-bottom:.8rem; }
-    .blog-read-more { font-size:.88rem; color:#67e8f9; font-weight:500; }
-
-    /* ── No results ── */
-    .blog-no-results { display:none; text-align:center; padding:3rem 1rem; color:#64748b; font-size:1rem; position:relative; z-index:1; }
-    .blog-no-results.show { display:block; }
-
-    /* ── Pagination ── */
-    .blog-pagination { display:flex; justify-content:center; align-items:center; gap:.5rem; padding:2rem 1.5rem 4rem; position:relative; z-index:1; }
-    .blog-page-btn {
-      width:36px; height:36px; display:flex; align-items:center; justify-content:center;
-      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-      border-radius:8px; color:#94a3b8; font-size:.85rem; font-weight:600;
-      cursor:pointer; transition:all .2s;
-    }
-    .blog-page-btn:hover { background:rgba(6,182,212,.1); border-color:rgba(6,182,212,.3); color:#67e8f9; }
-    .blog-page-btn.active { background:rgba(6,182,212,.2); border-color:rgba(6,182,212,.4); color:#67e8f9; }
-    .blog-page-btn.disabled { opacity:.3; pointer-events:none; }
-    .blog-page-info { color:#64748b; font-size:.82rem; margin:0 .5rem; }
-
-    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
+    .blog-read-more { font-size:.88rem; color:#60a5fa; font-weight:500; }
+    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <div class="page">
 <div id="progress-bar"></div>
-
-<!-- Grid background -->
-<div class="blog-bg-grid"></div>
-<div class="blog-bg-glow"></div>
-
-
-<header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="navbar">
-        <a href="index.html" class="brand">
-          <div class="brand-logo"><img src="assets/logo.png" alt="DocInspector logo"></div>
-          <div class="brand-text">
-            <div class="brand-name" data-i18n="brand.name">DocInspector</div>
-            <div class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</div>
-          </div>
-        </a>
-        <nav class="nav-links" id="navLinks" aria-label="Primary">
-          <a href="index.html" data-i18n="nav.home">Home</a>
-          <a href="download.html" data-i18n="nav.download">Download</a>
-          <a href="price.html" data-i18n="nav.price">Price</a>
-          <a href="user-guide.html" data-i18n="nav.guide">User Guide</a>
-          <a href="reports.html" data-i18n="nav.reports">Reports &amp; Feedback</a>
-          <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
-          <a href="contact.html" data-i18n="nav.contact">Contact</a>
-          <div class="lang-dropdown mobile-only">
-            <button class="lang-btn"><span class="lang-pill">EN</span> <span class="chev">▾</span></button>
-            <div class="lang-menu">
-              <button class="lang-item" data-lang="EN">EN</button>
-              <button class="lang-item" data-lang="RO">RO</button>
-              <button class="lang-item" data-lang="RU">RU</button>
-            </div>
-          </div>
-        </nav>
-        <div class="nav-actions">
-          <div class="lang-dropdown desktop-only">
-            <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
-              <span class="lang-pill">EN</span><span class="chev">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <button class="lang-item" data-lang="EN" role="menuitem">EN</button>
-              <button class="lang-item" data-lang="RO" role="menuitem">RO</button>
-              <button class="lang-item" data-lang="RU" role="menuitem">RU</button>
-            </div>
-          </div>
-          <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        </div>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="DocInspector" width="38" height="38">
+        <span data-i18n="brand.name">DocInspector</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="price.html" data-i18n="nav.price">Price</a>
+        <a href="user-guide.html" data-i18n="nav.guide">User Guide</a>
+        <a href="reports.html" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="download.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
-    </div>
-  </header>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language"><span class="lang-pill">EN</span><span class="chev">▾</span></button>
+          <div class="lang-menu">
+            <button class="lang-item active" data-lang="EN">EN</button>
+            <button class="lang-item" data-lang="RO">RO</button>
+            <button class="lang-item" data-lang="RU">RU</button>
+          </div>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
 
 <div class="blog-hero">
   <h1 data-i18n="blog.pageTitle">Blog</h1>
   <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
-  <div class="blog-search-wrap">
-    <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="text" class="blog-search" id="blogSearch" placeholder="Search articles..." data-i18n-placeholder="blog.searchPlaceholder">
-  </div>
 </div>
 
 <div class="blog-filter">
@@ -184,8 +98,12 @@
   <button class="blog-filter-btn" data-filter="industry" data-i18n="blog.cat.industry">Industry</button>
 </div>
 
-<div class="blog-grid" id="blogGrid">
-</div>
+<div class="blog-grid">
+    <a href="blog/how-to-repair-corrupted-pdf.html" class="blog-card reveal" data-category="how-to">
+      <div class="blog-card-meta">
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
+        <time datetime="2026-05-09">2026-05-09</time>
+      </div>
       <h3 data-i18n="blog.how-to-repair-corrupted-pdf.title">How to Repair a Corrupted PDF File in Seconds</h3>
       <p data-i18n="blog.how-to-repair-corrupted-pdf.desc">PDF won&#x27;t open? Learn how to fix corrupted PDF files using DocInspector&#x27;s batch repair tool. Works 100% offline.</p>
       <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
@@ -228,7 +146,7 @@
     </a>
     <a href="blog/batch-watermark-pdfs.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-14">2026-05-14</time>
       </div>
       <h3 data-i18n="blog.batch-watermark-pdfs.title">How to Add Watermarks to Hundreds of PDFs at Once</h3>
@@ -255,7 +173,7 @@
     </a>
     <a href="blog/excel-reports-for-document-audits.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-17">2026-05-17</time>
       </div>
       <h3 data-i18n="blog.excel-reports-for-document-audits.title">Generating Excel Reports for Document Audits — A Complete Guide</h3>
@@ -273,7 +191,7 @@
     </a>
     <a href="blog/flatten-pdf-to-image.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-19">2026-05-19</time>
       </div>
       <h3 data-i18n="blog.flatten-pdf-to-image.title">How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</h3>
@@ -291,7 +209,7 @@
     </a>
     <a href="blog/protect-documents-before-sharing.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-21">2026-05-21</time>
       </div>
       <h3 data-i18n="blog.protect-documents-before-sharing.title">7 Steps to Protect Your Documents Before Sharing Them</h3>
@@ -300,7 +218,7 @@
     </a>
     <a href="blog/batch-processing-saves-hours.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-22">2026-05-22</time>
       </div>
       <h3 data-i18n="blog.batch-processing-saves-hours.title">Stop Processing Documents One by One — Batch Processing Saves Hours</h3>
@@ -309,7 +227,7 @@
     </a>
     <a href="blog/ocr-scanned-pdfs.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-23">2026-05-23</time>
       </div>
       <h3 data-i18n="blog.ocr-scanned-pdfs.title">How to Make Scanned PDFs Searchable with OCR</h3>
@@ -354,17 +272,14 @@
     </a>
     <a href="blog/windows-11-pdf-processing.html" class="blog-card reveal" data-category="how-to">
       <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
+        <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
         <time datetime="2026-05-28">2026-05-28</time>
       </div>
       <h3 data-i18n="blog.windows-11-pdf-processing.title">Setting Up DocInspector on Windows 11 — Quick Start Guide</h3>
       <p data-i18n="blog.windows-11-pdf-processing.desc">Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.</p>
       <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a></div>
-
-<div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">No articles found matching your search.</div>
-
-<div class="blog-pagination" id="blogPagination"></div>
+    </a>
+</div>
 
 <footer class="site-footer">
   <div class="container">
@@ -386,100 +301,17 @@
 <script src="i18n.js"></script>
 <script src="scroll-fx.js?v=9"></script>
 <script>
-(function(){
-  const PER_PAGE = 20;
-  const grid = document.getElementById('blogGrid');
-  const searchInput = document.getElementById('blogSearch');
-  const noResults = document.getElementById('blogNoResults');
-  const pagination = document.getElementById('blogPagination');
-  const allCards = Array.from(grid.querySelectorAll('.blog-card'));
-  let currentFilter = 'all';
-  let currentSearch = '';
-  let currentPage = 1;
-
-  function getFilteredCards(){
-    return allCards.filter(function(card){
-      var cat = card.dataset.category || '';
-      var matchCat = currentFilter === 'all' || cat === currentFilter;
-      if(!matchCat) return false;
-      if(!currentSearch) return true;
-      var text = (card.querySelector('h3')?.textContent||'') + ' ' + (card.querySelector('p')?.textContent||'');
-      return text.toLowerCase().indexOf(currentSearch.toLowerCase()) !== -1;
-    });
-  }
-
-  function render(){
-    var filtered = getFilteredCards();
-    var totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
-    if(currentPage > totalPages) currentPage = totalPages;
-    var start = (currentPage - 1) * PER_PAGE;
-    var end = start + PER_PAGE;
-
-    allCards.forEach(function(c){ c.classList.add('hidden'); });
-    filtered.slice(start, end).forEach(function(c){ c.classList.remove('hidden'); });
-
-    noResults.classList.toggle('show', filtered.length === 0);
-    renderPagination(totalPages, filtered.length);
-  }
-
-  function renderPagination(totalPages, total){
-    pagination.innerHTML = '';
-    if(totalPages <= 1) return;
-
-    // Prev
-    var prev = document.createElement('button');
-    prev.className = 'blog-page-btn' + (currentPage <= 1 ? ' disabled' : '');
-    prev.innerHTML = '←';
-    prev.onclick = function(){ if(currentPage > 1){ currentPage--; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
-    pagination.appendChild(prev);
-
-    for(var i = 1; i <= totalPages; i++){
-      var btn = document.createElement('button');
-      btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
-      btn.textContent = i;
-      btn.dataset.page = i;
-      btn.onclick = function(){ currentPage = parseInt(this.dataset.page); render(); window.scrollTo({top:0,behavior:'smooth'}); };
-      pagination.appendChild(btn);
-    }
-
-    // Next
-    var next = document.createElement('button');
-    next.className = 'blog-page-btn' + (currentPage >= totalPages ? ' disabled' : '');
-    next.innerHTML = '→';
-    next.onclick = function(){ if(currentPage < totalPages){ currentPage++; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
-    pagination.appendChild(next);
-
-    // Info
-    var info = document.createElement('span');
-    info.className = 'blog-page-info';
-    info.textContent = total + ' articles';
-    pagination.appendChild(info);
-  }
-
-  // Filter buttons
-  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
-      btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
-      currentPage = 1;
-      render();
+document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    var filter=btn.dataset.filter;
+    document.querySelectorAll('.blog-card').forEach(function(card){
+      var cat=card.dataset.category||'';
+      card.style.display=(filter==='all'||cat===filter)?'':'none';
     });
   });
-
-  // Search
-  var searchTimeout;
-  searchInput.addEventListener('input', function(){
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(function(){
-      currentSearch = searchInput.value.trim();
-      currentPage = 1;
-      render();
-    }, 250);
-  });
-
-  render();
-})();
+});
 </script>
 
 <script>
@@ -489,6 +321,9 @@
   const pagination = document.getElementById('blogPagination');
   const searchInput = document.getElementById('blogSearch');
   const repo = 'doc-inspector/install';
+  
+  if (!grid) return;
+  grid.innerHTML = ''; // Safely empty the grid only after DOM is ready
   
   let currentPage = 1;
   let currentFilter = 'all';
@@ -500,27 +335,24 @@
       const resp = await fetch(`https://api.github.com/repos/${repo}/contents/Public/blog`);
       const files = await resp.json();
       if (!Array.isArray(files)) return;
-      
       const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
+      
       for (const file of htmlFiles) {
         try {
           const fileResp = await fetch(file.download_url);
           const html = await fileResp.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
+          const title = doc.querySelector('title')?.innerText || file.name;
+          const desc = doc.querySelector('meta[name="description"]')?.content || '';
+          const date = file.name.match(/\\d{4}-\\d{2}-\\d{2}/)?.[0] || '2026-05-11';
           
           const card = document.createElement('a');
           card.className = 'blog-card reveal visible';
           card.style.opacity = '1';
           card.style.transform = 'none';
           card.href = `/blog/${file.name}`;
-          
-          const title = doc.querySelector('title')?.innerText || file.name;
-          const desc = doc.querySelector('meta[name="description"]')?.content || '';
-          const date = file.name.match(/\\d{4}-\\d{2}-\\d{2}/)?.[0] || '2026-05-11';
-          
           card.dataset.date = date;
-          card.dataset.category = 'how-to'; // Defaulting to how-to
-          
+          card.dataset.category = 'how-to';
           card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time datetime="${date}">${date}</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read article &rarr;</span>`;
           allCards.push(card);
         } catch(e) {}
@@ -541,25 +373,22 @@
 
     const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
     const start = (currentPage - 1) * PER_PAGE;
-    
     grid.innerHTML = '';
     filtered.slice(start, start + PER_PAGE).forEach(c => grid.appendChild(c));
-    
     if(pagination) {
-        pagination.innerHTML = '';
-        if(totalPages > 1) {
-            for(let i=1; i<=totalPages; i++){
-                const btn = document.createElement('button');
-                btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
-                btn.textContent = i;
-                btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
-                pagination.appendChild(btn);
-            }
+      pagination.innerHTML = '';
+      if(totalPages > 1) {
+        for(let i=1; i<=totalPages; i++){
+          const btn = document.createElement('button');
+          btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
+          btn.textContent = i;
+          btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
+          pagination.appendChild(btn);
         }
+      }
     }
   }
 
-  // Re-enable existing filter buttons
   document.querySelectorAll('.blog-filter-btn').forEach(btn => {
     btn.onclick = () => {
       document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
@@ -577,7 +406,6 @@
       render();
     };
   }
-
   loadAll();
 })();
 </script>
