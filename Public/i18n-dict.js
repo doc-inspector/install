@@ -1,6 +1,9 @@
 // i18n-dict.js
 window.I18N = {
   EN: {
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
     // NAV
     "nav.home": "Home",
     "nav.price": "Price",
@@ -428,6 +431,9 @@ window.I18N = {
   },
 
   RO: {
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
     // NAV
     "nav.home": "Acasă",
     "nav.price": "Preț",
@@ -853,6 +859,9 @@ window.I18N = {
   },
 
   RU: {
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.body": "",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.desc": "Learn about the top PDF security threats in 2024 and discover how to prevent data breaches with DocInspector",
+    "blog.pdf-security-threats-to-watch-out-for-in-2024.title": "Top 5 PDF Security Threats to Watch Out for in 2024 and How to Prevent Them",
     // NAV
     "nav.home": "Главная",
     "nav.price": "Цена",
