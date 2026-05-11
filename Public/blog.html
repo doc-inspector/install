@@ -206,7 +206,7 @@
     <a href="blog/pdf-a-vs-regular-pdf.html" class="blog-card reveal" data-category="education">
       <div class="blog-card-meta">
         <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-11">2026-05-11</time>
+        <a class="blog-card reveal" href="/blog/5-things-you-didnt-know-about-pdfs.html" data-category="how-to"><div class="blog-card-meta"><span class="blog-category" data-i18n="blog.category.how-to">how-to</span><time datetime="2026-05-11">2026-05-11</time>
       </div>
       <h3 data-i18n="blog.pdf-a-vs-regular-pdf.title">PDF/A vs Regular PDF — When to Use Each Format</h3>
       <p data-i18n="blog.pdf-a-vs-regular-pdf.desc">Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.</p>
@@ -379,7 +379,7 @@
         <a href="terms.html" data-i18n="footer.terms">Terms of Use</a>
         <a href="refund.html" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z" />/></svg>
         </a>
       </div>
     </div>
@@ -389,102 +389,70 @@
 <script src="i18n-dict.js?v=10"></script>
 <script src="i18n.js"></script>
 <script src="scroll-fx.js?v=9"></script>
+
 <script>
-(function(){
+(async function(){
   const PER_PAGE = 20;
   const grid = document.getElementById('blogGrid');
-  const searchInput = document.getElementById('blogSearch');
-  const noResults = document.getElementById('blogNoResults');
   const pagination = document.getElementById('blogPagination');
-  const allCards = Array.from(grid.querySelectorAll('.blog-card'));
-  let currentFilter = 'all';
-  let currentSearch = '';
+  const repo = 'doc-inspector/install';
+  
   let currentPage = 1;
+  let allCards = Array.from(grid.querySelectorAll('.blog-card'));
 
-  function getFilteredCards(){
-    return allCards.filter(function(card){
-      var cat = card.dataset.category || '';
-      var matchCat = currentFilter === 'all' || cat === currentFilter;
-      if(!matchCat) return false;
-      if(!currentSearch) return true;
-      var text = (card.querySelector('h3')?.textContent||'') + ' ' + (card.querySelector('p')?.textContent||'');
-      return text.toLowerCase().indexOf(currentSearch.toLowerCase()) !== -1;
-    });
+  async function loadDynamic() {
+    try {
+      const resp = await fetch(`https://api.github.com/repos/${repo}/contents/Public/blog`);
+      const files = await resp.json();
+      if (!Array.isArray(files)) return;
+      
+      const existingHrefs = allCards.map(a => a.getAttribute('href'));
+      const newFiles = files.filter(f => f.name.endsWith('.html') && !existingHrefs.includes(`/blog/${f.name}`)).reverse();
+      
+      for (const file of newFiles.slice(0, 5)) { // Load first 5 dynamic for speed
+        const fileResp = await fetch(file.download_url);
+        const html = await fileResp.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const title = doc.querySelector('title')?.innerText || file.name;
+        const desc = doc.querySelector('meta[name="description"]')?.content || '';
+        
+        const card = document.createElement('a');
+        card.className = 'blog-card reveal visible'; // Force visible for dynamic
+        card.href = `/blog/${file.name}`;
+        card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time>Recent</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read more</span>`;
+        allCards.unshift(card); // Add to beginning of array
+      }
+    } catch(e) {}
+    render();
   }
 
   function render(){
-    var filtered = getFilteredCards();
-    var totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
-    if(currentPage > totalPages) currentPage = totalPages;
-    var start = (currentPage - 1) * PER_PAGE;
-    var end = start + PER_PAGE;
-
-    allCards.forEach(function(c){ c.classList.add('hidden'); });
-    filtered.slice(start, end).forEach(function(c){ c.classList.remove('hidden'); });
-
-    noResults.classList.toggle('show', filtered.length === 0);
-    renderPagination(totalPages, filtered.length);
+    const totalPages = Math.ceil(allCards.length / PER_PAGE);
+    const start = (currentPage - 1) * PER_PAGE;
+    const end = start + PER_PAGE;
+    
+    grid.innerHTML = '';
+    allCards.slice(start, end).forEach(c => grid.appendChild(c));
+    
+    renderPagination(totalPages);
   }
 
-  function renderPagination(totalPages, total){
+  function renderPagination(totalPages){
     pagination.innerHTML = '';
     if(totalPages <= 1) return;
-
-    // Prev
-    var prev = document.createElement('button');
-    prev.className = 'blog-page-btn' + (currentPage <= 1 ? ' disabled' : '');
-    prev.innerHTML = '←';
-    prev.onclick = function(){ if(currentPage > 1){ currentPage--; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
-    pagination.appendChild(prev);
-
-    for(var i = 1; i <= totalPages; i++){
-      var btn = document.createElement('button');
+    for(let i=1; i<=totalPages; i++){
+      const btn = document.createElement('button');
       btn.className = 'blog-page-btn' + (i === currentPage ? ' active' : '');
       btn.textContent = i;
-      btn.dataset.page = i;
-      btn.onclick = function(){ currentPage = parseInt(this.dataset.page); render(); window.scrollTo({top:0,behavior:'smooth'}); };
+      btn.onclick = () => { currentPage = i; render(); window.scrollTo({top:0, behavior:'smooth'}); };
       pagination.appendChild(btn);
     }
-
-    // Next
-    var next = document.createElement('button');
-    next.className = 'blog-page-btn' + (currentPage >= totalPages ? ' disabled' : '');
-    next.innerHTML = '→';
-    next.onclick = function(){ if(currentPage < totalPages){ currentPage++; render(); window.scrollTo({top:0,behavior:'smooth'}); }};
-    pagination.appendChild(next);
-
-    // Info
-    var info = document.createElement('span');
-    info.className = 'blog-page-info';
-    info.textContent = total + ' articles';
-    pagination.appendChild(info);
   }
 
-  // Filter buttons
-  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
-      btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
-      currentPage = 1;
-      render();
-    });
-  });
-
-  // Search
-  var searchTimeout;
-  searchInput.addEventListener('input', function(){
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(function(){
-      currentSearch = searchInput.value.trim();
-      currentPage = 1;
-      render();
-    }, 250);
-  });
-
-  render();
+  loadDynamic(); // Start loading new ones
 })();
 </script>
+
 
 <script>
 (async function(){
