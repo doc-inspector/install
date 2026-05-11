@@ -1,6 +1,8 @@
 // i18n-dict.js
 window.I18N = {
   EN: {
+    "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
+    "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
     "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
@@ -435,6 +437,8 @@ window.I18N = {
   },
 
   RO: {
+    "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
+    "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
     "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
@@ -867,6 +871,8 @@ window.I18N = {
   },
 
   RU: {
+    "blog.pdf-security-mistakes-common-legal-professionals-make.desc": "Discover the most common PDF security mistakes made by legal professionals and learn how to protect sensitive documents from unauthorized access.",
+    "blog.pdf-security-mistakes-common-legal-professionals-make.title": "Top 5 PDF Security Mistakes Common Legal Professionals Make (And How to Fix Them)",
     "blog.protect-sensitive-documents-from-data-leakage.desc": "Prevent sensitive data leakage with these 5 effective strategies for secure PDF document management and protection.",
     "blog.protect-sensitive-documents-from-data-leakage.title": "Top 5 Data Leak Prevention Strategies for Secure PDF Document Management",
     "blog.5-pdfs-that-went-viral-for-all-the-wrong-reasons.desc": "Discover the shocking PDF security breaches that made headlines and learn how to prevent similar incidents with DocInspector's document security solutions.",
