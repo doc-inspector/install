@@ -485,5 +485,31 @@
   render();
 })();
 </script>
+
+<script>
+(async function(){
+  const grid = document.getElementById('blogGrid');
+  const repo = 'doc-inspector/install';
+  try {
+    const resp = await fetch(`https://api.github.com/repos/${repo}/contents/Public/blog`);
+    const files = await resp.json();
+    const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
+    grid.innerHTML = ''; 
+    for (const file of htmlFiles.slice(0, 15)) {
+      const fileResp = await fetch(file.download_url);
+      const html = await fileResp.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const title = doc.querySelector('title')?.innerText || file.name;
+      const desc = doc.querySelector('meta[name="description"]')?.content || '';
+      const card = document.createElement('a');
+      card.className = 'blog-card reveal';
+      card.href = `/blog/${file.name}`;
+      card.innerHTML = `<div class="blog-card-meta"><span class="blog-category">how-to</span><time>New</time></div><h3>${title}</h3><p>${desc}</p><span class="blog-read-more">Read more</span>`;
+      grid.appendChild(card);
+    }
+  } catch (e) { console.error(e); }
+})();
+</script>
+
 </body>
 </html>
