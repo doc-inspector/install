@@ -112,6 +112,17 @@
     .blog-page-info { color:#64748b; font-size:.82rem; margin:0 .5rem; }
 
     @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
+  
+    .blog-card { position: relative; }
+    .stretched-link::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+    }
+    .blog-card p, .blog-card-meta, .blog-read-more { position: relative; z-index: 2; pointer-events: none; }
+    .blog-card h3 { position: relative; z-index: 3; }
+
   </style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
@@ -186,206 +197,30 @@
 </div>
 
 <div class="blog-grid" id="blogGrid">
-    <a href="blog/pdf-security-risks-in-the-real-estate-industry.html" class="blog-card reveal" data-category="industry">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.industry">industry</span>
-        <time datetime="2026-05-11 15:51">2026-05-11 15:51</time>
-      </div>
-      <h3 data-i18n="blog.pdf-security-risks-in-the-real-estate-industry.title">The Hidden Risks of PDF Security in Real Estate: How to Protect Your Clients' Data</h3>
-      <p data-i18n="blog.pdf-security-risks-in-the-real-estate-industry.desc">Discover the PDF security risks in the real estate industry and learn how to protect your clients' data with DocInspector.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/securing-sensitive-docs-in-the-cloud.html" class="blog-card reveal" data-category="security">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.security">security</span>
-        <time datetime="2026-05-11">2026-05-11</time>
-      </div>
-      <h3 data-i18n="blog.securing-sensitive-docs-in-the-cloud.title">Prevent Data Leaks: 5 Essential Document Security Tips for Cloud Storage</h3>
-      <p data-i18n="blog.securing-sensitive-docs-in-the-cloud.desc">Protect sensitive documents in cloud storage from unauthorized access. Learn 5 essential document security tips to prevent data leaks.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
+    <div blog-card reveal>data-category="industry"></div>
+    <div blog-card reveal>data-category="security"></div>
   
     
-    <a href="blog/how-to-repair-corrupted-pdf.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-09">2026-05-09</time>
-      </div>
-      <h3 data-i18n="blog.how-to-repair-corrupted-pdf.title">How to Repair a Corrupted PDF File in Seconds</h3>
-      <p data-i18n="blog.how-to-repair-corrupted-pdf.desc">PDF won&#x27;t open? Learn how to fix corrupted PDF files using DocInspector&#x27;s batch repair tool. Works 100% offline.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/hidden-metadata-in-your-documents.html" class="blog-card reveal" data-category="security">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-        <time datetime="2026-05-10">2026-05-10</time>
-      </div>
-      <h3 data-i18n="blog.hidden-metadata-in-your-documents.title">The Hidden Data Inside Your Documents (And Why It Matters)</h3>
-      <p data-i18n="blog.hidden-metadata-in-your-documents.desc">Your PDFs and Word files contain hidden metadata that can expose personal info, edit history, and GPS locations. Here&#x27;s what to do about it.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/pdf-a-vs-regular-pdf.html" class="blog-card reveal" data-category="education">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-11">2026-05-11</time>
-      </div>
-      <h3 data-i18n="blog.pdf-a-vs-regular-pdf.title">PDF/A vs Regular PDF — When to Use Each Format</h3>
-      <p data-i18n="blog.pdf-a-vs-regular-pdf.desc">Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/5-things-you-didnt-know-about-pdfs.html" class="blog-card reveal" data-category="education">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-12">2026-05-12</time>
-      </div>
-      <h3 data-i18n="blog.5-things-you-didnt-know-about-pdfs.title">5 Things You Didn&#x27;t Know About PDF Files</h3>
-      <p data-i18n="blog.5-things-you-didnt-know-about-pdfs.desc">PDFs seem simple, but they hide surprising complexity. Here are 5 facts about PDF files that most people don&#x27;t know.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/gdpr-document-compliance.html" class="blog-card reveal" data-category="security">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-        <time datetime="2026-05-13">2026-05-13</time>
-      </div>
-      <h3 data-i18n="blog.gdpr-document-compliance.title">GDPR and Document Metadata: Are Your Files Compliant?</h3>
-      <p data-i18n="blog.gdpr-document-compliance.desc">Document metadata can contain personal data that violates GDPR. Learn how to audit and clean your documents for compliance.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/batch-watermark-pdfs.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-14">2026-05-14</time>
-      </div>
-      <h3 data-i18n="blog.batch-watermark-pdfs.title">How to Add Watermarks to Hundreds of PDFs at Once</h3>
-      <p data-i18n="blog.batch-watermark-pdfs.desc">Need to watermark an entire folder of PDFs? Here&#x27;s how to batch-watermark documents in seconds with DocInspector.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/document-security-for-lawyers.html" class="blog-card reveal" data-category="industry">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-        <time datetime="2026-05-15">2026-05-15</time>
-      </div>
-      <h3 data-i18n="blog.document-security-for-lawyers.title">Why Every Law Firm Needs a Document Inspection Tool</h3>
-      <p data-i18n="blog.document-security-for-lawyers.desc">Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/secure-file-shredding-explained.html" class="blog-card reveal" data-category="security">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-        <time datetime="2026-05-16">2026-05-16</time>
-      </div>
-      <h3 data-i18n="blog.secure-file-shredding-explained.title">Why &#x27;Delete&#x27; Doesn&#x27;t Really Delete — Secure File Shredding Explained</h3>
-      <p data-i18n="blog.secure-file-shredding-explained.desc">When you delete a file, it&#x27;s still on your drive. Learn how secure shredding works and why it matters for sensitive documents.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/excel-reports-for-document-audits.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-17">2026-05-17</time>
-      </div>
-      <h3 data-i18n="blog.excel-reports-for-document-audits.title">Generating Excel Reports for Document Audits — A Complete Guide</h3>
-      <p data-i18n="blog.excel-reports-for-document-audits.desc">Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/why-offline-document-processing.html" class="blog-card reveal" data-category="security">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-        <time datetime="2026-05-18">2026-05-18</time>
-      </div>
-      <h3 data-i18n="blog.why-offline-document-processing.title">Why Offline Document Processing Matters More Than Ever</h3>
-      <p data-i18n="blog.why-offline-document-processing.desc">Cloud tools are convenient, but they put your documents at risk. Here&#x27;s why offline processing is the smarter choice for sensitive files.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/flatten-pdf-to-image.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-19">2026-05-19</time>
-      </div>
-      <h3 data-i18n="blog.flatten-pdf-to-image.title">How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</h3>
-      <p data-i18n="blog.flatten-pdf-to-image.desc">Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/document-audit-checklist.html" class="blog-card reveal" data-category="education">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-20">2026-05-20</time>
-      </div>
-      <h3 data-i18n="blog.document-audit-checklist.title">The Complete Document Audit Checklist for 2026</h3>
-      <p data-i18n="blog.document-audit-checklist.desc">A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/protect-documents-before-sharing.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-21">2026-05-21</time>
-      </div>
-      <h3 data-i18n="blog.protect-documents-before-sharing.title">7 Steps to Protect Your Documents Before Sharing Them</h3>
-      <p data-i18n="blog.protect-documents-before-sharing.desc">Before hitting send, make sure your documents don&#x27;t leak sensitive information. Here are 7 essential steps.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/batch-processing-saves-hours.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-22">2026-05-22</time>
-      </div>
-      <h3 data-i18n="blog.batch-processing-saves-hours.title">Stop Processing Documents One by One — Batch Processing Saves Hours</h3>
-      <p data-i18n="blog.batch-processing-saves-hours.desc">If you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. Learn how batch processing transforms your workflow.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/ocr-scanned-pdfs.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-23">2026-05-23</time>
-      </div>
-      <h3 data-i18n="blog.ocr-scanned-pdfs.title">How to Make Scanned PDFs Searchable with OCR</h3>
-      <p data-i18n="blog.ocr-scanned-pdfs.desc">Scanned PDFs are just images — you can&#x27;t search or copy text from them. Learn how OCR fixes this.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/evidence-bundling-best-practices.html" class="blog-card reveal" data-category="industry">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-        <time datetime="2026-05-24">2026-05-24</time>
-      </div>
-      <h3 data-i18n="blog.evidence-bundling-best-practices.title">Evidence Bundling Best Practices for Legal Professionals</h3>
-      <p data-i18n="blog.evidence-bundling-best-practices.desc">Creating court-ready evidence bundles requires careful document preparation. Here are the best practices for 2026.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/what-is-pdf-hardening.html" class="blog-card reveal" data-category="education">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-25">2026-05-25</time>
-      </div>
-      <h3 data-i18n="blog.what-is-pdf-hardening.title">What Is PDF Hardening and When Do You Need It?</h3>
-      <p data-i18n="blog.what-is-pdf-hardening.desc">PDF hardening makes documents tamper-resistant and removes hidden threats. Learn what it means and when to use it.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/accountants-document-management.html" class="blog-card reveal" data-category="industry">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-        <time datetime="2026-05-26">2026-05-26</time>
-      </div>
-      <h3 data-i18n="blog.accountants-document-management.title">Document Management Tips for Accountants and Auditors</h3>
-      <p data-i18n="blog.accountants-document-management.desc">Accountants handle thousands of sensitive financial documents. Here&#x27;s how to manage them securely and efficiently.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/docinspector-vs-online-pdf-tools.html" class="blog-card reveal" data-category="education">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-        <time datetime="2026-05-27">2026-05-27</time>
-      </div>
-      <h3 data-i18n="blog.docinspector-vs-online-pdf-tools.title">DocInspector vs Online PDF Tools — What&#x27;s the Difference?</h3>
-      <p data-i18n="blog.docinspector-vs-online-pdf-tools.desc">Why choose a desktop tool over free online PDF services? Here&#x27;s an honest comparison.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a>
-    <a href="blog/windows-11-pdf-processing.html" class="blog-card reveal" data-category="how-to">
-      <div class="blog-card-meta">
-        <span class="blog-category" data-i18n="blog.cat.how-to">How To</span>
-        <time datetime="2026-05-28">2026-05-28</time>
-      </div>
-      <h3 data-i18n="blog.windows-11-pdf-processing.title">Setting Up DocInspector on Windows 11 — Quick Start Guide</h3>
-      <p data-i18n="blog.windows-11-pdf-processing.desc">Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.</p>
-      <span class="blog-read-more" data-i18n="blog.readMore">Read article →</span>
-    </a></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="security"></div>
+    <div blog-card reveal>data-category="education"></div>
+    <div blog-card reveal>data-category="education"></div>
+    <div blog-card reveal>data-category="security"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="industry"></div>
+    <div blog-card reveal>data-category="security"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="security"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="education"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="how-to"></div>
+    <div blog-card reveal>data-category="industry"></div>
+    <div blog-card reveal>data-category="education"></div>
+    <div blog-card reveal>data-category="industry"></div>
+    <div blog-card reveal>data-category="education"></div>
+    <div blog-card reveal>data-category="how-to"></div></div>
 
 <div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">No articles found matching your search.</div>
 
