@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://doc-inspector.com/en/index.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/index.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/index.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/index.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/index.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/index.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/price.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/price.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/preturi.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/tseny.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/price.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/preturi.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/price.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/preturi.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/tseny.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/price.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/tseny.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/price.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/preturi.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/tseny.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/price.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/user-guide.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/ghid-utilizare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/ghid-utilizare.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/ghid-utilizare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/rukovodstvo.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/ghid-utilizare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/reports.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/rapoarte-feedback.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/otchety.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/contact.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/contact.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/contact.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/contact.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/kontakty.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/kontakty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/contact.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/download.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/download.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/descarca.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/skachat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/download.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/descarca.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/download.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/descarca.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/skachat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/download.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/skachat.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/download.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/descarca.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/skachat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/download.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/privacy.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-confidentialitate.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-konfidentsialnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/politica-de-confidentialitate.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-confidentialitate.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-konfidentsialnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/politika-konfidentsialnosti.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-confidentialitate.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-konfidentsialnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/terms.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/termeni-si-conditii.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/usloviya-ispolzovaniya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/terms.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/termeni-si-conditii.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/termeni-si-conditii.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/usloviya-ispolzovaniya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/terms.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/usloviya-ispolzovaniya.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/termeni-si-conditii.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/usloviya-ispolzovaniya.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/terms.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/refund.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/refund.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-rambursare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-vozvrata.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/refund.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/politica-de-rambursare.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/refund.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-rambursare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-vozvrata.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/refund.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/politika-vozvrata.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/refund.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/politica-de-rambursare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/politika-vozvrata.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/refund.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/history.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/history.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/istoric-versiuni.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/istoriya-versiy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/history.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/istoric-versiuni.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/history.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/istoric-versiuni.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/istoriya-versiy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/history.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/istoriya-versiy.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/history.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/istoric-versiuni.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/istoriya-versiy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/history.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/thanks.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/thanks.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/multumim.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/spasibo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/thanks.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/multumim.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/thanks.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/multumim.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/spasibo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/thanks.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/spasibo.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/thanks.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/multumim.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/spasibo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/thanks.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/5-things-you-didnt-know-about-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/accountants-document-management.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/accountants-document-management.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/batch-processing-saves-hours.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-processing-saves-hours.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/batch-watermark-pdfs.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/batch-watermark-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/docinspector-vs-online-pdf-tools.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/document-audit-checklist.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/checklist-complet-pentru-auditul-documentelor-in-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/polney-cheklist-audita-dokumentov-na-2026-god.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/checklist-complet-pentru-auditul-documentelor-in-2026.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/checklist-complet-pentru-auditul-documentelor-in-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/polney-cheklist-audita-dokumentov-na-2026-god.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/polney-cheklist-audita-dokumentov-na-2026-god.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/checklist-complet-pentru-auditul-documentelor-in-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/polney-cheklist-audita-dokumentov-na-2026-god.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-audit-checklist.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/document-security-for-lawyers.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/document-security-for-lawyers.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/evidence-bundling-best-practices.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/excel-reports-for-document-audits.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/flatten-pdf-to-image.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/flatten-pdf-to-image.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/gdpr-document-compliance.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/gdpr-document-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/hidden-metadata-in-your-documents.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-repair-corrupted-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/ocr-scanned-pdfs.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-a-vs-regular-pdf.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/protect-documents-before-sharing.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/protect-documents-before-sharing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/secure-file-shredding-explained.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/secure-file-shredding-explained.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/what-is-pdf-hardening.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdf-hardening.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/why-offline-document-processing.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/why-offline-document-processing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/windows-11-pdf-processing.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/nastroyka-docinspector-na-windows-11-bestrey-start.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/nastroyka-docinspector-na-windows-11-bestrey-start.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/nastroyka-docinspector-na-windows-11-bestrey-start.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/nastroyka-docinspector-na-windows-11-bestrey-start.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/windows-11-pdf-processing.html"/>
+  </url>
+</urlset>
