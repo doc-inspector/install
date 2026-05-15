@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /thanks.html
-
-Sitemap: https://doc-inspector.com/sitemap.xml
