@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocInspector — Batch Document Repair, Audit & Hardening</title>
+  <meta name="description" content="Professional Windows desktop utility for batch PDF repair, document auditing, evidence bundling and secure reporting. 100% local processing.">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="canonical" href="https://doc-inspector.com/ro/index.html" />
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<div class="page">
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="active" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/index.html" class="lang-item" data-lang="en">EN</a>
+            <a href="index.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/index.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="hero">
+  <!-- doc-rain removed: hero-office.js canvas handles docs -->
+
+  <div class="container">
+    <div class="hero-content">
+      <!-- Text side -->
+      <div class="hero-text reveal">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero.eyebrow">Utilitar desktop profesional pentru Windows</span>
+        </div>
+        <h1 class="hero-title" data-i18n-html="hero.titleFull">
+          Procesare batch și <span class="highlight">reparare</span> simultană a sute de documente.
+        </h1>
+        <p class="hero-desc" data-i18n="hero.lead">DocInspector simplifică fluxurile de lucru complexe. Reconstruiește PDF-uri vulnerabile, întărește pachete de probe și auditează foldere întregi în formate Word, Excel și PDF – totul într-o singură rulare, păstrând structura.</p>
+        <div class="hero-buttons">
+          <a href="descarca.html" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="btn.download">Descarcă Trial 3 Zile</span>
+          </a>
+          <a href="preturi.html" class="btn btn-outline btn-lg" data-i18n="btn.pricing">Vezi Prețuri și Planuri</a>
+        </div>
+        <div class="hero-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span data-i18n="hero.footnote">Procesare 100% locală. Fără cloud. Fără AI. Conform GDPR.</span>
+        </div>
+      </div>
+
+      <!-- Visual side -->
+      <div class="hero-visual reveal-right">
+        <div class="hero-app-frame">
+          <img src="../assets/black-theme-GUI.png" alt="DocInspector interface" loading="eager">
+        </div>
+        <!-- Floating badges -->
+        <div class="hero-badge" style="top:-15px;right:-10px;">
+          <span class="badge-icon">🛡️</span> <span data-i18n="badge.offline">100% Offline</span>
+        </div>
+        <div class="hero-badge" style="bottom:20%;left:-20px;">
+          <span class="badge-icon">⚡</span> <span data-i18n="badge.batch">Batch Engine</span>
+        </div>
+        <div class="hero-badge" style="bottom:-10px;right:15%;">
+          <span class="badge-icon">📄</span> PDF · DOCX · XLSX
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ STATS STRIP ════════════════ -->
+<section class="stats-strip reveal">
+  <div class="container">
+    <div class="stats-grid stagger">
+      <div class="stat-item">
+        <div class="stat-number" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.users">Utilizatori Profesioniști</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="300000" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.docs">Documente Procesate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="15" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.formats">Formate Suportate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label" data-i18n="stat.local">Procesare Locală</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WORKFLOW PIPELINE ════════════════ -->
+<section class="workflow-section section-gap" id="workflow">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="workflow.eyebrow">Cum funcționează</span>
+      <h2 class="section-title"><span class="text-gradient" data-i18n="workflow.title">Patru pași pentru documente blindate</span></h2>
+      <p class="section-subtitle" data-i18n="workflow.subtitle">Un flux de lucru optimizat care preia folderele brute și generează pachete securizate, gata de audit.</p>
+    </div>
+
+    <div class="workflow-steps">
+      <div class="workflow-line-fill"></div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">1</span>
+          📁
+        </div>
+        <div class="step-title" data-i18n="wf.s1.title">Selectează</div>
+        <div class="step-desc" data-i18n="wf.s1.desc">Indică DocInspector spre orice arbore de foldere. Descoperă recursiv fiecare fișier PDF, Word și Excel.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">2</span>
+          🔍
+        </div>
+        <div class="step-title" data-i18n="wf.s2.title">Scanează</div>
+        <div class="step-desc" data-i18n="wf.s2.desc">Analiza profundă detectează corupția, macro-urile încorporate, fonturile și vulnerabilitățile structurale.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">3</span>
+          ⚙️
+        </div>
+        <div class="step-title" data-i18n="wf.s3.title">Procesează</div>
+        <div class="step-desc" data-i18n="wf.s3.desc">Repară, aplatizează, convertește, OCR — aplică operațiile alese într-o singură rulare batch.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">4</span>
+          ✅
+        </div>
+        <div class="step-title" data-i18n="wf.s4.title">Rezultat</div>
+        <div class="step-desc" data-i18n="wf.s4.desc">Obține fișiere securizate cu rapoarte complete de audit, păstrând structura originală a folderelor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TRUST & PRIVACY ════════════════ -->
+<section class="trust-section section-gap" id="privacy">
+  <div class="container">
+    <div class="trust-layout">
+      <!-- Shield visual -->
+      <div class="trust-visual reveal-left">
+        <div class="shield-wrap">
+          <svg class="shield-svg" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+            <path class="shield-fill" d="M60 10 L110 35 L110 75 C110 110 60 140 60 140 C60 140 10 110 10 75 L10 35 Z"/>
+            <path class="shield-body" d="M60 10 L110 35 L110 75 C110 110 60 140 60 140 C60 140 10 110 10 75 L10 35 Z"/>
+            <polyline class="shield-check" points="40,78 55,93 82,58"/>
+          </svg>
+          <div class="shield-orbit">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="shield-orbit-2">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="shield-pulse-ring"></div>
+          <div class="shield-pulse-ring"></div>
+        </div>
+      </div>
+
+      <!-- Trust content -->
+      <div class="reveal-right">
+        <div class="section-header" style="text-align:left;margin-bottom:2rem;">
+          <span class="section-eyebrow" data-i18n="privacy.eyebrow">Confidențialitate</span>
+          <h2 class="section-title text-gradient" data-i18n="privacy.title">Datele tale rămân strict locale</h2>
+          <p class="section-subtitle" style="margin:0;" data-i18n="privacy.lead">Mediile profesionale necesită integritate absolută a datelor. DocInspector se asigură că fiecare bit de informație sensibilă este procesat în întregime pe stația ta de lucru – fără apeluri externe, fără stocare în cloud, fără riscuri AI.</p>
+        </div>
+
+        <div class="trust-cards stagger">
+          <div class="trust-card">
+            <div class="trust-icon">🖥️</div>
+            <div class="trust-title" data-i18n="privacy.local.title">100% Local</div>
+            <div class="trust-desc" data-i18n="privacy.local.desc">Zero export de date către orice server extern sau furnizor de cloud.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🤖</div>
+            <div class="trust-title" data-i18n="privacy.ai.title">Fără riscuri AI</div>
+            <div class="trust-desc" data-i18n="privacy.ai.desc">Fără LLM la distanță sau procesare AI. Logica este 100% bazată pe cod.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🇪🇺</div>
+            <div class="trust-title" data-i18n="privacy.gdpr.title">Nativ GDPR</div>
+            <div class="trust-desc" data-i18n="privacy.gdpr.desc">Construit pentru a respecta cele mai înalte standarde europene de protecție a datelor.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🔒</div>
+            <div class="trust-title" data-i18n="privacy.airgap.title">Gata pentru Air-Gap</div>
+            <div class="trust-desc" data-i18n="privacy.airgap.desc">Funcționează perfect în rețele restricționate de înaltă securitate.</div>
+          </div>
+        </div>
+
+        <a href="politica-de-confidentialitate.html" class="btn btn-outline mt-3" data-i18n="privacy.btn">Citește Politica de Confidențialitate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FEATURES ════════════════ -->
+<section class="features-section section-gap" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="modules.eyebrow">Module Principale</span>
+      <h2 class="section-title"><span class="text-gradient" data-i18n="modules.title">Capabilități Tehnice</span></h2>
+      <p class="section-subtitle" data-i18n="modules.subtitle">O suită completă pentru normalizarea, auditarea și raportarea securizată a documentelor.</p>
+    </div>
+
+    <div class="features-grid stagger">
+      <!-- Card 1: PDF Repair -->
+      <div class="feature-card">
+        <div class="feature-icon">🛠️</div>
+        <div class="feature-title" data-i18n="module.pdf.title">Reparare și Întărire PDF</div>
+        <div class="feature-desc" data-i18n="module.pdf.tagline">Curăță, normalizează și blochează documentele riscante înainte de arhivare.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> <span data-i18n="module.pdf.f1.name">Reconstrucție + OCR</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.pdf.f2.name">Conversie Office în PDF</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.pdf.f3.name">Aplatizare Imagine</span></li>
+        </ul>
+        <a href="ghid-utilizare.html" class="card-link" data-i18n="btn.learnMore">Află mai multe</a>
+      </div>
+
+      <!-- Card 2: Reporting -->
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title" data-i18n="module.reporting.title">Raportare și Evidență</div>
+        <div class="feature-desc" data-i18n="module.reporting.tagline">Construiește rezumate de pachete detaliate pentru audituri și dosare.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> <span data-i18n="module.reporting.f1.name">Rezumat Pachet</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.reporting.f2.name">Verificare Hash</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.reporting.f3.name">Export Excel</span></li>
+        </ul>
+        <a href="ghid-utilizare.html" class="card-link" data-i18n="btn.learnMore">Află mai multe</a>
+      </div>
+
+      <!-- Card 3: Audit -->
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <div class="feature-title" data-i18n="module.audit.title">Motor de Audit</div>
+        <div class="feature-desc" data-i18n="module.audit.tagline">Inspectează fiecare fișier pentru integritate, conformitate și calitate structurală.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> <span data-i18n="module.audit.f1.name">Analiză Metadate</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.audit.f2.name">Verificare Fonturi</span></li>
+          <li><span class="check-icon">✓</span> <span data-i18n="module.audit.f3.name">Detectare Macro-uri</span></li>
+        </ul>
+        <a href="ghid-utilizare.html" class="card-link" data-i18n="btn.learnMore">Află mai multe</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SCREENSHOT SHOWCASE ════════════════ -->
+<section class="showcase-section section-gap" id="showcase">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">App Preview</span>
+      <h2 class="section-title"><span class="text-gradient">See It In Action</span></h2>
+      <p class="section-subtitle">Explore the professional interface with dark and light themes, advanced options, and the processing pipeline.</p>
+    </div>
+
+    <div class="showcase-container reveal-scale">
+      <div class="showcase-tabs">
+        <button class="showcase-tab active">Dark Theme</button>
+        <button class="showcase-tab">Light Theme</button>
+        <button class="showcase-tab">Pipeline</button>
+        <button class="showcase-tab">Options</button>
+      </div>
+
+      <div class="showcase-frame">
+        <div class="showcase-panel active">
+          <div class="showcase-img-wrap">
+            <img src="../assets/black-theme-GUI.png" alt="Dark theme interface" loading="lazy">
+          </div>
+        </div>
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/white-theme-GUI.png" alt="Light theme interface" loading="lazy">
+          </div>
+        </div>
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/pipeline-preview.png" alt="Pipeline view" loading="lazy">
+          </div>
+        </div>
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/options-preview.png" alt="Options panel" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-dots">
+        <button class="slide-dot active"></button>
+        <button class="slide-dot"></button>
+        <button class="slide-dot"></button>
+        <button class="slide-dot"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ HORIZONTAL SCROLL CARDS ════════════════ -->
+<section class="hscroll-section section-gap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="section.why.eyebrow">Why DocInspector</span>
+      <h2 class="section-title" data-i18n-html="section.why.title"><span class="text-gradient">Built for Professionals</span></h2>
+    </div>
+  </div>
+  <div class="hscroll-track">
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🏢</div>
+      <div class="hscroll-title" data-i18n="hscroll.enterprise.title">Enterprise Ready</div>
+      <div class="hscroll-desc" data-i18n="hscroll.enterprise.desc">Handles thousands of files per run with minimal resource consumption. Built for workstation-grade performance.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">📁</div>
+      <div class="hscroll-title" data-i18n="hscroll.structure.title">Structure Preservation</div>
+      <div class="hscroll-desc" data-i18n="hscroll.structure.desc">Output mirrors your input folder hierarchy perfectly. No manual reorganization needed.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🔄</div>
+      <div class="hscroll-title" data-i18n="hscroll.batch.title">Batch Everything</div>
+      <div class="hscroll-desc" data-i18n="hscroll.batch.desc">Convert, repair, flatten, and audit all at once. Set your options, hit run, walk away.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">📋</div>
+      <div class="hscroll-title" data-i18n="hscroll.logs.title">Detailed Logs</div>
+      <div class="hscroll-desc" data-i18n="hscroll.logs.desc">Get verifiable XLSX audit logs and hashing for every batch. Perfect for chain-of-custody.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🔐</div>
+      <div class="hscroll-title" data-i18n="hscroll.evidence.title">Evidence Grade</div>
+      <div class="hscroll-desc" data-i18n="hscroll.evidence.desc">SHA-256 hash verification, timestamp logging, and chain-of-custody support for legal workflows.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🌐</div>
+      <div class="hscroll-title">Multi-Language</div>
+      <div class="hscroll-desc">Interface available in English, Romanian, and Russian. More languages planned.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA ════════════════ -->
+<section class="cta-section section-gap" id="cta">
+  <div class="cta-glow"></div>
+  <div class="container reveal">
+    <h2 class="cta-title text-gradient" data-i18n="cta.title">Gata să-ți securizezi documentele?</h2>
+    <p class="cta-subtitle" data-i18n="cta.subtitle">Descarcă versiunea trial gratuită de 3 zile. Fără înregistrare, fără card de credit. Doar instalează și începe.</p>
+    <div class="hero-buttons" style="justify-content:center;">
+      <a href="descarca.html" class="btn btn-primary btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="btn.download">Descarcă Trial 3 Zile</span>
+      </a>
+      <a href="preturi.html" class="btn btn-outline btn-lg" data-i18n="btn.pricing">Vezi Prețuri și Planuri</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie banner injected by i18n.js -->
+
+</div><!-- .page -->
+
+<!-- Scripts -->
+
+<script src="../cookies.js"></script>
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" class="lightbox-overlay">
+  <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next">&#8250;</button>
+    <img class="lightbox-img" src="" alt="Showcase preview">
+  </div>
+</div>
+
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+<script src="../hero-office.js?v=6"></script>
+</body>
+</html>

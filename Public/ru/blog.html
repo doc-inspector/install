@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — DocInspector</title>
+  <meta name="description" content="Советы, руководства и аналитика по безопасности документов, восстановлению PDF и пакетной обработке." />
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <style>
+    .blog-bg-grid {
+      position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;
+      background-image:linear-gradient(rgba(6,182,212,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.04) 1px,transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%);
+      -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%);
+    }
+    .blog-bg-glow {
+      position:fixed;top:-20%;left:50%;transform:translateX(-50%);
+      width:800px;height:500px;
+      background:radial-gradient(ellipse,rgba(6,182,212,.08) 0%,transparent 60%);
+      pointer-events:none;z-index:0;
+    }
+    .blog-hero { text-align:center;padding:8rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-hero h1 { font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,#fff 0%,#67e8f9 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem; }
+    .blog-hero p { color:#94a3b8;font-size:1.1rem;max-width:600px;margin:0 auto; }
+    .blog-search-wrap { max-width:480px;margin:1.5rem auto 0;position:relative; }
+    .blog-search { width:100%;padding:.7rem 1rem .7rem 2.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;color:#e2e8f0;font-size:.92rem;outline:none;transition:all .2s; }
+    .blog-search:focus { border-color:rgba(6,182,212,.4);background:rgba(255,255,255,.06);box-shadow:0 0 20px rgba(6,182,212,.1); }
+    .blog-search::placeholder { color:#64748b; }
+    .blog-search-icon { position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none; }
+    .blog-filter { display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1.5rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-filter-btn { background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:.45rem 1rem;border-radius:999px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif; }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-card { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:1rem;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:flex;flex-direction:column; }
+    .blog-card:hover { background:rgba(6,182,212,.06);border-color:rgba(6,182,212,.2);transform:translateY(-2px); }
+    .blog-card.hidden { display:none; }
+    .blog-card-meta { display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:.82rem;color:#64748b; }
+    .blog-category { background:rgba(6,182,212,.15);color:#67e8f9;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em; }
+    .blog-card h3 { font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:#f1f5f9;margin-bottom:.5rem;line-height:1.3; }
+    .blog-card h3 a { color:inherit;text-decoration:none; }
+    .blog-card h3 a:hover { color:#67e8f9; }
+    .blog-card p { font-size:.92rem;color:#94a3b8;line-height:1.55;flex:1;margin-bottom:.8rem; }
+    .blog-read-more { font-size:.88rem;color:#67e8f9;font-weight:600;text-decoration:none;margin-top:auto;display:inline-block; }
+    .blog-no-results { display:none;text-align:center;padding:3rem 1rem;color:#64748b;font-size:1rem;position:relative;z-index:1; }
+    .blog-no-results.show { display:block; }
+    .blog-pagination { display:flex;justify-content:center;align-items:center;gap:.5rem;padding:2rem 1.5rem 4rem;position:relative;z-index:1; }
+    .blog-page-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#94a3b8;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s; }
+    .blog-page-btn:hover { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-page-btn.active { background:rgba(6,182,212,.2);border-color:rgba(6,182,212,.4);color:#67e8f9; }
+    .blog-page-btn.disabled { opacity:.3;pointer-events:none; }
+    .blog-page-info { color:#64748b;font-size:.82rem;margin:0 .5rem; }
+    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
+  </style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<div class="page">
+<div id="progress-bar"></div>
+<div class="blog-bg-grid"></div>
+<div class="blog-bg-glow"></div>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="tseny.html" data-i18n="nav.price">Цены</a>
+        <a href="rukovodstvo.html" data-i18n="nav.guide">Руководство</a>
+        <a href="otchety.html" data-i18n="nav.reports">Отчёты &amp; Отзывы</a>
+        <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="kontakty.html" data-i18n="nav.contact">Контакты</a>
+        <a href="skachat.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RU</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/blog.html" class="lang-item active" data-lang="ru">EN</a>
+            <a href="../ro/blog.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/blog.html" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="skachat.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="blog-hero">
+  <h1 data-i18n="blog.pageTitle">Blog</h1>
+  <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
+  <div class="blog-search-wrap">
+    <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" class="blog-search" id="blogSearch" placeholder="Поиск статей..." data-i18n-placeholder="blog.searchPlaceholder">
+  </div>
+</div>
+
+<div class="blog-filter">
+  <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filterAll">All</button>
+  <button class="blog-filter-btn" data-filter="how-to" data-i18n="blog.cat.how-to">How-To</button>
+  <button class="blog-filter-btn" data-filter="security" data-i18n="blog.cat.security">Security</button>
+  <button class="blog-filter-btn" data-filter="education" data-i18n="blog.cat.education">Education</button>
+  <button class="blog-filter-btn" data-filter="industry" data-i18n="blog.cat.industry">Industry</button>
+</div>
+
+<div class="blog-grid" id="blogGrid">
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-09">2026-05-09</time></div>
+    <h3><a href="blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html">Как Восстановить Повреждённый PDF-Файл за Несколько Секунд</a></h3>
+    <p>PDF не открывается? Узнайте, как исправить повреждённые PDF-файлы с помощью инструмента пакетного восстановления DocInspector. Работает полностью офлайн.</p>
+    <a href="blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.security">Безопасность</span><time datetime="2026-05-10">2026-05-10</time></div>
+    <h3><a href="blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html">Скрытые Данные в Ваших Документах (И Почему Это Важно)</a></h3>
+    <p>Ваши PDF и Word-файлы содержат скрытые метаданные, которые могут раскрыть личную информацию, историю правок и GPS-координаты.</p>
+    <a href="blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.education">Образование</span><time datetime="2026-05-11">2026-05-11</time></div>
+    <h3><a href="blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html">PDF/A vs Обычный PDF — Когда Использовать Каждый Формат</a></h3>
+    <p>Не все PDF одинаковы. Узнайте разницу между PDF/A и стандартным PDF и когда использовать каждый формат.</p>
+    <a href="blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.education">Образование</span><time datetime="2026-05-12">2026-05-12</time></div>
+    <h3><a href="blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html">5 Вещей, Которые Вы Не Знали о PDF-Файлах</a></h3>
+    <p>PDF кажется простым, но скрывает удивительную сложность. Вот 5 фактов о PDF-файлах, которые большинство не знает.</p>
+    <a href="blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.security">Безопасность</span><time datetime="2026-05-13">2026-05-13</time></div>
+    <h3><a href="blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html">GDPR и Метаданные Документов: Соответствуют ли Ваши Файлы?</a></h3>
+    <p>Метаданные документов могут содержать персональные данные, нарушающие GDPR. Узнайте, как проверить и очистить документы.</p>
+    <a href="blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-14">2026-05-14</time></div>
+    <h3><a href="blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html">Как Добавить Водяные Знаки на Сотни PDF Сразу</a></h3>
+    <p>Нужно добавить водяные знаки на целую папку с PDF? Узнайте, как пакетно обработать документы за секунды с DocInspector.</p>
+    <a href="blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.industry">Индустрия</span><time datetime="2026-05-15">2026-05-15</time></div>
+    <h3><a href="blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html">Почему Каждой Юридической Фирме Нужен Инструмент Инспекции Документов</a></h3>
+    <p>Юридические документы скрывают риски. Узнайте, почему инспекция документов необходима для юридических фирм.</p>
+    <a href="blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.security">Безопасность</span><time datetime="2026-05-16">2026-05-16</time></div>
+    <h3><a href="blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html">Почему «Delete» Не Удаляет По-Настоящему — Безопасное Уничтожение Файлов</a></h3>
+    <p>Когда вы удаляете файл, он остаётся на диске. Узнайте, как работает безопасное уничтожение и почему это важно.</p>
+    <a href="blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-17">2026-05-17</time></div>
+    <h3><a href="blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html">Генерация Excel-Отчётов для Аудита Документов — Полное Руководство</a></h3>
+    <p>Узнайте, как DocInspector генерирует подробные Excel-отчёты для аудита папок с анализом метаданных каждого документа.</p>
+    <a href="blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.security">Безопасность</span><time datetime="2026-05-18">2026-05-18</time></div>
+    <h3><a href="blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html">Почему Офлайн-Обработка Документов Важнее, Чем Когда-Либо</a></h3>
+    <p>Облачные инструменты удобны, но подвергают ваши документы риску. Вот почему офлайн-обработка — более разумный выбор.</p>
+    <a href="blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3><a href="blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html">Как Сжать PDF до Формата Только Изображений (И Зачем)</a></h3>
+    <p>Сжатие PDF до формата только изображений удаляет скрытый контент и обеспечивает WYSIWYG. Узнайте, когда и как это использовать.</p>
+    <a href="blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.education">Образование</span><time datetime="2026-05-20">2026-05-20</time></div>
+    <h3><a href="blog/polney-cheklist-audita-dokumentov-na-2026-god.html">Полный Чеклист Аудита Документов на 2026 Год</a></h3>
+    <p>Практический чеклист для аудита безопасности документов в вашей организации. Охватывает метаданные, контроль доступа и соответствие.</p>
+    <a href="blog/polney-cheklist-audita-dokumentov-na-2026-god.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-21">2026-05-21</time></div>
+    <h3><a href="blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html">7 Шагов для Защиты Документов Перед Отправкой</a></h3>
+    <p>Прежде чем отправить, убедитесь, что ваши документы не раскрывают конфиденциальную информацию. Вот 7 ключевых шагов.</p>
+    <a href="blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-22">2026-05-22</time></div>
+    <h3><a href="blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html">Хватит Обрабатывать Документы По Одному — Пакетная Обработка Экономит Часы</a></h3>
+    <p>Если вы всё ещё обрабатываете документы по отдельности, вы тратите часы каждую неделю. Узнайте, как пакетная обработка трансформирует рабочий процесс.</p>
+    <a href="blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-23">2026-05-23</time></div>
+    <h3><a href="blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html">Как Сделать Отсканированные PDF Доступными для Поиска с OCR</a></h3>
+    <p>Отсканированные PDF — это просто изображения, в них нельзя искать или копировать текст. Узнайте, как OCR решает эту проблему.</p>
+    <a href="blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.industry">Индустрия</span><time datetime="2026-05-24">2026-05-24</time></div>
+    <h3><a href="blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html">Лучшие Практики Комплектования Доказательств для Юристов</a></h3>
+    <p>Создание пакетов доказательств, готовых к суду, требует тщательной подготовки документов. Вот лучшие практики на 2026 год.</p>
+    <a href="blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.education">Образование</span><time datetime="2026-05-25">2026-05-25</time></div>
+    <h3><a href="blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html">Что Такое PDF Hardening и Когда Он Нужен?</a></h3>
+    <p>PDF hardening делает документы устойчивыми к изменениям и удаляет скрытые угрозы. Узнайте, что это значит и когда использовать.</p>
+    <a href="blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.industry">Индустрия</span><time datetime="2026-05-26">2026-05-26</time></div>
+    <h3><a href="blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html">Советы по Управлению Документами для Бухгалтеров и Аудиторов</a></h3>
+    <p>Бухгалтеры работают с тысячами конфиденциальных финансовых документов. Вот как управлять ими безопасно и эффективно.</p>
+    <a href="blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.education">Образование</span><time datetime="2026-05-27">2026-05-27</time></div>
+    <h3><a href="blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html">DocInspector vs Онлайн PDF-Инструменты — В Чём Разница?</a></h3>
+    <p>Зачем выбирать настольный инструмент вместо бесплатных онлайн-сервисов PDF? Вот честное сравнение.</p>
+    <a href="blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta"><span class="blog-category" data-i18n="blog.cat.how-to">Как сделать</span><time datetime="2026-05-28">2026-05-28</time></div>
+    <h3><a href="blog/nastroyka-docinspector-na-windows-11-bestrey-start.html">Настройка DocInspector на Windows 11 — Быстрый Старт</a></h3>
+    <p>Запустите DocInspector на Windows 11 менее чем за 2 минуты. Скачайте, установите и обработайте первый пакет.</p>
+    <a href="blog/nastroyka-docinspector-na-windows-11-bestrey-start.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью &rarr;</a>
+  </div>
+</div>
+
+<div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">Статьи не найдены.</div>
+<div class="blog-pagination" id="blogPagination"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="konfidentsialnost.html" data-i18n="footer.privacy">Конфиденциальность</a>
+        <a href="usloviya.html" data-i18n="footer.terms">Условия</a>
+        <a href="vozvrat.html" data-i18n="footer.refund">Возврат</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="../cookies.js"></script>
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+<script>
+(function(){
+  var PER_PAGE=20, grid=document.getElementById('blogGrid'), searchInput=document.getElementById('blogSearch'),
+      noResults=document.getElementById('blogNoResults'), pagination=document.getElementById('blogPagination'),
+      allCards=Array.from(grid.querySelectorAll('.blog-card')), currentFilter='all', currentSearch='', currentPage=1;
+  function getFiltered(){
+    return allCards.filter(function(c){
+      var cat=c.dataset.category||'', matchCat=currentFilter==='all'||cat===currentFilter;
+      if(!matchCat) return false;
+      if(!currentSearch) return true;
+      var txt=(c.querySelector('h3')||{textContent:''}).textContent+' '+(c.querySelector('p')||{textContent:''}).textContent;
+      return txt.toLowerCase().indexOf(currentSearch.toLowerCase())!==-1;
+    });
+  }
+  function render(){
+    var f=getFiltered(), total=f.length, pages=Math.max(1,Math.ceil(total/PER_PAGE));
+    if(currentPage>pages) currentPage=pages;
+    var s=(currentPage-1)*PER_PAGE;
+    allCards.forEach(function(c){c.classList.add('hidden');});
+    f.slice(s,s+PER_PAGE).forEach(function(c){c.classList.remove('hidden');});
+    noResults.classList.toggle('show',total===0);
+    renderPag(pages,total);
+  }
+  function renderPag(pages,total){
+    pagination.innerHTML='';
+    if(pages<=1) return;
+    var prev=document.createElement('button'); prev.className='blog-page-btn'+(currentPage<=1?' disabled':''); prev.innerHTML='←';
+    prev.onclick=function(){if(currentPage>1){currentPage--;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(prev);
+    for(var i=1;i<=pages;i++){var b=document.createElement('button');b.className='blog-page-btn'+(i===currentPage?' active':'');b.textContent=i;b.dataset.page=i;b.onclick=function(){currentPage=parseInt(this.dataset.page);render();scrollTo({top:0,behavior:'smooth'});};pagination.appendChild(b);}
+    var next=document.createElement('button'); next.className='blog-page-btn'+(currentPage>=pages?' disabled':''); next.innerHTML='→';
+    next.onclick=function(){if(currentPage<pages){currentPage++;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(next);
+    var info=document.createElement('span'); info.className='blog-page-info'; info.textContent=total+' articles'; pagination.appendChild(info);
+  }
+  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active'); currentFilter=btn.dataset.filter; currentPage=1; render();
+    });
+  });
+  var t; searchInput.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){currentSearch=searchInput.value.trim();currentPage=1;render();},250);});
+  render();
+})();
+</script>
+</body>
+</html>
