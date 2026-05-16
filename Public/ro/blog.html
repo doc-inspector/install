@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - DocInspector</title>
+  <link rel="stylesheet" href="../style.css?v=11">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .blog-bg-grid { position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0; background-image:linear-gradient(rgba(6,182,212,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.04) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); }
+    .blog-bg-glow { position:fixed;top:-20%;left:50%;transform:translateX(-50%); width:800px;height:500px; background:radial-gradient(ellipse,rgba(6,182,212,.08) 0%,transparent 60%); pointer-events:none;z-index:0; }
+    .blog-hero { text-align:center;padding:8rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-hero h1 { font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,#fff 0%,#67e8f9 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem; }
+    .blog-hero p { color:#94a3b8;font-size:1.1rem;max-width:600px;margin:0 auto; }
+    .blog-search-wrap { max-width:480px;margin:1.5rem auto 0;position:relative; }
+    .blog-search { width:100%;padding:.7rem 1rem .7rem 2.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;color:#e2e8f0;font-size:.92rem;outline:none;transition:all .2s; }
+    .blog-search:focus { border-color:rgba(6,182,212,.4);background:rgba(255,255,255,.06);box-shadow:0 0 20px rgba(6,182,212,.1); }
+    .blog-search::placeholder { color:#64748b; }
+    .blog-search-icon { position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none; }
+    .blog-filter { display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1.5rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-filter-btn { background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:.45rem 1rem;border-radius:999px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif; }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-card { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:1rem;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:flex;flex-direction:column; }
+    .blog-card:hover { background:rgba(6,182,212,.06);border-color:rgba(6,182,212,.2);transform:translateY(-2px); }
+    .blog-card.hidden { display:none; }
+    .blog-card-meta { display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:.82rem;color:#64748b; }
+    .blog-category { background:rgba(6,182,212,.15);color:#67e8f9;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em; }
+    .blog-card h3 { font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:#f1f5f9;margin-bottom:.5rem;line-height:1.3; }
+    .blog-card p { font-size:.92rem;color:#94a3b8;line-height:1.55;flex:1;margin-bottom:.8rem; }
+    .blog-read-more { font-size:.88rem;color:#67e8f9;font-weight:600;text-decoration:none;margin-top:auto;display:inline-block; }
+    .blog-no-results { display:none;text-align:center;padding:3rem 1rem;color:#64748b;font-size:1rem;position:relative;z-index:1; }
+    .blog-no-results.show { display:block; }
+    .blog-pagination { display:flex;justify-content:center;align-items:center;gap:.5rem;padding:2rem 1.5rem 4rem;position:relative;z-index:1; }
+    .blog-page-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#94a3b8;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s; }
+    .blog-page-btn:hover { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-page-btn.active { background:rgba(6,182,212,.2);border-color:rgba(6,182,212,.4);color:#67e8f9; }
+    .blog-page-btn.disabled { opacity:.3;pointer-events:none; }
+    .blog-page-info { color:#64748b;font-size:.82rem;margin:0 .5rem; }
+    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
+  </style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<div class="blog-bg-grid"></div>
+<div class="blog-bg-glow"></div>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/blog.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../ro/blog.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/blog.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="blog-hero">
+  <h1 data-i18n="blog.pageTitle">Blog</h1>
+  <p data-i18n="blog.pageSubtitle">Sfaturi, ghiduri și perspective despre securitatea documentelor</p>
+  <div class="blog-search-wrap">
+    <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" class="blog-search" id="blogSearch" placeholder="Search articles..." data-i18n-placeholder="blog.searchPlaceholder">
+  </div>
+</div>
+<div class="blog-filter">
+  <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filterAll">Toate</button>
+  <button class="blog-filter-btn" data-filter="how-to" data-i18n="blog.cat.how-to">Cum se face</button>
+  <button class="blog-filter-btn" data-filter="security" data-i18n="blog.cat.security">Securitate</button>
+  <button class="blog-filter-btn" data-filter="education" data-i18n="blog.cat.education">Educație</button>
+  <button class="blog-filter-btn" data-filter="industry" data-i18n="blog.cat.industry">Industrie</button>
+</div>
+<div class="blog-grid" id="blogGrid">  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html">Configurarea DocInspector pe Windows 11 — ghid rapid</a></h3>
+    <p>Pune DocInspector în funcțiune pe Windows 11 în sub 2 minute.</p>
+    <a href="blog/configurarea-docinspector-pe-windows-11-ghid-rapid.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/document-hardening-vs-encryption.html">Document hardening vs encryption: diferența pe care trebuie să o știe fiecare manager</a></h3>
+    <p>Encryption protejează accesul; hardening reduce riscul structural al fișierului. Nu sunt același lucru.</p>
+    <a href="blog/document-hardening-vs-encryption.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/ocr-quality-basics.html">De ce OCR-ul greșește: calitatea scanării, fonturi, rotație și contrast</a></h3>
+    <p>Un ghid simplu despre factorii care influențează rezultatul OCR într-un PDF scanat.</p>
+    <a href="blog/ocr-quality-basics.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/batch-processing-roi.html">Procesare batch vs muncă manuală: cum calculezi timpul pierdut pe documente</a></h3>
+    <p>O metodă simplă pentru a estima câte ore consumă conversia, watermark-ul, OCR-ul și verificarea manuală.</p>
+    <a href="blog/batch-processing-roi.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/folder-evidence-report-explained.html">Ce este un Folder Evidence Report și de ce ajută la audit</a></h3>
+    <p>Explicație simplă despre rapoartele care arată ce fișiere există într-o structură de foldere.</p>
+    <a href="blog/folder-evidence-report-explained.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/secure-watermarking-strategy.html">Watermark corect: când, unde și cum marchezi documentele sensibile</a></h3>
+    <p>Nu orice watermark este util. Contează textul, poziția, vizibilitatea și aplicarea consistentă în batch.</p>
+    <a href="blog/secure-watermarking-strategy.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/before-sending-pdf-to-client.html">Înainte să trimiți un PDF clientului: 12 lucruri de verificat</a></h3>
+    <p>Un checklist practic pentru documente finale, contracte, rapoarte, propuneri și pachete de livrare.</p>
+    <a href="blog/before-sending-pdf-to-client.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/document-audit-workflow-for-teams.html">Cum construiești un workflow de audit documentar pentru echipă</a></h3>
+    <p>Pași concreți pentru ca verificarea documentelor să nu depindă de memoria fiecărui angajat.</p>
+    <a href="blog/document-audit-workflow-for-teams.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/metadata-cleaning-vs-redaction.html">Metadata cleaning vs redaction: două operațiuni diferite, ambele importante</a></h3>
+    <p>Redaction ascunde conținut vizibil; metadata cleaning elimină informații interne invizibile la prima vedere.</p>
+    <a href="blog/metadata-cleaning-vs-redaction.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/long-term-document-archive-preparation.html">Pregătirea documentelor pentru arhivare pe termen lung</a></h3>
+    <p>Cum eviți arhive digitale greu de căutat, pline de fișiere corupte, duplicate sau prost scanate.</p>
+    <a href="blog/long-term-document-archive-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/privacy-first-document-workflow-small-business.html">Privacy-first document workflow pentru firme mici</a></h3>
+    <p>Un model simplu pentru companii care nu au departament mare de compliance, dar lucrează cu date sensibile.</p>
+    <a href="blog/privacy-first-document-workflow-small-business.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html">DocInspector vs tool-uri PDF online — care e diferența?</a></h3>
+    <p>De ce să alegi un tool desktop în loc de servicii PDF gratuite online? O comparație onestă.</p>
+    <a href="blog/docinspector-vs-tool-uri-pdf-online-care-e-diferenta.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Industrie</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/bank-loan-file-standardization.html">Dosare bancare de credit: standardizare rapidă pentru PDF-uri, scanări și formulare</a></h3>
+    <p>Cum pot echipele bancare să pregătească dosare mai curate pentru analiză, arhivare și audit.</p>
+    <a href="blog/bank-loan-file-standardization.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/government-archive-digitization.html">Digitalizarea arhivelor publice: cum controlezi mii de scanări fără cloud</a></h3>
+    <p>Un flux pentru instituții care transformă arhive fizice în documente digitale căutabile și verificabile.</p>
+    <a href="blog/government-archive-digitization.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/telecom-contract-document-audit.html">Telecom și contracte client: audit rapid pentru mii de PDF-uri operaționale</a></h3>
+    <p>Cum ajută procesarea batch la controlul contractelor, anexelor, cererilor și formularelor semnate.</p>
+    <a href="blog/telecom-contract-document-audit.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/university-student-records.html">Universități și dosare studențești: documente curate pentru arhivă și verificări</a></h3>
+    <p>Un workflow pentru adeverințe, cereri, contracte de studii și documente scanate ale studenților.</p>
+    <a href="blog/university-student-records.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/logistics-customs-document-workflow.html">Logistică și vamă: cum pregătești facturi, CMR-uri și declarații în PDF</a></h3>
+    <p>Un proces pentru documente de transport scanate, facturi comerciale și pachete de export/import.</p>
+    <a href="blog/logistics-customs-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/energy-utility-compliance-records.html">Energie și utilități: arhive tehnice pregătite pentru compliance</a></h3>
+    <p>Cum organizezi rapoarte, certificate, procese-verbale și documente tehnice în loturi verificabile.</p>
+    <a href="blog/energy-utility-compliance-records.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/manufacturing-quality-document-control.html">Manufacturing quality: controlul documentelor pentru certificate, fișe și rapoarte</a></h3>
+    <p>Cum standardizezi documentele de calitate înainte de audit ISO, client sau furnizor.</p>
+    <a href="blog/manufacturing-quality-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/nonprofit-grant-reporting-documents.html">ONG-uri și granturi: pregătirea documentelor pentru finanțatori și audit</a></h3>
+    <p>Cum organizezi contracte, facturi, rapoarte narative și dovezi într-un pachet verificabil.</p>
+    <a href="blog/nonprofit-grant-reporting-documents.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/recruitment-candidate-file-privacy.html">Agenții de recrutare: protecția CV-urilor și dosarelor de candidați</a></h3>
+    <p>Cum gestionezi CV-uri, acte, recomandări și formulare fără să expui metadata sau date personale inutile.</p>
+    <a href="blog/recruitment-candidate-file-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/franchise-branch-document-standards.html">Francize și rețele cu multe filiale: un standard unic pentru documente</a></h3>
+    <p>Cum reduci haosul documentar între birouri, sucursale și echipe locale.</p>
+    <a href="blog/franchise-branch-document-standards.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Industrie</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html">Sfaturi de gestionare a documentelor pentru contabili și auditori</a></h3>
+    <p>Contabilii gestionează mii de documente financiare sensibile. Iată cum să le gestionezi sigur.</p>
+    <a href="blog/sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/zero-trust-document-workflow.html">Zero Trust pentru documente: nu trimite niciun PDF fără verificare locală</a></h3>
+    <p>Cum aplici principiile Zero Trust în fluxul de lucru cu PDF, Word și Excel înainte de trimitere.</p>
+    <a href="blog/zero-trust-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/client-email-document-checklist.html">Checklist de securitate înainte să trimiți documente pe email</a></h3>
+    <p>Un flux simplu pentru firme care trimit contracte, rapoarte, facturi sau dosare sensibile prin email.</p>
+    <a href="blog/client-email-document-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/malicious-pdf-risk-surface.html">Suprafața de risc a unui PDF: linkuri, scripturi, atașamente și obiecte ascunse</a></h3>
+    <p>De ce un PDF trebuie inspectat structural, nu doar deschis într-un viewer.</p>
+    <a href="blog/malicious-pdf-risk-surface.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/offline-ocr-confidential-scans.html">OCR offline pentru documente confidențiale: când cloud-ul nu este o opțiune</a></h3>
+    <p>Cum transformi scanările în PDF-uri căutabile fără să expui contracte, acte sau dosare către servicii externe.</p>
+    <a href="blog/offline-ocr-confidential-scans.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/chain-of-custody-cleaned-pdfs.html">Chain of custody pentru PDF-uri curățate: cum păstrezi dovada procesării</a></h3>
+    <p>De ce rapoartele și hash-urile sunt importante atunci când cureți sau reconstruiești documente sensibile.</p>
+    <a href="blog/chain-of-custody-cleaned-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/tender-document-metadata-removal.html">Eliminarea metadata înainte de licitații: protejează identitatea și strategia companiei</a></h3>
+    <p>Cum pregătești documentele pentru tender fără să expui nume interne, versiuni și comentarii.</p>
+    <a href="blog/tender-document-metadata-removal.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/executive-board-pack-security.html">Board pack security: cum protejezi documentele pentru management și investitori</a></h3>
+    <p>Pregătirea pachetelor PDF pentru board meetings, investitori și acționari fără scurgeri accidentale.</p>
+    <a href="blog/executive-board-pack-security.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/document-triage-after-data-incident.html">Triage documentar după un incident de date: ce verifici în primele ore</a></h3>
+    <p>Un plan practic pentru identificarea rapidă a documentelor afectate după o posibilă scurgere de date.</p>
+    <a href="blog/document-triage-after-data-incident.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/vendor-file-risk-review.html">Fișiere primite de la furnizori: verificare locală înainte de import în companie</a></h3>
+    <p>Cum reduci riscul operațional când primești PDF-uri, scanări și documente Office de la terți.</p>
+    <a href="blog/vendor-file-risk-review.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/secure-document-export-policy.html">Politică de export securizat pentru documente: reguli simple pentru echipe mici</a></h3>
+    <p>Cum definești un standard intern pentru PDF-uri, rapoarte, watermark și audit înainte de export.</p>
+    <a href="blog/secure-document-export-policy.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html">Ce este PDF Hardening și când ai nevoie de el?</a></h3>
+    <p>PDF hardening face documentele rezistente la modificări și elimină amenințări ascunse.</p>
+    <a href="blog/ce-este-pdf-hardening-si-cand-ai-nevoie-de-el.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/document-metadata-leaks.html">Metadatele ascunse din documente: cum apar scurgerile de date fără hacking</a></h3>
+    <p>Un ghid practic despre autor, istoric de editare, comentarii și date EXIF care pot expune informații sensibile.</p>
+    <a href="blog/document-metadata-leaks.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/offline-pdf-processing-security.html">De ce procesarea offline a PDF-urilor este mai sigură decât tool-urile online</a></h3>
+    <p>Explică riscurile încărcării documentelor sensibile în servicii cloud gratuite și alternativa locală.</p>
+    <a href="blog/offline-pdf-processing-security.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/secure-file-shredding-audit-log.html">Ștergere securizată cu audit log: când simplul Delete nu este suficient</a></h3>
+    <p>Arată de ce ștergerea standard nu oferă dovadă operațională și cum ajută un log verificabil.</p>
+    <a href="blog/secure-file-shredding-audit-log.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/gdpr-document-metadata-checklist.html">GDPR și metadata documentelor: checklist rapid înainte de trimitere</a></h3>
+    <p>Un articol orientat spre compliance despre reducerea expunerii datelor personale ascunse în documente.</p>
+    <a href="blog/gdpr-document-metadata-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/redaction-flattening-pdf-security.html">Redactarea nu este suficientă: de ce unele PDF-uri trebuie flattenuite</a></h3>
+    <p>Explică riscul textului ascuns, al anotărilor și al straturilor PDF care pot fi recuperate.</p>
+    <a href="blog/redaction-flattening-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/sensitive-document-discovery.html">Cum descoperi documentele sensibile împrăștiate pe PC și drive-uri de rețea</a></h3>
+    <p>Un articol despre inventarierea fișierelor sensibile înainte de audit, backup sau migrare.</p>
+    <a href="blog/sensitive-document-discovery.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/macro-office-file-risk.html">Fișiere Office cu macro-uri: semnal de risc înainte de distribuire</a></h3>
+    <p>De ce macro-urile, obiectele încorporate și fișierele mixte trebuie verificate înainte de partajare.</p>
+    <a href="blog/macro-office-file-risk.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/hash-verification-evidence-files.html">Hash MD5/SHA-256 pentru documente: cum demonstrezi integritatea unui dosar</a></h3>
+    <p>Explică rolul hash-urilor în audit, lanț de custodie și verificarea pachetelor de probe.</p>
+    <a href="blog/hash-verification-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/cloud-sharing-document-safety.html">Înainte să urci documente în cloud: 7 controale de securitate obligatorii</a></h3>
+    <p>Un articol pentru companii care folosesc cloud storage, dar vor să reducă riscul fișierelor expuse.</p>
+    <a href="blog/cloud-sharing-document-safety.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/air-gapped-document-processing.html">Procesare documente în medii air-gapped: cum lucrezi fără internet și fără compromisuri</a></h3>
+    <p>Conținut pentru organizații cu rețele restricționate, date sensibile și cerințe stricte de control.</p>
+    <a href="blog/air-gapped-document-processing.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/law-firm-evidence-bundles.html">Dosare de probe pentru avocați: cum pregătești documente curate și verificabile</a></h3>
+    <p>Un articol pentru firme de avocatură care gestionează volume mari de PDF-uri, Word-uri și anexe.</p>
+    <a href="blog/law-firm-evidence-bundles.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/real-estate-pdf-security.html">PDF security în real estate: protejarea datelor clientului înainte de tranzacție</a></h3>
+    <p>Targetează agenții, notari și brokeri care trimit acte cu date personale și financiare.</p>
+    <a href="blog/real-estate-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/accounting-audit-document-management.html">Document management pentru contabili și auditori: rapoarte, hash-uri și control de versiuni</a></h3>
+    <p>Conținut pentru fluxuri financiare cu mii de documente și cerințe de trasabilitate.</p>
+    <a href="blog/accounting-audit-document-management.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/hr-personnel-files-sanitization.html">Fișiere HR și dosare de personal: cum reduci riscul de expunere a datelor angajaților</a></h3>
+    <p>Un articol pentru departamente HR care trimit sau arhivează documente cu date personale.</p>
+    <a href="blog/hr-personnel-files-sanitization.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/healthcare-document-privacy.html">Documente medicale administrative: confidențialitate, OCR și arhivare sigură</a></h3>
+    <p>Pentru clinici și cabinete care scanează, trimit și arhivează documente sensibile.</p>
+    <a href="blog/healthcare-document-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/public-procurement-document-packages.html">Dosare de achiziții publice: pregătirea unui pachet PDF curat, indexat și verificabil</a></h3>
+    <p>Pentru instituții, furnizori și consultanți care lucrează cu seturi mari de documente.</p>
+    <a href="blog/public-procurement-document-packages.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/insurance-claim-evidence-files.html">Dosare de daună în asigurări: organizare rapidă pentru fotografii, PDF-uri și declarații</a></h3>
+    <p>Un articol pentru asiguratori, brokeri și experți care trebuie să pregătească dosare clare.</p>
+    <a href="blog/insurance-claim-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/construction-engineering-document-control.html">Document control în construcții: planuri, contracte și rapoarte pregătite pentru audit</a></h3>
+    <p>Pentru companii care gestionează proiecte, avize, rapoarte tehnice și versiuni multiple.</p>
+    <a href="blog/construction-engineering-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/banking-loan-due-diligence.html">Dosare de credit și due diligence: cum standardizezi rapid documentele clientului</a></h3>
+    <p>Conținut pentru instituții financiare și consultanți care primesc documente în formate mixte.</p>
+    <a href="blog/banking-loan-due-diligence.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/ma-data-room-preparation.html">Data room pentru M&amp;A: pregătește documentele înainte să le expui investitorilor</a></h3>
+    <p>Un articol pentru fondatori, consultanți și echipe financiare care pregătesc documente pentru due diligence.</p>
+    <a href="blog/ma-data-room-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/pdfa-vs-regular-pdf.html">PDF/A vs PDF obișnuit: diferențe pentru arhivare, audit și legal</a></h3>
+    <p>Clarifică diferența dintre un PDF standard și un format orientat spre arhivare pe termen lung.</p>
+    <a href="blog/pdfa-vs-regular-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/ocr-searchable-pdf-guide.html">OCR pentru PDF-uri scanate: cum transformi imaginile în documente căutabile</a></h3>
+    <p>Ghid educațional despre OCR, text căutabil și eficiență în arhive digitale.</p>
+    <a href="blog/ocr-searchable-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/image-only-pdf-explained.html">Ce înseamnă PDF image-only și de ce îl folosesc echipele cu date sensibile</a></h3>
+    <p>Un articol simplu despre diferența dintre text layer, imagine și protecția conținutului vizual.</p>
+    <a href="blog/image-only-pdf-explained.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/batch-document-processing-explained.html">Procesarea batch a documentelor: cum economisești ore când ai sute de fișiere</a></h3>
+    <p>Explică avantajele procesării în lot pentru OCR, conversie, watermark și rapoarte.</p>
+    <a href="blog/batch-document-processing-explained.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/repair-corrupted-pdf.html">Cum repari un PDF corupt fără să expui documentul online</a></h3>
+    <p>Ghid pentru fișiere PDF care nu se deschid, au pagini lipsă sau structuri instabile.</p>
+    <a href="blog/repair-corrupted-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/batch-watermark-pdf-guide.html">Cum adaugi watermark pe sute de PDF-uri fără muncă manuală</a></h3>
+    <p>Ghid pentru etichetarea documentelor confidențiale, drafturilor și pachetelor de caz.</p>
+    <a href="blog/batch-watermark-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/excel-report-folder-audit.html">Raport Excel pentru audit de folder: ce trebuie să conțină și de ce contează</a></h3>
+    <p>Explică valoarea unui raport cu nume fișiere, dimensiuni, pagini, metadata și hash-uri.</p>
+    <a href="blog/excel-report-folder-audit.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/document-metadata-beginners.html">Metadata documentelor explicată simplu: ce vede destinatarul fără să-ți dai seama</a></h3>
+    <p>Articol introductiv pentru utilizatori non-tehnici despre proprietăți de fișier și date ascunse.</p>
+    <a href="blog/document-metadata-beginners.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Industrie</span>
+      <time datetime="May 24, 2026">May 24, 2026</time>
+    </div>
+    <h3><a href="blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html">Cele mai bune practici pentru bundling-ul de probe legale</a></h3>
+    <p>Crearea dosarelor de probe gata de instanță necesită pregătire atentă. Iată cele mai bune practici.</p>
+    <a href="blog/cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 23, 2026">May 23, 2026</time>
+    </div>
+    <h3><a href="blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html">Cum să faci PDF-urile scanate searchable cu OCR</a></h3>
+    <p>PDF-urile scanate sunt doar imagini. Află cum OCR le face searchable.</p>
+    <a href="blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 22, 2026">May 22, 2026</time>
+    </div>
+    <h3><a href="blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html">Nu mai procesa documente unul câte unul — procesarea batch economisește ore</a></h3>
+    <p>Dacă încă procesezi documente individual, pierzi ore în fiecare săptămână.</p>
+    <a href="blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 21, 2026">May 21, 2026</time>
+    </div>
+    <h3><a href="blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html">7 pași pentru protejarea documentelor înainte de partajare</a></h3>
+    <p>Înainte de a apăsa Send, asigură-te că documentele nu scurg informații sensibile.</p>
+    <a href="blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 20, 2026">May 20, 2026</time>
+    </div>
+    <h3><a href="blog/checklist-complet-pentru-auditul-documentelor-in-2026.html">Checklist complet pentru auditul documentelor în 2026</a></h3>
+    <p>Un checklist practic pentru auditarea securității documentelor. Acoperă metadata, acces, shredding și conformitate.</p>
+    <a href="blog/checklist-complet-pentru-auditul-documentelor-in-2026.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 19, 2026">May 19, 2026</time>
+    </div>
+    <h3><a href="blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html">Cum să aplatizezi un PDF la format doar-imagini (și de ce ai vrea)</a></h3>
+    <p>Aplatizarea PDF-urilor elimină conținut ascuns și asigură WYSIWYG. Când și cum să folosești tehnica.</p>
+    <a href="blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 18, 2026">May 18, 2026</time>
+    </div>
+    <h3><a href="blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html">De ce procesarea offline a documentelor contează mai mult ca niciodată</a></h3>
+    <p>Tool-urile cloud sunt conveniente, dar pun documentele tale în pericol. Iată de ce procesarea offline e mai inteligentă.</p>
+    <a href="blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 17, 2026">May 17, 2026</time>
+    </div>
+    <h3><a href="blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html">Generarea rapoartelor Excel pentru audituri de documente — ghid complet</a></h3>
+    <p>Cum generează DocInspector rapoarte Excel detaliate pentru audituri de foldere.</p>
+    <a href="blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 16, 2026">May 16, 2026</time>
+    </div>
+    <h3><a href="blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html">De ce &#x27;Delete&#x27; nu șterge cu adevărat — explicația shredding-ului securizat</a></h3>
+    <p>Când ștergi un fișier, el e încă pe disc. Află cum funcționează shredding-ul securizat.</p>
+    <a href="blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Industrie</span>
+      <time datetime="May 15, 2026">May 15, 2026</time>
+    </div>
+    <h3><a href="blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html">De ce fiecare firmă de avocatură are nevoie de un tool de inspecție documente</a></h3>
+    <p>Documentele legale poartă riscuri ascunse. Află de ce inspecția documentelor e esențială pentru avocați.</p>
+    <a href="blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 14, 2026">May 14, 2026</time>
+    </div>
+    <h3><a href="blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html">Cum să adaugi watermark pe sute de PDF-uri simultan</a></h3>
+    <p>Trebuie să pui watermark pe un folder întreg de PDF-uri? Iată cum cu DocInspector.</p>
+    <a href="blog/cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 13, 2026">May 13, 2026</time>
+    </div>
+    <h3><a href="blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html">GDPR și metadata documentelor: sunt fișierele tale conforme?</a></h3>
+    <p>Metadata documentelor poate conține date personale care încalcă GDPR. Află cum să auditezi și cureți documentele.</p>
+    <a href="blog/gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 12, 2026">May 12, 2026</time>
+    </div>
+    <h3><a href="blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html">5 lucruri pe care nu le știai despre fișierele PDF</a></h3>
+    <p>PDF-urile par simple, dar ascund o complexitate surprinzătoare. Iată 5 fapte pe care majoritatea nu le cunosc.</p>
+    <a href="blog/5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Educație</span>
+      <time datetime="May 11, 2026">May 11, 2026</time>
+    </div>
+    <h3><a href="blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html">PDF/A vs PDF obișnuit — când să folosești fiecare format</a></h3>
+    <p>Nu toate PDF-urile sunt la fel. Află diferența dintre PDF/A și PDF standard, și când să folosești fiecare.</p>
+    <a href="blog/pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Securitate</span>
+      <time datetime="May 10, 2026">May 10, 2026</time>
+    </div>
+    <h3><a href="blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html">Datele ascunse din documentele tale (și de ce contează)</a></h3>
+    <p>PDF-urile și fișierele Word conțin metadata ascunsă care poate expune informații personale. Iată ce trebuie să faci.</p>
+    <a href="blog/datele-ascunse-din-documentele-tale-si-de-ce-conteaza.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span>
+      <time datetime="May 09, 2026">May 09, 2026</time>
+    </div>
+    <h3><a href="blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html">Cum să repari un fișier PDF corupt în câteva secunde</a></h3>
+    <p>PDF-ul nu se deschide? Învață cum să repari fișiere PDF corupte cu DocInspector. Funcționează 100% offline.</p>
+    <a href="blog/cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde.html" class="blog-read-more" data-i18n="blog.readMore">Citește articolul →</a>
+  </div></div>
+<div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">Nu au fost găsite articole care să corespundă căutării.</div>
+<div class="blog-pagination" id="blogPagination"></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../cookies.js"></script>
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=10"></script>
+<script>
+(function(){
+  var PER_PAGE=15, grid=document.getElementById('blogGrid'), searchInput=document.getElementById('blogSearch'),
+      noResults=document.getElementById('blogNoResults'), pagination=document.getElementById('blogPagination'),
+      allCards=Array.from(grid.querySelectorAll('.blog-card')), currentFilter='all', currentSearch='', currentPage=1;
+  function getFiltered(){
+    return allCards.filter(function(c){
+      var cat=c.dataset.category||'', matchCat=currentFilter==='all'||cat===currentFilter;
+      if(!matchCat) return false;
+      if(!currentSearch) return true;
+      var txt=(c.querySelector('h3')||{textContent:''}).textContent+' '+(c.querySelector('p')||{textContent:''}).textContent;
+      return txt.toLowerCase().indexOf(currentSearch.toLowerCase())!==-1;
+    });
+  }
+  function render(){
+    var f=getFiltered(), total=f.length, pages=Math.max(1,Math.ceil(total/PER_PAGE));
+    if(currentPage>pages) currentPage=pages;
+    var s=(currentPage-1)*PER_PAGE;
+    allCards.forEach(function(c){c.classList.add('hidden');});
+    f.slice(s,s+PER_PAGE).forEach(function(c){c.classList.remove('hidden');});
+    noResults.classList.toggle('show',total===0);
+    renderPag(pages,total);
+  }
+  function renderPag(pages,total){
+    pagination.innerHTML='';
+    if(pages<=1) return;
+    var prev=document.createElement('button'); prev.className='blog-page-btn'+(currentPage<=1?' disabled':''); prev.innerHTML='←';
+    prev.onclick=function(){if(currentPage>1){currentPage--;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(prev);
+    for(var i=1;i<=pages;i++){var b=document.createElement('button');b.className='blog-page-btn'+(i===currentPage?' active':'');b.textContent=i;b.dataset.page=i;b.onclick=function(){currentPage=parseInt(this.dataset.page);render();scrollTo({top:0,behavior:'smooth'});};pagination.appendChild(b);}
+    var next=document.createElement('button'); next.className='blog-page-btn'+(currentPage>=pages?' disabled':''); next.innerHTML='→';
+    next.onclick=function(){if(currentPage<pages){currentPage++;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(next);
+    var info=document.createElement('span'); info.className='blog-page-info'; info.textContent=total+' articles'; pagination.appendChild(info);
+  }
+  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active'); currentFilter=btn.dataset.filter; currentPage=1; render();
+    });
+  });
+  var t; searchInput.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){currentSearch=searchInput.value.trim();currentPage=1;render();},250);});
+  render();
+})();
+</script>
+</body>
+</html>

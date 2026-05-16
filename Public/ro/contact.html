@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact the DocInspector support team for questions about professional licensing, batch processing features, or custom enterprise solutions.">
+  <meta name="keywords" content="DocInspector contact, customer support, enterprise licensing, batch processor inquiry, software sales">
+  <title data-i18n="contact.pageTitle">Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css?v=9" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <link rel="canonical" href="https://doc-inspector.com/ro/contact.html" />
+</head>
+<body style="background:#0a1628;color:#f1f5f9">
+<div class="progress-bar" id="progressBar"></div>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><img src="../assets/logo.png" alt="DocInspector logo"></div>
+          <div class="brand-text">
+            <div class="brand-name" data-i18n="brand.name">DocInspector</div>
+            <div class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</div>
+          </div>
+        </a>
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+          <a href="index.html" data-i18n="nav.home">Acasă</a>
+          <a href="descarca.html" data-i18n="nav.download">Descărcare</a>
+          <a href="preturi.html" data-i18n="nav.price">Preț</a>
+          <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+          <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+          <div class="lang-dropdown mobile-only">
+            <button class="lang-btn"><span class="lang-pill">RO</span> <span class="chev">▾</span></button>
+            <div class="lang-menu">
+              <a href="../en/contact.html" class="lang-item" data-lang="en">EN</a>
+              <a href="contact.html" class="lang-item active" data-lang="ro">RO</a>
+              <a href="../ru/kontakty.html" class="lang-item" data-lang="ru">RU</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <div class="lang-dropdown desktop-only">
+            <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-pill">RO</span><span class="chev">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu">
+              <a href="../en/contact.html" class="lang-item" data-lang="en">EN</a>
+              <a href="contact.html" class="lang-item active" data-lang="ro">RO</a>
+              <a href="../ru/kontakty.html" class="lang-item" data-lang="ru">RU</a>
+            </div>
+          </div>
+          <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section" style="position:relative;overflow:hidden;">
+    <div class="pulse-ring"></div>
+    <div class="cyber-grid"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <header class="section-header reveal-flip">
+        <div class="section-eyebrow">Get in touch</div>
+        <h1 class="section-title text-gradient" data-i18n="contact.title">Contact & Suport</h1>
+        <p class="section-subtitle" data-i18n="contact.subtitle">Întrebări despre licențiere sau procesare batch? Suntem aici să ajutăm.</p>
+      </header>
+
+      <div class="contact-grid reveal">
+        <form method="post" action="https://formspree.io/f/xreggdqk" id="contactForm" class="form-card reveal-flip">
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div>
+              <label data-i18n="contact.name" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Nume</label>
+              <input type="text" name="name" required style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label data-i18n="contact.email" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Email</label>
+              <input type="email" name="email" required style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
+            </div>
+            <div>
+              <label data-i18n="contact.message" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Mesaj</label>
+              <textarea name="message" rows="5" required style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;resize:vertical;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+            </div>
+            <div>
+              <label style="display:flex;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.9rem;cursor:pointer;">
+                <input type="checkbox" name="botcheck" required style="width:18px;height:18px;accent-color:var(--cyan);">
+                <span data-i18n="contact.bot">Sunt om (Verificare anti-spam)</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="contact.submit">Trimite Mesaj</button>
+          </div>
+        </form>
+
+        <aside class="reveal-right">
+          <h3 style="margin-bottom:1.5rem;" data-i18n="contact.aside.title">Asistență Directă</h3>
+          <p style="margin-bottom:2rem;color:var(--text-muted);">
+            <span data-i18n="contact.aside.desc1">Pentru probleme tehnice urgente sau licențiere:</span><br>
+            <strong style="color:var(--cyan);">support@doc-inspector.com</strong>
+          </p>
+          <div style="background:var(--bg-glass);padding:2rem;border-radius:24px;border:1px solid var(--border);">
+            <p style="font-size:.9rem;" data-i18n-html="contact.aside.desc2">Timp de răspuns: <strong>2-12 ore</strong><br>Luni-Vineri, 09:00 - 18:00 (GMT+2)
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</div>
+      <div class="footer-links">
+        <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link" title="TikTok">
+          <svg width="20" height="20" viewBox="0 0 448 512" style="fill:currentColor;vertical-align:middle"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+        </a>
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="rapoarte-feedback.html" class="btn btn-outline btn-sm" data-i18n="footer.bug" style="border-radius:50px;padding:.4rem 1rem;">Raportează un bug</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+</body>
+</html>

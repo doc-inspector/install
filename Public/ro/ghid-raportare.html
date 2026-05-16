@@ -1,0 +1,162 @@
+<!-- user-guide-reporting.html -->
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Discover how to use DocInspector's Reporting module to generate comprehensive Excel summaries for PDF bundles and massive folder evidence tree audits.">
+  <meta name="keywords"
+    content="PDF bundle summary, folder evidence report, file metadata extraction, generate excel report from folder, document auditing tool">
+  <title>Reporting & Evidence - User Guide | DocInspector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css?v=9" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <link rel="canonical" href="https://doc-inspector.com/ro/ghid-raportare.html" />
+</head>
+
+<body style="background:#0a1628;color:#f1f5f9">
+  <div class="page">
+    <header class="site-header">
+      <div class="container">
+        <div class="navbar">
+          <a href="index.html" class="brand">
+            <div class="brand-logo"><img src="../assets/logo.png" alt="logo"></div>
+            <div class="brand-text">
+              <div class="brand-name" data-i18n="brand.name">DocInspector</div>
+              <div class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</div>
+            </div>
+          </a>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html" data-i18n="nav.home">Acasă</a>
+      <a href="descarca.html" data-i18n="nav.download">Descărcare</a>
+      <a href="preturi.html" data-i18n="nav.price">Preț</a>
+            <a href="ghid-utilizare.html" class="active" data-i18n="nav.guide">Ghid utilizare</a>
+            <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+
+            <div class="lang-dropdown mobile-only">
+              <button class="lang-btn"><span class="lang-pill">RO</span> <span class="chev">▾</span></button>
+              <div class="lang-menu">
+                <a href="../en/user-guide-reporting.html" class="lang-item" data-lang="en">EN</a>
+                <a href="ghid-raportare.html" class="lang-item active" data-lang="ro">RO</a>
+                <a href="../ru/rukovodstvo-otchety.html" class="lang-item" data-lang="ru">RU</a>
+              </div>
+            </div>
+          </nav>
+
+          <div class="nav-actions">
+            <div class="lang-dropdown desktop-only">
+              <button class="lang-btn" id="langBtn"><span class="lang-pill">RO</span> <span
+                  class="chev">▾</span></button>
+              <div class="lang-menu" id="langMenu">
+                <a href="../en/user-guide-reporting.html" class="lang-item" data-lang="en">EN</a>
+                <a href="ghid-raportare.html" class="lang-item active" data-lang="ro">RO</a>
+                <a href="../ru/rukovodstvo-otchety.html" class="lang-item" data-lang="ru">RU</a>
+              </div>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="section" style="position:relative;overflow:hidden;">
+      <div class="cyber-grid"></div>
+      <div class="scan-line"></div>
+      <div class="container">
+        <header class="section-header reveal-flip" style="position: relative; text-align: center; margin-bottom: 4rem;">
+          <div class="guide-badge" style="display:inline-block;margin-bottom:1rem;" data-i18n="ug.badge.rep">Modul Batch</div>
+          <h1 class="section-title text-gradient" data-i18n="ug.rep.title">Raportare & Evidență</h1>
+          <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;" data-i18n="ug.rep.sub">Construiește rezumate detaliate ale pachetelor pentru audituri, seturi criminalistice și dosare de caz.</p>
+        </header>
+
+        <div class="detailed-guide-grid stagger-3d">
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">📊</div>
+              <h2 data-i18n="ug.rep.c1.t">Rezumat Pachet PDF</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problemă:</strong> <span data-i18n="ug.rep.c1.p">Necunoașterea numărului de pagini sau dimensiunilor.</span></p>
+              <p><strong data-i18n-html="guide.solution">Soluție:</strong> <span data-i18n="ug.rep.c1.s">Generează un rezumat Excel concis cu numele fișierelor, dimensiunile și numărul verificat de pagini.</span></p>
+              <ul>
+                <li data-i18n="ug.rep.c1.l1">Calcul total instantaneu al paginilor.</li>
+                <li data-i18n="ug.rep.c1.l2">Detectează PDF-uri ilizibile sau corupte.</li>
+                <li data-i18n="ug.rep.c1.l3">Export în XLSX pentru management facil.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">📑</div>
+              <h2 data-i18n="ug.rep.c2.t">Raport Pachet Avansat</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problemă:</strong> <span data-i18n="ug.rep.c2.p">Necesitatea metadatelor de profunzime (Date, Autori).</span>
+              </p>
+              <p><strong data-i18n-html="guide.solution">Soluție:</strong> <span data-i18n="ug.rep.c2.s">Un raport îmbunătățit care acoperă PDF, Word și Excel cu metadate temporale extinse.</span></p>
+              <ul>
+                <li data-i18n="ug.rep.c2.l1">Capturează datele de Creare și Modificare.</li>
+                <li data-i18n="ug.rep.c2.l2">Numărare inteligentă a paginilor pentru Office.</li>
+                <li data-i18n="ug.rep.c2.l3">Mapare detaliată a căii logice.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">📁</div>
+              <h2 data-i18n="ug.rep.c3.t">Raport Evidență Folder</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problemă:</strong> <span data-i18n="ug.rep.c3.p">Arbori media micști care necesită un inventar complet.</span></p>
+              <p><strong data-i18n-html="guide.solution">Soluție:</strong> <span data-i18n="ug.rep.c3.s">Inventariere exhaustivă a fiecărui fișier, calculând hash-uri și adâncimea arborelui.</span></p>
+              <ul>
+                <li data-i18n="ug.rep.c3.l1">Mapează întreaga arhitectură a stației de lucru.</li>
+                <li data-i18n="ug.rep.c3.l2">Generare de hash-uri MD5/SHA256.</li>
+                <li data-i18n="ug.rep.c3.l3">Identifică fișierele ascunse sau de sistem.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top: 4rem;">
+          <a href="ghid-utilizare.html" class="btn btn-outline" data-i18n-html="guide.back">← Înapoi la Ghiduri</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</div>
+        <div class="footer-links" style="align-items: center;">
+          <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link"
+            title="TikTok">
+            <svg width="20" height="20" viewBox="0 0 448 512" style="fill: currentColor; vertical-align: middle;">
+              <path
+                d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+            </svg>
+          </a>
+          <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+          <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+          <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+          
+          <a href="rapoarte-feedback.html" class="btn btn-outline btn-sm" data-i18n="footer.bug"
+            style="border-radius: 50px; padding: 0.4rem 1rem;">Raportează un bug</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="../cookies.js"></script>
+  <script src="../scroll-fx.js?v=9"></script>
+</body>
+
+</html>
