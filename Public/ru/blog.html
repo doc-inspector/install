@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - DocInspector</title>
+  <link rel="stylesheet" href="../style.css?v=11">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .blog-bg-grid { position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0; background-image:linear-gradient(rgba(6,182,212,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.04) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); }
+    .blog-bg-glow { position:fixed;top:-20%;left:50%;transform:translateX(-50%); width:800px;height:500px; background:radial-gradient(ellipse,rgba(6,182,212,.08) 0%,transparent 60%); pointer-events:none;z-index:0; }
+    .blog-hero { text-align:center;padding:8rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-hero h1 { font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,#fff 0%,#67e8f9 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem; }
+    .blog-hero p { color:#94a3b8;font-size:1.1rem;max-width:600px;margin:0 auto; }
+    .blog-search-wrap { max-width:480px;margin:1.5rem auto 0;position:relative; }
+    .blog-search { width:100%;padding:.7rem 1rem .7rem 2.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;color:#e2e8f0;font-size:.92rem;outline:none;transition:all .2s; }
+    .blog-search:focus { border-color:rgba(6,182,212,.4);background:rgba(255,255,255,.06);box-shadow:0 0 20px rgba(6,182,212,.1); }
+    .blog-search::placeholder { color:#64748b; }
+    .blog-search-icon { position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none; }
+    .blog-filter { display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1.5rem 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-filter-btn { background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:.45rem 1rem;border-radius:999px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif; }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 2rem;position:relative;z-index:1; }
+    .blog-card { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:1rem;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:flex;flex-direction:column; }
+    .blog-card:hover { background:rgba(6,182,212,.06);border-color:rgba(6,182,212,.2);transform:translateY(-2px); }
+    .blog-card.hidden { display:none; }
+    .blog-card-meta { display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:.82rem;color:#64748b; }
+    .blog-category { background:rgba(6,182,212,.15);color:#67e8f9;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em; }
+    .blog-card h3 { font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:#f1f5f9;margin-bottom:.5rem;line-height:1.3; }
+    .blog-card p { font-size:.92rem;color:#94a3b8;line-height:1.55;flex:1;margin-bottom:.8rem; }
+    .blog-read-more { font-size:.88rem;color:#67e8f9;font-weight:600;text-decoration:none;margin-top:auto;display:inline-block; }
+    .blog-no-results { display:none;text-align:center;padding:3rem 1rem;color:#64748b;font-size:1rem;position:relative;z-index:1; }
+    .blog-no-results.show { display:block; }
+    .blog-pagination { display:flex;justify-content:center;align-items:center;gap:.5rem;padding:2rem 1.5rem 4rem;position:relative;z-index:1; }
+    .blog-page-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#94a3b8;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s; }
+    .blog-page-btn:hover { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#67e8f9; }
+    .blog-page-btn.active { background:rgba(6,182,212,.2);border-color:rgba(6,182,212,.4);color:#67e8f9; }
+    .blog-page-btn.disabled { opacity:.3;pointer-events:none; }
+    .blog-page-info { color:#64748b;font-size:.82rem;margin:0 .5rem; }
+    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
+  </style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<div class="blog-bg-grid"></div>
+<div class="blog-bg-glow"></div>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов и аудит</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Главная</a>
+        <a href="tseny.html" data-i18n="nav.price">Цена</a>
+        <a href="rukovodstvo.html" data-i18n="nav.guide">Руководство</a>
+        <a href="otchety.html" data-i18n="nav.reports">Отчёты и отзывы</a>
+        <a href="blog.html" class="active" data-i18n="nav.blog">Блог</a>
+        <a href="kontakty.html" data-i18n="nav.contact">Контакты</a>
+        <a href="skachat.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RU</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/blog.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../ro/blog.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/blog.html" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="skachat.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="blog-hero">
+  <h1 data-i18n="blog.pageTitle">Блог</h1>
+  <p data-i18n="blog.pageSubtitle">Советы, руководства и аналитика по безопасности документов</p>
+  <div class="blog-search-wrap">
+    <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" class="blog-search" id="blogSearch" placeholder="Search articles..." data-i18n-placeholder="blog.searchPlaceholder">
+  </div>
+</div>
+<div class="blog-filter">
+  <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filterAll">Все</button>
+  <button class="blog-filter-btn" data-filter="how-to" data-i18n="blog.cat.how-to">Инструкция</button>
+  <button class="blog-filter-btn" data-filter="security" data-i18n="blog.cat.security">Безопасность</button>
+  <button class="blog-filter-btn" data-filter="education" data-i18n="blog.cat.education">Обучение</button>
+  <button class="blog-filter-btn" data-filter="industry" data-i18n="blog.cat.industry">Отрасль</button>
+</div>
+<div class="blog-grid" id="blogGrid">  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/nastroyka-docinspector-na-windows-11-bestrey-start.html">Настройка DocInspector на Windows 11 — быстрый старт</a></h3>
+    <p>Запустите DocInspector на Windows 11 за 2 минуты.</p>
+    <a href="blog/nastroyka-docinspector-na-windows-11-bestrey-start.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/document-hardening-vs-encryption.html">Document hardening vs encryption: разница, которую должен знать каждый менеджер</a></h3>
+    <p>Encryption защищает доступ; hardening снижает структурный риск файла. Это не одно и то же.</p>
+    <a href="blog/document-hardening-vs-encryption.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/ocr-quality-basics.html">Почему OCR ошибается: качество скана, шрифты, поворот и контраст</a></h3>
+    <p>Простое руководство о факторах, которые влияют на OCR в сканированном PDF.</p>
+    <a href="blog/ocr-quality-basics.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/batch-processing-roi.html">Batch processing vs ручная работа: как посчитать потерянное время на документах</a></h3>
+    <p>Простой метод оценки часов, уходящих на conversion, watermark, OCR и manual checks.</p>
+    <a href="blog/batch-processing-roi.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/folder-evidence-report-explained.html">Что такое Folder Evidence Report и почему он помогает аудиту</a></h3>
+    <p>Простое объяснение отчетов, которые показывают, какие файлы находятся в структуре папок.</p>
+    <a href="blog/folder-evidence-report-explained.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/secure-watermarking-strategy.html">Правильный watermark: когда, где и как маркировать чувствительные документы</a></h3>
+    <p>Не каждый watermark полезен. Важны текст, позиция, видимость и consistent batch application.</p>
+    <a href="blog/secure-watermarking-strategy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/before-sending-pdf-to-client.html">Перед отправкой PDF клиенту: 12 вещей, которые нужно проверить</a></h3>
+    <p>Практический checklist для финальных документов, contracts, reports, proposals и delivery packs.</p>
+    <a href="blog/before-sending-pdf-to-client.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/document-audit-workflow-for-teams.html">Как построить workflow аудита документов для команды</a></h3>
+    <p>Конкретные шаги, чтобы проверка документов не зависела от памяти каждого сотрудника.</p>
+    <a href="blog/document-audit-workflow-for-teams.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/metadata-cleaning-vs-redaction.html">Metadata cleaning vs redaction: две разные операции, обе важны</a></h3>
+    <p>Redaction скрывает видимый контент; metadata cleaning удаляет внутреннюю информацию, невидимую на первый взгляд.</p>
+    <a href="blog/metadata-cleaning-vs-redaction.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/long-term-document-archive-preparation.html">Подготовка документов к долгосрочному архивированию</a></h3>
+    <p>Как избежать цифровых архивов, которые сложно искать и которые полны поврежденных, duplicate или плохих сканов.</p>
+    <a href="blog/long-term-document-archive-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 28, 2026">May 28, 2026</time>
+    </div>
+    <h3><a href="blog/privacy-first-document-workflow-small-business.html">Privacy-first document workflow для малого бизнеса</a></h3>
+    <p>Простая модель для компаний без большого compliance-отдела, но с sensitive data.</p>
+    <a href="blog/privacy-first-document-workflow-small-business.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html">DocInspector vs онлайн PDF-инструменты — в чём разница?</a></h3>
+    <p>Почему настольное приложение, а не бесплатные онлайн-сервисы? Честное сравнение.</p>
+    <a href="blog/docinspector-vs-onlayn-pdf-instrumente-v-chyom-raznitsa.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Отрасль</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/bank-loan-file-standardization.html">Банковские кредитные дела: быстрая стандартизация PDF, сканов и форм</a></h3>
+    <p>Как банковские команды могут готовить более чистые дела для анализа, архива и аудита.</p>
+    <a href="blog/bank-loan-file-standardization.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/government-archive-digitization.html">Оцифровка государственных архивов: как контролировать тысячи сканов без облака</a></h3>
+    <p>Процесс для учреждений, которые переводят физические архивы в searchable и проверяемые цифровые документы.</p>
+    <a href="blog/government-archive-digitization.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/telecom-contract-document-audit.html">Telecom и клиентские договоры: быстрый аудит тысяч операционных PDF</a></h3>
+    <p>Как batch processing помогает контролировать договоры, приложения, заявления и подписанные формы.</p>
+    <a href="blog/telecom-contract-document-audit.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/university-student-records.html">Университеты и студенческие дела: чистые документы для архива и проверок</a></h3>
+    <p>Workflow для справок, заявлений, договоров обучения и сканированных студенческих документов.</p>
+    <a href="blog/university-student-records.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/logistics-customs-document-workflow.html">Логистика и таможня: как готовить инвойсы, CMR и декларации в PDF</a></h3>
+    <p>Процесс для транспортных сканов, коммерческих счетов и import/export пакетов.</p>
+    <a href="blog/logistics-customs-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/energy-utility-compliance-records.html">Энергетика и utilities: технические архивы, готовые к compliance</a></h3>
+    <p>Как организовать отчеты, сертификаты, акты и технические документы в проверяемые пакеты.</p>
+    <a href="blog/energy-utility-compliance-records.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/manufacturing-quality-document-control.html">Manufacturing quality: контроль документов для сертификатов, форм и отчетов</a></h3>
+    <p>Как стандартизировать quality documents перед ISO, customer или supplier audit.</p>
+    <a href="blog/manufacturing-quality-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/nonprofit-grant-reporting-documents.html">НКО и гранты: подготовка документов для доноров и аудита</a></h3>
+    <p>Как организовать договоры, счета, narrative reports и доказательства в проверяемый пакет.</p>
+    <a href="blog/nonprofit-grant-reporting-documents.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/recruitment-candidate-file-privacy.html">Рекрутинговые агентства: защита CV и кандидатских файлов</a></h3>
+    <p>Как управлять CV, документами, рекомендациями и формами без раскрытия metadata или лишних personal data.</p>
+    <a href="blog/recruitment-candidate-file-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 27, 2026">May 27, 2026</time>
+    </div>
+    <h3><a href="blog/franchise-branch-document-standards.html">Франшизы и сети филиалов: единый стандарт документов</a></h3>
+    <p>Как уменьшить document chaos между офисами, branches и local teams.</p>
+    <a href="blog/franchise-branch-document-standards.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Отрасль</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html">Советы по управлению документами для бухгалтеров и аудиторов</a></h3>
+    <p>Бухгалтеры работают с тысячами конфиденциальных документов. Как управлять ими безопасно.</p>
+    <a href="blog/sovete-po-upravleni-dokumentami-dl-buhgalterov-i-auditorov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/zero-trust-document-workflow.html">Zero Trust для документов: не отправляйте PDF без локальной проверки</a></h3>
+    <p>Как применить принципы Zero Trust к работе с PDF, Word и Excel перед передачей файлов.</p>
+    <a href="blog/zero-trust-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/client-email-document-checklist.html">Чек-лист безопасности перед отправкой документов по email</a></h3>
+    <p>Простой процесс для компаний, которые отправляют договоры, отчеты, счета и чувствительные файлы по почте.</p>
+    <a href="blog/client-email-document-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/malicious-pdf-risk-surface.html">Поверхность риска PDF: ссылки, скрипты, вложения и скрытые объекты</a></h3>
+    <p>Почему PDF нужно проверять структурно, а не только открывать в просмотрщике.</p>
+    <a href="blog/malicious-pdf-risk-surface.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/offline-ocr-confidential-scans.html">Офлайн OCR для конфиденциальных документов: когда облако не подходит</a></h3>
+    <p>Как превратить сканы в searchable PDF без передачи договоров, удостоверений и дел внешним сервисам.</p>
+    <a href="blog/offline-ocr-confidential-scans.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/chain-of-custody-cleaned-pdfs.html">Chain of custody для очищенных PDF: как сохранить доказательство обработки</a></h3>
+    <p>Почему отчеты и хеши важны при очистке или реконструкции чувствительных документов.</p>
+    <a href="blog/chain-of-custody-cleaned-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/tender-document-metadata-removal.html">Удаление метаданных перед тендером: защитите идентичность и стратегию компании</a></h3>
+    <p>Как подготовить tender-документы без раскрытия внутренних имен, версий и комментариев.</p>
+    <a href="blog/tender-document-metadata-removal.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/executive-board-pack-security.html">Board pack security: как защитить документы для руководства и инвесторов</a></h3>
+    <p>Подготовка PDF-пакетов для совета директоров, инвесторов и акционеров без случайных утечек.</p>
+    <a href="blog/executive-board-pack-security.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/document-triage-after-data-incident.html">Документальный triage после инцидента с данными: что проверить в первые часы</a></h3>
+    <p>Практический план для быстрого выявления документов, затронутых возможной утечкой.</p>
+    <a href="blog/document-triage-after-data-incident.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/vendor-file-risk-review.html">Файлы от поставщиков: локальная проверка перед импортом в компанию</a></h3>
+    <p>Как снизить операционный риск при получении PDF, сканов и Office-документов от третьих сторон.</p>
+    <a href="blog/vendor-file-risk-review.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 26, 2026">May 26, 2026</time>
+    </div>
+    <h3><a href="blog/secure-document-export-policy.html">Политика безопасного экспорта документов: простые правила для небольших команд</a></h3>
+    <p>Как определить внутренний стандарт для PDF, отчетов, watermark и аудита перед экспортом.</p>
+    <a href="blog/secure-document-export-policy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html">Что такое PDF Hardening и когда он нужен?</a></h3>
+    <p>PDF hardening делает документы устойчивыми к подделке и удаляет скрытые угрозы.</p>
+    <a href="blog/chto-takoe-pdf-hardening-i-kogda-on-nuzhen.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/document-metadata-leaks.html">Скрытые метаданные в документах: как происходят утечки без взлома</a></h3>
+    <p>Практическое руководство о данных автора, истории правок, комментариях и EXIF, которые могут раскрывать конфиденциальную информацию.</p>
+    <a href="blog/document-metadata-leaks.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/offline-pdf-processing-security.html">Почему офлайн-обработка PDF безопаснее онлайн-инструментов</a></h3>
+    <p>Объясняет риски загрузки конфиденциальных документов в бесплатные облачные сервисы и локальную альтернативу.</p>
+    <a href="blog/offline-pdf-processing-security.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/secure-file-shredding-audit-log.html">Безопасное удаление с audit log: когда обычного Delete недостаточно</a></h3>
+    <p>Показывает, почему обычное удаление не дает операционного доказательства и как помогает проверяемый журнал.</p>
+    <a href="blog/secure-file-shredding-audit-log.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/gdpr-document-metadata-checklist.html">GDPR и метаданные документов: быстрый чек-лист перед отправкой</a></h3>
+    <p>Статья для комплаенса о снижении риска раскрытия персональных данных, скрытых в документах.</p>
+    <a href="blog/gdpr-document-metadata-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/redaction-flattening-pdf-security.html">Редактирования недостаточно: почему некоторые PDF нужно flatten</a></h3>
+    <p>Объясняет риск скрытого текста, аннотаций и PDF-слоев, которые могут быть восстановлены.</p>
+    <a href="blog/redaction-flattening-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/sensitive-document-discovery.html">Как найти конфиденциальные документы на ПК и сетевых дисках</a></h3>
+    <p>Статья об инвентаризации чувствительных файлов перед аудитом, резервным копированием или миграцией.</p>
+    <a href="blog/sensitive-document-discovery.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/macro-office-file-risk.html">Office-файлы с макросами: индикатор риска перед передачей</a></h3>
+    <p>Почему макросы, встроенные объекты и смешанные файлы нужно проверять перед отправкой.</p>
+    <a href="blog/macro-office-file-risk.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/hash-verification-evidence-files.html">MD5/SHA-256 хеши документов: как доказать целостность дела</a></h3>
+    <p>Объясняет роль хешей в аудите, chain of custody и проверке пакетов доказательств.</p>
+    <a href="blog/hash-verification-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/cloud-sharing-document-safety.html">Перед загрузкой документов в облако: 7 обязательных проверок безопасности</a></h3>
+    <p>Статья для компаний, использующих cloud storage, но стремящихся снизить риск раскрытия файлов.</p>
+    <a href="blog/cloud-sharing-document-safety.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/air-gapped-document-processing.html">Обработка документов в air-gapped средах: работа без интернета и компромиссов</a></h3>
+    <p>Контент для организаций с ограниченными сетями, чувствительными данными и строгими требованиями контроля.</p>
+    <a href="blog/air-gapped-document-processing.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/law-firm-evidence-bundles.html">Пакеты доказательств для юристов: как подготовить чистые и проверяемые документы</a></h3>
+    <p>Статья для юридических фирм, работающих с большими объемами PDF, Word и приложений.</p>
+    <a href="blog/law-firm-evidence-bundles.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/real-estate-pdf-security.html">PDF security в недвижимости: защита данных клиента перед сделкой</a></h3>
+    <p>Для агентов, нотариусов и брокеров, отправляющих документы с персональными и финансовыми данными.</p>
+    <a href="blog/real-estate-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/accounting-audit-document-management.html">Document management для бухгалтеров и аудиторов: отчеты, хеши и контроль версий</a></h3>
+    <p>Контент для финансовых процессов с тысячами документов и требованиями трассируемости.</p>
+    <a href="blog/accounting-audit-document-management.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/hr-personnel-files-sanitization.html">HR-файлы и личные дела: как снизить риск раскрытия данных сотрудников</a></h3>
+    <p>Статья для HR-отделов, отправляющих или архивирующих документы с персональными данными.</p>
+    <a href="blog/hr-personnel-files-sanitization.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/healthcare-document-privacy.html">Медицинские административные документы: конфиденциальность, OCR и безопасный архив</a></h3>
+    <p>Для клиник и кабинетов, которые сканируют, отправляют и архивируют чувствительные документы.</p>
+    <a href="blog/healthcare-document-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/public-procurement-document-packages.html">Пакеты госзакупок: подготовка чистого, индексированного и проверяемого PDF-пакета</a></h3>
+    <p>Для учреждений, поставщиков и консультантов, работающих с большими наборами документов.</p>
+    <a href="blog/public-procurement-document-packages.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/insurance-claim-evidence-files.html">Страховые дела: быстрая организация фото, PDF и заявлений</a></h3>
+    <p>Статья для страховщиков, брокеров и экспертов, которым нужны понятные пакеты документов.</p>
+    <a href="blog/insurance-claim-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/construction-engineering-document-control.html">Document control в строительстве: планы, договоры и отчеты для аудита</a></h3>
+    <p>Для компаний, управляющих проектами, разрешениями, техническими отчетами и версиями.</p>
+    <a href="blog/construction-engineering-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/banking-loan-due-diligence.html">Кредитные дела и due diligence: как быстро стандартизировать документы клиента</a></h3>
+    <p>Контент для финансовых учреждений и консультантов, получающих документы в смешанных форматах.</p>
+    <a href="blog/banking-loan-due-diligence.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/ma-data-room-preparation.html">Data room для M&amp;A: подготовьте документы перед показом инвесторам</a></h3>
+    <p>Статья для founders, консультантов и финансовых команд, готовящих документы для due diligence.</p>
+    <a href="blog/ma-data-room-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/pdfa-vs-regular-pdf.html">PDF/A против обычного PDF: различия для архива, аудита и legal</a></h3>
+    <p>Объясняет различие между стандартным PDF и форматом для долгосрочного хранения.</p>
+    <a href="blog/pdfa-vs-regular-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/ocr-searchable-pdf-guide.html">OCR для сканированных PDF: как превратить изображения в searchable documents</a></h3>
+    <p>Образовательный гид об OCR, searchable text и эффективности цифровых архивов.</p>
+    <a href="blog/ocr-searchable-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/image-only-pdf-explained.html">Что такое image-only PDF и почему его используют команды с чувствительными данными</a></h3>
+    <p>Простая статья о различии между text layer, изображением и защитой визуального контента.</p>
+    <a href="blog/image-only-pdf-explained.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/batch-document-processing-explained.html">Batch-обработка документов: как экономить часы при сотнях файлов</a></h3>
+    <p>Объясняет преимущества batch-обработки для OCR, конвертации, watermark и отчетов.</p>
+    <a href="blog/batch-document-processing-explained.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/repair-corrupted-pdf.html">Как восстановить поврежденный PDF без загрузки документа онлайн</a></h3>
+    <p>Гид для PDF, которые не открываются, имеют отсутствующие страницы или нестабильную структуру.</p>
+    <a href="blog/repair-corrupted-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/batch-watermark-pdf-guide.html">Как добавить watermark на сотни PDF без ручной работы</a></h3>
+    <p>Гид по маркировке конфиденциальных документов, draft-файлов и case packages.</p>
+    <a href="blog/batch-watermark-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/excel-report-folder-audit.html">Excel-отчет для аудита папки: что он должен содержать и почему это важно</a></h3>
+    <p>Объясняет ценность отчета с именами файлов, размерами, страницами, метаданными и хешами.</p>
+    <a href="blog/excel-report-folder-audit.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 25, 2026">May 25, 2026</time>
+    </div>
+    <h3><a href="blog/document-metadata-beginners.html">Метаданные документов простыми словами: что видит получатель без вашего ведома</a></h3>
+    <p>Вводная статья для нетехнических пользователей о свойствах файла и скрытых данных.</p>
+    <a href="blog/document-metadata-beginners.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Отрасль</span>
+      <time datetime="May 24, 2026">May 24, 2026</time>
+    </div>
+    <h3><a href="blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html">Лучшие практики комплектования доказательств для юристов</a></h3>
+    <p>Создание доказательных пакетов для суда требует тщательной подготовки. Лучшие практики 2026.</p>
+    <a href="blog/luchshie-praktiki-komplektovani-dokazatelyustv-dl-ristov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 23, 2026">May 23, 2026</time>
+    </div>
+    <h3><a href="blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html">Как сделать отсканированные PDF доступными для поиска с OCR</a></h3>
+    <p>Отсканированные PDF — просто изображения. Узнайте, как OCR делает их доступными для поиска.</p>
+    <a href="blog/kak-sdelatyu-otskanirovannee-pdf-dostupnemi-dl-poiska-s-ocr.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 22, 2026">May 22, 2026</time>
+    </div>
+    <h3><a href="blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html">Хватит обрабатывать документы по одному — пакетная обработка экономит часы</a></h3>
+    <p>Если вы всё ещё обрабатываете документы по одному, вы теряете часы каждую неделю.</p>
+    <a href="blog/hvatit-obrabatevatyu-dokumente-po-odnomu-paketna-obrabotka-yakonomit-chase.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 21, 2026">May 21, 2026</time>
+    </div>
+    <h3><a href="blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html">7 шагов для защиты документов перед отправкой</a></h3>
+    <p>Перед отправкой убедитесь, что документы не раскрывают конфиденциальную информацию.</p>
+    <a href="blog/7-shagov-dl-zaschite-dokumentov-pered-otpravkoy.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 20, 2026">May 20, 2026</time>
+    </div>
+    <h3><a href="blog/polney-cheklist-audita-dokumentov-na-2026-god.html">Полный чеклист аудита документов на 2026 год</a></h3>
+    <p>Практический чеклист для аудита безопасности документов. Метаданные, доступ, уничтожение, соответствие.</p>
+    <a href="blog/polney-cheklist-audita-dokumentov-na-2026-god.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 19, 2026">May 19, 2026</time>
+    </div>
+    <h3><a href="blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html">Как сжать PDF до формата только-изображений (и зачем)</a></h3>
+    <p>Сжатие PDF до изображений удаляет скрытый контент. Когда и как использовать эту технику.</p>
+    <a href="blog/kak-szhatyu-pdf-do-formata-tolyuko-izobrazheniy-i-zachem.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 18, 2026">May 18, 2026</time>
+    </div>
+    <h3><a href="blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html">Почему офлайн-обработка документов важнее, чем когда-либо</a></h3>
+    <p>Облачные инструменты удобны, но подвергают документы риску. Вот почему офлайн — лучший выбор.</p>
+    <a href="blog/pochemu-oflayn-obrabotka-dokumentov-vazhnee-chem-kogda-libo.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 17, 2026">May 17, 2026</time>
+    </div>
+    <h3><a href="blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html">Генерация Excel-отчётов для аудита документов — полное руководство</a></h3>
+    <p>Как DocInspector генерирует подробные Excel-отчёты для аудита папок.</p>
+    <a href="blog/generatsi-excel-otchyotov-dl-audita-dokumentov-polnoe-rukovodstvo.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 16, 2026">May 16, 2026</time>
+    </div>
+    <h3><a href="blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html">Почему &#x27;Delete&#x27; не удаляет по-настоящему — безопасное уничтожение файлов</a></h3>
+    <p>Когда вы удаляете файл, он всё ещё на диске. Узнайте, как работает безопасное уничтожение.</p>
+    <a href="blog/pochemu-delete-ne-udal-et-po-nasto-schemu-bezopasnoe-unichtozhenie-faylov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="industry">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.industry">Отрасль</span>
+      <time datetime="May 15, 2026">May 15, 2026</time>
+    </div>
+    <h3><a href="blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html">Почему каждой юридической фирме нужен инструмент инспекции документов</a></h3>
+    <p>Юридические документы несут скрытые риски. Узнайте, почему инспекция документов необходима юристам.</p>
+    <a href="blog/pochemu-kazhdoy-ridicheskoy-firme-nuzhen-instrument-inspektsii-dokumentov.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 14, 2026">May 14, 2026</time>
+    </div>
+    <h3><a href="blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html">Как добавить водяные знаки на сотни PDF сразу</a></h3>
+    <p>Нужно добавить водяные знаки на целую папку PDF? Вот как сделать это за секунды с DocInspector.</p>
+    <a href="blog/kak-dobavityu-vod-nee-znaki-na-sotni-pdf-srazu.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 13, 2026">May 13, 2026</time>
+    </div>
+    <h3><a href="blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html">GDPR и метаданные документов: соответствуют ли ваши файлы?</a></h3>
+    <p>Метаданные документов могут содержать персональные данные, нарушающие GDPR. Узнайте, как проверить и очистить документы.</p>
+    <a href="blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 12, 2026">May 12, 2026</time>
+    </div>
+    <h3><a href="blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html">5 вещей, которые вы не знали о PDF-файлах</a></h3>
+    <p>PDF кажутся простыми, но скрывают удивительную сложность. Вот 5 фактов о PDF, которые большинство не знает.</p>
+    <a href="blog/5-veschey-kotoree-ve-ne-znali-o-pdf-faylah.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="education">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.education">Обучение</span>
+      <time datetime="May 11, 2026">May 11, 2026</time>
+    </div>
+    <h3><a href="blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html">PDF/A vs обычный PDF — когда использовать каждый формат</a></h3>
+    <p>Не все PDF одинаковы. Узнайте разницу между PDF/A и стандартным PDF и когда использовать каждый.</p>
+    <a href="blog/pdf-a-vs-obechney-pdf-kogda-ispolyuzovatyu-kazhdey-format.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="security">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span>
+      <time datetime="May 10, 2026">May 10, 2026</time>
+    </div>
+    <h3><a href="blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html">Скрытые данные в ваших документах (и почему это важно)</a></h3>
+    <p>Ваши PDF и Word файлы содержат скрытые метаданные, которые могут раскрыть личную информацию. Вот что с этим делать.</p>
+    <a href="blog/skretee-dannee-v-vashih-dokumentah-i-pochemu-yato-vazhno.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div>
+  <div class="blog-card reveal" data-category="how-to">
+    <div class="blog-card-meta">
+      <span class="blog-category" data-i18n="blog.cat.how-to">Инструкция</span>
+      <time datetime="May 09, 2026">May 09, 2026</time>
+    </div>
+    <h3><a href="blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html">Как восстановить повреждённый PDF-файл за несколько секунд</a></h3>
+    <p>PDF не открывается? Узнайте, как исправить повреждённые PDF-файлы с помощью DocInspector. Работает 100% офлайн.</p>
+    <a href="blog/kak-vosstanovityu-povrezhdyonney-pdf-fayl-za-neskolyuko-sekund.html" class="blog-read-more" data-i18n="blog.readMore">Читать статью →</a>
+  </div></div>
+<div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">Статьи по вашему запросу не найдены.</div>
+<div class="blog-pagination" id="blogPagination"></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 Владимир Тону — Все права защищены</span>
+      <div class="footer-links">
+        <a href="politika-konfidentsialnosti.html" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="usloviya-ispolzovaniya.html" data-i18n="footer.terms">Условия использования</a>
+        <a href="politika-vozvrata.html" data-i18n="footer.refund">Политика возврата</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../cookies.js"></script>
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=10"></script>
+<script>
+(function(){
+  var PER_PAGE=15, grid=document.getElementById('blogGrid'), searchInput=document.getElementById('blogSearch'),
+      noResults=document.getElementById('blogNoResults'), pagination=document.getElementById('blogPagination'),
+      allCards=Array.from(grid.querySelectorAll('.blog-card')), currentFilter='all', currentSearch='', currentPage=1;
+  function getFiltered(){
+    return allCards.filter(function(c){
+      var cat=c.dataset.category||'', matchCat=currentFilter==='all'||cat===currentFilter;
+      if(!matchCat) return false;
+      if(!currentSearch) return true;
+      var txt=(c.querySelector('h3')||{textContent:''}).textContent+' '+(c.querySelector('p')||{textContent:''}).textContent;
+      return txt.toLowerCase().indexOf(currentSearch.toLowerCase())!==-1;
+    });
+  }
+  function render(){
+    var f=getFiltered(), total=f.length, pages=Math.max(1,Math.ceil(total/PER_PAGE));
+    if(currentPage>pages) currentPage=pages;
+    var s=(currentPage-1)*PER_PAGE;
+    allCards.forEach(function(c){c.classList.add('hidden');});
+    f.slice(s,s+PER_PAGE).forEach(function(c){c.classList.remove('hidden');});
+    noResults.classList.toggle('show',total===0);
+    renderPag(pages,total);
+  }
+  function renderPag(pages,total){
+    pagination.innerHTML='';
+    if(pages<=1) return;
+    var prev=document.createElement('button'); prev.className='blog-page-btn'+(currentPage<=1?' disabled':''); prev.innerHTML='←';
+    prev.onclick=function(){if(currentPage>1){currentPage--;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(prev);
+    for(var i=1;i<=pages;i++){var b=document.createElement('button');b.className='blog-page-btn'+(i===currentPage?' active':'');b.textContent=i;b.dataset.page=i;b.onclick=function(){currentPage=parseInt(this.dataset.page);render();scrollTo({top:0,behavior:'smooth'});};pagination.appendChild(b);}
+    var next=document.createElement('button'); next.className='blog-page-btn'+(currentPage>=pages?' disabled':''); next.innerHTML='→';
+    next.onclick=function(){if(currentPage<pages){currentPage++;render();scrollTo({top:0,behavior:'smooth'});}};
+    pagination.appendChild(next);
+    var info=document.createElement('span'); info.className='blog-page-info'; info.textContent=total+' articles'; pagination.appendChild(info);
+  }
+  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active'); currentFilter=btn.dataset.filter; currentPage=1; render();
+    });
+  });
+  var t; searchInput.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){currentSearch=searchInput.value.trim();currentPage=1;render();},250);});
+  render();
+})();
+</script>
+</body>
+</html>
