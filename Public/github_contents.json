@@ -1,0 +1,354 @@
+[
+  {
+    "name": "Public",
+    "path": "Public",
+    "sha": "abacfca2c7529c24dde3eb1afa28d7ff2dea6889",
+    "size": 0,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/Public?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/tree/main/Public",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/trees/abacfca2c7529c24dde3eb1afa28d7ff2dea6889",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/Public?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/trees/abacfca2c7529c24dde3eb1afa28d7ff2dea6889",
+      "html": "https://github.com/doc-inspector/install/tree/main/Public"
+    }
+  },
+  {
+    "name": "articles.json",
+    "path": "articles.json",
+    "sha": "8e87e5f62cbf5843649a209e8ef841979c085f81",
+    "size": 98934,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/articles.json?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/articles.json",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/8e87e5f62cbf5843649a209e8ef841979c085f81",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/articles.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/articles.json?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/8e87e5f62cbf5843649a209e8ef841979c085f81",
+      "html": "https://github.com/doc-inspector/install/blob/main/articles.json"
+    }
+  },
+  {
+    "name": "build-blog.py",
+    "path": "build-blog.py",
+    "sha": "8a008cddad15755c9997c8fcf28cd19b484d8835",
+    "size": 25204,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/build-blog.py?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/build-blog.py",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/8a008cddad15755c9997c8fcf28cd19b484d8835",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/build-blog.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/build-blog.py?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/8a008cddad15755c9997c8fcf28cd19b484d8835",
+      "html": "https://github.com/doc-inspector/install/blob/main/build-blog.py"
+    }
+  },
+  {
+    "name": "generate-blog.py",
+    "path": "generate-blog.py",
+    "sha": "36ea5b16823ce3390eb55b56a8c4ca69f88ff85c",
+    "size": 98634,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/generate-blog.py?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/generate-blog.py",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/36ea5b16823ce3390eb55b56a8c4ca69f88ff85c",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/generate-blog.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/generate-blog.py?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/36ea5b16823ce3390eb55b56a8c4ca69f88ff85c",
+      "html": "https://github.com/doc-inspector/install/blob/main/generate-blog.py"
+    }
+  },
+  {
+    "name": "hero-v4.mp4",
+    "path": "hero-v4.mp4",
+    "sha": "f7f5ef0a959c97d48f0fb76134246f20b6e1fbe8",
+    "size": 759898,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/hero-v4.mp4?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/hero-v4.mp4",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/f7f5ef0a959c97d48f0fb76134246f20b6e1fbe8",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/hero-v4.mp4",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/hero-v4.mp4?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/f7f5ef0a959c97d48f0fb76134246f20b6e1fbe8",
+      "html": "https://github.com/doc-inspector/install/blob/main/hero-v4.mp4"
+    }
+  },
+  {
+    "name": "screenshots",
+    "path": "screenshots",
+    "sha": "d4b1d881cd4374cdd552a86b34d8423310a6a6af",
+    "size": 0,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/screenshots?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/tree/main/screenshots",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/trees/d4b1d881cd4374cdd552a86b34d8423310a6a6af",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/screenshots?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/trees/d4b1d881cd4374cdd552a86b34d8423310a6a6af",
+      "html": "https://github.com/doc-inspector/install/tree/main/screenshots"
+    }
+  },
+  {
+    "name": "seo-audit.md",
+    "path": "seo-audit.md",
+    "sha": "3eef4f9b2be55f66cb7ed7a30d72e31c825d6c7e",
+    "size": 1179,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/seo-audit.md?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/seo-audit.md",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/3eef4f9b2be55f66cb7ed7a30d72e31c825d6c7e",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/seo-audit.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/seo-audit.md?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/3eef4f9b2be55f66cb7ed7a30d72e31c825d6c7e",
+      "html": "https://github.com/doc-inspector/install/blob/main/seo-audit.md"
+    }
+  },
+  {
+    "name": "seo-fix.py",
+    "path": "seo-fix.py",
+    "sha": "f82b3dcfd89538bbb0b2a00f3f5f8102bf7bd871",
+    "size": 14497,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/seo-fix.py?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/seo-fix.py",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/f82b3dcfd89538bbb0b2a00f3f5f8102bf7bd871",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/seo-fix.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/seo-fix.py?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/f82b3dcfd89538bbb0b2a00f3f5f8102bf7bd871",
+      "html": "https://github.com/doc-inspector/install/blob/main/seo-fix.py"
+    }
+  },
+  {
+    "name": "shot-footer.png",
+    "path": "shot-footer.png",
+    "sha": "cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+    "size": 259173,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-footer.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-footer.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-footer.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-footer.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-footer.png"
+    }
+  },
+  {
+    "name": "shot-hero.png",
+    "path": "shot-hero.png",
+    "sha": "d8bebd4c7c5da6ab5b2820b757131f1f34c9bc83",
+    "size": 284268,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-hero.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-hero.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/d8bebd4c7c5da6ab5b2820b757131f1f34c9bc83",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-hero.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-hero.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/d8bebd4c7c5da6ab5b2820b757131f1f34c9bc83",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-hero.png"
+    }
+  },
+  {
+    "name": "shot-hero2.png",
+    "path": "shot-hero2.png",
+    "sha": "39f75116829b2276f3c32020b3c554e76e7324c6",
+    "size": 287718,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-hero2.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-hero2.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/39f75116829b2276f3c32020b3c554e76e7324c6",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-hero2.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-hero2.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/39f75116829b2276f3c32020b3c554e76e7324c6",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-hero2.png"
+    }
+  },
+  {
+    "name": "shot-price.png",
+    "path": "shot-price.png",
+    "sha": "6a0cdb84a3faf14dcd80f331c6037e19d2127156",
+    "size": 305034,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-price.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-price.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/6a0cdb84a3faf14dcd80f331c6037e19d2127156",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-price.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-price.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/6a0cdb84a3faf14dcd80f331c6037e19d2127156",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-price.png"
+    }
+  },
+  {
+    "name": "shot-scroll1.png",
+    "path": "shot-scroll1.png",
+    "sha": "f07b7e319e0867fd8c1ffd03e909d05c02c5704f",
+    "size": 268891,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll1.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll1.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/f07b7e319e0867fd8c1ffd03e909d05c02c5704f",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll1.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll1.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/f07b7e319e0867fd8c1ffd03e909d05c02c5704f",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll1.png"
+    }
+  },
+  {
+    "name": "shot-scroll2.png",
+    "path": "shot-scroll2.png",
+    "sha": "6ded323c3d3c77562ed8b30d8790dc1593ba480c",
+    "size": 269087,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll2.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll2.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/6ded323c3d3c77562ed8b30d8790dc1593ba480c",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll2.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll2.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/6ded323c3d3c77562ed8b30d8790dc1593ba480c",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll2.png"
+    }
+  },
+  {
+    "name": "shot-scroll3.png",
+    "path": "shot-scroll3.png",
+    "sha": "a471d0ddf7ab534fcb1c1dfbcdfd9c8262c21978",
+    "size": 271446,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll3.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll3.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/a471d0ddf7ab534fcb1c1dfbcdfd9c8262c21978",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll3.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll3.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/a471d0ddf7ab534fcb1c1dfbcdfd9c8262c21978",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll3.png"
+    }
+  },
+  {
+    "name": "shot-scroll4.png",
+    "path": "shot-scroll4.png",
+    "sha": "311964cf03be6fc59d8e01de34bdac6833f847d3",
+    "size": 252939,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll4.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll4.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/311964cf03be6fc59d8e01de34bdac6833f847d3",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll4.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll4.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/311964cf03be6fc59d8e01de34bdac6833f847d3",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll4.png"
+    }
+  },
+  {
+    "name": "shot-scroll5.png",
+    "path": "shot-scroll5.png",
+    "sha": "6fecb31275e39efd418b7ed385ded42982d4c368",
+    "size": 162093,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll5.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll5.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/6fecb31275e39efd418b7ed385ded42982d4c368",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll5.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll5.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/6fecb31275e39efd418b7ed385ded42982d4c368",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll5.png"
+    }
+  },
+  {
+    "name": "shot-scroll6.png",
+    "path": "shot-scroll6.png",
+    "sha": "cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+    "size": 259173,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll6.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot-scroll6.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot-scroll6.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot-scroll6.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/cf11ffae2e69481fbd1241bedbce4ad10d76987c",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot-scroll6.png"
+    }
+  },
+  {
+    "name": "shot1.png",
+    "path": "shot1.png",
+    "sha": "d02ce8d5c3e850b6be4e1b48923db3395c706e19",
+    "size": 334688,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot1.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot1.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/d02ce8d5c3e850b6be4e1b48923db3395c706e19",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot1.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot1.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/d02ce8d5c3e850b6be4e1b48923db3395c706e19",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot1.png"
+    }
+  },
+  {
+    "name": "shot2.png",
+    "path": "shot2.png",
+    "sha": "f1326a8e19b8ef31724def02adbb3250462e524a",
+    "size": 345741,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot2.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot2.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/f1326a8e19b8ef31724def02adbb3250462e524a",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot2.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot2.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/f1326a8e19b8ef31724def02adbb3250462e524a",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot2.png"
+    }
+  },
+  {
+    "name": "shot3.png",
+    "path": "shot3.png",
+    "sha": "bb787bd11911ff62ee13c795f40198c3aa4ab421",
+    "size": 307272,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot3.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot3.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/bb787bd11911ff62ee13c795f40198c3aa4ab421",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot3.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot3.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/bb787bd11911ff62ee13c795f40198c3aa4ab421",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot3.png"
+    }
+  },
+  {
+    "name": "shot4.png",
+    "path": "shot4.png",
+    "sha": "e3de5e3cc798c368bb6bc819d201721b0a6db20b",
+    "size": 313814,
+    "url": "https://api.github.com/repos/doc-inspector/install/contents/shot4.png?ref=main",
+    "html_url": "https://github.com/doc-inspector/install/blob/main/shot4.png",
+    "git_url": "https://api.github.com/repos/doc-inspector/install/git/blobs/e3de5e3cc798c368bb6bc819d201721b0a6db20b",
+    "download_url": "https://raw.githubusercontent.com/doc-inspector/install/main/shot4.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/doc-inspector/install/contents/shot4.png?ref=main",
+      "git": "https://api.github.com/repos/doc-inspector/install/git/blobs/e3de5e3cc798c368bb6bc819d201721b0a6db20b",
+      "html": "https://github.com/doc-inspector/install/blob/main/shot4.png"
+    }
+  }
+]
