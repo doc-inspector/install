@@ -1,51 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - DocInspector</title>
-  <link rel="stylesheet" href="../style.css?v=11">
+  <meta charset="UTF-8"><title>Blog - DocInspector</title>
+  <link rel="canonical" href="https://doc-inspector.com/blog.html" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog.html" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog.html" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog.html" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog.html" />
+  <link rel="stylesheet" href="../style.css?v=9">
   <link rel="icon" href="../assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
-  <style>
-    .blog-bg-grid { position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0; background-image:linear-gradient(rgba(6,182,212,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.04) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 0%,transparent 70%); }
-    .blog-bg-glow { position:fixed;top:-20%;left:50%;transform:translateX(-50%); width:800px;height:500px; background:radial-gradient(ellipse,rgba(6,182,212,.08) 0%,transparent 60%); pointer-events:none;z-index:0; }
-    .blog-hero { text-align:center;padding:8rem 1.5rem 2rem;position:relative;z-index:1; }
-    .blog-hero h1 { font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,#fff 0%,#67e8f9 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem; }
-    .blog-hero p { color:#94a3b8;font-size:1.1rem;max-width:600px;margin:0 auto; }
-    .blog-search-wrap { max-width:480px;margin:1.5rem auto 0;position:relative; }
-    .blog-search { width:100%;padding:.7rem 1rem .7rem 2.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;color:#e2e8f0;font-size:.92rem;outline:none;transition:all .2s; }
-    .blog-search:focus { border-color:rgba(6,182,212,.4);background:rgba(255,255,255,.06);box-shadow:0 0 20px rgba(6,182,212,.1); }
-    .blog-search::placeholder { color:#64748b; }
-    .blog-search-icon { position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none; }
-    .blog-filter { display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1.5rem 1.5rem 2rem;position:relative;z-index:1; }
-    .blog-filter-btn { background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:.45rem 1rem;border-radius:999px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif; }
-    .blog-filter-btn:hover,.blog-filter-btn.active { background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#67e8f9; }
-    .blog-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:0 1.5rem 2rem;position:relative;z-index:1; }
-    .blog-card { background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:1rem;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:flex;flex-direction:column; }
-    .blog-card:hover { background:rgba(6,182,212,.06);border-color:rgba(6,182,212,.2);transform:translateY(-2px); }
-    .blog-card.hidden { display:none; }
-    .blog-card-meta { display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;font-size:.82rem;color:#64748b; }
-    .blog-category { background:rgba(6,182,212,.15);color:#67e8f9;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em; }
-    .blog-card h3 { font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:#f1f5f9;margin-bottom:.5rem;line-height:1.3; }
-    .blog-card p { font-size:.92rem;color:#94a3b8;line-height:1.55;flex:1;margin-bottom:.8rem; }
-    .blog-read-more { font-size:.88rem;color:#67e8f9;font-weight:600;text-decoration:none;margin-top:auto;display:inline-block; }
-    .blog-no-results { display:none;text-align:center;padding:3rem 1rem;color:#64748b;font-size:1rem;position:relative;z-index:1; }
-    .blog-no-results.show { display:block; }
-    .blog-pagination { display:flex;justify-content:center;align-items:center;gap:.5rem;padding:2rem 1.5rem 4rem;position:relative;z-index:1; }
-    .blog-page-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#94a3b8;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s; }
-    .blog-page-btn:hover { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#67e8f9; }
-    .blog-page-btn.active { background:rgba(6,182,212,.2);border-color:rgba(6,182,212,.4);color:#67e8f9; }
-    .blog-page-btn.disabled { opacity:.3;pointer-events:none; }
-    .blog-page-info { color:#64748b;font-size:.82rem;margin:0 .5rem; }
-    @media(max-width:600px) { .blog-grid { grid-template-columns:1fr; } .blog-hero { padding:7rem 1.5rem 1.5rem; } }
-  </style>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
-<div class="blog-bg-grid"></div>
-<div class="blog-bg-glow"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -56,6 +33,7 @@
           <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
+
       <div class="nav-links">
         <a href="index.html" data-i18n="nav.home">Home</a>
         <a href="price.html" data-i18n="nav.price">Price</a>
@@ -65,6 +43,7 @@
         <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <a href="download.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
+
       <div class="nav-actions">
         <div class="lang-dropdown">
           <button class="lang-btn" aria-label="Language">
@@ -79,731 +58,643 @@
         </div>
         <a href="download.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
+
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </header>
-<div class="blog-hero">
-  <h1 data-i18n="blog.pageTitle">Blog</h1>
-  <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
-  <div class="blog-search-wrap">
-    <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="text" class="blog-search" id="blogSearch" placeholder="Search articles..." data-i18n-placeholder="blog.searchPlaceholder">
-  </div>
-</div>
-<div class="blog-filter">
-  <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filterAll">All</button>
-  <button class="blog-filter-btn" data-filter="how-to" data-i18n="blog.cat.how-to">How-To</button>
-  <button class="blog-filter-btn" data-filter="security" data-i18n="blog.cat.security">Security</button>
-  <button class="blog-filter-btn" data-filter="education" data-i18n="blog.cat.education">Education</button>
-  <button class="blog-filter-btn" data-filter="industry" data-i18n="blog.cat.industry">Industry</button>
-</div>
-<div class="blog-grid" id="blogGrid">  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/windows-11-pdf-processing.html">Setting Up DocInspector on Windows 11 — Quick Start Guide</a></h3>
-    <p>Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.</p>
-    <a href="blog/windows-11-pdf-processing.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/document-hardening-vs-encryption.html">Document Hardening vs Encryption: The Difference Every Manager Should Know</a></h3>
-    <p>Encryption protects access; hardening reduces structural file risk. They are not the same thing.</p>
-    <a href="blog/document-hardening-vs-encryption.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/ocr-quality-basics.html">Why OCR Makes Mistakes: Scan Quality, Fonts, Rotation, and Contrast</a></h3>
-    <p>A simple guide to the factors that influence OCR results in a scanned PDF.</p>
-    <a href="blog/ocr-quality-basics.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/batch-processing-roi.html">Batch Processing vs Manual Work: Calculating Time Lost on Documents</a></h3>
-    <p>A simple method to estimate hours spent on conversion, watermarking, OCR, and manual checks.</p>
-    <a href="blog/batch-processing-roi.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/folder-evidence-report-explained.html">What Is a Folder Evidence Report and Why It Helps Audits</a></h3>
-    <p>A simple explanation of reports that show what files exist inside a folder structure.</p>
-    <a href="blog/folder-evidence-report-explained.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/secure-watermarking-strategy.html">Correct Watermarking: When, Where, and How to Mark Sensitive Documents</a></h3>
-    <p>Not every watermark is useful. Text, position, visibility, and consistent batch application matter.</p>
-    <a href="blog/secure-watermarking-strategy.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/before-sending-pdf-to-client.html">Before Sending a PDF to a Client: 12 Things to Check</a></h3>
-    <p>A practical checklist for final documents, contracts, reports, proposals, and delivery packs.</p>
-    <a href="blog/before-sending-pdf-to-client.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/document-audit-workflow-for-teams.html">How to Build a Document Audit Workflow for Your Team</a></h3>
-    <p>Concrete steps so document verification does not depend on each employee&#x27;s memory.</p>
-    <a href="blog/document-audit-workflow-for-teams.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/metadata-cleaning-vs-redaction.html">Metadata Cleaning vs Redaction: Two Different Operations, Both Important</a></h3>
-    <p>Redaction hides visible content; metadata cleaning removes internal information that is not obvious at first glance.</p>
-    <a href="blog/metadata-cleaning-vs-redaction.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/long-term-document-archive-preparation.html">Preparing Documents for Long-Term Archiving</a></h3>
-    <p>How to avoid digital archives that are hard to search and full of corrupted, duplicate, or poorly scanned files.</p>
-    <a href="blog/long-term-document-archive-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 28, 2026">May 28, 2026</time>
-    </div>
-    <h3><a href="blog/privacy-first-document-workflow-small-business.html">Privacy-First Document Workflow for Small Businesses</a></h3>
-    <p>A simple model for companies without a large compliance department but still handling sensitive data.</p>
-    <a href="blog/privacy-first-document-workflow-small-business.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/docinspector-vs-online-pdf-tools.html">DocInspector vs Online PDF Tools — What&#x27;s the Difference?</a></h3>
-    <p>Why choose a desktop tool over free online PDF services? Here&#x27;s an honest comparison.</p>
-    <a href="blog/docinspector-vs-online-pdf-tools.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="industry">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/bank-loan-file-standardization.html">Bank Loan Files: Fast Standardization for PDFs, Scans, and Forms</a></h3>
-    <p>How banking teams can prepare cleaner files for review, archiving, and audit.</p>
-    <a href="blog/bank-loan-file-standardization.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/government-archive-digitization.html">Government Archive Digitization: Control Thousands of Scans Without Cloud</a></h3>
-    <p>A workflow for public institutions turning physical archives into searchable, verifiable digital documents.</p>
-    <a href="blog/government-archive-digitization.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/telecom-contract-document-audit.html">Telecom Customer Contracts: Fast Audit for Thousands of Operational PDFs</a></h3>
-    <p>How batch processing helps control contracts, annexes, requests, and signed forms.</p>
-    <a href="blog/telecom-contract-document-audit.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/university-student-records.html">Universities and Student Records: Clean Documents for Archive and Review</a></h3>
-    <p>A workflow for certificates, requests, study contracts, and scanned student documents.</p>
-    <a href="blog/university-student-records.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/logistics-customs-document-workflow.html">Logistics and Customs: Preparing Invoices, CMRs, and Declarations in PDF</a></h3>
-    <p>A process for transport scans, commercial invoices, and import/export document packs.</p>
-    <a href="blog/logistics-customs-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/energy-utility-compliance-records.html">Energy and Utilities: Technical Archives Ready for Compliance</a></h3>
-    <p>How to organize reports, certificates, minutes, and technical documents into verifiable batches.</p>
-    <a href="blog/energy-utility-compliance-records.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/manufacturing-quality-document-control.html">Manufacturing Quality: Document Control for Certificates, Forms, and Reports</a></h3>
-    <p>How to standardize quality documents before ISO, customer, or supplier audits.</p>
-    <a href="blog/manufacturing-quality-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/nonprofit-grant-reporting-documents.html">Nonprofits and Grants: Preparing Documents for Donors and Audit</a></h3>
-    <p>How to organize contracts, invoices, narrative reports, and evidence into a verifiable pack.</p>
-    <a href="blog/nonprofit-grant-reporting-documents.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/recruitment-candidate-file-privacy.html">Recruitment Agencies: Protecting CVs and Candidate Files</a></h3>
-    <p>How to manage CVs, IDs, references, and forms without exposing metadata or unnecessary personal data.</p>
-    <a href="blog/recruitment-candidate-file-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 27, 2026">May 27, 2026</time>
-    </div>
-    <h3><a href="blog/franchise-branch-document-standards.html">Franchises and Multi-Branch Networks: One Standard for Documents</a></h3>
-    <p>How to reduce document chaos across offices, branches, and local teams.</p>
-    <a href="blog/franchise-branch-document-standards.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="industry">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/accountants-document-management.html">Document Management Tips for Accountants and Auditors</a></h3>
-    <p>Accountants handle thousands of sensitive financial documents. Here&#x27;s how to manage them securely and efficiently.</p>
-    <a href="blog/accountants-document-management.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/zero-trust-document-workflow.html">Zero Trust for Documents: Never Send a PDF Without Local Verification</a></h3>
-    <p>How to apply Zero Trust principles to PDF, Word, and Excel workflows before sharing files.</p>
-    <a href="blog/zero-trust-document-workflow.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/client-email-document-checklist.html">Security Checklist Before Sending Documents by Email</a></h3>
-    <p>A simple workflow for companies sending contracts, reports, invoices, and sensitive files by email.</p>
-    <a href="blog/client-email-document-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/malicious-pdf-risk-surface.html">The Risk Surface of a PDF: Links, Scripts, Attachments, and Hidden Objects</a></h3>
-    <p>Why a PDF should be inspected structurally, not only opened in a viewer.</p>
-    <a href="blog/malicious-pdf-risk-surface.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/offline-ocr-confidential-scans.html">Offline OCR for Confidential Documents: When Cloud Is Not an Option</a></h3>
-    <p>How to turn scans into searchable PDFs without exposing contracts, IDs, or case files to external services.</p>
-    <a href="blog/offline-ocr-confidential-scans.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/chain-of-custody-cleaned-pdfs.html">Chain of Custody for Cleaned PDFs: How to Preserve Processing Evidence</a></h3>
-    <p>Why reports and hashes matter when cleaning or rebuilding sensitive documents.</p>
-    <a href="blog/chain-of-custody-cleaned-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/tender-document-metadata-removal.html">Metadata Removal Before Tenders: Protect Company Identity and Strategy</a></h3>
-    <p>How to prepare tender documents without exposing internal names, versions, and comments.</p>
-    <a href="blog/tender-document-metadata-removal.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/executive-board-pack-security.html">Board Pack Security: Protect Documents for Management and Investors</a></h3>
-    <p>Preparing PDF packs for board meetings, investors, and shareholders without accidental leaks.</p>
-    <a href="blog/executive-board-pack-security.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/document-triage-after-data-incident.html">Document Triage After a Data Incident: What to Check in the First Hours</a></h3>
-    <p>A practical plan for rapidly identifying documents affected by a potential data leak.</p>
-    <a href="blog/document-triage-after-data-incident.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/vendor-file-risk-review.html">Files Received from Vendors: Local Review Before Company Import</a></h3>
-    <p>How to reduce operational risk when receiving PDFs, scans, and Office documents from third parties.</p>
-    <a href="blog/vendor-file-risk-review.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 26, 2026">May 26, 2026</time>
-    </div>
-    <h3><a href="blog/secure-document-export-policy.html">Secure Document Export Policy: Simple Rules for Small Teams</a></h3>
-    <p>How to define an internal standard for PDFs, reports, watermarking, and audit before export.</p>
-    <a href="blog/secure-document-export-policy.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/what-is-pdf-hardening.html">What Is PDF Hardening and When Do You Need It?</a></h3>
-    <p>PDF hardening makes documents tamper-resistant and removes hidden threats. Learn what it means and when to use it.</p>
-    <a href="blog/what-is-pdf-hardening.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/document-metadata-leaks.html">Hidden Document Metadata: How Data Leaks Happen Without Hacking</a></h3>
-    <p>A practical guide to author data, edit history, comments, and EXIF details that can expose sensitive information.</p>
-    <a href="blog/document-metadata-leaks.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/offline-pdf-processing-security.html">Why Offline PDF Processing Is Safer Than Online Tools</a></h3>
-    <p>Explains the risks of uploading sensitive documents to free cloud services and the local-processing alternative.</p>
-    <a href="blog/offline-pdf-processing-security.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/secure-file-shredding-audit-log.html">Secure File Shredding With Audit Logs: When Delete Is Not Enough</a></h3>
-    <p>Shows why standard deletion does not provide operational proof and how a verifiable log helps.</p>
-    <a href="blog/secure-file-shredding-audit-log.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/gdpr-document-metadata-checklist.html">GDPR and Document Metadata: A Quick Checklist Before Sharing</a></h3>
-    <p>A compliance-focused article about reducing exposure of personal data hidden in documents.</p>
-    <a href="blog/gdpr-document-metadata-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/redaction-flattening-pdf-security.html">Redaction Is Not Enough: Why Some PDFs Must Be Flattened</a></h3>
-    <p>Explains the risk of hidden text, annotations, and PDF layers that may be recoverable.</p>
-    <a href="blog/redaction-flattening-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/sensitive-document-discovery.html">How to Discover Sensitive Documents Across PCs and Network Drives</a></h3>
-    <p>An article about inventorying sensitive files before an audit, backup, or migration.</p>
-    <a href="blog/sensitive-document-discovery.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/macro-office-file-risk.html">Office Files With Macros: A Risk Signal Before Distribution</a></h3>
-    <p>Why macros, embedded objects, and mixed-format files should be checked before sharing.</p>
-    <a href="blog/macro-office-file-risk.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/hash-verification-evidence-files.html">MD5/SHA-256 Hashes for Documents: Proving Bundle Integrity</a></h3>
-    <p>Explains the role of hashes in audits, chain of custody, and evidence bundle verification.</p>
-    <a href="blog/hash-verification-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/cloud-sharing-document-safety.html">Before Uploading Documents to the Cloud: 7 Mandatory Security Checks</a></h3>
-    <p>An article for companies using cloud storage while reducing file exposure risk.</p>
-    <a href="blog/cloud-sharing-document-safety.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/air-gapped-document-processing.html">Air-Gapped Document Processing: Work Without Internet and Without Compromise</a></h3>
-    <p>Content for organizations with restricted networks, sensitive data, and strict control requirements.</p>
-    <a href="blog/air-gapped-document-processing.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/law-firm-evidence-bundles.html">Evidence Bundles for Law Firms: Preparing Clean and Verifiable Documents</a></h3>
-    <p>An article for law firms managing high volumes of PDFs, Word files, and attachments.</p>
-    <a href="blog/law-firm-evidence-bundles.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/real-estate-pdf-security.html">PDF Security in Real Estate: Protecting Client Data Before a Transaction</a></h3>
-    <p>Targets agents, notaries, and brokers sharing documents with personal and financial data.</p>
-    <a href="blog/real-estate-pdf-security.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/accounting-audit-document-management.html">Document Management for Accountants and Auditors: Reports, Hashes, and Version Control</a></h3>
-    <p>Content for financial workflows with thousands of documents and traceability requirements.</p>
-    <a href="blog/accounting-audit-document-management.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/hr-personnel-files-sanitization.html">HR Files and Personnel Records: Reducing Employee Data Exposure Risk</a></h3>
-    <p>An article for HR departments sharing or archiving documents containing personal data.</p>
-    <a href="blog/hr-personnel-files-sanitization.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/healthcare-document-privacy.html">Healthcare Administrative Documents: Privacy, OCR, and Secure Archiving</a></h3>
-    <p>For clinics and offices that scan, share, and archive sensitive documents.</p>
-    <a href="blog/healthcare-document-privacy.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/public-procurement-document-packages.html">Public Procurement Packages: Preparing Clean, Indexed, and Verifiable PDFs</a></h3>
-    <p>For institutions, vendors, and consultants working with large document sets.</p>
-    <a href="blog/public-procurement-document-packages.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/insurance-claim-evidence-files.html">Insurance Claim Files: Fast Organization for Photos, PDFs, and Statements</a></h3>
-    <p>An article for insurers, brokers, and adjusters who need clear claim packages.</p>
-    <a href="blog/insurance-claim-evidence-files.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/construction-engineering-document-control.html">Document Control in Construction: Plans, Contracts, and Reports Ready for Audit</a></h3>
-    <p>For companies managing projects, permits, technical reports, and multiple versions.</p>
-    <a href="blog/construction-engineering-document-control.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/banking-loan-due-diligence.html">Loan Files and Due Diligence: Standardizing Client Documents Fast</a></h3>
-    <p>Content for financial institutions and consultants receiving mixed-format documents.</p>
-    <a href="blog/banking-loan-due-diligence.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/ma-data-room-preparation.html">M&amp;A Data Room Preparation: Clean Documents Before Investors See Them</a></h3>
-    <p>An article for founders, consultants, and finance teams preparing documents for due diligence.</p>
-    <a href="blog/ma-data-room-preparation.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/pdfa-vs-regular-pdf.html">PDF/A vs Regular PDF: Differences for Archiving, Audit, and Legal Work</a></h3>
-    <p>Clarifies the difference between a standard PDF and a format designed for long-term archiving.</p>
-    <a href="blog/pdfa-vs-regular-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/ocr-searchable-pdf-guide.html">OCR for Scanned PDFs: Turning Images Into Searchable Documents</a></h3>
-    <p>An educational guide to OCR, searchable text, and digital archive efficiency.</p>
-    <a href="blog/ocr-searchable-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/image-only-pdf-explained.html">What Image-Only PDF Means and Why Sensitive Teams Use It</a></h3>
-    <p>A simple article about text layers, image rendering, and visual content protection.</p>
-    <a href="blog/image-only-pdf-explained.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/batch-document-processing-explained.html">Batch Document Processing: Saving Hours When You Have Hundreds of Files</a></h3>
-    <p>Explains the benefits of batch processing for OCR, conversion, watermarking, and reports.</p>
-    <a href="blog/batch-document-processing-explained.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/repair-corrupted-pdf.html">How to Repair a Corrupted PDF Without Uploading It Online</a></h3>
-    <p>A guide for PDFs that will not open, have missing pages, or unstable structures.</p>
-    <a href="blog/repair-corrupted-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/batch-watermark-pdf-guide.html">How to Add Watermarks to Hundreds of PDFs Without Manual Work</a></h3>
-    <p>A guide to labeling confidential documents, drafts, and case packages.</p>
-    <a href="blog/batch-watermark-pdf-guide.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/excel-report-folder-audit.html">Excel Reports for Folder Audits: What They Should Include and Why They Matter</a></h3>
-    <p>Explains the value of a report with file names, sizes, pages, metadata, and hashes.</p>
-    <a href="blog/excel-report-folder-audit.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 25, 2026">May 25, 2026</time>
-    </div>
-    <h3><a href="blog/document-metadata-beginners.html">Document Metadata Explained Simply: What Recipients May See Without You Knowing</a></h3>
-    <p>An introductory article for non-technical users about file properties and hidden data.</p>
-    <a href="blog/document-metadata-beginners.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="industry">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-      <time datetime="May 24, 2026">May 24, 2026</time>
-    </div>
-    <h3><a href="blog/evidence-bundling-best-practices.html">Evidence Bundling Best Practices for Legal Professionals</a></h3>
-    <p>Creating court-ready evidence bundles requires careful document preparation. Here are the best practices for 2026.</p>
-    <a href="blog/evidence-bundling-best-practices.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 23, 2026">May 23, 2026</time>
-    </div>
-    <h3><a href="blog/ocr-scanned-pdfs.html">How to Make Scanned PDFs Searchable with OCR</a></h3>
-    <p>Scanned PDFs are just images — you can&#x27;t search or copy text from them. Learn how OCR fixes this.</p>
-    <a href="blog/ocr-scanned-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 22, 2026">May 22, 2026</time>
-    </div>
-    <h3><a href="blog/batch-processing-saves-hours.html">Stop Processing Documents One by One — Batch Processing Saves Hours</a></h3>
-    <p>If you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. Learn how batch processing transforms your workflow.</p>
-    <a href="blog/batch-processing-saves-hours.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 21, 2026">May 21, 2026</time>
-    </div>
-    <h3><a href="blog/protect-documents-before-sharing.html">7 Steps to Protect Your Documents Before Sharing Them</a></h3>
-    <p>Before hitting send, make sure your documents don&#x27;t leak sensitive information. Here are 7 essential steps.</p>
-    <a href="blog/protect-documents-before-sharing.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 20, 2026">May 20, 2026</time>
-    </div>
-    <h3><a href="blog/document-audit-checklist.html">The Complete Document Audit Checklist for 2026</a></h3>
-    <p>A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.</p>
-    <a href="blog/document-audit-checklist.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 19, 2026">May 19, 2026</time>
-    </div>
-    <h3><a href="blog/flatten-pdf-to-image.html">How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</a></h3>
-    <p>Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.</p>
-    <a href="blog/flatten-pdf-to-image.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 18, 2026">May 18, 2026</time>
-    </div>
-    <h3><a href="blog/why-offline-document-processing.html">Why Offline Document Processing Matters More Than Ever</a></h3>
-    <p>Cloud tools are convenient, but they put your documents at risk. Here&#x27;s why offline processing is the smarter choice for sensitive files.</p>
-    <a href="blog/why-offline-document-processing.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 17, 2026">May 17, 2026</time>
-    </div>
-    <h3><a href="blog/excel-reports-for-document-audits.html">Generating Excel Reports for Document Audits — A Complete Guide</a></h3>
-    <p>Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.</p>
-    <a href="blog/excel-reports-for-document-audits.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 16, 2026">May 16, 2026</time>
-    </div>
-    <h3><a href="blog/secure-file-shredding-explained.html">Why &#x27;Delete&#x27; Doesn&#x27;t Really Delete — Secure File Shredding Explained</a></h3>
-    <p>When you delete a file, it&#x27;s still on your drive. Learn how secure shredding works and why it matters for sensitive documents.</p>
-    <a href="blog/secure-file-shredding-explained.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="industry">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.industry">Industry</span>
-      <time datetime="May 15, 2026">May 15, 2026</time>
-    </div>
-    <h3><a href="blog/document-security-for-lawyers.html">Why Every Law Firm Needs a Document Inspection Tool</a></h3>
-    <p>Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.</p>
-    <a href="blog/document-security-for-lawyers.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 14, 2026">May 14, 2026</time>
-    </div>
-    <h3><a href="blog/batch-watermark-pdfs.html">How to Add Watermarks to Hundreds of PDFs at Once</a></h3>
-    <p>Need to watermark an entire folder of PDFs? Here&#x27;s how to batch-watermark documents in seconds with DocInspector.</p>
-    <a href="blog/batch-watermark-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 13, 2026">May 13, 2026</time>
-    </div>
-    <h3><a href="blog/gdpr-document-compliance.html">GDPR and Document Metadata: Are Your Files Compliant?</a></h3>
-    <p>Document metadata can contain personal data that violates GDPR. Learn how to audit and clean your documents for compliance.</p>
-    <a href="blog/gdpr-document-compliance.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 12, 2026">May 12, 2026</time>
-    </div>
-    <h3><a href="blog/5-things-you-didnt-know-about-pdfs.html">5 Things You Didn&#x27;t Know About PDF Files</a></h3>
-    <p>PDFs seem simple, but they hide surprising complexity. Here are 5 facts about PDF files that most people don&#x27;t know.</p>
-    <a href="blog/5-things-you-didnt-know-about-pdfs.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="education">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.education">Education</span>
-      <time datetime="May 11, 2026">May 11, 2026</time>
-    </div>
-    <h3><a href="blog/pdf-a-vs-regular-pdf.html">PDF/A vs Regular PDF — When to Use Each Format</a></h3>
-    <p>Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.</p>
-    <a href="blog/pdf-a-vs-regular-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="security">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.security">Security</span>
-      <time datetime="May 10, 2026">May 10, 2026</time>
-    </div>
-    <h3><a href="blog/hidden-metadata-in-your-documents.html">The Hidden Data Inside Your Documents (And Why It Matters)</a></h3>
-    <p>Your PDFs and Word files contain hidden metadata that can expose personal info, edit history, and GPS locations. Here&#x27;s what to do about it.</p>
-    <a href="blog/hidden-metadata-in-your-documents.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div>
-  <div class="blog-card reveal" data-category="how-to">
-    <div class="blog-card-meta">
-      <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span>
-      <time datetime="May 09, 2026">May 09, 2026</time>
-    </div>
-    <h3><a href="blog/how-to-repair-corrupted-pdf.html">How to Repair a Corrupted PDF File in Seconds</a></h3>
-    <p>PDF won&#x27;t open? Learn how to fix corrupted PDF files using DocInspector&#x27;s batch repair tool. Works 100% offline.</p>
-    <a href="blog/how-to-repair-corrupted-pdf.html" class="blog-read-more" data-i18n="blog.readMore">Read article →</a>
-  </div></div>
-<div class="blog-no-results" id="blogNoResults" data-i18n="blog.noResults">No articles found matching your search.</div>
-<div class="blog-pagination" id="blogPagination"></div>
+<main class="container section-gap">
+  <div class="section-header" style="text-align:center;margin-bottom:3rem;">
+    <h1 data-i18n="blog.pageTitle">Blog</h1>
+    <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
+  </div>
+  <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;">    <a href="blog/how-to-repair-corrupted-pdf.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-09
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Repair a Corrupted PDF File in Seconds</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">PDF won&#x27;t open? Learn how to fix corrupted PDF files using DocInspector&#x27;s batch repair tool. Works 100% offline.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/hidden-metadata-in-your-documents.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-10
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">The Hidden Data Inside Your Documents (And Why It Matters)</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Your PDFs and Word files contain hidden metadata that can expose personal info, edit history, and GPS locations. Here&#x27;s what to do about it.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/pdf-a-vs-regular-pdf.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-11
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">PDF/A vs Regular PDF — When to Use Each Format</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/5-things-you-didnt-know-about-pdfs.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-12
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">5 Things You Didn&#x27;t Know About PDF Files</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">PDFs seem simple, but they hide surprising complexity. Here are 5 facts about PDF files that most people don&#x27;t know.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/gdpr-document-compliance.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-13
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">GDPR and Document Metadata: Are Your Files Compliant?</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Document metadata can contain personal data that violates GDPR. Learn how to audit and clean your documents for compliance.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/batch-watermark-pdfs.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-14
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Add Watermarks to Hundreds of PDFs at Once</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Need to watermark an entire folder of PDFs? Here&#x27;s how to batch-watermark documents in seconds with DocInspector.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-security-for-lawyers.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.industry">Industry</span> | 2026-05-15
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why Every Law Firm Needs a Document Inspection Tool</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/secure-file-shredding-explained.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-16
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why &#x27;Delete&#x27; Doesn&#x27;t Really Delete — Secure File Shredding Explained</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">When you delete a file, it&#x27;s still on your drive. Learn how secure shredding works and why it matters for sensitive documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/excel-reports-for-document-audits.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-17
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Generating Excel Reports for Document Audits — A Complete Guide</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/why-offline-document-processing.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-18
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why Offline Document Processing Matters More Than Ever</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Cloud tools are convenient, but they put your documents at risk. Here&#x27;s why offline processing is the smarter choice for sensitive files.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/flatten-pdf-to-image.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-19
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-audit-checklist.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-20
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">The Complete Document Audit Checklist for 2026</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/protect-documents-before-sharing.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-21
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">7 Steps to Protect Your Documents Before Sharing Them</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Before hitting send, make sure your documents don&#x27;t leak sensitive information. Here are 7 essential steps.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/batch-processing-saves-hours.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-22
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Stop Processing Documents One by One — Batch Processing Saves Hours</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">If you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. Learn how batch processing transforms your workflow.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/ocr-scanned-pdfs.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-23
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Make Scanned PDFs Searchable with OCR</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Scanned PDFs are just images — you can&#x27;t search or copy text from them. Learn how OCR fixes this.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/evidence-bundling-best-practices.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.industry">Industry</span> | 2026-05-24
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Evidence Bundling Best Practices for Legal Professionals</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Creating court-ready evidence bundles requires careful document preparation. Here are the best practices for 2026.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/what-is-pdf-hardening.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">What Is PDF Hardening and When Do You Need It?</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">PDF hardening makes documents tamper-resistant and removes hidden threats. Learn what it means and when to use it.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/accountants-document-management.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.industry">Industry</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Management Tips for Accountants and Auditors</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Accountants handle thousands of sensitive financial documents. Here&#x27;s how to manage them securely and efficiently.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/docinspector-vs-online-pdf-tools.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">DocInspector vs Online PDF Tools — What&#x27;s the Difference?</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Why choose a desktop tool over free online PDF services? Here&#x27;s an honest comparison.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/windows-11-pdf-processing.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Setting Up DocInspector on Windows 11 — Quick Start Guide</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-metadata-leaks.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Hidden Document Metadata: How Data Leaks Happen Without Hacking</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A practical guide to author data, edit history, comments, and EXIF details that can expose sensitive information.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/offline-pdf-processing-security.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why Offline PDF Processing Is Safer Than Online Tools</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Explains the risks of uploading sensitive documents to free cloud services and the local-processing alternative.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/secure-file-shredding-audit-log.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Secure File Shredding With Audit Logs: When Delete Is Not Enough</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Shows why standard deletion does not provide operational proof and how a verifiable log helps.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/gdpr-document-metadata-checklist.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">GDPR and Document Metadata: A Quick Checklist Before Sharing</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A compliance-focused article about reducing exposure of personal data hidden in documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/redaction-flattening-pdf-security.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Redaction Is Not Enough: Why Some PDFs Must Be Flattened</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Explains the risk of hidden text, annotations, and PDF layers that may be recoverable.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/sensitive-document-discovery.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Discover Sensitive Documents Across PCs and Network Drives</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article about inventorying sensitive files before an audit, backup, or migration.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/macro-office-file-risk.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Office Files With Macros: A Risk Signal Before Distribution</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Why macros, embedded objects, and mixed-format files should be checked before sharing.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/hash-verification-evidence-files.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">MD5/SHA-256 Hashes for Documents: Proving Bundle Integrity</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Explains the role of hashes in audits, chain of custody, and evidence bundle verification.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/cloud-sharing-document-safety.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Before Uploading Documents to the Cloud: 7 Mandatory Security Checks</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article for companies using cloud storage while reducing file exposure risk.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/air-gapped-document-processing.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Air-Gapped Document Processing: Work Without Internet and Without Compromise</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Content for organizations with restricted networks, sensitive data, and strict control requirements.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/law-firm-evidence-bundles.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Evidence Bundles for Law Firms: Preparing Clean and Verifiable Documents</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article for law firms managing high volumes of PDFs, Word files, and attachments.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/real-estate-pdf-security.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">PDF Security in Real Estate: Protecting Client Data Before a Transaction</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Targets agents, notaries, and brokers sharing documents with personal and financial data.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/accounting-audit-document-management.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Management for Accountants and Auditors: Reports, Hashes, and Version Control</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Content for financial workflows with thousands of documents and traceability requirements.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/hr-personnel-files-sanitization.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">HR Files and Personnel Records: Reducing Employee Data Exposure Risk</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article for HR departments sharing or archiving documents containing personal data.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/healthcare-document-privacy.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Healthcare Administrative Documents: Privacy, OCR, and Secure Archiving</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">For clinics and offices that scan, share, and archive sensitive documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/public-procurement-document-packages.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Public Procurement Packages: Preparing Clean, Indexed, and Verifiable PDFs</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">For institutions, vendors, and consultants working with large document sets.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/insurance-claim-evidence-files.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Insurance Claim Files: Fast Organization for Photos, PDFs, and Statements</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article for insurers, brokers, and adjusters who need clear claim packages.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/construction-engineering-document-control.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Control in Construction: Plans, Contracts, and Reports Ready for Audit</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">For companies managing projects, permits, technical reports, and multiple versions.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/banking-loan-due-diligence.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Loan Files and Due Diligence: Standardizing Client Documents Fast</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Content for financial institutions and consultants receiving mixed-format documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/ma-data-room-preparation.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">M&amp;A Data Room Preparation: Clean Documents Before Investors See Them</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An article for founders, consultants, and finance teams preparing documents for due diligence.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/pdfa-vs-regular-pdf.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">PDF/A vs Regular PDF: Differences for Archiving, Audit, and Legal Work</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Clarifies the difference between a standard PDF and a format designed for long-term archiving.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/ocr-searchable-pdf-guide.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">OCR for Scanned PDFs: Turning Images Into Searchable Documents</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An educational guide to OCR, searchable text, and digital archive efficiency.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/image-only-pdf-explained.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">What Image-Only PDF Means and Why Sensitive Teams Use It</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple article about text layers, image rendering, and visual content protection.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/batch-document-processing-explained.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Batch Document Processing: Saving Hours When You Have Hundreds of Files</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Explains the benefits of batch processing for OCR, conversion, watermarking, and reports.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/repair-corrupted-pdf.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Repair a Corrupted PDF Without Uploading It Online</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A guide for PDFs that will not open, have missing pages, or unstable structures.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/batch-watermark-pdf-guide.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Add Watermarks to Hundreds of PDFs Without Manual Work</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A guide to labeling confidential documents, drafts, and case packages.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/excel-report-folder-audit.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Excel Reports for Folder Audits: What They Should Include and Why They Matter</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Explains the value of a report with file names, sizes, pages, metadata, and hashes.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-metadata-beginners.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-25
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Metadata Explained Simply: What Recipients May See Without You Knowing</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">An introductory article for non-technical users about file properties and hidden data.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/zero-trust-document-workflow.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Zero Trust for Documents: Never Send a PDF Without Local Verification</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to apply Zero Trust principles to PDF, Word, and Excel workflows before sharing files.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/client-email-document-checklist.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Security Checklist Before Sending Documents by Email</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple workflow for companies sending contracts, reports, invoices, and sensitive files by email.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/malicious-pdf-risk-surface.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">The Risk Surface of a PDF: Links, Scripts, Attachments, and Hidden Objects</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Why a PDF should be inspected structurally, not only opened in a viewer.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/offline-ocr-confidential-scans.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Offline OCR for Confidential Documents: When Cloud Is Not an Option</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to turn scans into searchable PDFs without exposing contracts, IDs, or case files to external services.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/chain-of-custody-cleaned-pdfs.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Chain of Custody for Cleaned PDFs: How to Preserve Processing Evidence</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Why reports and hashes matter when cleaning or rebuilding sensitive documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/tender-document-metadata-removal.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Metadata Removal Before Tenders: Protect Company Identity and Strategy</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to prepare tender documents without exposing internal names, versions, and comments.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/executive-board-pack-security.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Board Pack Security: Protect Documents for Management and Investors</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Preparing PDF packs for board meetings, investors, and shareholders without accidental leaks.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-triage-after-data-incident.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Triage After a Data Incident: What to Check in the First Hours</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A practical plan for rapidly identifying documents affected by a potential data leak.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/vendor-file-risk-review.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Files Received from Vendors: Local Review Before Company Import</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to reduce operational risk when receiving PDFs, scans, and Office documents from third parties.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/secure-document-export-policy.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-26
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Secure Document Export Policy: Simple Rules for Small Teams</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to define an internal standard for PDFs, reports, watermarking, and audit before export.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/bank-loan-file-standardization.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.industry">Industry</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Bank Loan Files: Fast Standardization for PDFs, Scans, and Forms</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How banking teams can prepare cleaner files for review, archiving, and audit.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/government-archive-digitization.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Government Archive Digitization: Control Thousands of Scans Without Cloud</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A workflow for public institutions turning physical archives into searchable, verifiable digital documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/telecom-contract-document-audit.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Telecom Customer Contracts: Fast Audit for Thousands of Operational PDFs</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How batch processing helps control contracts, annexes, requests, and signed forms.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/university-student-records.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Universities and Student Records: Clean Documents for Archive and Review</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A workflow for certificates, requests, study contracts, and scanned student documents.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/logistics-customs-document-workflow.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Logistics and Customs: Preparing Invoices, CMRs, and Declarations in PDF</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A process for transport scans, commercial invoices, and import/export document packs.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/energy-utility-compliance-records.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Energy and Utilities: Technical Archives Ready for Compliance</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to organize reports, certificates, minutes, and technical documents into verifiable batches.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/manufacturing-quality-document-control.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Manufacturing Quality: Document Control for Certificates, Forms, and Reports</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to standardize quality documents before ISO, customer, or supplier audits.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/nonprofit-grant-reporting-documents.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Nonprofits and Grants: Preparing Documents for Donors and Audit</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to organize contracts, invoices, narrative reports, and evidence into a verifiable pack.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/recruitment-candidate-file-privacy.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Recruitment Agencies: Protecting CVs and Candidate Files</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to manage CVs, IDs, references, and forms without exposing metadata or unnecessary personal data.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/franchise-branch-document-standards.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-27
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Franchises and Multi-Branch Networks: One Standard for Documents</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to reduce document chaos across offices, branches, and local teams.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-hardening-vs-encryption.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Education</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document Hardening vs Encryption: The Difference Every Manager Should Know</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Encryption protects access; hardening reduces structural file risk. They are not the same thing.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/ocr-quality-basics.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why OCR Makes Mistakes: Scan Quality, Fonts, Rotation, and Contrast</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple guide to the factors that influence OCR results in a scanned PDF.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/batch-processing-roi.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Batch Processing vs Manual Work: Calculating Time Lost on Documents</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple method to estimate hours spent on conversion, watermarking, OCR, and manual checks.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/folder-evidence-report-explained.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">What Is a Folder Evidence Report and Why It Helps Audits</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple explanation of reports that show what files exist inside a folder structure.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/secure-watermarking-strategy.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Correct Watermarking: When, Where, and How to Mark Sensitive Documents</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Not every watermark is useful. Text, position, visibility, and consistent batch application matter.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/before-sending-pdf-to-client.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Before Sending a PDF to a Client: 12 Things to Check</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A practical checklist for final documents, contracts, reports, proposals, and delivery packs.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/document-audit-workflow-for-teams.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Build a Document Audit Workflow for Your Team</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Concrete steps so document verification does not depend on each employee&#x27;s memory.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/metadata-cleaning-vs-redaction.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Metadata Cleaning vs Redaction: Two Different Operations, Both Important</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Redaction hides visible content; metadata cleaning removes internal information that is not obvious at first glance.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/long-term-document-archive-preparation.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Preparing Documents for Long-Term Archiving</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">How to avoid digital archives that are hard to search and full of corrupted, duplicate, or poorly scanned files.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>
+    <a href="blog/privacy-first-document-workflow-small-business.html" class="blog-card reveal" style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Security</span> | 2026-05-28
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Privacy-First Document Workflow for Small Businesses</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A simple model for companies without a large compliance department but still handling sensitive data.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+    </a>  </div>
+</main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
@@ -822,51 +713,6 @@
 <script src="../cookies.js"></script>
 <script src="../i18n-dict.js"></script>
 <script src="../i18n.js"></script>
-<script src="../scroll-fx.js?v=10"></script>
-<script>
-(function(){
-  var PER_PAGE=15, grid=document.getElementById('blogGrid'), searchInput=document.getElementById('blogSearch'),
-      noResults=document.getElementById('blogNoResults'), pagination=document.getElementById('blogPagination'),
-      allCards=Array.from(grid.querySelectorAll('.blog-card')), currentFilter='all', currentSearch='', currentPage=1;
-  function getFiltered(){
-    return allCards.filter(function(c){
-      var cat=c.dataset.category||'', matchCat=currentFilter==='all'||cat===currentFilter;
-      if(!matchCat) return false;
-      if(!currentSearch) return true;
-      var txt=(c.querySelector('h3')||{textContent:''}).textContent+' '+(c.querySelector('p')||{textContent:''}).textContent;
-      return txt.toLowerCase().indexOf(currentSearch.toLowerCase())!==-1;
-    });
-  }
-  function render(){
-    var f=getFiltered(), total=f.length, pages=Math.max(1,Math.ceil(total/PER_PAGE));
-    if(currentPage>pages) currentPage=pages;
-    var s=(currentPage-1)*PER_PAGE;
-    allCards.forEach(function(c){c.classList.add('hidden');});
-    f.slice(s,s+PER_PAGE).forEach(function(c){c.classList.remove('hidden');});
-    noResults.classList.toggle('show',total===0);
-    renderPag(pages,total);
-  }
-  function renderPag(pages,total){
-    pagination.innerHTML='';
-    if(pages<=1) return;
-    var prev=document.createElement('button'); prev.className='blog-page-btn'+(currentPage<=1?' disabled':''); prev.innerHTML='←';
-    prev.onclick=function(){if(currentPage>1){currentPage--;render();scrollTo({top:0,behavior:'smooth'});}};
-    pagination.appendChild(prev);
-    for(var i=1;i<=pages;i++){var b=document.createElement('button');b.className='blog-page-btn'+(i===currentPage?' active':'');b.textContent=i;b.dataset.page=i;b.onclick=function(){currentPage=parseInt(this.dataset.page);render();scrollTo({top:0,behavior:'smooth'});};pagination.appendChild(b);}
-    var next=document.createElement('button'); next.className='blog-page-btn'+(currentPage>=pages?' disabled':''); next.innerHTML='→';
-    next.onclick=function(){if(currentPage<pages){currentPage++;render();scrollTo({top:0,behavior:'smooth'});}};
-    pagination.appendChild(next);
-    var info=document.createElement('span'); info.className='blog-page-info'; info.textContent=total+' articles'; pagination.appendChild(info);
-  }
-  document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active'); currentFilter=btn.dataset.filter; currentPage=1; render();
-    });
-  });
-  var t; searchInput.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){currentSearch=searchInput.value.trim();currentPage=1;render();},250);});
-  render();
-})();
-</script>
+<script src="../scroll-fx.js?v=9"></script>
 </body>
 </html>
