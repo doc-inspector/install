@@ -1,11 +1,5 @@
-# ── Scripturi de utilitati (nu sint necesare pe GitHub) ──────────────────────
-Public/inject-clarity.py
-Public/inject-ga4.py
-Public/bust.py
-Public/bust2.py
-Public/patch.py
-Public/fix_links.py
-Public/patch-build-blog.py
+# ── Toate scripturile Python (ramin doar pe PC local) ────────────────────────
+*.py
 
 # ── Fisiere de backup ─────────────────────────────────────────────────────────
 Public/*.bak
