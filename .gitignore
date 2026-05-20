@@ -1,0 +1,25 @@
+# ── Scripturi de utilitati (nu sint necesare pe GitHub) ──────────────────────
+Public/inject-clarity.py
+Public/inject-ga4.py
+Public/bust.py
+Public/bust2.py
+Public/patch.py
+Public/fix_links.py
+Public/patch-build-blog.py
+
+# ── Fisiere de backup ─────────────────────────────────────────────────────────
+Public/*.bak
+Public/*.bak2
+
+# ── Fisiere JSON de continut GitHub (generate automat) ────────────────────────
+Public/github_contents.json
+Public/github_public_contents.json
+
+# ── Fisiere temporare Python ──────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Fisiere de sistem Windows ─────────────────────────────────────────────────
+Thumbs.db
+desktop.ini
