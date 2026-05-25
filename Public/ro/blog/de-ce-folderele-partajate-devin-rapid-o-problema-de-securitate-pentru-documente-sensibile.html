@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De ce folderele partajate devin rapid o problemă de securitate pentru documente sensibile - DocInspector Blog</title>
+  <meta name="description" content="Folderele partajate pot acumula duplicate, versiuni vechi și documente sensibile fără control. Vezi cum reduci riscul operațional și de confidențialitate." />
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog/de-ce-folderele-partajate-devin-rapid-o-problema-de-securitate-pentru-documente-sensibile.html" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/why-shared-folders-become-a-document-security-problem-without-clear-rules.html" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/de-ce-folderele-partajate-devin-rapid-o-problema-de-securitate-pentru-documente-sensibile.html" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pochemu-obshchie-papki-bystro-prevrashchayutsya-v-problemu-bezopasnosti-dokumentov.html" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/why-shared-folders-become-a-document-security-problem-without-clear-rules.html" />
+  <link rel="stylesheet" href="../../style.css?v=9">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../index.html" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../index.html" data-i18n="nav.home">Acasă</a>
+        <a href="../preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="../ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="../rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="../blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="../descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../../en/blog/why-shared-folders-become-a-document-security-problem-without-clear-rules.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/de-ce-folderele-partajate-devin-rapid-o-problema-de-securitate-pentru-documente-sensibile.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../../ru/blog/pochemu-obshchie-papki-bystro-prevrashchayutsya-v-problemu-bezopasnosti-dokumentov.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+       <span class="blog-category" data-i18n="blog.cat.security">Securitate</span> | <time datetime="2026-05-25">2026-05-25</time>
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">De ce folderele partajate devin rapid o problemă de securitate pentru documente sensibile</h1>
+    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
+      <h2>Introducere</h2>
+<p>Folderele partajate sunt printre cele mai folosite instrumente dintr-o companie. Ele apar pe servere locale, în SharePoint, pe drive-uri de rețea sau în soluții cloud. La început, totul pare organizat: fiecare echipă are un folder, fiecare client are o substructură, iar documentele sunt accesibile rapid. După câteva luni, același spațiu poate deveni o zonă greu de controlat, cu documente duplicate, versiuni vechi, fișiere fără proprietar și informații sensibile accesibile prea larg.</p>
+<h2>Unde apare problema</h2>
+<p>Problema apare când folderul partajat este tratat ca depozit universal. Angajații salvează copii temporare, exporturi, scanări, documente semnate, drafturi și arhive ZIP în aceeași structură. Uneori, documentele finale stau lângă versiuni neaprobate. Alteori, fișierele conțin metadata cu nume de autori, comentarii interne sau informații despre sistemul pe care au fost create. Dacă permisiunile sunt prea largi, un utilizator poate accesa documente care nu sunt relevante pentru rolul său. Dacă nu există audit, nimeni nu știe exact ce documente se află în folder.</p>
+<h2>Ce trebuie verificat</h2>
+<p>Un folder partajat trebuie verificat periodic ca spațiu de risc, nu doar ca spațiu de stocare. Trebuie analizate tipurile de fișiere, numărul de documente vechi, duplicatele, documentele fără standard de denumire, documentele cu date personale și fișierele care nu mai au justificare operațională. O verificare eficientă nu înseamnă doar ștergere manuală. Înseamnă inventariere, clasificare și stabilirea unei politici clare pentru ce se păstrează, cine are acces și ce trebuie curățat înainte de distribuire.</p>
+<h2>Flux recomandat</h2>
+<p>Un proces sănătos începe cu o structură simplă: foldere pe client, proiect, departament sau an. Documentele de lucru trebuie separate de documentele finale. Fișierele vechi se mută într-o zonă de arhivă, iar documentele sensibile se verifică înainte de partajare externă. DocInspector poate ajuta la scanarea locală a folderelor, identificarea documentelor sensibile și generarea de rapoarte utile pentru audit. Astfel, echipa nu lucrează pe impresii, ci pe o imagine clară a documentelor existente.</p>
+<h2>Checklist practic</h2>
+<ul>
+  <li>Separă documentele finale de documentele de lucru.</li>
+  <li>Revizuiește permisiunile pe foldere și subfoldere.</li>
+  <li>Identifică duplicatele și versiunile neaprobate.</li>
+  <li>Curăță metadata înainte de partajare externă.</li>
+  <li>Generează periodic un raport de inventar al folderului.</li>
+</ul>
+
+<h2>Concluzie</h2>
+<p>Un folder partajat necontrolat devine o problemă de securitate chiar dacă nu există un atac extern. Riscul vine din acumulare, acces excesiv și lipsă de standard. O rutină lunară de verificare poate preveni greșeli costisitoare și poate transforma document managementul într-un proces predictibil.</p>
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <div class="footer-links">
+        <a href="../politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="../termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="../politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>

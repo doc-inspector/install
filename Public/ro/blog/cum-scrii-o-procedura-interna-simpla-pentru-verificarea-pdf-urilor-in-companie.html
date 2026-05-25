@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cum scrii o procedură internă simplă pentru verificarea PDF-urilor în companie - DocInspector Blog</title>
+  <meta name="description" content="O procedură PDF clară ajută echipa să trimită documente curate și consistente. Vezi ce trebuie să conțină." />
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog/cum-scrii-o-procedura-interna-simpla-pentru-verificarea-pdf-urilor-in-companie.html" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-write-a-simple-internal-procedure-for-pdf-verification.html" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-scrii-o-procedura-interna-simpla-pentru-verificarea-pdf-urilor-in-companie.html" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-napisat-prostuyu-vnutrennyuyu-protseduru-proverki-pdf.html" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-write-a-simple-internal-procedure-for-pdf-verification.html" />
+  <link rel="stylesheet" href="../../style.css?v=9">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../index.html" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../index.html" data-i18n="nav.home">Acasă</a>
+        <a href="../preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="../ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="../rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="../blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="../descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../../en/blog/how-to-write-a-simple-internal-procedure-for-pdf-verification.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/cum-scrii-o-procedura-interna-simpla-pentru-verificarea-pdf-urilor-in-companie.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../../ru/blog/kak-napisat-prostuyu-vnutrennyuyu-protseduru-proverki-pdf.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+       <span class="blog-category" data-i18n="blog.cat.how-to">Cum se face</span> | <time datetime="2026-05-25">2026-05-25</time>
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Cum scrii o procedură internă simplă pentru verificarea PDF-urilor în companie</h1>
+    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
+      <h2>Introducere</h2>
+<p>Nu fiecare companie are un departament de compliance, dar aproape fiecare companie trimite PDF-uri importante. O procedură internă simplă poate reduce multe greșeli: documente incomplete, metadata expusă, versiuni incorecte sau fișiere trimise fără verificare.</p>
+<h2>Unde apare problema</h2>
+<p>Procedura trebuie să răspundă la întrebări concrete: cine verifică documentele, când se verifică, ce elemente sunt obligatorii, unde se păstrează versiunea finală și ce se face cu documentele respinse. Nu trebuie să fie un document lung. Trebuie să fie suficient de clar pentru a fi aplicat în fiecare zi.</p>
+<h2>Ce trebuie verificat</h2>
+<p>Pentru acest tip de articol, verificarea trebuie să acopere documentul vizibil, informațiile ascunse și modul în care fișierul va fi folosit mai departe. Controlează numele fișierului, formatul, paginile, calitatea scanării, metadata și existența unei versiuni finale separate de documentele de lucru.</p>
+<h2>Flux recomandat</h2>
+<p>Structura recomandată include scopul procedurii, tipurile de documente vizate, pașii de verificare, responsabilitățile și modul de arhivare. DocInspector poate fi menționat ca instrument de suport pentru verificare locală, curățare metadata, audit pe foldere și raportare. Procedura trebuie testată pe un caz real și ajustată după nevoile echipei.</p>
+<h2>Checklist practic</h2>
+<ul>
+  <li>Definește ce documente intră în procedură.</li>
+  <li>Stabilește cine verifică și cine aprobă.</li>
+  <li>Include pași pentru metadata, pagini și denumire.</li>
+  <li>Păstrează documentele finale într-un folder separat.</li>
+  <li>Revizuiește procedura după primele utilizări.</li>
+</ul>
+
+<h2>Concluzie</h2>
+<p>O procedură bună nu înlocuiește atenția, dar o standardizează. Când toți angajații urmează aceeași regulă, compania livrează documente mai curate și mai profesioniste.</p>
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <div class="footer-links">
+        <a href="../politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="../termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="../politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>
