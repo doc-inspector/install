@@ -293,12 +293,33 @@
   var activeCat  = 'all';
   var searchQ    = '';
 
-  /* Save current page URL when a static card is clicked (Back button fix) */
+  /* ── Save page + filter state on card click (Back button fix) ── */
   document.querySelectorAll('.blog-card').forEach(function(c){
     c.addEventListener('click', function(){
-      sessionStorage.setItem('blogListPage', window.location.href);
+      sessionStorage.setItem('blogListPage',  window.location.href);
+      sessionStorage.setItem('blogActiveCat', activeCat);
+      sessionStorage.setItem('blogSearchQ',   searchQ);
     });
   });
+
+  /* ── Restore filter state when user presses Back ─────────────── */
+  (function restoreState(){
+    var savedPage = sessionStorage.getItem('blogListPage');
+    if (!savedPage || savedPage !== window.location.href) return;
+    var savedCat = sessionStorage.getItem('blogActiveCat') || 'all';
+    var savedQ   = sessionStorage.getItem('blogSearchQ')   || '';
+    if (savedCat !== 'all') {
+      activeCat = savedCat;
+      catBtns.forEach(function(b){ b.classList.remove('active'); });
+      var btn = document.querySelector('.cat-btn[data-cat="' + savedCat + '"]');
+      if (btn) btn.classList.add('active');
+    }
+    if (savedQ && searchEl) {
+      searchQ = savedQ;
+      searchEl.value = savedQ;
+    }
+    if (activeCat !== 'all' || searchQ) { filterAll(); }
+  })();
 
   function escHtml(s) {
     return String(s)
@@ -308,11 +329,15 @@
 
   function makeDynamicCard(a) {
     var el = document.createElement('a');
-    el.className = 'blog-card dynamic-card reveal';
+    /* No 'reveal' class — dynamic cards must be immediately visible.
+       scroll-fx.js uses IntersectionObserver and would never pick up
+       cards created after page load, keeping them at opacity:0 forever. */
+    el.className = 'blog-card dynamic-card';
     el.href = 'blog/' + a.slug + '.html';
     el.setAttribute('data-category', a.category);
-    el.style.cssText = 'text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);' +
-      'padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;';
+    el.style.cssText = 'display:block;opacity:1;text-decoration:none;color:inherit;' +
+      'background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;' +
+      'border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;';
     var catLabel = (LABELS[a.category] && LABELS[a.category][lang]) || a.category;
     el.innerHTML =
       '<div style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">' + catLabel + ' | ' + a.date + '</div>' +
@@ -321,6 +346,8 @@
       '<div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;">'   + (READ_MORE[lang] || 'Read article →') + '</div>';
     el.addEventListener('click', function(){
       sessionStorage.setItem('blogListPage', window.location.href);
+      sessionStorage.setItem('blogActiveCat', activeCat);
+      sessionStorage.setItem('blogSearchQ',   searchQ);
     });
     return el;
   }
