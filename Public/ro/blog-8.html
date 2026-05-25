@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8"><title>Blog - DocInspector</title>
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog-8.html" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog-8.html" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog-8.html" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog-8.html" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog-8.html" />
+  <link rel="stylesheet" href="../style.css?v=11">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
+  <style>
+    /* ── PAGINATION SYSTEM ─────────────────────────────────── */
+    .pagination {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    .pagination a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 0.5rem;
+      border-radius: 8px;
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: all var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .pagination a:hover {
+      color: var(--cyan-light);
+      border-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    .pagination a.active {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 100%);
+      color: #0a1628;
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+    .pagination a.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/blog.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../ro/blog.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/blog.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="container section-gap">
+  <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+    <h1 data-i18n="blog.pageTitle">Blog</h1>
+    <p data-i18n="blog.pageSubtitle">Sfaturi, ghiduri și perspective despre securitatea documentelor</p>
+  </div>
+
+  <!-- ── SEARCH + CATEGORY FILTER ────────────────────────── -->
+  <div id="blog-controls" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;margin-bottom:2.5rem;">
+    <div style="position:relative;flex:1;min-width:220px;max-width:420px;">
+      <svg style="position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:0.45;pointer-events:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="blog-search" type="search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="Search articles..." style="width:100%;padding:0.65rem 1rem 0.65rem 2.6rem;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:10px;color:#e2e8f0;font-size:0.95rem;outline:none;transition:border-color 0.2s;">
+    </div>
+    <div id="cat-filters" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+      <button class="cat-btn active" data-cat="all" data-i18n="blog.cat.all">All</button>
+      <button class="cat-btn" data-cat="security" data-i18n="blog.cat.security">Securitate</button>
+      <button class="cat-btn" data-cat="how-to" data-i18n="blog.cat.how-to">Cum se face</button>
+      <button class="cat-btn" data-cat="education" data-i18n="blog.cat.education">Educație</button>
+      <button class="cat-btn" data-cat="industry" data-i18n="blog.cat.industry">Industrie</button>
+    </div>
+  </div>
+
+  <div id="no-results" style="display:none;text-align:center;padding:3rem;opacity:0.6;" data-i18n="blog.noResults">Nu au fost găsite articole care să corespundă căutării.</div>
+  <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;">    <a href="blog/cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr.html" class="blog-card reveal" data-category="how-to" data-title="cum să faci pdf-urile scanate searchable cu ocr" data-desc="pdf-urile scanate sunt doar imagini. află cum ocr le face searchable." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">Cum se face</span> | 2026-05-23
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Cum să faci PDF-urile scanate searchable cu OCR</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">PDF-urile scanate sunt doar imagini. Află cum OCR le face searchable.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore.html" class="blog-card reveal" data-category="how-to" data-title="nu mai procesa documente unul câte unul — procesarea batch economisește ore" data-desc="dacă încă procesezi documente individual, pierzi ore în fiecare săptămână." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">Cum se face</span> | 2026-05-22
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Nu mai procesa documente unul câte unul — procesarea batch economisește ore</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Dacă încă procesezi documente individual, pierzi ore în fiecare săptămână.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/7-pasi-pentru-protejarea-documentelor-inainte-de-partajare.html" class="blog-card reveal" data-category="how-to" data-title="7 pași pentru protejarea documentelor înainte de partajare" data-desc="înainte de a apăsa send, asigură-te că documentele nu scurg informații sensibile." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">Cum se face</span> | 2026-05-21
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">7 pași pentru protejarea documentelor înainte de partajare</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Înainte de a apăsa Send, asigură-te că documentele nu scurg informații sensibile.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/checklist-complet-pentru-auditul-documentelor-in-2026.html" class="blog-card reveal" data-category="education" data-title="checklist complet pentru auditul documentelor în 2026" data-desc="un checklist practic pentru auditarea securității documentelor. acoperă metadata, acces, shredding și conformitate." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.education">Educație</span> | 2026-05-20
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Checklist complet pentru auditul documentelor în 2026</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Un checklist practic pentru auditarea securității documentelor. Acoperă metadata, acces, shredding și conformitate.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea.html" class="blog-card reveal" data-category="how-to" data-title="cum să aplatizezi un pdf la format doar-imagini (și de ce ai vrea)" data-desc="aplatizarea pdf-urilor elimină conținut ascuns și asigură wysiwyg. când și cum să folosești tehnica." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">Cum se face</span> | 2026-05-19
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Cum să aplatizezi un PDF la format doar-imagini (și de ce ai vrea)</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Aplatizarea PDF-urilor elimină conținut ascuns și asigură WYSIWYG. Când și cum să folosești tehnica.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata.html" class="blog-card reveal" data-category="security" data-title="de ce procesarea offline a documentelor contează mai mult ca niciodată" data-desc="tool-urile cloud sunt conveniente, dar pun documentele tale în pericol. iată de ce procesarea offline e mai inteligentă." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-18
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">De ce procesarea offline a documentelor contează mai mult ca niciodată</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Tool-urile cloud sunt conveniente, dar pun documentele tale în pericol. Iată de ce procesarea offline e mai inteligentă.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet.html" class="blog-card reveal" data-category="how-to" data-title="generarea rapoartelor excel pentru audituri de documente — ghid complet" data-desc="cum generează docinspector rapoarte excel detaliate pentru audituri de foldere." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.how-to">Cum se face</span> | 2026-05-17
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Generarea rapoartelor Excel pentru audituri de documente — ghid complet</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Cum generează DocInspector rapoarte Excel detaliate pentru audituri de foldere.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat.html" class="blog-card reveal" data-category="security" data-title="de ce &#x27;delete&#x27; nu șterge cu adevărat — explicația shredding-ului securizat" data-desc="când ștergi un fișier, el e încă pe disc. află cum funcționează shredding-ul securizat." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-16
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">De ce &#x27;Delete&#x27; nu șterge cu adevărat — explicația shredding-ului securizat</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Când ștergi un fișier, el e încă pe disc. Află cum funcționează shredding-ul securizat.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+    <a href="blog/de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente.html" class="blog-card reveal" data-category="industry" data-title="de ce fiecare firmă de avocatură are nevoie de un tool de inspecție documente" data-desc="documentele legale poartă riscuri ascunse. află de ce inspecția documentelor e esențială pentru avocați." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
+      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+        <span data-i18n="blog.cat.industry">Industrie</span> | 2026-05-15
+      </div>
+      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">De ce fiecare firmă de avocatură are nevoie de un tool de inspecție documente</h3>
+      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Documentele legale poartă riscuri ascunse. Află de ce inspecția documentelor e esențială pentru avocați.</p>
+      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+    </a>
+  </div>
+<div class="pagination">
+<a href="blog-7.html">&laquo;</a>
+<a href="blog.html">1</a>
+<a href="blog-2.html">2</a>
+<a href="blog-3.html">3</a>
+<a href="blog-4.html">4</a>
+<a href="blog-5.html">5</a>
+<a href="blog-6.html">6</a>
+<a href="blog-7.html">7</a>
+<a class="active">8</a>
+<a href="blog-9.html">9</a>
+<a href="blog-9.html">&raquo;</a>
+</div>
+<style>
+  .cat-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(6,182,212,0.25);
+    background: rgba(6,182,212,0.05);
+    color: var(--text-muted,#94a3b8);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: Inter, sans-serif;
+  }
+  .cat-btn:hover {
+    border-color: rgba(6,182,212,0.6);
+    color: #38bdf8;
+    background: rgba(6,182,212,0.1);
+  }
+  .cat-btn.active {
+    background: linear-gradient(135deg,#06b6d4,#38bdf8);
+    color: #0a1628;
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(6,182,212,0.3);
+  }
+  #blog-search:focus {
+    border-color: rgba(6,182,212,0.6);
+    box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+  }
+  .blog-card[style*="display:none"] { display:none !important; }
+</style>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../cookies.js"></script>
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+<script>
+(function(){
+  var searchEl = document.getElementById("blog-search");
+  var catBtns  = document.querySelectorAll(".cat-btn");
+  var cards    = document.querySelectorAll(".blog-grid .blog-card");
+  var noRes    = document.getElementById("no-results");
+  var activeCat = "all";
+  var searchQ   = "";
+
+  function filterCards() {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var catMatch = activeCat === "all" || card.getAttribute("data-category") === activeCat;
+      var titleText = (card.getAttribute("data-title") || "").toLowerCase();
+      var descText  = (card.getAttribute("data-desc")  || "").toLowerCase();
+      var h3 = card.querySelector("h3");
+      var p  = card.querySelector("p");
+      var combinedText = titleText + " " + descText + " " +
+        (h3 ? h3.textContent.toLowerCase() : "") + " " +
+        (p  ? p.textContent.toLowerCase()  : "");
+      var searchMatch = !searchQ || combinedText.indexOf(searchQ) > -1;
+      var show = catMatch && searchMatch;
+      card.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+    noRes.style.display = visible === 0 ? "block" : "none";
+  }
+
+  catBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      catBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeCat = btn.getAttribute("data-cat");
+      filterCards();
+    });
+  });
+
+  if (searchEl) {
+    searchEl.addEventListener("input", function() {
+      searchQ = searchEl.value.trim().toLowerCase();
+      filterCards();
+    });
+  }
+})();
+</script>
+</body>
+</html>
