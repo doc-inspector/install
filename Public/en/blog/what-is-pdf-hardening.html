@@ -78,7 +78,7 @@
       <p>"Hardening" a PDF means making it resistant to tampering, removing potential security threats, and ensuring the document is exactly what it appears to be — nothing more, nothing less.</p><h2>What hardening involves</h2><ul><li><strong>Removing JavaScript</strong> — eliminates any executable code embedded in the PDF</li><li><strong>Stripping form fields</strong> — removes interactive elements that could be manipulated</li><li><strong>Flattening annotations</strong> — burns comments and markup into the page content</li><li><strong>Rebuilding structure</strong> — recreates the PDF's internal structure from scratch, eliminating corruption</li><li><strong>Metadata sanitization</strong> — removes all non-essential metadata</li></ul><h2>When to harden</h2><p>Harden your PDFs when: submitting evidence to courts, sharing documents with untrusted parties, archiving for long-term storage, distributing final versions of contracts or agreements, or any time you need to guarantee document integrity.</p><h2>DocInspector's approach</h2><p>DocInspector combines multiple hardening techniques in one pass. You can choose which techniques to apply and process entire folder trees at once. The result: clean, predictable, court-ready PDFs.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

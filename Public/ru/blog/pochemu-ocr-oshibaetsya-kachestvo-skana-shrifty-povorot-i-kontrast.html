@@ -83,7 +83,7 @@
 5. Сформируйте финальный отчет и сохраните его как внутреннее доказательство.</p><p>Для SEO страница должна естественно включать запросы: OCR quality, scanned PDF, OCR errors, searchable PDF text, document scanning. Не делайте keyword stuffing; используйте фразы в заголовке, подзаголовках, первом абзаце, meta description и имени основного изображения. Текст должен решать реальную проблему пользователя.</p><p>Вывод: документы нужно воспринимать как business assets. Локальный, повторяемый и отчетный workflow снижает риск, повышает доверие клиента и превращает обработку документов в операционное преимущество.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -106,5 +106,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

@@ -78,7 +78,7 @@
       <p>Юристы работают с самыми конфиденциальными документами. Каждый документ, покидающий фирму, несёт вашу репутацию.</p><h2>Проблема метаданных в юридической работе</h2><p>Противная сторона может изучить метаданные. Небрежно отправленный Word может раскрыть отслеживаемые изменения со стратегией переговоров.</p><h2>Целостность доказательств</h2><p>При формировании доказательных пакетов нужна абсолютная уверенность, что документы не были изменены и не содержат скрытого контента.</p><h2>Рабочий процесс DocInspector для юридических команд</h2><ol><li><strong>Аудит</strong> — сканирование пакетов документов, выявление рисков</li><li><strong>Отчёт</strong> — генерация Excel-отчётов о находках</li><li><strong>Ремонт и защита</strong> — перестроение PDF, удаление метаданных</li><li><strong>Комплектование</strong> — создание чистых пакетов для суда</li></ol><p>Вся обработка на компьютерах фирмы. Ни один документ не попадает в облако.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

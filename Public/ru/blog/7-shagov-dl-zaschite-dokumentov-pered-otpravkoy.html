@@ -78,7 +78,7 @@
       <p>Каждый отправленный документ — потенциальная утечка. Вот как защититься.</p><h2>1. Проверьте метаданные автора</h2><p>Откройте свойства и убедитесь, что имя автора подходит для внешней отправки.</p><h2>2. Проверьте отслеживаемые изменения</h2><p>Примите или отклоните все изменения и удалите историю.</p><h2>3. Удалите скрытые комментарии</h2><p>Комментарии, которые вы «удалили», могут быть в файле.</p><h2>4. Удалите встроенные объекты</h2><p>Фото с телефона могут содержать GPS-данные.</p><h2>5. Проверьте имя файла</h2><p>Имя вроде «Договор_v3_правки-Иван_КОНФИДЕНЦИАЛЬНО.pdf» говорит слишком много.</p><h2>6. Сожмите для максимальной безопасности</h2><p>Для конфиденциальных документов — формат только-изображений.</p><h2>7. Сгенерируйте аудит-отчёт</h2><p>Запустите аудит DocInspector перед отправкой. Занимает секунды, может спасти от дорогих ошибок.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

@@ -78,7 +78,7 @@
       <p>A "flattened" PDF is one where every page has been converted to an image. The result looks identical to the original, but all the hidden layers — text data, form fields, JavaScript, metadata, embedded objects — are gone. What you see is literally all there is.</p><h2>When to flatten</h2><ul><li><strong>Evidence submission</strong> — courts want documents that can't contain hidden executable content</li><li><strong>Secure sharing</strong> — ensure recipients can't extract or modify the underlying text</li><li><strong>Redaction verification</strong> — after redacting sensitive info, flattening guarantees it's truly gone</li><li><strong>Print-ready files</strong> — eliminate rendering differences between PDF viewers</li></ul><h2>How DocInspector does it</h2><p>Select your PDFs (or entire folders), choose "Flatten to Image" in the PDF Repair module, and set your quality preferences. DocInspector renders each page to a high-resolution image, then rebuilds the PDF. Batch processing handles hundreds of files while preserving your folder structure.</p><h2>The trade-off</h2><p>Flattened PDFs are no longer text-searchable (since text is now pixels). File sizes may increase. Use this when security matters more than searchability.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

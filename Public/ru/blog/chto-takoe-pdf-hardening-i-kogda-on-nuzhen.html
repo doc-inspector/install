@@ -78,7 +78,7 @@
       <p>«Hardening» PDF означает сделать его устойчивым к подделке, удалить угрозы безопасности и гарантировать, что документ — именно то, чем кажется.</p><h2>Что включает hardening</h2><ul><li><strong>Удаление JavaScript</strong></li><li><strong>Удаление полей форм</strong></li><li><strong>Сжатие аннотаций</strong></li><li><strong>Перестроение структуры</strong></li><li><strong>Очистка метаданных</strong></li></ul><h2>Когда применять</h2><p>При подаче доказательств, обмене с ненадёжными сторонами, долгосрочном архивировании, распространении финальных версий договоров.</p><h2>Подход DocInspector</h2><p>DocInspector объединяет несколько техник hardening за один проход. Обрабатывает целые деревья папок.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

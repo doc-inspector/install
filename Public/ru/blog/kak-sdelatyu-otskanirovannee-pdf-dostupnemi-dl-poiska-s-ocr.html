@@ -78,7 +78,7 @@
       <p>Вы сканируете стопку бумаг и получаете PDF. Но попробуйте найти слово — ничего. Потому что отсканированные PDF — по сути изображения в контейнере PDF.</p><h2>Что делает OCR</h2><p>OCR анализирует изображения, распознаёт буквы и слова и создаёт невидимый текстовый слой. PDF выглядит так же, но теперь можно искать и копировать текст.</p><h2>Пакетный OCR с DocInspector</h2><p>Перетащите папку PDF в DocInspector, выберите OCR и запустите обработку. Оригиналы сохраняются.</p><h2>Когда это нужно</h2><ul><li>Оцифровка бумажных архивов</li><li>Юридические документы с поиском</li><li>Обработка отсканированных счетов</li><li>Конвертация факсов в PDF с поиском</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

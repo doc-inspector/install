@@ -78,7 +78,7 @@
       <p>Când auditezi sute de documente, ai nevoie de output structurat. DocInspector generează rapoarte Excel comprehensive care mapează întreaga structură de foldere.</p><h2>Ce conține raportul?</h2><p>Fiecare rând reprezintă un fișier, cu coloane pentru: cale, tip, dimensiune, date de creare/modificare, autor, număr de pagini, flag-uri de securitate și indicatori de risc.</p><h2>Cum se generează</h2><ol><li>Încarcă structura de foldere în modulul Reporting</li><li>Selectează câmpurile de metadata</li><li>Click Generate — Excel-ul este creat cu sheet-uri formatate și statistici</li></ol><h2>Cazuri de utilizare</h2><ul><li><strong>Audituri de conformitate</strong> — dovedește că ai revizuit fiecare document</li><li><strong>Discovery legal</strong> — creează un manifest al tuturor probelor</li><li><strong>Curățarea datelor</strong> — identifică fișiere duplicate sau problematice</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

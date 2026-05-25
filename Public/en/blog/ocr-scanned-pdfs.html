@@ -78,7 +78,7 @@
       <p>You scan a stack of paper documents and get a folder full of PDFs. But try to search for a word in those PDFs — nothing happens. That's because scanned PDFs are essentially image files wrapped in a PDF container. There's no actual text data to search.</p><h2>What OCR does</h2><p>OCR (Optical Character Recognition) analyzes the images in your PDF, identifies letters and words, and creates an invisible text layer behind each page. The PDF looks exactly the same, but now you can search, copy, and index the text.</p><h2>Batch OCR with DocInspector</h2><p>Drop your folder of scanned PDFs into DocInspector, select the OCR option in PDF Repair, and let it process. Every scanned page gets a searchable text layer. The original images are preserved — quality doesn't change.</p><h2>When you need this</h2><ul><li>Digitizing paper archives for searchability</li><li>Making scanned legal documents discoverable</li><li>Processing scanned invoices for accounting systems</li><li>Converting faxes (yes, some offices still receive faxes) to searchable PDFs</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

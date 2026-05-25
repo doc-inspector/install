@@ -78,7 +78,7 @@
       <p>Când apeși Delete și golești Recycle Bin-ul, fișierul nu dispare. SO marchează spațiul ca "disponibil" — datele rămân până când altceva le suprascrie. Tool-urile de recuperare le pot readuce în minute.</p><h2>Când contează?</h2><p>Dacă gestionezi documente sensibile — fișiere de clienți, evidențe medicale, date financiare — ștergerea simplă nu e suficientă.</p><h2>Cum funcționează shredding-ul securizat</h2><p>Shredding-ul securizat suprascrie locația fișierului cu date aleatorii de mai multe ori. DocInspector suportă algoritmi standard din industrie care fac recuperarea imposibilă.</p><h2>Avantajul DocInspector</h2><p>Spre deosebire de tool-uri standalone, DocInspector integrează shredding-ul în workflow-ul de documente. Auditează, raportează, apoi shred selectiv — totul într-un singur tool, totul offline.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

@@ -78,7 +78,7 @@
       <p>Cloud-ul e minunat pentru multe lucruri. Securitatea documentelor nu e unul dintre ele.</p><h2>Problema cu tool-urile PDF bazate pe cloud</h2><p>De fiecare dată când încarci un PDF într-un tool online, îți încredințezi datele acelui serviciu. Pentru dosare legale, evidențe medicale sau secrete comerciale, e un risc inacceptabil.</p><h2>Ce înseamnă "procesare offline"</h2><p>DocInspector rulează complet pe mașina ta Windows. Fără conexiune internet. Fără conturi de creat. Fără date care părăsesc calculatorul — vreodată.</p><h2>Cine beneficiază cel mai mult</h2><ul><li><strong>Firme de avocatură</strong> — privilegiul avocat-client înseamnă că documentele nu pot atinge servere terțe</li><li><strong>Sănătate</strong> — conformitatea necesită control strict</li><li><strong>Agenții guvernamentale</strong> — documentele sensibile trebuie să rămână pe rețele aprobate</li><li><strong>Servicii financiare</strong> — datele financiare au restricții regulatorii</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

@@ -78,7 +78,7 @@
       <p>Ручное добавление водяных знаков по одному PDF — кошмар, когда файлов сотни. DocInspector обрабатывает целые деревья папок за один раз.</p><h2>Зачем водяные знаки?</h2><p>Водяные знаки маркируют статус документа, утверждают право собственности, предотвращают несанкционированное распространение и создают ответственность при утечках.</p><h2>Пакетный подход</h2><p>В DocInspector выберите модуль PDF Repair, загрузите папку и выберите опцию водяных знаков. Настройте текст, позицию, прозрачность. Нажмите process — каждый PDF получит водяной знак с сохранением структуры.</p><h2>Умные водяные знаки</h2><p>DocInspector применяет водяные знаки на уровне PDF — без конвертации в изображения. Текст остаётся доступным для поиска.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

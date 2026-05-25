@@ -78,7 +78,7 @@
       <p>Pornirea cu DocInspector e simplă. Iată ghidul de 2 minute.</p><h2>Pas 1: Descarcă</h2><p>Mergi la <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a> și ia installer-ul.</p><h2>Pas 2: Instalează</h2><p>Rulează installer-ul. Acceptă default-urile. Fără bloatware.</p><h2>Pas 3: Prima rulare</h2><p>Lansează DocInspector. Vei vedea trei module principale: PDF Repair, Audit & Security, și Reporting.</p><h2>Pas 4: Primul batch</h2><p>Trage un folder în lista de fișiere, selectează acțiunea și apasă Process. Trial-ul de 3 zile nu are limitări.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

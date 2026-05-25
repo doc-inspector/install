@@ -78,7 +78,7 @@
       <p>Облако прекрасно для многого. Безопасность документов — не из их числа.</p><h2>Проблема облачных PDF-инструментов</h2><p>Каждый раз, загружая PDF в онлайн-инструмент, вы доверяете свои данные этому сервису. Для юридических доказательств, медицинских записей или коммерческих тайн это неприемлемый риск.</p><h2>Что значит «офлайн-обработка»</h2><p>DocInspector работает полностью на вашем Windows-компьютере. Без интернета. Без аккаунтов. Данные никогда не покидают компьютер.</p><h2>Кому это важнее всего</h2><ul><li><strong>Юридические фирмы</strong> — адвокатская тайна означает, что документы не могут попадать на сторонние серверы</li><li><strong>Здравоохранение</strong> — соответствие требует строгого контроля</li><li><strong>Госструктуры</strong> — секретные документы должны оставаться в одобренных сетях</li><li><strong>Финансы</strong> — данные клиентов имеют регуляторные ограничения</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

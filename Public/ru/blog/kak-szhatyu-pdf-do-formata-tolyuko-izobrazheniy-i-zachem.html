@@ -78,7 +78,7 @@
       <p>«Сжатый» PDF — тот, где каждая страница преобразована в изображение. Результат выглядит идентично оригиналу, но все скрытые слои — текст, поля форм, JavaScript, метаданные — удалены.</p><h2>Когда сжимать</h2><ul><li><strong>Подача доказательств</strong> — суды требуют документы без скрытого исполняемого кода</li><li><strong>Безопасный обмен</strong> — получатели не могут извлечь текст</li><li><strong>Проверка редактирования</strong> — после редактирования гарантия удаления</li></ul><h2>Как это делает DocInspector</h2><p>Выберите PDF, нажмите «Flatten to Image» в модуле PDF Repair. DocInspector рендерит каждую страницу в высоком разрешении и перестраивает PDF. Пакетная обработка справляется с сотнями файлов.</p><h2>Компромисс</h2><p>Сжатые PDF больше не доступны для текстового поиска. Размеры могут увеличиться. Используйте, когда безопасность важнее.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

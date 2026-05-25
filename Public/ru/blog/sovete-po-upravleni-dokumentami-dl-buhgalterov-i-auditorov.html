@@ -78,7 +78,7 @@
       <p>Как бухгалтер или аудитор, ваш документооборот — это ваш бизнес. Счета, налоговые декларации, финансовые отчёты — каждый файл конфиденциален.</p><h2>Вызовы</h2><ul><li>Объём: тысячи документов на клиента в год</li><li>Форматы: PDF, Excel, сканы, Word</li><li>Хранение: требования 5-10+ лет</li><li>Безопасность: финансовые данные клиентов</li></ul><h2>Как помогает DocInspector</h2><ul><li><strong>Аудит папок</strong> — Excel-отчёты по всем документам</li><li><strong>Пакетный ремонт</strong> — исправление повреждённых PDF</li><li><strong>Очистка метаданных</strong> — перед отправкой</li><li><strong>Безопасное уничтожение</strong> — по истечении сроков</li><li><strong>OCR</strong> — сканы с поиском</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

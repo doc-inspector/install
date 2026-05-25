@@ -78,7 +78,7 @@
       <p>Profesioniștii din drept gestionează cele mai sensibile documente existente. Fiecare document care părăsește firma poartă reputația cu el.</p><h2>Problema metadata în munca juridică</h2><p>Partea adversă poate examina metadata. Un Word partajat neglijent ar putea dezvălui tracked changes cu strategia de negociere sau comentarii interne.</p><h2>Integritatea probelor</h2><p>La construirea dosarelor de probe, ai nevoie de certitudine absolută că documentele nu au fost alterate și nu conțin conținut ascuns.</p><h2>Workflow-ul DocInspector pentru echipe juridice</h2><ol><li><strong>Audit</strong> — scanează pachetele de documente, identifică riscuri</li><li><strong>Raport</strong> — generează rapoarte Excel documentând ce s-a găsit</li><li><strong>Repară & Hardening</strong> — reconstruiește PDF-uri, elimină metadata</li><li><strong>Bundle</strong> — creează pachete curate, gata de instanță</li></ol><p>Totul se procesează pe mașinile firmei. Niciun document nu ajunge în cloud.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

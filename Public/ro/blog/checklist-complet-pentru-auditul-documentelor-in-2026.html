@@ -78,7 +78,7 @@
       <p>Fie că te pregătești pentru o revizuire de conformitate sau vrei să îmbunătățești igiena documentelor, iată un checklist complet.</p><h2>Audit metadata</h2><ul><li>☐ Scanează toate drive-urile partajate</li><li>☐ Identifică fișiere cu coordonate GPS</li><li>☐ Găsește documente cu tracked changes</li><li>☐ Verifică fișierele cu macro-uri sau JavaScript</li></ul><h2>Control acces</h2><ul><li>☐ Revizuiește cine are acces la folderele sensibile</li><li>☐ Verifică fișierele protejate cu parole slabe</li><li>☐ Verifică standardele de criptare</li></ul><h2>Eliminare</h2><ul><li>☐ Identifică documentele expirate</li><li>☐ Shred securizat pentru documentele sensibile expirate</li><li>☐ Documentează procesul de shredding</li></ul><h2>Conformitate</h2><ul><li>☐ Generează rapoarte pentru toate depozitele de documente</li><li>☐ Cross-reference cu cerințele GDPR</li><li>☐ Arhivează rapoartele de audit</li></ul><p>DocInspector automatizează majoritatea acestui checklist.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

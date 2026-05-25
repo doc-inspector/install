@@ -78,7 +78,7 @@
       <p>Există zeci de tool-uri PDF online gratuite. Deci de ce ai plăti pentru o aplicație desktop?</p><h2>Tool-uri online: atracția</h2><p>Sunt gratuite, nu necesită instalare. Pentru conversii personale, sunt OK.</p><h2>Unde eșuează tool-urile online</h2><ul><li><strong>Confidențialitate</strong> — documentele sunt uploadate pe serverul altcuiva</li><li><strong>Batch processing</strong> — majoritatea gestionează un fișier la un moment dat</li><li><strong>Funcții avansate</strong> — inspecție metadata, shredding, bundling nu există online</li><li><strong>Fiabilitate</strong> — internet căzut? Tool dispărut?</li><li><strong>Limite de dimensiune</strong> — 10-50 MB per fișier</li></ul><h2>Când are sens DocInspector</h2><p>Dacă procesezi documente profesional — juridic, contabilitate, conformitate — combinația de offline, batch și audit se plătește singură din prima zi.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

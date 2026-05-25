@@ -78,7 +78,7 @@
       <p>Manually watermarking PDFs one by one is a nightmare when you have hundreds of files. Whether it's "CONFIDENTIAL", "DRAFT", or your company logo, DocInspector's batch watermark feature handles entire folder trees in one go.</p><h2>Why watermark?</h2><p>Watermarks serve multiple purposes: they mark document status (draft vs final), assert ownership, deter unauthorized sharing, and create accountability when documents leak. For law firms handling sensitive discovery documents, watermarks are practically mandatory.</p><h2>The batch approach</h2><p>In DocInspector, select the PDF Repair module, load your folder, and choose the watermark option. You can set custom text, position, opacity, rotation, and font size. Hit process, and every PDF in your folder gets watermarked while preserving the original structure.</p><h2>Smart watermarking</h2><p>DocInspector applies watermarks at the PDF level — not by converting to images. This means your text remains searchable and the file size stays reasonable. If you need image-based flattening too (for evidence hardening), that's a separate option you can combine.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

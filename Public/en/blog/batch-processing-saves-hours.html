@@ -78,7 +78,7 @@
       <p>Picture this: you receive a folder with 200 PDFs that all need to be repaired, watermarked, and stripped of metadata. One by one, that's a full day's work. With batch processing, it's a coffee break.</p><h2>What batch processing means</h2><p>Instead of opening each file individually, you point DocInspector at a folder (or multiple folders) and tell it what to do. It processes every file automatically, preserving your folder structure and generating a report of what happened to each file.</p><h2>Real-world time savings</h2><ul><li>200 PDFs repaired: ~3 minutes (vs 3+ hours manually)</li><li>500 documents audited with Excel report: ~5 minutes</li><li>100 PDFs watermarked: ~2 minutes</li><li>Entire drive metadata scan: ~10-15 minutes for typical workstations</li></ul><h2>The folder structure advantage</h2><p>DocInspector preserves your folder hierarchy. If your input is organized into client folders, case numbers, or date folders, the output maintains that exact structure. No manual re-sorting needed.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

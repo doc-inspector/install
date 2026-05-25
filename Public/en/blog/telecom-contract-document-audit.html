@@ -83,7 +83,7 @@
 5. Generate the final report and keep it as internal evidence.</p><p>For SEO, the page should naturally include phrases such as: telecom document audit, customer contract PDF, contract OCR, document report, telecom archive. Do not overuse keywords; place them in the title, subheadings, first paragraph, meta description, and main image filename. The article should solve a real user problem, because Google performs better with clear, useful, people-first content.</p><p>Conclusion: documents should be treated as business assets. A local, repeatable, reportable workflow reduces risk, increases client trust, and turns document processing into an operational advantage.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -106,5 +106,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

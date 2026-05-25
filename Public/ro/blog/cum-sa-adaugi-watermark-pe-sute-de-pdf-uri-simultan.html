@@ -78,7 +78,7 @@
       <p>Aplicarea manuală a watermark-urilor PDF unul câte unul este un coșmar când ai sute de fișiere. Fie că e "CONFIDENȚIAL", "DRAFT" sau logo-ul firmei, funcția de watermark batch din DocInspector procesează structuri întregi de foldere.</p><h2>De ce watermark?</h2><p>Watermark-urile marchează statutul documentului, afirmă proprietatea, descurajează partajarea neautorizată și creează responsabilitate când documentele sunt scurse.</p><h2>Abordarea batch</h2><p>În DocInspector, selectează modulul PDF Repair, încarcă folderul și alege opțiunea watermark. Setează text personalizat, poziție, opacitate, rotație. Apasă process și fiecare PDF primește watermark păstrând structura originală.</p><h2>Watermarking inteligent</h2><p>DocInspector aplică watermark-uri la nivel de PDF — nu prin conversie în imagini. Textul rămâne searchable și dimensiunea fișierului rezonabilă.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

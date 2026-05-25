@@ -78,7 +78,7 @@
       <p>При аудите сотен документов нужен структурированный вывод. DocInspector генерирует комплексные Excel-отчёты, отображающие всё дерево папок.</p><h2>Что в отчёте?</h2><p>Каждая строка — файл, с колонками: путь, тип, размер, даты создания/изменения, автор, число страниц, флаги безопасности и индикаторы риска.</p><h2>Как сгенерировать</h2><ol><li>Загрузите дерево папок в модуль Reporting</li><li>Выберите поля метаданных</li><li>Нажмите Generate — Excel создаётся с форматированными листами и статистикой</li></ol><h2>Случаи использования</h2><ul><li><strong>Аудиты соответствия</strong> — доказательство проверки каждого документа</li><li><strong>Юридическое раскрытие</strong> — манифест всех доказательств</li><li><strong>Очистка данных</strong> — выявление дубликатов и проблемных файлов</li></ul>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

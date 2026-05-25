@@ -78,7 +78,7 @@
       <p>"Hardening-ul" unui PDF înseamnă a-l face rezistent la manipulare, a elimina amenințări de securitate și a garanta că documentul este exact ce pare.</p><h2>Ce implică hardening-ul</h2><ul><li><strong>Eliminarea JavaScript</strong></li><li><strong>Eliminarea câmpurilor de formular</strong></li><li><strong>Aplatizarea adnotărilor</strong></li><li><strong>Reconstruirea structurii</strong></li><li><strong>Sanitizarea metadata</strong></li></ul><h2>Când să hardening</h2><p>Când depui probe, partajezi cu părți neîncrezute, arhivezi pe termen lung, distribui versiuni finale ale contractelor.</p><h2>Abordarea DocInspector</h2><p>DocInspector combină multiple tehnici de hardening într-o singură trecere. Procesează structuri întregi de foldere.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

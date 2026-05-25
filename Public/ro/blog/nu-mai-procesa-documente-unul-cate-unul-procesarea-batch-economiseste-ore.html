@@ -78,7 +78,7 @@
       <p>Imaginează-ți: primești un folder cu 200 PDF-uri care trebuie reparate, watermarked și curățate de metadata. Unul câte unul, e o zi întreagă. Cu batch processing, e o pauză de cafea.</p><h2>Ce înseamnă batch processing</h2><p>În loc să deschizi fiecare fișier, indici DocInspector spre un folder și îi spui ce să facă. Procesează totul automat, păstrând structura.</p><h2>Economii reale de timp</h2><ul><li>200 PDF-uri reparate: ~3 minute (vs 3+ ore manual)</li><li>500 documente auditate cu raport Excel: ~5 minute</li><li>100 PDF-uri watermarked: ~2 minute</li></ul><h2>Avantajul structurii de foldere</h2><p>DocInspector păstrează ierarhia ta de foldere. Dacă input-ul e organizat pe clienți, numere de caz sau date, output-ul menține exact aceeași structură.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

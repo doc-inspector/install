@@ -78,7 +78,7 @@
       <p>The cloud is wonderful for many things. Document security isn't one of them.</p><h2>The problem with cloud-based PDF tools</h2><p>Every time you upload a PDF to an online tool, you're trusting that service with your data. You're trusting their servers, their employees, their security practices, and their data retention policies. For personal files, that might be acceptable. For legal evidence, medical records, financial documents, or trade secrets? That's a risk most professionals shouldn't take.</p><h2>What "offline processing" really means</h2><p>DocInspector runs entirely on your Windows machine. No internet connection required. No accounts to create. No data leaving your computer — ever. Your documents are processed in memory, the results saved locally, and that's it.</p><h2>Who benefits most</h2><ul><li><strong>Law firms</strong> — attorney-client privilege means documents can't touch third-party servers</li><li><strong>Healthcare</strong> — HIPAA compliance requires strict control over patient data</li><li><strong>Government agencies</strong> — classified or sensitive documents must stay on approved networks</li><li><strong>Financial services</strong> — client financial data has regulatory restrictions on processing</li></ul><p>The convenience of cloud tools isn't worth the risk when your professional reputation is on the line.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

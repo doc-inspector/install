@@ -78,7 +78,7 @@
       <p>As an accountant or auditor, your document workflow is your business. Invoices, tax returns, financial statements, payroll records — every file is sensitive, and every file needs to be findable, verifiable, and secure.</p><h2>The challenges</h2><ul><li>Volume: thousands of documents per client per year</li><li>Formats: PDFs, Excel spreadsheets, scanned receipts, Word documents</li><li>Retention: legal requirements to keep records for 5-10+ years</li><li>Security: client financial data must be protected at all times</li></ul><h2>How DocInspector helps accountants</h2><ul><li><strong>Folder auditing</strong> — generate Excel reports mapping every document across your client folders</li><li><strong>Batch repair</strong> — fix corrupted PDFs from clients who use questionable software</li><li><strong>Metadata cleanup</strong> — before sharing reports with clients, strip internal metadata</li><li><strong>Secure shredding</strong> — when retention periods expire, properly destroy sensitive files</li><li><strong>OCR</strong> — make scanned receipts and invoices searchable</li></ul><p>All offline, all local — exactly what you need when handling client financial data.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

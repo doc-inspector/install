@@ -78,7 +78,7 @@
       <p>Every document you share is a potential information leak. Here's how to protect yourself.</p><h2>1. Check the author metadata</h2><p>Open document properties and verify the author name is appropriate for external sharing.</p><h2>2. Review tracked changes</h2><p>Accept or reject all changes and delete the revision history. In Word, go to Review → Accept All → then save as a new file.</p><h2>3. Remove hidden comments</h2><p>Comments you thought you deleted might still be in the file. Check thoroughly.</p><h2>4. Strip embedded objects</h2><p>Images pasted from phones may contain GPS data. Embedded Excel sheets may contain extra tabs.</p><h2>5. Check the filename</h2><p>A filename like "Contract_v3_FINAL_johns-edits_CONFIDENTIAL.pdf" tells recipients more than you'd like.</p><h2>6. Flatten if high-security</h2><p>For truly sensitive documents, flatten to image-only format to eliminate any hidden content.</p><h2>7. Generate an audit report</h2><p>Before sharing, run DocInspector's audit to get a complete picture of what's in your document. It takes seconds and could save you from a costly mistake.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

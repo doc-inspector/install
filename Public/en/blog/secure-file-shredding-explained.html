@@ -78,7 +78,7 @@
       <p>When you press Delete and empty the Recycle Bin, your file isn't gone. The operating system simply marks that disk space as "available" — the actual data remains until something else overwrites it. Recovery tools can bring those files back in minutes.</p><h2>When does this matter?</h2><p>If you handle sensitive documents — client files, medical records, financial data, legal evidence — simple deletion isn't enough. Before disposing of drives, returning leased computers, or sharing storage media, you need to ensure deleted files are truly unrecoverable.</p><h2>How secure shredding works</h2><p>Secure shredding overwrites the file's disk location with random data multiple times. DocInspector supports industry-standard shredding algorithms that make recovery practically impossible. You can shred individual files or entire folder structures.</p><h2>The DocInspector advantage</h2><p>Unlike standalone shredding tools, DocInspector integrates shredding into your document workflow. Audit a folder, generate reports on what's there, then selectively shred what needs to go — all in one tool, all offline.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

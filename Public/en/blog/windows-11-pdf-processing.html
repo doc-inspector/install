@@ -78,7 +78,7 @@
       <p>Getting started with DocInspector is simple. Here's your 2-minute setup guide.</p><h2>Step 1: Download</h2><p>Head to <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a> and grab the installer. It's a standard Windows .exe — no special requirements.</p><h2>Step 2: Install</h2><p>Run the installer. Accept the defaults or customize the install location. No admin rights required for per-user installation. No bloatware, no toolbars, no extra software bundled in.</p><h2>Step 3: First run</h2><p>Launch DocInspector. You'll see three main modules: PDF Repair, Audit & Security, and Reporting. Pick one based on what you need:</p><ul><li><strong>PDF Repair</strong> — fix, flatten, watermark, or harden PDFs</li><li><strong>Audit & Security</strong> — scan folders, find metadata, shred files</li><li><strong>Reporting</strong> — generate Excel reports for folder trees</li></ul><h2>Step 4: Process your first batch</h2><p>Drag a folder into the file list, select your action, and hit Process. Watch as DocInspector handles every file automatically. Your first batch is free — the 3-day trial has no feature limitations.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

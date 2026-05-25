@@ -78,7 +78,7 @@
       <p>Un PDF "aplatizat" e unul unde fiecare pagină a fost convertită în imagine. Rezultatul arată identic cu originalul, dar toate straturile ascunse — text, câmpuri de formular, JavaScript, metadata — au dispărut.</p><h2>Când să aplatizezi</h2><ul><li><strong>Depunere probe</strong> — instanțele vor documente fără conținut executabil ascuns</li><li><strong>Partajare securizată</strong> — destinatarii nu pot extrage textul</li><li><strong>Verificare redactare</strong> — după redactare, aplatizarea garantează ștergerea</li></ul><h2>Cum face DocInspector</h2><p>Selectează PDF-urile, alege "Flatten to Image" în modulul PDF Repair. DocInspector renderizează fiecare pagină la rezoluție mare, apoi reconstruiește PDF-ul. Procesarea batch gestionează sute de fișiere.</p><h2>Compromisul</h2><p>PDF-urile aplatizate nu mai sunt searchable. Dimensiunile pot crește. Folosește când securitatea contează mai mult.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Înapoi la toate articolele</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

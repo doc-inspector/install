@@ -78,7 +78,7 @@
       <p>There are dozens of free online PDF tools. So why would you pay for a desktop application? Let's be honest about the trade-offs.</p><h2>Online tools: the appeal</h2><p>They're free, require no installation, and work on any device with a browser. For converting a personal recipe PDF or merging two documents, they're fine.</p><h2>Where online tools fall short</h2><ul><li><strong>Privacy</strong> — your documents are uploaded to someone else's server. You have no control over what happens to them.</li><li><strong>Batch processing</strong> — most online tools handle one file at a time. Got 200? That's 200 uploads.</li><li><strong>Advanced features</strong> — metadata inspection, secure shredding, evidence bundling, folder-tree reports — these don't exist in free online tools.</li><li><strong>Reliability</strong> — internet down? Tool changed its pricing? Website gone? You're stuck.</li><li><strong>File size limits</strong> — most online tools cap at 10-50 MB per file.</li></ul><h2>When DocInspector makes sense</h2><p>If you process documents professionally — for legal, accounting, compliance, or enterprise use — the combination of offline processing, batch capability, and advanced audit features pays for itself on day one.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Back to all articles</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Back to all articles</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>

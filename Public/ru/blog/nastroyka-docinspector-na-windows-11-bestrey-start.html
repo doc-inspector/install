@@ -78,7 +78,7 @@
       <p>Начать работу с DocInspector просто. Вот руководство на 2 минуты.</p><h2>Шаг 1: Скачайте</h2><p>Перейдите на <a href='https://doc-inspector.com/download.html'>doc-inspector.com/download</a>.</p><h2>Шаг 2: Установите</h2><p>Запустите установщик. Примите настройки по умолчанию. Без мусорного ПО.</p><h2>Шаг 3: Первый запуск</h2><p>Запустите DocInspector. Три модуля: PDF Repair, Audit & Security, Reporting.</p><h2>Шаг 4: Первый пакет</h2><p>Перетащите папку, выберите действие, нажмите Process. 3-дневная пробная версия без ограничений.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" data-i18n="blog.backToList">← Назад ко всем статьям</a>
+      <a href="../blog.html" id="back-blog-link" data-i18n="blog.backToList">← Назад ко всем статьям</a>
     </div>
   </article>
 </main>
@@ -101,5 +101,15 @@
 <script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>
