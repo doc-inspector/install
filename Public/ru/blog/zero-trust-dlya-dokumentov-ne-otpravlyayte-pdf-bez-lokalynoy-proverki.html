@@ -15,6 +15,223 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Headings styling with glowing accent indicator */
+    .article-body h2, .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .article-body h2 {
+      font-size: 1.65rem;
+      border-left: 4px solid #06b6d4;
+      padding-left: 14px;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .article-body h3 {
+      font-size: 1.35rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 10px;
+    }
+    
+    /* Lists fallback styling for standard HTML articles */
+    .article-body ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .article-body ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      line-height: 1.75;
+    }
+    
+    .article-body ul li::before {
+      content: "•";
+      color: #06b6d4;
+      font-weight: bold;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+    
+    .article-body ol {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: custom-counter;
+    }
+    
+    .article-body ol li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      line-height: 1.75;
+      counter-increment: custom-counter;
+    }
+    
+    .article-body ol li::before {
+      content: counter(custom-counter) ".";
+      color: #38bdf8;
+      font-weight: 700;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+    }
+    
+    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
+    .premium-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .workflow-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .workflow-step:hover {
+      background: rgba(6, 182, 212, 0.03);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+    
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #38bdf8);
+      color: #0a1628;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+    
+    .step-content {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
+    .premium-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.02);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
+    }
+    
+    .checklist-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+    
+    .check-text {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM CALLOUT BOXES ── */
+    .topic-highlight {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
+      border-left: 4px solid #06b6d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(6, 182, 212, 0.05);
+      border-right: 1px solid rgba(6, 182, 212, 0.05);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
+    }
+    
+    .conclusion-highlight {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
+      border-left: 4px solid #38bdf8;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(56, 189, 248, 0.05);
+      border-right: 1px solid rgba(56, 189, 248, 0.05);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    }
+  </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
@@ -75,12 +292,7 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Zero Trust для документов: не отправляйте PDF без локальной проверки</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <p>Эта статья предназначена для компаний, которые ежедневно работают с чувствительными документами и нуждаются не в ручной импровизации, а в проверяемом процессе. Главная тема: локальная проверка каждого документа перед отправкой, даже если файл пришел из внутреннего источника. Во многих организациях документы отправляются, архивируются или конвертируются без четкого этапа проверки, что создает operational risk, privacy risk и потерю времени.</p><p>DocInspector подходит для такого сценария, потому что работает локально на Windows, без загрузки файлов в облако, без remote AI и без передачи документов внешним сервисам. Для процессов с PDF, Word, Excel, сканами, договорами и отчетами важно, что операции можно выполнять batch: repair, PDF hardening, OCR, watermark, metadata audit и reporting.</p><p>Рекомендуемый workflow:
-1. Создайте рабочую копию папки.
-2. Запустите анализ всей структуры, а не только выбранных файлов.
-3. Отделите документы с ошибками, рискованной metadata или нестандартным форматом.
-4. Примените нужную операцию: OCR, rebuild, flatten, watermark или metadata cleanup.
-5. Сформируйте финальный отчет и сохраните его как внутреннее доказательство.</p><p>Для SEO страница должна естественно включать запросы: zero trust документы, безопасность PDF, проверка документов, локальный аудит, метаданные PDF. Не делайте keyword stuffing; используйте фразы в заголовке, подзаголовках, первом абзаце, meta description и имени основного изображения. Текст должен решать реальную проблему пользователя.</p><p>Вывод: документы нужно воспринимать как business assets. Локальный, повторяемый и отчетный workflow снижает риск, повышает доверие клиента и превращает обработку документов в операционное преимущество.</p>
+      <p>Эта статья предназначена для компаний, которые ежедневно работают с чувствительными документами и нуждаются не в ручной импровизации, а в проверяемом процессе. Главная тема: локальная проверка каждого документа перед отправкой, даже если файл пришел из внутреннего источника. Во многих организациях документы отправляются, архивируются или конвертируются без четкого этапа проверки, что создает operational risk, privacy risk и потерю времени.</p><p>DocInspector подходит для такого сценария, потому что работает локально на Windows, без загрузки файлов в облако, без remote AI и без передачи документов внешним сервисам. Для процессов с PDF, Word, Excel, сканами, договорами и отчетами важно, что операции можно выполнять batch: repair, PDF hardening, OCR, watermark, metadata audit и reporting.</p><h2><span class="header-icon">🔄</span> Рекомендуемый workflow:</h2><div class="premium-workflow"><div class="workflow-step"><div class="step-num">1</div><div class="step-content">Создайте рабочую копию папки.</div></div><div class="workflow-step"><div class="step-num">2</div><div class="step-content">Запустите анализ всей структуры, а не только выбранных файлов.</div></div><div class="workflow-step"><div class="step-num">3</div><div class="step-content">Отделите документы с ошибками, рискованной metadata или нестандартным форматом.</div></div><div class="workflow-step"><div class="step-num">4</div><div class="step-content">Примените нужную операцию: OCR, rebuild, flatten, watermark или metadata cleanup.</div></div><div class="workflow-step"><div class="step-num">5</div><div class="step-content">Сформируйте финальный отчет и сохраните его как внутреннее доказательство.</div></div></div><div class="conclusion-highlight">💡 <strong>Вывод:</strong> документы нужно воспринимать как business assets. Локальный, повторяемый и отчетный workflow снижает риск, повышает доверие клиента и превращает обработку документов в операционное преимущество.</div>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"

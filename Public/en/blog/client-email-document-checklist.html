@@ -15,6 +15,223 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Headings styling with glowing accent indicator */
+    .article-body h2, .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .article-body h2 {
+      font-size: 1.65rem;
+      border-left: 4px solid #06b6d4;
+      padding-left: 14px;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .article-body h3 {
+      font-size: 1.35rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 10px;
+    }
+    
+    /* Lists fallback styling for standard HTML articles */
+    .article-body ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .article-body ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      line-height: 1.75;
+    }
+    
+    .article-body ul li::before {
+      content: "•";
+      color: #06b6d4;
+      font-weight: bold;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+    
+    .article-body ol {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: custom-counter;
+    }
+    
+    .article-body ol li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      line-height: 1.75;
+      counter-increment: custom-counter;
+    }
+    
+    .article-body ol li::before {
+      content: counter(custom-counter) ".";
+      color: #38bdf8;
+      font-weight: 700;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+    }
+    
+    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
+    .premium-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .workflow-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .workflow-step:hover {
+      background: rgba(6, 182, 212, 0.03);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+    
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #38bdf8);
+      color: #0a1628;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+    
+    .step-content {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
+    .premium-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.02);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
+    }
+    
+    .checklist-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+    
+    .check-text {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM CALLOUT BOXES ── */
+    .topic-highlight {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
+      border-left: 4px solid #06b6d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(6, 182, 212, 0.05);
+      border-right: 1px solid rgba(6, 182, 212, 0.05);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
+    }
+    
+    .conclusion-highlight {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
+      border-left: 4px solid #38bdf8;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(56, 189, 248, 0.05);
+      border-right: 1px solid rgba(56, 189, 248, 0.05);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    }
+  </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
@@ -75,12 +292,7 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Security Checklist Before Sending Documents by Email</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <p>This article is designed for companies that work with sensitive documents every day and need a verifiable process, not a rushed manual action. The main topic is: pre-send control of attachments, including metadata, watermarking, and PDF integrity. In many organizations, documents are sent, archived, or converted without a clear verification step, which creates operational risk, privacy risk, and wasted time.</p><p>DocInspector fits this scenario because it runs locally on Windows, with no cloud upload, no remote AI, and no exposure of documents to external services. For workflows involving PDF, Word, Excel, scans, contracts, and reports, the key advantage is batch processing: repair, PDF hardening, OCR, watermarking, metadata audit, and reporting.</p><p>Recommended workflow:
-1. Create a working copy of the folder.
-2. Analyze the full structure, not only selected files.
-3. Separate documents with errors, risky metadata, or inconsistent formats.
-4. Apply the right operation: OCR, rebuild, flatten, watermark, or metadata cleanup.
-5. Generate the final report and keep it as internal evidence.</p><p>For SEO, the page should naturally include phrases such as: email document security, check PDF before sending, email metadata, sensitive documents. Do not overuse keywords; place them in the title, subheadings, first paragraph, meta description, and main image filename. The article should solve a real user problem, because Google performs better with clear, useful, people-first content.</p><p>Conclusion: documents should be treated as business assets. A local, repeatable, reportable workflow reduces risk, increases client trust, and turns document processing into an operational advantage.</p>
+      <div class="topic-highlight">🔍 This article is designed for companies that work with sensitive documents every day and need a verifiable process, not a rushed manual action. <strong>The main topic is:</strong> pre-send control of attachments, including metadata, watermarking, and PDF integrity. In many organizations, documents are sent, archived, or converted without a clear verification step, which creates operational risk, privacy risk, and wasted time.</div><p>DocInspector fits this scenario because it runs locally on Windows, with no cloud upload, no remote AI, and no exposure of documents to external services. For workflows involving PDF, Word, Excel, scans, contracts, and reports, the key advantage is batch processing: repair, PDF hardening, OCR, watermarking, metadata audit, and reporting.</p><h2><span class="header-icon">🔄</span> Recommended workflow:</h2><div class="premium-workflow"><div class="workflow-step"><div class="step-num">1</div><div class="step-content">Create a working copy of the folder.</div></div><div class="workflow-step"><div class="step-num">2</div><div class="step-content">Analyze the full structure, not only selected files.</div></div><div class="workflow-step"><div class="step-num">3</div><div class="step-content">Separate documents with errors, risky metadata, or inconsistent formats.</div></div><div class="workflow-step"><div class="step-num">4</div><div class="step-content">Apply the right operation: OCR, rebuild, flatten, watermark, or metadata cleanup.</div></div><div class="workflow-step"><div class="step-num">5</div><div class="step-content">Generate the final report and keep it as internal evidence.</div></div></div><div class="conclusion-highlight">💡 <strong>Conclusion:</strong> documents should be treated as business assets. A local, repeatable, reportable workflow reduces risk, increases client trust, and turns document processing into an operational advantage.</div>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"
