@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8"><title>Blog - DocInspector</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - DocInspector</title>
   <link rel="canonical" href="https://doc-inspector.com/ro/blog-6.html" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog-6.html" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog-6.html" />
@@ -22,6 +24,18 @@
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
   <style>
+    /* Adjust main padding to not get covered by fixed header */
+    .blog-listing-main {
+      padding-top: 130px !important;
+      padding-bottom: 4rem !important;
+    }
+    @media (max-width: 640px) {
+      .blog-listing-main {
+        padding-top: 100px !important;
+        padding-bottom: 2rem !important;
+      }
+    }
+
     /* ── PAGINATION ─────────────────────────────────────────── */
     .pagination {
       display: inline-flex;
@@ -270,7 +284,7 @@
     </nav>
   </div>
 </header>
-<main class="container section-gap">
+<main class="container section-gap blog-listing-main">
   <div class="section-header" style="text-align:center;margin-bottom:2rem;">
     <h1 data-i18n="blog.pageTitle">Blog</h1>
     <p data-i18n="blog.pageSubtitle">Sfaturi, ghiduri și perspective despre securitatea documentelor</p>
@@ -493,15 +507,17 @@
     el.className = 'blog-card dynamic-card';
     el.href = 'blog/' + a.slug + '.html';
     el.setAttribute('data-category', a.category);
-    el.style.cssText = 'display:block;opacity:1;text-decoration:none;color:inherit;' +
-      'background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;' +
-      'border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;';
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+
     var catLabel = (LABELS[a.category] && LABELS[a.category][lang]) || a.category;
     el.innerHTML =
-      '<div style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">' + catLabel + ' | ' + a.date + '</div>' +
-      '<h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">'  + escHtml(a.title) + '</h3>' +
-      '<p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">'       + escHtml(a.desc)  + '</p>' +
-      '<div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;">'   + (READ_MORE[lang] || 'Read article →') + '</div>';
+      '  <div class="blog-card-meta">' +
+      '    <span>' + catLabel + '</span> | ' + a.date +
+      '  </div>' +
+      '  <h3>' + escHtml(a.title) + '</h3>' +
+      '  <p>' + escHtml(a.desc) + '</p>' +
+      '  <div class="blog-card-read">' + (READ_MORE[lang] || 'Read article &rarr;') + '</div>';
     el.addEventListener('click', function(){
       sessionStorage.setItem('blogListPage', window.location.href);
       sessionStorage.setItem('blogActiveCat', activeCat);
