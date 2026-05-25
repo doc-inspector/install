@@ -22,15 +22,16 @@
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
   <style>
-    /* ── PAGINATION SYSTEM ─────────────────────────────────── */
+    /* ── PAGINATION ─────────────────────────────────────────── */
     .pagination {
       display: inline-flex;
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 4rem;
+      margin-top: 3rem;
       margin-bottom: 2rem;
       width: 100%;
+      flex-wrap: wrap;
     }
     .pagination a {
       display: inline-flex;
@@ -65,6 +66,163 @@
       opacity: 0.3;
       pointer-events: none;
       cursor: not-allowed;
+    }
+
+    /* ── BLOG GRID ───────────────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .blog-card {
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,0.03);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: rgba(6,182,212,0.35);
+      background: rgba(6,182,212,0.05);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(6,182,212,0.12);
+    }
+    .blog-card h3 {
+      margin-bottom: 0.75rem;
+      font-family: Outfit, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      flex: 1;
+    }
+    .blog-card p {
+      opacity: 0.7;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .blog-card-meta {
+      margin-bottom: 0.85rem;
+      opacity: 0.55;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+    .blog-card-read {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ── CONTROLS (search + filters) ─────────────────────── */
+    #blog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    #search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+      max-width: 420px;
+    }
+    #search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    #blog-search {
+      width: 100%;
+      padding: 0.7rem 1rem 0.7rem 2.7rem;
+      background: rgba(6,182,212,0.05);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 10px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: Inter, sans-serif;
+      box-sizing: border-box;
+    }
+    #blog-search:focus {
+      border-color: rgba(6,182,212,0.6);
+      box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+    }
+    #cat-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    /* ── TABLET: 2 columns ──────────────────────────────── */
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    }
+
+    /* ── MOBILE: 1 column, full redesign ──────────────────── */
+    @media (max-width: 640px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .blog-card {
+        padding: 1.4rem 1.25rem;
+        border-radius: 14px;
+      }
+      .blog-card h3 {
+        font-size: 1.05rem;
+      }
+      .blog-card p {
+        font-size: 0.9rem;
+      }
+      #blog-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+      }
+      #search-wrap {
+        max-width: 100%;
+        min-width: 0;
+      }
+      #blog-search {
+        font-size: 1rem;
+        padding: 0.75rem 1rem 0.75rem 2.7rem;
+      }
+      #cat-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.35rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.4rem;
+      }
+      #cat-filters::-webkit-scrollbar { display: none; }
+      .cat-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+      .section-header h1 {
+        font-size: 1.9rem;
+      }
+      .pagination a {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 <script>var BLOG_ALL=[{"slug": "windows-11-pdf-processing", "title": "Setting Up DocInspector on Windows 11 \u2014 Quick Start Guide", "desc": "Get DocInspector running on Windows 11 in under 2 minutes. Download, install, and process your first batch.", "category": "how-to", "date": "2026-05-28"}, {"slug": "document-hardening-vs-encryption", "title": "Document Hardening vs Encryption: The Difference Every Manager Should Know", "desc": "Encryption protects access; hardening reduces structural file risk. They are not the same thing.", "category": "education", "date": "2026-05-28"}, {"slug": "ocr-quality-basics", "title": "Why OCR Makes Mistakes: Scan Quality, Fonts, Rotation, and Contrast", "desc": "A simple guide to the factors that influence OCR results in a scanned PDF.", "category": "security", "date": "2026-05-28"}, {"slug": "batch-processing-roi", "title": "Batch Processing vs Manual Work: Calculating Time Lost on Documents", "desc": "A simple method to estimate hours spent on conversion, watermarking, OCR, and manual checks.", "category": "security", "date": "2026-05-28"}, {"slug": "folder-evidence-report-explained", "title": "What Is a Folder Evidence Report and Why It Helps Audits", "desc": "A simple explanation of reports that show what files exist inside a folder structure.", "category": "security", "date": "2026-05-28"}, {"slug": "secure-watermarking-strategy", "title": "Correct Watermarking: When, Where, and How to Mark Sensitive Documents", "desc": "Not every watermark is useful. Text, position, visibility, and consistent batch application matter.", "category": "security", "date": "2026-05-28"}, {"slug": "before-sending-pdf-to-client", "title": "Before Sending a PDF to a Client: 12 Things to Check", "desc": "A practical checklist for final documents, contracts, reports, proposals, and delivery packs.", "category": "security", "date": "2026-05-28"}, {"slug": "document-audit-workflow-for-teams", "title": "How to Build a Document Audit Workflow for Your Team", "desc": "Concrete steps so document verification does not depend on each employee's memory.", "category": "security", "date": "2026-05-28"}, {"slug": "metadata-cleaning-vs-redaction", "title": "Metadata Cleaning vs Redaction: Two Different Operations, Both Important", "desc": "Redaction hides visible content; metadata cleaning removes internal information that is not obvious at first glance.", "category": "security", "date": "2026-05-28"}, {"slug": "long-term-document-archive-preparation", "title": "Preparing Documents for Long-Term Archiving", "desc": "How to avoid digital archives that are hard to search and full of corrupted, duplicate, or poorly scanned files.", "category": "security", "date": "2026-05-28"}, {"slug": "privacy-first-document-workflow-small-business", "title": "Privacy-First Document Workflow for Small Businesses", "desc": "A simple model for companies without a large compliance department but still handling sensitive data.", "category": "security", "date": "2026-05-28"}, {"slug": "docinspector-vs-online-pdf-tools", "title": "DocInspector vs Online PDF Tools \u2014 What's the Difference?", "desc": "Why choose a desktop tool over free online PDF services? Here's an honest comparison.", "category": "education", "date": "2026-05-27"}, {"slug": "bank-loan-file-standardization", "title": "Bank Loan Files: Fast Standardization for PDFs, Scans, and Forms", "desc": "How banking teams can prepare cleaner files for review, archiving, and audit.", "category": "industry", "date": "2026-05-27"}, {"slug": "government-archive-digitization", "title": "Government Archive Digitization: Control Thousands of Scans Without Cloud", "desc": "A workflow for public institutions turning physical archives into searchable, verifiable digital documents.", "category": "security", "date": "2026-05-27"}, {"slug": "telecom-contract-document-audit", "title": "Telecom Customer Contracts: Fast Audit for Thousands of Operational PDFs", "desc": "How batch processing helps control contracts, annexes, requests, and signed forms.", "category": "security", "date": "2026-05-27"}, {"slug": "university-student-records", "title": "Universities and Student Records: Clean Documents for Archive and Review", "desc": "A workflow for certificates, requests, study contracts, and scanned student documents.", "category": "security", "date": "2026-05-27"}, {"slug": "logistics-customs-document-workflow", "title": "Logistics and Customs: Preparing Invoices, CMRs, and Declarations in PDF", "desc": "A process for transport scans, commercial invoices, and import/export document packs.", "category": "security", "date": "2026-05-27"}, {"slug": "energy-utility-compliance-records", "title": "Energy and Utilities: Technical Archives Ready for Compliance", "desc": "How to organize reports, certificates, minutes, and technical documents into verifiable batches.", "category": "security", "date": "2026-05-27"}, {"slug": "manufacturing-quality-document-control", "title": "Manufacturing Quality: Document Control for Certificates, Forms, and Reports", "desc": "How to standardize quality documents before ISO, customer, or supplier audits.", "category": "security", "date": "2026-05-27"}, {"slug": "nonprofit-grant-reporting-documents", "title": "Nonprofits and Grants: Preparing Documents for Donors and Audit", "desc": "How to organize contracts, invoices, narrative reports, and evidence into a verifiable pack.", "category": "security", "date": "2026-05-27"}, {"slug": "recruitment-candidate-file-privacy", "title": "Recruitment Agencies: Protecting CVs and Candidate Files", "desc": "How to manage CVs, IDs, references, and forms without exposing metadata or unnecessary personal data.", "category": "security", "date": "2026-05-27"}, {"slug": "franchise-branch-document-standards", "title": "Franchises and Multi-Branch Networks: One Standard for Documents", "desc": "How to reduce document chaos across offices, branches, and local teams.", "category": "security", "date": "2026-05-27"}, {"slug": "accountants-document-management", "title": "Document Management Tips for Accountants and Auditors", "desc": "Accountants handle thousands of sensitive financial documents. Here's how to manage them securely and efficiently.", "category": "industry", "date": "2026-05-26"}, {"slug": "zero-trust-document-workflow", "title": "Zero Trust for Documents: Never Send a PDF Without Local Verification", "desc": "How to apply Zero Trust principles to PDF, Word, and Excel workflows before sharing files.", "category": "security", "date": "2026-05-26"}, {"slug": "client-email-document-checklist", "title": "Security Checklist Before Sending Documents by Email", "desc": "A simple workflow for companies sending contracts, reports, invoices, and sensitive files by email.", "category": "security", "date": "2026-05-26"}, {"slug": "malicious-pdf-risk-surface", "title": "The Risk Surface of a PDF: Links, Scripts, Attachments, and Hidden Objects", "desc": "Why a PDF should be inspected structurally, not only opened in a viewer.", "category": "security", "date": "2026-05-26"}, {"slug": "offline-ocr-confidential-scans", "title": "Offline OCR for Confidential Documents: When Cloud Is Not an Option", "desc": "How to turn scans into searchable PDFs without exposing contracts, IDs, or case files to external services.", "category": "security", "date": "2026-05-26"}, {"slug": "chain-of-custody-cleaned-pdfs", "title": "Chain of Custody for Cleaned PDFs: How to Preserve Processing Evidence", "desc": "Why reports and hashes matter when cleaning or rebuilding sensitive documents.", "category": "security", "date": "2026-05-26"}, {"slug": "tender-document-metadata-removal", "title": "Metadata Removal Before Tenders: Protect Company Identity and Strategy", "desc": "How to prepare tender documents without exposing internal names, versions, and comments.", "category": "security", "date": "2026-05-26"}, {"slug": "executive-board-pack-security", "title": "Board Pack Security: Protect Documents for Management and Investors", "desc": "Preparing PDF packs for board meetings, investors, and shareholders without accidental leaks.", "category": "security", "date": "2026-05-26"}, {"slug": "document-triage-after-data-incident", "title": "Document Triage After a Data Incident: What to Check in the First Hours", "desc": "A practical plan for rapidly identifying documents affected by a potential data leak.", "category": "security", "date": "2026-05-26"}, {"slug": "vendor-file-risk-review", "title": "Files Received from Vendors: Local Review Before Company Import", "desc": "How to reduce operational risk when receiving PDFs, scans, and Office documents from third parties.", "category": "security", "date": "2026-05-26"}, {"slug": "secure-document-export-policy", "title": "Secure Document Export Policy: Simple Rules for Small Teams", "desc": "How to define an internal standard for PDFs, reports, watermarking, and audit before export.", "category": "security", "date": "2026-05-26"}, {"slug": "what-is-pdf-hardening", "title": "What Is PDF Hardening and When Do You Need It?", "desc": "PDF hardening makes documents tamper-resistant and removes hidden threats. Learn what it means and when to use it.", "category": "education", "date": "2026-05-25"}, {"slug": "document-metadata-leaks", "title": "Hidden Document Metadata: How Data Leaks Happen Without Hacking", "desc": "A practical guide to author data, edit history, comments, and EXIF details that can expose sensitive information.", "category": "security", "date": "2026-05-25"}, {"slug": "offline-pdf-processing-security", "title": "Why Offline PDF Processing Is Safer Than Online Tools", "desc": "Explains the risks of uploading sensitive documents to free cloud services and the local-processing alternative.", "category": "security", "date": "2026-05-25"}, {"slug": "secure-file-shredding-audit-log", "title": "Secure File Shredding With Audit Logs: When Delete Is Not Enough", "desc": "Shows why standard deletion does not provide operational proof and how a verifiable log helps.", "category": "security", "date": "2026-05-25"}, {"slug": "gdpr-document-metadata-checklist", "title": "GDPR and Document Metadata: A Quick Checklist Before Sharing", "desc": "A compliance-focused article about reducing exposure of personal data hidden in documents.", "category": "security", "date": "2026-05-25"}, {"slug": "redaction-flattening-pdf-security", "title": "Redaction Is Not Enough: Why Some PDFs Must Be Flattened", "desc": "Explains the risk of hidden text, annotations, and PDF layers that may be recoverable.", "category": "security", "date": "2026-05-25"}, {"slug": "sensitive-document-discovery", "title": "How to Discover Sensitive Documents Across PCs and Network Drives", "desc": "An article about inventorying sensitive files before an audit, backup, or migration.", "category": "security", "date": "2026-05-25"}, {"slug": "macro-office-file-risk", "title": "Office Files With Macros: A Risk Signal Before Distribution", "desc": "Why macros, embedded objects, and mixed-format files should be checked before sharing.", "category": "security", "date": "2026-05-25"}, {"slug": "hash-verification-evidence-files", "title": "MD5/SHA-256 Hashes for Documents: Proving Bundle Integrity", "desc": "Explains the role of hashes in audits, chain of custody, and evidence bundle verification.", "category": "security", "date": "2026-05-25"}, {"slug": "cloud-sharing-document-safety", "title": "Before Uploading Documents to the Cloud: 7 Mandatory Security Checks", "desc": "An article for companies using cloud storage while reducing file exposure risk.", "category": "security", "date": "2026-05-25"}, {"slug": "air-gapped-document-processing", "title": "Air-Gapped Document Processing: Work Without Internet and Without Compromise", "desc": "Content for organizations with restricted networks, sensitive data, and strict control requirements.", "category": "security", "date": "2026-05-25"}, {"slug": "law-firm-evidence-bundles", "title": "Evidence Bundles for Law Firms: Preparing Clean and Verifiable Documents", "desc": "An article for law firms managing high volumes of PDFs, Word files, and attachments.", "category": "security", "date": "2026-05-25"}, {"slug": "real-estate-pdf-security", "title": "PDF Security in Real Estate: Protecting Client Data Before a Transaction", "desc": "Targets agents, notaries, and brokers sharing documents with personal and financial data.", "category": "security", "date": "2026-05-25"}, {"slug": "accounting-audit-document-management", "title": "Document Management for Accountants and Auditors: Reports, Hashes, and Version Control", "desc": "Content for financial workflows with thousands of documents and traceability requirements.", "category": "security", "date": "2026-05-25"}, {"slug": "hr-personnel-files-sanitization", "title": "HR Files and Personnel Records: Reducing Employee Data Exposure Risk", "desc": "An article for HR departments sharing or archiving documents containing personal data.", "category": "security", "date": "2026-05-25"}, {"slug": "healthcare-document-privacy", "title": "Healthcare Administrative Documents: Privacy, OCR, and Secure Archiving", "desc": "For clinics and offices that scan, share, and archive sensitive documents.", "category": "security", "date": "2026-05-25"}, {"slug": "public-procurement-document-packages", "title": "Public Procurement Packages: Preparing Clean, Indexed, and Verifiable PDFs", "desc": "For institutions, vendors, and consultants working with large document sets.", "category": "security", "date": "2026-05-25"}, {"slug": "insurance-claim-evidence-files", "title": "Insurance Claim Files: Fast Organization for Photos, PDFs, and Statements", "desc": "An article for insurers, brokers, and adjusters who need clear claim packages.", "category": "security", "date": "2026-05-25"}, {"slug": "construction-engineering-document-control", "title": "Document Control in Construction: Plans, Contracts, and Reports Ready for Audit", "desc": "For companies managing projects, permits, technical reports, and multiple versions.", "category": "security", "date": "2026-05-25"}, {"slug": "banking-loan-due-diligence", "title": "Loan Files and Due Diligence: Standardizing Client Documents Fast", "desc": "Content for financial institutions and consultants receiving mixed-format documents.", "category": "security", "date": "2026-05-25"}, {"slug": "ma-data-room-preparation", "title": "M&A Data Room Preparation: Clean Documents Before Investors See Them", "desc": "An article for founders, consultants, and finance teams preparing documents for due diligence.", "category": "security", "date": "2026-05-25"}, {"slug": "pdfa-vs-regular-pdf", "title": "PDF/A vs Regular PDF: Differences for Archiving, Audit, and Legal Work", "desc": "Clarifies the difference between a standard PDF and a format designed for long-term archiving.", "category": "security", "date": "2026-05-25"}, {"slug": "ocr-searchable-pdf-guide", "title": "OCR for Scanned PDFs: Turning Images Into Searchable Documents", "desc": "An educational guide to OCR, searchable text, and digital archive efficiency.", "category": "security", "date": "2026-05-25"}, {"slug": "image-only-pdf-explained", "title": "What Image-Only PDF Means and Why Sensitive Teams Use It", "desc": "A simple article about text layers, image rendering, and visual content protection.", "category": "security", "date": "2026-05-25"}, {"slug": "batch-document-processing-explained", "title": "Batch Document Processing: Saving Hours When You Have Hundreds of Files", "desc": "Explains the benefits of batch processing for OCR, conversion, watermarking, and reports.", "category": "security", "date": "2026-05-25"}, {"slug": "repair-corrupted-pdf", "title": "How to Repair a Corrupted PDF Without Uploading It Online", "desc": "A guide for PDFs that will not open, have missing pages, or unstable structures.", "category": "security", "date": "2026-05-25"}, {"slug": "batch-watermark-pdf-guide", "title": "How to Add Watermarks to Hundreds of PDFs Without Manual Work", "desc": "A guide to labeling confidential documents, drafts, and case packages.", "category": "security", "date": "2026-05-25"}, {"slug": "excel-report-folder-audit", "title": "Excel Reports for Folder Audits: What They Should Include and Why They Matter", "desc": "Explains the value of a report with file names, sizes, pages, metadata, and hashes.", "category": "security", "date": "2026-05-25"}, {"slug": "document-metadata-beginners", "title": "Document Metadata Explained Simply: What Recipients May See Without You Knowing", "desc": "An introductory article for non-technical users about file properties and hidden data.", "category": "security", "date": "2026-05-25"}, {"slug": "evidence-bundling-best-practices", "title": "Evidence Bundling Best Practices for Legal Professionals", "desc": "Creating court-ready evidence bundles requires careful document preparation. Here are the best practices for 2026.", "category": "industry", "date": "2026-05-24"}, {"slug": "ocr-scanned-pdfs", "title": "How to Make Scanned PDFs Searchable with OCR", "desc": "Scanned PDFs are just images \u2014 you can't search or copy text from them. Learn how OCR fixes this.", "category": "how-to", "date": "2026-05-23"}, {"slug": "batch-processing-saves-hours", "title": "Stop Processing Documents One by One \u2014 Batch Processing Saves Hours", "desc": "If you're still processing documents individually, you're wasting hours every week. Learn how batch processing transforms your workflow.", "category": "how-to", "date": "2026-05-22"}, {"slug": "protect-documents-before-sharing", "title": "7 Steps to Protect Your Documents Before Sharing Them", "desc": "Before hitting send, make sure your documents don't leak sensitive information. Here are 7 essential steps.", "category": "how-to", "date": "2026-05-21"}, {"slug": "document-audit-checklist", "title": "The Complete Document Audit Checklist for 2026", "desc": "A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.", "category": "education", "date": "2026-05-20"}, {"slug": "flatten-pdf-to-image", "title": "How to Flatten a PDF to Image-Only Format (And Why You'd Want To)", "desc": "Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.", "category": "how-to", "date": "2026-05-19"}, {"slug": "why-offline-document-processing", "title": "Why Offline Document Processing Matters More Than Ever", "desc": "Cloud tools are convenient, but they put your documents at risk. Here's why offline processing is the smarter choice for sensitive files.", "category": "security", "date": "2026-05-18"}, {"slug": "excel-reports-for-document-audits", "title": "Generating Excel Reports for Document Audits \u2014 A Complete Guide", "desc": "Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.", "category": "how-to", "date": "2026-05-17"}, {"slug": "secure-file-shredding-explained", "title": "Why 'Delete' Doesn't Really Delete \u2014 Secure File Shredding Explained", "desc": "When you delete a file, it's still on your drive. Learn how secure shredding works and why it matters for sensitive documents.", "category": "security", "date": "2026-05-16"}, {"slug": "document-security-for-lawyers", "title": "Why Every Law Firm Needs a Document Inspection Tool", "desc": "Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.", "category": "industry", "date": "2026-05-15"}, {"slug": "batch-watermark-pdfs", "title": "How to Add Watermarks to Hundreds of PDFs at Once", "desc": "Need to watermark an entire folder of PDFs? Here's how to batch-watermark documents in seconds with DocInspector.", "category": "how-to", "date": "2026-05-14"}, {"slug": "gdpr-document-compliance", "title": "GDPR and Document Metadata: Are Your Files Compliant?", "desc": "Document metadata can contain personal data that violates GDPR. Learn how to audit and clean your documents for compliance.", "category": "security", "date": "2026-05-13"}, {"slug": "5-things-you-didnt-know-about-pdfs", "title": "5 Things You Didn't Know About PDF Files", "desc": "PDFs seem simple, but they hide surprising complexity. Here are 5 facts about PDF files that most people don't know.", "category": "education", "date": "2026-05-12"}, {"slug": "pdf-a-vs-regular-pdf", "title": "PDF/A vs Regular PDF \u2014 When to Use Each Format", "desc": "Not all PDFs are equal. Learn the difference between PDF/A and standard PDF, and when to use each for archiving, legal, and everyday work.", "category": "education", "date": "2026-05-11"}, {"slug": "hidden-metadata-in-your-documents", "title": "The Hidden Data Inside Your Documents (And Why It Matters)", "desc": "Your PDFs and Word files contain hidden metadata that can expose personal info, edit history, and GPS locations. Here's what to do about it.", "category": "security", "date": "2026-05-10"}, {"slug": "how-to-repair-corrupted-pdf", "title": "How to Repair a Corrupted PDF File in Seconds", "desc": "PDF won't open? Learn how to fix corrupted PDF files using DocInspector's batch repair tool. Works 100% offline.", "category": "how-to", "date": "2026-05-09"}];var BLOG_LANG="en";</script>
@@ -118,13 +276,13 @@
     <p data-i18n="blog.pageSubtitle">Tips, guides, and insights on document security and batch processing</p>
   </div>
 
-  <!-- ── SEARCH + CATEGORY FILTER ────────────────────────── -->
-  <div id="blog-controls" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;margin-bottom:2.5rem;">
-    <div style="position:relative;flex:1;min-width:220px;max-width:420px;">
-      <svg style="position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:0.45;pointer-events:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input id="blog-search" type="search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="Search articles..." style="width:100%;padding:0.65rem 1rem 0.65rem 2.6rem;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:10px;color:#e2e8f0;font-size:0.95rem;outline:none;transition:border-color 0.2s;">
+  <!-- ── SEARCH + CATEGORY FILTER ──────────────────────── -->
+  <div id="blog-controls">
+    <div id="search-wrap">
+      <svg id="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="blog-search" type="search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="Search articles...">
     </div>
-    <div id="cat-filters" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+    <div id="cat-filters">
       <button class="cat-btn active" data-cat="all" data-i18n="blog.cat.all">All</button>
       <button class="cat-btn" data-cat="security" data-i18n="blog.cat.security">Security</button>
       <button class="cat-btn" data-cat="how-to" data-i18n="blog.cat.how-to">How-To</button>
@@ -134,77 +292,77 @@
   </div>
 
   <div id="no-results" style="display:none;text-align:center;padding:3rem;opacity:0.6;" data-i18n="blog.noResults">No articles found matching your search.</div>
-  <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;">    <a href="blog/ocr-scanned-pdfs.html" class="blog-card reveal" data-category="how-to" data-title="how to make scanned pdfs searchable with ocr" data-desc="scanned pdfs are just images — you can&#x27;t search or copy text from them. learn how ocr fixes this." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+  <div class="blog-grid">    <a href="blog/ocr-scanned-pdfs.html" class="blog-card reveal" data-category="how-to" data-title="how to make scanned pdfs searchable with ocr" data-desc="scanned pdfs are just images — you can&#x27;t search or copy text from them. learn how ocr fixes this.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-23
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Make Scanned PDFs Searchable with OCR</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Scanned PDFs are just images — you can&#x27;t search or copy text from them. Learn how OCR fixes this.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>How to Make Scanned PDFs Searchable with OCR</h3>
+      <p>Scanned PDFs are just images — you can&#x27;t search or copy text from them. Learn how OCR fixes this.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/batch-processing-saves-hours.html" class="blog-card reveal" data-category="how-to" data-title="stop processing documents one by one — batch processing saves hours" data-desc="if you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. learn how batch processing transforms your workflow." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/batch-processing-saves-hours.html" class="blog-card reveal" data-category="how-to" data-title="stop processing documents one by one — batch processing saves hours" data-desc="if you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. learn how batch processing transforms your workflow.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-22
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Stop Processing Documents One by One — Batch Processing Saves Hours</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">If you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. Learn how batch processing transforms your workflow.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>Stop Processing Documents One by One — Batch Processing Saves Hours</h3>
+      <p>If you&#x27;re still processing documents individually, you&#x27;re wasting hours every week. Learn how batch processing transforms your workflow.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/protect-documents-before-sharing.html" class="blog-card reveal" data-category="how-to" data-title="7 steps to protect your documents before sharing them" data-desc="before hitting send, make sure your documents don&#x27;t leak sensitive information. here are 7 essential steps." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/protect-documents-before-sharing.html" class="blog-card reveal" data-category="how-to" data-title="7 steps to protect your documents before sharing them" data-desc="before hitting send, make sure your documents don&#x27;t leak sensitive information. here are 7 essential steps.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-21
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">7 Steps to Protect Your Documents Before Sharing Them</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Before hitting send, make sure your documents don&#x27;t leak sensitive information. Here are 7 essential steps.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>7 Steps to Protect Your Documents Before Sharing Them</h3>
+      <p>Before hitting send, make sure your documents don&#x27;t leak sensitive information. Here are 7 essential steps.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/document-audit-checklist.html" class="blog-card reveal" data-category="education" data-title="the complete document audit checklist for 2026" data-desc="a practical checklist for auditing document security in your organization. cover metadata, access control, shredding, and compliance." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/document-audit-checklist.html" class="blog-card reveal" data-category="education" data-title="the complete document audit checklist for 2026" data-desc="a practical checklist for auditing document security in your organization. cover metadata, access control, shredding, and compliance.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.education">Education</span> | 2026-05-20
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">The Complete Document Audit Checklist for 2026</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>The Complete Document Audit Checklist for 2026</h3>
+      <p>A practical checklist for auditing document security in your organization. Cover metadata, access control, shredding, and compliance.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/flatten-pdf-to-image.html" class="blog-card reveal" data-category="how-to" data-title="how to flatten a pdf to image-only format (and why you&#x27;d want to)" data-desc="flattening pdfs to image-only format removes hidden content and ensures wysiwyg. learn when and how to use this technique." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/flatten-pdf-to-image.html" class="blog-card reveal" data-category="how-to" data-title="how to flatten a pdf to image-only format (and why you&#x27;d want to)" data-desc="flattening pdfs to image-only format removes hidden content and ensures wysiwyg. learn when and how to use this technique.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-19
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>How to Flatten a PDF to Image-Only Format (And Why You&#x27;d Want To)</h3>
+      <p>Flattening PDFs to image-only format removes hidden content and ensures WYSIWYG. Learn when and how to use this technique.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/why-offline-document-processing.html" class="blog-card reveal" data-category="security" data-title="why offline document processing matters more than ever" data-desc="cloud tools are convenient, but they put your documents at risk. here&#x27;s why offline processing is the smarter choice for sensitive files." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/why-offline-document-processing.html" class="blog-card reveal" data-category="security" data-title="why offline document processing matters more than ever" data-desc="cloud tools are convenient, but they put your documents at risk. here&#x27;s why offline processing is the smarter choice for sensitive files.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Security</span> | 2026-05-18
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why Offline Document Processing Matters More Than Ever</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Cloud tools are convenient, but they put your documents at risk. Here&#x27;s why offline processing is the smarter choice for sensitive files.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>Why Offline Document Processing Matters More Than Ever</h3>
+      <p>Cloud tools are convenient, but they put your documents at risk. Here&#x27;s why offline processing is the smarter choice for sensitive files.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/excel-reports-for-document-audits.html" class="blog-card reveal" data-category="how-to" data-title="generating excel reports for document audits — a complete guide" data-desc="learn how docinspector generates detailed excel reports for folder audits, with metadata analysis for every document in your tree." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/excel-reports-for-document-audits.html" class="blog-card reveal" data-category="how-to" data-title="generating excel reports for document audits — a complete guide" data-desc="learn how docinspector generates detailed excel reports for folder audits, with metadata analysis for every document in your tree.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.how-to">How-To</span> | 2026-05-17
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Generating Excel Reports for Document Audits — A Complete Guide</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>Generating Excel Reports for Document Audits — A Complete Guide</h3>
+      <p>Learn how DocInspector generates detailed Excel reports for folder audits, with metadata analysis for every document in your tree.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/secure-file-shredding-explained.html" class="blog-card reveal" data-category="security" data-title="why &#x27;delete&#x27; doesn&#x27;t really delete — secure file shredding explained" data-desc="when you delete a file, it&#x27;s still on your drive. learn how secure shredding works and why it matters for sensitive documents." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/secure-file-shredding-explained.html" class="blog-card reveal" data-category="security" data-title="why &#x27;delete&#x27; doesn&#x27;t really delete — secure file shredding explained" data-desc="when you delete a file, it&#x27;s still on your drive. learn how secure shredding works and why it matters for sensitive documents.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Security</span> | 2026-05-16
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why &#x27;Delete&#x27; Doesn&#x27;t Really Delete — Secure File Shredding Explained</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">When you delete a file, it&#x27;s still on your drive. Learn how secure shredding works and why it matters for sensitive documents.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>Why &#x27;Delete&#x27; Doesn&#x27;t Really Delete — Secure File Shredding Explained</h3>
+      <p>When you delete a file, it&#x27;s still on your drive. Learn how secure shredding works and why it matters for sensitive documents.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
-    <a href="blog/document-security-for-lawyers.html" class="blog-card reveal" data-category="industry" data-title="why every law firm needs a document inspection tool" data-desc="legal documents carry hidden risks. learn why document inspection is essential for law firms handling sensitive cases." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/document-security-for-lawyers.html" class="blog-card reveal" data-category="industry" data-title="why every law firm needs a document inspection tool" data-desc="legal documents carry hidden risks. learn why document inspection is essential for law firms handling sensitive cases.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.industry">Industry</span> | 2026-05-15
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Why Every Law Firm Needs a Document Inspection Tool</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Read article →</div>
+      <h3>Why Every Law Firm Needs a Document Inspection Tool</h3>
+      <p>Legal documents carry hidden risks. Learn why document inspection is essential for law firms handling sensitive cases.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Read article →</div>
     </a>
   </div>
 <div class="pagination">

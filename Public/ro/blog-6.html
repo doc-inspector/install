@@ -22,15 +22,16 @@
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
   <style>
-    /* ── PAGINATION SYSTEM ─────────────────────────────────── */
+    /* ── PAGINATION ─────────────────────────────────────────── */
     .pagination {
       display: inline-flex;
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 4rem;
+      margin-top: 3rem;
       margin-bottom: 2rem;
       width: 100%;
+      flex-wrap: wrap;
     }
     .pagination a {
       display: inline-flex;
@@ -65,6 +66,163 @@
       opacity: 0.3;
       pointer-events: none;
       cursor: not-allowed;
+    }
+
+    /* ── BLOG GRID ───────────────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .blog-card {
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,0.03);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: rgba(6,182,212,0.35);
+      background: rgba(6,182,212,0.05);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(6,182,212,0.12);
+    }
+    .blog-card h3 {
+      margin-bottom: 0.75rem;
+      font-family: Outfit, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      flex: 1;
+    }
+    .blog-card p {
+      opacity: 0.7;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .blog-card-meta {
+      margin-bottom: 0.85rem;
+      opacity: 0.55;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+    .blog-card-read {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ── CONTROLS (search + filters) ─────────────────────── */
+    #blog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    #search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+      max-width: 420px;
+    }
+    #search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    #blog-search {
+      width: 100%;
+      padding: 0.7rem 1rem 0.7rem 2.7rem;
+      background: rgba(6,182,212,0.05);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 10px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: Inter, sans-serif;
+      box-sizing: border-box;
+    }
+    #blog-search:focus {
+      border-color: rgba(6,182,212,0.6);
+      box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+    }
+    #cat-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    /* ── TABLET: 2 columns ──────────────────────────────── */
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    }
+
+    /* ── MOBILE: 1 column, full redesign ──────────────────── */
+    @media (max-width: 640px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .blog-card {
+        padding: 1.4rem 1.25rem;
+        border-radius: 14px;
+      }
+      .blog-card h3 {
+        font-size: 1.05rem;
+      }
+      .blog-card p {
+        font-size: 0.9rem;
+      }
+      #blog-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        margin-bottom: 1.75rem;
+      }
+      #search-wrap {
+        max-width: 100%;
+        min-width: 0;
+      }
+      #blog-search {
+        font-size: 1rem;
+        padding: 0.75rem 1rem 0.75rem 2.7rem;
+      }
+      #cat-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.35rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.4rem;
+      }
+      #cat-filters::-webkit-scrollbar { display: none; }
+      .cat-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+      .section-header h1 {
+        font-size: 1.9rem;
+      }
+      .pagination a {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 <script>var BLOG_ALL=[{"slug": "configurarea-docinspector-pe-windows-11-ghid-rapid", "title": "Configurarea DocInspector pe Windows 11 \u2014 ghid rapid", "desc": "Pune DocInspector \u00een func\u021biune pe Windows 11 \u00een sub 2 minute.", "category": "how-to", "date": "2026-05-28"}, {"slug": "document-hardening-vs-encryption-diferenta-pe-care-trebuie-sa-o-stie-fiecare-manager", "title": "Document hardening vs encryption: diferen\u021ba pe care trebuie s\u0103 o \u0219tie fiecare manager", "desc": "Encryption protejeaz\u0103 accesul; hardening reduce riscul structural al fi\u0219ierului. Nu sunt acela\u0219i lucru.", "category": "education", "date": "2026-05-28"}, {"slug": "de-ce-ocr-ul-greseste-calitatea-scanarii-fonturi-rotatie-si-contrast", "title": "De ce OCR-ul gre\u0219e\u0219te: calitatea scan\u0103rii, fonturi, rota\u021bie \u0219i contrast", "desc": "Un ghid simplu despre factorii care influen\u021beaz\u0103 rezultatul OCR \u00eentr-un PDF scanat.", "category": "security", "date": "2026-05-28"}, {"slug": "procesare-batch-vs-munca-manuala-cum-calculezi-timpul-pierdut-pe-documente", "title": "Procesare batch vs munc\u0103 manual\u0103: cum calculezi timpul pierdut pe documente", "desc": "O metod\u0103 simpl\u0103 pentru a estima c\u00e2te ore consum\u0103 conversia, watermark-ul, OCR-ul \u0219i verificarea manual\u0103.", "category": "security", "date": "2026-05-28"}, {"slug": "ce-este-un-folder-evidence-report-si-de-ce-ajuta-la-audit", "title": "Ce este un Folder Evidence Report \u0219i de ce ajut\u0103 la audit", "desc": "Explica\u021bie simpl\u0103 despre rapoartele care arat\u0103 ce fi\u0219iere exist\u0103 \u00eentr-o structur\u0103 de foldere.", "category": "security", "date": "2026-05-28"}, {"slug": "watermark-corect-cand-unde-si-cum-marchezi-documentele-sensibile", "title": "Watermark corect: c\u00e2nd, unde \u0219i cum marchezi documentele sensibile", "desc": "Nu orice watermark este util. Conteaz\u0103 textul, pozi\u021bia, vizibilitatea \u0219i aplicarea consistent\u0103 \u00een batch.", "category": "security", "date": "2026-05-28"}, {"slug": "inainte-sa-trimiti-un-pdf-clientului-12-lucruri-de-verificat", "title": "\u00cenainte s\u0103 trimi\u021bi un PDF clientului: 12 lucruri de verificat", "desc": "Un checklist practic pentru documente finale, contracte, rapoarte, propuneri \u0219i pachete de livrare.", "category": "security", "date": "2026-05-28"}, {"slug": "cum-construiesti-un-workflow-de-audit-documentar-pentru-echipa", "title": "Cum construie\u0219ti un workflow de audit documentar pentru echip\u0103", "desc": "Pa\u0219i concre\u021bi pentru ca verificarea documentelor s\u0103 nu depind\u0103 de memoria fiec\u0103rui angajat.", "category": "security", "date": "2026-05-28"}, {"slug": "metadata-cleaning-vs-redaction-doua-operatiuni-diferite-ambele-importante", "title": "Metadata cleaning vs redaction: dou\u0103 opera\u021biuni diferite, ambele importante", "desc": "Redaction ascunde con\u021binut vizibil; metadata cleaning elimin\u0103 informa\u021bii interne invizibile la prima vedere.", "category": "security", "date": "2026-05-28"}, {"slug": "pregatirea-documentelor-pentru-arhivare-pe-termen-lung", "title": "Preg\u0103tirea documentelor pentru arhivare pe termen lung", "desc": "Cum evi\u021bi arhive digitale greu de c\u0103utat, pline de fi\u0219iere corupte, duplicate sau prost scanate.", "category": "security", "date": "2026-05-28"}, {"slug": "privacy-first-document-workflow-pentru-firme-mici", "title": "Privacy-first document workflow pentru firme mici", "desc": "Un model simplu pentru companii care nu au departament mare de compliance, dar lucreaz\u0103 cu date sensibile.", "category": "security", "date": "2026-05-28"}, {"slug": "docinspector-vs-tool-uri-pdf-online-care-e-diferenta", "title": "DocInspector vs tool-uri PDF online \u2014 care e diferen\u021ba?", "desc": "De ce s\u0103 alegi un tool desktop \u00een loc de servicii PDF gratuite online? O compara\u021bie onest\u0103.", "category": "education", "date": "2026-05-27"}, {"slug": "dosare-bancare-de-credit-standardizare-rapida-pentru-pdf-uri-scanari-si-formulare", "title": "Dosare bancare de credit: standardizare rapid\u0103 pentru PDF-uri, scan\u0103ri \u0219i formulare", "desc": "Cum pot echipele bancare s\u0103 preg\u0103teasc\u0103 dosare mai curate pentru analiz\u0103, arhivare \u0219i audit.", "category": "industry", "date": "2026-05-27"}, {"slug": "digitalizarea-arhivelor-publice-cum-controlezi-mii-de-scanari-fara-cloud", "title": "Digitalizarea arhivelor publice: cum controlezi mii de scan\u0103ri f\u0103r\u0103 cloud", "desc": "Un flux pentru institu\u021bii care transform\u0103 arhive fizice \u00een documente digitale c\u0103utabile \u0219i verificabile.", "category": "security", "date": "2026-05-27"}, {"slug": "telecom-si-contracte-client-audit-rapid-pentru-mii-de-pdf-uri-operationale", "title": "Telecom \u0219i contracte client: audit rapid pentru mii de PDF-uri opera\u021bionale", "desc": "Cum ajut\u0103 procesarea batch la controlul contractelor, anexelor, cererilor \u0219i formularelor semnate.", "category": "security", "date": "2026-05-27"}, {"slug": "universitati-si-dosare-studentesti-documente-curate-pentru-arhiva-si-verificari", "title": "Universit\u0103\u021bi \u0219i dosare studen\u021be\u0219ti: documente curate pentru arhiv\u0103 \u0219i verific\u0103ri", "desc": "Un workflow pentru adeverin\u021be, cereri, contracte de studii \u0219i documente scanate ale studen\u021bilor.", "category": "security", "date": "2026-05-27"}, {"slug": "logistica-si-vama-cum-pregatesti-facturi-cmr-uri-si-declaratii-in-pdf", "title": "Logistic\u0103 \u0219i vam\u0103: cum preg\u0103te\u0219ti facturi, CMR-uri \u0219i declara\u021bii \u00een PDF", "desc": "Un proces pentru documente de transport scanate, facturi comerciale \u0219i pachete de export/import.", "category": "security", "date": "2026-05-27"}, {"slug": "energie-si-utilitati-arhive-tehnice-pregatite-pentru-compliance", "title": "Energie \u0219i utilit\u0103\u021bi: arhive tehnice preg\u0103tite pentru compliance", "desc": "Cum organizezi rapoarte, certificate, procese-verbale \u0219i documente tehnice \u00een loturi verificabile.", "category": "security", "date": "2026-05-27"}, {"slug": "manufacturing-quality-controlul-documentelor-pentru-certificate-fise-si-rapoarte", "title": "Manufacturing quality: controlul documentelor pentru certificate, fi\u0219e \u0219i rapoarte", "desc": "Cum standardizezi documentele de calitate \u00eenainte de audit ISO, client sau furnizor.", "category": "security", "date": "2026-05-27"}, {"slug": "ong-uri-si-granturi-pregatirea-documentelor-pentru-finantatori-si-audit", "title": "ONG-uri \u0219i granturi: preg\u0103tirea documentelor pentru finan\u021batori \u0219i audit", "desc": "Cum organizezi contracte, facturi, rapoarte narative \u0219i dovezi \u00eentr-un pachet verificabil.", "category": "security", "date": "2026-05-27"}, {"slug": "agentii-de-recrutare-protectia-cv-urilor-si-dosarelor-de-candidati", "title": "Agen\u021bii de recrutare: protec\u021bia CV-urilor \u0219i dosarelor de candida\u021bi", "desc": "Cum gestionezi CV-uri, acte, recomand\u0103ri \u0219i formulare f\u0103r\u0103 s\u0103 expui metadata sau date personale inutile.", "category": "security", "date": "2026-05-27"}, {"slug": "francize-si-retele-cu-multe-filiale-un-standard-unic-pentru-documente", "title": "Francize \u0219i re\u021bele cu multe filiale: un standard unic pentru documente", "desc": "Cum reduci haosul documentar \u00eentre birouri, sucursale \u0219i echipe locale.", "category": "security", "date": "2026-05-27"}, {"slug": "sfaturi-de-gestionare-a-documentelor-pentru-contabili-si-auditori", "title": "Sfaturi de gestionare a documentelor pentru contabili \u0219i auditori", "desc": "Contabilii gestioneaz\u0103 mii de documente financiare sensibile. Iat\u0103 cum s\u0103 le gestionezi sigur.", "category": "industry", "date": "2026-05-26"}, {"slug": "zero-trust-pentru-documente-nu-trimite-niciun-pdf-fara-verificare-locala", "title": "Zero Trust pentru documente: nu trimite niciun PDF f\u0103r\u0103 verificare local\u0103", "desc": "Cum aplici principiile Zero Trust \u00een fluxul de lucru cu PDF, Word \u0219i Excel \u00eenainte de trimitere.", "category": "security", "date": "2026-05-26"}, {"slug": "checklist-de-securitate-inainte-sa-trimiti-documente-pe-email", "title": "Checklist de securitate \u00eenainte s\u0103 trimi\u021bi documente pe email", "desc": "Un flux simplu pentru firme care trimit contracte, rapoarte, facturi sau dosare sensibile prin email.", "category": "security", "date": "2026-05-26"}, {"slug": "suprafata-de-risc-a-unui-pdf-linkuri-scripturi-atasamente-si-obiecte-ascunse", "title": "Suprafa\u021ba de risc a unui PDF: linkuri, scripturi, ata\u0219amente \u0219i obiecte ascunse", "desc": "De ce un PDF trebuie inspectat structural, nu doar deschis \u00eentr-un viewer.", "category": "security", "date": "2026-05-26"}, {"slug": "ocr-offline-pentru-documente-confidentiale-cand-cloud-ul-nu-este-o-optiune", "title": "OCR offline pentru documente confiden\u021biale: c\u00e2nd cloud-ul nu este o op\u021biune", "desc": "Cum transformi scan\u0103rile \u00een PDF-uri c\u0103utabile f\u0103r\u0103 s\u0103 expui contracte, acte sau dosare c\u0103tre servicii externe.", "category": "security", "date": "2026-05-26"}, {"slug": "chain-of-custody-pentru-pdf-uri-curatate-cum-pastrezi-dovada-procesarii", "title": "Chain of custody pentru PDF-uri cur\u0103\u021bate: cum p\u0103strezi dovada proces\u0103rii", "desc": "De ce rapoartele \u0219i hash-urile sunt importante atunci c\u00e2nd cure\u021bi sau reconstruie\u0219ti documente sensibile.", "category": "security", "date": "2026-05-26"}, {"slug": "eliminarea-metadata-inainte-de-licitatii-protejeaza-identitatea-si-strategia-companiei", "title": "Eliminarea metadata \u00eenainte de licita\u021bii: protejeaz\u0103 identitatea \u0219i strategia companiei", "desc": "Cum preg\u0103te\u0219ti documentele pentru tender f\u0103r\u0103 s\u0103 expui nume interne, versiuni \u0219i comentarii.", "category": "security", "date": "2026-05-26"}, {"slug": "board-pack-security-cum-protejezi-documentele-pentru-management-si-investitori", "title": "Board pack security: cum protejezi documentele pentru management \u0219i investitori", "desc": "Preg\u0103tirea pachetelor PDF pentru board meetings, investitori \u0219i ac\u021bionari f\u0103r\u0103 scurgeri accidentale.", "category": "security", "date": "2026-05-26"}, {"slug": "triage-documentar-dupa-un-incident-de-date-ce-verifici-in-primele-ore", "title": "Triage documentar dup\u0103 un incident de date: ce verifici \u00een primele ore", "desc": "Un plan practic pentru identificarea rapid\u0103 a documentelor afectate dup\u0103 o posibil\u0103 scurgere de date.", "category": "security", "date": "2026-05-26"}, {"slug": "fisiere-primite-de-la-furnizori-verificare-locala-inainte-de-import-in-companie", "title": "Fi\u0219iere primite de la furnizori: verificare local\u0103 \u00eenainte de import \u00een companie", "desc": "Cum reduci riscul opera\u021bional c\u00e2nd prime\u0219ti PDF-uri, scan\u0103ri \u0219i documente Office de la ter\u021bi.", "category": "security", "date": "2026-05-26"}, {"slug": "politica-de-export-securizat-pentru-documente-reguli-simple-pentru-echipe-mici", "title": "Politic\u0103 de export securizat pentru documente: reguli simple pentru echipe mici", "desc": "Cum define\u0219ti un standard intern pentru PDF-uri, rapoarte, watermark \u0219i audit \u00eenainte de export.", "category": "security", "date": "2026-05-26"}, {"slug": "ce-este-pdf-hardening-si-cand-ai-nevoie-de-el", "title": "Ce este PDF Hardening \u0219i c\u00e2nd ai nevoie de el?", "desc": "PDF hardening face documentele rezistente la modific\u0103ri \u0219i elimin\u0103 amenin\u021b\u0103ri ascunse.", "category": "education", "date": "2026-05-25"}, {"slug": "metadatele-ascunse-din-documente-cum-apar-scurgerile-de-date-fara-hacking", "title": "Metadatele ascunse din documente: cum apar scurgerile de date f\u0103r\u0103 hacking", "desc": "Un ghid practic despre autor, istoric de editare, comentarii \u0219i date EXIF care pot expune informa\u021bii sensibile.", "category": "security", "date": "2026-05-25"}, {"slug": "de-ce-procesarea-offline-a-pdf-urilor-este-mai-sigura-decat-tool-urile-online", "title": "De ce procesarea offline a PDF-urilor este mai sigur\u0103 dec\u00e2t tool-urile online", "desc": "Explic\u0103 riscurile \u00eenc\u0103rc\u0103rii documentelor sensibile \u00een servicii cloud gratuite \u0219i alternativa local\u0103.", "category": "security", "date": "2026-05-25"}, {"slug": "stergere-securizata-cu-audit-log-cand-simplul-delete-nu-este-suficient", "title": "\u0218tergere securizat\u0103 cu audit log: c\u00e2nd simplul Delete nu este suficient", "desc": "Arat\u0103 de ce \u0219tergerea standard nu ofer\u0103 dovad\u0103 opera\u021bional\u0103 \u0219i cum ajut\u0103 un log verificabil.", "category": "security", "date": "2026-05-25"}, {"slug": "gdpr-si-metadata-documentelor-checklist-rapid-inainte-de-trimitere", "title": "GDPR \u0219i metadata documentelor: checklist rapid \u00eenainte de trimitere", "desc": "Un articol orientat spre compliance despre reducerea expunerii datelor personale ascunse \u00een documente.", "category": "security", "date": "2026-05-25"}, {"slug": "redactarea-nu-este-suficienta-de-ce-unele-pdf-uri-trebuie-flattenuite", "title": "Redactarea nu este suficient\u0103: de ce unele PDF-uri trebuie flattenuite", "desc": "Explic\u0103 riscul textului ascuns, al anot\u0103rilor \u0219i al straturilor PDF care pot fi recuperate.", "category": "security", "date": "2026-05-25"}, {"slug": "cum-descoperi-documentele-sensibile-imprastiate-pe-pc-si-drive-uri-de-retea", "title": "Cum descoperi documentele sensibile \u00eempr\u0103\u0219tiate pe PC \u0219i drive-uri de re\u021bea", "desc": "Un articol despre inventarierea fi\u0219ierelor sensibile \u00eenainte de audit, backup sau migrare.", "category": "security", "date": "2026-05-25"}, {"slug": "fisiere-office-cu-macro-uri-semnal-de-risc-inainte-de-distribuire", "title": "Fi\u0219iere Office cu macro-uri: semnal de risc \u00eenainte de distribuire", "desc": "De ce macro-urile, obiectele \u00eencorporate \u0219i fi\u0219ierele mixte trebuie verificate \u00eenainte de partajare.", "category": "security", "date": "2026-05-25"}, {"slug": "hash-md5sha-256-pentru-documente-cum-demonstrezi-integritatea-unui-dosar", "title": "Hash MD5/SHA-256 pentru documente: cum demonstrezi integritatea unui dosar", "desc": "Explic\u0103 rolul hash-urilor \u00een audit, lan\u021b de custodie \u0219i verificarea pachetelor de probe.", "category": "security", "date": "2026-05-25"}, {"slug": "inainte-sa-urci-documente-in-cloud-7-controale-de-securitate-obligatorii", "title": "\u00cenainte s\u0103 urci documente \u00een cloud: 7 controale de securitate obligatorii", "desc": "Un articol pentru companii care folosesc cloud storage, dar vor s\u0103 reduc\u0103 riscul fi\u0219ierelor expuse.", "category": "security", "date": "2026-05-25"}, {"slug": "procesare-documente-in-medii-air-gapped-cum-lucrezi-fara-internet-si-fara-compromisuri", "title": "Procesare documente \u00een medii air-gapped: cum lucrezi f\u0103r\u0103 internet \u0219i f\u0103r\u0103 compromisuri", "desc": "Con\u021binut pentru organiza\u021bii cu re\u021bele restric\u021bionate, date sensibile \u0219i cerin\u021be stricte de control.", "category": "security", "date": "2026-05-25"}, {"slug": "dosare-de-probe-pentru-avocati-cum-pregatesti-documente-curate-si-verificabile", "title": "Dosare de probe pentru avoca\u021bi: cum preg\u0103te\u0219ti documente curate \u0219i verificabile", "desc": "Un articol pentru firme de avocatur\u0103 care gestioneaz\u0103 volume mari de PDF-uri, Word-uri \u0219i anexe.", "category": "security", "date": "2026-05-25"}, {"slug": "pdf-security-in-real-estate-protejarea-datelor-clientului-inainte-de-tranzactie", "title": "PDF security \u00een real estate: protejarea datelor clientului \u00eenainte de tranzac\u021bie", "desc": "Targeteaz\u0103 agen\u021bii, notari \u0219i brokeri care trimit acte cu date personale \u0219i financiare.", "category": "security", "date": "2026-05-25"}, {"slug": "document-management-pentru-contabili-si-auditori-rapoarte-hash-uri-si-control-de-versiuni", "title": "Document management pentru contabili \u0219i auditori: rapoarte, hash-uri \u0219i control de versiuni", "desc": "Con\u021binut pentru fluxuri financiare cu mii de documente \u0219i cerin\u021be de trasabilitate.", "category": "security", "date": "2026-05-25"}, {"slug": "fisiere-hr-si-dosare-de-personal-cum-reduci-riscul-de-expunere-a-datelor-angajatilor", "title": "Fi\u0219iere HR \u0219i dosare de personal: cum reduci riscul de expunere a datelor angaja\u021bilor", "desc": "Un articol pentru departamente HR care trimit sau arhiveaz\u0103 documente cu date personale.", "category": "security", "date": "2026-05-25"}, {"slug": "documente-medicale-administrative-confidentialitate-ocr-si-arhivare-sigura", "title": "Documente medicale administrative: confiden\u021bialitate, OCR \u0219i arhivare sigur\u0103", "desc": "Pentru clinici \u0219i cabinete care scaneaz\u0103, trimit \u0219i arhiveaz\u0103 documente sensibile.", "category": "security", "date": "2026-05-25"}, {"slug": "dosare-de-achizitii-publice-pregatirea-unui-pachet-pdf-curat-indexat-si-verificabil", "title": "Dosare de achizi\u021bii publice: preg\u0103tirea unui pachet PDF curat, indexat \u0219i verificabil", "desc": "Pentru institu\u021bii, furnizori \u0219i consultan\u021bi care lucreaz\u0103 cu seturi mari de documente.", "category": "security", "date": "2026-05-25"}, {"slug": "dosare-de-dauna-in-asigurari-organizare-rapida-pentru-fotografii-pdf-uri-si-declaratii", "title": "Dosare de daun\u0103 \u00een asigur\u0103ri: organizare rapid\u0103 pentru fotografii, PDF-uri \u0219i declara\u021bii", "desc": "Un articol pentru asiguratori, brokeri \u0219i exper\u021bi care trebuie s\u0103 preg\u0103teasc\u0103 dosare clare.", "category": "security", "date": "2026-05-25"}, {"slug": "document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit", "title": "Document control \u00een construc\u021bii: planuri, contracte \u0219i rapoarte preg\u0103tite pentru audit", "desc": "Pentru companii care gestioneaz\u0103 proiecte, avize, rapoarte tehnice \u0219i versiuni multiple.", "category": "security", "date": "2026-05-25"}, {"slug": "dosare-de-credit-si-due-diligence-cum-standardizezi-rapid-documentele-clientului", "title": "Dosare de credit \u0219i due diligence: cum standardizezi rapid documentele clientului", "desc": "Con\u021binut pentru institu\u021bii financiare \u0219i consultan\u021bi care primesc documente \u00een formate mixte.", "category": "security", "date": "2026-05-25"}, {"slug": "data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor", "title": "Data room pentru M&A: preg\u0103te\u0219te documentele \u00eenainte s\u0103 le expui investitorilor", "desc": "Un articol pentru fondatori, consultan\u021bi \u0219i echipe financiare care preg\u0103tesc documente pentru due diligence.", "category": "security", "date": "2026-05-25"}, {"slug": "pdfa-vs-pdf-obisnuit-diferente-pentru-arhivare-audit-si-legal", "title": "PDF/A vs PDF obi\u0219nuit: diferen\u021be pentru arhivare, audit \u0219i legal", "desc": "Clarific\u0103 diferen\u021ba dintre un PDF standard \u0219i un format orientat spre arhivare pe termen lung.", "category": "security", "date": "2026-05-25"}, {"slug": "ocr-pentru-pdf-uri-scanate-cum-transformi-imaginile-in-documente-cautabile", "title": "OCR pentru PDF-uri scanate: cum transformi imaginile \u00een documente c\u0103utabile", "desc": "Ghid educa\u021bional despre OCR, text c\u0103utabil \u0219i eficien\u021b\u0103 \u00een arhive digitale.", "category": "security", "date": "2026-05-25"}, {"slug": "ce-inseamna-pdf-image-only-si-de-ce-il-folosesc-echipele-cu-date-sensibile", "title": "Ce \u00eenseamn\u0103 PDF image-only \u0219i de ce \u00eel folosesc echipele cu date sensibile", "desc": "Un articol simplu despre diferen\u021ba dintre text layer, imagine \u0219i protec\u021bia con\u021binutului vizual.", "category": "security", "date": "2026-05-25"}, {"slug": "procesarea-batch-a-documentelor-cum-economisesti-ore-cand-ai-sute-de-fisiere", "title": "Procesarea batch a documentelor: cum economise\u0219ti ore c\u00e2nd ai sute de fi\u0219iere", "desc": "Explic\u0103 avantajele proces\u0103rii \u00een lot pentru OCR, conversie, watermark \u0219i rapoarte.", "category": "security", "date": "2026-05-25"}, {"slug": "cum-repari-un-pdf-corupt-fara-sa-expui-documentul-online", "title": "Cum repari un PDF corupt f\u0103r\u0103 s\u0103 expui documentul online", "desc": "Ghid pentru fi\u0219iere PDF care nu se deschid, au pagini lips\u0103 sau structuri instabile.", "category": "security", "date": "2026-05-25"}, {"slug": "cum-adaugi-watermark-pe-sute-de-pdf-uri-fara-munca-manuala", "title": "Cum adaugi watermark pe sute de PDF-uri f\u0103r\u0103 munc\u0103 manual\u0103", "desc": "Ghid pentru etichetarea documentelor confiden\u021biale, drafturilor \u0219i pachetelor de caz.", "category": "security", "date": "2026-05-25"}, {"slug": "raport-excel-pentru-audit-de-folder-ce-trebuie-sa-contina-si-de-ce-conteaza", "title": "Raport Excel pentru audit de folder: ce trebuie s\u0103 con\u021bin\u0103 \u0219i de ce conteaz\u0103", "desc": "Explic\u0103 valoarea unui raport cu nume fi\u0219iere, dimensiuni, pagini, metadata \u0219i hash-uri.", "category": "security", "date": "2026-05-25"}, {"slug": "metadata-documentelor-explicata-simplu-ce-vede-destinatarul-fara-sa-ti-dai-seama", "title": "Metadata documentelor explicat\u0103 simplu: ce vede destinatarul f\u0103r\u0103 s\u0103-\u021bi dai seama", "desc": "Articol introductiv pentru utilizatori non-tehnici despre propriet\u0103\u021bi de fi\u0219ier \u0219i date ascunse.", "category": "security", "date": "2026-05-25"}, {"slug": "cele-mai-bune-practici-pentru-bundling-ul-de-probe-legale", "title": "Cele mai bune practici pentru bundling-ul de probe legale", "desc": "Crearea dosarelor de probe gata de instan\u021b\u0103 necesit\u0103 preg\u0103tire atent\u0103. Iat\u0103 cele mai bune practici.", "category": "industry", "date": "2026-05-24"}, {"slug": "cum-sa-faci-pdf-urile-scanate-searchable-cu-ocr", "title": "Cum s\u0103 faci PDF-urile scanate searchable cu OCR", "desc": "PDF-urile scanate sunt doar imagini. Afl\u0103 cum OCR le face searchable.", "category": "how-to", "date": "2026-05-23"}, {"slug": "nu-mai-procesa-documente-unul-cate-unul-procesarea-batch-economiseste-ore", "title": "Nu mai procesa documente unul c\u00e2te unul \u2014 procesarea batch economise\u0219te ore", "desc": "Dac\u0103 \u00eenc\u0103 procesezi documente individual, pierzi ore \u00een fiecare s\u0103pt\u0103m\u00e2n\u0103.", "category": "how-to", "date": "2026-05-22"}, {"slug": "7-pasi-pentru-protejarea-documentelor-inainte-de-partajare", "title": "7 pa\u0219i pentru protejarea documentelor \u00eenainte de partajare", "desc": "\u00cenainte de a ap\u0103sa Send, asigur\u0103-te c\u0103 documentele nu scurg informa\u021bii sensibile.", "category": "how-to", "date": "2026-05-21"}, {"slug": "checklist-complet-pentru-auditul-documentelor-in-2026", "title": "Checklist complet pentru auditul documentelor \u00een 2026", "desc": "Un checklist practic pentru auditarea securit\u0103\u021bii documentelor. Acoper\u0103 metadata, acces, shredding \u0219i conformitate.", "category": "education", "date": "2026-05-20"}, {"slug": "cum-sa-aplatizezi-un-pdf-la-format-doar-imagini-si-de-ce-ai-vrea", "title": "Cum s\u0103 aplatizezi un PDF la format doar-imagini (\u0219i de ce ai vrea)", "desc": "Aplatizarea PDF-urilor elimin\u0103 con\u021binut ascuns \u0219i asigur\u0103 WYSIWYG. C\u00e2nd \u0219i cum s\u0103 folose\u0219ti tehnica.", "category": "how-to", "date": "2026-05-19"}, {"slug": "de-ce-procesarea-offline-a-documentelor-conteaza-mai-mult-ca-niciodata", "title": "De ce procesarea offline a documentelor conteaz\u0103 mai mult ca niciodat\u0103", "desc": "Tool-urile cloud sunt conveniente, dar pun documentele tale \u00een pericol. Iat\u0103 de ce procesarea offline e mai inteligent\u0103.", "category": "security", "date": "2026-05-18"}, {"slug": "generarea-rapoartelor-excel-pentru-audituri-de-documente-ghid-complet", "title": "Generarea rapoartelor Excel pentru audituri de documente \u2014 ghid complet", "desc": "Cum genereaz\u0103 DocInspector rapoarte Excel detaliate pentru audituri de foldere.", "category": "how-to", "date": "2026-05-17"}, {"slug": "de-ce-delete-nu-sterge-cu-adevarat-explicatia-shredding-ului-securizat", "title": "De ce 'Delete' nu \u0219terge cu adev\u0103rat \u2014 explica\u021bia shredding-ului securizat", "desc": "C\u00e2nd \u0219tergi un fi\u0219ier, el e \u00eenc\u0103 pe disc. Afl\u0103 cum func\u021bioneaz\u0103 shredding-ul securizat.", "category": "security", "date": "2026-05-16"}, {"slug": "de-ce-fiecare-firma-de-avocatura-are-nevoie-de-un-tool-de-inspectie-documente", "title": "De ce fiecare firm\u0103 de avocatur\u0103 are nevoie de un tool de inspec\u021bie documente", "desc": "Documentele legale poart\u0103 riscuri ascunse. Afl\u0103 de ce inspec\u021bia documentelor e esen\u021bial\u0103 pentru avoca\u021bi.", "category": "industry", "date": "2026-05-15"}, {"slug": "cum-sa-adaugi-watermark-pe-sute-de-pdf-uri-simultan", "title": "Cum s\u0103 adaugi watermark pe sute de PDF-uri simultan", "desc": "Trebuie s\u0103 pui watermark pe un folder \u00eentreg de PDF-uri? Iat\u0103 cum cu DocInspector.", "category": "how-to", "date": "2026-05-14"}, {"slug": "gdpr-si-metadata-documentelor-sunt-fisierele-tale-conforme", "title": "GDPR \u0219i metadata documentelor: sunt fi\u0219ierele tale conforme?", "desc": "Metadata documentelor poate con\u021bine date personale care \u00eencalc\u0103 GDPR. Afl\u0103 cum s\u0103 auditezi \u0219i cure\u021bi documentele.", "category": "security", "date": "2026-05-13"}, {"slug": "5-lucruri-pe-care-nu-le-stiai-despre-fisierele-pdf", "title": "5 lucruri pe care nu le \u0219tiai despre fi\u0219ierele PDF", "desc": "PDF-urile par simple, dar ascund o complexitate surprinz\u0103toare. Iat\u0103 5 fapte pe care majoritatea nu le cunosc.", "category": "education", "date": "2026-05-12"}, {"slug": "pdf-a-vs-pdf-obisnuit-cand-sa-folosesti-fiecare-format", "title": "PDF/A vs PDF obi\u0219nuit \u2014 c\u00e2nd s\u0103 folose\u0219ti fiecare format", "desc": "Nu toate PDF-urile sunt la fel. Afl\u0103 diferen\u021ba dintre PDF/A \u0219i PDF standard, \u0219i c\u00e2nd s\u0103 folose\u0219ti fiecare.", "category": "education", "date": "2026-05-11"}, {"slug": "datele-ascunse-din-documentele-tale-si-de-ce-conteaza", "title": "Datele ascunse din documentele tale (\u0219i de ce conteaz\u0103)", "desc": "PDF-urile \u0219i fi\u0219ierele Word con\u021bin metadata ascuns\u0103 care poate expune informa\u021bii personale. Iat\u0103 ce trebuie s\u0103 faci.", "category": "security", "date": "2026-05-10"}, {"slug": "cum-sa-repari-un-fisier-pdf-corupt-in-cateva-secunde", "title": "Cum s\u0103 repari un fi\u0219ier PDF corupt \u00een c\u00e2teva secunde", "desc": "PDF-ul nu se deschide? \u00cenva\u021b\u0103 cum s\u0103 repari fi\u0219iere PDF corupte cu DocInspector. Func\u021bioneaz\u0103 100% offline.", "category": "how-to", "date": "2026-05-09"}];var BLOG_LANG="ro";</script>
@@ -118,13 +276,13 @@
     <p data-i18n="blog.pageSubtitle">Sfaturi, ghiduri și perspective despre securitatea documentelor</p>
   </div>
 
-  <!-- ── SEARCH + CATEGORY FILTER ────────────────────────── -->
-  <div id="blog-controls" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;margin-bottom:2.5rem;">
-    <div style="position:relative;flex:1;min-width:220px;max-width:420px;">
-      <svg style="position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:0.45;pointer-events:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input id="blog-search" type="search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="Search articles..." style="width:100%;padding:0.65rem 1rem 0.65rem 2.6rem;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:10px;color:#e2e8f0;font-size:0.95rem;outline:none;transition:border-color 0.2s;">
+  <!-- ── SEARCH + CATEGORY FILTER ──────────────────────── -->
+  <div id="blog-controls">
+    <div id="search-wrap">
+      <svg id="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="blog-search" type="search" data-i18n-placeholder="blog.searchPlaceholder" placeholder="Search articles...">
     </div>
-    <div id="cat-filters" style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+    <div id="cat-filters">
       <button class="cat-btn active" data-cat="all" data-i18n="blog.cat.all">All</button>
       <button class="cat-btn" data-cat="security" data-i18n="blog.cat.security">Securitate</button>
       <button class="cat-btn" data-cat="how-to" data-i18n="blog.cat.how-to">Cum se face</button>
@@ -134,77 +292,77 @@
   </div>
 
   <div id="no-results" style="display:none;text-align:center;padding:3rem;opacity:0.6;" data-i18n="blog.noResults">Nu au fost găsite articole care să corespundă căutării.</div>
-  <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;">    <a href="blog/pdf-security-in-real-estate-protejarea-datelor-clientului-inainte-de-tranzactie.html" class="blog-card reveal" data-category="security" data-title="pdf security în real estate: protejarea datelor clientului înainte de tranzacție" data-desc="targetează agenții, notari și brokeri care trimit acte cu date personale și financiare." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+  <div class="blog-grid">    <a href="blog/pdf-security-in-real-estate-protejarea-datelor-clientului-inainte-de-tranzactie.html" class="blog-card reveal" data-category="security" data-title="pdf security în real estate: protejarea datelor clientului înainte de tranzacție" data-desc="targetează agenții, notari și brokeri care trimit acte cu date personale și financiare.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">PDF security în real estate: protejarea datelor clientului înainte de tranzacție</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Targetează agenții, notari și brokeri care trimit acte cu date personale și financiare.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>PDF security în real estate: protejarea datelor clientului înainte de tranzacție</h3>
+      <p>Targetează agenții, notari și brokeri care trimit acte cu date personale și financiare.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/document-management-pentru-contabili-si-auditori-rapoarte-hash-uri-si-control-de-versiuni.html" class="blog-card reveal" data-category="security" data-title="document management pentru contabili și auditori: rapoarte, hash-uri și control de versiuni" data-desc="conținut pentru fluxuri financiare cu mii de documente și cerințe de trasabilitate." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/document-management-pentru-contabili-si-auditori-rapoarte-hash-uri-si-control-de-versiuni.html" class="blog-card reveal" data-category="security" data-title="document management pentru contabili și auditori: rapoarte, hash-uri și control de versiuni" data-desc="conținut pentru fluxuri financiare cu mii de documente și cerințe de trasabilitate.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document management pentru contabili și auditori: rapoarte, hash-uri și control de versiuni</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Conținut pentru fluxuri financiare cu mii de documente și cerințe de trasabilitate.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Document management pentru contabili și auditori: rapoarte, hash-uri și control de versiuni</h3>
+      <p>Conținut pentru fluxuri financiare cu mii de documente și cerințe de trasabilitate.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/fisiere-hr-si-dosare-de-personal-cum-reduci-riscul-de-expunere-a-datelor-angajatilor.html" class="blog-card reveal" data-category="security" data-title="fișiere hr și dosare de personal: cum reduci riscul de expunere a datelor angajaților" data-desc="un articol pentru departamente hr care trimit sau arhivează documente cu date personale." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/fisiere-hr-si-dosare-de-personal-cum-reduci-riscul-de-expunere-a-datelor-angajatilor.html" class="blog-card reveal" data-category="security" data-title="fișiere hr și dosare de personal: cum reduci riscul de expunere a datelor angajaților" data-desc="un articol pentru departamente hr care trimit sau arhivează documente cu date personale.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Fișiere HR și dosare de personal: cum reduci riscul de expunere a datelor angajaților</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Un articol pentru departamente HR care trimit sau arhivează documente cu date personale.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Fișiere HR și dosare de personal: cum reduci riscul de expunere a datelor angajaților</h3>
+      <p>Un articol pentru departamente HR care trimit sau arhivează documente cu date personale.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/documente-medicale-administrative-confidentialitate-ocr-si-arhivare-sigura.html" class="blog-card reveal" data-category="security" data-title="documente medicale administrative: confidențialitate, ocr și arhivare sigură" data-desc="pentru clinici și cabinete care scanează, trimit și arhivează documente sensibile." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/documente-medicale-administrative-confidentialitate-ocr-si-arhivare-sigura.html" class="blog-card reveal" data-category="security" data-title="documente medicale administrative: confidențialitate, ocr și arhivare sigură" data-desc="pentru clinici și cabinete care scanează, trimit și arhivează documente sensibile.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Documente medicale administrative: confidențialitate, OCR și arhivare sigură</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Pentru clinici și cabinete care scanează, trimit și arhivează documente sensibile.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Documente medicale administrative: confidențialitate, OCR și arhivare sigură</h3>
+      <p>Pentru clinici și cabinete care scanează, trimit și arhivează documente sensibile.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/dosare-de-achizitii-publice-pregatirea-unui-pachet-pdf-curat-indexat-si-verificabil.html" class="blog-card reveal" data-category="security" data-title="dosare de achiziții publice: pregătirea unui pachet pdf curat, indexat și verificabil" data-desc="pentru instituții, furnizori și consultanți care lucrează cu seturi mari de documente." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/dosare-de-achizitii-publice-pregatirea-unui-pachet-pdf-curat-indexat-si-verificabil.html" class="blog-card reveal" data-category="security" data-title="dosare de achiziții publice: pregătirea unui pachet pdf curat, indexat și verificabil" data-desc="pentru instituții, furnizori și consultanți care lucrează cu seturi mari de documente.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Dosare de achiziții publice: pregătirea unui pachet PDF curat, indexat și verificabil</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Pentru instituții, furnizori și consultanți care lucrează cu seturi mari de documente.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Dosare de achiziții publice: pregătirea unui pachet PDF curat, indexat și verificabil</h3>
+      <p>Pentru instituții, furnizori și consultanți care lucrează cu seturi mari de documente.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/dosare-de-dauna-in-asigurari-organizare-rapida-pentru-fotografii-pdf-uri-si-declaratii.html" class="blog-card reveal" data-category="security" data-title="dosare de daună în asigurări: organizare rapidă pentru fotografii, pdf-uri și declarații" data-desc="un articol pentru asiguratori, brokeri și experți care trebuie să pregătească dosare clare." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/dosare-de-dauna-in-asigurari-organizare-rapida-pentru-fotografii-pdf-uri-si-declaratii.html" class="blog-card reveal" data-category="security" data-title="dosare de daună în asigurări: organizare rapidă pentru fotografii, pdf-uri și declarații" data-desc="un articol pentru asiguratori, brokeri și experți care trebuie să pregătească dosare clare.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Dosare de daună în asigurări: organizare rapidă pentru fotografii, PDF-uri și declarații</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Un articol pentru asiguratori, brokeri și experți care trebuie să pregătească dosare clare.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Dosare de daună în asigurări: organizare rapidă pentru fotografii, PDF-uri și declarații</h3>
+      <p>Un articol pentru asiguratori, brokeri și experți care trebuie să pregătească dosare clare.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit.html" class="blog-card reveal" data-category="security" data-title="document control în construcții: planuri, contracte și rapoarte pregătite pentru audit" data-desc="pentru companii care gestionează proiecte, avize, rapoarte tehnice și versiuni multiple." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit.html" class="blog-card reveal" data-category="security" data-title="document control în construcții: planuri, contracte și rapoarte pregătite pentru audit" data-desc="pentru companii care gestionează proiecte, avize, rapoarte tehnice și versiuni multiple.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Document control în construcții: planuri, contracte și rapoarte pregătite pentru audit</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Pentru companii care gestionează proiecte, avize, rapoarte tehnice și versiuni multiple.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Document control în construcții: planuri, contracte și rapoarte pregătite pentru audit</h3>
+      <p>Pentru companii care gestionează proiecte, avize, rapoarte tehnice și versiuni multiple.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/dosare-de-credit-si-due-diligence-cum-standardizezi-rapid-documentele-clientului.html" class="blog-card reveal" data-category="security" data-title="dosare de credit și due diligence: cum standardizezi rapid documentele clientului" data-desc="conținut pentru instituții financiare și consultanți care primesc documente în formate mixte." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/dosare-de-credit-si-due-diligence-cum-standardizezi-rapid-documentele-clientului.html" class="blog-card reveal" data-category="security" data-title="dosare de credit și due diligence: cum standardizezi rapid documentele clientului" data-desc="conținut pentru instituții financiare și consultanți care primesc documente în formate mixte.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Dosare de credit și due diligence: cum standardizezi rapid documentele clientului</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Conținut pentru instituții financiare și consultanți care primesc documente în formate mixte.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Dosare de credit și due diligence: cum standardizezi rapid documentele clientului</h3>
+      <p>Conținut pentru instituții financiare și consultanți care primesc documente în formate mixte.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
-    <a href="blog/data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor.html" class="blog-card reveal" data-category="security" data-title="data room pentru m&amp;a: pregătește documentele înainte să le expui investitorilor" data-desc="un articol pentru fondatori, consultanți și echipe financiare care pregătesc documente pentru due diligence." style="text-decoration:none;color:inherit;background:rgba(255,255,255,0.03);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;">
-      <div class="blog-card-meta" style="margin-bottom:1rem;opacity:0.6;font-size:0.8rem;">
+    <a href="blog/data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor.html" class="blog-card reveal" data-category="security" data-title="data room pentru m&amp;a: pregătește documentele înainte să le expui investitorilor" data-desc="un articol pentru fondatori, consultanți și echipe financiare care pregătesc documente pentru due diligence.">
+      <div class="blog-card-meta">
         <span data-i18n="blog.cat.security">Securitate</span> | 2026-05-25
       </div>
-      <h3 style="margin-bottom:1rem;font-family:Outfit,sans-serif;">Data room pentru M&amp;A: pregătește documentele înainte să le expui investitorilor</h3>
-      <p style="opacity:0.7;font-size:0.95rem;line-height:1.5;">Un articol pentru fondatori, consultanți și echipe financiare care pregătesc documente pentru due diligence.</p>
-      <div style="margin-top:1.5rem;color:#38bdf8;font-weight:600;" data-i18n="blog.readMore">Citește articolul →</div>
+      <h3>Data room pentru M&amp;A: pregătește documentele înainte să le expui investitorilor</h3>
+      <p>Un articol pentru fondatori, consultanți și echipe financiare care pregătesc documente pentru due diligence.</p>
+      <div class="blog-card-read" data-i18n="blog.readMore">Citește articolul →</div>
     </a>
   </div>
 <div class="pagination">
