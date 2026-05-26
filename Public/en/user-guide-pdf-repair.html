@@ -42,49 +42,47 @@
 <body style="background:#0a1628;color:#f1f5f9">
   <div class="page">
     <header class="site-header">
-      <div class="container">
-        <div class="navbar">
-          <a href="index.html" class="brand">
-            <div class="brand-logo"><img src="../assets/logo.png" alt="logo"></div>
-            <div class="brand-text">
-              <div class="brand-name" data-i18n="brand.name">DocInspector</div>
-              <div class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</div>
-            </div>
-          </a>
-          <nav class="nav-links" id="navLinks">
-            <a href="index.html" data-i18n="nav.home">Home</a>
-            <a href="download.html" data-i18n="nav.download">Download</a>
-            <a href="price.html" data-i18n="nav.price">Price</a>
-            <a href="user-guide.html" class="active" data-i18n="nav.guide">User Guide</a>
-            <a href="reports.html" data-i18n="nav.reports">Reports & Feedback</a>
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="price.html" data-i18n="nav.price">Price</a>
+        <a href="user-guide.html" class="active" data-i18n="nav.guide">User Guide</a>
+        <a href="reports.html" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="blog.html" data-i18n="nav.blog">Blog</a>
-            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="download.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
 
-            <div class="lang-dropdown mobile-only">
-              <button class="lang-btn"><span class="lang-pill">EN</span> <span class="chev">▾</span></button>
-              <div class="lang-menu">
-                <a href="user-guide-pdf-repair.html" class="lang-item active" data-lang="en">EN</a>
-                <a href="../ro/ghid-reparare-pdf.html" class="lang-item" data-lang="ro">RO</a>
-                <a href="../ru/rukovodstvo-remont-pdf.html" class="lang-item" data-lang="ru">RU</a>
-              </div>
-            </div>
-          </nav>
-
-          <div class="nav-actions">
-            <div class="lang-dropdown desktop-only">
-              <button class="lang-btn" id="langBtn"><span class="lang-pill">EN</span> <span
-                  class="chev">▾</span></button>
-              <div class="lang-menu" id="langMenu">
-                <a href="user-guide-pdf-repair.html" class="lang-item active" data-lang="en">EN</a>
-                <a href="../ro/ghid-reparare-pdf.html" class="lang-item" data-lang="ro">RO</a>
-                <a href="../ru/rukovodstvo-remont-pdf.html" class="lang-item" data-lang="ru">RU</a>
-              </div>
-            </div>
-            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="user-guide-pdf-repair.html" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/ghid-reparare-pdf.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/rukovodstvo-remont-pdf.html" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
+        <a href="download.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
-    </header>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
 
     <main class="section" style="position:relative;overflow:hidden;">
       <div class="cyber-grid"></div>

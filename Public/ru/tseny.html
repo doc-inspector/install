@@ -116,49 +116,48 @@
 <div class="page">
 
   <!-- HEADER -->
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="navbar">
-        <a href="index.html" class="brand">
-          <div class="brand-logo"><img src="../assets/logo.png" alt="DocInspector logo"></div>
-          <div class="brand-text">
-            <div class="brand-name" data-i18n="brand.name">DocInspector</div>
-            <div class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов и аудит</div>
-          </div>
-        </a>
-        <nav class="nav-links" id="navLinks" aria-label="Primary">
-          <a href="index.html" data-i18n="nav.home">Главная</a>
-          <a href="skachat.html" data-i18n="nav.download">Скачать</a>
-          <a href="tseny.html" class="active" data-i18n="nav.price">Цена</a>
-          <a href="rukovodstvo.html" data-i18n="nav.guide">Руководство</a>
-          <a href="otchety.html" data-i18n="nav.reports">Отчёты и отзывы</a>
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов и аудит</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Главная</a>
+        <a href="tseny.html" class="active" data-i18n="nav.price">Цена</a>
+        <a href="rukovodstvo.html" data-i18n="nav.guide">Руководство</a>
+        <a href="otchety.html" data-i18n="nav.reports">Отчёты и отзывы</a>
         <a href="blog.html" data-i18n="nav.blog">Блог</a>
-          <a href="kontakty.html" data-i18n="nav.contact">Контакты</a>
-          <div class="lang-dropdown mobile-only">
-            <button class="lang-btn"><span class="lang-pill">RU</span> <span class="chev">▾</span></button>
-            <div class="lang-menu">
-              <a href="../en/price.html" class="lang-item" data-lang="en">EN</a>
-              <a href="../ro/preturi.html" class="lang-item" data-lang="ro">RO</a>
-              <a href="tseny.html" class="lang-item active" data-lang="ru">RU</a>
-            </div>
-          </div>
-        </nav>
-        <div class="nav-actions">
-          <div class="lang-dropdown desktop-only">
-            <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
-              <span class="lang-pill">RU</span><span class="chev">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <a href="../en/price.html" class="lang-item" data-lang="en">EN</a>
-              <a href="../ro/preturi.html" class="lang-item" data-lang="ro">RO</a>
-              <a href="tseny.html" class="lang-item active" data-lang="ru">RU</a>
-            </div>
-          </div>
-          <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        </div>
+        <a href="kontakty.html" data-i18n="nav.contact">Контакты</a>
+        <a href="skachat.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
       </div>
-    </div>
-  </header>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RU</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/price.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../ro/preturi.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="tseny.html" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="skachat.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
 
   <!-- PRICING -->
   <section class="pricing-section" style="position:relative;overflow:hidden;">

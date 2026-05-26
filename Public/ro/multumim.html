@@ -38,47 +38,48 @@
 <div class="page">
 
   <!-- HEADER -->
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="navbar">
-        <a href="index.html" class="brand">
-          <div class="brand-logo"><img src="../assets/logo.png" alt="DocInspector logo"></div>
-          <div class="brand-text">
-            <div class="brand-name" data-i18n="brand.name">DocInspector</div>
-            <div class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</div>
-          </div>
-        </a>
-        <nav class="nav-links" id="navLinks" aria-label="Primary">
-          <a href="index.html" data-i18n="nav.home">Acasă</a>
-          <a href="descarca.html" data-i18n="nav.download">Descărcare</a>
-          <a href="preturi.html" data-i18n="nav.price">Preț</a>
-          <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
-          <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Preț</a>
+        <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte & Feedback</a>
         <a href="blog.html" data-i18n="nav.blog">Blog</a>
-          <a href="contact.html" data-i18n="nav.contact">Contact</a>
-          <div class="lang-dropdown mobile-only">
-            <button class="lang-btn"><span class="lang-pill">RO</span> <span class="chev">▾</span></button>
-            <div class="lang-menu">
-              <a href="multumim.html" class="lang-item">EN</a>
-              <a href="multumim.html" class="lang-item">RO</a>
-              <a href="multumim.html" class="lang-item">RU</a>
-            </div>
-          </div>
-        </nav>
-        <div class="nav-actions">
-          <div class="lang-dropdown desktop-only">
-            <button class="lang-btn" id="langBtn" type="button"><span class="lang-pill">RO</span><span class="chev">▾</span></button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <a href="multumim.html" class="lang-item">EN</a>
-              <a href="multumim.html" class="lang-item">RO</a>
-              <a href="multumim.html" class="lang-item">RU</a>
-            </div>
-          </div>
-          <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        </div>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
       </div>
-    </div>
-  </header>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/thanks.html" class="lang-item" data-lang="en">EN</a>
+            <a href="multumim.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/spasibo.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
 
   <main class="section" style="min-height:60vh;display:flex;align-items:center;">
     <div class="container" style="text-align:center;">
