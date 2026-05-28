@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocInspector — Secure Online Sandbox Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a1628;
+      --panel: rgba(255, 255, 255, 0.015);
+      --border: rgba(6, 182, 212, 0.12);
+      --border-hover: rgba(6, 182, 212, 0.4);
+      --cyan: #06b6d4;
+      --cyan-light: #38bdf8;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient cyber glow background */
+    .cyber-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      width: 90%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(6, 182, 212, 0.02);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    
+    .container:hover {
+      border-color: rgba(6, 182, 212, 0.2);
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.05), inset 0 0 40px rgba(6, 182, 212, 0.04);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin: 0 0 0.75rem 0;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin: 0 0 2.5rem 0;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Premium interactive Drop Zone */
+    .drop-zone {
+      position: relative;
+      border: 2px dashed var(--border);
+      border-radius: 18px;
+      padding: 4rem 2rem;
+      cursor: pointer;
+      background: rgba(6, 182, 212, 0.01);
+      transition: all var(--transition);
+      overflow: hidden;
+    }
+
+    .drop-zone::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.04), rgba(56, 189, 248, 0.04));
+      opacity: 0;
+      transition: opacity var(--transition);
+      z-index: 0;
+    }
+
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.08), inset 0 0 20px rgba(6, 182, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .drop-zone:hover::before, .drop-zone.dragover::before {
+      opacity: 1;
+    }
+
+    .drop-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .drop-icon {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.4));
+      transition: transform 0.5s ease;
+    }
+
+    .drop-zone:hover .drop-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .drop-text-main {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .drop-text-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    /* Premium Neon Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 100%);
+      color: #0a1628;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: all var(--transition);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25), 0 4px 15px rgba(6, 182, 212, 0.15);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(6, 182, 212, 0.55), 0 8px 25px rgba(6, 182, 212, 0.25);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-svg {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn:hover .btn-svg {
+      transform: translateY(-2px);
+    }
+
+    /* Hexagonal particle grid overlay */
+    .hex-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(rgba(6, 182, 212, 0.08) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+  </style>
+  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body>
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+  <div class="cyber-glow"></div>
+  <div class="hex-overlay"></div>
+
+  <div class="container">
+    <h1>DocInspector Sandbox</h1>
+    <p>Upload your PDF document below. The file is processed completely 100% locally on your machine using our secure local CLI engines.</p>
+    
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <div class="drop-content">
+        <span class="drop-icon" id="dropIcon">🛡️</span>
+        <span class="drop-text-main" id="dropTextMain">Drag & Drop PDF document</span>
+        <span class="drop-text-sub" id="dropTextSub">or click to browse local files</span>
+      </div>
+      <input type="file" id="fileInput" accept=".pdf">
+    </div>
+    
+    <button class="btn" id="uploadBtn" style="display: none;">
+      <span>Clean Metadata Now</span>
+      <svg class="btn-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const dropIcon = document.getElementById('dropIcon');
+    const dropTextMain = document.getElementById('dropTextMain');
+    const dropTextSub = document.getElementById('dropTextSub');
+    let selectedFile = null;
+
+    dropZone.addEventListener('dragover', (e) => { 
+      e.preventDefault(); 
+      dropZone.classList.add('dragover'); 
+    });
+    
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length) handleFile(fileInput.files[0]);
+    });
+
+    function handleFile(file) {
+      selectedFile = file;
+      dropIcon.textContent = '📄';
+      dropTextMain.textContent = file.name;
+      dropTextSub.textContent = `${(file.size / 1024).toFixed(1)} KB — Ready to Sanitize`;
+      uploadBtn.style.display = 'inline-flex';
+    }
+
+    uploadBtn.addEventListener('click', () => {
+      if (!selectedFile) return;
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      
+      dropIcon.textContent = '⚡';
+      dropTextMain.textContent = 'Sanitizing Metadata...';
+      dropTextSub.textContent = 'Executing local CLI engine';
+      uploadBtn.style.display = 'none';
+
+      fetch('/upload', { method: 'POST', body: formData })
+        .then(response => {
+          if (!response.ok) throw new Error('Sanitization failed');
+          return response.blob();
+        })
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `clean_${selectedFile.name}`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          
+          dropIcon.textContent = '✅';
+          dropTextMain.textContent = 'Sanitization Complete!';
+          dropTextSub.textContent = 'Clean file downloaded successfully.';
+          selectedFile = null;
+        })
+        .catch(err => {
+          dropIcon.textContent = '❌';
+          dropTextMain.textContent = 'Error: Processing Failed';
+          dropTextSub.textContent = 'Ensure server.py is running and ExifTool is available.';
+          uploadBtn.style.display = 'inline-flex';
+        });
+    });
+  </script>
+</body>
+</html>
