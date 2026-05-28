@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Mulțumim! — DocInspector</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css?v=12" rel="stylesheet">
+<link href="../assets/logo.png" rel="icon" type="image/png">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80038W7D1J');
+    </script>
+<link href="https://doc-inspector.com/ro/multumim" rel="canonical">
+<link href="https://doc-inspector.com/en/thanks" hreflang="en" rel="alternate"/>
+<link href="https://doc-inspector.com/ro/multumim" hreflang="ro" rel="alternate"/>
+<link href="https://doc-inspector.com/ru/spasibo" hreflang="ru" rel="alternate"/>
+<link href="https://doc-inspector.com/en/thanks" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="Mulțumim! — DocInspector" property="og:title"/>
+<meta content="Professional document processing tools." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://doc-inspector.com/ro/multumim" property="og:url"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" property="og:image"/>
+<meta content="DocInspector" property="og:site_name"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Thank You - DocInspector" name="twitter:title"/>
+<meta content="Professional document processing tools." name="twitter:description"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" name="twitter:image"/>
+</link></link></link>  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#f1f5f9">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page">
+<!-- HEADER -->
+<header class="site-header">
+<div class="container">
+<nav class="navbar">
+<a class="brand" href="index.html">
+<span class="brand-logo"><img alt="DocInspector" height="38" src="../assets/logo.png" width="38"/></span>
+<span>
+<span class="brand-name" data-i18n="brand.name">DocInspector</span><br/>
+<span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Manager Batch Documente &amp; Suită Audit</span>
+</span>
+</a>
+<div class="nav-links">
+        <a href="unelte-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Unelte Online</a>
+<a data-i18n="nav.home" href="index.html">Acasă</a>
+<a data-i18n="nav.price" href="preturi.html">Preț</a>
+<a data-i18n="nav.guide" href="ghid-utilizare.html">Ghid utilizare</a>
+<a data-i18n="nav.reports" href="rapoarte-feedback.html">Rapoarte &amp; Feedback</a>
+<a data-i18n="nav.blog" href="blog.html">Blog</a>
+<a data-i18n="nav.contact" href="contact.html">Contact</a>
+<a class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download" href="descarca.html">Descărcare</a>
+</div>
+<div class="nav-actions">
+<div class="lang-dropdown">
+<button aria-label="Language" class="lang-btn">
+<span class="lang-pill">RO</span>
+<span class="chev">▾</span>
+</button>
+<div class="lang-menu">
+<a class="lang-item" data-lang="en" href="../en/thanks.html">EN</a>
+<a class="lang-item active" data-lang="ro" href="multumim.html">RO</a>
+<a class="lang-item" data-lang="ru" href="../ru/spasibo.html">RU</a>
+</div>
+</div>
+<a class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download" href="descarca.html">Descărcare</a>
+</div>
+<button aria-label="Menu" class="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</nav>
+</div>
+</header>
+<main class="section" style="min-height:60vh;display:flex;align-items:center;">
+<div class="container" style="text-align:center;">
+<div class="reveal">
+<!-- checkmark icon -->
+<div style="width:80px;height:80px;background:linear-gradient(135deg,var(--cyan),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-size:2rem;">✓</div>
+<h1 class="section-title text-gradient" data-i18n="thanks.title">Mulțumim</h1>
+<p class="section-subtitle" data-i18n="thanks.subtitle">Mesajul tău a fost trimis cu succes. Îți vom răspunde pe email.</p>
+<div style="margin-top:2rem;">
+<a class="btn btn-primary" data-i18n="thanks.btn" href="index.html">Înapoi Acasă</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<div data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</div>
+<div class="footer-links">
+<a class="tiktok-link" href="https://www.tiktok.com/@docinspector?_r=1&amp;_t=ZS-94P4h7rqm3B" target="_blank" title="TikTok">
+<svg height="20" style="fill:currentColor;vertical-align:middle" viewbox="0 0 448 512" width="20"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg>
+</a>
+<a data-i18n="footer.privacy" href="politica-de-confidentialitate.html">Politica de Confidențialitate</a>
+        <a href="securitate.html">Securitate</a>
+<a data-i18n="footer.terms" href="termeni-si-conditii.html">Termeni și Condiții</a>
+<a data-i18n="footer.refund" href="politica-de-rambursare.html">Politica de Rambursare</a>
+<a class="btn btn-outline btn-sm" data-i18n="footer.bug" href="rapoarte-feedback.html" style="border-radius:50px;padding:.4rem 1rem;">Raportează un bug</a>
+</div>
+</div>
+</footer>
+</div>
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+</body>
+</html>

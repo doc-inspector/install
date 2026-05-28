@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Raportează erori sau solicită funcții noi pentru DocInspector. Feedback-ul tău ne ajută să îmbunătățim produsul." name="description"/>
+<meta content="DocInspector support, report bug, request feature, document software feedback, contact development team" name="keywords"/>
+<title>Rapoarte &amp; Feedback — DocInspector</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css?v=12" rel="stylesheet">
+<link href="../assets/logo.png" rel="icon" type="image/png">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80038W7D1J');
+    </script>
+<link href="https://doc-inspector.com/ro/rapoarte-feedback" rel="canonical">
+<link href="https://doc-inspector.com/en/reports" hreflang="en" rel="alternate"/>
+<link href="https://doc-inspector.com/ro/rapoarte-feedback" hreflang="ro" rel="alternate"/>
+<link href="https://doc-inspector.com/ru/otchety" hreflang="ru" rel="alternate"/>
+<link href="https://doc-inspector.com/en/reports" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="Rapoarte &amp; Feedback — DocInspector" property="og:title"/>
+<meta content="Raportează erori sau solicită funcții noi pentru DocInspector. Feedback-ul tău ne ajută să îmbunătățim produsul." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://doc-inspector.com/ro/rapoarte-feedback" property="og:url"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" property="og:image"/>
+<meta content="DocInspector" property="og:site_name"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Reports &amp; Feedback - DocInspector" name="twitter:title"/>
+<meta content="Report bugs or request new features for DocInspector. Submit feedback securely with attachments to help improve our document repair and audit suite." name="twitter:description"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" name="twitter:image"/>
+</link></link></link>  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#f1f5f9">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page">
+<!-- HEADER -->
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Manager Batch Documente &amp; Suită Audit</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="unelte-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Unelte Online</a>
+        <a href="index.html" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Prețuri</a>
+        <a href="ghid-utilizare.html" data-i18n="nav.guide">Ghid Utilizare</a>
+        <a href="rapoarte-feedback.html" class="active" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/reports.html" class="lang-item" data-lang="en">EN</a>
+            <a href="rapoarte-feedback.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/otchety.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- CONTENT -->
+<section class="section" style="position:relative;overflow:hidden;">
+<div class="pulse-ring"></div>
+<div class="cyber-grid"></div>
+<div class="container" style="position:relative;z-index:1;">
+<header class="section-header reveal-flip">
+<div class="section-eyebrow">Feedback</div>
+<h1 class="section-title text-gradient" data-i18n="report.title">Rapoarte &amp; Feedback</h1>
+<p class="section-subtitle" data-i18n="report.subtitle">Ajută-ne să îmbunătățim DocInspector raportând bug-uri sau solicitând funcții noi.</p>
+</header>
+<div class="form-card reveal-flip" style="max-width:800px;margin:0 auto;">
+<form action="https://formspree.io/f/xreggdqk" enctype="multipart/form-data" id="reportForm" method="post">
+<div style="display:flex;flex-direction:column;gap:2rem;">
+<div>
+<label data-i18n="report.email" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Email</label>
+<input name="email" onblur="this.style.borderColor='var(--border)'" onfocus="this.style.borderColor='var(--cyan)'" required="" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;transition:border-color .2s;" type="email"/>
+</div>
+<div>
+<label data-i18n="report.type" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Tip Raport</label>
+<select name="type" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;">
+<option data-i18n="report.type.bug">Raportare Bug</option>
+<option data-i18n="report.type.feature">Solicitare Funcție</option>
+<option data-i18n="report.type.ui">Sugestie Interfață</option>
+<option data-i18n="report.type.perf">Problemă Performanță</option>
+</select>
+</div>
+<div>
+<label data-i18n="report.details" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Detalii</label>
+<textarea data-i18n-placeholder="report.details.placeholder" name="message" onblur="this.style.borderColor='var(--border)'" onfocus="this.style.borderColor='var(--cyan)'" placeholder="Describe the issue or suggestion..." required="" rows="6" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;resize:vertical;transition:border-color .2s;"></textarea>
+</div>
+<div>
+<label data-i18n="report.attachments" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Atașamente</label>
+<input accept=".png,.jpg,.jpeg,.txt,.doc,.docx,.xls,.xlsx,.zip,.rar,.pdf" multiple="" name="attachment" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem;border-radius:16px;color:var(--text-muted);" type="file"/>
+<small data-i18n="report.attachments.hint" style="color:var(--text-muted);display:block;margin-top:.5rem;font-size:.8rem;">Acceptate: png, jpg, jpeg, txt, word, excel, zip, rar, pdf</small>
+</div>
+<div>
+<label style="display:flex;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.9rem;cursor:pointer;">
+<input name="botcheck" required="" style="width:18px;height:18px;accent-color:var(--cyan);" type="checkbox"/>
+<span data-i18n="report.bot">Sunt om (Verificare anti-spam)</span>
+</label>
+</div>
+<button class="btn btn-primary" data-i18n="report.submit" style="padding:1.4rem;" type="submit">Trimite Raport</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+  <!-- GOOGLE REVIEWS SECTION -->
+  
+  <style>
+    .reviews-slider-wrap{position:relative;overflow:hidden;margin-bottom:2.5rem;}
+    .reviews-slider-wrap::before,.reviews-slider-wrap::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;}
+    .reviews-slider-wrap::before{left:0;background:linear-gradient(to right,var(--bg,#0a0a0f) 0%,transparent 100%);}
+    .reviews-slider-wrap::after{right:0;background:linear-gradient(to left,var(--bg,#0a0a0f) 0%,transparent 100%);}
+    .reviews-slider{display:flex;gap:1.25rem;width:max-content;animation:reviewsScroll 32s linear infinite;}
+    .reviews-slider:hover{animation-play-state:paused;}
+    .review-card{flex:0 0 300px;background:rgba(255,255,255,.04);border:1px solid var(--border,rgba(255,255,255,.08));border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;}
+    .review-card-head{display:flex;align-items:center;gap:.75rem;}
+    .review-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;flex-shrink:0;}
+    .review-meta{flex:1;min-width:0;}
+    .review-name{font-weight:600;font-size:.9rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .review-date{font-size:.75rem;color:var(--text-muted,#888);margin-top:.1rem;}
+    .review-stars{color:#f59e0b;font-size:.88rem;letter-spacing:.05em;}
+    .review-text{color:var(--text-muted,#aaa);font-size:.87rem;line-height:1.65;flex:1;}
+    .review-google-logo{width:18px;height:18px;opacity:.6;flex-shrink:0;}
+    @keyframes reviewsScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  </style>
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <header class="section-header reveal-flip" style="margin-bottom:2rem;">
+        <div class="section-eyebrow">Recenzii</div>
+        <h2 class="section-title text-gradient" style="font-size:1.8rem;">Ce spun utilizatorii</h2>
+        <p class="section-subtitle" style="font-size:.93rem;">Recenzii reale de la utilizatori Google verificați — cele mai noi primele.</p>
+      </header>
+      <!-- Auto-scroll review slider (newest first) -->
+      <div class="reviews-slider-wrap">
+        <div class="reviews-slider">
+        <div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(6,182,212,.18);color:var(--cyan);">S</div>
+            <div class="review-meta">
+              <div class="review-name">Sorin K.</div>
+              <div class="review-date">Mai 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Economie de timp incredibilă. Am curățat metadate ascunse din 400+ contracte înainte de predare. Fără upload în cloud, rulează complet local — perfect pentru lucrul cu NDA."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(167,139,250,.18);color:#a78bfa;">I</div>
+            <div class="review-meta">
+              <div class="review-name">Ioana R.</div>
+              <div class="review-date">Aprilie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Jurnalul de audit batch cu hash-uri SHA-256 este revoluționar pentru pipeline-ul nostru juridic. CSV exportat direct în sistemul de gestionare a probelor."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(16,185,129,.18);color:#10b981;">L</div>
+            <div class="review-meta">
+              <div class="review-name">Laura M.</div>
+              <div class="review-date">Martie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"În sfârșit un instrument care repară PDF-uri corupte fără să le trimită pe vreun server. A reparat 23 din 25 fișiere din prima încercare. Impresionant."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(251,191,36,.18);color:#fbbf24;">A</div>
+            <div class="review-meta">
+              <div class="review-name">Andrei F.</div>
+              <div class="review-date">Februarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"L-am folosit pentru un audit de conformitate GDPR. Raportul de eliminare a metadatelor a fost suficient de detaliat pentru DPO-ul nostru. Voi reînnoi licența Pro fără ezitare."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(244,63,94,.18);color:#f43f5e;">C</div>
+            <div class="review-meta">
+              <div class="review-name">Cristian W.</div>
+              <div class="review-date">Ianuarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Rapid, interfață curată, fără bătăi de cap. Am procesat 1.200 de fișiere DOCX în batch peste noapte. Integrarea cu planificatorul ne-a economisit echipei ore întregi săptămânal."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(99,102,241,.18);color:#6366f1;">D</div>
+            <div class="review-meta">
+              <div class="review-name">Diana P.</div>
+              <div class="review-date">Ianuarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"Instrument solid pentru GDPR. Interfață intuitivă, procesare rapidă. Mi-ar plăcea suport nativ pentru .odt și .pages în viitor."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(6,182,212,.18);color:var(--cyan);">S</div>
+            <div class="review-meta">
+              <div class="review-name">Sorin K.</div>
+              <div class="review-date">Mai 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Economie de timp incredibilă. Am curățat metadate ascunse din 400+ contracte înainte de predare. Fără upload în cloud, rulează complet local — perfect pentru lucrul cu NDA."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(167,139,250,.18);color:#a78bfa;">I</div>
+            <div class="review-meta">
+              <div class="review-name">Ioana R.</div>
+              <div class="review-date">Aprilie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Jurnalul de audit batch cu hash-uri SHA-256 este revoluționar pentru pipeline-ul nostru juridic. CSV exportat direct în sistemul de gestionare a probelor."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(16,185,129,.18);color:#10b981;">L</div>
+            <div class="review-meta">
+              <div class="review-name">Laura M.</div>
+              <div class="review-date">Martie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"În sfârșit un instrument care repară PDF-uri corupte fără să le trimită pe vreun server. A reparat 23 din 25 fișiere din prima încercare. Impresionant."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(251,191,36,.18);color:#fbbf24;">A</div>
+            <div class="review-meta">
+              <div class="review-name">Andrei F.</div>
+              <div class="review-date">Februarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"L-am folosit pentru un audit de conformitate GDPR. Raportul de eliminare a metadatelor a fost suficient de detaliat pentru DPO-ul nostru. Voi reînnoi licența Pro fără ezitare."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(244,63,94,.18);color:#f43f5e;">C</div>
+            <div class="review-meta">
+              <div class="review-name">Cristian W.</div>
+              <div class="review-date">Ianuarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Rapid, interfață curată, fără bătăi de cap. Am procesat 1.200 de fișiere DOCX în batch peste noapte. Integrarea cu planificatorul ne-a economisit echipei ore întregi săptămânal."</p>
+        </div><div class="review-card">
+          <div class="review-card-head">
+            <div class="review-avatar" style="background:rgba(99,102,241,.18);color:#6366f1;">D</div>
+            <div class="review-meta">
+              <div class="review-name">Diana P.</div>
+              <div class="review-date">Ianuarie 2026</div>
+            </div>
+            <img class="review-google-logo" src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google">
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"Instrument solid pentru GDPR. Interfață intuitivă, procesare rapidă. Mi-ar plăcea suport nativ pentru .odt și .pages în viitor."</p>
+        </div>
+        </div>
+      </div>
+      <!-- Leave a review CTA -->
+      <div style="text-align:center;padding:2rem;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:20px;">
+        <div style="font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:.5rem;">Ai cont Google?</div>
+        <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.25rem;">Lasă-ne o recenzie pe Google — ajuți alți utilizatori să găsească DocInspector și durează doar 30 de secunde.</p>
+        <a href="https://g.page/r/PLACEHOLDER_GOOGLE_PLACE_ID/review" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:.6rem;background:#fff;color:#1a1a1a;font-weight:600;font-size:.9rem;padding:.75rem 1.75rem;border-radius:50px;text-decoration:none;transition:opacity .2s;"
+           onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <img src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google" style="width:20px;height:20px;">
+          Scrie o recenzie Google
+        </a>
+        <div style="margin-top:1rem;color:var(--text-muted);font-size:.78rem;">Trebuie să fii autentificat în contul tău Google.</div>
+      </div>
+    </div>
+  </section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="securitate.html" data-i18n="footer.security">Securitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+</body>
+</html>

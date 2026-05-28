@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ghid complet de utilizare DocInspector: reparare PDF, audit documente, eliminare metadate, watermark și raportare." name="description"/>
+<meta content="ghid utilizare docinspector, cum se foloseste docinspector, ghid audit documente, reparare batch pdf, rapoarte folder evidence" name="keywords"/>
+<title>Ghid de Utilizare — DocInspector</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css?v=12" rel="stylesheet"/>
+<link href="../assets/logo.png" rel="icon" type="image/png"/>
+<style>
+    /* ── KNOWLEDGE HUB STYLES ─────────────────────────────────── */
+
+    /* Split Dashboard Grid */
+    .kb-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+    @media(max-width:900px) {
+      .kb-dashboard { grid-template-columns: 1fr; }
+    }
+
+    /* Column Titles */
+    .kb-col-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+    .kb-col-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+    }
+    .kb-col-title.purple-accent {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .kb-col-title.cyan-accent {
+      background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Column Label Pill */
+    .kb-col-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .kb-col-label.purple {
+      color: #c4b5fd;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+    }
+    .kb-col-label.cyan {
+      color: var(--cyan-light);
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.25);
+    }
+
+    /* ── DESKTOP APP CARDS (Left Column) ──────────────────────── */
+    .kb-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .kb-card {
+      background: rgba(167,139,250,0.04);
+      border: 1px solid rgba(167,139,250,0.12);
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .kb-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(167,139,250,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .kb-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(167,139,250,0.35);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 40px rgba(167,139,250,0.12);
+    }
+    .kb-card:hover::before { opacity: 1; }
+
+    .kb-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    .kb-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(167,139,250,0.12);
+      border: 1px solid rgba(167,139,250,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .kb-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #e2e8f0;
+    }
+    .kb-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    .kb-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .kb-card ul li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .kb-card ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #a78bfa;
+      font-weight: 700;
+    }
+    .btn-purple {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      background: transparent;
+      border: 1.5px solid rgba(167,139,250,0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-purple:hover {
+      background: rgba(167,139,250,0.12);
+      border-color: #a78bfa;
+      box-shadow: 0 0 20px rgba(167,139,250,0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ── BROWSER TOOLS ACCORDION (Right Column) ──────────────── */
+    .kb-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .kb-acc-item {
+      background: rgba(6,182,212,0.04);
+      border: 1px solid rgba(6,182,212,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .kb-acc-item:hover,
+    .kb-acc-item.active {
+      border-color: rgba(6,182,212,0.3);
+    }
+    .kb-acc-item.active {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 24px rgba(6,182,212,0.08);
+    }
+    .kb-acc-item.coming-soon {
+      border-style: dashed;
+      opacity: 0.6;
+    }
+    .kb-acc-item.coming-soon:hover {
+      opacity: 0.8;
+    }
+    .kb-acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.3rem;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .kb-acc-trigger:hover {
+      background: rgba(6,182,212,0.06);
+    }
+    .kb-acc-trigger .acc-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .kb-acc-trigger .acc-title {
+      flex: 1;
+    }
+    .kb-acc-trigger .acc-formats {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+    .kb-acc-trigger .acc-chevron {
+      font-size: 0.7rem;
+      color: var(--cyan);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .kb-acc-item.active .acc-chevron {
+      transform: rotate(180deg);
+    }
+    .kb-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+      padding: 0 1.3rem;
+    }
+    .kb-acc-item.active .kb-acc-body {
+      max-height: 300px;
+      padding: 0 1.3rem 1.2rem;
+    }
+    .kb-acc-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    .fmt-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .fmt-chip {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background: rgba(6,182,212,0.1);
+      color: var(--cyan-light);
+      border: 1px solid rgba(6,182,212,0.2);
+    }
+    .acc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+    .acc-cta:hover { gap: 0.7rem; }
+    .coming-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(251,191,36,0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,0.2);
+    }
+
+    /* ── COMPARISON TABLE ─────────────────────────────────────── */
+    .compare-section {
+      margin-top: 5rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+    .compare-table-wrap {
+      background: rgba(6,182,212,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 2.5rem;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .compare-table thead th {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text-white);
+      background: rgba(6,182,212,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child {
+      width: 40%;
+    }
+    .compare-table thead th:not(:first-child) {
+      text-align: center;
+    }
+    .compare-table tbody td {
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid rgba(6,182,212,0.06);
+      color: var(--text-muted);
+    }
+    .compare-table tbody td:not(:first-child) {
+      text-align: center;
+    }
+    .compare-table tbody tr:hover {
+      background: rgba(6,182,212,0.04);
+    }
+    .compare-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .compare-table .cat-row td {
+      font-weight: 700;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 1.4rem;
+      background: rgba(6,182,212,0.03);
+    }
+    .yes {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .partial {
+      color: #fbbf24;
+      font-weight: 600;
+    }
+    .no {
+      color: #475569;
+    }
+    .compare-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    @media(max-width:700px) {
+      .compare-table { font-size: 0.78rem; }
+      .compare-table thead th,
+      .compare-table tbody td { padding: 0.7rem 0.8rem; }
+    }
+
+    /* ── FAQ SECTION ──────────────────────────────────────────── */
+    .faq-section {
+      margin-top: 5rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .faq-item {
+      background: rgba(6,182,212,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .faq-item.active {
+      border-color: rgba(6,182,212,0.25);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .faq-q:hover {
+      background: rgba(6,182,212,0.04);
+    }
+    .faq-q .faq-toggle {
+      font-size: 1.2rem;
+      color: var(--cyan);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+      padding: 0 1.4rem;
+    }
+    .faq-item.active .faq-a {
+      max-height: 400px;
+      padding: 0 1.4rem 1.2rem;
+    }
+    .faq-a p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── MISC ─────────────────────────────────────────────────── */
+    .kb-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .kb-divider::before, .kb-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wu1m2q0juc");
+  </script>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-80038W7D1J');
+  </script>
+<link href="https://doc-inspector.com/ro/ghid-utilizare" rel="canonical"/>
+<link href="https://doc-inspector.com/en/user-guide" hreflang="en" rel="alternate">
+<link href="https://doc-inspector.com/ro/ghid-utilizare" hreflang="ro" rel="alternate">
+<link href="https://doc-inspector.com/ru/rukovodstvo" hreflang="ru" rel="alternate">
+<link href="https://doc-inspector.com/en/user-guide" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="Ghid de Utilizare — DocInspector" property="og:title"/>
+<meta content="Ghid complet de utilizare DocInspector: reparare PDF, audit documente, eliminare metadate, watermark și raportare." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://doc-inspector.com/ro/ghid-utilizare" property="og:url"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" property="og:image"/>
+<meta content="DocInspector" property="og:site_name"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Ghid de Utilizare - DocInspector" name="twitter:title"/>
+<meta content="Explorați Centrul de Cunoștințe DocInspector. Stăpâniți fluxurile batch pentru repararea PDF-urilor, generați rapoarte Excel de inventar și igienizați metadatele în mod securizat." name="twitter:description"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" name="twitter:image"/>
+</link></link></link>  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#f1f5f9">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page">
+<!-- HEADER -->
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Manager Batch Documente &amp; Suită Audit</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="unelte-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Unelte Online</a>
+        <a href="index.html" data-i18n="nav.home">Acasă</a>
+        <a href="preturi.html" data-i18n="nav.price">Prețuri</a>
+        <a href="ghid-utilizare.html" class="active" data-i18n="nav.guide">Ghid Utilizare</a>
+        <a href="rapoarte-feedback.html" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/user-guide.html" class="lang-item" data-lang="en">EN</a>
+            <a href="ghid-utilizare.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/rukovodstvo.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- CONTENT -->
+<section class="section" style="position:relative;overflow:hidden;">
+<div class="cyber-grid"></div>
+<div class="hex-particles"></div>
+<div class="container" style="position:relative;z-index:1;">
+<!-- Page Header -->
+<header class="section-header reveal-flip">
+<div class="section-eyebrow">Documentație</div>
+<h1 class="section-title text-gradient" data-i18n="guide.title">Centru de Cunoștințe</h1>
+<p class="section-subtitle" data-i18n="guide.subtitle">Maximizează-ți eficiența cu DocInspector — procesare puternică batch pe desktop și unelte gratuite bazate pe browser.</p>
+</header>
+<!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT -->
+<div class="kb-dashboard">
+<!-- LEFT COLUMN: Desktop Application -->
+<div class="kb-column kb-left">
+<div class="kb-col-label purple">🖥️ Stație de Lucru Locală</div>
+<h2 class="kb-col-title purple-accent">Aplicație Desktop</h2>
+<p class="kb-col-subtitle">Suită de procesare batch puternică, instalată direct pe computerul dumneavoastră Windows. OCR, scanare recursivă, ștergere sigură și multe altele.</p>
+<div class="kb-cards">
+<!-- Card 1: PDF Repair -->
+<article class="kb-card reveal">
+<div class="kb-card-header">
+<div class="kb-card-icon">🔧</div>
+<h3>Reparare &amp; Întărire PDF</h3>
+</div>
+<p>Stăpânește fluxul de lucru batch pentru repararea pachetelor PDF corupte sau riscante cu reconstrucție automată și OCR.</p>
+<ul>
+<li>Reconstrucție PDF corupte + OCR încorporat</li>
+<li>Aplatizare batch în format doar-imagine</li>
+<li>Flux de conversie Office în PDF</li>
+</ul>
+<a class="btn-purple" href="ghid-reparare-pdf.html">Explorează Ghidul PDF →</a>
+</article>
+<!-- Card 2: Reporting -->
+<article class="kb-card reveal">
+<div class="kb-card-header">
+<div class="kb-card-icon">📊</div>
+<h3>Raportare &amp; Evidență</h3>
+</div>
+<p>Generează rapoarte Excel pregătite pentru instanță/audit pentru foldere cu fișiere multiple, cu audit complet de metadate.</p>
+<ul>
+<li>Rezumate pachete cu verificare hash</li>
+<li>Rapoarte de inventariere Borderou Avansat</li>
+<li>Folder Evidence cu mapare directoare</li>
+</ul>
+<a class="btn-purple" href="ghid-raportare.html">Explorează Ghidul de Raportare →</a>
+</article>
+<!-- Card 3: Audit -->
+<article class="kb-card reveal">
+<div class="kb-card-header">
+<div class="kb-card-icon">🛡️</div>
+<h3>Audit &amp; Securitate</h3>
+</div>
+<p>Unelte de descoperire a stațiilor de lucru și gestionare securizată a datelor pentru echipe juridice și ofițeri de conformitate.</p>
+<ul>
+<li>Audit complet de descoperire a unităților și partițiilor</li>
+<li>Sanitizare batch a metadatelor</li>
+<li>Distrugător securizat de fișiere (standard DoD)</li>
+</ul>
+<a class="btn-purple" href="ghid-audit.html">Explorează Ghidul de Audit →</a>
+</article>
+</div>
+</div>
+<!-- RIGHT COLUMN: Browser Tools -->
+<div class="kb-column kb-right">
+<div class="kb-col-label cyan">🌐 Motor Web Fără Încărcare</div>
+<h2 class="kb-col-title cyan-accent">Unelte în Browser</h2>
+<p class="kb-col-subtitle">Procesare instantanee și gratuită direct în browser. Zero încărcări pe server — totul rulează local prin JavaScript și WebAssembly.</p>
+<div class="kb-accordion">
+<!-- 1. Sanitize -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">🧹</span>
+<span class="acc-title">Sanitizare Metadate</span>
+<span class="acc-formats">PDF, DOCX, XLSX, JPG, PNG, TIFF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Elimină metadatele ascunse din documente și imagini — numele autorului, coordonatele GPS, istoricul revizuirilor, detaliile software și altele. Protejează-ți confidențialitatea înainte de partajare.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+<span class="fmt-chip">.DOCX</span>
+<span class="fmt-chip">.XLSX</span>
+<span class="fmt-chip">.JPG</span>
+<span class="fmt-chip">.PNG</span>
+<span class="fmt-chip">.TIFF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 2. Watermark -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">💧</span>
+<span class="acc-title">Adaugă Filigran (Watermark)</span>
+<span class="acc-formats">PDF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Adaugă filigrane text personalizabile în PDF — alege poziția, rotația, opacitatea, dimensiunea fontului și culoarea. Perfect pentru marcarea ciornelor sau a documentelor confidențiale.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 3. Encrypt -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">🔐</span>
+<span class="acc-title">Criptează PDF (256-bit AES)</span>
+<span class="acc-formats">PDF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Protejează fișierele PDF cu criptare de nivel militar AES-256. Setează parole de proprietar și utilizator, restricționează imprimarea, copierea și permisiunile de editare.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 4. Redact -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">⬛</span>
+<span class="acc-title">Redactare Text Sensibil</span>
+<span class="acc-formats">PDF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Elimină definitiv informațiile sensibile din documentele PDF. Conținutul redactat este distrus iremediabil din structura fișierului, nu doar ascuns vizual.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 5. Flatten -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">🖼️</span>
+<span class="acc-title">Aplatizare în Imagine</span>
+<span class="acc-formats">PDF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Convertește paginile PDF în format exclusiv imagine — eliminând textul selectabil, câmpurile de formular, scripturile și straturile ascunse. Ideal pentru arhivare securizată.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 6. Repair -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">🛠️</span>
+<span class="acc-title">Reparare &amp; Reconstrucție</span>
+<span class="acc-formats">PDF</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Remediază automat PDF-urile corupte, deteriorate sau defecte. Reconstruiește tabela internă de referințe încrucișate și recuperează conținutul paginilor.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.PDF</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 7. Borderou PDF / Rezumat Pachet -->
+<div class="kb-acc-item">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">📋</span>
+<span class="acc-title">Borderou PDF / Rezumat Pachet</span>
+<span class="acc-formats">Orice tip de fișier</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Generează rapoarte Excel detaliate: Rezumat Pachet cu numărul de fișiere, Borderou Avansat cu inventarul complet al metadatelor și Raport Folder Evidence cu mapare recursivă și verificare hash.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">ORICE</span>
+<span class="fmt-chip">.XLSX</span>
+<span class="fmt-chip">ieșire</span>
+</div>
+<a class="acc-cta" href="unelte-online.html">Deschide Unealta Gratuită →</a>
+</div>
+</div>
+<!-- 8. Conversie: Word→PDF, Excel→PDF, Imagine→PDF -->
+<div class="kb-acc-item coming-soon">
+<button class="kb-acc-trigger" onclick="toggleAcc(this)">
+<span class="acc-icon">🔄</span>
+<span class="acc-title">Conversie: Word→PDF, Excel→PDF, Imagine→PDF</span>
+<span class="coming-badge">În curând</span>
+<span class="acc-chevron">▼</span>
+</button>
+<div class="kb-acc-body">
+<p>Instrumentele de conversie de formate sunt în curs de dezvoltare pentru web. Aceste caracteristici sunt deja complet disponibile în Aplicația Desktop.</p>
+<div class="fmt-chips">
+<span class="fmt-chip">.DOCX</span>
+<span class="fmt-chip">.XLSX</span>
+<span class="fmt-chip">.JPG</span>
+<span class="fmt-chip">.PNG</span>
+<span class="fmt-chip">→ .PDF</span>
+</div>
+<a class="acc-cta" href="descarca.html">Obține Aplicația Desktop →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FEATURE COMPARISON TABLE -->
+<div class="compare-section" id="compare">
+<header class="section-header">
+<div class="section-eyebrow">Comparativ</div>
+<h2 class="section-title text-gradient">Comparare Caracteristici</h2>
+<p class="section-subtitle">Vezi exact ce oferă fiecare platformă — alege instrumentul potrivit pentru fluxul tău de lucru.</p>
+</header>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead>
+<tr>
+<th>Caracteristică</th>
+<th>🌐 Unelte în Browser (Gratuit)</th>
+<th>🖥️ Aplicație Desktop</th>
+</tr>
+</thead>
+<tbody>
+<!-- General -->
+<tr class="cat-row"><td colspan="3">General</td></tr>
+<tr><td>Preț</td><td class="yes">Gratuit</td><td class="partial">Licențiat</td></tr>
+<tr><td>Necesită Instalare</td><td class="yes">Nu</td><td class="partial">Kit Windows</td></tr>
+<tr><td>Funcționează Offline</td><td class="no">Nu (are nevoie de browser)</td><td class="yes">Da ✓</td></tr>
+<!-- Processing -->
+<tr class="cat-row"><td colspan="3">Procesare Fișiere</td></tr>
+<tr><td>Procesare PDF</td><td class="yes">✓ Complet</td><td class="yes">✓ Complet</td></tr>
+<tr><td>Procesare DOCX / Word</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+<tr><td>Procesare XLSX / Excel</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+<tr><td>Procesare Imagini (JPG, PNG, TIFF)</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+<tr><td>Fișiere maxime pe sesiune</td><td class="partial">Limitat de browser</td><td class="yes">Nelimitat</td></tr>
+<tr><td>Dimensiune maximă fișier</td><td class="partial">~100 MB (limită browser)</td><td class="yes">Fără limită</td></tr>
+<!-- Core Tools -->
+<tr class="cat-row"><td colspan="3">Unelte Principale</td></tr>
+<tr><td>Sanitizare Metadate</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Filigranare (Watermark)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Criptare (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Redactare Text Sensibil</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Aplatizare în Imagine</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Reparare &amp; Reconstrucție</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<!-- Conversions -->
+<tr class="cat-row"><td colspan="3">Conversii</td></tr>
+<tr><td>Conversie Word → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+<tr><td>Conversie Excel → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+<tr><td>Conversie Imagine → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+<!-- Reporting -->
+<tr class="cat-row"><td colspan="3">Raportare &amp; Evidență</td></tr>
+<tr><td>Rezumat Pachet</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Borderou Avansat</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Raport Folder Evidence</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<!-- Advanced -->
+<tr class="cat-row"><td colspan="3">Funcții Avansate</td></tr>
+<tr><td>OCR (Recunoaștere text)</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td>Audit sistem (Unități &amp; Partiții)</td><td class="no">—</td><td class="yes">✓</td></tr>
+<tr><td>Ștergere securizată (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
+</tbody>
+</table>
+</div>
+<div class="compare-ctas">
+<a class="btn btn-primary" href="unelte-online.html">🌐 Folosește Uneltele Online — Gratuit</a>
+<a class="btn btn-outline" href="descarca.html">⬇️ Descarcă Aplicația Desktop</a>
+</div>
+</div>
+<!-- FAQ SECTION -->
+<div class="faq-section" id="faq">
+<header class="section-header">
+<div class="section-eyebrow">Întrebări și Răspunsuri</div>
+<h2 class="section-title text-gradient">Întrebări Frecvente</h2>
+<p class="section-subtitle">Tot ce trebuie să știi despre instrumentele și capabilitățile DocInspector.</p>
+</header>
+<div class="faq-list">
+<!-- FAQ 1 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Sunt instrumentele online complet gratuite?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Da, toate uneltele bazate pe browser sunt 100% gratuite, fără taxe ascunse, fără cont necesar și fără limite de utilizare. Procesarea are loc în întregime în browserul dumneavoastră — fișierele nu părăsesc niciodată dispozitivul.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Ce formate de fișiere sunt suportate?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Uneltele din browser suportă PDF, DOCX, XLSX, JPG, PNG și TIFF pentru curățarea metadatelor. Operațiunile de filigranare, criptare, redactare, aplatizare și reparare sunt dedicate formatului PDF. Uneltele de Rezumat Pachet și Folder Evidence funcționează cu orice tip de fișier. Aplicația desktop suportă toate aceste formate plus capabilități complete de procesare batch.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Trebuie să instalez ceva pentru a folosi uneltele online?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Nu este necesară nicio instalare. Uneltele online rulează direct în browserul dumneavoastră web folosind JavaScript modern și WebAssembly. Funcționează în orice browser modern (Chrome, Firefox, Edge, Safari). Pentru aplicația desktop completă cu scanare recursivă și OCR, este disponibil un kit de instalare pentru Windows.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Sunt fișierele mele în siguranță când folosesc DocInspector?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Absolut. Uneltele din browser folosesc o arhitectură fără încărcare — toată procesarea fișierelor are loc local în browserul dumneavoastră folosind client-side JavaScript. Nu se trimit date către niciun server. Aplicația desktop procesează de asemenea totul local pe computerul dumneavoastră Windows, fără a fi necesară o conexiune la internet.</p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Este DocInspector conform cu GDPR?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Da. Deoarece uneltele din browser procesează fișierele în întregime în interiorul browserului dumneavoastră, cu zero încărcări pe server, nu există nicio colectare sau transfer de date. Aplicația desktop procesează fișierele local pe computer. Ambele abordări sunt complet conforme cu GDPR prin design.</p>
+</div>
+</div>
+<!-- FAQ 6 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Ce sunt metadatele unui document și de ce ar trebui să le elimin?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Metadatele documentelor includ informații ascunse încorporate în fișiere — numele autorului, datele de creare, coordonatele GPS (în imagini), istoricul revizuirilor, versiunile software și comentariile interne. Eliminarea metadatelor protejează confidențialitatea și previne scurgerile neintenționate de informații, fiind adesea obligatorie pentru depunerea probelor juridice.</p>
+</div>
+</div>
+<!-- FAQ 7 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Ce este un Borderou Avansat?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Borderoul Avansat este un raport de inventar detaliat generat sub formă de tabel Excel. Acesta cataloghează toate fișierele dintr-un folder selectat cu metadate cuprinzătoare, inclusiv numele fișierelor, dimensiunile, tipurile, datele creării și modificării, valorile hash SHA-256 și numărul de pagini. Este esențial pentru managementul probelor juridice și auditul de conformitate.</p>
+</div>
+</div>
+<!-- FAQ 8 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Ce este un Raport Folder Evidence?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Raportul Folder Evidence este o cale completă de audit bazată pe Excel care documentează structura directoarelor, hash-urile de integritate ale fișierelor și metadatele pentru toate fișierele din arborele de foldere. Oferă un instantaneu al folderelor pregătit pentru instanță, fiind conceput pentru managementul probelor juridice, documentația lanțului de custodie și cerințele de conformitate.</p>
+</div>
+</div>
+<!-- FAQ 9 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Când vor fi disponibile conversiile de formate în uneltele din browser?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Conversiile de formate (Word în PDF, Excel în PDF și Imagine în PDF) sunt în curs de dezvoltare activă pentru web și vor fi disponibile într-o actualizare viitoare. Între timp, aceste caracteristici sunt deja complet disponibile în aplicația desktop.</p>
+</div>
+</div>
+<!-- FAQ 10 -->
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">
+<span>Care sunt principalele diferențe între Uneltele din Browser și Aplicația Desktop?</span>
+<span class="faq-toggle">+</span>
+</button>
+<div class="faq-a">
+<p>Uneltele din browser sunt gratuite, nu necesită instalare și se ocupă de operațiunile de bază pentru fișiere individuale. Aplicația desktop este o aplicație Windows licențiată care oferă funcții avansate, cum ar fi OCR, procesare batch pentru structuri întregi de foldere, scanare recursivă, conversii complete de formate, distrugere securizată a fișierelor (standard DoD) și audit complet de sistem. Vezi <a href="#compare" style="color:var(--cyan)">tabelul comparativ de mai sus</a> pentru o prezentare detaliată.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ════════════════ SECURITY ARCHITECTURE PREVIEW ════════════════ -->
+<section style="padding:4rem 0 2rem;position:relative;z-index:1;">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,rgba(6,182,212,.06) 0%,rgba(16,185,129,.04) 50%,rgba(10,22,40,.3) 100%);border:1px solid rgba(6,182,212,.2);border-radius:1.5rem;padding:3rem 2.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;">
+      <!-- Icon side -->
+      <div style="flex:0 0 auto;">
+        <div style="width:80px;height:80px;background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(16,185,129,.1));border:1px solid rgba(6,182,212,.3);border-radius:1.2rem;display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🔐</div>
+      </div>
+      <!-- Text side -->
+      <div style="flex:1;min-width:260px;">
+        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#06b6d4;margin-bottom:.5rem;">Despre Securitatea Noastră</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin:0 0 .75rem;">Cum Gestionăm Documentele Tale</h3>
+        <p style="color:var(--text-muted);line-height:1.7;margin:0 0 1rem;max-width:580px;">Fișierele online sunt procesate într-un sandbox izolat și șterse automat în 5 minute. Aplicația desktop nu face niciodată apeluri externe — procesarea rămâne 100% pe mașina ta. Fără cloud. Fără AI. Fără loguri.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.5rem;">
+          <span style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Ștergere Auto 5 min</span>
+          <span style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:#06b6d4;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ GDPR Nativ</span>
+          <span style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:#a78bfa;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Air-Gap Ready</span>
+          <span style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#f59e0b;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Fără Procesare AI</span>
+        </div>
+        <a href="securitate.html" class="btn btn-outline" style="border-color:rgba(6,182,212,.4);color:#06b6d4;">Vezi Detaliile Tehnice Complete →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="securitate.html" data-i18n="footer.security">Securitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script>
+  // Accordion toggle for Browser Tools
+  function toggleAcc(btn) {
+    var item = btn.closest('.kb-acc-item');
+    var wasActive = item.classList.contains('active');
+    // Close all accordion items in the same group
+    var siblings = item.parentElement.querySelectorAll('.kb-acc-item');
+    siblings.forEach(function(s) { s.classList.remove('active'); });
+    // Toggle current
+    if (!wasActive) item.classList.add('active');
+  }
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var wasActive = item.classList.contains('active');
+    // Close all FAQ items
+    var siblings = item.parentElement.querySelectorAll('.faq-item');
+    siblings.forEach(function(s) { s.classList.remove('active'); });
+    // Toggle current
+    if (!wasActive) item.classList.add('active');
+  }
+</script>
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+</body>
+</html>

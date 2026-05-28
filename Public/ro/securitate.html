@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Securitate & Confidențialitate — Cum DocInspector Protejează Documentele Tale | DocInspector</title>
+  <meta name="description" content="DocInspector procesează documentele în sandbox izolat și le șterge imediat. Fără stocare în cloud, fără AI, fără loguri. Conform GDPR. Vezi exact cum funcționează.">
+  <meta name="keywords" content="PDF security, GDPR compliant PDF tool, no cloud PDF processor, document privacy, auto-delete files, secure PDF processing">
+  <meta property="og:title" content="Security & Privacy — DocInspector">
+  <meta property="og:description" content="Zero stocare cloud. Fișierele sunt șterse automat în mai puțin de 5 minute. Consultați algoritmul tehnic exact care face din DocInspector cel mai privat procesor de documente disponibil.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="canonical" href="https://doc-inspector.com/ro/securitate" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/security" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/securitate" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/bezopasnost" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/security" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=12">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-80038W7D1J');
+  </script>
+  <style>
+    /* ══ Animated background ══ */
+    .mesh-bg { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+    .mesh-bg::before { content:''; position:absolute; width:900px; height:900px; background:radial-gradient(circle,rgba(6,182,212,.06) 0%,transparent 65%); top:-200px; left:-200px; animation:meshMove1 20s ease-in-out infinite alternate; }
+    .mesh-bg::after  { content:''; position:absolute; width:700px; height:700px; background:radial-gradient(circle,rgba(16,185,129,.05) 0%,transparent 65%); bottom:-100px; right:-100px; animation:meshMove2 25s ease-in-out infinite alternate; }
+    @keyframes meshMove1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(180px,120px) scale(1.25)} }
+    @keyframes meshMove2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-160px,-100px) scale(1.2)} }
+    .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter:blur(80px); opacity:0.35; }
+    .orb-1 { width:400px;height:400px;background:rgba(6,182,212,.07);top:10%;left:5%;animation:orbFloat 14s ease-in-out infinite; }
+    .orb-2 { width:300px;height:300px;background:rgba(16,185,129,.06);top:50%;right:8%;animation:orbFloat 18s ease-in-out infinite reverse; }
+    .orb-3 { width:250px;height:250px;background:rgba(139,92,246,.05);bottom:20%;left:30%;animation:orbFloat 16s ease-in-out infinite 3s; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-25px) scale(1.04)} }
+    .grid-lines { position:fixed;inset:0;z-index:0;pointer-events:none; background-image:linear-gradient(rgba(6,182,212,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.02) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%); }
+
+    /* ══ Security Hero ══ */
+    .sec-hero { padding:9rem 0 5rem; position:relative; z-index:1; text-align:center; }
+    .sec-hero::before { content:''; position:absolute;inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(16,185,129,.1) 0%,transparent 70%); pointer-events:none; }
+    .eyebrow-pill { display:inline-flex;align-items:center;gap:.6rem; background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3); border-radius:50px;padding:.45rem 1.2rem;margin-bottom:1.8rem; font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#10b981; }
+    .live-dot { width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulseDot 1.5s ease-in-out infinite; }
+    @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+    .hero-h1 { font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08; margin:0 auto 1.2rem;max-width:860px; background:linear-gradient(135deg,#fff 0%,#10b981 50%,#06b6d4 100%); -webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.03em; }
+    .hero-lead { color:var(--text-muted);font-size:1.1rem;line-height:1.7;max-width:660px;margin:0 auto 2.5rem; }
+
+    /* ══ Trust badges ══ */
+    .trust-badges { display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-bottom:4rem; }
+    .trust-badge { display:inline-flex;align-items:center;gap:.6rem; background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1); border-radius:12px;padding:.55rem 1.1rem; font-size:.85rem;color:#fff;font-weight:600; transition:all .25s; }
+    .trust-badge .badge-icon { font-size:1.1rem; }
+    .trust-badge:hover { border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.07); transform:translateY(-2px); }
+    .tb-green  { border-color:rgba(16,185,129,.2)!important; }
+    .tb-cyan   { border-color:rgba(6,182,212,.2)!important; }
+    .tb-purple { border-color:rgba(139,92,246,.2)!important; }
+
+    /* ══ Section primitives ══ */
+    .sec-page-section { position:relative;z-index:1; }
+    .sec-label { display:inline-flex;align-items:center;gap:.5rem; background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2); border-radius:50px;padding:.3rem .9rem; font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#10b981;margin-bottom:.7rem; }
+    .big-title { font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900; background:linear-gradient(90deg,#fff,#10b981); -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem; }
+    .big-title.cyan { background:linear-gradient(90deg,#fff,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent; }
+    .sub-text { font-size:1rem;color:var(--text-muted);line-height:1.7;max-width:640px; }
+
+    /* ══ Algorithm Diagram ══ */
+    .algo-container { background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:2.5rem;margin-top:2.5rem;overflow-x:auto; }
+    .algo-flow { display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:700px; }
+    .algo-step { flex:1;text-align:center;position:relative; }
+    .algo-step-inner { position:relative;z-index:1; }
+    .algo-icon-ring { width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center; font-size:1.6rem;margin:0 auto .8rem; border:2px solid; position:relative;transition:all .4s; }
+    .algo-step:hover .algo-icon-ring { transform:scale(1.12); }
+    .ring-upload  { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.4); box-shadow:0 0 20px rgba(6,182,212,.15); }
+    .ring-https   { background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.4); box-shadow:0 0 20px rgba(16,185,129,.15); }
+    .ring-sandbox { background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.4); box-shadow:0 0 20px rgba(139,92,246,.15); }
+    .ring-process { background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.4); box-shadow:0 0 20px rgba(249,115,22,.15); }
+    .ring-dl      { background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.4); box-shadow:0 0 20px rgba(6,182,212,.15); }
+    .ring-delete  { background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.4); box-shadow:0 0 20px rgba(239,68,68,.15); }
+    .algo-step-title { font-size:.82rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem; }
+    .algo-step-detail { font-size:.72rem;color:var(--text-muted);line-height:1.4;max-width:100px;margin:0 auto; }
+    .algo-arrow { flex-shrink:0;width:36px;text-align:center;font-size:1.2rem;color:var(--text-muted);padding:0 4px; }
+    .algo-timer { display:inline-flex;align-items:center;gap:.4rem; background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:50px; padding:.3rem .8rem;font-size:.72rem;font-weight:700;color:#f87171;margin-top:.5rem; animation:timerPulse 2s ease-in-out infinite; }
+    @keyframes timerPulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+    /* ══ Code block ══ */
+    .code-block { background:#0d1f3c;border:1px solid rgba(6,182,212,.15);border-radius:16px;padding:1.5rem; font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.7;overflow-x:auto;margin-top:1.5rem; }
+    .code-comment { color:#64748b; }
+    .code-keyword { color:#818cf8; }
+    .code-string  { color:#34d399; }
+    .code-number  { color:#f59e0b; }
+    .code-func    { color:#06b6d4; }
+    .code-delete  { color:#f87171; }
+
+    /* ══ Comparison table ══ */
+    .cmp-table-wrap { overflow-x:auto;margin-top:2rem; }
+    .cmp-table { width:100%;border-collapse:separate;border-spacing:0;font-size:.88rem; }
+    .cmp-table th { padding:.9rem 1rem;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em; background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08);white-space:nowrap; }
+    .cmp-table th:first-child { text-align:left;border-radius:12px 0 0 0; }
+    .cmp-table th:last-child  { border-radius:0 12px 0 0; }
+    .cmp-table td { padding:.8rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle; }
+    .cmp-table tr:last-child td { border-bottom:none; }
+    .cmp-table td:first-child { font-weight:600;color:#fff;font-size:.85rem; }
+    .cmp-table tr:hover td { background:rgba(255,255,255,.02); }
+    .th-di  { color:#06b6d4;background:rgba(6,182,212,.08)!important; }
+    .th-oth { color:var(--text-muted); }
+    .ci-yes { color:#10b981;font-weight:700;font-size:1rem; }
+    .ci-no  { color:#f87171;font-weight:700;font-size:1rem; }
+    .ci-warn { color:#f59e0b;font-weight:600;font-size:.8rem; }
+    .ci-txt { color:var(--text-muted);font-size:.8rem; }
+    .best-col { background:rgba(6,182,212,.04); }
+    .row-group-label { font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em; color:var(--text-muted);background:rgba(255,255,255,.02)!important;padding:.5rem 1rem!important; }
+
+    /* ══ GDPR Cards ══ */
+    .gdpr-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:2rem; }
+    .gdpr-card { background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:1.4rem;transition:all .3s; }
+    .gdpr-card:hover { border-color:rgba(16,185,129,.3);transform:translateY(-3px);box-shadow:0 12px 40px rgba(16,185,129,.08); }
+    .gdpr-article { font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#10b981;margin-bottom:.4rem; }
+    .gdpr-title { font-size:1rem;font-weight:700;color:#fff;margin-bottom:.5rem; }
+    .gdpr-desc  { font-size:.83rem;color:var(--text-muted);line-height:1.55; }
+    .gdpr-how   { margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06);font-size:.78rem;color:#10b981;font-weight:600; }
+
+    /* ══ Stack cards ══ */
+    .stack-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem; }
+    .stack-card { background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.2rem; transition:all .3s;cursor:default; }
+    .stack-card:hover { border-color:rgba(6,182,212,.3);box-shadow:0 8px 30px rgba(6,182,212,.08);transform:translateY(-2px); }
+    .stack-name { font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem; }
+    .stack-ver  { font-size:.7rem;background:rgba(6,182,212,.15);border-radius:4px;padding:.1rem .4rem;color:var(--cyan);font-family:'JetBrains Mono',monospace; }
+    .stack-role { font-size:.82rem;color:var(--text-muted);line-height:1.5;margin-bottom:.5rem; }
+    .stack-oss  { font-size:.72rem;color:#10b981;font-weight:700; }
+
+    /* ══ Zero list ══ */
+    .zero-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem; }
+    .zero-item { display:flex;align-items:flex-start;gap:.8rem; background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);border-radius:14px;padding:1rem; transition:all .3s; }
+    .zero-item:hover { border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.07); }
+    .zero-x { width:32px;height:32px;border-radius:8px;background:rgba(239,68,68,.15);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:#f87171;font-weight:900; }
+    .zero-label { font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.2rem; }
+    .zero-detail { font-size:.78rem;color:var(--text-muted);line-height:1.4; }
+
+    /* ══ Timeline ══ */
+    .timeline { position:relative;padding-left:2rem;margin-top:2rem; }
+    .timeline::before { content:'';position:absolute;left:8px;top:0;bottom:0;width:2px; background:linear-gradient(to bottom,rgba(6,182,212,.5),rgba(16,185,129,.5),rgba(239,68,68,.5)); }
+    .tl-item { position:relative;margin-bottom:1.5rem;padding-left:1.2rem; }
+    .tl-dot { position:absolute;left:-1.85rem;top:.3rem;width:16px;height:16px;border-radius:50%;border:2px solid;background:#0a1628; }
+    .dot-cyan   { border-color:var(--cyan);box-shadow:0 0 8px rgba(6,182,212,.5); }
+    .dot-green  { border-color:#10b981;box-shadow:0 0 8px rgba(16,185,129,.5); }
+    .dot-orange { border-color:#f59e0b;box-shadow:0 0 8px rgba(245,158,11,.5); }
+    .dot-red    { border-color:#ef4444;box-shadow:0 0 8px rgba(239,68,68,.5); }
+    .tl-time { font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.2rem; }
+    .tl-title { font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.2rem; }
+    .tl-desc { font-size:.8rem;color:var(--text-muted);line-height:1.5; }
+
+    /* ══ Audit promise ══ */
+    .promise-box { background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(6,182,212,.05));border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:2.5rem;margin-top:2rem;text-align:center; }
+    .promise-title { font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:.8rem; }
+    .promise-text  { color:var(--text-muted);font-size:.95rem;line-height:1.7;max-width:600px;margin:0 auto 1.5rem; }
+    .promise-bullets { display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-bottom:2rem; }
+    .promise-bullet { display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:#10b981; }
+
+    /* Responsive */
+    @media(max-width:700px) { .algo-flow { gap:0; } .algo-step-detail { max-width:70px; } }
+  </style>
+  <style>
+    #constellation-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; opacity: 1;
+    }
+  </style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+  <script>
+  (function(){
+    var c = document.getElementById('constellation-canvas');
+    if(!c) return;
+    var ctx = c.ctx = c.getContext('2d');
+
+    var W, H, pts, RAF;
+    var COLS = ['6,182,212','99,102,241','16,185,129'];
+    var N_BASE = 55;
+    var CONNECT_DIST = 160;
+    var MOUSE = {x: -999, y: -999};
+
+    function resize(){
+      W = c.width  = window.innerWidth;
+      H = c.height = window.innerHeight;
+      init();
+    }
+
+    function rand(a,b){ return a + Math.random()*(b-a); }
+
+    function init(){
+      pts = [];
+      var n = Math.round(N_BASE * (W*H)/(1440*900));
+      n = Math.max(35, Math.min(90, n));
+      for(var i=0;i<n;i++){
+        var col = COLS[Math.floor(Math.random()*COLS.length)];
+        pts.push({
+          x: rand(0,W), y: rand(0,H),
+          vx: rand(-.25,.25), vy: rand(-.18,.18),
+          r: rand(.6,1.4),
+          col: col,
+          alpha: rand(.25,.55),
+          z: rand(.3,1)
+        });
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      // Connectors
+      for(var i=0;i<pts.length;i++){
+        var p = pts[i];
+        for(var j=i+1;j<pts.length;j++){
+          var q = pts[j];
+          var dx=p.x-q.x, dy=p.y-q.y;
+          var d=Math.sqrt(dx*dx+dy*dy);
+          if(d<CONNECT_DIST){
+            var fade = 1 - d/CONNECT_DIST;
+            var depth = (p.z+q.z)*.5;
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(q.x,q.y);
+            ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';
+            ctx.lineWidth = fade*1.1*depth;
+            ctx.stroke();
+          }
+        }
+        // Mouse attraction lines
+        var mdx=p.x-MOUSE.x, mdy=p.y-MOUSE.y;
+        var md=Math.sqrt(mdx*mdx+mdy*mdy);
+        if(md < 140){
+          var mf=1-md/140;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(MOUSE.x,MOUSE.y);
+          ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';
+          ctx.lineWidth=mf*1.4;
+          ctx.stroke();
+        }
+      }
+
+      // Dots
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        // Glow
+        var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+        grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+        grd.addColorStop(1,'rgba('+p.col+',0)');
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);
+        ctx.fillStyle=grd;
+        ctx.fill();
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);
+        ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';
+        ctx.fill();
+        // Move
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<-20) p.x=W+20;
+        if(p.x>W+20) p.x=-20;
+        if(p.y<-20) p.y=H+20;
+        if(p.y>H+20) p.y=-20;
+      }
+
+      RAF=requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', function(e){
+      MOUSE.x=e.clientX; MOUSE.y=e.clientY;
+    });
+    document.addEventListener('mouseleave', function(){
+      MOUSE.x=-999; MOUSE.y=-999;
+    });
+
+    resize();
+    draw();
+  })();
+  </script>
+
+<div class="mesh-bg"></div>
+<div class="grid-lines"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="page">
+<div id="progress-bar"></div>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name">DocInspector</span><br>
+          <span class="brand-subtitle">Reparare, Manager Batch Documente &amp; Suită Audit</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="unelte-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Unelte Online</a>
+        <a href="index.html">Acasă</a>
+        <a href="preturi.html">Prețuri</a>
+        <a href="ghid-utilizare.html">Ghid Utilizare</a>
+        <a href="rapoarte-feedback.html">Rapoarte &amp; Feedback</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="descarca.html" class="btn btn-primary btn-sm mobile-only">Descarcă</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/security.html" class="lang-item" data-lang="en">EN</a>
+            <a href="securitate.html" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../ru/bezopasnost.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="descarca.html" class="btn btn-primary btn-sm desktop-only">Descarcă</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="sec-hero">
+  <div class="container">
+    <div class="eyebrow-pill gsap-fade">
+      <span class="live-dot"></span>
+      Arhitectura de Securitate &amp; Confidențialitate
+    </div>
+    <h1 class="hero-h1 gsap-fade">Documentele Tale Nu Sunt<br>Treaba Nimănui Altcuiva</h1>
+    <p class="hero-lead gsap-fade">
+      Am construit DocInspector pe un singur principiu: <strong style="color:#fff">fișierele tale nu trebuie să iasă niciodată din controlul tău.</strong>
+      Mai jos este algoritmul tehnic exact — fără marketing — despre ce se întâmplă cu documentul tău din momentul în care îl încarci până în momentul în care dispare pentru totdeauna.
+    </p>
+    <div class="trust-badges gsap-fade">
+      <div class="trust-badge tb-green"><span class="badge-icon">✅</span> Zero stocare cloud</div>
+      <div class="trust-badge tb-green"><span class="badge-icon">🗑️</span> Ștergere automată &lt;5 min</div>
+      <div class="trust-badge tb-cyan"><span class="badge-icon">🔒</span> TLS 1.3 în tranzit</div>
+      <div class="trust-badge tb-cyan"><span class="badge-icon">🤖</span> Fără AI — Fără date de antrenament</div>
+      <div class="trust-badge tb-purple"><span class="badge-icon">🇪🇺</span> Conform GDPR Articolul 5</div>
+      <div class="trust-badge tb-green"><span class="badge-icon">🔍</span> 100% motoare open-source</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 1: THE EXACT ALGORITHM ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="sec-label">📐 Algoritm Tehnic</span>
+      <div class="big-title">Exact Ce Se Întâmplă cu Fișierul Tău</div>
+      <p class="sub-text" style="margin:0 auto">Aceasta nu este o promisiune de marketing. Acesta este ciclul de viață real, pas cu pas, al documentului tău atunci când este procesat de DocInspector Online — vizibil și auditabil.</p>
+    </div>
+
+    <!-- Visual Flow Diagram -->
+    <div class="algo-container reveal">
+      <div class="algo-flow">
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-upload">📤</div>
+            <div class="algo-step-title">Upload</div>
+            <div class="algo-step-detail">You select file in browser. Never auto-sent.</div>
+          </div>
+        </div>
+        <div class="algo-arrow">→</div>
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-https">🔒</div>
+            <div class="algo-step-title">HTTPS</div>
+            <div class="algo-step-detail">TLS 1.3 encrypted transit. No plain text.</div>
+          </div>
+        </div>
+        <div class="algo-arrow">→</div>
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-sandbox">📦</div>
+            <div class="algo-step-title">Sandbox</div>
+            <div class="algo-step-detail">Unique UUID temp folder. Isolated per job.</div>
+          </div>
+        </div>
+        <div class="algo-arrow">→</div>
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-process">⚙️</div>
+            <div class="algo-step-title">Process</div>
+            <div class="algo-step-detail">CLI tools run. No internet calls. No logs.</div>
+          </div>
+        </div>
+        <div class="algo-arrow">→</div>
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-dl">📥</div>
+            <div class="algo-step-title">Download</div>
+            <div class="algo-step-detail">ZIP sent directly to your browser.</div>
+          </div>
+        </div>
+        <div class="algo-arrow">→</div>
+        <div class="algo-step">
+          <div class="algo-step-inner">
+            <div class="algo-icon-ring ring-delete">🗑️</div>
+            <div class="algo-step-title">Deleted</div>
+            <div class="algo-step-detail">Entire job folder removed. No recovery.</div>
+            <div class="algo-timer">⏱ T+5 min MAX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auto-delete timeline -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem" class="reveal">
+      <div>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1rem">⏱ Cronologie Ștergere Automată</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot dot-cyan"></div>
+            <div class="tl-time">T = 0:00</div>
+            <div class="tl-title">File arrives on server</div>
+            <div class="tl-desc">Saved to a unique UUID-named temp folder: <code style="font-size:.72rem;color:var(--cyan)">/tmp_processing/a3f7e92c.../input/</code></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot dot-green"></div>
+            <div class="tl-time">T = 0:02 — 0:30</div>
+            <div class="tl-title">Processing complete</div>
+            <div class="tl-desc">CLI tools finish. Output ZIP is ready and streamed directly to your browser download.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot dot-orange"></div>
+            <div class="tl-time">T = 0:30 — 5:00</div>
+            <div class="tl-title">Cleanup timer running</div>
+            <div class="tl-desc">A background thread waits 300 seconds from job start. Your session may already be closed.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot dot-red"></div>
+            <div class="tl-time">T = 5:00 MAXIMUM</div>
+            <div class="tl-title">shutil.rmtree() — permanent deletion</div>
+            <div class="tl-desc">The entire job folder (input + output + temp files) is recursively deleted. There is no recycle bin, no backup copy, no database record.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code block -->
+      <div>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1rem">🖥 Codul Real al Serverului</h3>
+        <div class="code-block">
+<span class="code-comment"># This is the actual cleanup code in server.py</span>
+
+<span class="code-keyword">def</span> <span class="code-func">_delayed_cleanup</span>(path, delay_secs):
+    <span class="code-comment"># Wait 300 seconds max</span>
+    time.sleep(delay_secs)
+    <span class="code-func">_cleanup</span>(path)
+
+<span class="code-keyword">def</span> <span class="code-func">_cleanup</span>(path):
+    <span class="code-keyword">try</span>:
+        <span class="code-keyword">if</span> path.exists():
+            <span class="code-comment"># Recursive delete — no recovery</span>
+            shutil.<span class="code-delete">rmtree</span>(
+                str(path),
+                ignore_errors=<span class="code-string">True</span>
+            )
+    <span class="code-keyword">except</span> Exception:
+        <span class="code-keyword">pass</span>
+
+<span class="code-comment"># Called immediately after download starts:</span>
+threading.Thread(
+    target=_delayed_cleanup,
+    args=(job_dir, <span class="code-number">300</span>),  <span class="code-comment"># 5 min</span>
+    daemon=<span class="code-string">True</span>
+).start()
+        </div>
+        <p style="font-size:.78rem;color:var(--text-muted);margin-top:.8rem">
+          ⚡ In practice, files are deleted within seconds of your download completing — the 5-minute window is only a safety fallback for slow connections.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 2: COMPARISON ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="sec-label">🏆 Comparație</span>
+      <div class="big-title cyan">DocInspector vs Alternativele</div>
+      <p class="sub-text" style="margin:0 auto">Fiecare competitor listat mai jos are practici de date documentate public. Iată ce arată cercetarea.</p>
+    </div>
+
+    <div class="cmp-table-wrap reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">Funcție de Securitate</th>
+            <th class="th-di">🛡 DocInspector</th>
+            <th class="th-oth">Smallpdf</th>
+            <th class="th-oth">ILovePDF</th>
+            <th class="th-oth">Adobe PDF</th>
+            <th class="th-oth">Google Docs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="6" class="row-group-label">📦 Stocare Date</td></tr>
+          <tr>
+            <td>Zero stocare cloud a conținutului</td>
+            <td class="best-col"><span class="ci-yes">✓</span></td>
+            <td><span class="ci-no">✗</span></td>
+            <td><span class="ci-no">✗</span></td>
+            <td><span class="ci-no">✗</span></td>
+            <td><span class="ci-no">✗</span></td>
+          </tr>
+          <tr>
+            <td>Ștergere automată după procesare</td>
+            <td class="best-col"><span class="ci-yes">✓</span> &lt;5 min</td>
+            <td><span class="ci-warn">⚠ 1 hour</span></td>
+            <td><span class="ci-warn">⚠ 2 hours</span></td>
+            <td><span class="ci-warn">⚠ varies</span></td>
+            <td><span class="ci-no">✗ stored</span></td>
+          </tr>
+          <tr>
+            <td>Fișiere stocate pe CDN terț</td>
+            <td class="best-col"><span class="ci-yes">Never</span></td>
+            <td><span class="ci-warn">⚠ AWS S3</span></td>
+            <td><span class="ci-warn">⚠ AWS S3</span></td>
+            <td><span class="ci-warn">⚠ Adobe Cloud</span></td>
+            <td><span class="ci-no">✗ Google Cloud</span></td>
+          </tr>
+          <tr><td colspan="6" class="row-group-label">🤖 AI & Data Use</td></tr>
+          <tr>
+            <td>Conținut document folosit pentru antrenament AI</td>
+            <td class="best-col"><span class="ci-yes">Never</span></td>
+            <td><span class="ci-warn">⚠ opt-out</span></td>
+            <td><span class="ci-warn">⚠ unclear</span></td>
+            <td><span class="ci-warn">⚠ Adobe AI TOS</span></td>
+            <td><span class="ci-no">✗ yes</span></td>
+          </tr>
+          <tr>
+            <td>Procesare AI a conținutului tău</td>
+            <td class="best-col"><span class="ci-yes">Zero AI</span></td>
+            <td><span class="ci-no">✗ uses AI</span></td>
+            <td><span class="ci-no">✗ uses AI</span></td>
+            <td><span class="ci-no">✗ Adobe AI</span></td>
+            <td><span class="ci-no">✗ Gemini</span></td>
+          </tr>
+          <tr><td colspan="6" class="row-group-label">🔒 Securitate</td></tr>
+          <tr>
+            <td>Criptat în tranzit (TLS)</td>
+            <td class="best-col"><span class="ci-yes">✓</span> TLS 1.3</td>
+            <td><span class="ci-yes">✓</span></td>
+            <td><span class="ci-yes">✓</span></td>
+            <td><span class="ci-yes">✓</span></td>
+            <td><span class="ci-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Motor de procesare open-source &amp; auditabil</td>
+            <td class="best-col"><span class="ci-yes">✓</span> 100%</td>
+            <td><span class="ci-no">✗ proprietary</span></td>
+            <td><span class="ci-no">✗ proprietary</span></td>
+            <td><span class="ci-no">✗ proprietary</span></td>
+            <td><span class="ci-no">✗ proprietary</span></td>
+          </tr>
+          <tr>
+            <td>Loguri de activitate server pentru conținut fișier</td>
+            <td class="best-col"><span class="ci-yes">Zero logs</span></td>
+            <td><span class="ci-warn">⚠ metadata</span></td>
+            <td><span class="ci-warn">⚠ metadata</span></td>
+            <td><span class="ci-warn">⚠ logs</span></td>
+            <td><span class="ci-no">✗ full logs</span></td>
+          </tr>
+          <tr><td colspan="6" class="row-group-label">🇪🇺 Conformitate</td></tr>
+          <tr>
+            <td>GDPR — Minimizarea Datelor (Art. 5.1.c)</td>
+            <td class="best-col"><span class="ci-yes">✓ by design</span></td>
+            <td><span class="ci-warn">⚠ partial</span></td>
+            <td><span class="ci-warn">⚠ partial</span></td>
+            <td><span class="ci-warn">⚠ complex</span></td>
+            <td><span class="ci-warn">⚠ complex</span></td>
+          </tr>
+          <tr>
+            <td>Nu necesită cont pentru procesarea fișierelor</td>
+            <td class="best-col"><span class="ci-yes">✓</span></td>
+            <td><span class="ci-warn">⚠ free limit</span></td>
+            <td><span class="ci-warn">⚠ free limit</span></td>
+            <td><span class="ci-no">✗ account</span></td>
+            <td><span class="ci-no">✗ Google acc.</span></td>
+          </tr>
+          <tr>
+            <td>Funcționează 100% offline (aplicație desktop)</td>
+            <td class="best-col"><span class="ci-yes">✓</span></td>
+            <td><span class="ci-no">✗</span></td>
+            <td><span class="ci-no">✗</span></td>
+            <td><span class="ci-warn">⚠ partial</span></td>
+            <td><span class="ci-no">✗</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:var(--text-muted);margin-top:.8rem;text-align:center">Surse: Politica de Confidențialitate Smallpdf (2024), Termeni ILovePDF (2024), ToS Adobe AI Generativ (2023), ToS Google Workspace. Date din 2025.</p>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 3: GDPR ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="sec-label">🇪🇺 Conformitate GDPR</span>
+      <div class="big-title">Cum Respectăm — Articol cu Articol</div>
+      <p class="sub-text" style="margin:0 auto">GDPR nu este o bifă. Acestea sunt articolele specifice care se aplică procesării documentelor și exact cum le respectă DocInspector.</p>
+    </div>
+
+    <div class="gdpr-grid reveal">
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 5.1(a)</div>
+        <div class="gdpr-title">Legalitate, Echitate &amp; Transparență</div>
+        <div class="gdpr-desc">Datele trebuie procesate legal. Procesăm doar datele pe care le încarci explicit pentru scopul explicit selectat.</div>
+        <div class="gdpr-how">✓ Fără procesare ascunsă. Fiecare operație este inițiată și vizibilă pentru utilizator.</div>
+      </div>
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 5.1(b)</div>
+        <div class="gdpr-title">Limitarea Scopului</div>
+        <div class="gdpr-desc">Datele nu pot fi folosite pentru altceva decât scopul pentru care au fost colectate. PDF-ul încărcat pentru curățarea metadatelor este folosit doar pentru asta.</div>
+        <div class="gdpr-how">✓ Fișierele nu sunt citite niciodată pentru analiză, indexare, antrenament sau orice alt scop secundar.</div>
+      </div>
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 5.1(c)</div>
+        <div class="gdpr-title">Minimizarea Datelor</div>
+        <div class="gdpr-desc">Trebuie colectate doar datele minime necesare. Nu colectăm nimic altceva decât octeții fișierului necesari pentru procesare.</div>
+        <div class="gdpr-how">✓ Fără nume, email, IP logat, fără cont. Zero date de identificare colectate.</div>
+      </div>
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 5.1(e)</div>
+        <div class="gdpr-title">Limitarea Stocării</div>
+        <div class="gdpr-desc">Datele nu trebuie păstrate mai mult decât necesar. Procesarea are o durată maximă definită după care toate datele sunt șterse.</div>
+        <div class="gdpr-how">✓ Retenție maximă 5 minute. Fișierele sunt de obicei șterse în câteva secunde după descărcare.</div>
+      </div>
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 25</div>
+        <div class="gdpr-title">Confidențialitate prin Design</div>
+        <div class="gdpr-desc">Confidențialitatea trebuie integrată în arhitectura sistemului de la început, nu adăugată ulterior.</div>
+        <div class="gdpr-how">✓ Zero-retenție este arhitectura implicită — nu o opțiune sau un nivel de plan.</div>
+      </div>
+      <div class="gdpr-card">
+        <div class="gdpr-article">GDPR Art. 32</div>
+        <div class="gdpr-title">Securitatea Procesării</div>
+        <div class="gdpr-desc">Trebuie implementate măsuri tehnice adecvate. TLS pentru tranzit, sandbox-uri izolate, fără stocare persistentă.</div>
+        <div class="gdpr-how">✓ TLS 1.3 tranzit + izolare UUID per-job + ștergere shutil.rmtree().</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 4: WHAT WE DON'T DO ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="sec-label">🚫 Lista Zero</span>
+      <div class="big-title">Ce Nu Facem Absolut Deloc</div>
+      <p class="sub-text" style="margin:0 auto">Acestea sunt constrângeri tehnice stricte — nu promisiuni de politică care s-ar putea schimba cu o actualizare a ToS.</p>
+    </div>
+
+    <div class="zero-grid reveal">
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără procesare AI</div>
+          <div class="zero-detail">Zero modele de limbaj, zero inferență machine learning. ExifTool, qpdf și Ghostscript sunt unelte CLI deterministe.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără logare de conținut</div>
+          <div class="zero-detail">Serverul nostru loghează doar metoda HTTP + codul de status. Numele, dimensiunile și conținutul fișierelor nu sunt niciodată scrise în niciun fișier de log.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără înregistrări în baze de date</div>
+          <div class="zero-detail">Nu avem nicio bază de date cu încărcările tale. Nu există niciun tabel cu „joburi procesate". Fiecare job există doar ca folder temporar.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără stocare terță parte</div>
+          <div class="zero-detail">Fișierele nu ating niciodată AWS S3, Azure Blob, Google Cloud Storage sau niciun CDN. Procesarea este self-hosted.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără cont sau urmărire</div>
+          <div class="zero-detail">Contorul de limită zilnică folosește localStorage în browserul tău. Nu știm niciodată că IP-ul tău este legat de vreun job.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără colectare de date de antrenament</div>
+          <div class="zero-detail">Documentele tale nu sunt niciodată folosite pentru a antrena, ajusta sau evalua niciun model de machine learning — niciodată.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără apeluri API externe în procesare</div>
+          <div class="zero-detail">Serverul nu face zero apeluri HTTP outbound în timp ce procesează fișierul tău. Execuție job complet izolată de rețea.</div>
+        </div>
+      </div>
+      <div class="zero-item">
+        <div class="zero-x">✗</div>
+        <div>
+          <div class="zero-label">Fără conținut fișier în analiticii</div>
+          <div class="zero-detail">Google Analytics și Microsoft Clarity urmăresc doar vizualizările de pagini. Nu primesc nicio informație despre ce fișiere ai procesat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 5: OPEN SOURCE STACK ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="sec-label">⚙️ Stack Tehnic</span>
+      <div class="big-title cyan">100% Motoare de Procesare Open Source</div>
+      <p class="sub-text" style="margin:0 auto">Fiecare unealtă care atinge documentul tău este open source, testată în producție și auditabilă de oricine. Fără cutii negre.</p>
+    </div>
+
+    <div class="stack-grid reveal">
+      <div class="stack-card">
+        <div class="stack-name">ExifTool <span class="stack-ver">v13.43</span></div>
+        <div class="stack-role">Citește și elimină toate metadatele incluse în fișiere PDF, DOCX, XLSX. Folosit de profesioniști în criminalistică digitală și agenții de informații din întreaga lume.</div>
+        <div class="stack-oss">✓ Open Source — Phil Harvey — 20+ ani</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-name">qpdf <span class="stack-ver">v11.9</span></div>
+        <div class="stack-role">Transformare structurală PDF: criptare, linearizare, reparare. Procesează formatul binar PDF direct la nivel de obiect.</div>
+        <div class="stack-oss">✓ Open Source — Licența Apache 2.0</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-name">Ghostscript <span class="stack-ver">v10.03</span></div>
+        <div class="stack-role">Rasterizează paginile PDF la output numai imagine (eliminarea stratului de text), aplică watermark-uri via PostScript, convertește formate.</div>
+        <div class="stack-oss">✓ Open Source — AGPL / Comercial</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-name">MuPDF <span class="stack-ver">v1.24</span></div>
+        <div class="stack-role">Randare și manipulare PDF de înaltă performanță. Folosit când rasterizarea Ghostscript nu este necesară.</div>
+        <div class="stack-oss">✓ Open Source — Licența AGPL</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-name">Python Flask <span class="stack-ver">3.x</span></div>
+        <div class="stack-role">Server web ușor care direcționează fișierele încărcate la unealta CLI corectă și transmite înapoi rezultatul. Fără ORM, fără baze de date.</div>
+        <div class="stack-oss">✓ Open Source — Licența BSD</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-name">openpyxl <span class="stack-ver">latest</span></div>
+        <div class="stack-role">Generează raportul Excel Bundle Summary pe server. Python pur, fără automatizare COM pentru versiunea online.</div>
+        <div class="stack-oss">✓ Open Source — Licența MIT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 6: PROMISE ═══════ -->
+<section class="sec-page-section section-gap">
+  <div class="container">
+    <div class="promise-box reveal">
+      <div class="promise-title">Angajamentul Nostru de Securitate</div>
+      <div class="promise-text">
+        Nu putem citi documentele tale. Nu vrem. Fiecare decizie arhitecturală — de la alegerea uneltelor CLI la ștergerea automată de 5 minute până la absența oricărei baze de date — a fost luată astfel încât <strong style="color:#10b981">nici noi nu putem accesa conținutul tău</strong> după ce a fost șters.
+      </div>
+      <div class="promise-bullets">
+        <div class="promise-bullet">✓ Fișier șters înainte să închizi tab-ul</div>
+        <div class="promise-bullet">✓ Fără cont = fără urmă de date</div>
+        <div class="promise-bullet">✓ Stack open source = complet auditabil</div>
+        <div class="promise-bullet">✓ Conform GDPR prin arhitectură</div>
+        <div class="promise-bullet">✓ Zero implicare AI</div>
+      </div>
+      <div class="hero-buttons" style="justify-content:center">
+        <a href="unelte-online.html" class="btn btn-primary btn-lg">
+          🌐 Încearcă Uneltele Online — Gratuit
+        </a>
+        <a href="descarca.html" class="btn btn-outline btn-lg">
+          Descarcă Aplicația Desktop
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+
+<section style="padding:2rem 0 3rem;position:relative;z-index:1;">
+  <div class="container" style="text-align:center;">
+    <p style="color:var(--text-muted);margin-bottom:1rem;">Pentru angajamentele legale privind gestionarea datelor și conformitatea GDPR, consultați Politica de Confidențialitate.</p>
+    <a href="politica-de-confidentialitate.html" class="btn btn-outline" style="border-color:rgba(139,92,246,.4);color:#a78bfa;">Citește Politica de Confidențialitate →</a>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</span>
+      <div class="footer-links">
+        <a href="politica-de-confidentialitate.html" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="securitate.html" data-i18n="footer.security">Securitate</a>
+        <a href="termeni-si-conditii.html" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="politica-de-rambursare.html" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div><!-- .page -->
+
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=11"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.from('.gsap-fade', { opacity:0, y:30, stagger:.15, duration:.9, ease:'power3.out' });
+
+// Animate algo steps on scroll
+gsap.utils.toArray('.algo-step').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity:0, y:30 },
+    { opacity:1, y:0, duration:.6, ease:'power3.out', delay:i*.1,
+      scrollTrigger:{ trigger:'.algo-container', start:'top 80%', once:true }
+    }
+  );
+});
+
+// Animate cards
+gsap.utils.toArray('.gdpr-card, .stack-card, .zero-item').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity:0, y:25 },
+    { opacity:1, y:0, duration:.5, ease:'power3.out', delay:(i % 4) * .08,
+      scrollTrigger:{ trigger:el, start:'top 88%', once:true }
+    }
+  );
+});
+
+// Animate timeline items
+gsap.utils.toArray('.tl-item').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity:0, x:-20 },
+    { opacity:1, x:0, duration:.5, ease:'power3.out', delay:i*.1,
+      scrollTrigger:{ trigger:el, start:'top 85%', once:true }
+    }
+  );
+});
+
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('progress-bar');
+  if (!el) return;
+  const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  el.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;height:2px;background:linear-gradient(90deg,#10b981,#06b6d4);width:'+p+'%;transition:width .1s';
+});
+</script>
+</body>
+</html>
