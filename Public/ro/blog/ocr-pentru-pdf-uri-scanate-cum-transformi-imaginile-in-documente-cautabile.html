@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCR pentru PDF-uri scanate: cum transformi imaginile în documente căutabile - DocInspector Blog</title>
+  <meta name="description" content="Aflați cum să transformați PDF-urile scanate în documente căutabile cu tehnologia OCR, îmbunătățind securitatea și productivitatea." />
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog/ocr-pentru-pdf-uri-scanate-cum-transformi-imaginile-in-documente-cautabile" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/ocr-searchable-pdf-guide" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ocr-pentru-pdf-uri-scanate-cum-transformi-imaginile-in-documente-cautabile" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/ocr-dlya-skanirovannyh-pdf-kak-prevratity-izobrazheniya-v-searchable-documents" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/ocr-searchable-pdf-guide" />
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Headings styling with glowing accent indicator */
+    .article-body h2, .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .article-body h2 {
+      font-size: 1.65rem;
+      border-left: 4px solid #06b6d4;
+      padding-left: 14px;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .article-body h3 {
+      font-size: 1.35rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 10px;
+    }
+    
+    /* Lists fallback styling for standard HTML articles */
+    .article-body ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .article-body ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      line-height: 1.75;
+    }
+    
+    .article-body ul li::before {
+      content: "•";
+      color: #06b6d4;
+      font-weight: bold;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+    
+    .article-body ol {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: custom-counter;
+    }
+    
+    .article-body ol li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      line-height: 1.75;
+      counter-increment: custom-counter;
+    }
+    
+    .article-body ol li::before {
+      content: counter(custom-counter) ".";
+      color: #38bdf8;
+      font-weight: 700;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+    }
+    
+    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
+    .premium-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .workflow-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .workflow-step:hover {
+      background: rgba(6, 182, 212, 0.03);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+    
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #38bdf8);
+      color: #0a1628;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+    
+    .step-content {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
+    .premium-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.02);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
+    }
+    
+    .checklist-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+    
+    .check-text {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM CALLOUT BOXES ── */
+    .topic-highlight {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
+      border-left: 4px solid #06b6d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(6, 182, 212, 0.05);
+      border-right: 1px solid rgba(6, 182, 212, 0.05);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
+    }
+    
+    .conclusion-highlight {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
+      border-left: 4px solid #38bdf8;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(56, 189, 248, 0.05);
+      border-right: 1px solid rgba(56, 189, 248, 0.05);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    }
+  </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="OCR pentru PDF-uri scanate: cum transformi imaginile în documente căutabile - DocInspector Blog">
+  <meta property="og:description" content="Aflați cum să transformați PDF-urile scanate în documente căutabile cu tehnologia OCR, îmbunătățind securitatea și productivitatea.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doc-inspector.com/ro/blog/ocr-pentru-pdf-uri-scanate-cum-transformi-imaginile-in-documente-cautabile">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta property="og:site_name" content="DocInspector">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OCR pentru PDF-uri scanate: cum transformi imaginile în documente căutabile - DocInspector Blog">
+  <meta name="twitter:description" content="Aflați cum să transformați PDF-urile scanate în documente căutabile cu tehnologia OCR, îmbunătățind securitatea și productivitatea.">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Acasă</a>
+        <a href="../unelte-online.html" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
+        <a href="../preturi" data-i18n="nav.price">Preț</a>
+        <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact" data-i18n="nav.contact">Contact</a>
+        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RO</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../../en/blog/ocr-searchable-pdf-guide" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/ocr-pentru-pdf-uri-scanate-cum-transformi-imaginile-in-documente-cautabile" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../../ru/blog/ocr-dlya-skanirovannyh-pdf-kak-prevratity-izobrazheniya-v-searchable-documents" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+       <span class="blog-category" data-i18n="blog.cat.security">Securitate</span> | <time datetime="2026-05-25">2026-05-25</time>
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">OCR pentru PDF-uri scanate: cum transformi imaginile în documente căutabile</h1>
+    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
+      <h2>Introducere</h2><p>Tehnologia de recunoaștere optică a caracterelor (OCR) a revoluționat modul în care gestionăm documentele scanate, permițându-ne să convertim imagini statice în texte editabile și căutabile. Acest lucru este deosebit de important pentru organizațiile care se ocupă de volume mari de documente, deoarece îmbunătățește semnificativ recuperarea datelor, stocarea și securitatea. În acest articol, vom explora lumea OCR pentru PDF-urile scanate, examinând provocările, beneficiile și cele mai bune practici pentru implementarea acestei tehnologii.</p><p>Procesul OCR implică algoritmi sofisticați care analyzează imaginile scanate, identificând tipare și forme pentru a recunoaște caractere, cuvinte și fraze. Această informație este apoi utilizată pentru a crea un document căutabil și editabil, care poate fi indexat, arhivat și partajat cu ușurință. Având în vedere creșterea dependenței de documentele digitale, nevoia de unelte OCR precise și eficiente a devenit mai presantă ca oricând.</p><h2>Importanța OCR în securitatea documentelor</h2><p>Unul dintre beneficiile cheie ale OCR este capacitatea sa de a îmbunătăți securitatea documentelor. Prin convertirea imaginilor scanate în texte căutabile, organizațiile pot proteja mai bine informațiile sensibile, cum ar fi datele cu caracter personal, înregistrările financiare și comunicările confidențiale. Acest lucru este deosebit de important în industrii precum sănătatea, finanele și guvernul, unde încălcarea securității datelor poate avea consecințe severe.</p><p>În plus, OCR poate ajuta organizațiile să se conformeze cerințelor reglementare, cum ar fi GDPR și HIPAA, oferind o modalitate securizată și auditabilă de gestionare a documentelor sensibile. Prin implementarea tehnologiei OCR, organizațiile pot demonstra angajamentul lor față de protecția datelor și securitate, reducând riscul de neconformitate și sancțiunile asociate.</p><h2>Verificarea integrității documentelor</h2><p>Înainte de a aplica OCR la PDF-urile scanate, este esențial să se verifice integritatea documentelor. Acest lucru implică verificarea oricăror semne de tamperare, corupție sau degradare, care pot afecta acuratețea procesului OCR. Organizațiile trebuie să se asigure că documentele lor scanate sunt lipsite de defecte, cum ar fi pagini rupte, cerneală decolorată sau formatare incorectă.</p><p>În plus, organizațiile ar trebui să verifice autenticitatea documentelor, asigurându-se că acestea sunt autentice și nu au fost falsificate sau modificate. Acest lucru poate fi realizat prin diverse metode, inclusiv semnături digitale, filigrane și alte forme de autentificare. Prin verificarea integrității și autenticității documentelor scanate, organizațiile pot asigura că procesele OCR sunt fiabile și de încredere.</p><h2>Implementarea OCR cu DocInspector</h2><p>DocInspector este un instrument puternic care permite organizațiilor să scaneze și să securizeze PDF, Word, Excel și documente scanate local, fără a se baza pe servicii cloud. Cu capacitatea sa avansată de OCR, DocInspector poate converti imagini scanate în texte căutabile, îmbunătățind securitatea și productivitatea documentelor.</p><p>Procesul OCR al DocInspector este proiectat pentru a fi rapid, precis și securizat, oferind organizațiilor o modalitate fiabilă de gestionare a documentelor. Instrumentul include, de asemenea, caracteristici precum curățarea metadatelor, consolidarea PDF-urilor și repararea documentelor, asigurând că documentele nu numai că sunt căutabile, dar și securizate și protejate împotriva tamperării.</p><h2>Cele mai bune practici pentru implementarea OCR</h2><ul><li>• Asigurați-vă că documentele scanate sunt de calitate ridicată și lipsite de defecte.</li><li>• Verificați integritatea și autenticitatea documentelor scanate.</li><li>• Alegeți o unealtă OCR care este securizată, precisă și fiabilă.</li><li>• Implementați un flux de lucru care include copii de rezervă și audituri regulate ale documentelor.</li><li>• Înțărcați personalul cu privire la utilizarea corectă a tehnologiei OCR și la cele mai bune practici de gestionare a documentelor.</li></ul><h2>Concluzie</h2><p>În concluzie, tehnologia OCR are potențialul de a revoluționa modul în care gestionăm documentele scanate, îmbunătățind securitatea, productivitatea și conformitatea. Prin implementarea unor instrumente OCR precum DocInspector, organizațiile pot gestiona mai bine documentele, reduce riscul de încălcare a securității datelor și îmbunătăți eficiența generală. Pe măsură ce cererea de documente digitale continuă să crească, importanța unei tehnologii OCR precise și eficiente va crește și mai mult, făcând-o o investiție esențială pentru orice organizație care dorește să rămână înainte în peisajul digital actual.</p>
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</span>
+      <div class="footer-links">
+        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>
