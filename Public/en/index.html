@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocInspector — Batch Document Repair, Audit & Hardening</title>
+  <meta name="description" content="Professional Windows desktop utility for batch PDF repair, document auditing, evidence bundling and secure reporting. 100% local processing.">
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=12">
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80038W7D1J');
+    </script>
+  <link rel="canonical" href="https://doc-inspector.com/en/" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/" />
+  <style>
+    /* Premium visual styles for inline vector SVGs */
+    .workflow-icon-wrap {
+      width: 60px; height: 60px;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.2));
+    }
+    .workflow-svg {
+      width: 100%; height: 100%;
+    }
+    .ping-circle {
+      transform-origin: 32px 37px;
+      animation: pingAnimation 3s ease-in-out infinite;
+    }
+    @keyframes pingAnimation {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+    .scan-line {
+      animation: scanAnimation 3.5s linear infinite;
+    }
+    @keyframes scanAnimation {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(32px); }
+      100% { transform: translateY(0); }
+    }
+    .desktop-icon {
+      filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.25));
+    }
+    .globe-grid {
+      transform-origin: 32px 37px;
+      animation: rotateGlobe 12s linear infinite;
+    }
+    @keyframes rotateGlobe {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Choose Your Workflow Premium Card styles */
+    .workflow-card {
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .browser-tools-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.04), rgba(10, 25, 50, 0.75)) !important;
+      border: 1px solid rgba(6, 182, 212, 0.18) !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .desktop-app-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.04), rgba(15, 20, 45, 0.75)) !important;
+      border: 1px solid rgba(139, 92, 246, 0.18) !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .workflow-card:hover {
+      transform: translateY(-5px);
+    }
+    .browser-tools-card:hover {
+      border-color: rgba(6, 182, 212, 0.55) !important;
+      box-shadow: 0 20px 40px rgba(6, 182, 212, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.15);
+    }
+    .desktop-app-card:hover {
+      border-color: rgba(139, 92, 246, 0.55) !important;
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.12), 0 0 0 1px rgba(139, 92, 246, 0.15);
+    }
+    .workflow-card .btn-workflow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-radius: 12px;
+      padding: 0.75rem 1.4rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .browser-tools-card .btn-workflow-link {
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      color: #06b6d4;
+    }
+    .browser-tools-card .btn-workflow-link:hover {
+      background: linear-gradient(135deg, var(--cyan), #0891b2);
+      color: #000;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+      transform: translateY(-1px);
+    }
+    .desktop-app-card .btn-workflow-link {
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      color: #a78bfa;
+    }
+    .desktop-app-card .btn-workflow-link:hover {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ─── PREMIUM HERO SLIDER & MOCKUP STYLES ─── */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 410px;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #0f223d 0%, #060e19 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(6, 182, 212, 0.18);
+    }
+    @media (max-width: 900px) {
+      .slider-container {
+        height: 340px;
+      }
+    }
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Online Mockup Inside Hero */
+    .online-mockup {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08) 0%, rgba(10, 22, 40, 0.98) 90%);
+    }
+    .mockup-header {
+      height: 38px;
+      background: rgba(10, 22, 40, 0.85);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 1.2rem;
+      gap: 0.9rem;
+    }
+    .mockup-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+    .mockup-dots span {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .mockup-dots span:nth-child(1) { background: #ff5f56; }
+    .mockup-dots span:nth-child(2) { background: #ffbd2e; }
+    .mockup-dots span:nth-child(3) { background: #27c93f; }
+    .mockup-address {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      padding: 0.2rem 2.2rem 0.2rem 1.2rem;
+      font-size: 0.72rem;
+      color: #06b6d4;
+      font-family: monospace;
+      flex-grow: 1;
+      text-align: left;
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      letter-spacing: 0.05em;
+    }
+    .mockup-body {
+      flex-grow: 1;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.4rem;
+    }
+    .mockup-dropzone {
+      border: 2px dashed rgba(6, 182, 212, 0.35);
+      background: rgba(6, 182, 212, 0.02);
+      border-radius: 20px;
+      padding: 1.8rem 1.2rem;
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 0 25px rgba(6, 182, 212, 0.03);
+      cursor: pointer;
+    }
+    .mockup-dropzone:hover {
+      border-color: rgba(6, 182, 212, 0.7);
+      background: rgba(6, 182, 212, 0.06);
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.12), inset 0 0 20px rgba(6, 182, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    .drop-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      animation: floatIcon 3.5s ease-in-out infinite;
+    }
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.08); filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.4)); }
+    }
+    .drop-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #f8fafc;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .drop-subtitle {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+    .drop-btn {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+      color: #040d1a;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.6rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+    }
+    .drop-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+    }
+    .mockup-processing-bar {
+      width: 100%;
+      max-width: 440px;
+      text-align: left;
+    }
+    .bar-label {
+      font-size: 0.76rem;
+      color: #06b6d4;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bar-outer {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(6, 182, 212, 0.08);
+    }
+    .bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 50%, #06b6d4 100%);
+      background-size: 200% 100%;
+      border-radius: 12px;
+      animation: simulateProgress 7s infinite cubic-bezier(0.4, 0, 0.2, 1), shimmerBar 2.5s infinite linear;
+    }
+    @keyframes simulateProgress {
+      0% { width: 0%; }
+      15% { width: 35%; }
+      35% { width: 55%; }
+      60% { width: 78%; }
+      80% { width: 92%; }
+      92%, 100% { width: 100%; }
+    }
+    @keyframes shimmerBar {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Slider Controls */
+    .slider-controls {
+      position: relative;
+      margin: 1.5rem auto 0;
+      width: max-content;
+      display: flex;
+      gap: 0.8rem;
+      z-index: 10;
+      background: rgba(8, 17, 32, 0.88);
+      padding: 5px;
+      border-radius: 40px;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .slider-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .slider-btn:hover {
+      color: #06b6d4;
+    }
+    .slider-btn.active {
+      background: rgba(6, 182, 212, 0.16);
+      color: #06b6d4;
+      border: 1.5px solid rgba(6, 182, 212, 0.3);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+
+    /* Showcase Mockup Tab styles */
+    .showcase-mockup-inner {
+      background: radial-gradient(circle at top left, #0d1e36, #050d18);
+      border-radius: 20px;
+      border: 1px solid rgba(6, 182, 212, 0.18);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      height: 100%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .showcase-grid-mock {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .showcase-grid-mock {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    .mock-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      padding-right: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .mock-sidebar {
+        border-right: none;
+        padding-right: 0;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+    }
+    .mock-sidebar-item {
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .mock-sidebar-item.active {
+      color: #06b6d4;
+      background: rgba(6, 182, 212, 0.08);
+      border-color: rgba(6, 182, 212, 0.25);
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.05);
+    }
+    .mock-dashboard-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mock-file-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      transition: all 0.4s ease;
+    }
+    .mock-file-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(234, 179, 8, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(234, 179, 8, 0.25);
+    }
+    .mock-file-badge.success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .mock-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+    }
+    .mock-check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      transition: all 0.3s ease;
+    }
+    .mock-check-item.done {
+      color: #94a3b8;
+    }
+    .mock-check-dot {
+      color: #06b6d4;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .mock-check-dot.done {
+      color: #10b981;
+    }
+
+    /* Premium overrides for workflow pipeline to block lines from crossing icons */
+    .step-icon {
+      background: #0a1628 !important; /* Block background lines natively */
+      z-index: 5 !important;
+      position: relative;
+    }
+    .workflow-steps.visible .step-icon {
+      background: radial-gradient(circle at center, #0f223d 0%, #0a1628 100%) !important;
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.25), 0 0 60px rgba(6, 182, 212, 0.12), inset 0 0 15px rgba(6, 182, 212, 0.1) !important;
+    }
+
+    /* Styled SVG classes for the step icons */
+    .step-icon svg {
+      width: 38px;
+      height: 38px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .workflow-step:hover .step-icon svg {
+      transform: scale(1.15) rotate(3deg);
+    }
+    .workflow-step:nth-child(3):hover .step-icon svg {
+      transform: scale(1.15) rotate(30deg); /* Rotate effect for process cog/chip */
+    }
+  </style>
+  
+  <script>
+    // Custom logic to animate simulated scanning items on the showcase mockup panel
+    document.addEventListener('DOMContentLoaded', () => {
+      let stepIdx = 0;
+      
+      setInterval(() => {
+        const checklistItems = document.querySelectorAll('.mock-check-item');
+        const fileBadge = document.querySelector('.mock-file-badge');
+        const fileRow = document.querySelector('.mock-file-row');
+        
+        if(!checklistItems.length) return;
+        
+        checklistItems.forEach((item, i) => {
+          if(i === stepIdx) {
+            item.style.color = '#fff';
+            const dot = item.querySelector('.mock-check-dot');
+            if(dot) {
+              dot.textContent = '✓';
+              dot.style.color = '#10b981';
+            }
+          } else if (i < stepIdx) {
+            item.style.color = '#94a3b8';
+          } else {
+            item.style.color = '#64748b';
+          }
+        });
+        
+        if(stepIdx === checklistItems.length) {
+          if(fileBadge) {
+            fileBadge.textContent = 'SECURE & REPAIRED';
+            fileBadge.className = 'mock-file-badge success';
+          }
+          if(fileRow) {
+            fileRow.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+            fileRow.style.background = 'rgba(16, 185, 129, 0.05)';
+          }
+        }
+        
+        stepIdx = (stepIdx + 1) % (checklistItems.length + 3);
+        if (stepIdx === 0) {
+          checklistItems.forEach(item => {
+            item.style.color = '#cbd5e1';
+            const dot = item.querySelector('.mock-check-dot');
+            if(dot) {
+              dot.textContent = '○';
+              dot.style.color = '#06b6d4';
+            }
+          });
+          if(fileBadge) {
+            fileBadge.textContent = 'RISK DETECTED';
+            fileBadge.className = 'mock-file-badge';
+          }
+          if(fileRow) {
+            fileRow.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+            fileRow.style.background = 'rgba(255, 255, 255, 0.03)';
+          }
+        }
+      }, 1500);
+
+      // Slider tab switcher for Hero
+      const btns = document.querySelectorAll('.slider-btn');
+      const slides = document.querySelectorAll('.hero-slide');
+      const badge1 = document.getElementById('hero-badge-1');
+      const badge2 = document.getElementById('hero-badge-2');
+      const badge3 = document.getElementById('hero-badge-3');
+      
+      if(btns.length && slides.length) {
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.getAttribute('data-slide'));
+            btns.forEach(b => b.classList.remove('active'));
+            slides.forEach(s => s.classList.remove('active'));
+            
+            btn.classList.add('active');
+            if(slides[idx]) slides[idx].classList.add('active');
+            
+            // Dynamic badge hiding/showing based on active mode
+            if(idx === 0) {
+              if(badge1) { badge1.style.opacity = '1'; badge1.style.pointerEvents = 'auto'; badge1.style.transform = 'scale(1)'; }
+              if(badge2) { badge2.style.opacity = '0'; badge2.style.pointerEvents = 'none'; badge2.style.transform = 'scale(0.9)'; }
+              if(badge3) { badge3.style.opacity = '0'; badge3.style.pointerEvents = 'none'; badge3.style.transform = 'scale(0.9)'; }
+            } else {
+              if(badge1) { badge1.style.opacity = '0'; badge1.style.pointerEvents = 'none'; badge1.style.transform = 'scale(0.9)'; }
+              if(badge2) { badge2.style.opacity = '1'; badge2.style.pointerEvents = 'auto'; badge2.style.transform = 'scale(1)'; }
+              if(badge3) { badge3.style.opacity = '1'; badge3.style.pointerEvents = 'auto'; badge3.style.transform = 'scale(1)'; }
+            }
+          });
+        });
+      }
+    });
+  </script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="DocInspector — Batch Document Repair, Audit & Hardening">
+  <meta property="og:description" content="Professional Windows desktop utility for batch PDF repair, document auditing, evidence bundling and secure reporting. 100% local processing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doc-inspector.com/en/">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta property="og:site_name" content="DocInspector">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DocInspector — Batch Document Repair, Audit & Hardening">
+  <meta name="twitter:description" content="Professional Windows desktop utility for batch PDF repair, document auditing, evidence bundling and secure reporting. 100% local processing.">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DocInspector",
+    "operatingSystem": "Windows, Web",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free online tools available"
+    },
+    "url": "https://doc-inspector.com/en/",
+    "description": "Professional batch document repair, audit, metadata sanitization and PDF processing. Desktop app + free online tools.",
+    "screenshot": "https://doc-inspector.com/assets/white-theme-GUI.png"
+  }
+  </script>
+
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+  <style id="page-grid-bg">
+    #constellation-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; opacity: 1;
+    }
+  </style>
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+  <script>
+  (function(){
+    var c = document.getElementById('constellation-canvas');
+    if(!c) return;
+    var ctx = c.ctx = c.getContext('2d');
+
+    var W, H, pts, RAF;
+    var COLS = ['6,182,212','99,102,241','16,185,129'];
+    var N_BASE = 55; // nr noduri
+    var CONNECT_DIST = 160;
+    var MOUSE = {x: -999, y: -999};
+
+    function resize(){
+      W = c.width  = window.innerWidth;
+      H = c.height = window.innerHeight;
+      init();
+    }
+
+    function rand(a,b){ return a + Math.random()*(b-a); }
+
+    function init(){
+      pts = [];
+      var n = Math.round(N_BASE * (W*H)/(1440*900));
+      n = Math.max(35, Math.min(90, n));
+      for(var i=0;i<n;i++){
+        var col = COLS[Math.floor(Math.random()*COLS.length)];
+        pts.push({
+          x: rand(0,W), y: rand(0,H),
+          vx: rand(-.25,.25), vy: rand(-.18,.18),
+          r: rand(.6,1.4),
+          col: col,
+          alpha: rand(.25,.55),
+          // z depth for 3d feel
+          z: rand(.3,1)
+        });
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      // Connectors
+      for(var i=0;i<pts.length;i++){
+        var p = pts[i];
+        for(var j=i+1;j<pts.length;j++){
+          var q = pts[j];
+          var dx=p.x-q.x, dy=p.y-q.y;
+          var d=Math.sqrt(dx*dx+dy*dy);
+          if(d<CONNECT_DIST){
+            var fade = 1 - d/CONNECT_DIST;
+            var depth = (p.z+q.z)*.5;
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(q.x,q.y);
+            ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';
+            ctx.lineWidth = fade*1.1*depth;
+            ctx.stroke();
+          }
+        }
+        // Mouse attraction lines
+        var mdx=p.x-MOUSE.x, mdy=p.y-MOUSE.y;
+        var md=Math.sqrt(mdx*mdx+mdy*mdy);
+        if(md < 140){
+          var mf=1-md/140;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(MOUSE.x,MOUSE.y);
+          ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';
+          ctx.lineWidth=mf*1.4;
+          ctx.stroke();
+        }
+      }
+
+      // Dots
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        // Glow
+        var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+        grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+        grd.addColorStop(1,'rgba('+p.col+',0)');
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);
+        ctx.fillStyle=grd;
+        ctx.fill();
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);
+        ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';
+        ctx.fill();
+        // Move
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<-20) p.x=W+20;
+        if(p.x>W+20) p.x=-20;
+        if(p.y<-20) p.y=H+20;
+        if(p.y>H+20) p.y=-20;
+      }
+
+      RAF=requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', function(e){
+      MOUSE.x=e.clientX; MOUSE.y=e.clientY;
+    });
+    document.addEventListener('mouseleave', function(){
+      MOUSE.x=-999; MOUSE.y=-999;
+    });
+
+    resize();
+    draw();
+  })();
+  </script>
+
+
+<div class="page">
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- ════════════════ HEADER ════════════════ -->
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="tools-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Online Tools</a>
+        <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+        <a href="price.html" data-i18n="nav.price">Price</a>
+        <a href="user-guide.html" data-i18n="nav.guide">User Guide</a>
+        <a href="reports.html" data-i18n="nav.reports">Reports &amp; Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="download.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="index.html" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/index.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/index.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="hero">
+  <!-- doc-rain removed: hero-office.js canvas handles docs -->
+
+  <div class="container">
+    <div class="hero-content">
+      <!-- Text side -->
+      <div class="hero-text reveal">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          <span>Free Online Tools + Pro Desktop App — Process documents anywhere</span>
+        </div>
+        <h1 class="hero-title" data-i18n-html="hero.titleFull">
+          Free <span class="highlight">Online Document Tools</span> &amp; Professional Batch Repair Suite.
+        </h1>
+        <p class="hero-desc" data-i18n="hero.lead">Instantly repair corrupted PDFs, safely strip document metadata, flat-flatten layouts, and add professional watermarks directly in your browser — 100% free and secure. Need unlimited offline power for bulk Word, Excel, and PDF directories? Download our high-performance desktop application.</p>
+        <div class="hero-buttons">
+          <a href="tools-online.html" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);border-color:#06b6d4;color:#040d1a;box-shadow:0 0 25px rgba(6,182,212,0.35)">
+            🌐 Try Online Tools — Free &amp; Instant
+          </a>
+          <a href="download.html" class="btn btn-outline btn-lg" style="border-color:rgba(167,139,250,0.5);color:#a78bfa">
+            💻 Download Desktop App (100% Offline)
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span data-i18n="hero.footnote">🌐 Online: Files processed securely and deleted in &lt;5 min. 💻 Desktop: 100% Local processing. GDPR Native.</span>
+        </div>
+      </div>
+
+      <!-- Visual side -->
+      <div class="hero-visual reveal-right">
+        <div class="hero-app-frame slider-container">
+          <div class="slider-wrapper">
+            <!-- Slide 0: Online Tools Mockup (clickable link) -->
+            <a href="tools-online.html" class="hero-slide active" id="slide-online" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;">
+              <div class="online-mockup">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <div class="mockup-address">doc-inspector.com/en/tools-online</div>
+                </div>
+                <div class="mockup-body">
+                  <div class="mockup-dropzone">
+                    <div class="drop-icon">🌐</div>
+                    <div class="drop-title">Drag &amp; Drop Documents Here</div>
+                    <div class="drop-subtitle">PDF · Word · Excel (Up to 100 files/day free)</div>
+                    <div class="drop-btn">Select Files</div>
+                  </div>
+                  <div class="mockup-processing-bar">
+                    <div class="bar-label">
+                      <span>PDF Repair Engine</span>
+                      <span>Processing...</span>
+                    </div>
+                    <div class="bar-outer">
+                      <div class="bar-inner"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Slide 1: Desktop App GUI -->
+            <div class="hero-slide" id="slide-desktop">
+              <img src="../assets/black-theme-GUI.png" alt="DocInspector interface" loading="eager">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slider Switcher Pills placed OUTSIDE the image frame -->
+        <div class="slider-controls">
+          <button class="slider-btn active" data-slide="0">🌐 Online Tools</button>
+          <button class="slider-btn" data-slide="1">💻 Desktop App</button>
+        </div>
+        
+        <!-- Floating badges -->
+        <div class="hero-badge" id="hero-badge-1" style="top:-15px;right:-10px;transition: opacity 0.4s ease, transform 0.4s ease;">
+          <span class="badge-icon">🛡️</span> <span>Free &amp; Secure Online</span>
+        </div>
+        <div class="hero-badge" id="hero-badge-2" style="bottom:20%;left:-20px;opacity:0;pointer-events:none;border-color:rgba(255,255,255,0.1);transition: opacity 0.4s ease, transform 0.4s ease;">
+          <span class="badge-icon">⚡</span> <span>100% Offline App</span>
+        </div>
+        <div class="hero-badge" id="hero-badge-3" style="bottom:25%;right:-20px;opacity:0;pointer-events:none;transition: opacity 0.4s ease, transform 0.4s ease;">
+          <span class="badge-icon">📄</span> PDF · DOCX · XLSX
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ STATS STRIP ════════════════ -->
+<section class="stats-strip reveal">
+  <div class="container">
+    <div class="stats-grid stagger">
+      <div class="stat-item">
+        <div class="stat-number" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.users">Professional Users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="300000" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.docs">Documents Processed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="15" data-suffix="+">0</div>
+        <div class="stat-label" data-i18n="stat.formats">File Formats Supported</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label" data-i18n="stat.local">Local Processing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WORKFLOW PIPELINE ════════════════ -->
+<section class="workflow-section section-gap" id="workflow">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="workflow.eyebrow">How It Works</span>
+      <h2 class="section-title"><span class="text-gradient" data-i18n="workflow.title">Four steps to bulletproof documents</span></h2>
+      <p class="section-subtitle" data-i18n="workflow.subtitle">A streamlined pipeline that takes your raw document folders and outputs hardened, audit-ready bundles.</p>
+    </div>
+
+    <div class="workflow-steps">
+      <div class="workflow-line-fill"></div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#stepGrad1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <line x1="12" y1="11" x2="12" y2="17"></line>
+            <line x1="9" y1="14" x2="15" y2="14"></line>
+            <defs>
+              <linearGradient id="stepGrad1" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#0891b2" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="step-title" data-i18n="wf.s1.title">Select</div>
+        <div class="step-desc" data-i18n="wf.s1.desc">Point DocInspector at any folder tree. It recursively discovers every PDF, Word, and Excel file.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#stepGrad2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <circle cx="11" cy="14" r="3" fill="#0a1628" stroke="#22d3ee" stroke-width="1.8"></circle>
+            <line x1="16" y1="19" x2="13.2" y2="16.2"></line>
+            <defs>
+              <linearGradient id="stepGrad2" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#0891b2" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="step-title" data-i18n="wf.s2.title">Scan</div>
+        <div class="step-desc" data-i18n="wf.s2.desc">Deep analysis detects corruption, embedded macros, fonts, and structural vulnerabilities.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#stepGrad3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="5" width="14" height="14" rx="2"></rect>
+            <line x1="9" y1="1" x2="9" y2="5"></line>
+            <line x1="15" y1="1" x2="15" y2="5"></line>
+            <line x1="9" y1="19" x2="9" y2="23"></line>
+            <line x1="15" y1="19" x2="15" y2="23"></line>
+            <line x1="23" y1="9" x2="19" y2="9"></line>
+            <line x1="23" y1="15" x2="19" y2="15"></line>
+            <line x1="5" y1="9" x2="1" y2="9"></line>
+            <line x1="5" y1="15" x2="1" y2="15"></line>
+            <circle cx="12" cy="12" r="3" fill="#22d3ee" opacity="0.3"></circle>
+            <path d="M12 9v6M9 12h6" stroke="#22d3ee" stroke-width="1.5"></path>
+            <defs>
+              <linearGradient id="stepGrad3" x1="1" y1="1" x2="23" y2="23" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#0891b2" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="step-title" data-i18n="wf.s3.title">Process</div>
+        <div class="step-desc" data-i18n="wf.s3.desc">Repair, flatten, convert, OCR — apply your chosen operations in a single batch run.</div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="step-icon">
+          <span class="step-num">4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#stepGrad4)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 11 11 13 15 9" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <defs>
+              <linearGradient id="stepGrad4" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#0891b2" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="step-title" data-i18n="wf.s4.title">Output</div>
+        <div class="step-desc" data-i18n="wf.s4.desc">Get hardened files with full audit reports, preserving your original folder structure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CHOOSE YOUR WORKFLOW ════════════════ -->
+<section class="section-gap" id="choose-workflow" style="position:relative;z-index:1">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="section-eyebrow">Two Ways to Work</span>
+      <h2 class="section-title"><span class="text-gradient">Choose Your Workflow</span></h2>
+      <p class="section-subtitle">No installation? Use the browser tools. Need unlimited power and full privacy? Use the desktop app.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2.5rem" class="reveal">
+
+      <!-- Browser Card -->
+      <div class="workflow-card browser-tools-card">
+        <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(6,182,212,.08),transparent 70%);pointer-events:none"></div>
+        <div class="workflow-icon-wrap browser-icon">
+          <svg class="workflow-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="56" height="48" rx="8" stroke="url(#browserGradient)" stroke-width="2.5" fill="rgba(6, 182, 212, 0.03)" />
+            <line x1="4" y1="20" x2="60" y2="20" stroke="url(#browserGradient)" stroke-width="2" />
+            <circle cx="12" cy="14" r="2.5" fill="#ef4444" />
+            <circle cx="20" cy="14" r="2.5" fill="#eab308" />
+            <circle cx="28" cy="14" r="2.5" fill="#22c55e" />
+            <path class="globe-grid" d="M32 26 C22 26 22 48 32 48 C42 48 42 26 32 26 Z" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2 2" />
+            <circle cx="32" cy="37" r="8" stroke="#22d3ee" stroke-width="2" />
+            <circle class="ping-circle" cx="32" cy="37" r="13" stroke="#67e8f9" stroke-width="1" stroke-dasharray="3 3" opacity="0.7" />
+            <defs>
+              <linearGradient id="browserGradient" x1="4" y1="8" x2="60" y2="56" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#06b6d4" />
+                <stop offset="1" stop-color="#3b82f6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:#06b6d4;margin-bottom:.3rem">Browser Tools</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-bottom:1.2rem">Free · No install · Works anywhere</div>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.6rem">
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> 100 files/day — completely free</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> Sanitize · Watermark · Encrypt · Redact · Flatten · Repair</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> PDF Bundle Summary (Excel + PDF report)</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> Files deleted in &lt;5 minutes automatically</li>
+          <li style="font-size:.88rem;color:#94a3b8;display:flex;gap:.6rem"><span style="color:#64748b">—</span> PDF files only (max 15–50 MB per file)</li>
+          <li style="font-size:.88rem;color:#94a3b8;display:flex;gap:.6rem"><span style="color:#64748b">—</span> No DOCX/XLSX, no OCR, no system audit</li>
+        </ul>
+        <a href="tools-online.html" class="btn-workflow-link">
+          🌐 Open Online Tools →
+        </a>
+      </div>
+
+      <!-- Desktop Card -->
+      <div class="workflow-card desktop-app-card">
+        <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(139,92,246,.08),transparent 70%);pointer-events:none"></div>
+        <div class="workflow-icon-wrap desktop-icon">
+          <svg class="workflow-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="52" height="40" rx="6" stroke="url(#desktopGradient)" stroke-width="2.5" fill="rgba(139, 92, 246, 0.03)" />
+            <path d="M24 46 L18 58 L46 58 L40 46 Z" fill="url(#desktopGradient)" opacity="0.3" />
+            <line x1="16" y1="58" x2="48" y2="58" stroke="url(#desktopGradient)" stroke-width="3" stroke-linecap="round" />
+            <rect class="scan-line" x="10" y="10" width="44" height="2" fill="#a78bfa" opacity="0.8" />
+            <circle cx="32" cy="26" r="6" stroke="#c084fc" stroke-width="2" />
+            <path d="M26 26 L38 26" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
+            <path d="M32 20 L32 32" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="desktopGradient" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a78bfa" />
+                <stop offset="1" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:#a78bfa;margin-bottom:.3rem">Desktop App</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-bottom:1.2rem">Full power · 100% offline · Unlimited</div>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.6rem">
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> Unlimited files — no daily limit</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> PDF · DOCX · XLSX — all formats</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> OCR · Secure Delete · AutoConverter</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> Full system audit (BIOS/Serial/NTFS Owner)</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> 100% offline — works in air-gapped networks</li>
+          <li style="font-size:.88rem;color:#e2e8f0;display:flex;gap:.6rem"><span style="color:#10b981">✓</span> Recursive folder scan — thousands of files</li>
+        </ul>
+        <a href="download.html" class="btn-workflow-link">
+          ⬇️ Download 3-Day Trial →
+        </a>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem">
+      <a href="user-guide.html#compare" style="font-size:.88rem;color:#94a3b8;text-decoration:none;border-bottom:1px solid rgba(148,163,184,.3);padding-bottom:2px" onmouseover="this.style.color='#06b6d4'" onmouseout="this.style.color='#94a3b8'">View full feature comparison table →</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust-section section-gap" id="privacy">
+  <div class="container">
+    <div class="trust-layout">
+      <!-- Shield visual -->
+      <div class="trust-visual reveal-left">
+        <div class="shield-wrap">
+          <svg class="shield-svg" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+            <path class="shield-fill" d="M60 10 L110 35 L110 75 C110 110 60 140 60 140 C60 140 10 110 10 75 L10 35 Z"/>
+            <path class="shield-body" d="M60 10 L110 35 L110 75 C110 110 60 140 60 140 C60 140 10 110 10 75 L10 35 Z"/>
+            <polyline class="shield-check" points="40,78 55,93 82,58"/>
+          </svg>
+          <div class="shield-orbit">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="shield-orbit-2">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="shield-pulse-ring"></div>
+          <div class="shield-pulse-ring"></div>
+        </div>
+      </div>
+
+      <!-- Trust content -->
+      <div class="reveal-right">
+        <div class="section-header" style="text-align:left;margin-bottom:2rem;">
+          <span class="section-eyebrow" data-i18n="privacy.eyebrow">Security & Privacy</span>
+          <h2 class="section-title text-gradient" data-i18n="privacy.title">Zero Retention. Zero Exposure.</h2>
+          <p class="section-subtitle" style="margin:0;" data-i18n="privacy.lead">Whether you use the browser tools or the desktop app — your documents are never stored, never shared, never logged. Online files are auto-deleted within 5 minutes. Desktop processing never leaves your machine.</p>
+        </div>
+
+        <div class="trust-cards stagger">
+          <div class="trust-card">
+            <div class="trust-icon">⚡</div>
+            <div class="trust-title" data-i18n="privacy.local.title">Auto-Delete in 5 min</div>
+            <div class="trust-desc" data-i18n="privacy.local.desc">Online files are destroyed immediately after download. Zero cloud retention.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🖥️</div>
+            <div class="trust-title" data-i18n="privacy.ai.title">100% Offline Desktop</div>
+            <div class="trust-desc" data-i18n="privacy.ai.desc">Desktop app processes everything locally. No external calls, no AI, no cloud.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🇪🇺</div>
+            <div class="trust-title" data-i18n="privacy.gdpr.title">GDPR Native</div>
+            <div class="trust-desc" data-i18n="privacy.gdpr.desc">Built to meet the highest European data protection standards.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-icon">🔒</div>
+            <div class="trust-title" data-i18n="privacy.airgap.title">Air-Gap Ready</div>
+            <div class="trust-desc" data-i18n="privacy.airgap.desc">Operates seamlessly in restricted high-security networks.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="privacy.html" class="btn btn-outline" data-i18n="privacy.btn">Privacy Policy →</a>
+          <a href="security.html" class="btn btn-outline" style="border-color:rgba(16,185,129,.4);color:#10b981;" data-i18n="privacy.security_btn">Security Architecture →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FEATURES ════════════════ -->
+<section class="features-section section-gap" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="modules.eyebrow">Core Modules</span>
+      <h2 class="section-title"><span class="text-gradient" data-i18n="modules.title">Technical Capabilities</span></h2>
+      <p class="section-subtitle" data-i18n="modules.subtitle">Explore what you can accomplish instantly in your browser or with our offline desktop engine.</p>
+    </div>
+
+    <div class="features-grid stagger">
+      <!-- Card 1: Online Tools -->
+      <div class="feature-card" style="border-color:rgba(6, 182, 212, 0.25);background:linear-gradient(180deg, rgba(6,182,212,0.02) 0%, rgba(10,25,50,0.3) 100%)">
+        <div class="feature-icon" style="filter:drop-shadow(0 0 10px rgba(6,182,212,0.3))">🌐</div>
+        <div class="feature-title" style="color:#06b6d4">Instant Online Tools</div>
+        <div class="feature-desc">Zero-installation, secure browser-based tools. Files processed instantly and completely deleted within 5 minutes.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon" style="color:#06b6d4">✓</span> <span><strong>PDF Stream Repair</strong> — Fix unopenable PDFs</span></li>
+          <li><span class="check-icon" style="color:#06b6d4">✓</span> <span><strong>GDPR Metadata Cleaner</strong> — Strip GPS &amp; author data</span></li>
+          <li><span class="check-icon" style="color:#06b6d4">✓</span> <span><strong>Safe PDF Flattening</strong> — Secure files against edits</span></li>
+          <li><span class="check-icon" style="color:#06b6d4">✓</span> <span><strong>Sleek Watermarking</strong> — Add custom text &amp; logos</span></li>
+        </ul>
+        <a href="tools-online.html" class="card-link" style="color:#06b6d4;border-color:rgba(6,182,212,0.3)">Try Online Free →</a>
+      </div>
+
+      <!-- Card 2: Desktop Batch Engine -->
+      <div class="feature-card" style="border-color:rgba(139, 92, 246, 0.25);background:linear-gradient(180deg, rgba(139,92,246,0.02) 0%, rgba(15,20,45,0.3) 100%)">
+        <div class="feature-icon" style="filter:drop-shadow(0 0 10px rgba(139,92,246,0.3))">💻</div>
+        <div class="feature-title" style="color:#a78bfa">Workstation Batch Engine</div>
+        <div class="feature-desc">Unlimited power with 100% offline local processing. Scan and repair entire folder structures in a single run.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon" style="color:#a78bfa">✓</span> <span><strong>Recursive Scan</strong> — Discover files in thousands of subfolders</span></li>
+          <li><span class="check-icon" style="color:#a78bfa">✓</span> <span><strong>Bulk OCR Engine</strong> — Make scanned text fully searchable</span></li>
+          <li><span class="check-icon" style="color:#a78bfa">✓</span> <span><strong>Office Safe-Convert</strong> — Bulk convert DOCX/XLSX to PDF offline</span></li>
+          <li><span class="check-icon" style="color:#a78bfa">✓</span> <span><strong>Shredder</strong> — Cryptographically safe evidence deletion</span></li>
+        </ul>
+        <a href="download.html" class="card-link" style="color:#a78bfa;border-color:rgba(139,92,246,0.3)">Download Desktop App →</a>
+      </div>
+
+      <!-- Card 3: Deep Audit & Verification -->
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Audit &amp; Evidence (Both)</div>
+        <div class="feature-desc">Professional integrity checks, security risk identification, and automated compliance logging.</div>
+        <ul class="feature-list">
+          <li><span class="check-icon">✓</span> <span><strong>Bundle Summaries</strong> — Auto-generate master XLSX logs</span></li>
+          <li><span class="check-icon">✓</span> <span><strong>SHA-256 Hashing</strong> — Retain solid chain-of-custody logs</span></li>
+          <li><span class="check-icon">✓</span> <span><strong>Security Scanner</strong> — Detect malicious macros &amp; links</span></li>
+          <li><span class="check-icon">✓</span> <span><strong>Compliance Checker</strong> — Inspect font embedding &amp; standard formats</span></li>
+        </ul>
+        <a href="user-guide.html" class="card-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SCREENSHOT SHOWCASE ════════════════ -->
+<section class="showcase-section section-gap" id="showcase">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="showcase.eyebrow">App Preview</span>
+      <h2 class="section-title"><span class="text-gradient" data-i18n="showcase.title">See It In Action</span></h2>
+      <p class="section-subtitle" data-i18n="showcase.subtitle">Explore the browser-based zero-upload engine or the full offline desktop batch workspace.</p>
+    </div>
+
+    <div class="showcase-container reveal-scale">
+      <div class="showcase-tabs">
+        <button class="showcase-tab active">🌐 Online Web Engine</button>
+        <button class="showcase-tab" data-i18n="showcase.tab.dark">Dark Theme</button>
+        <button class="showcase-tab" data-i18n="showcase.tab.light">Light Theme</button>
+        <button class="showcase-tab" data-i18n="showcase.tab.pipeline">Pipeline</button>
+        <button class="showcase-tab" data-i18n="showcase.tab.options">Options</button>
+      </div>
+
+      <div class="showcase-frame">
+        <!-- Panel 0: Live Online Tools Mockup -->
+        <div class="showcase-panel active">
+          <div class="showcase-img-wrap">
+            <div class="showcase-mockup-inner">
+              <div class="showcase-grid-mock">
+                <div class="mock-sidebar">
+                  <div class="mock-sidebar-item active">📁 PDF Repair</div>
+                  <div class="mock-sidebar-item" onclick="window.location.href='tools-online.html'">🛡️ GDPR Sanitizer</div>
+                  <div class="mock-sidebar-item" onclick="window.location.href='tools-online.html'">🔒 PDF Encrypt</div>
+                  <div class="mock-sidebar-item" onclick="window.location.href='tools-online.html'">📝 Watermark</div>
+                  <div class="mock-sidebar-item" onclick="window.location.href='tools-online.html'">🎨 Convert &amp; Flatten</div>
+                </div>
+                
+                <div class="mock-dashboard-panel">
+                  <div style="font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;color:#06b6d4;margin-bottom:0.2rem">PDF Stream Repair &amp; Auditing</div>
+                  <div style="font-size:0.82rem;color:#94a3b8;margin-bottom:0.8rem">Recursively fix structural streams, rebuild broken xref tables, and strip active threats.</div>
+                  
+                  <!-- File item -->
+                  <div class="mock-file-row">
+                    <div style="display:flex;align-items:center;gap:0.8rem">
+                      <span style="font-size:1.4rem">📄</span>
+                      <div style="text-align:left">
+                        <div style="font-weight:700;color:#f8fafc">evidence_audit_report.pdf</div>
+                        <div style="font-size:0.75rem;color:#64748b">12.4 MB · Vulnerable cross-reference structures</div>
+                      </div>
+                    </div>
+                    <span class="mock-file-badge">RISK DETECTED</span>
+                  </div>
+                  
+                  <!-- Scanning checklist -->
+                  <div class="mock-checklist">
+                    <div class="mock-check-item">
+                      <span class="mock-check-dot">○</span>
+                      <span>Analyzing document structure &amp; catalog streams...</span>
+                    </div>
+                    <div class="mock-check-item">
+                      <span class="mock-check-dot">○</span>
+                      <span>Rebuilding broken PDF cross-reference tables...</span>
+                    </div>
+                    <div class="mock-check-item">
+                      <span class="mock-check-dot">○</span>
+                      <span>Stripping risky external URLs, javascript entries &amp; annotations...</span>
+                    </div>
+                    <div class="mock-check-item">
+                      <span class="mock-check-dot">○</span>
+                      <span>Normalizing layout &amp; embedding fonts securely...</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Call to action inside mockup -->
+                  <div style="display:flex;gap:1rem;margin-top:0.5rem">
+                    <a href="tools-online.html" class="btn btn-primary btn-sm" style="background:linear-gradient(135deg,#06b6d4,#0891b2);border-color:#06b6d4;color:#040d1a">Open Online Tool</a>
+                    <a href="user-guide.html#compare" class="btn btn-outline btn-sm" style="color:#94a3b8;border-color:rgba(255,255,255,0.1)">View Safe Specifications</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 1: Dark Theme -->
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/black-theme-GUI.png" alt="Dark theme interface" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Panel 2: Light Theme -->
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/white-theme-GUI.png" alt="Light theme interface" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Panel 3: Pipeline -->
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/pipeline-preview.png" alt="Pipeline view" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Panel 4: Options -->
+        <div class="showcase-panel">
+          <div class="showcase-img-wrap">
+            <img src="../assets/options-preview.png" alt="Options panel" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-dots">
+        <button class="slide-dot active"></button>
+        <button class="slide-dot"></button>
+        <button class="slide-dot"></button>
+        <button class="slide-dot"></button>
+        <button class="slide-dot"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ HORIZONTAL SCROLL CARDS ════════════════ -->
+<section class="hscroll-section section-gap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="section.why.eyebrow">Why DocInspector</span>
+      <h2 class="section-title" data-i18n-html="section.why.title"><span class="text-gradient">Built for Professionals</span></h2>
+    </div>
+  </div>
+  <div class="hscroll-track">
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🏢</div>
+      <div class="hscroll-title" data-i18n="hscroll.enterprise.title">Enterprise Ready</div>
+      <div class="hscroll-desc" data-i18n="hscroll.enterprise.desc">Handles thousands of files per run with minimal resource consumption. Built for workstation-grade performance.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">📁</div>
+      <div class="hscroll-title" data-i18n="hscroll.structure.title">Structure Preservation</div>
+      <div class="hscroll-desc" data-i18n="hscroll.structure.desc">Output mirrors your input folder hierarchy perfectly. No manual reorganization needed.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🔄</div>
+      <div class="hscroll-title" data-i18n="hscroll.batch.title">Batch Everything</div>
+      <div class="hscroll-desc" data-i18n="hscroll.batch.desc">Convert, repair, flatten, and audit all at once. Set your options, hit run, walk away.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">📋</div>
+      <div class="hscroll-title" data-i18n="hscroll.logs.title">Detailed Logs</div>
+      <div class="hscroll-desc" data-i18n="hscroll.logs.desc">Get verifiable XLSX audit logs and hashing for every batch. Perfect for chain-of-custody.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🔐</div>
+      <div class="hscroll-title" data-i18n="hscroll.evidence.title">Evidence Grade</div>
+      <div class="hscroll-desc" data-i18n="hscroll.evidence.desc">SHA-256 hash verification, timestamp logging, and chain-of-custody support for legal workflows.</div>
+    </div>
+    <div class="hscroll-card">
+      <div class="hscroll-icon">🌐</div>
+      <div class="hscroll-title" data-i18n="hscroll.multilang.title">Multi-Language</div>
+      <div class="hscroll-desc" data-i18n="hscroll.multilang.desc">Interface available in English, Romanian, and Russian. More languages planned.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA ════════════════ -->
+<section class="cta-section section-gap" id="cta">
+  <div class="cta-glow"></div>
+  <div class="container reveal">
+    <h2 class="cta-title text-gradient" data-i18n="cta.title">Ready to harden your documents?</h2>
+    <p class="cta-subtitle" data-i18n="cta.subtitle">Download the free 3-day trial. No registration, no credit card. Just install and go.</p>
+    <div class="hero-buttons" style="justify-content:center;">
+      <a href="download.html" class="btn btn-primary btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="btn.download">Download 3-Day Trial</span>
+      </a>
+      <a href="price.html" class="btn btn-outline btn-lg" data-i18n="btn.pricing">View Pricing & Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="security.html" data-i18n="footer.security">Security</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+        <a href="refund.html" data-i18n="footer.refund">Refund Policy</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie banner injected by i18n.js -->
+
+</div><!-- .page -->
+
+<!-- Scripts -->
+
+<script src="../cookies.js"></script>
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" class="lightbox-overlay">
+  <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next">&#8250;</button>
+    <img class="lightbox-img" src="" alt="Showcase preview">
+  </div>
+</div>
+
+<script src="../i18n-dict.js"></script>
+<script src="../i18n.js"></script>
+<script src="../scroll-fx.js?v=11"></script>
+<script src="../hero-office.js?v=6"></script>
+</body>
+</html>

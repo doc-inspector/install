@@ -1,0 +1,269 @@
+<!-- user-guide-audit.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Learn how to use DocInspector's Audit & Security module to discover hidden sensitive documents, sanitize metadata, and perform secure shredding across your PC.">
+  <meta name="keywords"
+    content="document audit, sanitize metadata, secure file deletion, PC scanner, DocInspector security">
+  <title>Audit & Security - User Guide | DocInspector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css?v=12" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80038W7D1J');
+    </script>
+  <link rel="canonical" href="https://doc-inspector.com/en/user-guide-audit" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide-audit" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/ghid-audit" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/rukovodstvo-audit" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide-audit" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Audit & Security - User Guide | DocInspector">
+  <meta property="og:description" content="Professional document processing tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doc-inspector.com/en/user-guide-audit">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta property="og:site_name" content="DocInspector">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Audit & Security - User Guide | DocInspector">
+  <meta name="twitter:description" content="Professional document processing tools.">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+
+<body style="background:#0a1628;color:#f1f5f9">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+  <div class="page">
+    <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="tools-online.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Online Tools</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="price.html" data-i18n="nav.price">Price</a>
+        <a href="user-guide.html" class="active" data-i18n="nav.guide">User Guide</a>
+        <a href="reports.html" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="blog.html" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="download.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="user-guide-audit.html" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/ghid-audit.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/rukovodstvo-audit.html" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="download.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+    <main class="section" style="position:relative;overflow:hidden;">
+      <div class="cyber-grid"></div>
+      <div class="scan-line"></div>
+      <div class="container">
+        <header class="section-header reveal-flip" style="position: relative; text-align: center; margin-bottom: 4rem;">
+          <div class="guide-badge" style="display:inline-block;margin-bottom:1rem;" data-i18n="ug.badge.aud">Security Module</div>
+          <h1 class="section-title text-gradient" data-i18n="ug.aud.title">Audit & Security</h1>
+          <p class="section-subtitle" style="margin: 0 auto; max-width: 600px;" data-i18n="ug.aud.sub">Discover, sanitize, and track sensitive data across any machine or network drive.</p>
+        </header>
+
+        <div class="detailed-guide-grid stagger-3d">
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🔍</div>
+              <h2 data-i18n="ug.aud.c1.t">Audit This PC</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c1.p">Leaked sensitive documents scattered across workstation drives.</span>
+              </p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c1.s">Deep scans selected folders or entire drives for specific document formats and sensitive patterns.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c1.l1">Maps local, mapped, and removable disks.</li>
+                <li data-i18n="ug.aud.c1.l2">Flag sensitive PDF, Word, and Excel files.</li>
+                <li data-i18n="ug.aud.c1.l3">High-performance scanning with low CPU footprint.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">⚙️</div>
+              <h2 data-i18n="ug.aud.c2.t">Sanitize Docs</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c2.p">Hidden metadata, authors, and edit histories in shared files.</span>
+              </p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c2.s">Bulk cleans metadata and strips hidden content from PDF and Office documents without altering visuals.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c2.l1">Removes Author, Company, and GPS metadata.</li>
+                <li data-i18n="ug.aud.c2.l2">Cleans edit history and undo stacks.</li>
+                <li data-i18n="ug.aud.c2.l3">Forensic-grade sanitization for high-sec environments.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🗑️</div>
+              <h2 data-i18n="ug.aud.c3.t">Secure Delete + Audit Trail</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><strong data-i18n-html="guide.problem">Problem:</strong> <span data-i18n="ug.aud.c3.p">Need proof of permanent deletion for compliance.</span></p>
+              <p><strong data-i18n-html="guide.solution">Solution:</strong> <span data-i18n="ug.aud.c3.s">Professional multi-pass file shredding followed by the generation of a verified Audit Log.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c3.l1">Exceeds standard formatting or simple deletion.</li>
+                <li data-i18n="ug.aud.c3.l2">Detailed PDF/Excel log of deleted files.</li>
+                <li data-i18n="ug.aud.c3.l3">Essential for data retention compliance.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="guide-card-v2">
+            <div class="guide-card-header">
+              <div class="g-icon">🔐</div>
+              <h2 data-i18n="ug.aud.c4.t">Encryption (Planned)</h2>
+            </div>
+            <div class="guide-card-content">
+              <p><span data-i18n-html="ug.aud.c4.p_label"><strong>Future Module:</strong></span> <span
+                  data-i18n="ug.aud.c4.p">Advanced packaging for hardened bundles into secure, encrypted containers.</span></p>
+              <ul>
+                <li data-i18n="ug.aud.c4.l1">AES-256 batch encryption.</li>
+                <li data-i18n="ug.aud.c4.l2">Secure key management integration.</li>
+                <li data-i18n="ug.aud.c4.l3">Sealed forensic delivery packages.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top: 4rem;">
+          <a href="user-guide.html" class="btn btn-outline" data-i18n-html="guide.back">← Back to Guides</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div data-i18n="footer.copyright">© 2026 DocInspector. All rights reserved.</div>
+        <div class="footer-links" style="align-items: center;">
+          <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link"
+            title="TikTok">
+            <svg width="20" height="20" viewBox="0 0 448 512" style="fill: currentColor; vertical-align: middle;">
+              <path
+                d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+            </svg>
+          </a>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="security.html">Security</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="refund.html" data-i18n="footer.refund">Refund Policy</a>
+          
+          <a href="reports.html" class="btn btn-outline btn-sm" data-i18n="footer.bug"
+            style="border-radius: 50px; padding: 0.4rem 1rem;">Report a bug</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="../cookies.js"></script>
+  <script src="../scroll-fx.js?v=9"></script>
+</body>
+
+</html>
