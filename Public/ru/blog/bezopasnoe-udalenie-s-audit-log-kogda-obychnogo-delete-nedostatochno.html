@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Безопасное удаление с audit log: когда обычного Delete недостаточно - DocInspector Blog</title>
+  <meta name="description" content="Узнайте, почему обычного удаления недостаточно для конфиденциальных файлов. Откройте для себя безопасное уничтожение с журналами аудита для предотвращения восстановления данных с DocInspector." />
+  <link rel="canonical" href="https://doc-inspector.com/ru/blog/bezopasnoe-udalenie-s-audit-log-kogda-obychnogo-delete-nedostatochno" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/secure-file-shredding-audit-log" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/stergere-securizata-cu-audit-log-cand-simplul-delete-nu-este-suficient" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/bezopasnoe-udalenie-s-audit-log-kogda-obychnogo-delete-nedostatochno" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/secure-file-shredding-audit-log" />
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Headings styling with glowing accent indicator */
+    .article-body h2, .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .article-body h2 {
+      font-size: 1.65rem;
+      border-left: 4px solid #06b6d4;
+      padding-left: 14px;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .article-body h3 {
+      font-size: 1.35rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 10px;
+    }
+    
+    /* Lists fallback styling for standard HTML articles */
+    .article-body ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .article-body ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      line-height: 1.75;
+    }
+    
+    .article-body ul li::before {
+      content: "•";
+      color: #06b6d4;
+      font-weight: bold;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+    
+    .article-body ol {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: custom-counter;
+    }
+    
+    .article-body ol li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      line-height: 1.75;
+      counter-increment: custom-counter;
+    }
+    
+    .article-body ol li::before {
+      content: counter(custom-counter) ".";
+      color: #38bdf8;
+      font-weight: 700;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+    }
+    
+    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
+    .premium-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .workflow-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .workflow-step:hover {
+      background: rgba(6, 182, 212, 0.03);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+    
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #38bdf8);
+      color: #0a1628;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+    
+    .step-content {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
+    .premium-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.02);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
+    }
+    
+    .checklist-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+    
+    .check-text {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM CALLOUT BOXES ── */
+    .topic-highlight {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
+      border-left: 4px solid #06b6d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(6, 182, 212, 0.05);
+      border-right: 1px solid rgba(6, 182, 212, 0.05);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
+    }
+    
+    .conclusion-highlight {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
+      border-left: 4px solid #38bdf8;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(56, 189, 248, 0.05);
+      border-right: 1px solid rgba(56, 189, 248, 0.05);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    }
+  </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Безопасное удаление с audit log: когда обычного Delete недостаточно - DocInspector Blog">
+  <meta property="og:description" content="Узнайте, почему обычного удаления недостаточно для конфиденциальных файлов. Откройте для себя безопасное уничтожение с журналами аудита для предотвращения восстановления данных с DocInspector.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://doc-inspector.com/ru/blog/bezopasnoe-udalenie-s-audit-log-kogda-obychnogo-delete-nedostatochno">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta property="og:site_name" content="DocInspector">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Безопасное удаление с audit log: когда обычного Delete недостаточно - DocInspector Blog">
+  <meta name="twitter:description" content="Узнайте, почему обычного удаления недостаточно для конфиденциальных файлов. Откройте для себя безопасное уничтожение с журналами аудита для предотвращения восстановления данных с DocInspector.">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#e2e8f0">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов и аудит</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Главная</a>
+        <a href="../onlayn-instrumenty.html" style="color:#06b6d4;font-weight:700">🌐 Онлайн-инструменты</a>
+        <a href="../tseny" data-i18n="nav.price">Цена</a>
+        <a href="../rukovodstvo" data-i18n="nav.guide">Руководство</a>
+        <a href="../otchety" data-i18n="nav.reports">Отчёты и отзывы</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Блог</a>
+        <a href="../kontakty" data-i18n="nav.contact">Контакты</a>
+        <a href="../skachat" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RU</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../../en/blog/secure-file-shredding-audit-log" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/stergere-securizata-cu-audit-log-cand-simplul-delete-nu-este-suficient" class="lang-item" data-lang="ro">RO</a>
+            <a href="../../ru/blog/bezopasnoe-udalenie-s-audit-log-kogda-obychnogo-delete-nedostatochno" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../skachat" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+       <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span> | <time datetime="2026-05-25">2026-05-25</time>
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Безопасное удаление с audit log: когда обычного Delete недостаточно</h1>
+    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
+      <h2>Введение</h2><p>В эпоху, когда конфиденциальность и безопасность данных имеют первостепенное значение, простое нажатие кнопки «Delete» создает ложное ощущение безопасности для конфиденциальных документов. Будь то конфиденциальные записи клиентов, собственные бизнес-планы или личные финансовые отчеты, простое перемещение файла в Корзину и ее очистка не гарантирует его окончательного уничтожения. Остаточность данных — это реальная и постоянная угроза, позволяющая целеустремленным лицам или сложным инструментам восстановления обнаруживать казалось бы удаленную информацию, создавая значительные риски как для отдельных лиц, так и для организаций.</p><p>Безопасное уничтожение файлов выходит за рамки обычного удаления, используя специализированные методы для многократной перезаписи данных, делая их невосстановимыми. В сочетании с исчерпывающими журналами аудита этот процесс не только обеспечивает безвозвратное уничтожение конфиденциальной информации, но и предоставляет неоспоримую запись об уничтожении, что крайне важно для соблюдения нормативных требований, подотчетности и спокойствия.</p><h2>Иллюзия удаления: почему ваши данные остаются</h2><p>Когда вы удаляете файл через операционную систему, сами данные не удаляются немедленно с вашего устройства хранения. Вместо этого операционная система просто помечает пространство, занятое файлом, как «доступное» для новых данных. Указатели на местоположение файла удаляются, делая его невидимым для стандартных проводников файлов, но фактические блоки данных остаются нетронутыми до тех пор, пока они не будут перезаписаны новой информацией. Это означает, что может пройти значительное время, или даже неограниченное, в течение которого «удаленный» файл может быть легко восстановлен с использованием легкодоступного программного обеспечения для восстановления данных.</p><p>Эта уязвимость является не просто теоретической проблемой; это практическая проблема с серьезными последствиями. Предприятия сталкиваются с нормативными штрафами в соответствии с GDPR, HIPAA и другими законами о защите данных, если они не могут доказать безопасное уничтожение конфиденциальной информации. Физические лица рискуют кражей личных данных или раскрытием частных данных. Даже казалось бы безобидные документы могут содержать встроенные метаданные или прошлые версии, которые при восстановлении раскрывают массу конфиденциальных деталей. Потенциал для репутационного ущерба и финансовых санкций делает надежную стратегию уничтожения незаменимой.</p><h2>Обеспечение истинного стирания данных: за пределами Корзины</h2><p>Проверка истинного стирания данных требует выхода за рамки поверхностных методов удаления. Безопасный процесс уничтожения обычно включает многократную перезапись данных файла с помощью шаблонов из нулей, единиц или случайных символов. Этот процесс, часто основанный на таких стандартах, как DoD 5220.22-M или Gutmann, гарантирует, что даже передовые методы криминалистического восстановления данных не смогут восстановить исходный файл. Однако целостность этого процесса должна быть доказуема.</p><p>Именно здесь журналы аудита становятся критически важными. Журнал аудита предоставляет неизменяемую запись каждой операции уничтожения файла, включая дату, время, пользователя, имя файла, путь и конкретный используемый метод уничтожения. Эта подробная документация служит конкретным доказательством соответствия политике хранения и уничтожения данных. Она обеспечивает подотчетность, позволяя организациям демонстрировать должную осмотрительность в защите конфиденциальной информации, и помогает отслеживать потенциальные утечки данных, чтобы ни один «удаленный» файл никогда не попал в чужие руки.</p><h2>Рабочий процесс безопасного уничтожения файлов с DocInspector</h2><p>Внедрение рабочего процесса безопасного уничтожения файлов включает несколько ключевых шагов, и DocInspector уникально позиционирован для улучшения этого процесса, особенно для ваших критически важных документов. Во-первых, регулярно идентифицируйте и классифицируйте конфиденциальные документы (PDF, Word, Excel, отсканированные файлы), срок хранения которых истёк или которые больше не нужны. Перед уничтожением вы можете использовать DocInspector для очистки их метаданных или выполнения OCR для отсканированных файлов, гарантируя, что любая остаточная информация будет обработана или удалена для максимальной безопасности.</p><p>После подготовки к уничтожению DocInspector, будучи локальным и ориентированным на конфиденциальность настольным приложением для Windows, позволяет безопасно уничтожать эти файлы. Оно работает полностью в автономном режиме, что означает, что ваши конфиденциальные данные никогда не покидают ваш компьютер, поддерживая высочайшие стандарты конфиденциальности. После уничтожения DocInspector генерирует подробные журналы аудита для каждой операции. Эти журналы подтверждают успешное и безопасное уничтожение, предоставляя проверяемые доказательства, необходимые для соблюдения нормативных требований и внутреннего управления. Этот интегрированный подход гарантирует, что от первоначальной обработки до окончательного уничтожения жизненный цикл ваших документов будет безопасным, соответствующим требованиям и полностью подлежащим аудиту.</p><h2>Ваш контрольный список для безопасного уничтожения</h2><ul><li>✓ Регулярно выявляйте все конфиденциальные файлы (PDF, Word, Excel, отсканированные) для уничтожения.</li><li>✓ Используйте надежное приложение для уничтожения файлов, использующее многократные методы перезаписи.</li><li>✓ Убедитесь, что процесс уничтожения явно обрабатывает связанные метаданные и временные файлы.</li><li>✓ Внедрите всеобъемлющее ведение журнала аудита для каждого действия по уничтожению файлов.</li><li>✓ Периодически пересматривайте и обновляйте свою политику хранения и уничтожения данных.</li><li>✓ Обучите весь персонал лучшим практикам безопасного уничтожения данных.</li><li>✓ Убедитесь, что ваше решение для уничтожения работает локально и придает приоритет конфиденциальности пользователя.</li><li>✓ Регулярно проверяйте целостность и доступность журналов аудита уничтожения.</li></ul><h2>Заключение</h2><p>Различие между простым удалением файла и его безопасным уничтожением имеет решающее значение в современном мире, управляемом данными. Полагаться на стандартное удаление — это азартная игра, оставляющая организации и частных лиц уязвимыми для восстановления данных и потенциальных регуляторных штрафов. Применяя методы безопасного уничтожения файлов, подкрепленные неизменяемыми журналами аудита, вы создаете надежную защиту от остаточности данных. DocInspector предоставляет вам инструменты для управления, защиты и, в конечном итоге, уничтожения ваших конфиденциальных документов с уверенностью, обеспечивая абсолютную конфиденциальность, подотчетность и соответствие на каждом этапе жизненного цикла ваших данных.</p>
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Назад ко всем статьям</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Все права защищены.</span>
+      <div class="footer-links">
+        <a href="../politika-konfidentsialnosti" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="../usloviya-ispolzovaniya" data-i18n="footer.terms">Условия использования</a>
+        <a href="../politika-vozvrata" data-i18n="footer.refund">Политика возврата</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>

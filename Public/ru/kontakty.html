@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Свяжитесь с командой DocInspector. Отправьте сообщение, сообщите о проблеме или запросите помощь." name="description"/>
+<meta content="DocInspector contact, customer support, enterprise licensing, batch processor inquiry, software sales" name="keywords"/>
+<title data-i18n="contact.pageTitle">Контакты — DocInspector</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="../style.css?v=12" rel="stylesheet">
+<link href="../assets/logo.png" rel="icon" type="image/png">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wu1m2q0juc");
+    </script>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80038W7D1J');
+    </script>
+<link href="https://doc-inspector.com/ru/kontakty" rel="canonical">
+<link href="https://doc-inspector.com/en/contact" hreflang="en" rel="alternate"/>
+<link href="https://doc-inspector.com/ro/contact" hreflang="ro" rel="alternate"/>
+<link href="https://doc-inspector.com/ru/kontakty" hreflang="ru" rel="alternate"/>
+<link href="https://doc-inspector.com/en/contact" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="Контакты — DocInspector" property="og:title"/>
+<meta content="Свяжитесь с командой DocInspector. Отправьте сообщение, сообщите о проблеме или запросите помощь." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://doc-inspector.com/ru/kontakty" property="og:url"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" property="og:image"/>
+<meta content="DocInspector" property="og:site_name"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="DocInspector" name="twitter:title"/>
+<meta content="Contact the DocInspector support team for questions about professional licensing, batch processing features, or custom enterprise solutions." name="twitter:description"/>
+<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" name="twitter:image"/>
+</link></link></link>  <style>
+  #constellation-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none; opacity: 1;
+  }
+</style>
+</head>
+<body style="background:#0a1628;color:#f1f5f9">
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+<script>
+(function(){
+  var c=document.getElementById('constellation-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts,RAF;
+  var COLS=['6,182,212','99,102,241','16,185,129'];
+  var N_BASE=55, CONNECT_DIST=160;
+  var MOUSE={x:-999,y:-999};
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function rand(a,b){return a+Math.random()*(b-a);}
+  function init(){
+    pts=[];
+    var n=Math.round(N_BASE*(W*H)/(1440*900));
+    n=Math.max(35,Math.min(90,n));
+    for(var i=0;i<n;i++){
+      var col=COLS[Math.floor(Math.random()*COLS.length)];
+      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+      }
+      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+    }
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+      grd.addColorStop(1,'rgba('+p.col+',0)');
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+    }
+    RAF=requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
+  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+  resize();draw();
+})();
+</script>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page">
+<!-- HEADER -->
+  <header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов &amp; Аудит</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="onlayn-instrumenty.html" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Онлайн Инструменты</a>
+        <a href="index.html" data-i18n="nav.home">Главная</a>
+        <a href="tseny.html" data-i18n="nav.price">Цены</a>
+        <a href="rukovodstvo.html" data-i18n="nav.guide">Руководство</a>
+        <a href="otchety.html" data-i18n="nav.reports">Отчёты &amp; Отзывы</a>
+        <a href="blog.html" data-i18n="nav.blog">Блог</a>
+        <a href="kontakty.html" class="active" data-i18n="nav.contact">Контакты</a>
+        <a href="skachat.html" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">RU</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/contact.html" class="lang-item" data-lang="en">EN</a>
+            <a href="../ro/contact.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="kontakty.html" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="skachat.html" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- CONTENT -->
+<section class="section" style="position:relative;overflow:hidden;">
+<div class="pulse-ring"></div>
+<div class="cyber-grid"></div>
+<div class="container" style="position:relative;z-index:1;">
+<header class="section-header reveal-flip">
+<div class="section-eyebrow">Get in touch</div>
+<h1 class="section-title text-gradient" data-i18n="contact.title">Контакты и поддержка</h1>
+<p class="section-subtitle" data-i18n="contact.subtitle">Вопросы о лицензировании или пакетной обработке? Мы поможем.</p>
+</header>
+<div class="contact-grid reveal">
+<form action="https://formspree.io/f/xreggdqk" class="form-card reveal-flip" id="contactForm" method="post">
+<div style="display:flex;flex-direction:column;gap:1.5rem;">
+<div>
+<label data-i18n="contact.name" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Имя</label>
+<input name="name" onblur="this.style.borderColor='var(--border)'" onfocus="this.style.borderColor='var(--cyan)'" required="" style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;" type="text"/>
+</div>
+<div>
+<label data-i18n="contact.email" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Эл. почта</label>
+<input name="email" onblur="this.style.borderColor='var(--border)'" onfocus="this.style.borderColor='var(--cyan)'" required="" style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;" type="email"/>
+</div>
+<div>
+<label data-i18n="contact.message" style="display:block;margin-bottom:.5rem;font-size:.9rem;color:var(--text-muted);">Сообщение</label>
+<textarea name="message" onblur="this.style.borderColor='var(--border)'" onfocus="this.style.borderColor='var(--cyan)'" required="" rows="5" style="width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);padding:1rem;border-radius:12px;color:#fff;outline:none;transition:border-color .2s;resize:vertical;"></textarea>
+</div>
+<div>
+<label style="display:flex;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.9rem;cursor:pointer;">
+<input name="botcheck" required="" style="width:18px;height:18px;accent-color:var(--cyan);" type="checkbox"/>
+<span data-i18n="contact.bot">Я человек (Антиспам-проверка)</span>
+</label>
+</div>
+<button class="btn btn-primary" data-i18n="contact.submit" type="submit">Отправить сообщение</button>
+</div>
+</form>
+<aside class="reveal-right">
+<h3 data-i18n="contact.aside.title" style="margin-bottom:1.5rem;">Прямая помощь</h3>
+<p style="margin-bottom:2rem;color:var(--text-muted);">
+<span data-i18n="contact.aside.desc1">По срочным техническим вопросам или лицензированию:</span><br/>
+<strong style="color:var(--cyan);">support@doc-inspector.com</strong>
+</p>
+<div style="background:var(--bg-glass);padding:2rem;border-radius:24px;border:1px solid var(--border);">
+<p data-i18n-html="contact.aside.desc2" style="font-size:.9rem;">Время ответа: <strong>2-12 часов</strong><br/>Пн-Пт, 09:00 - 18:00 (GMT+2)
+            </p>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2026 DocInspector. Все права защищены.</span>
+      <div class="footer-links">
+        <a href="politika-konfidentsialnosti.html" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="bezopasnost.html" data-i18n="footer.security">Безопасность</a>
+        <a href="usloviya-ispolzovaniya.html" data-i18n="footer.terms">Условия использования</a>
+        <a href="politika-vozvrata.html" data-i18n="footer.refund">Политика возврата</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=9"></script>
+</body>
+</html>
