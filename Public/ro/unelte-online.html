@@ -819,6 +819,8 @@ async function fetchStatus() {
       currentUsed = data.used_today;
       currentLimit = data.limit_today;
       updateUI();
+      if(data.kicked_out) alert("Licența a fost activată pe un alt browser. Sesiunea curentă a fost retrogradată la Gratuit.");
+      if(data.revoked) alert("Licența a fost anulată sau a expirat. Retrogradat la Gratuit.");
     }
   } catch(e) {}
 }

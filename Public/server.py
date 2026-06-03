@@ -138,29 +138,25 @@ def get_usage(identifier: str) -> int:
         return 0
     return record["count"]
 
-def validate_lemonsqueezy(license_key: str) -> dict:
-    """Validate with LemonSqueezy API. Returns tier ('Basic', 'Pro') or None."""
-    url = "https://api.lemonsqueezy.com/v1/licenses/activate"
+def validate_lemonsqueezy(license_key: str, activate=False) -> dict:
+    """Validate or Activate with LemonSqueezy API. Returns tier ('Basic', 'Pro') or None."""
+    endpoint = "activate" if activate else "validate"
+    url = f"https://api.lemonsqueezy.com/v1/licenses/{endpoint}"
     data = urllib.parse.urlencode({
         "license_key": license_key,
-        "instance_name": f"web-tools-{license_key[:8]}"
+        "instance_name": f"Web-{license_key[:8]}"
     }).encode("utf-8")
     
-    req = urllib.request.Request(url, data=data, headers={
-        "Accept": "application/json"
-    })
+    req = urllib.request.Request(url, data=data, headers={"Accept": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
             res_data = json.loads(response.read().decode())
-            if res_data.get("activated") or res_data.get("error") == "License key already active" or "already" in str(res_data.get("error","")).lower():
-                # Check meta for tier
+            if res_data.get("valid") or res_data.get("activated") or "already active" in str(res_data.get("error","")).lower():
                 meta = res_data.get("meta", {})
                 variant = str(meta.get("variant_name", "")).lower()
-                if "basic" in variant:
-                    return {"tier": "Basic"}
-                return {"tier": "Pro"}
+                return {"tier": "Basic" if "basic" in variant else "Pro"}
     except Exception as e:
-        print(f"LemonSqueezy validation error: {e}")
+        print(f"LemonSqueezy {endpoint} error: {e}")
     return None
 
 def get_client_ip():
@@ -169,13 +165,30 @@ def get_client_ip():
     return request.remote_addr
 
 def get_current_tier():
-    """Returns tier info based on cookie"""
     license_key = request.cookies.get("di_license")
-    if license_key:
-        tier = request.cookies.get("di_tier", "Free")
-        if tier in ["Basic", "Pro"]:
-            return {"tier": tier, "identifier": license_key}
+    client_uuid = request.cookies.get("di_uuid")
     
+    if license_key and client_uuid:
+        record = USAGE_DB.get(license_key)
+        # Check if this UUID is the currently active one for this license
+        if record and record.get("active_web_uuid") == client_uuid:
+            # Check 12-hour revalidation
+            if time.time() - record.get("last_validated", 0) > 12 * 3600:
+                print(f"Re-validating license {license_key[:8]}...")
+                val = validate_lemonsqueezy(license_key, activate=False)
+                if val:
+                    record["last_validated"] = time.time()
+                    record["tier"] = val["tier"]
+                else:
+                    # Revoked or expired! Kick them out.
+                    del USAGE_DB[license_key]
+                    return {"tier": "Free", "identifier": get_client_ip(), "revoked": True}
+            
+            return {"tier": record.get("tier", "Pro"), "identifier": license_key}
+        else:
+            # Another UUID took over this license (Kicked out!)
+            return {"tier": "Free", "identifier": get_client_ip(), "kicked_out": True}
+            
     return {"tier": "Free", "identifier": get_client_ip()}
 
 @app.route("/api/auth/activate", methods=["POST"])
@@ -184,13 +197,24 @@ def auth_activate():
     if not key:
         return jsonify({"error": "No license key provided."}), 400
     
-    result = validate_lemonsqueezy(key)
+    result = validate_lemonsqueezy(key, activate=True)
     if result:
         tier = result["tier"]
+        
+        # Generate new browser UUID for this session
+        new_uuid = str(uuid.uuid4())
+        
+        # Take over the web slot for this license
+        if key not in USAGE_DB:
+            USAGE_DB[key] = {"count": 0, "date": get_today()}
+        USAGE_DB[key]["active_web_uuid"] = new_uuid
+        USAGE_DB[key]["last_validated"] = time.time()
+        USAGE_DB[key]["tier"] = tier
+        
         resp = jsonify({"status": "success", "tier": tier})
-        # Set httponly=False so frontend can read it if needed, or keep it true and rely on /api/auth/status
         resp.set_cookie("di_license", key, httponly=True, max_age=30*24*60*60, samesite="Lax")
         resp.set_cookie("di_tier", tier, max_age=30*24*60*60, samesite="Lax")
+        resp.set_cookie("di_uuid", new_uuid, httponly=True, max_age=30*24*60*60, samesite="Lax")
         return resp
         
     return jsonify({"error": "Invalid or expired license key."}), 401
@@ -199,20 +223,23 @@ def auth_activate():
 def auth_status():
     info = get_current_tier()
     tier = info["tier"]
-    used = get_usage(info["identifier"])
     
-    if tier == "Pro":
-        limit = "unlimited"
-    elif tier == "Basic":
-        limit = 500
-    else:
-        limit = 100
-        
-    return jsonify({
+    resp = jsonify({
         "tier": tier,
-        "used_today": used,
-        "limit_today": limit
+        "used_today": get_usage(info["identifier"]),
+        "limit_today": "unlimited" if tier == "Pro" else (500 if tier == "Basic" else 100),
+        "kicked_out": info.get("kicked_out", False),
+        "revoked": info.get("revoked", False)
     })
+    
+    # If the user was kicked out by another browser, or license revoked, clear their cookies
+    if info.get("kicked_out") or info.get("revoked"):
+        resp.set_cookie("di_license", "", expires=0)
+        resp.set_cookie("di_tier", "", expires=0)
+    resp.set_cookie("di_uuid", "", expires=0)
+        resp.set_cookie("di_uuid", "", expires=0)
+        
+    return resp
 
 @app.route("/api/auth/logout", methods=["POST"])
 def auth_logout():

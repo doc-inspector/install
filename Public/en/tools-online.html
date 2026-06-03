@@ -1079,6 +1079,8 @@ async function fetchStatus() {
       currentUsed = data.used_today;
       currentLimit = data.limit_today;
       updateUI();
+      if(data.kicked_out) alert("License activated on another device. This session has been downgraded to Free.");
+      if(data.revoked) alert("License revoked or expired. Downgraded to Free.");
     }
   } catch(e) {}
 }
