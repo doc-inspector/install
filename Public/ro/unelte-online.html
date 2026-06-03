@@ -652,7 +652,7 @@
             <div class="sb-info-item">📄 <strong>Doar PDF</strong> — suportul DOCX/XLSX este în aplicația desktop</div>
           </div>
 
-          <div class="upsell-box">
+          <div class="upsell-box" id="upsell-box">
             <div class="upsell-title">💼 Ai nevoie de procesare batch nelimitată?</div>
             <div class="upsell-desc">Descarcă aplicația desktop pentru Windows — procesează mii de fișiere local fără limite.</div>
             <a href="descarca" class="upsell-btn">Descarcă Aplicația Desktop</a>
@@ -837,18 +837,24 @@ function updateUI() {
     tb.style.background = "rgba(255,255,255,0.05)";
     lForm.style.display = "block";
     lInfo.style.display = "none";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
     tb.style.background = "rgba(16,185,129,0.1)";
     lForm.style.display = "none";
     lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
   } else {
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
     tb.style.background = "rgba(245,158,11,0.1)";
     lForm.style.display = "none";
     lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
   }
   
   if (currentLimit === "unlimited") {

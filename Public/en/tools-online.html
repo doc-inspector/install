@@ -906,7 +906,7 @@
             <div class="sb-info-item">📄 <strong>Online:</strong> PDF focus — <strong>Desktop app</strong> supports DOCX, XLSX &amp; more</div>
           </div>
 
-          <div class="upsell-box">
+          <div class="upsell-box" id="upsell-box">
             <div class="upsell-title">&#x1F680; Need unlimited batch processing?</div>
             <div class="upsell-desc">Download the desktop app for Windows &#x2014; process thousands of files locally with no limits.</div>
             <a href="download" class="upsell-btn">Download Desktop App</a>
@@ -1097,18 +1097,24 @@ function updateUI() {
     tb.style.background = "rgba(255,255,255,0.05)";
     lForm.style.display = "block";
     lInfo.style.display = "none";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
     tb.style.background = "rgba(16,185,129,0.1)";
     lForm.style.display = "none";
     lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
   } else {
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
     tb.style.background = "rgba(245,158,11,0.1)";
     lForm.style.display = "none";
     lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
   }
   
   if (currentLimit === "unlimited") {
