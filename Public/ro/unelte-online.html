@@ -402,11 +402,16 @@
           <div class="step-title">Încarcă Fișierele Tale</div>
           <div class="step-desc">Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.</div>
 
-          <div class="dropzone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+          <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf" style="display:none">
+            <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none">
             <span class="dz-icon" id="dzIcon">📂</span>
             <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele PDF aici</div>
-            <div class="dz-sub" id="dzSub">sau fă clic pentru a naviga — până la 100 fișiere, 15 MB fiecare — 100 gratuit/zi</div>
+            <div class="dz-sub" id="dzSub"></div>
+            <div style="margin-top:12px;display:flex;gap:10px;justify-content:center">
+              <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Selectează Folder</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Selectează Fișiere</button>
+            </div>
           </div>
 
           <div class="file-list" id="fileList"></div>
@@ -1077,6 +1082,34 @@ dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('ov
 dz.addEventListener('dragleave', ()  => dz.classList.remove('over'));
 dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('over'); addFiles([...e.dataTransfer.files]); });
 fi.addEventListener('change', () => { addFiles([...fi.files]); fi.value = ''; });
+
+
+async function getFilesFromDataTransferItems(items) {
+  const promises = [];
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.kind === 'file') {
+      const entry = item.webkitGetAsEntry();
+      if (entry) promises.push(traverseFileTree(entry));
+    }
+  }
+  const nestedArrays = await Promise.all(promises);
+  return nestedArrays.flat();
+}
+function traverseFileTree(item) {
+  return new Promise((resolve) => {
+    if (item.isFile) {
+      item.file(file => resolve([file]));
+    } else if (item.isDirectory) {
+      const dirReader = item.createReader();
+      dirReader.readEntries(async entries => {
+        const promises = entries.map(entry => traverseFileTree(entry));
+        const nestedFiles = await Promise.all(promises);
+        resolve(nestedFiles.flat());
+      });
+    } else resolve([]);
+  });
+}
 
 function addFiles(newFiles) {
   newFiles.filter(f => f.name.toLowerCase().endsWith('.pdf')).forEach(f => {
