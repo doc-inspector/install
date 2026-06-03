@@ -1,4 +1,10 @@
 User-agent: *
-Allow: /
+Allow: /en/
+Allow: /ro/
+Allow: /ru/
+Allow: /assets/
+Disallow: /api/
+Disallow: /index.html
+Disallow: /en/free-online-document-tools
 
 Sitemap: https://doc-inspector.com/sitemap.xml
