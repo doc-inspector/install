@@ -778,7 +778,8 @@
           </div>
 
           <div class="tool-opts" id="opts-watermark">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Watermark Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="wm-text">Watermark Text</label>
                 <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">CONFIDENTIAL</textarea>
@@ -792,6 +793,7 @@
                   <option value="Times-Bold">Times New Roman Bold</option>
                   <option value="Times-Roman">Times New Roman Regular</option>
                   <option value="Times-BoldItalic">Times New Roman Bold Italic</option>
+                  <option value="Palatino-Roman">Palatino Linotype</option>
                   <option value="Courier-Bold">Courier Bold (monospace)</option>
                   <option value="Courier">Courier Regular (monospace)</option>
                 </select>
@@ -812,11 +814,20 @@
                   <span class="range-val" id="wm-op-v">15%</span>
                 </div>
               </div>
+              <div class="opt-row">
+                <label class="opt-label" for="wm-angle">Angle (Rotation)</label>
+                <select class="opt-select" id="wm-angle">
+                  <option value="-45" selected>Diagonal (-45°)</option>
+                  <option value="0">Straight (0°)</option>
+                  <option value="45">Diagonal (45°)</option>
+                </select>
+              </div>
             </div>
           </div>
 
           <div class="tool-opts" id="opts-encrypt">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Encryption Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="enc-pw">Password (required)</label>
                 <input class="opt-input" id="enc-pw" type="password" placeholder="Enter password to encrypt the PDF">
@@ -829,7 +840,8 @@
           </div>
 
           <div class="tool-opts" id="opts-redact">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Redaction Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="redact-kw-input">Keywords to Redact (exact phrases)</label>
                 <div style="display:flex;gap:.5rem">
