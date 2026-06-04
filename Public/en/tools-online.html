@@ -1417,8 +1417,7 @@ function addFiles(newFiles) {
   let msg = [];
   if (skippedLimit) msg.push(skippedLimit + " files ignored (max " + CURRENT_MAX + " reached).");
   if (skippedSize) msg.push(skippedSize + " files ignored (exceeded " + (maxSz/1024/1024) + "MB limit).");
-  if (msg.length) alert(msg.join("
-"));
+  if (msg.length) alert(msg.join("\n"));
   
   renderFiles(); updateBtn();
 }
