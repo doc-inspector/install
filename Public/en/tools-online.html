@@ -1457,6 +1457,7 @@ function gatherOptions() {
     watermarkFont:    document.getElementById('wm-font')?.value    || 'Helvetica-Bold',
     watermarkSize:    document.getElementById('wm-size')?.value    || 60,
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
+      watermarkAngle:   document.getElementById('wm-angle')?.value   || '-45',
     encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
     encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
     encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
