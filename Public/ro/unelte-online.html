@@ -127,8 +127,13 @@
     .icon-indigo { background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(99, 102, 241, 0.3) !important; color: #818cf8; }
     .tool-name { font-size:1.1rem; font-weight:700; color:#fff !important; line-height:1.2; font-family:'Outfit',sans-serif; }
     .tool-desc { font-size:.86rem; color:#cbd5e1 !important; line-height:1.55; font-weight:400; }
-    .tool-opts { max-height:0; overflow:hidden; transition:max-height .4s ease, opacity .3s; opacity:0; }
-    .tool-opts.open { max-height:1200px; opacity:1; }
+    .tool-opts {
+        display: grid; grid-template-rows: 0fr;
+        transition: grid-template-rows .4s ease, opacity .3s;
+        opacity: 0;
+      }
+      .tool-opts.open { grid-template-rows: 1fr; opacity: 1; }
+      .tool-opts > div { overflow: hidden; }
     .tool-opts-inner { border-top:1px solid rgba(255,255,255,.07); padding:1rem 0 .2rem; display:grid; gap:.8rem; }
     .opt-row { display:flex; flex-direction:column; gap:.35rem; }
     .opt-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); }
