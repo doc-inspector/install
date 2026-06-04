@@ -1239,19 +1239,7 @@ def op_watermark(in_path: Path, out_path: Path, options: dict):
         writer.write(fOut)
 
 
-def op_encrypt(in_path: Path, out_path: Path, options: dict):
-    """Password-protect PDF using qpdf."""
-    _require_tool(QPDF, "qpdf")
-    user_pw  = options.get("encryptUserPw",  "")
-    owner_pw = options.get("encryptOwnerPw", options.get("encryptUserPw", "docprotect"))
-    bits     = options.get("encryptBits",    "256")
 
-    cmd = [
-        str(QPDF), "--encrypt",
-        user_pw, owner_pw, str(bits),
-        "--", str(in_path), str(out_path)
-    ]
-    _run(cmd)
 
 
 def op_redact(in_path: Path, out_path: Path, options: dict):
