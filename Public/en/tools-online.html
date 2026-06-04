@@ -577,6 +577,7 @@
       pointer-events: none; opacity: 1; width: 100%; height: 100%;
     }
 
+  #processBtn:hover:not(:disabled) { box-shadow: 0 8px 30px rgba(16,185,129,.5), 0 0 40px rgba(16,185,129,.2) !important; transform: translateY(-2px); }
   </style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden">
@@ -892,7 +893,7 @@
 
         <!-- Process button + result (below both steps) -->
         <div style="margin-top:2rem">
-          <button class="process-btn" id="processBtn" disabled onclick="startProcessing()">
+          <button class="process-btn" id="processBtn" disabled onclick="startProcessing()" style="background:linear-gradient(135deg, #10b981, #34d399); box-shadow: 0 4px 20px rgba(16,185,129,.3); color:#ffffff;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             Process Files Now
           </button>
@@ -1324,7 +1325,10 @@ function updateSidebar() {
   // Construct a premium vertical pipeline tree instead of messy horizontal tags
   const nodes = [
     { label: 'Input PDF Files', emoji: '📄', desc: 'Uploaded & ready' },
-    ...[...selectedOps].map(op => ({
+    ...[...selectedOps].sort((a,b) => {
+        const order = { 'rebuild':1, 'redact':2, 'flatten':3, 'watermark':4, 'sanitize':5, 'encrypt':6 };
+        return (order[a]||99) - (order[b]||99);
+      }).map(op => ({
       label: TOOLS[op].label,
       emoji: TOOLS[op].emoji,
       desc: 'Pipeline active stage'
