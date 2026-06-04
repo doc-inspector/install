@@ -1256,14 +1256,36 @@ def op_encrypt(in_path: Path, out_path: Path, options: dict):
 
 def op_redact(in_path: Path, out_path: Path, options: dict):
     """
-    Find & redact keywords by flattening the PDF to image-only
-    (true text-layer removal — visual redaction via Ghostscript).
-    For a future version, coordinate-based redaction with pdftk/mutool
-    can be implemented here.
+    Find & redact keywords using PyMuPDF (fitz).
+    It searches for the exact phrases and adds black rectangle redactions,
+    removing the underlying text and vectors.
     """
-    _require_tool(GS, "Ghostscript")
-    # Flatten to image PDF removes all text vectors
-    op_flatten(in_path, out_path)
+    keywords_raw = options.get("redactKeywords", "")
+    keywords = [k.strip() for k in keywords_raw.split(',') if k.strip()]
+    
+    if not keywords:
+        # If no keywords are provided, fallback to flatten to image
+        op_flatten(in_path, out_path)
+        return
+
+    try:
+        import fitz
+    except ImportError:
+        # Fallback if PyMuPDF is not installed
+        op_flatten(in_path, out_path)
+        return
+
+    doc = fitz.open(str(in_path))
+    for page in doc:
+        for kw in keywords:
+            text_instances = page.search_for(kw)
+            for inst in text_instances:
+                page.add_redact_annot(inst, fill=(0, 0, 0))
+        # physically apply redactions to remove underlying text/images
+        page.apply_redactions()
+
+    doc.save(str(out_path), garbage=4, deflate=True)
+    doc.close()
 
 
 def op_flatten(in_path: Path, out_path: Path):
