@@ -1356,6 +1356,15 @@ function updateSidebar() {
   pf.innerHTML = '<div class="pipeline-tree">' + stepsHTML + '</div>';
 }
 
+
+  // Dynamically update bundle card limits
+  const bundleDesc = document.getElementById('bundle-desc-dynamic');
+  if (bundleDesc) {
+    const lim = currentTier === "Free" ? 100 : 1000;
+    const mb = currentTier === "Free" ? "15" : "50";
+    bundleDesc.innerHTML = 'Drag a folder with up to ' + lim + ' PDF files (max ' + mb + ' MB each). Generates a professional <strong style="color:var(--yellow)">Excel + PDF report</strong> with file name, page count, SHA-256 hash, encryption status, and totals.';
+  }
+
 function updateBtn() {
   document.getElementById('processBtn').disabled = !(files.length > 0 && selectedOps.size > 0);
 }
