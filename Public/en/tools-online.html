@@ -98,7 +98,7 @@
       background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.3);
       border-radius:50px; padding:.45rem 1.2rem; margin-bottom:1.8rem;
       font-size:.82rem; font-weight:700; letter-spacing:.08em;
-      text-transform:uppercase; color:var(--cyan);
+      text-transform:uppercase; color:var(--brand, var(--cyan));
     }
     .live-dot {
       width:8px; height:8px; border-radius:50%; background:var(--cyan);
@@ -152,7 +152,7 @@
       background:rgba(6,182,212,.12); border:1px solid rgba(6,182,212,.2);
       border-radius:50px; padding:.3rem .9rem;
       font-size:.72rem; font-weight:800; letter-spacing:.1em;
-      text-transform:uppercase; color:var(--cyan); margin-bottom:.6rem;
+      text-transform:uppercase; color:var(--brand, var(--cyan)); margin-bottom:.6rem;
     }
     .tool-step-title {
       font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800;
@@ -254,10 +254,10 @@
       font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box;
       transition:border-color .2s;
     }
-    .opt-input:focus { outline:none; border-color:var(--cyan); }
+    .opt-input:focus { outline:none; border-color:var(--brand, var(--cyan)); }
     .range-row { display:flex; align-items:center; gap:.8rem; }
-    .opt-range { flex:1; accent-color:var(--cyan); cursor:pointer; height:4px; }
-    .range-val { min-width:40px; text-align:right; font-size:.85rem; font-weight:700; color:var(--cyan); }
+    .opt-range { flex:1; accent-color:var(--brand, var(--cyan)); cursor:pointer; height:4px; }
+    .range-val { min-width:40px; text-align:right; font-size:.85rem; font-weight:700; color:var(--brand, var(--cyan)); }
 
     /* â•â• Drop zone â•â• */
     .dropzone {
@@ -272,7 +272,7 @@
       opacity:0; transition:opacity .3s;
     }
     .dropzone:hover, .dropzone.over {
-      border-color:var(--cyan);
+      border-color:var(--brand, var(--cyan));
       box-shadow:0 0 40px rgba(6,182,212,.12);
     }
     .dropzone:hover::after, .dropzone.over::after { opacity:1; }
@@ -336,7 +336,7 @@
     @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
     .spin {
       width:42px; height:42px; border-radius:50%;
-      border:3px solid rgba(6,182,212,.2); border-top-color:var(--cyan);
+      border:3px solid rgba(6,182,212,.2); border-top-color:var(--brand, var(--cyan));
       animation:spin .7s linear infinite; margin:0 auto 1rem;
     }
     @keyframes spin { to{transform:rotate(360deg)} }
@@ -378,7 +378,7 @@
       display:flex; justify-content:space-between; font-size:.78rem; margin-bottom:.5rem;
     }
     .daily-lbl { color:var(--text-muted); }
-    .daily-cnt { color:var(--cyan); font-weight:700; }
+    .daily-cnt { color:var(--brand, var(--cyan)); font-weight:700; }
     .bar-track { height:5px; border-radius:3px; background:rgba(255,255,255,.07); overflow:hidden; }
     .bar-fill {
       height:100%; background:linear-gradient(90deg,var(--cyan),#38bdf8);
@@ -508,7 +508,7 @@
       background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.15);
       border-radius:12px;
     }
-    .upsell-title { font-size:.8rem; font-weight:700; color:var(--cyan); margin-bottom:.3rem; }
+    .upsell-title { font-size:.8rem; font-weight:700; color:var(--brand, var(--cyan)); margin-bottom:.3rem; }
     .upsell-desc  { font-size:.78rem; color:var(--text-muted); margin-bottom:.8rem; line-height:1.5; }
     .upsell-btn {
       display:block; width:100%; text-align:center;
@@ -565,7 +565,7 @@
       background-repeat:no-repeat; background-position:right .9rem center;
       cursor:pointer;
     }
-    .opt-select:focus { outline:none; border-color:var(--cyan); }
+    .opt-select:focus { outline:none; border-color:var(--brand, var(--cyan)); }
     .opt-select option { background:#0f2040; color:#e2e8f0; }
   </style>
 </head>
@@ -626,7 +626,9 @@
 </header>
 
 <!-- â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â• -->
-<section class="tools-hero">
+<section class="tools-hero" style="position:relative;overflow:hidden;">
+    <div class="cyber-grid"></div>
+    <div class="hex-particles"></div>
   <div class="container">
     <div class="hero-eyebrow-pill gsap-fade">
       <span class="live-dot"></span>
@@ -758,29 +760,29 @@
           </div><!-- /tools-grid -->
 
           <!-- Options panels -->
-          <div class="tool-opts" id="opts-sanitize">
+          <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner">
               <p style="font-size:.78rem;color:var(--text-muted);margin:0 0 .5rem">Select what types of metadata to remove:</p>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-author" checked style="accent-color:var(--cyan)"> Author &amp; Creator Info
+                  <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Author &amp; Creator Info
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-time" checked style="accent-color:var(--cyan)"> Creation &amp; Mod Dates
+                  <input type="checkbox" id="san-time" checked style="accent-color:var(--brand, var(--cyan))"> Creation &amp; Mod Dates
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--cyan)"> GPS &amp; Location Data
+                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--brand, var(--cyan))"> GPS &amp; Location Data
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-software" checked style="accent-color:var(--cyan)"> Software Signatures
+                  <input type="checkbox" id="san-software" checked style="accent-color:var(--brand, var(--cyan))"> Software Signatures
                 </label>
               </div>
             </div>
           </div>
 
-          <div class="tool-opts" id="opts-watermark">
+          <div class="tool-opts" id="opts-watermark" style="--brand: #0ea5e9;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Watermark Settings</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Watermark Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="wm-text">Watermark Text</label>
                 <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">CONFIDENTIAL</textarea>
@@ -827,9 +829,9 @@
             </div>
           </div>
 
-          <div class="tool-opts" id="opts-encrypt">
+          <div class="tool-opts" id="opts-encrypt" style="--brand: #a855f7;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Encryption Settings</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Encryption Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="enc-pw">Document Open Password (Optional)</label>
                 <input class="opt-input" id="enc-pw" type="password" placeholder="User must enter this to open the PDF">
@@ -849,21 +851,21 @@
               <div class="opt-row" style="margin-top:0.5rem;">
                 <label class="opt-label">Restrictions (Requires Permissions Password)</label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="checkbox" id="enc-no-print" style="accent-color:var(--cyan)"> Prevent Printing
+                  <input type="checkbox" id="enc-no-print" style="accent-color:var(--brand, var(--cyan))"> Prevent Printing
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="checkbox" id="enc-no-copy" style="accent-color:var(--cyan)"> Prevent Copying Text/Images
+                  <input type="checkbox" id="enc-no-copy" style="accent-color:var(--brand, var(--cyan))"> Prevent Copying Text/Images
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="checkbox" id="enc-no-edit" style="accent-color:var(--cyan)"> Prevent Modifying/Editing
+                  <input type="checkbox" id="enc-no-edit" style="accent-color:var(--brand, var(--cyan))"> Prevent Modifying/Editing
                 </label>
               </div>
             </div>
           </div>
 
-          <div class="tool-opts" id="opts-redact">
+          <div class="tool-opts" id="opts-redact" style="--brand: #ef4444;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Redaction Settings</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Redaction Settings</div>
               <div class="opt-row">
                 <label class="opt-label" for="redact-kw-input">Keywords to Redact (exact phrases)</label>
                 <div style="display:flex;gap:.5rem">
@@ -1488,14 +1490,14 @@ async function startProcessing() {
 
   // Validate encrypt
   if (selectedOps.has('encrypt')) {
-    const pw  = document.getElementById('enc-pw').value;
-    const pw2 = document.getElementById('enc-pw2').value;
-    if (!pw)       { alert('Please enter an encryption password.'); return; }
-    if (pw !== pw2){ alert('Passwords do not match.');              return; }
-      const pwOwner = document.getElementById('enc-owner').value;
-      const pwOwner2 = document.getElementById('enc-owner2').value;
+      const pw  = document.getElementById('enc-pw') ? document.getElementById('enc-pw').value : '';
+      const pw2 = document.getElementById('enc-pw2') ? document.getElementById('enc-pw2').value : '';
+      const pwOwner = document.getElementById('enc-owner') ? document.getElementById('enc-owner').value : '';
+      const pwOwner2 = document.getElementById('enc-owner2') ? document.getElementById('enc-owner2').value : '';
+      if (!pw && !pwOwner) { alert('Please enter at least one password (Document Open or Permissions).'); return; }
+      if (pw && pw !== pw2){ alert('Document Open Passwords do not match.'); return; }
       if (pwOwner && pwOwner !== pwOwner2) { alert('Permissions passwords do not match.'); return; }
-  }
+    }
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
