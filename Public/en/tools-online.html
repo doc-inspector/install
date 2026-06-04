@@ -1178,6 +1178,7 @@ function updateUI() {
       card.style.pointerEvents = "auto";
     }
   });
+}
 
 async function activateLicense() {
   const key = document.getElementById('license-key-input').value.trim();
@@ -1402,6 +1403,7 @@ function traverseFileTree(item) {
       });
     } else resolve([]);
   });
+}
 
 function addFiles(newFiles) {
   const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
@@ -1417,7 +1419,7 @@ function addFiles(newFiles) {
   let msg = [];
   if (skippedLimit) msg.push(skippedLimit + " files ignored (max " + CURRENT_MAX + " reached).");
   if (skippedSize) msg.push(skippedSize + " files ignored (exceeded " + (maxSz/1024/1024) + "MB limit).");
-  if (msg.length) alert(msg.join("\n"));
+  if (msg.length) alert(msg.join("\\n"));
   
   renderFiles(); updateBtn();
 }
