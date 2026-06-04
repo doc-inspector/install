@@ -82,8 +82,8 @@
     .step-desc { font-size:.9rem; color:var(--text-muted); margin-bottom:1.5rem; }
     .tools-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.2rem; margin-bottom:2rem; }
     .tool-card {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(15, 32, 66, 0.8)) !important;
-      border: 1px solid rgba(6, 182, 212, 0.2) !important;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 5%, transparent), rgba(15, 32, 66, 0.8)) !important;
+      border: 1px solid color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent) !important;
       border-radius:20px; padding:1.5rem;
       cursor:pointer; position:relative;
       transition:all .35s cubic-bezier(.4,0,.2,1);
@@ -93,22 +93,22 @@
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 4px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
     }
-    .tool-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(6,182,212,0.12),transparent); opacity:0; transition:opacity .35s; }
+    .tool-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent),transparent); opacity:0; transition:opacity .35s; }
     .tool-card:hover {
-      border-color: rgba(6,182,212,.65) !important;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(20, 50, 95, 0.85)) !important;
-      box-shadow: 0 12px 36px rgba(6, 182, 212, 0.18), inset 0 1px 0 rgba(255,255,255,0.1);
+      border-color: color-mix(in srgb, var(--brand, #06b6d4) 65%, transparent) !important;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent), rgba(20, 50, 95, 0.85)) !important;
+      box-shadow: 0 12px 36px color-mix(in srgb, var(--brand, #06b6d4) 18%, transparent), inset 0 1px 0 rgba(255,255,255,0.1);
       transform:translateY(-3px);
     }
     .tool-card:hover::before { opacity:1; }
     .tool-card.selected {
       border-color: rgba(6, 182, 212, 0.95) !important;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(10, 30, 60, 0.9)) !important;
-      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent), rgba(10, 30, 60, 0.9)) !important;
+      box-shadow: 0 0 25px color-mix(in srgb, var(--brand, #06b6d4) 25%, transparent), inset 0 1px 0 rgba(255,255,255,0.15);
     }
-    .tool-card .ripple { position:absolute; border-radius:50%; background:rgba(6,182,212,.2); transform:scale(0); animation:rippleAnim .6s linear; pointer-events:none; }
+    .tool-card .ripple { position:absolute; border-radius:50%; background:color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent); transform:scale(0); animation:rippleAnim .6s linear; pointer-events:none; }
     @keyframes rippleAnim { to{transform:scale(4); opacity:0;} }
-    .check-ring { position:absolute; top:12px; right:12px; width:22px; height:22px; border-radius:50%; background:var(--cyan); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900; opacity:0; transform:scale(.4) rotate(-90deg); transition:all .3s cubic-bezier(.34,1.56,.64,1); }
+    .check-ring { position:absolute; top:12px; right:12px; width:22px; height:22px; border-radius:50%; background:var(--brand, var(--cyan)); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900; opacity:0; transform:scale(.4) rotate(-90deg); transition:all .3s cubic-bezier(.34,1.56,.64,1); }
     .tool-card.selected .check-ring { opacity:1; transform:scale(1) rotate(0deg); }
     .tool-header { display:flex; align-items:center; gap:.9rem; margin-bottom:.8rem; }
     .tool-icon-wrap {
@@ -134,7 +134,14 @@
       }
       .tool-opts.open { grid-template-rows: 1fr; opacity: 1; }
       .tool-opts > div { overflow: hidden; }
-    .tool-opts-inner { border-top:1px solid rgba(255,255,255,.07); padding:1rem 0 .2rem; display:grid; gap:.8rem; }
+    .tool-opts-inner {
+        border-top:1px solid rgba(255,255,255,.07);
+        padding:1rem; display:grid; gap:.8rem;
+        background: linear-gradient(to bottom, color-mix(in srgb, var(--brand, #06b6d4) 6%, transparent), rgba(0,0,0,0.3)) !important;
+        border: 1px solid color-mix(in srgb, var(--brand, #06b6d4) 15%, rgba(255,255,255,0.05)) !important;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
     .opt-row { display:flex; flex-direction:column; gap:.35rem; }
     .opt-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); }
     .opt-input { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:.55rem .9rem; color:#fff; font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box; transition:border-color .2s; }
