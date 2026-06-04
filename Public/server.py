@@ -304,8 +304,23 @@ def process():
     if not operations:
         return jsonify({"error": "No operations selected."}), 400
         
+    # Remove duplicate flatten if redact is present (since redact does flattening anyway)
+    if "redact" in operations and "flatten" in operations:
+        operations.remove("flatten")
+        
+    # Enforce logical execution order
+    ORDER = {
+        "rebuild": 1,
+        "redact": 2,
+        "flatten": 3,
+        "watermark": 4,
+        "sanitize": 5,
+        "encrypt": 6
+    }
+    operations = sorted(operations, key=lambda x: ORDER.get(x, 99))
+        
     # Feature gating
-    pro_features = {"flatten", "redact"}
+    pro_features = set()
     if tier == "Free":
         for op in operations:
             if op in pro_features:
