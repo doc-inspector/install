@@ -14,15 +14,10 @@ with open(ro_html, 'r', encoding='utf-8') as f:
 with open(ru_html, 'r', encoding='utf-8') as f:
     ru_content = f.read()
 
-# We want to replace the ENTIRE <section class="tools-hero">...</section> in RO/RU
-# with the one from EN, and then translate the strings.
-# Wait, it's easier to just take the entire EN file, and ONLY keep the <head> titles and navbar/footer from RO/RU.
-# Let's extract the tools-hero section from EN.
-hero_pattern = re.compile(r'(<section class="tools-hero">.*?</section>)', re.DOTALL)
+hero_pattern = re.compile(r'(<section class="tools-hero"[^>]*>.*?</section>)', re.DOTALL)
 en_hero = hero_pattern.search(en_content).group(1)
 
-# We also need the script blocks for UI updates.
-script_pattern = re.compile(r'(<script>\s*let selectedOps.*?)</script>', re.DOTALL)
+script_pattern = re.compile(r'(<script>\s*let selectedOps.*?</script>)', re.DOTALL)
 en_scripts = script_pattern.search(en_content)
 if en_scripts:
     en_script_content = en_scripts.group(0)
@@ -75,7 +70,6 @@ def apply_translations(html, lang):
             "Download the desktop app for Windows — process thousands of files locally with no limits.": "Descarcă aplicația desktop pentru Windows — procesează mii de fișiere local fără limite.",
             "Download Desktop App": "Descarcă Aplicația Desktop",
             
-            # Tools labels and descriptions
             "Sanitize Metadata": "Sanitizare Metadate",
             "Remove author name, creation date, software fingerprints, GPS data and all hidden metadata from your PDF. Essential before sharing documents externally.": "Elimină numele autorului, data creării, amprentele software, datele GPS și toate metadatele ascunse din PDF. Esențial înainte de a partaja documente extern.",
             
@@ -155,7 +149,6 @@ def apply_translations(html, lang):
             "Download the desktop app for Windows — process thousands of files locally with no limits.": "Скачайте десктопное приложение для Windows — обрабатывайте тысячи файлов локально без ограничений.",
             "Download Desktop App": "Скачать Десктопное Приложение",
             
-            # Tools labels and descriptions
             "Sanitize Metadata": "Очистка Метаданных",
             "Remove author name, creation date, software fingerprints, GPS data and all hidden metadata from your PDF. Essential before sharing documents externally.": "Удаляет имя автора, дату создания, отпечатки ПО, данные GPS и все скрытые метаданные из вашего PDF. Необходимо перед внешней отправкой.",
             
@@ -191,33 +184,28 @@ def apply_translations(html, lang):
             "Confirm Password": "Подтвердите пароль"
         }
         
-    # Replace translations
     for en_text, tl_text in translations.items():
         html = html.replace(en_text, tl_text)
         
-    # Special case for const TOOLS mapping in scripts
     html = html.replace("emoji: '&#x1F910;' },", "emoji: '&#x1F910;' },\n")
     return html
 
 def patch_file(orig_content, lang):
-    # Find the bounds of <section class="tools-hero"> in orig_content
-    orig_hero_pattern = re.compile(r'(<section class="tools-hero">.*?</section>)', re.DOTALL)
-    
-    # Replace hero section
+    orig_hero_pattern = re.compile(r'(<section class="tools-hero"[^>]*>.*?</section>)', re.DOTALL)
     new_hero = apply_translations(en_hero, lang)
-    content = orig_hero_pattern.sub(new_hero, orig_content)
+    if orig_hero_pattern.search(orig_content):
+        content = orig_hero_pattern.sub(new_hero.replace('\\', '\\\\'), orig_content)
+    else:
+        # fallback if not found, just replace something known
+        print(f"Could not find tools-hero in {lang}")
+        content = orig_content
     
-    # We must also ensure the updated JS logic (like updateSidebar sorting) is in the new files.
-    # We can just replace the entire <script> block at the end that contains toggleTool, updateSidebar, processFiles.
-    # Actually, it's safer to just replace from <script>\s*let selectedOps to </script>
     if en_script_content:
         new_script = apply_translations(en_script_content, lang)
-        
         orig_script_pattern = re.compile(r'(<script>\s*let selectedOps.*?</script>)', re.DOTALL)
         if orig_script_pattern.search(content):
             content = orig_script_pattern.sub(new_script.replace('\\', '\\\\'), content)
             
-    # Fix broken Cripteaz&abreve; in JS array
     content = content.replace("Cripteaz&abreve;", "Criptează")
     content = content.replace("Repar&abreve;", "Repară")
     
