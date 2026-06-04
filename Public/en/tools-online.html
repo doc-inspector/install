@@ -284,7 +284,7 @@
     .dz-sub   { font-size:.85rem; color:var(--text-muted); position:relative; z-index:1; }
 
     /* File list */
-    .file-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; }
+    .file-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; max-height: 250px; overflow-y: auto; padding-right: 5px; }
     .file-item {
       display:flex; align-items:center; gap:.7rem;
       background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
@@ -814,14 +814,7 @@
                   <span class="range-val" id="wm-op-v">15%</span>
                 </div>
               </div>
-              <div class="opt-row">
-                <label class="opt-label" for="wm-angle">Angle (Rotation)</label>
-                <select class="opt-select" id="wm-angle">
-                  <option value="-45" selected>Diagonal (-45°)</option>
-                  <option value="0">Straight (0°)</option>
-                  <option value="45">Diagonal (45°)</option>
-                </select>
-              </div>
+              
             </div>
           </div>
 
@@ -829,12 +822,24 @@
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
               <div style="font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Encryption Settings</div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw">Password (required)</label>
-                <input class="opt-input" id="enc-pw" type="password" placeholder="Enter password to encrypt the PDF">
+                <label class="opt-label" for="enc-pw">Document Open Password (Optional)</label>
+                <input class="opt-input" id="enc-pw" type="password" placeholder="User must enter this to open the PDF">
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw2">Confirm Password</label>
-                <input class="opt-input" id="enc-pw2" type="password" placeholder="Repeat the password">
+                <label class="opt-label" for="enc-owner">Permissions Password (Optional)</label>
+                <input class="opt-input" id="enc-owner" type="password" placeholder="Password to lock/unlock restrictions">
+              </div>
+              <div class="opt-row" style="margin-top:0.5rem;">
+                <label class="opt-label">Restrictions (Requires Permissions Password)</label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-print" style="accent-color:var(--cyan)"> Prevent Printing
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-copy" style="accent-color:var(--cyan)"> Prevent Copying Text/Images
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-edit" style="accent-color:var(--cyan)"> Prevent Modifying/Editing
+                </label>
               </div>
             </div>
           </div>
@@ -1429,7 +1434,10 @@ function gatherOptions() {
     watermarkSize:    document.getElementById('wm-size')?.value    || 60,
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
     encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
-    encryptOwnerPw:   document.getElementById('enc-pw')?.value     || 'docprotect',
+    encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
+    encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
+    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked || false,
+    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked || false,
     encryptBits:      '256',
     redactKeywords:   document.getElementById('redact-kw')?.value  || '',
     sanitizeAuthor:   document.getElementById('san-author') ? document.getElementById('san-author').checked : true,
