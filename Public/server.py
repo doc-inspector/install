@@ -64,13 +64,13 @@ if IS_LINUX:
     PDFTK     = _which("pdftk")
 else:
     # ── Windows — bundled .exe files next to the desktop app ──
-    TOOLS_DIR = (BASE_DIR / ".." / ".." / "APP 2.2.1 REAL TIME WORK"
-                 / "DocInspector_legacy" / "DocInspectorCSharp" / "Tools").resolve()
+    APP_DIR = Path(r"E:\Website online and local app new project\APP 2.2.1 REAL TIME WORK\DocInspector_legacy\DocInspectorCSharp\bin\Debug\net8.0-windows\win-x64")
+    TOOLS_DIR = APP_DIR / "Tools"
     EXIFTOOL  = TOOLS_DIR / "exiftool-13.43_64"  / "exiftool.exe"
-    QPDF      = TOOLS_DIR / "qpdf-11.9.1_64"     / "bin" / "qpdf.exe"
-    GS        = TOOLS_DIR / "gs10.03.0_64"        / "bin" / "gswin64c.exe"
-    MUPDF     = TOOLS_DIR / "mupdf-1.24.0_64"     / "mutool.exe"
-    PDFTK     = TOOLS_DIR / "pdftk_server"        / "pdftk.exe"
+    QPDF      = TOOLS_DIR / "qpdf-12.2.0-msvc64" / "bin" / "qpdf.exe"
+    GS        = TOOLS_DIR / "gs"                 / "gswin64c.exe"
+    MUPDF     = TOOLS_DIR / "mutool.exe"
+    PDFTK     = None # Not bundled in newer versions
 
 # Temp processing directory (auto-cleaned after each job)
 TMP_DIR = BASE_DIR / "tmp_processing"
@@ -236,7 +236,6 @@ def auth_status():
     if info.get("kicked_out") or info.get("revoked"):
         resp.set_cookie("di_license", "", expires=0)
         resp.set_cookie("di_tier", "", expires=0)
-    resp.set_cookie("di_uuid", "", expires=0)
         resp.set_cookie("di_uuid", "", expires=0)
         
     return resp
@@ -373,12 +372,23 @@ def process():
         
         success_count = 0
         with zipfile.ZipFile(str(zip_path), "w", zipfile.ZIP_DEFLATED) as zf:
+            error_log = []
             for r in results:
                 if r["status"] == "ok":
                     fp = out_dir / r["output"]
                     if fp.exists():
                         zf.write(str(fp), arcname=r["output"])
                         success_count += 1
+                elif r["status"] == "error":
+                    fp_err = in_dir / r["file"]
+                    if fp_err.exists():
+                        zf.write(str(fp_err), arcname=f"errors/{r['file']}")
+                    error_log.append(f"File: {r['file']} - Error: {r['message']}")
+            
+            if error_log:
+                err_log_path = job_dir / "error_log.txt"
+                err_log_path.write_text("\n".join(error_log), encoding="utf-8")
+                zf.write(str(err_log_path), arcname="errors/error_log.txt")
                         
         if success_count > 0:
             increment_usage(identifier, success_count)
@@ -1027,15 +1037,22 @@ def op_sanitize(in_path: Path, out_path: Path, options: dict = None):
 
 
 def op_watermark(in_path: Path, out_path: Path, options: dict):
-    """Add a diagonal text watermark using Ghostscript PostScript."""
-    _require_tool(GS, "Ghostscript")
+    """Add a watermark to all pages using pypdf and reportlab for true transparency."""
+    import io
+    from pypdf import PdfReader, PdfWriter
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.colors import Color
+
     text     = options.get("watermarkText",    "CONFIDENTIAL")
     font_sz  = int(options.get("watermarkSize",    60))
     opacity  = float(options.get("watermarkOpacity", 0.15))
-    color    = options.get("watermarkColor",   "0.5 0.5 0.5")  # R G B 0-1
+    color_str= options.get("watermarkColor",   "0.5 0.5 0.5")  # R G B 0-1
+    angle    = float(options.get("watermarkAngle", -45))
 
-    # Map UI font choice → Ghostscript built-in PostScript font name
-    # Only built-in PS fonts are safe (no font embedding needed)
+    # Parse color
+    r, g, b = [float(c) for c in color_str.split()]
+    draw_color = Color(r, g, b, alpha=opacity)
+
     FONT_MAP = {
         "Helvetica-Bold":      "Helvetica-Bold",
         "Helvetica":           "Helvetica",
@@ -1045,40 +1062,166 @@ def op_watermark(in_path: Path, out_path: Path, options: dict):
         "Courier":             "Courier",
         "Helvetica-Oblique":   "Helvetica-Oblique",
         "Times-BoldItalic":    "Times-BoldItalic",
+        "Palatino-Roman":      "Times-Roman", # fallback if not standard, but let's try mapping to Helvetica for now if unsupported
     }
     raw_font = options.get("watermarkFont", "Helvetica-Bold")
-    gs_font  = FONT_MAP.get(raw_font, "Helvetica-Bold")  # safe fallback
+    gs_font  = FONT_MAP.get(raw_font, "Helvetica-Bold")
+    if raw_font == "Palatino-Roman":
+        # Reportlab supports standard fonts. Times-Roman is a close serif.
+        gs_font = "Times-Roman"
 
-    # Build a PostScript stamp
-    ps_stamp = out_path.parent / f"_stamp_{out_path.name}.ps"
-    ps_content = f"""%!PS
-/watermark_text ({text}) def
-/font_size {font_sz} def
-/opacity {opacity} def
+    lines = [line.strip() for line in text.replace('\r', '').split('\n')]
+    
+    # Process PDF
+    reader = PdfReader(str(in_path))
+    writer = PdfWriter()
 
-<< /BeginPage {{
-  gsave
-  {color} setrgbcolor
-  opacity setfillconstantalpha
-  /{gs_font} findfont font_size scalefont setfont
-  297 421 translate  % A4 center approx
-  -45 rotate
-  watermark_text dup stringwidth pop -2 div 0 moveto
-  show
-  grestore
-}} >> setpagedevice
-"""
-    ps_stamp.write_text(ps_content, encoding="utf-8")
+    for page in reader.pages:
+        # Get page dimensions
+        mbox = page.mediabox
+        page_w = float(mbox.width)
+        page_h = float(mbox.height)
 
-    _run([
-        str(GS), "-dBATCH", "-dNOPAUSE", "-dQUIET",
-        "-sDEVICE=pdfwrite",
-        f"-sOutputFile={out_path}",
-        str(in_path)
-    ])
-    # Cleanup stamp
-    if ps_stamp.exists():
-        ps_stamp.unlink()
+        # Create transparent stamp in memory for this specific page size
+        packet = io.BytesIO()
+        c = canvas.Canvas(packet, pagesize=(page_w, page_h))
+        c.setFillColor(draw_color)
+        c.setFont(gs_font, font_sz)
+
+        # Move to center
+        c.translate(page_w / 2.0, page_h / 2.0)
+        c.rotate(angle)
+
+        # Draw lines centered
+        N = len(lines)
+        for i, line in enumerate(lines):
+            y_offset = ((N - 1) / 2.0 - i) * font_sz * 1.2
+            c.drawCentredString(0, y_offset, line)
+
+        c.save()
+        packet.seek(0)
+        
+        # Merge
+        stamp_reader = PdfReader(packet)
+        stamp_page = stamp_reader.pages[0]
+        page.merge_page(stamp_page, over=True)
+        writer.add_page(page)
+
+    with open(str(out_path), "wb") as fOut:
+        writer.write(fOut)
+
+
+def op_encrypt(in_path: Path, out_path: Path, options: dict):
+    """Password-protect PDF using qpdf."""
+    _require_tool(QPDF, "qpdf")
+    user_pw  = options.get("encryptUserPw",  "")
+    owner_pw = options.get("encryptOwnerPw", "")
+    bits     = options.get("encryptBits",    "256")
+    
+    no_print = options.get("encryptNoPrint", False)
+    no_copy  = options.get("encryptNoCopy", False)
+    no_edit  = options.get("encryptNoEdit", False)
+
+    # If any restriction is set, but no owner password is provided,
+    # we must generate a random owner password so restrictions are actually enforced.
+    import secrets
+    if (no_print or no_copy or no_edit) and not owner_pw:
+        owner_pw = secrets.token_hex(8)
+    
+    # If owner password is provided but no user password, qpdf requires user password to be empty string
+    if not owner_pw:
+        owner_pw = user_pw if user_pw else secrets.token_hex(8)
+
+    cmd = [
+        str(QPDF), "--encrypt",
+        user_pw, owner_pw, bits
+    ]
+    
+    if no_print:
+        cmd.append("--print=none")
+    if no_copy:
+        cmd.append("--extract=n")
+    if no_edit:
+        cmd.append("--modify=none")
+        
+    cmd.extend(["--", str(in_path), str(out_path)])
+    
+    _run(cmd)
+
+
+def op_watermark(in_path: Path, out_path: Path, options: dict):
+    """Add a watermark to all pages using pypdf and reportlab for true transparency."""
+    import io
+    from pypdf import PdfReader, PdfWriter
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.colors import Color
+
+    text     = options.get("watermarkText",    "CONFIDENTIAL")
+    font_sz  = int(options.get("watermarkSize",    60))
+    opacity  = float(options.get("watermarkOpacity", 0.15))
+    color_str= options.get("watermarkColor",   "0.5 0.5 0.5")  # R G B 0-1
+    angle    = float(options.get("watermarkAngle", -45))
+
+    # Parse color
+    r, g, b = [float(c) for c in color_str.split()]
+    draw_color = Color(r, g, b, alpha=opacity)
+
+    FONT_MAP = {
+        "Helvetica-Bold":      "Helvetica-Bold",
+        "Helvetica":           "Helvetica",
+        "Times-Bold":          "Times-Bold",
+        "Times-Roman":         "Times-Roman",
+        "Courier-Bold":        "Courier-Bold",
+        "Courier":             "Courier",
+        "Helvetica-Oblique":   "Helvetica-Oblique",
+        "Times-BoldItalic":    "Times-BoldItalic",
+        "Palatino-Roman":      "Times-Roman", # fallback if not standard, but let's try mapping to Helvetica for now if unsupported
+    }
+    raw_font = options.get("watermarkFont", "Helvetica-Bold")
+    gs_font  = FONT_MAP.get(raw_font, "Helvetica-Bold")
+    if raw_font == "Palatino-Roman":
+        # Reportlab supports standard fonts. Times-Roman is a close serif.
+        gs_font = "Times-Roman"
+
+    lines = [line.strip() for line in text.replace('\r', '').split('\n')]
+    
+    # Process PDF
+    reader = PdfReader(str(in_path))
+    writer = PdfWriter()
+
+    for page in reader.pages:
+        # Get page dimensions
+        mbox = page.mediabox
+        page_w = float(mbox.width)
+        page_h = float(mbox.height)
+
+        # Create transparent stamp in memory for this specific page size
+        packet = io.BytesIO()
+        c = canvas.Canvas(packet, pagesize=(page_w, page_h))
+        c.setFillColor(draw_color)
+        c.setFont(gs_font, font_sz)
+
+        # Move to center
+        c.translate(page_w / 2.0, page_h / 2.0)
+        c.rotate(angle)
+
+        # Draw lines centered
+        N = len(lines)
+        for i, line in enumerate(lines):
+            y_offset = ((N - 1) / 2.0 - i) * font_sz * 1.2
+            c.drawCentredString(0, y_offset, line)
+
+        c.save()
+        packet.seek(0)
+        
+        # Merge
+        stamp_reader = PdfReader(packet)
+        stamp_page = stamp_reader.pages[0]
+        page.merge_page(stamp_page, over=True)
+        writer.add_page(page)
+
+    with open(str(out_path), "wb") as fOut:
+        writer.write(fOut)
 
 
 def op_encrypt(in_path: Path, out_path: Path, options: dict):
@@ -1187,7 +1330,8 @@ if __name__ == "__main__":
     print("  Tool availability:")
     for name, path in [("ExifTool", EXIFTOOL), ("qpdf", QPDF),
                         ("Ghostscript", GS), ("MuPDF", MUPDF), ("pdftk", PDFTK)]:
-        status = "✓ Found" if path.exists() else "✗ NOT FOUND"
+        exists = path is not None and path.exists()
+        status = "[OK] Found" if exists else "[FAIL] Missing"
         print(f"    {name:15s}: {status}")
     print()
     print("  Open in browser: http://localhost:5000/tools-online")
