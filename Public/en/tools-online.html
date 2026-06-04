@@ -1173,26 +1173,7 @@ function updateUI() {
   }
   
   // Update visually locked cards
-  const proFeatures = ['redact', 'flatten'];
-  proFeatures.forEach(op => {
-    const card = document.getElementById('card-' + op);
-    if (!card) return;
-    if (currentTier === "Free") {
-      if (!card.querySelector('.pro-lock')) {
-        const lock = document.createElement('div');
-        lock.className = 'pro-lock';
-        lock.innerHTML = '<span style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#f87171;font-size:.65rem;font-weight:800;padding:.2rem .45rem;border-radius:4px;position:absolute;top:12px;right:12px;letter-spacing:.05em">PRO</span>';
-        card.appendChild(lock);
-      }
-      card.style.opacity = "0.6";
-      card.style.pointerEvents = "none";
-    } else {
-      const lock = card.querySelector('.pro-lock');
-      if (lock) lock.remove();
-      card.style.opacity = "1";
-      card.style.pointerEvents = "auto";
-    }
-  });
+  
 }
 
 async function activateLicense() {
