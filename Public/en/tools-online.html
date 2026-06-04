@@ -1178,7 +1178,6 @@ function updateUI() {
       card.style.pointerEvents = "auto";
     }
   });
-}
 
 async function activateLicense() {
   const key = document.getElementById('license-key-input').value.trim();
@@ -1403,7 +1402,6 @@ function traverseFileTree(item) {
       });
     } else resolve([]);
   });
-}
 
 function addFiles(newFiles) {
   const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
