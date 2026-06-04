@@ -237,7 +237,7 @@
       transition:max-height .4s ease, opacity .3s;
       opacity:0;
     }
-    .tool-opts.open { max-height:350px; opacity:1; }
+    .tool-opts.open { max-height:1200px; opacity:1; }
     .tool-opts-inner {
       border-top:1px solid rgba(255,255,255,.07);
       padding:1rem 0 .2rem; display:grid; gap:.8rem;
@@ -834,13 +834,17 @@
                 <input class="opt-input" id="enc-pw" type="password" placeholder="User must enter this to open the PDF">
               </div>
               <div class="opt-row" style="margin-top:0.5rem;">
-                <label class="opt-label" for="enc-pw2">Confirm Password (Required if encrypting)</label>
+                <label class="opt-label" for="enc-pw2">Confirm Document Open Password</label>
                 <input class="opt-input" id="enc-pw2" type="password" placeholder="Re-enter to confirm">
               </div>
               <div class="opt-row">
                 <label class="opt-label" for="enc-owner">Permissions Password (Optional)</label>
                 <input class="opt-input" id="enc-owner" type="password" placeholder="Password to lock/unlock restrictions">
               </div>
+                <div class="opt-row" style="margin-top:0.5rem;">
+                  <label class="opt-label" for="enc-owner2">Confirm Permissions Password</label>
+                  <input class="opt-input" id="enc-owner2" type="password" placeholder="Re-enter to confirm">
+                </div>
               <div class="opt-row" style="margin-top:0.5rem;">
                 <label class="opt-label">Restrictions (Requires Permissions Password)</label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
@@ -1487,6 +1491,9 @@ async function startProcessing() {
     const pw2 = document.getElementById('enc-pw2').value;
     if (!pw)       { alert('Please enter an encryption password.'); return; }
     if (pw !== pw2){ alert('Passwords do not match.');              return; }
+      const pwOwner = document.getElementById('enc-owner').value;
+      const pwOwner2 = document.getElementById('enc-owner2').value;
+      if (pwOwner && pwOwner !== pwOwner2) { alert('Permissions passwords do not match.'); return; }
   }
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
