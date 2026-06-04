@@ -659,8 +659,8 @@
             <input type="file" id="fileInput" multiple accept=".pdf" style="display:none">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none">
             <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
-            <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
-            <div class="dz-sub" id="dzSub"></div>
+            <div class="dz-title" id="dzTitle">Drag &amp; Drop PDF files here</div>
+            <div class="dz-sub" id="dzSub">or click to browse &mdash; max 100 files per day &mdash; 15 MB each</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
@@ -1357,14 +1357,6 @@ function updateSidebar() {
 }
 
 
-  // Dynamically update bundle card limits
-  const bundleDesc = document.getElementById('bundle-desc-dynamic');
-  if (bundleDesc) {
-    const lim = currentTier === "Free" ? 100 : 1000;
-    const mb = currentTier === "Free" ? "15" : "50";
-    bundleDesc.innerHTML = 'Drag a folder with up to ' + lim + ' PDF files (max ' + mb + ' MB each). Generates a professional <strong style="color:var(--yellow)">Excel + PDF report</strong> with file name, page count, SHA-256 hash, encryption status, and totals.';
-  }
-
 function updateBtn() {
   document.getElementById('processBtn').disabled = !(files.length > 0 && selectedOps.size > 0);
 }
@@ -1414,10 +1406,22 @@ function traverseFileTree(item) {
 }
 
 function addFiles(newFiles) {
+  const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
+  const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
+  let skippedLimit = 0; let skippedSize = 0;
+  
   newFiles.filter(f => f.name.toLowerCase().endsWith('.pdf')).forEach(f => {
-    if (files.length >= MAX) return;
+    if (f.size > maxSz) { skippedSize++; return; }
+    if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
     if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
   });
+  
+  let msg = [];
+  if (skippedLimit) msg.push(skippedLimit + " files ignored (max " + CURRENT_MAX + " reached).");
+  if (skippedSize) msg.push(skippedSize + " files ignored (exceeded " + (maxSz/1024/1024) + "MB limit).");
+  if (msg.length) alert(msg.join("
+"));
+  
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
