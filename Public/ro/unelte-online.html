@@ -423,8 +423,8 @@
           <div class="step-desc">Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.</div>
 
           <div class="dropzone" id="dropZone" >
-            <input type="file" id="fileInput" multiple accept=".pdf" style="display:none">
-            <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none">
+            <input type="file" id="fileInput" multiple accept=".pdf" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
+            <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">📂</span>
             <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele PDF aici</div>
             <div class="dz-sub" id="dzSub"></div>
@@ -615,6 +615,7 @@
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
               <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Întregul strat de text al paginii este eliminat pentru a garanta că nu rămâne niciun conținut sensibil (ieșire doar-imagine).</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Atenție: Dacă documentul este scanat/imagine, textul nu va fi găsit. Recomandăm să bifați și "Rebuild & Repair" pentru OCR, însă procesarea va dura semnificativ mai mult.</p>
             </div>
           </div>
 
@@ -845,7 +846,7 @@ let currentUsed = 0;
 
 async function fetchStatus() {
   try {
-    const res = await fetch('https://deeper-passage-rotation-universities.trycloudflare.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (res.ok) {
       const data = await res.json();
       currentTier = data.tier;
@@ -918,7 +919,7 @@ async function activateLicense() {
   fd.append("license_key", key);
   
   try {
-    const res = await fetch('https://deeper-passage-rotation-universities.trycloudflare.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     const data = await res.json();
     if (res.ok) {
       msg.style.display = "block";
@@ -941,7 +942,7 @@ async function activateLicense() {
 }
 
 async function logoutLicense() {
-  await fetch('https://deeper-passage-rotation-universities.trycloudflare.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
+  await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
   await fetchStatus();
 }
 
@@ -1094,6 +1095,8 @@ dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('ov
 dz.addEventListener('dragleave', ()  => dz.classList.remove('over'));
 dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('over'); addFiles([...e.dataTransfer.files]); });
 fi.addEventListener('change', () => { addFiles([...fi.files]); fi.value = ''; });
+const foldI = document.getElementById('folderInput');
+if(foldI) foldI.addEventListener('change', () => { addFiles([...foldI.files]); foldI.value = ''; });
 
 
 async function getFilesFromDataTransferItems(items) {
@@ -1124,7 +1127,7 @@ function traverseFileTree(item) {
 }
 
 function addFiles(newFiles) {
-  newFiles.filter(f => f.name.toLowerCase().endsWith('.pdf')).forEach(f => {
+  newFiles.filter(f => { const ext = f.name.toLowerCase(); return ext.endsWith('.pdf') || ext.endsWith('.doc') || ext.endsWith('.docx') || ext.endsWith('.xls') || ext.endsWith('.xlsx'); }).forEach(f => {
     if (files.length >= MAX) return;
     if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
   });
@@ -1194,18 +1197,18 @@ async function startProcessing() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').textContent   = 'Se procesează fișierele tale…';
-  document.getElementById('rSub').textContent     = 'Pipeline: ' + [...selectedOps].join(' → ');
+  document.getElementById('rTitle').innerHTML   = 'Se procesează fișierele tale…';
+  document.getElementById('rSub').innerHTML     = 'Pipeline: ' + [...selectedOps].join(' → ');
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => fd.append('files[]', f));
+  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
-    const resp = await fetch('https://deeper-passage-rotation-universities.trycloudflare.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Eroare server.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1239,16 +1242,16 @@ async function startBundleSummary() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').textContent   = 'Se generează borderoul PDF…';
-  document.getElementById('rSub').textContent     = 'Se extrag metadatele, nr. pagini și hash-ul SHA-256 pentru fiecare fișier';
+  document.getElementById('rTitle').innerHTML   = 'Se generează borderoul PDF…';
+  document.getElementById('rSub').innerHTML     = 'Se extrag metadatele, nr. pagini și hash-ul SHA-256 pentru fiecare fișier';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => fd.append('files[]', f));
+  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
   try {
-    const resp = await fetch('https://deeper-passage-rotation-universities.trycloudflare.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Eroare server.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
