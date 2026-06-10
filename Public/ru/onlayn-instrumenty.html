@@ -830,7 +830,7 @@ let currentUsed = 0;
 
 async function fetchStatus() {
   try {
-    const res = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (res.ok) {
       const data = await res.json();
       currentTier = data.tier;
@@ -903,7 +903,7 @@ async function activateLicense() {
   fd.append("license_key", key);
   
   try {
-    const res = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     const data = await res.json();
     if (res.ok) {
       msg.style.display = "block";
@@ -926,7 +926,7 @@ async function activateLicense() {
 }
 
 async function logoutLicense() {
-  await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
+  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
   await fetchStatus();
 }
 
@@ -1191,7 +1191,7 @@ async function startProcessing() {
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
-    const resp = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1234,7 +1234,7 @@ async function startBundleSummary() {
   const fd = new FormData();
   files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
   try {
-    const resp = await fetch('https://fortune-puzzle-passive-offline.trycloudflare.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
