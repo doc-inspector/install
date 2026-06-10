@@ -423,10 +423,10 @@
           <div class="step-desc">Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.</div>
 
           <div class="dropzone" id="dropZone" >
-            <input type="file" id="fileInput" multiple accept=".pdf" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
+            <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.xlsx,.xls,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">📂</span>
-            <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele PDF aici</div>
+            <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele aici</div>
             <div class="dz-sub" id="dzSub"></div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Selectează Folder</button>
@@ -1010,16 +1010,17 @@ function toggleTool(e, name) {
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
-    dzTitle.textContent = 'Trage un FOLDER aici (până la 100 PDF-uri)';
+    dzTitle.textContent = 'Trage un FOLDER aici (până la 100 fișiere)';
     dzSub.textContent   = 'sau click pentru a naviga folderul — max 100 fișiere × 15 MB fiecare';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
-    fi.setAttribute('accept', '.pdf');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.xlsx,.xls,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
     dzIcon.textContent  = '📂';
-    dzTitle.textContent = 'Trage & Plasează fișierele PDF aici';
-    dzSub.textContent   = 'sau click pentru a naviga — până la 20 fișiere, 50 MB fiecare — 100 gratuit/zi';
+    dzTitle.textContent = 'Trage & Plasează fișierele aici';
+    const maxSz = currentTier === "Free" ? "15" : "50";
+    dzSub.textContent   = 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
@@ -1127,10 +1128,27 @@ function traverseFileTree(item) {
 }
 
 function addFiles(newFiles) {
-  newFiles.filter(f => { const ext = f.name.toLowerCase(); return ext.endsWith('.pdf') || ext.endsWith('.doc') || ext.endsWith('.docx') || ext.endsWith('.xls') || ext.endsWith('.xlsx'); }).forEach(f => {
-    if (files.length >= MAX) return;
+  const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
+  const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
+  let skippedLimit = 0; let skippedSize = 0;
+  
+  newFiles.filter(f => {
+    const name = f.name.toLowerCase();
+    return name.endsWith('.pdf') || name.endsWith('.doc') || name.endsWith('.docx') ||
+           name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.txt') ||
+           name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
+           name.endsWith('.pptx') || name.endsWith('.ppt');
+  }).forEach(f => {
+    if (f.size > maxSz) { skippedSize++; return; }
+    if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
     if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
   });
+  
+  let msg = [];
+  if (skippedLimit) msg.push(skippedLimit + " fișiere ignorate (s-a atins limita maximă de " + CURRENT_MAX + ").");
+  if (skippedSize) msg.push(skippedSize + " fișiere ignorate (depășesc limita de " + (maxSz/1024/1024) + "MB).");
+  if (msg.length) alert(msg.join("\n"));
+  
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
@@ -1142,9 +1160,9 @@ function renderFiles() {
   if (!files.length) {
     list.innerHTML = '';
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la 100 PDF-uri)' : 'Trage & Plasează fișierele PDF aici';
+    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la 100 fișiere)' : 'Trage & Plasează fișierele aici';
     const maxSz = currentTier === "Free" ? "15" : "50";
-    sub.textContent   = selectedOps.has(\'bundle\') ? \'sau click pentru a naviga folderul — max 100 fișiere × 15 MB fiecare\' : \'sau click pentru a naviga — max \' + currentLimit + \' fișiere pe zi — \' + maxSz + \' MB fiecare\';
+    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max 100 fișiere × 15 MB fiecare' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare';
     return;
   }
   icon.textContent  = '📋';
@@ -1158,7 +1176,7 @@ function renderFiles() {
 }
 
 function gatherOptions() {
-  return {
+return {
     watermarkText:    document.getElementById('wm-text')?.value    || 'CONFIDENȚIAL',
     watermarkFont:    document.getElementById('wm-font')?.value    || 'Helvetica-Bold',
     watermarkSize:    document.getElementById('wm-size')?.value    || 60,
@@ -1178,19 +1196,20 @@ function gatherOptions() {
 async function startProcessing() {
   if (!files.length || !selectedOps.size) return;
 
-  // Routează borderoul la propriul endpoint API
+  // Route bundle summary to its own endpoint
   if (selectedOps.has('bundle')) {
     await startBundleSummary();
     return;
   }
 
+  // Validate encrypt
   if (selectedOps.has('encrypt')) {
       const pw  = document.getElementById('enc-pw') ? document.getElementById('enc-pw').value : '';
       const pw2 = document.getElementById('enc-pw2') ? document.getElementById('enc-pw2').value : '';
       const pwOwner = document.getElementById('enc-owner') ? document.getElementById('enc-owner').value : '';
       const pwOwner2 = document.getElementById('enc-owner2') ? document.getElementById('enc-owner2').value : '';
-      if (!pw && !pwOwner) { alert('Vă rugăm introduceți o parolă (de Deschidere sau Permisiuni).'); return; }
-      if (pw && pw !== pw2){ alert('Parolele de deschidere nu se potrivesc.'); return; }
+      if (!pw && !pwOwner) { alert('Vă rugăm să introduceți cel puțin o parolă (Deschidere Document sau Permisiuni).'); return; }
+      if (pw && pw !== pw2){ alert('Parolele de deschidere a documentului nu se potrivesc.'); return; }
       if (pwOwner && pwOwner !== pwOwner2) { alert('Parolele de permisiuni nu se potrivesc.'); return; }
     }
   const ra = document.getElementById('resultArea');
@@ -1200,11 +1219,17 @@ async function startProcessing() {
   document.getElementById('rTitle').innerHTML   = 'Se procesează fișierele tale…';
   document.getElementById('rSub').innerHTML     = 'Pipeline: ' + [...selectedOps].join(' → ');
   document.getElementById('rDlBtn').style.display = 'none';
+  document.getElementById('rDlBtn').textContent   = '';
+  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
+    if (allowed.includes(ext)) fd.append('files[]', f);
+  });
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
@@ -1214,17 +1239,8 @@ async function startProcessing() {
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
-    const blob = await resp.blob();
-    const url  = URL.createObjectURL(blob);
-    await fetchStatus(); // Refresh limit from server
-    document.getElementById('rSpin').style.display   = 'none';
-    document.getElementById('rIcon').style.display   = 'block';
-    document.getElementById('rIcon').textContent     = '✅';
-    document.getElementById('rTitle').textContent    = 'Procesare Completă!';
-    document.getElementById('rSub').textContent      = files.length + ' fișier' + (files.length > 1 ? 'e' : '') + ' procesate cu succes';
-    const dl = document.getElementById('rDlBtn');
-    dl.download = 'DocInspector_Processed.zip'; dl.href = url; dl.style.display = 'inline-flex'; dl.click();
-    document.getElementById('rResetBtn').style.display = 'inline-block';
+    const data = await resp.json();
+    await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
@@ -1249,7 +1265,11 @@ async function startBundleSummary() {
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt'];
+    if (allowed.includes(ext)) fd.append('files[]', f);
+  });
   try {
     const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
@@ -1257,18 +1277,8 @@ async function startBundleSummary() {
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
-    const blob = await resp.blob();
-    const url  = URL.createObjectURL(blob);
-    await fetchStatus(); // Refresh limit from server
-    document.getElementById('rSpin').style.display   = 'none';
-    document.getElementById('rIcon').style.display   = 'block';
-    document.getElementById('rIcon').textContent     = '📊';
-    document.getElementById('rTitle').textContent    = 'Borderou finalizat cu succes!';
-    document.getElementById('rSub').textContent      = 'ZIP-ul conține: Raport Excel (2 foi de calcul) + PDF + rezumat text';
-    const dl = document.getElementById('rDlBtn');
-    dl.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Borderoul (.zip)';
-    dl.download = 'DocInspector_Processed.zip'; dl.href = url; dl.style.display = 'inline-flex'; dl.click();
-    document.getElementById('rResetBtn').style.display = 'inline-block';
+    const data = await resp.json();
+    await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
@@ -1277,6 +1287,68 @@ async function startBundleSummary() {
     document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
+  }
+}
+
+async function pollJobStatus(jobId, downloadName) {
+  const rSub = document.getElementById('rSub');
+  const rTitle = document.getElementById('rTitle');
+  const rSpin = document.getElementById('rSpin');
+  const rIcon = document.getElementById('rIcon');
+  const dlBtn = document.getElementById('rDlBtn');
+  const resetBtn = document.getElementById('rResetBtn');
+  const processBtn = document.getElementById('processBtn');
+  
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    try {
+      const resp = await fetch(`https://api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+      if (!resp.ok) throw new Error('Eșec la obținerea stării jobului');
+      const data = await resp.json();
+      
+      if (data.status === 'processing' || data.status === 'pending') {
+        rSub.textContent = data.progress || 'Se procesează...';
+      } else if (data.status === 'completed') {
+        await fetchStatus(); // Actualizare limită zilnică
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        if (downloadName.includes('Bundle')) {
+          rIcon.textContent = '📊';
+          rTitle.textContent = 'Borderou Pregătit!';
+          rSub.textContent = 'Arhiva ZIP conține: raportul Excel (2 foi) + PDF';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Borderou (.zip)';
+        } else {
+          rIcon.textContent = '✅';
+          rTitle.textContent = 'Procesare Finalizată!';
+          rSub.textContent = 'Fișierele tale au fost procesate cu succes';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
+        }
+        
+        dlBtn.href = `https://api.doc-inspector.com/api/job-download/${jobId}`;
+        dlBtn.download = downloadName;
+        dlBtn.style.display = 'inline-flex';
+        dlBtn.click();
+        
+        resetBtn.style.display = 'inline-block';
+        break;
+      } else if (data.status === 'failed') {
+        throw new Error(data.error || 'Jobul a eșuat pe server.');
+      }
+    } catch(err) {
+      rSpin.style.display = 'none';
+      rIcon.style.display = 'block';
+      rIcon.textContent = '❌';
+      if (downloadName.includes('Bundle')) {
+        rTitle.textContent = 'Generare Borderou Eșuată';
+      } else {
+        rTitle.textContent = 'Procesare Eșuată';
+      }
+      rSub.textContent = err.message || 'Eroare la verificarea stării.';
+      processBtn.disabled = false;
+      resetBtn.style.display = 'inline-block';
+      break;
+    }
   }
 }
 

@@ -994,16 +994,17 @@ function toggleTool(e, name) {
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
-    dzTitle.textContent = 'Перетащите ПАПКУ сюда (до 100 PDF)';
+    dzTitle.textContent = 'Перетащите ПАПКУ сюда (до 100 файлов)';
     dzSub.textContent   = 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
-    fi.setAttribute('accept', '.pdf');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.xlsx,.xls,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
     dzIcon.textContent  = '📂';
-    dzTitle.textContent = 'Перетащите PDF-файлы сюда';
-    dzSub.textContent   = 'или нажмите для выбора — до 20 файлов, 50 МБ каждый — 100 бесплатно/день';
+    dzTitle.textContent = 'Перетащите файлы сюда';
+    const maxSz = currentTier === "Free" ? "15" : "50";
+    dzSub.textContent   = 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
@@ -1111,10 +1112,27 @@ function traverseFileTree(item) {
 }
 
 function addFiles(newFiles) {
-  newFiles.filter(f => { const ext = f.name.toLowerCase(); return ext.endsWith('.pdf') || ext.endsWith('.doc') || ext.endsWith('.docx') || ext.endsWith('.xls') || ext.endsWith('.xlsx'); }).forEach(f => {
-    if (files.length >= MAX) return;
+  const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
+  const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
+  let skippedLimit = 0; let skippedSize = 0;
+  
+  newFiles.filter(f => {
+    const name = f.name.toLowerCase();
+    return name.endsWith('.pdf') || name.endsWith('.doc') || name.endsWith('.docx') ||
+           name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.txt') ||
+           name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
+           name.endsWith('.pptx') || name.endsWith('.ppt');
+  }).forEach(f => {
+    if (f.size > maxSz) { skippedSize++; return; }
+    if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
     if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
   });
+  
+  let msg = [];
+  if (skippedLimit) msg.push(skippedLimit + " файлов пропущено (достигнут лимит в " + CURRENT_MAX + ").");
+  if (skippedSize) msg.push(skippedSize + " файлов пропущено (превышен лимит размера в " + (maxSz/1024/1024) + " МБ).");
+  if (msg.length) alert(msg.join("\n"));
+  
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
@@ -1126,8 +1144,9 @@ function renderFiles() {
   if (!files.length) {
     list.innerHTML = '';
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до 100 PDF)' : 'Перетащите PDF-файлы сюда';
-    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый' : 'или нажмите для выбора — до 20 файлов, 50 МБ каждый — 100 бесплатно/день';
+    title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до 100 файлов)' : 'Перетащите файлы сюда';
+    const maxSz = currentTier === "Free" ? "15" : "50";
+    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый';
     return;
   }
   icon.textContent  = '📋';
@@ -1183,11 +1202,17 @@ async function startProcessing() {
   document.getElementById('rTitle').innerHTML   = 'Обрабатываем ваши файлы…';
   document.getElementById('rSub').innerHTML     = 'Конвейер: ' + [...selectedOps].join(' → ');
   document.getElementById('rDlBtn').style.display = 'none';
+  document.getElementById('rDlBtn').textContent   = '';
+  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать результаты (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
+    if (allowed.includes(ext)) fd.append('files[]', f);
+  });
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
@@ -1197,17 +1222,8 @@ async function startProcessing() {
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
-    const blob = await resp.blob();
-    const url  = URL.createObjectURL(blob);
-    await fetchStatus(); // Refresh limit from server
-    document.getElementById('rSpin').style.display   = 'none';
-    document.getElementById('rIcon').style.display   = 'block';
-    document.getElementById('rIcon').textContent     = '✅';
-    document.getElementById('rTitle').textContent    = 'Обработка завершена!';
-    document.getElementById('rSub').textContent      = files.length + ' файл' + (files.length > 1 ? (files.length < 5 ? 'а' : 'ов') : '') + ' успешно обработано';
-    const dl = document.getElementById('rDlBtn');
-    dl.download = 'DocInspector_Processed.zip'; dl.href = url; dl.style.display = 'inline-flex'; dl.click();
-    document.getElementById('rResetBtn').style.display = 'inline-block';
+    const data = await resp.json();
+    await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
@@ -1232,7 +1248,11 @@ async function startBundleSummary() {
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  files.forEach(f => { if (f.name.toLowerCase().endsWith('.pdf')) fd.append('files[]', f); });
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt'];
+    if (allowed.includes(ext)) fd.append('files[]', f);
+  });
   try {
     const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
@@ -1240,18 +1260,8 @@ async function startBundleSummary() {
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
-    const blob = await resp.blob();
-    const url  = URL.createObjectURL(blob);
-    await fetchStatus(); // Refresh limit from server
-    document.getElementById('rSpin').style.display   = 'none';
-    document.getElementById('rIcon').style.display   = 'block';
-    document.getElementById('rIcon').textContent     = '📊';
-    document.getElementById('rTitle').textContent    = 'Отчёт успешно сформирован!';
-    document.getElementById('rSub').textContent      = 'ZIP-архив содержит: Отчёт Excel (2 листа) + PDF + текстовую сводку';
-    const dl = document.getElementById('rDlBtn');
-    dl.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать отчёт (.zip)';
-    dl.download = 'DocInspector_Processed.zip'; dl.href = url; dl.style.display = 'inline-flex'; dl.click();
-    document.getElementById('rResetBtn').style.display = 'inline-block';
+    const data = await resp.json();
+    await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
@@ -1260,6 +1270,68 @@ async function startBundleSummary() {
     document.getElementById('rSub').textContent      = err.message || 'Убедитесь, что локальный сервер запущен (python server.py)';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
+  }
+}
+
+async function pollJobStatus(jobId, downloadName) {
+  const rSub = document.getElementById('rSub');
+  const rTitle = document.getElementById('rTitle');
+  const rSpin = document.getElementById('rSpin');
+  const rIcon = document.getElementById('rIcon');
+  const dlBtn = document.getElementById('rDlBtn');
+  const resetBtn = document.getElementById('rResetBtn');
+  const processBtn = document.getElementById('processBtn');
+  
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    try {
+      const resp = await fetch(`https://api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+      if (!resp.ok) throw new Error('Не удалось получить статус задачи');
+      const data = await resp.json();
+      
+      if (data.status === 'processing' || data.status === 'pending') {
+        rSub.textContent = data.progress || 'Обработка...';
+      } else if (data.status === 'completed') {
+        await fetchStatus(); // Обновить суточный лимит
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        if (downloadName.includes('Bundle')) {
+          rIcon.textContent = '📊';
+          rTitle.textContent = 'Сводный отчёт готов!';
+          rSub.textContent = 'ZIP-архив содержит: Отчёт Excel (2 листа) + PDF + текстовую сводку';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать отчёт (.zip)';
+        } else {
+          rIcon.textContent = '✅';
+          rTitle.textContent = 'Обработка завершена!';
+          rSub.textContent = 'Ваши файлы были успешно обработаны';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать результаты (.zip)';
+        }
+        
+        dlBtn.href = `https://api.doc-inspector.com/api/job-download/${jobId}`;
+        dlBtn.download = downloadName;
+        dlBtn.style.display = 'inline-flex';
+        dlBtn.click();
+        
+        resetBtn.style.display = 'inline-block';
+        break;
+      } else if (data.status === 'failed') {
+        throw new Error(data.error || 'Ошибка задачи на сервере.');
+      }
+    } catch(err) {
+      rSpin.style.display = 'none';
+      rIcon.style.display = 'block';
+      rIcon.textContent = '❌';
+      if (downloadName.includes('Bundle')) {
+        rTitle.textContent = 'Ошибка создания отчёта';
+      } else {
+        rTitle.textContent = 'Ошибка обработки';
+      }
+      rSub.textContent = err.message || 'Ошибка проверки статуса.';
+      processBtn.disabled = false;
+      resetBtn.style.display = 'inline-block';
+      break;
+    }
   }
 }
 
