@@ -407,7 +407,7 @@
           <div class="step-desc">Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>15 МБ</strong> каждый), 100 бесплатно в день.</div>
 
           <div class="dropzone" id="dropZone" >
-            <input type="file" id="fileInput" multiple accept=".pdf" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
+            <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">📂</span>
             <div class="dz-title" id="dzTitle">Перетащите PDF-файлы сюда</div>
@@ -1000,7 +1000,7 @@ function toggleTool(e, name) {
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
-    fi.setAttribute('accept', '.pdf,.docx,.doc,.xlsx,.xls,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
     dzIcon.textContent  = '📂';
     dzTitle.textContent = 'Перетащите файлы сюда';
     const maxSz = currentTier === "Free" ? "15" : "50";
@@ -1119,7 +1119,9 @@ function addFiles(newFiles) {
   newFiles.filter(f => {
     const name = f.name.toLowerCase();
     return name.endsWith('.pdf') || name.endsWith('.doc') || name.endsWith('.docx') ||
-           name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.txt') ||
+           name.endsWith('.rtf') || name.endsWith('.odt') ||
+           name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.xlsm') ||
+           name.endsWith('.csv') || name.endsWith('.txt') ||
            name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
            name.endsWith('.pptx') || name.endsWith('.ppt');
   }).forEach(f => {
@@ -1210,7 +1212,7 @@ async function startProcessing() {
   const fd = new FormData();
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
     if (allowed.includes(ext)) fd.append('files[]', f);
   });
   fd.append('operations', JSON.stringify([...selectedOps]));
@@ -1250,7 +1252,7 @@ async function startBundleSummary() {
   const fd = new FormData();
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'txt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt'];
     if (allowed.includes(ext)) fd.append('files[]', f);
   });
   try {
