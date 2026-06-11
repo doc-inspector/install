@@ -434,6 +434,17 @@
             </div>
           </div>
 
+          <div class="supported-formats" style="margin-top:0.8rem; font-size:0.75rem; color:var(--text-muted); display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
+            <span>Formate suportate:</span>
+            <strong>PDF</strong>,
+            <strong>DOCX / DOC</strong>,
+            <strong>XLSX / XLS / XLSM</strong>,
+            <strong>CSV</strong>,
+            <strong>TXT</strong>,
+            <strong>PNG / JPG / JPEG</strong>,
+            <strong>PPTX / PPT</strong>
+          </div>
+
           <div class="file-list" id="fileList"></div>
         </div><!-- /pasul 1 -->
 
@@ -452,7 +463,7 @@
                 <div class="tool-icon-wrap icon-blue">🧹</div>
                 <div class="tool-name">Sanitizare Metadate</div>
               </div>
-              <div class="tool-desc">Elimină numele autorului, data creării, amprentele software, datele GPS și toate metadatele ascunse din PDF. Esențial înainte de a partaja documente extern.</div>
+              <div class="tool-desc">Elimină numele autorului, data creării, amprentele software, GPS și metadatele. <strong style="color:#f97316">Suportă PDF, DOCX, XLSX, CSV, TXT, Imagini, PPTX.</strong></div>
             </div>
 
             <!-- Watermark -->
@@ -462,7 +473,7 @@
                 <div class="tool-icon-wrap icon-green">💧</div>
                 <div class="tool-name">Adaugă Watermark</div>
               </div>
-              <div class="tool-desc">Aplică un watermark text diagonal (ex: CONFIDENȚIAL, DRAFT) pe fiecare pagină a PDF-ului cu opacitate și dimensiune font personalizabile.</div>
+              <div class="tool-desc">Aplică un watermark text diagonal pe fiecare pagină a documentului. <strong style="color:#0ea5e9">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- Criptare -->
@@ -472,7 +483,7 @@
                 <div class="tool-icon-wrap icon-purple">🔐</div>
                 <div class="tool-name">Criptează PDF</div>
               </div>
-              <div class="tool-desc">Protejează PDF-ul cu parolă prin criptare AES 256-bit. Doar destinatarii cu parola corectă pot deschide documentul.</div>
+              <div class="tool-desc">Protejează PDF-ul cu parolă prin criptare AES 256-bit. <strong style="color:#8b5cf6">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- Redactare -->
@@ -482,7 +493,7 @@
                 <div class="tool-icon-wrap icon-red">⬛</div>
                 <div class="tool-name">Găsește &amp; Redactează</div>
               </div>
-              <div class="tool-desc">Elimină permanent textul sensibil dintr-un PDF prin convertirea lui într-o versiune securizată doar imagine, fără un strat de text selectabil.</div>
+              <div class="tool-desc">Elimină permanent textul sensibil din documentul tău. <strong style="color:#ef4444">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- Aplatizare -->
@@ -492,7 +503,7 @@
                 <div class="tool-icon-wrap icon-orange">🖼️</div>
                 <div class="tool-name">Aplatizare în PDF-Imagine</div>
               </div>
-              <div class="tool-desc">Convertește fiecare pagină într-o imagine raster în interiorul PDF-ului. Elimină tot textul încorporat, fonturile, scripturile și câmpurile active de formular.</div>
+              <div class="tool-desc">Convertește fiecare pagină într-o imagine raster în interiorul PDF-ului. <strong style="color:#10b981">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- Reconstruire -->
@@ -502,7 +513,7 @@
                 <div class="tool-icon-wrap icon-indigo">🛠️</div>
                 <div class="tool-name">Reconstruiește &amp; Repară PDF</div>
               </div>
-              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. Linearizează și re-codifică documentul pentru compatibilitate maximă.</div>
+              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. <strong style="color:#6366f1">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- PDF Bundle Summary -->
@@ -513,7 +524,7 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
                 <div class="tool-name">Borderou PDF</div>
               </div>
-              <div class="tool-desc">Trage un folder cu până la 100 de fișiere PDF (max 15 MB fiecare). Generează un <strong style="color:#f59e0b">raport profesional Excel + PDF</strong> cu numele fișierului, numărul de pagini, hash-ul SHA-256, starea criptării și totalurile.</div>
+              <div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu hash SHA-256 și metadate. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Încărcare folder</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
@@ -633,11 +644,18 @@
             <div class="r-icon" id="rIcon" style="display:none"></div>
             <div class="r-title" id="rTitle">Se procesează fișierele tale…</div>
             <div class="r-sub"   id="rSub">Acest lucru poate dura câteva secunde</div>
+            <div id="rProgressContainer" style="display:none; margin: 1rem auto; max-width: 400px;">
+              <div style="height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                <div id="rProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #10b981); transition: width 0.5s ease; box-shadow: 0 0 8px rgba(6,182,212,0.6);"></div>
+              </div>
+              <div id="rProgressText" style="font-size:0.78rem; color: rgba(255,255,255,0.5); margin-top:0.4rem; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+            </div>
             <a href="#" class="dl-btn" id="rDlBtn" style="display:none" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Descarcă Rezultatele (.zip)
             </a>
             <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">↺ Procesează un alt lot</button>
+            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Oprește Procesarea</button>
           </div>
         </div>
 
@@ -657,6 +675,7 @@
               <span class="daily-cnt" id="dailyCnt">0 / 100 fișiere</span>
             </div>
             <div class="bar-track"><div class="bar-fill" id="dailyFill" style="width:0%"></div></div>
+            <div id="dailyReset" style="font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem;text-align:right;display:none;"></div>
           </div>
           <div id="license-activate-form">
             <input type="text" id="license-key-input" class="opt-input" placeholder="Introdu cheia DocInspector..." style="margin-bottom:.5rem">
@@ -843,6 +862,7 @@ let files = [];
 let currentTier = "Free";
 let currentLimit = 100;
 let currentUsed = 0;
+let resetInSeconds = 0;
 
 async function fetchStatus() {
   try {
@@ -852,11 +872,63 @@ async function fetchStatus() {
       currentTier = data.tier;
       currentUsed = data.used_today;
       currentLimit = data.limit_today;
+      resetInSeconds = data.reset_in_seconds || 0;
       updateUI();
       if(data.kicked_out) alert("Licența a fost activată pe un alt browser. Sesiunea curentă a fost retrogradată la Gratuit.");
       if(data.revoked) alert("Licența a fost anulată sau a expirat. Retrogradat la Gratuit.");
     }
   } catch(e) {}
+}
+
+let resetInterval = null;
+function startResetCountdown(seconds, lang) {
+  if (resetInterval) clearInterval(resetInterval);
+  let remaining = seconds;
+  const dReset = document.getElementById('dailyReset');
+  if (!dReset) return;
+  
+  if (currentTier === "Pro" || remaining <= 0) {
+    dReset.style.display = 'none';
+    return;
+  }
+  
+  dReset.style.display = 'block';
+  
+  function updateText() {
+    if (remaining <= 0) {
+      dReset.textContent = lang === 'ro' ? 'Se resetează...' : (lang === 'ru' ? 'Сброс...' : 'Resetting...');
+      clearInterval(resetInterval);
+      fetchStatus();
+      return;
+    }
+    
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    let timeStr = "";
+    if (lang === 'ro') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ore");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute");
+      timeStr = "Resetare în " + parts.join(" și ");
+    } else if (lang === 'ru') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ч.");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " мин.");
+      timeStr = "Сброс через " + parts.join(" ");
+    } else {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " hour" + (hours !== 1 ? "s" : ""));
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute" + (minutes !== 1 ? "s" : ""));
+      timeStr = "Reset in " + parts.join(" and ");
+    }
+    dReset.textContent = timeStr;
+  }
+  
+  updateText();
+  resetInterval = setInterval(() => {
+    remaining--;
+    updateText();
+  }, 1000);
 }
 
 function updateUI() {
@@ -896,9 +968,12 @@ function updateUI() {
   if (currentLimit === "unlimited") {
     dCnt.textContent = currentUsed + " / ∞";
     dFill.style.width = "0%";
+    const dReset = document.getElementById('dailyReset');
+    if (dReset) dReset.style.display = 'none';
   } else {
     dCnt.textContent = currentUsed + " / " + currentLimit + " fișiere";
     dFill.style.width = Math.min((currentUsed / currentLimit) * 100, 100) + '%';
+    startResetCountdown(resetInSeconds, 'ro');
   }
   
   // Update visually locked cards
@@ -1094,7 +1169,15 @@ const dz = document.getElementById('dropZone');
 const fi = document.getElementById('fileInput');
 dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('over'); });
 dz.addEventListener('dragleave', ()  => dz.classList.remove('over'));
-dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('over'); addFiles([...e.dataTransfer.files]); });
+dz.addEventListener('drop', async e => {
+  e.preventDefault(); dz.classList.remove('over');
+  if (e.dataTransfer.items) {
+    const newFiles = await getFilesFromDataTransferItems(e.dataTransfer.items);
+    addFiles(newFiles);
+  } else {
+    addFiles([...e.dataTransfer.files]);
+  }
+});
 fi.addEventListener('change', () => { addFiles([...fi.files]); fi.value = ''; });
 const foldI = document.getElementById('folderInput');
 if(foldI) foldI.addEventListener('change', () => { addFiles([...foldI.files]); foldI.value = ''; });
@@ -1112,17 +1195,33 @@ async function getFilesFromDataTransferItems(items) {
   const nestedArrays = await Promise.all(promises);
   return nestedArrays.flat();
 }
-function traverseFileTree(item) {
+function traverseFileTree(item, path = '') {
   return new Promise((resolve) => {
     if (item.isFile) {
-      item.file(file => resolve([file]));
+      item.file(file => {
+        const fileRelPath = path ? `${path}/${file.name}` : file.name;
+        file.customRelativePath = fileRelPath;
+        resolve([file]);
+      });
     } else if (item.isDirectory) {
       const dirReader = item.createReader();
-      dirReader.readEntries(async entries => {
-        const promises = entries.map(entry => traverseFileTree(entry));
-        const nestedFiles = await Promise.all(promises);
-        resolve(nestedFiles.flat());
-      });
+      const dirPath = path ? `${path}/${item.name}` : item.name;
+      let allEntries = [];
+      const readAllEntries = () => {
+        dirReader.readEntries(async entries => {
+          if (entries.length === 0) {
+            const promises = allEntries.map(entry => traverseFileTree(entry, dirPath));
+            const nestedFiles = await Promise.all(promises);
+            resolve(nestedFiles.flat());
+          } else {
+            allEntries = allEntries.concat(entries);
+            readAllEntries();
+          }
+        }, () => {
+          resolve([]);
+        });
+      };
+      readAllEntries();
     } else resolve([]);
   });
 }
@@ -1143,7 +1242,8 @@ function addFiles(newFiles) {
   }).forEach(f => {
     if (f.size > maxSz) { skippedSize++; return; }
     if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
-    if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
+    const fPath = f.customRelativePath || f.webkitRelativePath || f.name;
+    if (!files.find(x => (x.customRelativePath || x.webkitRelativePath || x.name) === fPath && x.size === f.size)) files.push(f);
   });
   
   let msg = [];
@@ -1154,6 +1254,30 @@ function addFiles(newFiles) {
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
+function getFileCountSummary() {
+  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (ext === 'pdf') counts.pdf++;
+    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
+    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
+    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
+    else if (['png', 'jpg', 'jpeg'].includes(ext)) counts.image++;
+    else if (ext === 'txt') counts.text++;
+  });
+  const parts = [];
+  if (counts.pdf) parts.push(counts.pdf + ' PDF');
+  if (counts.excel) parts.push(counts.excel + ' Excel');
+  if (counts.word) parts.push(counts.word + ' Word');
+  if (counts.powerpoint) parts.push(counts.powerpoint + ' PowerPoint');
+  if (counts.image) parts.push(counts.image + ' imagini');
+  if (counts.text) parts.push(counts.text + ' text');
+  
+  if (parts.length === 0) return 'Fă clic pentru a adăuga mai multe';
+  const limitMsg = files.length >= MAX ? ' (Limită atinsă)' : ' — fă clic pentru a adăuga';
+  return parts.join(', ') + limitMsg;
+}
+
 function renderFiles() {
   const list  = document.getElementById('fileList');
   const icon  = document.getElementById('dzIcon');
@@ -1169,12 +1293,13 @@ function renderFiles() {
   }
   icon.textContent  = '📋';
   title.textContent = files.length + ' fișier' + (files.length > 1 ? 'e' : '') + ' selectate';
-  sub.textContent   = files.length >= MAX ? 'Limită atinsă' : 'Fă clic pentru a adăuga mai multe';
-  list.innerHTML = files.map((f, i) =>
-    '<div class="file-item">📄 <span class="fi-name" title="'+f.name+'">'+f.name+'</span>'
-    + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
-    + '<button class="fi-remove" onclick="removeFile('+i+')" title="Elimină">✕</button></div>'
-  ).join('');
+  sub.textContent   = getFileCountSummary();
+  list.innerHTML = files.map((f, i) => {
+    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
+    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
+      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
+      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Elimină">✕</button></div>';
+  }).join('');
 }
 
 function gatherOptions() {
@@ -1218,23 +1343,30 @@ async function startProcessing() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se procesează fișierele tale…';
-  document.getElementById('rSub').innerHTML     = 'Pipeline: ' + [...selectedOps].join(' → ');
+  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
+  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
   document.getElementById('rDlBtn').style.display = 'none';
-  document.getElementById('rDlBtn').textContent   = '';
   document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
+  let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
     const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
-    if (allowed.includes(ext)) fd.append('files[]', f);
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
   });
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
+    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
     const resp = await fetch('https://api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Eroare server.';
@@ -1242,6 +1374,9 @@ async function startProcessing() {
       throw new Error(m);
     }
     const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
+    document.getElementById('rTitle').innerHTML = 'Se procesează fișierele tale… (Pipeline: ' + [...selectedOps].join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1249,6 +1384,7 @@ async function startProcessing() {
     document.getElementById('rIcon').textContent     = '❌';
     document.getElementById('rTitle').textContent    = 'Procesare Eșuată';
     document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
@@ -1260,19 +1396,27 @@ async function startBundleSummary() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se generează borderoul PDF…';
-  document.getElementById('rSub').innerHTML     = 'Se extrag metadatele, nr. pagini și hash-ul SHA-256 pentru fiecare fișier';
+  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
+  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
+  let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
     const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt'];
-    if (allowed.includes(ext)) fd.append('files[]', f);
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
   });
   try {
+    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
     const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Eroare server.';
@@ -1280,6 +1424,10 @@ async function startBundleSummary() {
       throw new Error(m);
     }
     const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
+    document.getElementById('rTitle').innerHTML = 'Se generează borderoul PDF…';
+    document.getElementById('rSub').innerHTML = 'Se extrag metadatele, nr. pagini și hash-ul SHA-256 pentru fiecare fișier';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1287,6 +1435,7 @@ async function startBundleSummary() {
     document.getElementById('rIcon').textContent     = '❌';
     document.getElementById('rTitle').textContent    = 'Generare Borderou Eșuată';
     document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
@@ -1299,26 +1448,89 @@ async function pollJobStatus(jobId, downloadName) {
   const rIcon = document.getElementById('rIcon');
   const dlBtn = document.getElementById('rDlBtn');
   const resetBtn = document.getElementById('rResetBtn');
+  const cancelBtn = document.getElementById('rCancelBtn');
   const processBtn = document.getElementById('processBtn');
+  const progContainer = document.getElementById('rProgressContainer');
+  const progBar = document.getElementById('rProgressBar');
+  const progText = document.getElementById('rProgressText');
+  
+  if (cancelBtn) cancelBtn.style.display = 'inline-block';
   
   while (true) {
     await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    // Check if user cancelled in this browser session
+    if (!localStorage.getItem('di_active_job_id')) {
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
+      break;
+    }
     
     try {
       const resp = await fetch(`https://api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
       if (!resp.ok) throw new Error('Eșec la obținerea stării jobului');
       const data = await resp.json();
       
+      // Check if cancelled on VPS
+      if (data.status === 'cancelled') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        rIcon.textContent = '⚠️';
+        rTitle.textContent = 'Procesare Oprită';
+        rSub.textContent = 'Jobul a fost anulat de utilizator.';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) progContainer.style.display = 'none';
+        resetBtn.style.display = 'inline-block';
+        processBtn.disabled = false;
+        break;
+      }
+      
       if (data.status === 'processing' || data.status === 'pending') {
-        rSub.textContent = data.progress || 'Se procesează...';
+        const progStr = data.progress || 'Se procesează...';
+        const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+        if (match) {
+          const current = parseInt(match[1], 10);
+          const total = parseInt(match[2], 10);
+          const filename = match[3];
+          const pct = Math.min((current / total) * 100, 100);
+          if (progContainer) progContainer.style.display = 'block';
+          if (progBar) progBar.style.width = pct + '%';
+          if (progText) progText.textContent = `📄 ${filename}`;
+          rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+        } else {
+          const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+          if (bundleMatch) {
+            const current = parseInt(bundleMatch[1], 10);
+            const total = parseInt(bundleMatch[2], 10);
+            const filename = bundleMatch[3];
+            const pct = Math.min((current / total) * 100, 100);
+            if (progContainer) progContainer.style.display = 'block';
+            if (progBar) progBar.style.width = pct + '%';
+            if (progText) progText.textContent = `📄 ${filename}`;
+            rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+          } else {
+            rSub.textContent = progStr;
+          }
+        }
       } else if (data.status === 'completed') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        
         await fetchStatus(); // Actualizare limită zilnică
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) {
+          if (progBar) progBar.style.width = '100%';
+          setTimeout(() => { progContainer.style.display = 'none'; }, 1000);
+        }
+        
         if (downloadName.includes('Bundle')) {
           rIcon.textContent = '📊';
           rTitle.textContent = 'Borderou Pregătit!';
-          rSub.textContent = 'Arhiva ZIP conține: raportul Excel (2 foi) + PDF';
+          rSub.textContent = 'Arhiva ZIP conține: raportul Excel (2 foi) + PDF + CSV';
           dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Borderou (.zip)';
         } else {
           rIcon.textContent = '✅';
@@ -1338,9 +1550,13 @@ async function pollJobStatus(jobId, downloadName) {
         throw new Error(data.error || 'Jobul a eșuat pe server.');
       }
     } catch(err) {
+      localStorage.removeItem('di_active_job_id');
+      localStorage.removeItem('di_active_job_download_name');
       rSpin.style.display = 'none';
       rIcon.style.display = 'block';
       rIcon.textContent = '❌';
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
       if (downloadName.includes('Bundle')) {
         rTitle.textContent = 'Generare Borderou Eșuată';
       } else {
@@ -1354,11 +1570,43 @@ async function pollJobStatus(jobId, downloadName) {
   }
 }
 
+async function cancelJob() {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (!jobId) return;
+  
+  const confirmMsg = 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?';
+  if (!confirm(confirmMsg)) return;
+  
+  try {
+    // Optimistic UI update
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+    
+    document.getElementById('rSpin').style.display = 'none';
+    document.getElementById('rIcon').style.display = 'block';
+    document.getElementById('rIcon').textContent = '⚠️';
+    document.getElementById('rTitle').textContent = 'Procesare Oprită';
+    document.getElementById('rSub').textContent = 'Se oprește procesarea pe server...';
+    document.getElementById('rCancelBtn').style.display = 'none';
+    if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
+    document.getElementById('rResetBtn').style.display = 'inline-block';
+    document.getElementById('processBtn').disabled = false;
+    
+    await fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    
+    document.getElementById('rSub').textContent = 'Jobul a fost anulat și fișierele au fost șterse de pe server.';
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 function resetTool() {
   files = [];
   renderFiles(); updateBtn();
   document.getElementById('resultArea').classList.remove('show');
   document.getElementById('processBtn').disabled = false;
+  localStorage.removeItem('di_active_job_id');
+  localStorage.removeItem('di_active_job_download_name');
 }
 
 window.addEventListener('scroll', () => {
@@ -1414,6 +1662,21 @@ function removeRedactKeyword(kw) {
   updateRedactKeywordsHidden();
 }
 
+window.addEventListener('beforeunload', () => {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (jobId) {
+    fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Bypass-Tunnel-Reminder': 'true'
+      }
+    });
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const addBtn = document.getElementById('btn-add-kw');
   const input = document.getElementById('redact-kw-input');
@@ -1427,6 +1690,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   renderRedactTags();
+  
+  // Restore active job if page refreshed
+  const savedJobId = localStorage.getItem('di_active_job_id');
+  const savedDlName = localStorage.getItem('di_active_job_download_name');
+  if (savedJobId && savedDlName) {
+    const ra = document.getElementById('resultArea');
+    if (ra) {
+      ra.classList.add('show');
+      document.getElementById('rSpin').style.display  = 'block';
+      document.getElementById('rIcon').style.display  = 'none';
+      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Se generează borderoul PDF…' : 'Se procesează fișierele tale…';
+      document.getElementById('rSub').innerHTML     = 'Se restabilește starea jobului activ...';
+      document.getElementById('rDlBtn').style.display = 'none';
+      document.getElementById('rResetBtn').style.display = 'none';
+      if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
+      document.getElementById('processBtn').disabled  = true;
+      ra.scrollIntoView({ behavior:'smooth', block:'center' });
+      pollJobStatus(savedJobId, savedDlName);
+    }
+  }
 });
 </script>
 

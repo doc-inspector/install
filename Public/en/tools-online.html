@@ -661,12 +661,12 @@
   </div>
 </section>
 
-<!-- â•â•â•â•â•â•â• TOOLS AREA â•â•â•â•â•â•â• -->
+<!-- â• â• â• â• â• â• â•  TOOLS AREA â• â• â• â• â• â• â•  -->
 <section style="padding-top:0;position:relative;z-index:1">
   <div class="container">
     <div class="tools-layout">
 
-      <!-- â•â• LEFT COLUMN â•â• -->
+      <!-- â• â•  LEFT COLUMN â• â•  -->
       <div>
         <!-- Step 1: Upload -->
         <div>
@@ -684,6 +684,17 @@
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
             </div>
+          </div>
+
+          <div class="supported-formats" style="margin-top:0.8rem; font-size:0.75rem; color:var(--text-muted); display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
+            <span>Supported Formats:</span>
+            <strong>PDF</strong>,
+            <strong>DOCX / DOC</strong>,
+            <strong>XLSX / XLS / XLSM</strong>,
+            <strong>CSV</strong>,
+            <strong>TXT</strong>,
+            <strong>PNG / JPG / JPEG</strong>,
+            <strong>PPTX / PPT</strong>
           </div>
 
           <div class="file-list" id="fileList"></div>
@@ -704,7 +715,7 @@
                 <div class="tool-icon-wrap icon-blue">&#x1F9F9;</div>
                 <div class="tool-name">Sanitize Metadata</div>
               </div>
-              <div class="tool-desc">Remove author name, creation date, software fingerprints, GPS data and all hidden metadata from your PDF. Essential before sharing documents externally.</div>
+              <div class="tool-desc">Remove author, creation date, software fingerprints, GPS and hidden metadata. <strong style="color:#f97316">Supports PDF, DOCX, XLSX, CSV, TXT, Images, PPTX.</strong></div>
             </div>
 
             <!-- Watermark -->
@@ -714,7 +725,7 @@
                 <div class="tool-icon-wrap icon-green">&#x1F4A7;</div>
                 <div class="tool-name">Add Watermark</div>
               </div>
-              <div class="tool-desc">Stamp a diagonal text watermark (e.g. CONFIDENTIAL, DRAFT) onto every page of your PDF with custom text, font, size and opacity.</div>
+              <div class="tool-desc">Stamp a diagonal text watermark onto every page of your document. <strong style="color:#0ea5e9">Supports PDF only.</strong></div>
             </div>
 
             <!-- Encrypt -->
@@ -724,7 +735,7 @@
                 <div class="tool-icon-wrap icon-purple">&#x1F510;</div>
                 <div class="tool-name">Encrypt PDF</div>
               </div>
-              <div class="tool-desc">Password-protect your PDF with 256-bit AES encryption. Only recipients with the correct password can open the document.</div>
+              <div class="tool-desc">Password-protect your PDF with 256-bit AES encryption. <strong style="color:#8b5cf6">Supports PDF only.</strong></div>
             </div>
 
             <!-- Redact -->
@@ -734,7 +745,7 @@
                 <div class="tool-icon-wrap icon-red">&#x2B1B;</div>
                 <div class="tool-name">Find &amp; Redact</div>
               </div>
-              <div class="tool-desc">Permanently remove sensitive text from a PDF by converting it to a secure image-only version with no selectable text layer.</div>
+              <div class="tool-desc">Permanently remove sensitive text from your document. <strong style="color:#ef4444">Supports PDF only.</strong></div>
             </div>
 
             <!-- Flatten -->
@@ -744,7 +755,7 @@
                 <div class="tool-icon-wrap icon-orange">&#x1F5BC;&#xFE0F;</div>
                 <div class="tool-name">Flatten to Image PDF</div>
               </div>
-              <div class="tool-desc">Convert every page into a raster image inside a PDF. Removes all embedded text, fonts, scripts and active form fields.</div>
+              <div class="tool-desc">Convert every page into a raster image inside a PDF. <strong style="color:#10b981">Supports PDF only.</strong></div>
             </div>
 
             <!-- Rebuild -->
@@ -754,7 +765,7 @@
                 <div class="tool-icon-wrap icon-indigo">&#x1F6E0;&#xFE0F;</div>
                 <div class="tool-name">Rebuild &amp; Repair PDF</div>
               </div>
-              <div class="tool-desc">Fix corrupted, broken or malformed PDF structures. Linearizes and re-encodes the document for maximum compatibility.</div>
+              <div class="tool-desc">Fix corrupted, broken or malformed PDF structures. <strong style="color:#6366f1">Supports PDF only.</strong></div>
             </div>
 
             <!-- PDF Bundle Summary -->
@@ -765,7 +776,7 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">&#x1F4CB;</div>
                 <div class="tool-name">PDF Bundle Summary</div>
               </div>
-              <div class="tool-desc">Drag a folder with up to 100 PDF files (max 15 MB each). Generates a professional <strong style="color:#f59e0b">Excel + PDF report</strong> with file name, page count, SHA-256 hash, encryption status, and totals.</div>
+              <div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> for the folder with SHA-256 hash and metadata. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4CA; Excel + PDF</span>
@@ -910,11 +921,18 @@
             <div class="r-icon" id="rIcon" style="display:none"></div>
             <div class="r-title" id="rTitle">Processing your files&#x2026;</div>
             <div class="r-sub"   id="rSub">This may take a few seconds</div>
+            <div id="rProgressContainer" style="display:none; margin: 1rem auto; max-width: 400px;">
+              <div style="height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                <div id="rProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #10b981); transition: width 0.5s ease; box-shadow: 0 0 8px rgba(6,182,212,0.6);"></div>
+              </div>
+              <div id="rProgressText" style="font-size:0.78rem; color: rgba(255,255,255,0.5); margin-top:0.4rem; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+            </div>
             <a href="#" class="dl-btn" id="rDlBtn" style="display:none" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download Results (.zip)
             </a>
             <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">&#8635; Process another batch</button>
+            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Stop Processing</button>
           </div>
         </div>
 
@@ -935,6 +953,7 @@
               <span class="daily-cnt" id="dailyCnt">0 / 100 files</span>
             </div>
             <div class="bar-track"><div class="bar-fill" id="dailyFill" style="width:0%"></div></div>
+            <div id="dailyReset" style="font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem;text-align:right;display:none;"></div>
           </div>
           <div id="license-activate-form">
             <input type="text" id="license-key-input" class="opt-input" placeholder="Enter DocInspector License Key..." style="margin-bottom:.5rem">
@@ -1127,6 +1146,7 @@ const MAX = 100;
 let currentTier = "Free";
 let currentLimit = 100;
 let currentUsed = 0;
+let resetInSeconds = 0;
 
 async function fetchStatus() {
   try {
@@ -1136,11 +1156,63 @@ async function fetchStatus() {
       currentTier = data.tier;
       currentUsed = data.used_today;
       currentLimit = data.limit_today;
+      resetInSeconds = data.reset_in_seconds || 0;
       updateUI();
       if(data.kicked_out) alert("License activated on another device. This session has been downgraded to Free.");
       if(data.revoked) alert("License revoked or expired. Downgraded to Free.");
     }
   } catch(e) {}
+}
+
+let resetInterval = null;
+function startResetCountdown(seconds, lang) {
+  if (resetInterval) clearInterval(resetInterval);
+  let remaining = seconds;
+  const dReset = document.getElementById('dailyReset');
+  if (!dReset) return;
+  
+  if (currentTier === "Pro" || remaining <= 0) {
+    dReset.style.display = 'none';
+    return;
+  }
+  
+  dReset.style.display = 'block';
+  
+  function updateText() {
+    if (remaining <= 0) {
+      dReset.textContent = lang === 'ro' ? 'Se resetează...' : (lang === 'ru' ? 'Сброс...' : 'Resetting...');
+      clearInterval(resetInterval);
+      fetchStatus();
+      return;
+    }
+    
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    let timeStr = "";
+    if (lang === 'ro') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ore");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute");
+      timeStr = "Resetare în " + parts.join(" și ");
+    } else if (lang === 'ru') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ч.");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " мин.");
+      timeStr = "Сброс через " + parts.join(" ");
+    } else {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " hour" + (hours !== 1 ? "s" : ""));
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute" + (minutes !== 1 ? "s" : ""));
+      timeStr = "Reset in " + parts.join(" and ");
+    }
+    dReset.textContent = timeStr;
+  }
+  
+  updateText();
+  resetInterval = setInterval(() => {
+    remaining--;
+    updateText();
+  }, 1000);
 }
 
 function updateUI() {
@@ -1180,9 +1252,12 @@ function updateUI() {
   if (currentLimit === "unlimited") {
     dCnt.textContent = currentUsed + " / ∞";
     dFill.style.width = "0%";
+    const dReset = document.getElementById('dailyReset');
+    if (dReset) dReset.style.display = 'none';
   } else {
     dCnt.textContent = currentUsed + " / " + currentLimit + " files";
     dFill.style.width = Math.min((currentUsed / currentLimit) * 100, 100) + '%';
+    startResetCountdown(resetInSeconds, 'en');
   }
   
   // Update visually locked cards
@@ -1404,17 +1479,33 @@ async function getFilesFromDataTransferItems(items) {
   const nestedArrays = await Promise.all(promises);
   return nestedArrays.flat();
 }
-function traverseFileTree(item) {
+function traverseFileTree(item, path = '') {
   return new Promise((resolve) => {
     if (item.isFile) {
-      item.file(file => resolve([file]));
+      item.file(file => {
+        const fileRelPath = path ? `${path}/${file.name}` : file.name;
+        file.customRelativePath = fileRelPath;
+        resolve([file]);
+      });
     } else if (item.isDirectory) {
       const dirReader = item.createReader();
-      dirReader.readEntries(async entries => {
-        const promises = entries.map(entry => traverseFileTree(entry));
-        const nestedFiles = await Promise.all(promises);
-        resolve(nestedFiles.flat());
-      });
+      const dirPath = path ? `${path}/${item.name}` : item.name;
+      let allEntries = [];
+      const readAllEntries = () => {
+        dirReader.readEntries(async entries => {
+          if (entries.length === 0) {
+            const promises = allEntries.map(entry => traverseFileTree(entry, dirPath));
+            const nestedFiles = await Promise.all(promises);
+            resolve(nestedFiles.flat());
+          } else {
+            allEntries = allEntries.concat(entries);
+            readAllEntries();
+          }
+        }, () => {
+          resolve([]);
+        });
+      };
+      readAllEntries();
     } else resolve([]);
   });
 }
@@ -1435,7 +1526,8 @@ function addFiles(newFiles) {
   }).forEach(f => {
     if (f.size > maxSz) { skippedSize++; return; }
     if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
-    if (!files.find(x => x.name === f.name && x.size === f.size)) files.push(f);
+    const fPath = f.customRelativePath || f.webkitRelativePath || f.name;
+    if (!files.find(x => (x.customRelativePath || x.webkitRelativePath || x.name) === fPath && x.size === f.size)) files.push(f);
   });
   
   let msg = [];
@@ -1446,6 +1538,30 @@ function addFiles(newFiles) {
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
+function getFileCountSummary() {
+  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (ext === 'pdf') counts.pdf++;
+    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
+    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
+    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
+    else if (['png', 'jpg', 'jpeg'].includes(ext)) counts.image++;
+    else if (ext === 'txt') counts.text++;
+  });
+  const parts = [];
+  if (counts.pdf) parts.push(counts.pdf + ' PDF' + (counts.pdf > 1 ? 's' : ''));
+  if (counts.excel) parts.push(counts.excel + ' Excel' + (counts.excel > 1 ? 's' : ''));
+  if (counts.word) parts.push(counts.word + ' Word' + (counts.word > 1 ? 's' : ''));
+  if (counts.powerpoint) parts.push(counts.powerpoint + ' PowerPoint' + (counts.powerpoint > 1 ? 's' : ''));
+  if (counts.image) parts.push(counts.image + ' Image' + (counts.image > 1 ? 's' : ''));
+  if (counts.text) parts.push(counts.text + ' Text' + (counts.text > 1 ? 's' : ''));
+  
+  if (parts.length === 0) return 'Click to add more';
+  const limitMsg = files.length >= MAX ? ' (Maximum reached)' : ' — click to add more';
+  return parts.join(', ') + limitMsg;
+}
+
 function renderFiles() {
   const list  = document.getElementById('fileList');
   const icon  = document.getElementById('dzIcon');
@@ -1461,12 +1577,13 @@ function renderFiles() {
   }
   icon.textContent  = '📋';
   title.textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
-  sub.textContent   = files.length >= MAX ? 'Maximum reached' : 'Click to add more';
-  list.innerHTML = files.map((f, i) =>
-    '<div class="file-item">📄 <span class="fi-name" title="'+f.name+'">'+f.name+'</span>'
-    + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
-    + '<button class="fi-remove" onclick="removeFile('+i+')" title="Remove">✕</button></div>'
-  ).join('');
+  sub.textContent   = getFileCountSummary();
+  list.innerHTML = files.map((f, i) => {
+    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
+    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
+      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
+      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Remove">✕</button></div>';
+  }).join('');
 }
 
 function gatherOptions() {
@@ -1513,23 +1630,30 @@ async function startProcessing() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Processing your files…';
-  document.getElementById('rSub').innerHTML     = 'Pipeline: ' + [...selectedOps].join(' → ');
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
   document.getElementById('rDlBtn').style.display = 'none';
-  document.getElementById('rDlBtn').textContent   = '';
   document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Results (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
+  let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
     const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
-    if (allowed.includes(ext)) fd.append('files[]', f);
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
   });
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
     const resp = await fetch('https://api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Server error.';
@@ -1537,6 +1661,9 @@ async function startProcessing() {
       throw new Error(m);
     }
     const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
+    document.getElementById('rTitle').innerHTML = 'Processing your files… (Pipeline: ' + [...selectedOps].join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1544,6 +1671,7 @@ async function startProcessing() {
     document.getElementById('rIcon').textContent     = '❌';
     document.getElementById('rTitle').textContent    = 'Processing Failed';
     document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
@@ -1555,19 +1683,27 @@ async function startBundleSummary() {
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Generating Bundle Summary…';
-  document.getElementById('rSub').innerHTML     = 'Extracting metadata, page counts & SHA-256 for each file';
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
+  let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
     const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt'];
-    if (allowed.includes(ext)) fd.append('files[]', f);
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
   });
   try {
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
     const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Server error.';
@@ -1575,6 +1711,10 @@ async function startBundleSummary() {
       throw new Error(m);
     }
     const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
+    document.getElementById('rTitle').innerHTML = 'Generating Bundle Summary…';
+    document.getElementById('rSub').innerHTML = 'Extracting metadata, page counts & SHA-256 for each file';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1582,6 +1722,7 @@ async function startBundleSummary() {
     document.getElementById('rIcon').textContent     = '❌';
     document.getElementById('rTitle').textContent    = 'Bundle Summary Failed';
     document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
@@ -1594,26 +1735,101 @@ async function pollJobStatus(jobId, downloadName) {
   const rIcon = document.getElementById('rIcon');
   const dlBtn = document.getElementById('rDlBtn');
   const resetBtn = document.getElementById('rResetBtn');
+  const cancelBtn = document.getElementById('rCancelBtn');
   const processBtn = document.getElementById('processBtn');
+  const progContainer = document.getElementById('rProgressContainer');
+  const progBar = document.getElementById('rProgressBar');
+  const progText = document.getElementById('rProgressText');
+  
+  if (cancelBtn) cancelBtn.style.display = 'inline-block';
   
   while (true) {
     await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    // Check if user cancelled in this browser session
+    if (!localStorage.getItem('di_active_job_id')) {
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
+      break;
+    }
     
     try {
       const resp = await fetch(`https://api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
       if (!resp.ok) throw new Error('Failed to fetch job status');
       const data = await resp.json();
       
+      // Check if cancelled on VPS
+      if (data.status === 'cancelled') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        rIcon.textContent = '⚠️';
+        rTitle.textContent = window.location.pathname.includes('/ro/') ? 'Procesare Oprită' : (window.location.pathname.includes('/ru/') ? 'Обработка остановлена' : 'Processing Stopped');
+        rSub.textContent = window.location.pathname.includes('/ro/') ? 'Jobul a fost anulat de utilizator.' : (window.location.pathname.includes('/ru/') ? 'Задание отменено пользователем.' : 'Job was cancelled by user.');
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) progContainer.style.display = 'none';
+        resetBtn.style.display = 'inline-block';
+        processBtn.disabled = false;
+        break;
+      }
+      
       if (data.status === 'processing' || data.status === 'pending') {
-        rSub.textContent = data.progress || 'Processing...';
+        const progStr = data.progress || 'Processing...';
+        const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+        if (match) {
+          const current = parseInt(match[1], 10);
+          const total = parseInt(match[2], 10);
+          const filename = match[3];
+          const pct = Math.min((current / total) * 100, 100);
+          if (progContainer) progContainer.style.display = 'block';
+          if (progBar) progBar.style.width = pct + '%';
+          if (progText) progText.textContent = `📄 ${filename}`;
+          if (window.location.pathname.includes('/ro/')) {
+            rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+          } else if (window.location.pathname.includes('/ru/')) {
+            rSub.textContent = `Обработка файла ${current} из ${total}`;
+          } else {
+            rSub.textContent = `Processing file ${current} of ${total}`;
+          }
+        } else {
+          const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+          if (bundleMatch) {
+            const current = parseInt(bundleMatch[1], 10);
+            const total = parseInt(bundleMatch[2], 10);
+            const filename = bundleMatch[3];
+            const pct = Math.min((current / total) * 100, 100);
+            if (progContainer) progContainer.style.display = 'block';
+            if (progBar) progBar.style.width = pct + '%';
+            if (progText) progText.textContent = `📄 ${filename}`;
+            if (window.location.pathname.includes('/ro/')) {
+              rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/')) {
+              rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Extracting metadata from file ${current} of ${total}`;
+            }
+          } else {
+            rSub.textContent = progStr;
+          }
+        }
       } else if (data.status === 'completed') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        
         await fetchStatus(); // Refresh daily limit
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) {
+          if (progBar) progBar.style.width = '100%';
+          setTimeout(() => { progContainer.style.display = 'none'; }, 1000);
+        }
+        
         if (downloadName.includes('Bundle')) {
           rIcon.textContent = '📊';
           rTitle.textContent = 'Bundle Summary Ready!';
-          rSub.textContent = 'Your ZIP contains: Excel report (2 sheets) + PDF';
+          rSub.textContent = 'Your ZIP contains: Excel report (2 sheets) + PDF + CSV';
           dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Bundle Summary (.zip)';
         } else {
           rIcon.textContent = '✅';
@@ -1633,9 +1849,13 @@ async function pollJobStatus(jobId, downloadName) {
         throw new Error(data.error || 'Job failed on server.');
       }
     } catch(err) {
+      localStorage.removeItem('di_active_job_id');
+      localStorage.removeItem('di_active_job_download_name');
       rSpin.style.display = 'none';
       rIcon.style.display = 'block';
       rIcon.textContent = '❌';
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
       if (downloadName.includes('Bundle')) {
         rTitle.textContent = 'Bundle Summary Failed';
       } else {
@@ -1649,11 +1869,48 @@ async function pollJobStatus(jobId, downloadName) {
   }
 }
 
+async function cancelJob() {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (!jobId) return;
+  
+  const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+  const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+  const confirmMsg = isRo ? 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?' : 
+                     (isRu ? 'Вы уверены, что хотите остановить обработку файлов и освободить ресурсы?' : 'Are you sure you want to stop processing files and free up resources?');
+  
+  if (!confirm(confirmMsg)) return;
+  
+  try {
+    // Optimistic UI update
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+    
+    document.getElementById('rSpin').style.display = 'none';
+    document.getElementById('rIcon').style.display = 'block';
+    document.getElementById('rIcon').textContent = '⚠️';
+    document.getElementById('rTitle').textContent = isRo ? 'Procesare Oprită' : (isRu ? 'Обработка остановлена' : 'Processing Stopped');
+    document.getElementById('rSub').textContent = isRo ? 'Se oprește procesarea pe server...' : (isRu ? 'Остановка обработки на сервере...' : 'Stopping processing on server...');
+    document.getElementById('rCancelBtn').style.display = 'none';
+    if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
+    document.getElementById('rResetBtn').style.display = 'inline-block';
+    document.getElementById('processBtn').disabled = false;
+    
+    await fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    
+    document.getElementById('rSub').textContent = isRo ? 'Jobul a fost anulat și fișierele au fost șterse de pe server.' : 
+                                                 (isRu ? 'Задание отменено, и файлы были удалены с сервера.' : 'Job was cancelled and files were deleted from server.');
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 function resetTool() {
   files = [];
   renderFiles(); updateBtn();
   document.getElementById('resultArea').classList.remove('show');
   document.getElementById('processBtn').disabled = false;
+  localStorage.removeItem('di_active_job_id');
+  localStorage.removeItem('di_active_job_download_name');
 }
 
 // Progress bar on scroll
@@ -1710,6 +1967,22 @@ function removeRedactKeyword(kw) {
   updateRedactKeywordsHidden();
 }
 
+window.addEventListener('beforeunload', () => {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (jobId) {
+    // Send a fire-and-forget cancel request to the backend using keepalive: true
+    fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Bypass-Tunnel-Reminder': 'true'
+      }
+    });
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const addBtn = document.getElementById('btn-add-kw');
   const input = document.getElementById('redact-kw-input');
@@ -1723,6 +1996,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   renderRedactTags();
+  
+  // Restore active job if page refreshed
+  const savedJobId = localStorage.getItem('di_active_job_id');
+  const savedDlName = localStorage.getItem('di_active_job_download_name');
+  if (savedJobId && savedDlName) {
+    const ra = document.getElementById('resultArea');
+    if (ra) {
+      ra.classList.add('show');
+      document.getElementById('rSpin').style.display  = 'block';
+      document.getElementById('rIcon').style.display  = 'none';
+      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Generating Bundle Summary…' : 'Processing your files…';
+      document.getElementById('rSub').innerHTML     = 'Restoring active job status...';
+      document.getElementById('rDlBtn').style.display = 'none';
+      document.getElementById('rResetBtn').style.display = 'none';
+      if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
+      document.getElementById('processBtn').disabled  = true;
+      ra.scrollIntoView({ behavior:'smooth', block:'center' });
+      pollJobStatus(savedJobId, savedDlName);
+    }
+  }
 });
 </script>
 
