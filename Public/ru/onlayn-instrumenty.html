@@ -387,7 +387,7 @@
         <span class="sec-badge">🔒 Зашифрованный трафик (HTTPS)</span>
         <span class="sec-badge">🤖 Без ИИ — 100% детерминированно</span>
         <span class="sec-badge">🇪🇺 Соответствует GDPR</span>
-        <span class="sec-badge">📄 До 100 файлов/день бесплатно</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 До 100 файлов/день бесплатно</span>
       </div>
     
   </div>
@@ -404,7 +404,7 @@
         <div style="margin-bottom:2.5rem">
           <span class="step-label">Шаг 1</span>
           <div class="step-title">Загрузите ваши файлы</div>
-          <div class="step-desc">Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>15 МБ</strong> каждый), 100 бесплатно в день.</div>
+          <div class="step-desc" id="step1-desc">Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>15 МБ</strong> каждый), 100 бесплатно в день.</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
@@ -654,6 +654,11 @@
             <input type="text" id="license-key-input" class="opt-input" placeholder="Введите ключ DocInspector..." style="margin-bottom:.5rem">
             <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Активировать ключ</button>
             <div id="license-msg" style="font-size:.8rem;margin-top:.4rem;display:none;text-align:center"></div>
+            <div style="margin-top: 15px; text-align: center;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">
+                Нужно больше лимитов? <a href="tseny" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Перейти на Pro</a> для безлимитной обработки.
+              </span>
+            </div>
           </div>
           <div id="license-active-info" style="display:none">
             <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Удалить лицензию</button>
@@ -912,7 +917,13 @@ function updateUI() {
   const lInfo = document.getElementById('license-active-info');
   
   tb.textContent = currentTier;
+  
+  const secBadgeDesc = document.getElementById('sec-badge-desc');
+  const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 До 100 файлов/день бесплатно";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>15 МБ</strong> каждый), 100 бесплатно в день.';
+    
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
     tb.style.background = "rgba(255,255,255,0.05)";
@@ -921,6 +932,9 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 До 500 файлов/день, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>500 файлов</strong> одновременно (макс. <strong>50 МБ</strong> каждый), 500 в день.';
+    
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
     tb.style.background = "rgba(16,185,129,0.1)";
@@ -929,6 +943,9 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Без лимита файлов/день, Pro";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>1000 файлов</strong> одновременно (макс. <strong>50 МБ</strong> каждый), безлимитно в день.';
+    
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
     tb.style.background = "rgba(245,158,11,0.1)";
@@ -1265,7 +1282,7 @@ function addFiles(newFiles) {
     alert("Общий лимит загрузки составляет 1 ГБ. Выбранные файлы превышают этот лимит.");
     return;
   }
-  const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
+  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1000);
   const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
   

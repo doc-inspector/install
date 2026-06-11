@@ -655,7 +655,7 @@
         <span class="sec-badge">🔒 Encrypted transit (HTTPS)</span>
         <span class="sec-badge">🤖 No AI — 100% deterministic</span>
         <span class="sec-badge">🇪🇺 GDPR Compliant</span>
-        <span class="sec-badge">📄 Up to 100 files/day, free</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 Up to 100 files/day, free</span>
       </div>
     
   </div>
@@ -672,7 +672,7 @@
         <div>
           <span class="step-label">Step 1</span>
           <div class="tool-step-title">Upload Your Files</div>
-          <div class="tool-step-desc">Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.</div>
+          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
@@ -959,6 +959,11 @@
             <input type="text" id="license-key-input" class="opt-input" placeholder="Enter DocInspector License Key..." style="margin-bottom:.5rem">
             <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Activate Key</button>
             <div id="license-msg" style="font-size:.8rem;margin-top:.4rem;display:none;text-align:center"></div>
+            <div style="margin-top: 15px; text-align: center;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">
+                Need more limits? <a href="price" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Upgrade to Pro</a> for unlimited files.
+              </span>
+            </div>
           </div>
           <div id="license-active-info" style="display:none">
             <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Remove License</button>
@@ -1223,7 +1228,13 @@ function updateUI() {
   const lInfo = document.getElementById('license-active-info');
   
   tb.textContent = currentTier;
+  
+  const secBadgeDesc = document.getElementById('sec-badge-desc');
+  const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.';
+    
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
     tb.style.background = "rgba(255,255,255,0.05)";
@@ -1232,6 +1243,9 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 500 files/day, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>500 files</strong> at once (max <strong>50 MB</strong> each), 500 per day.';
+    
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
     tb.style.background = "rgba(16,185,129,0.1)";
@@ -1240,6 +1254,9 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1000 files</strong> at once (max <strong>50 MB</strong> each), unlimited per day.';
+    
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
     tb.style.background = "rgba(245,158,11,0.1)";
@@ -1517,7 +1534,7 @@ function addFiles(newFiles) {
     alert("Total upload limit is 1 GB. Selected files exceed this limit.");
     return;
   }
-  const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
+  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1000);
   const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
   
