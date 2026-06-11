@@ -1267,7 +1267,7 @@ function updateUI() {
   }
   
   if (currentLimit === "unlimited") {
-    dCnt.textContent = currentUsed + " / ∞";
+    dCnt.textContent = currentUsed + " / unlimited";
     dFill.style.width = "0%";
     const dReset = document.getElementById('dailyReset');
     if (dReset) dReset.style.display = 'none';
