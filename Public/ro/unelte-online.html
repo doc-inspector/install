@@ -866,7 +866,7 @@ let resetInSeconds = 0;
 
 async function fetchStatus() {
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (res.ok) {
       const data = await res.json();
       currentTier = data.tier;
@@ -994,7 +994,7 @@ async function activateLicense() {
   fd.append("license_key", key);
   
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     const data = await res.json();
     if (res.ok) {
       msg.style.display = "block";
@@ -1017,7 +1017,7 @@ async function activateLicense() {
 }
 
 async function logoutLicense() {
-  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
+  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST', credentials: 'include' });
   await fetchStatus();
 }
 

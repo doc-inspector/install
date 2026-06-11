@@ -1150,7 +1150,7 @@ let resetInSeconds = 0;
 
 async function fetchStatus() {
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (res.ok) {
       const data = await res.json();
       currentTier = data.tier;
@@ -1278,7 +1278,7 @@ async function activateLicense() {
   fd.append("license_key", key);
   
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     const data = await res.json();
     if (res.ok) {
       msg.style.display = "block";
@@ -1301,7 +1301,7 @@ async function activateLicense() {
 }
 
 async function logoutLicense() {
-  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST' });
+  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST', credentials: 'include' });
   await fetchStatus();
 }
 
@@ -1368,16 +1368,16 @@ function toggleTool(e, name) {
       fi.removeAttribute('accept');
       dzIcon.textContent  = '📁';
       dzTitle.textContent = 'Drag a FOLDER here (up to 100 files)';
-      dzSub.textContent   = 'or click to browse folder — max 100 files — 15 MB each';
+      dzSub.textContent   = 'or click to browse folder — max 100 files — 15 MB each — max 1 GB total';
       dz.style.borderColor = 'rgba(245,158,11,.4)';
       dz.style.background  = 'rgba(245,158,11,.02)';
     } else {
       fi.removeAttribute('webkitdirectory');
-      fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
+      fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
       dzIcon.textContent  = '📂';
       dzTitle.textContent = 'Drag & Drop files here';
       const maxSz = currentTier === "Free" ? "15" : "50";
-      dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each';
+      dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max 1 GB total';
       dz.style.borderColor = '';
       dz.style.background  = '';
     }
@@ -1511,6 +1511,12 @@ function traverseFileTree(item, path = '') {
 }
 
 function addFiles(newFiles) {
+  let currentTotal = files.reduce((acc, f) => acc + f.size, 0);
+  let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
+  if (currentTotal + newTotal > 1024 * 1024 * 1024) {
+    alert("Total upload limit is 1 GB. Selected files exceed this limit.");
+    return;
+  }
   const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
   const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
@@ -1522,6 +1528,8 @@ function addFiles(newFiles) {
            name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.xlsm') ||
            name.endsWith('.csv') || name.endsWith('.txt') ||
            name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
+           name.endsWith('.webp') || name.endsWith('.bmp') || name.endsWith('.gif') ||
+           name.endsWith('.tiff') || name.endsWith('.tif') ||
            name.endsWith('.pptx') || name.endsWith('.ppt');
   }).forEach(f => {
     if (f.size > maxSz) { skippedSize++; return; }
@@ -1546,16 +1554,17 @@ function getFileCountSummary() {
     else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
     else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
     else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
-    else if (['png', 'jpg', 'jpeg'].includes(ext)) counts.image++;
+    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
     else if (ext === 'txt') counts.text++;
   });
   const parts = [];
-  if (counts.pdf) parts.push(counts.pdf + ' PDF' + (counts.pdf > 1 ? 's' : ''));
-  if (counts.excel) parts.push(counts.excel + ' Excel' + (counts.excel > 1 ? 's' : ''));
-  if (counts.word) parts.push(counts.word + ' Word' + (counts.word > 1 ? 's' : ''));
-  if (counts.powerpoint) parts.push(counts.powerpoint + ' PowerPoint' + (counts.powerpoint > 1 ? 's' : ''));
-  if (counts.image) parts.push(counts.image + ' Image' + (counts.image > 1 ? 's' : ''));
-  if (counts.text) parts.push(counts.text + ' Text' + (counts.text > 1 ? 's' : ''));
+  const style = 'style="color: #22d3ee; font-weight: 500;"';
+  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF${counts.pdf > 1 ? 's' : ''}</span>`);
+  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel${counts.excel > 1 ? 's' : ''}</span>`);
+  if (counts.word) parts.push(`<span ${style}>${counts.word} Word${counts.word > 1 ? 's' : ''}</span>`);
+  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint${counts.powerpoint > 1 ? 's' : ''}</span>`);
+  if (counts.image) parts.push(`<span ${style}>${counts.image} Image${counts.image > 1 ? 's' : ''}</span>`);
+  if (counts.text) parts.push(`<span ${style}>${counts.text} Text${counts.text > 1 ? 's' : ''}</span>`);
   
   if (parts.length === 0) return 'Click to add more';
   const limitMsg = files.length >= MAX ? ' (Maximum reached)' : ' — click to add more';
@@ -1572,12 +1581,12 @@ function renderFiles() {
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
     title.textContent = selectedOps.has('bundle') ? 'Drag a FOLDER here (up to 100 files)' : 'Drag & Drop files here';
     const maxSz = currentTier === "Free" ? "15" : "50";
-    sub.textContent   = selectedOps.has('bundle') ? 'or click to browse folder — max 100 files — 15 MB each' : 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each';
+    sub.textContent   = selectedOps.has('bundle') ? 'or click to browse folder — max 100 files — 15 MB each — max 1 GB total' : 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max 1 GB total';
     return;
   }
   icon.textContent  = '📋';
-  title.textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
-  sub.textContent   = getFileCountSummary();
+    title.textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
+    sub.innerHTML     = getFileCountSummary();
   list.innerHTML = files.map((f, i) => {
     const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
     return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
@@ -1642,7 +1651,7 @@ async function startProcessing() {
   let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif', 'pptx', 'ppt'];
     if (allowed.includes(ext)) {
       const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
       fd.append('files[]', f, relPath);
@@ -1663,7 +1672,9 @@ async function startProcessing() {
     const data = await resp.json();
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
-    document.getElementById('rTitle').innerHTML = 'Processing your files… (Pipeline: ' + [...selectedOps].join(' → ') + ')';
+    const ORDER = { 'rebuild': 1, 'redact': 2, 'flatten': 3, 'watermark': 4, 'sanitize': 5, 'encrypt': 6 };
+    const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] || 99) - (ORDER[b] || 99));
+    document.getElementById('rTitle').innerHTML = 'Processing your files… (Pipeline: ' + sortedOps.join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1694,7 +1705,7 @@ async function startBundleSummary() {
   let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'];
     if (allowed.includes(ext)) {
       const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
       fd.append('files[]', f, relPath);
