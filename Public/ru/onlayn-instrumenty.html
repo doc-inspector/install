@@ -1059,16 +1059,16 @@ function toggleTool(e, name) {
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
     dzTitle.textContent = 'Перетащите ПАПКУ сюда (до 100 файлов)';
-    dzSub.textContent   = 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый';
+    dzSub.textContent   = 'или кликните для выбора папки — макс. 100 файлов — 15 МБ каждый — макс. 1 ГБ всего';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
-    fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
     dzIcon.textContent  = '📂';
     dzTitle.textContent = 'Перетащите файлы сюда';
     const maxSz = currentTier === "Free" ? "15" : "50";
-    dzSub.textContent   = 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый';
+    dzSub.textContent   = 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. 1 ГБ всего';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
@@ -1087,16 +1087,27 @@ function getFileCountSummary() {
     else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
     else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
     else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
-    else if (['png', 'jpg', 'jpeg'].includes(ext)) counts.image++;
+    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
     else if (ext === 'txt') counts.text++;
   });
+  
+  function ruPlural(count, one, two, five) {
+    const n = Math.abs(count) % 100;
+    const n1 = n % 10;
+    if (n > 10 && n < 20) return count + ' ' + five;
+    if (n1 > 1 && n1 < 5) return count + ' ' + two;
+    if (n1 === 1) return count + ' ' + one;
+    return count + ' ' + five;
+  }
+  
   const parts = [];
-  if (counts.pdf) parts.push(counts.pdf + ' PDF');
-  if (counts.excel) parts.push(counts.excel + ' Excel');
-  if (counts.word) parts.push(counts.word + ' Word');
-  if (counts.powerpoint) parts.push(counts.powerpoint + ' PowerPoint');
-  if (counts.image) parts.push(counts.image + ' изображений');
-  if (counts.text) parts.push(counts.text + ' текст');
+  const style = 'style="color: #22d3ee; font-weight: 500;"';
+  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF</span>`);
+  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
+  if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
+  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
+  if (counts.image) parts.push(`<span ${style}>${ruPlural(counts.image, 'изображение', 'изображения', 'изображений')}</span>`);
+  if (counts.text) parts.push(`<span ${style}>${ruPlural(counts.text, 'текстовый файл', 'текстовых файла', 'текстовых файлов')}</span>`);
   
   if (parts.length === 0) return 'Нажмите, чтобы добавить ещё';
   const limitMsg = files.length >= MAX ? ' (Максимум достигнут)' : ' — нажмите, чтобы добавить ещё';
@@ -1113,12 +1124,12 @@ function renderFiles() {
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
     title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до 100 файлов)' : 'Перетащите файлы сюда';
     const maxSz = currentTier === "Free" ? "15" : "50";
-    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый';
+    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. 100 файлов — 15 МБ каждый — макс. 1 ГБ всего' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. 1 ГБ всего';
     return;
   }
   icon.textContent  = '📋';
   title.textContent = files.length + ' файл' + (files.length > 1 ? (files.length < 5 ? 'а' : 'ов') : '') + ' выбрано';
-  sub.textContent   = getFileCountSummary();
+  sub.innerHTML     = getFileCountSummary();
   list.innerHTML = files.map((f, i) => {
     const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
     return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
@@ -1248,6 +1259,12 @@ function traverseFileTree(item, path = '') {
 }
 
 function addFiles(newFiles) {
+  let currentTotal = files.reduce((acc, f) => acc + f.size, 0);
+  let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
+  if (currentTotal + newTotal > 1024 * 1024 * 1024) {
+    alert("Общий лимит загрузки составляет 1 ГБ. Выбранные файлы превышают этот лимит.");
+    return;
+  }
   const CURRENT_MAX = currentTier === "Free" ? 100 : 1000;
   const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
@@ -1259,6 +1276,8 @@ function addFiles(newFiles) {
            name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.xlsm') ||
            name.endsWith('.csv') || name.endsWith('.txt') ||
            name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
+           name.endsWith('.webp') || name.endsWith('.bmp') || name.endsWith('.gif') ||
+           name.endsWith('.tiff') || name.endsWith('.tif') ||
            name.endsWith('.pptx') || name.endsWith('.ppt');
   }).forEach(f => {
     if (f.size > maxSz) { skippedSize++; return; }
@@ -1275,29 +1294,6 @@ function addFiles(newFiles) {
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
-function renderFiles() {
-  const list  = document.getElementById('fileList');
-  const icon  = document.getElementById('dzIcon');
-  const title = document.getElementById('dzTitle');
-  const sub   = document.getElementById('dzSub');
-  if (!files.length) {
-    list.innerHTML = '';
-    icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до 100 файлов)' : 'Перетащите файлы сюда';
-    const maxSz = currentTier === "Free" ? "15" : "50";
-    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. 100 файлов × 15 МБ каждый' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый';
-    return;
-  }
-  icon.textContent  = '📋';
-  title.textContent = files.length + ' файл' + (files.length > 1 ? (files.length < 5 ? 'а' : 'ов') : '') + ' выбрано';
-  sub.textContent   = files.length >= MAX ? 'Достигнут максимум' : 'Нажмите, чтобы добавить ещё';
-  list.innerHTML = files.map((f, i) => {
-    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
-    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
-      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' КБ</span>'
-      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Удалить">✕</button></div>';
-  }).join('');
-}
 
 function gatherOptions() {
   return {
@@ -1351,7 +1347,7 @@ async function startProcessing() {
   let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'pptx', 'ppt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif', 'pptx', 'ppt'];
     if (allowed.includes(ext)) {
       const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
       fd.append('files[]', f, relPath);
@@ -1372,7 +1368,9 @@ async function startProcessing() {
     const data = await resp.json();
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
-    document.getElementById('rTitle').innerHTML = 'Обрабатываем ваши файлы… (Конвейер: ' + [...selectedOps].join(' → ') + ')';
+    const ORDER = { 'rebuild': 1, 'redact': 2, 'flatten': 3, 'watermark': 4, 'sanitize': 5, 'encrypt': 6 };
+    const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] || 99) - (ORDER[b] || 99));
+    document.getElementById('rTitle').innerHTML = 'Обрабатываем ваши файлы… (Конвейер: ' + sortedOps.join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
@@ -1401,7 +1399,7 @@ async function startBundleSummary() {
   const fd = new FormData();
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
-    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt'];
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'];
     if (allowed.includes(ext)) {
       const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
       fd.append('files[]', f, relPath);
