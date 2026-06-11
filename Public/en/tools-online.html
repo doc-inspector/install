@@ -1278,7 +1278,7 @@ function updateUI() {
   }
   
   // Update visually locked cards
-  
+  renderFiles();
 }
 
 async function activateLicense() {
@@ -1366,6 +1366,19 @@ function toggleTool(e, name) {
       const bc = document.getElementById('card-bundle');
       if (bc) bc.classList.remove('selected');
     }
+    
+    // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
+    if (currentTier !== "Pro" && selectedOps.size > 0 && !selectedOps.has(name)) {
+      alert("Running multiple actions at once requires a Pro license. The previous selection has been cleared.");
+      selectedOps.forEach(op => {
+        const c = document.getElementById('card-' + op);
+        if (c) c.classList.remove('selected');
+        const o = document.getElementById('opts-' + op);
+        if (o) o.classList.remove('open');
+      });
+      selectedOps.clear();
+    }
+
     if (selectedOps.has(name)) {
       selectedOps.delete(name);
       card.classList.remove('selected');

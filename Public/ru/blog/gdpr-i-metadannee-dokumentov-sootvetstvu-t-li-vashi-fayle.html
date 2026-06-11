@@ -241,77 +241,8 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
-  <!-- Open Graph -->
-  <meta property="og:title" content="GDPR и метаданные документов: соответствуют ли ваши файлы? - DocInspector Blog">
-  <meta property="og:description" content="Метаданные документов могут содержать персональные данные, нарушающие GDPR. Узнайте, как проверить и очистить документы.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://doc-inspector.com/ru/blog/gdpr-i-metadannee-dokumentov-sootvetstvu-t-li-vashi-fayle">
-  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
-  <meta property="og:site_name" content="DocInspector">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GDPR и метаданные документов: соответствуют ли ваши файлы? - DocInspector Blog">
-  <meta name="twitter:description" content="Метаданные документов могут содержать персональные данные, нарушающие GDPR. Узнайте, как проверить и очистить документы.">
-  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
-  <style>
-  #constellation-canvas {
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none; opacity: 1;
-  }
-</style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
-  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
-<script>
-(function(){
-  var c=document.getElementById('constellation-canvas');
-  if(!c)return;
-  var ctx=c.getContext('2d');
-  var W,H,pts,RAF;
-  var COLS=['6,182,212','99,102,241','16,185,129'];
-  var N_BASE=55, CONNECT_DIST=160;
-  var MOUSE={x:-999,y:-999};
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
-  function rand(a,b){return a+Math.random()*(b-a);}
-  function init(){
-    pts=[];
-    var n=Math.round(N_BASE*(W*H)/(1440*900));
-    n=Math.max(35,Math.min(90,n));
-    for(var i=0;i<n;i++){
-      var col=COLS[Math.floor(Math.random()*COLS.length)];
-      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      for(var j=i+1;j<pts.length;j++){
-        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
-      }
-      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
-      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
-    }
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
-      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
-      grd.addColorStop(1,'rgba('+p.col+',0)');
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
-      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
-    }
-    RAF=requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',resize);
-  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
-  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
-  resize();draw();
-})();
-</script>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -325,7 +256,6 @@
 
       <div class="nav-links">
         <a href="../" data-i18n="nav.home">Главная</a>
-        <a href="../onlayn-instrumenty" style="color:#06b6d4;font-weight:700">🌐 Онлайн-инструменты</a>
         <a href="../tseny" data-i18n="nav.price">Цена</a>
         <a href="../rukovodstvo" data-i18n="nav.guide">Руководство</a>
         <a href="../otchety" data-i18n="nav.reports">Отчёты и отзывы</a>
@@ -396,7 +326,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2026 DocInspector. Все права защищены.</span>
+      <span data-i18n="footer.copyright">© 2025 Владимир Тону — Все права защищены</span>
       <div class="footer-links">
         <a href="../politika-konfidentsialnosti" data-i18n="footer.privacy">Политика конфиденциальности</a>
         <a href="../usloviya-ispolzovaniya" data-i18n="footer.terms">Условия использования</a>

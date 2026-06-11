@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="ro">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Ghid complet de utilizare DocInspector: reparare PDF, audit documente, eliminare metadate, watermark și raportare." name="description"/>
-<meta content="ghid utilizare docinspector, cum se foloseste docinspector, ghid audit documente, reparare batch pdf, rapoarte folder evidence" name="keywords"/>
-<title>Ghid de Utilizare — DocInspector</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="../style.css?v=12" rel="stylesheet"/>
-<link href="../assets/logo.png" rel="icon" type="image/png"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explorați Centrul de Cunoștințe DocInspector. Stăpâniți fluxurile batch pentru repararea PDF-urilor, generați rapoarte Excel de inventar și igienizați metadatele în mod securizat.">
+  <meta name="keywords" content="ghid utilizare docinspector, cum se foloseste docinspector, ghid audit documente, reparare batch pdf, rapoarte folder evidence">
+  <title>Ghid de Utilizare - DocInspector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="../style.css?v=12" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <style>
     /* ── KNOWLEDGE HUB STYLES ─────────────────────────────────── */
 
     /* Split Dashboard Grid */
@@ -471,101 +470,34 @@
       background: var(--border);
     }
   </style>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "wu1m2q0juc");
   </script>
-<!-- Google Analytics 4 -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
-<script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-80038W7D1J');
   </script>
-<link href="https://doc-inspector.com/ro/ghid-utilizare" rel="canonical"/>
-<link href="https://doc-inspector.com/en/user-guide" hreflang="en" rel="alternate">
-<link href="https://doc-inspector.com/ro/ghid-utilizare" hreflang="ro" rel="alternate">
-<link href="https://doc-inspector.com/ru/rukovodstvo" hreflang="ru" rel="alternate">
-<link href="https://doc-inspector.com/en/user-guide" hreflang="x-default" rel="alternate"/>
-<!-- Open Graph -->
-<meta content="Ghid de Utilizare — DocInspector" property="og:title"/>
-<meta content="Ghid complet de utilizare DocInspector: reparare PDF, audit documente, eliminare metadate, watermark și raportare." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://doc-inspector.com/ro/ghid-utilizare" property="og:url"/>
-<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" property="og:image"/>
-<meta content="DocInspector" property="og:site_name"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Ghid de Utilizare - DocInspector" name="twitter:title"/>
-<meta content="Explorați Centrul de Cunoștințe DocInspector. Stăpâniți fluxurile batch pentru repararea PDF-urilor, generați rapoarte Excel de inventar și igienizați metadatele în mod securizat." name="twitter:description"/>
-<meta content="https://doc-inspector.com/assets/white-theme-GUI.png" name="twitter:image"/>
-</link></link></link>  <style>
-  #constellation-canvas {
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none; opacity: 1;
-  }
-</style>
+  <link rel="canonical" href="https://doc-inspector.com/ro/ghid-utilizare" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/ghid-utilizare" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/rukovodstvo" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide" />
 </head>
 <body style="background:#0a1628;color:#f1f5f9">
-  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
-<script>
-(function(){
-  var c=document.getElementById('constellation-canvas');
-  if(!c)return;
-  var ctx=c.getContext('2d');
-  var W,H,pts,RAF;
-  var COLS=['6,182,212','99,102,241','16,185,129'];
-  var N_BASE=55, CONNECT_DIST=160;
-  var MOUSE={x:-999,y:-999};
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
-  function rand(a,b){return a+Math.random()*(b-a);}
-  function init(){
-    pts=[];
-    var n=Math.round(N_BASE*(W*H)/(1440*900));
-    n=Math.max(35,Math.min(90,n));
-    for(var i=0;i<n;i++){
-      var col=COLS[Math.floor(Math.random()*COLS.length)];
-      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      for(var j=i+1;j<pts.length;j++){
-        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
-      }
-      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
-      if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
-    }
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
-      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
-      grd.addColorStop(1,'rgba('+p.col+',0)');
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
-      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
-    }
-    RAF=requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',resize);
-  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
-  document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
-  resize();draw();
-})();
-</script>
 <div class="progress-bar" id="progressBar"></div>
 <div class="page">
-<!-- HEADER -->
+
+  <!-- HEADER -->
   <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -573,19 +505,21 @@
         <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Manager Batch Documente &amp; Suită Audit</span>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
         </span>
       </a>
+
       <div class="nav-links">
-        <a href="unelte-online" style="color:#06b6d4;font-weight:700" data-i18n="nav.tools">🌐 Unelte Online</a>
         <a href="./" data-i18n="nav.home">Acasă</a>
-        <a href="preturi" data-i18n="nav.price">Prețuri</a>
-        <a href="ghid-utilizare" class="active" data-i18n="nav.guide">Ghid Utilizare</a>
+        <a href="unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
+        <a href="preturi" data-i18n="nav.price">Preț</a>
+        <a href="ghid-utilizare" class="active" data-i18n="nav.guide">Ghid utilizare</a>
         <a href="rapoarte-feedback" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
         <a href="blog" data-i18n="nav.blog">Blog</a>
         <a href="contact" data-i18n="nav.contact">Contact</a>
-        <a href="descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descarcă</a>
+        <a href="descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
       </div>
+
       <div class="nav-actions">
         <div class="lang-dropdown">
           <button class="lang-btn" aria-label="Language">
@@ -598,442 +532,454 @@
             <a href="../ru/rukovodstvo" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descarcă</a>
+        <a href="descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
       </div>
+
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </header>
-<!-- CONTENT -->
-<section class="section" style="position:relative;overflow:hidden;">
-<div class="cyber-grid"></div>
-<div class="hex-particles"></div>
-<div class="container" style="position:relative;z-index:1;">
-<!-- Page Header -->
-<header class="section-header reveal-flip">
-<div class="section-eyebrow">Documentație</div>
-<h1 class="section-title text-gradient" data-i18n="guide.title">Centru de Cunoștințe</h1>
-<p class="section-subtitle" data-i18n="guide.subtitle">Maximizează-ți eficiența cu DocInspector — procesare puternică batch pe desktop și unelte gratuite bazate pe browser.</p>
-</header>
-<!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT -->
-<div class="kb-dashboard">
-<!-- LEFT COLUMN: Desktop Application -->
-<div class="kb-column kb-left">
-<div class="kb-col-label purple">🖥️ Stație de Lucru Locală</div>
-<h2 class="kb-col-title purple-accent">Aplicație Desktop</h2>
-<p class="kb-col-subtitle">Suită de procesare batch puternică, instalată direct pe computerul dumneavoastră Windows. OCR, scanare recursivă, ștergere sigură și multe altele.</p>
-<div class="kb-cards">
-<!-- Card 1: PDF Repair -->
-<article class="kb-card reveal">
-<div class="kb-card-header">
-<div class="kb-card-icon">🔧</div>
-<h3>Reparare &amp; Întărire PDF</h3>
-</div>
-<p>Stăpânește fluxul de lucru batch pentru repararea pachetelor PDF corupte sau riscante cu reconstrucție automată și OCR.</p>
-<ul>
-<li>Reconstrucție PDF corupte + OCR încorporat</li>
-<li>Aplatizare batch în format doar-imagine</li>
-<li>Flux de conversie Office în PDF</li>
-</ul>
-<a class="btn-purple" href="ghid-reparare-pdf">Explorează Ghidul PDF →</a>
-</article>
-<!-- Card 2: Reporting -->
-<article class="kb-card reveal">
-<div class="kb-card-header">
-<div class="kb-card-icon">📊</div>
-<h3>Raportare &amp; Evidență</h3>
-</div>
-<p>Generează rapoarte Excel pregătite pentru instanță/audit pentru foldere cu fișiere multiple, cu audit complet de metadate.</p>
-<ul>
-<li>Rezumate pachete cu verificare hash</li>
-<li>Rapoarte de inventariere Borderou Avansat</li>
-<li>Folder Evidence cu mapare directoare</li>
-</ul>
-<a class="btn-purple" href="ghid-raportare">Explorează Ghidul de Raportare →</a>
-</article>
-<!-- Card 3: Audit -->
-<article class="kb-card reveal">
-<div class="kb-card-header">
-<div class="kb-card-icon">🛡️</div>
-<h3>Audit &amp; Securitate</h3>
-</div>
-<p>Unelte de descoperire a stațiilor de lucru și gestionare securizată a datelor pentru echipe juridice și ofițeri de conformitate.</p>
-<ul>
-<li>Audit complet de descoperire a unităților și partițiilor</li>
-<li>Sanitizare batch a metadatelor</li>
-<li>Distrugător securizat de fișiere (standard DoD)</li>
-</ul>
-<a class="btn-purple" href="ghid-audit">Explorează Ghidul de Audit →</a>
-</article>
-</div>
-</div>
-<!-- RIGHT COLUMN: Browser Tools -->
-<div class="kb-column kb-right">
-<div class="kb-col-label cyan">🌐 Motor Web Fără Încărcare</div>
-<h2 class="kb-col-title cyan-accent">Unelte în Browser</h2>
-<p class="kb-col-subtitle">Procesare instantanee și gratuită direct în browser. Zero încărcări pe server — totul rulează local prin JavaScript și WebAssembly.</p>
-<div class="kb-accordion">
-<!-- 1. Sanitize -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">🧹</span>
-<span class="acc-title">Sanitizare Metadate</span>
-<span class="acc-formats">PDF, DOCX, XLSX, JPG, PNG, TIFF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Elimină metadatele ascunse din documente și imagini — numele autorului, coordonatele GPS, istoricul revizuirilor, detaliile software și altele. Protejează-ți confidențialitatea înainte de partajare.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-<span class="fmt-chip">.DOCX</span>
-<span class="fmt-chip">.XLSX</span>
-<span class="fmt-chip">.JPG</span>
-<span class="fmt-chip">.PNG</span>
-<span class="fmt-chip">.TIFF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 2. Watermark -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">💧</span>
-<span class="acc-title">Adaugă Filigran (Watermark)</span>
-<span class="acc-formats">PDF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Adaugă filigrane text personalizabile în PDF — alege poziția, rotația, opacitatea, dimensiunea fontului și culoarea. Perfect pentru marcarea ciornelor sau a documentelor confidențiale.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 3. Encrypt -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">🔐</span>
-<span class="acc-title">Criptează PDF (256-bit AES)</span>
-<span class="acc-formats">PDF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Protejează fișierele PDF cu criptare de nivel militar AES-256. Setează parole de proprietar și utilizator, restricționează imprimarea, copierea și permisiunile de editare.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 4. Redact -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">⬛</span>
-<span class="acc-title">Redactare Text Sensibil</span>
-<span class="acc-formats">PDF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Elimină definitiv informațiile sensibile din documentele PDF. Conținutul redactat este distrus iremediabil din structura fișierului, nu doar ascuns vizual.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 5. Flatten -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">🖼️</span>
-<span class="acc-title">Aplatizare în Imagine</span>
-<span class="acc-formats">PDF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Convertește paginile PDF în format exclusiv imagine — eliminând textul selectabil, câmpurile de formular, scripturile și straturile ascunse. Ideal pentru arhivare securizată.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 6. Repair -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">🛠️</span>
-<span class="acc-title">Reparare &amp; Reconstrucție</span>
-<span class="acc-formats">PDF</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Remediază automat PDF-urile corupte, deteriorate sau defecte. Reconstruiește tabela internă de referințe încrucișate și recuperează conținutul paginilor.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.PDF</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 7. Borderou PDF / Rezumat Pachet -->
-<div class="kb-acc-item">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">📋</span>
-<span class="acc-title">Borderou PDF / Rezumat Pachet</span>
-<span class="acc-formats">Orice tip de fișier</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Generează rapoarte Excel detaliate: Rezumat Pachet cu numărul de fișiere, Borderou Avansat cu inventarul complet al metadatelor și Raport Folder Evidence cu mapare recursivă și verificare hash.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">ORICE</span>
-<span class="fmt-chip">.XLSX</span>
-<span class="fmt-chip">ieșire</span>
-</div>
-<a class="acc-cta" href="unelte-online">Deschide Unealta Gratuită →</a>
-</div>
-</div>
-<!-- 8. Conversie: Word→PDF, Excel→PDF, Imagine→PDF -->
-<div class="kb-acc-item coming-soon">
-<button class="kb-acc-trigger" onclick="toggleAcc(this)">
-<span class="acc-icon">🔄</span>
-<span class="acc-title">Conversie: Word→PDF, Excel→PDF, Imagine→PDF</span>
-<span class="coming-badge">În curând</span>
-<span class="acc-chevron">▼</span>
-</button>
-<div class="kb-acc-body">
-<p>Instrumentele de conversie de formate sunt în curs de dezvoltare pentru web. Aceste caracteristici sunt deja complet disponibile în Aplicația Desktop.</p>
-<div class="fmt-chips">
-<span class="fmt-chip">.DOCX</span>
-<span class="fmt-chip">.XLSX</span>
-<span class="fmt-chip">.JPG</span>
-<span class="fmt-chip">.PNG</span>
-<span class="fmt-chip">→ .PDF</span>
-</div>
-<a class="acc-cta" href="descarca">Obține Aplicația Desktop →</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- FEATURE COMPARISON TABLE -->
-<div class="compare-section" id="compare">
-<header class="section-header">
-<div class="section-eyebrow">Comparativ</div>
-<h2 class="section-title text-gradient">Comparare Caracteristici</h2>
-<p class="section-subtitle">Vezi exact ce oferă fiecare platformă — alege instrumentul potrivit pentru fluxul tău de lucru.</p>
-</header>
-<div class="compare-table-wrap">
-<table class="compare-table">
-<thead>
-<tr>
-<th>Caracteristică</th>
-<th>🌐 Unelte în Browser (Gratuit)</th>
-<th>🖥️ Aplicație Desktop</th>
-</tr>
-</thead>
-<tbody>
-<!-- General -->
-<tr class="cat-row"><td colspan="3">General</td></tr>
-<tr><td>Preț</td><td class="yes">Gratuit</td><td class="partial">Licențiat</td></tr>
-<tr><td>Necesită Instalare</td><td class="yes">Nu</td><td class="partial">Kit Windows</td></tr>
-<tr><td>Funcționează Offline</td><td class="no">Nu (are nevoie de browser)</td><td class="yes">Da ✓</td></tr>
-<!-- Processing -->
-<tr class="cat-row"><td colspan="3">Procesare Fișiere</td></tr>
-<tr><td>Procesare PDF</td><td class="yes">✓ Complet</td><td class="yes">✓ Complet</td></tr>
-<tr><td>Procesare DOCX / Word</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
-<tr><td>Procesare XLSX / Excel</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
-<tr><td>Procesare Imagini (JPG, PNG, TIFF)</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
-<tr><td>Fișiere maxime pe sesiune</td><td class="partial">Limitat de browser</td><td class="yes">Nelimitat</td></tr>
-<tr><td>Dimensiune maximă fișier</td><td class="partial">~100 MB (limită browser)</td><td class="yes">Fără limită</td></tr>
-<!-- Core Tools -->
-<tr class="cat-row"><td colspan="3">Unelte Principale</td></tr>
-<tr><td>Sanitizare Metadate</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Filigranare (Watermark)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Criptare (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Redactare Text Sensibil</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Aplatizare în Imagine</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Reparare &amp; Reconstrucție</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<!-- Conversions -->
-<tr class="cat-row"><td colspan="3">Conversii</td></tr>
-<tr><td>Conversie Word → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
-<tr><td>Conversie Excel → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
-<tr><td>Conversie Imagine → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
-<!-- Reporting -->
-<tr class="cat-row"><td colspan="3">Raportare &amp; Evidență</td></tr>
-<tr><td>Rezumat Pachet</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Borderou Avansat</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<tr><td>Raport Folder Evidence</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-<!-- Advanced -->
-<tr class="cat-row"><td colspan="3">Funcții Avansate</td></tr>
-<tr><td>OCR (Recunoaștere text)</td><td class="no">—</td><td class="yes">✓</td></tr>
-<tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓</td></tr>
-<tr><td>Audit sistem (Unități &amp; Partiții)</td><td class="no">—</td><td class="yes">✓</td></tr>
-<tr><td>Ștergere securizată (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
-</tbody>
-</table>
-</div>
-<div class="compare-ctas">
-<a class="btn btn-primary" href="unelte-online">🌐 Folosește Uneltele Online — Gratuit</a>
-<a class="btn btn-outline" href="descarca">⬇️ Descarcă Aplicația Desktop</a>
-</div>
-</div>
-<!-- FAQ SECTION -->
-<div class="faq-section" id="faq">
-<header class="section-header">
-<div class="section-eyebrow">Întrebări și Răspunsuri</div>
-<h2 class="section-title text-gradient">Întrebări Frecvente</h2>
-<p class="section-subtitle">Tot ce trebuie să știi despre instrumentele și capabilitățile DocInspector.</p>
-</header>
-<div class="faq-list">
-<!-- FAQ 1 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Sunt instrumentele online complet gratuite?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Da, toate uneltele bazate pe browser sunt 100% gratuite, fără taxe ascunse, fără cont necesar și fără limite de utilizare. Procesarea are loc în întregime în browserul dumneavoastră — fișierele nu părăsesc niciodată dispozitivul.</p>
-</div>
-</div>
-<!-- FAQ 2 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Ce formate de fișiere sunt suportate?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Uneltele din browser suportă PDF, DOCX, XLSX, JPG, PNG și TIFF pentru curățarea metadatelor. Operațiunile de filigranare, criptare, redactare, aplatizare și reparare sunt dedicate formatului PDF. Uneltele de Rezumat Pachet și Folder Evidence funcționează cu orice tip de fișier. Aplicația desktop suportă toate aceste formate plus capabilități complete de procesare batch.</p>
-</div>
-</div>
-<!-- FAQ 3 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Trebuie să instalez ceva pentru a folosi uneltele online?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Nu este necesară nicio instalare. Uneltele online rulează direct în browserul dumneavoastră web folosind JavaScript modern și WebAssembly. Funcționează în orice browser modern (Chrome, Firefox, Edge, Safari). Pentru aplicația desktop completă cu scanare recursivă și OCR, este disponibil un kit de instalare pentru Windows.</p>
-</div>
-</div>
-<!-- FAQ 4 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Sunt fișierele mele în siguranță când folosesc DocInspector?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Absolut. Uneltele din browser folosesc o arhitectură fără încărcare — toată procesarea fișierelor are loc local în browserul dumneavoastră folosind client-side JavaScript. Nu se trimit date către niciun server. Aplicația desktop procesează de asemenea totul local pe computerul dumneavoastră Windows, fără a fi necesară o conexiune la internet.</p>
-</div>
-</div>
-<!-- FAQ 5 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Este DocInspector conform cu GDPR?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Da. Deoarece uneltele din browser procesează fișierele în întregime în interiorul browserului dumneavoastră, cu zero încărcări pe server, nu există nicio colectare sau transfer de date. Aplicația desktop procesează fișierele local pe computer. Ambele abordări sunt complet conforme cu GDPR prin design.</p>
-</div>
-</div>
-<!-- FAQ 6 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Ce sunt metadatele unui document și de ce ar trebui să le elimin?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Metadatele documentelor includ informații ascunse încorporate în fișiere — numele autorului, datele de creare, coordonatele GPS (în imagini), istoricul revizuirilor, versiunile software și comentariile interne. Eliminarea metadatelor protejează confidențialitatea și previne scurgerile neintenționate de informații, fiind adesea obligatorie pentru depunerea probelor juridice.</p>
-</div>
-</div>
-<!-- FAQ 7 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Ce este un Borderou Avansat?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Borderoul Avansat este un raport de inventar detaliat generat sub formă de tabel Excel. Acesta cataloghează toate fișierele dintr-un folder selectat cu metadate cuprinzătoare, inclusiv numele fișierelor, dimensiunile, tipurile, datele creării și modificării, valorile hash SHA-256 și numărul de pagini. Este esențial pentru managementul probelor juridice și auditul de conformitate.</p>
-</div>
-</div>
-<!-- FAQ 8 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Ce este un Raport Folder Evidence?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Raportul Folder Evidence este o cale completă de audit bazată pe Excel care documentează structura directoarelor, hash-urile de integritate ale fișierelor și metadatele pentru toate fișierele din arborele de foldere. Oferă un instantaneu al folderelor pregătit pentru instanță, fiind conceput pentru managementul probelor juridice, documentația lanțului de custodie și cerințele de conformitate.</p>
-</div>
-</div>
-<!-- FAQ 9 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Când vor fi disponibile conversiile de formate în uneltele din browser?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Conversiile de formate (Word în PDF, Excel în PDF și Imagine în PDF) sunt în curs de dezvoltare activă pentru web și vor fi disponibile într-o actualizare viitoare. Între timp, aceste caracteristici sunt deja complet disponibile în aplicația desktop.</p>
-</div>
-</div>
-<!-- FAQ 10 -->
-<div class="faq-item">
-<button class="faq-q" onclick="toggleFaq(this)">
-<span>Care sunt principalele diferențe între Uneltele din Browser și Aplicația Desktop?</span>
-<span class="faq-toggle">+</span>
-</button>
-<div class="faq-a">
-<p>Uneltele din browser sunt gratuite, nu necesită instalare și se ocupă de operațiunile de bază pentru fișiere individuale. Aplicația desktop este o aplicație Windows licențiată care oferă funcții avansate, cum ar fi OCR, procesare batch pentru structuri întregi de foldere, scanare recursivă, conversii complete de formate, distrugere securizată a fișierelor (standard DoD) și audit complet de sistem. Vezi <a href="#compare" style="color:var(--cyan)">tabelul comparativ de mai sus</a> pentru o prezentare detaliată.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ════════════════ SECURITY ARCHITECTURE PREVIEW ════════════════ -->
-<section style="padding:4rem 0 2rem;position:relative;z-index:1;">
-  <div class="container">
-    <div style="background:linear-gradient(135deg,rgba(6,182,212,.06) 0%,rgba(16,185,129,.04) 50%,rgba(10,22,40,.3) 100%);border:1px solid rgba(6,182,212,.2);border-radius:1.5rem;padding:3rem 2.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;">
-      <!-- Icon side -->
-      <div style="flex:0 0 auto;">
-        <div style="width:80px;height:80px;background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(16,185,129,.1));border:1px solid rgba(6,182,212,.3);border-radius:1.2rem;display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🔐</div>
-      </div>
-      <!-- Text side -->
-      <div style="flex:1;min-width:260px;">
-        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#06b6d4;margin-bottom:.5rem;">Despre Securitatea Noastră</div>
-        <h3 style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin:0 0 .75rem;">Cum Gestionăm Documentele Tale</h3>
-        <p style="color:var(--text-muted);line-height:1.7;margin:0 0 1rem;max-width:580px;">Fișierele online sunt procesate într-un sandbox izolat și șterse automat în 5 minute. Aplicația desktop nu face niciodată apeluri externe — procesarea rămâne 100% pe mașina ta. Fără cloud. Fără AI. Fără loguri.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.5rem;">
-          <span style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Ștergere Auto 5 min</span>
-          <span style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:#06b6d4;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ GDPR Nativ</span>
-          <span style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:#a78bfa;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Air-Gap Ready</span>
-          <span style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#f59e0b;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:700;">✓ Fără Procesare AI</span>
-        </div>
-        <a href="securitate" class="btn btn-outline" style="border-color:rgba(6,182,212,.4);color:#06b6d4;">Vezi Detaliile Tehnice Complete →</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2026 DocInspector. Toate drepturile rezervate.</span>
+  <!-- CONTENT -->
+  <section class="section" style="position:relative;overflow:hidden;">
+    <div class="cyber-grid"></div>
+    <div class="hex-particles"></div>
+    <div class="container" style="position:relative;z-index:1;">
+
+      <!-- Page Header -->
+      <header class="section-header reveal-flip">
+        <div class="section-eyebrow">Documentație</div>
+        <h1 class="section-title text-gradient" data-i18n="guide.title">Centru de Cunoștințe</h1>
+        <p class="section-subtitle" data-i18n="guide.subtitle">Maximizează-ți eficiența cu DocInspector — procesare puternică batch pe desktop și unelte gratuite bazate pe browser.</p>
+      </header>
+
+      <!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT -->
+      <div class="kb-dashboard">
+
+        <!-- LEFT COLUMN: Desktop Application -->
+        <div class="kb-column kb-left">
+          <div class="kb-col-label purple">🖥️ Stație de Lucru Locală</div>
+          <h2 class="kb-col-title purple-accent">Aplicație Desktop</h2>
+          <p class="kb-col-subtitle">Suită de procesare batch puternică, instalată direct pe computerul dumneavoastră Windows. OCR, scanare recursivă, ștergere sigură și multe altele.</p>
+
+          <div class="kb-cards">
+            <!-- Card 1: PDF Repair -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">🔧</div>
+                <h3>Reparare &amp; Întărire PDF</h3>
+              </div>
+              <p>Stăpânește fluxul de lucru batch pentru repararea pachetelor PDF corupte sau riscante cu reconstrucție automată și OCR.</p>
+              <ul>
+                <li>Reconstrucție PDF corupte + OCR încorporat</li>
+                <li>Aplatizare batch în format doar-imagine</li>
+                <li>Flux de conversie Office în PDF</li>
+              </ul>
+              <a href="ghid-reparare-pdf" class="btn-purple">Explorează Ghidul PDF →</a>
+            </article>
+
+            <!-- Card 2: Reporting -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">📊</div>
+                <h3>Raportare &amp; Evidență</h3>
+              </div>
+              <p>Generează rapoarte Excel pregătite pentru instanță/audit pentru foldere cu fișiere multiple, cu audit complet de metadate.</p>
+              <ul>
+                <li>Rezumate pachete cu verificare hash</li>
+                <li>Rapoarte de inventariere Borderou Avansat</li>
+                <li>Folder Evidence cu mapare directoare</li>
+              </ul>
+              <a href="ghid-raportare" class="btn-purple">Explorează Ghidul de Raportare →</a>
+            </article>
+
+            <!-- Card 3: Audit -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">🛡️</div>
+                <h3>Audit &amp; Securitate</h3>
+              </div>
+              <p>Unelte de descoperire a stațiilor de lucru și gestionare securizată a datelor pentru echipe juridice și ofițeri de conformitate.</p>
+              <ul>
+                <li>Audit complet de descoperire a unităților și partițiilor</li>
+                <li>Sanitizare batch a metadatelor</li>
+                <li>Distrugător securizat de fișiere (standard DoD)</li>
+              </ul>
+              <a href="ghid-audit" class="btn-purple">Explorează Ghidul de Audit →</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Browser Tools -->
+        <div class="kb-column kb-right">
+          <div class="kb-col-label cyan">🌐 Motor Web Fără Încărcare</div>
+          <h2 class="kb-col-title cyan-accent">Unelte în Browser</h2>
+          <p class="kb-col-subtitle">Procesare instantanee și gratuită direct în browser. Zero încărcări pe server — totul rulează local prin JavaScript și WebAssembly.</p>
+
+          <div class="kb-accordion">
+            <!-- 1. Sanitize -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🧹</span>
+                <span class="acc-title">Sanitizare Metadate</span>
+                <span class="acc-formats">PDF, DOCX, XLSX, JPG, PNG, TIFF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Elimină metadatele ascunse din documente și imagini — numele autorului, coordonatele GPS, istoricul revizuirilor, detaliile software și altele. Protejează-ți confidențialitatea înainte de partajare.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                  <span class="fmt-chip">.DOCX</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">.JPG</span>
+                  <span class="fmt-chip">.PNG</span>
+                  <span class="fmt-chip">.TIFF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 2. Watermark -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">💧</span>
+                <span class="acc-title">Adaugă Filigran (Watermark)</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Adaugă filigrane text personalizabile în PDF — alege poziția, rotația, opacitatea, dimensiunea fontului și culoarea. Perfect pentru marcarea ciornelor sau a documentelor confidențiale.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 3. Encrypt -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🔐</span>
+                <span class="acc-title">Criptează PDF (256-bit AES)</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Protejează fișierele PDF cu criptare de nivel militar AES-256. Setează parole de proprietar și utilizator, restricționează imprimarea, copierea și permisiunile de editare.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 4. Redact -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">⬛</span>
+                <span class="acc-title">Redactare Text Sensibil</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Elimină definitiv informațiile sensibile din documentele PDF. Conținutul redactat este distrus iremediabil din structura fișierului, nu doar ascuns vizual.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 5. Flatten -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🖼️</span>
+                <span class="acc-title">Aplatizare în Imagine</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Convertește paginile PDF în format exclusiv imagine — eliminând textul selectabil, câmpurile de formular, scripturile și straturile ascunse. Ideal pentru arhivare securizată.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 6. Repair -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🛠️</span>
+                <span class="acc-title">Reparare &amp; Reconstrucție</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Remediază automat PDF-urile corupte, deteriorate sau defecte. Reconstruiește tabela internă de referințe încrucișate și recuperează conținutul paginilor.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 7. Borderou PDF / Rezumat Pachet -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">📋</span>
+                <span class="acc-title">Borderou PDF / Rezumat Pachet</span>
+                <span class="acc-formats">Orice tip de fișier</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Generează rapoarte Excel detaliate: Rezumat Pachet cu numărul de fișiere, Borderou Avansat cu inventarul complet al metadatelor și Raport Folder Evidence cu mapare recursivă și verificare hash.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">ORICE</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">ieșire</span>
+                </div>
+                <a href="unelte-online" class="acc-cta">Deschide Unealta Gratuită →</a>
+              </div>
+            </div>
+
+            <!-- 8. Conversie: Word→PDF, Excel→PDF, Imagine→PDF -->
+            <div class="kb-acc-item coming-soon">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🔄</span>
+                <span class="acc-title">Conversie: Word→PDF, Excel→PDF, Imagine→PDF</span>
+                <span class="coming-badge">În curând</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Instrumentele de conversie de formate sunt în curs de dezvoltare pentru web. Aceste caracteristici sunt deja complet disponibile în Aplicația Desktop.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.DOCX</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">.JPG</span>
+                  <span class="fmt-chip">.PNG</span>
+                  <span class="fmt-chip">→ .PDF</span>
+                </div>
+                <a href="descarca" class="acc-cta">Obține Aplicația Desktop →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURE COMPARISON TABLE -->
+      <div class="compare-section" id="compare">
+        <header class="section-header">
+          <div class="section-eyebrow">Comparativ</div>
+          <h2 class="section-title text-gradient">Comparare Caracteristici</h2>
+          <p class="section-subtitle">Vezi exact ce oferă fiecare platformă — alege instrumentul potrivit pentru fluxul tău de lucru.</p>
+        </header>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Caracteristică</th>
+                <th>🌐 Unelte în Browser (Gratuit)</th>
+                <th>🖥️ Aplicație Desktop</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- General -->
+              <tr class="cat-row"><td colspan="3">General</td></tr>
+              <tr><td>Preț</td><td class="yes">Gratuit</td><td class="partial">Licențiat</td></tr>
+              <tr><td>Necesită Instalare</td><td class="yes">Nu</td><td class="partial">Kit Windows</td></tr>
+              <tr><td>Funcționează Offline</td><td class="no">Nu (are nevoie de browser)</td><td class="yes">Da ✓</td></tr>
+
+              <!-- Processing -->
+              <tr class="cat-row"><td colspan="3">Procesare Fișiere</td></tr>
+              <tr><td>Procesare PDF</td><td class="yes">✓ Complet</td><td class="yes">✓ Complet</td></tr>
+              <tr><td>Procesare DOCX / Word</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+              <tr><td>Procesare XLSX / Excel</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+              <tr><td>Procesare Imagini (JPG, PNG, TIFF)</td><td class="partial">Doar Sanitizare</td><td class="yes">✓ Complet</td></tr>
+              <tr><td>Fișiere maxime pe sesiune</td><td class="partial">Limitat de browser</td><td class="yes">Nelimitat</td></tr>
+              <tr><td>Dimensiune maximă fișier</td><td class="partial">~100 MB (limită browser)</td><td class="yes">Fără limită</td></tr>
+
+              <!-- Core Tools -->
+              <tr class="cat-row"><td colspan="3">Unelte Principale</td></tr>
+              <tr><td>Sanitizare Metadate</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Filigranare (Watermark)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Criptare (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Redactare Text Sensibil</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Aplatizare în Imagine</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Reparare &amp; Reconstrucție</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Conversii</td></tr>
+              <tr><td>Conversie Word → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+              <tr><td>Conversie Excel → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+              <tr><td>Conversie Imagine → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+
+              <!-- Reporting -->
+              <tr class="cat-row"><td colspan="3">Raportare &amp; Evidență</td></tr>
+              <tr><td>Rezumat Pachet</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Borderou Avansat</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Raport Folder Evidence</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+
+              <!-- Advanced -->
+              <tr class="cat-row"><td colspan="3">Funcții Avansate</td></tr>
+              <tr><td>OCR (Recunoaștere text)</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td>Audit sistem (Unități &amp; Partiții)</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <tr><td>Ștergere securizată (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-ctas">
+          <a href="unelte-online" class="btn btn-primary">🌐 Folosește Uneltele Online — Gratuit</a>
+          <a href="descarca" class="btn btn-outline">⬇️ Descarcă Aplicația Desktop</a>
+        </div>
+      </div>
+
+      <!-- FAQ SECTION -->
+      <div class="faq-section" id="faq">
+        <header class="section-header">
+          <div class="section-eyebrow">Întrebări și Răspunsuri</div>
+          <h2 class="section-title text-gradient">Întrebări Frecvente</h2>
+          <p class="section-subtitle">Tot ce trebuie să știi despre instrumentele și capabilitățile DocInspector.</p>
+        </header>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Sunt instrumentele online complet gratuite?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Da, toate uneltele bazate pe browser sunt 100% gratuite, fără taxe ascunse, fără cont necesar și fără limite de utilizare. Procesarea are loc în întregime în browserul dumneavoastră — fișierele nu părăsesc niciodată dispozitivul.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Ce formate de fișiere sunt suportate?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Uneltele din browser suportă PDF, DOCX, XLSX, JPG, PNG și TIFF pentru curățarea metadatelor. Operațiunile de filigranare, criptare, redactare, aplatizare și reparare sunt dedicate formatului PDF. Uneltele de Rezumat Pachet și Folder Evidence funcționează cu orice tip de fișier. Aplicația desktop suportă toate aceste formate plus capabilități complete de procesare batch.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Trebuie să instalez ceva pentru a folosi uneltele online?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Nu este necesară nicio instalare. Uneltele online rulează direct în browserul dumneavoastră web folosind JavaScript modern și WebAssembly. Funcționează în orice browser modern (Chrome, Firefox, Edge, Safari). Pentru aplicația desktop completă cu scanare recursivă și OCR, este disponibil un kit de instalare pentru Windows.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Sunt fișierele mele în siguranță când folosesc DocInspector?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Absolut. Uneltele din browser folosesc o arhitectură fără încărcare — toată procesarea fișierelor are loc local în browserul dumneavoastră folosind client-side JavaScript. Nu se trimit date către niciun server. Aplicația desktop procesează de asemenea totul local pe computerul dumneavoastră Windows, fără a fi necesară o conexiune la internet.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Este DocInspector conform cu GDPR?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Da. Deoarece uneltele din browser procesează fișierele în întregime în interiorul browserului dumneavoastră, cu zero încărcări pe server, nu există nicio colectare sau transfer de date. Aplicația desktop procesează fișierele local pe computer. Ambele abordări sunt complet conforme cu GDPR prin design.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Ce sunt metadatele unui document și de ce ar trebui să le elimin?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Metadatele documentelor includ informații ascunse încorporate în fișiere — numele autorului, datele de creare, coordonatele GPS (în imagini), istoricul revizuirilor, versiunile software și comentariile interne. Eliminarea metadatelor protejează confidențialitatea și previne scurgerile neintenționate de informații, fiind adesea obligatorie pentru depunerea probelor juridice.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Ce este un Borderou Avansat?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Borderoul Avansat este un raport de inventar detaliat generat sub formă de tabel Excel. Acesta cataloghează toate fișierele dintr-un folder selectat cu metadate cuprinzătoare, inclusiv numele fișierelor, dimensiunile, tipurile, datele creării și modificării, valorile hash SHA-256 și numărul de pagini. Este esențial pentru managementul probelor juridice și auditul de conformitate.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Ce este un Raport Folder Evidence?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Raportul Folder Evidence este o cale completă de audit bazată pe Excel care documentează structura directoarelor, hash-urile de integritate ale fișierelor și metadatele pentru toate fișierele din arborele de foldere. Oferă un instantaneu al folderelor pregătit pentru instanță, fiind conceput pentru managementul probelor juridice, documentația lanțului de custodie și cerințele de conformitate.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Când vor fi disponibile conversiile de formate în uneltele din browser?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Conversiile de formate (Word în PDF, Excel în PDF și Imagine în PDF) sunt în curs de dezvoltare activă pentru web și vor fi disponibile într-o actualizare viitoare. Între timp, aceste caracteristici sunt deja complet disponibile în aplicația desktop.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 10 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Care sunt principalele diferențe între Uneltele din Browser și Aplicația Desktop?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Uneltele din browser sunt gratuite, nu necesită instalare și se ocupă de operațiunile de bază pentru fișiere individuale. Aplicația desktop este o aplicație Windows licențiată care oferă funcții avansate, cum ar fi OCR, procesare batch pentru structuri întregi de foldere, scanare recursivă, conversii complete de formate, distrugere securizată a fișierelor (standard DoD) și audit complet de sistem. Vezi <a href="#compare" style="color:var(--cyan)">tabelul comparativ de mai sus</a> pentru o prezentare detaliată.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</div>
       <div class="footer-links">
+        <a href="https://www.tiktok.com/@docinspector?_r=1&_t=ZS-94P4h7rqm3B" target="_blank" class="tiktok-link" title="TikTok">
+          <svg width="20" height="20" viewBox="0 0 448 512" style="fill:currentColor;vertical-align:middle"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+        </a>
         <a href="politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
-        <a href="securitate" data-i18n="footer.security">Securitate</a>
         <a href="termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
-        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
-        </a>
+        <a href="rapoarte-feedback" class="btn btn-outline btn-sm" data-i18n="footer.bug" style="border-radius:50px;padding:.4rem 1rem;">Raportează un bug</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </div>
+
 <script>
   // Accordion toggle for Browser Tools
   function toggleAcc(btn) {
@@ -1057,6 +1003,7 @@
     if (!wasActive) item.classList.add('active');
   }
 </script>
+
 <script src="../cookies.js"></script>
 <script src="../scroll-fx.js?v=9"></script>
 </body>
