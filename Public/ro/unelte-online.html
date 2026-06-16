@@ -1113,12 +1113,13 @@ function toggleTool(e, name) {
   if (selectedOps.has('bundle')) {
     const maxSz = currentTier === "Free" ? "25" : "100";
     const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    fi.setAttribute('webkitdirectory', '');
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
+    fi.setAttribute('webkitdirectory', 'true');
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
-    dzTitle.textContent = 'Trage un FOLDER aici (până la 100 fișiere)';
-    dzSub.textContent   = 'sau click pentru a naviga folderul — max 100 fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
+    dzTitle.textContent = 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)';
+    dzSub.textContent   = 'sau click pentru a naviga folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
@@ -1328,11 +1329,12 @@ function renderFiles() {
   const sub   = document.getElementById('dzSub');
   if (!files.length) {
     list.innerHTML = '';
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la 100 fișiere)' : 'Trage & Plasează fișierele aici';
+    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)' : 'Trage & Plasează fișierele aici';
     const maxSz = currentTier === "Free" ? "25" : "100";
     const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max 100 fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
+    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
     return;
   }
   icon.textContent  = '📋';
@@ -1411,7 +1413,7 @@ async function startProcessing() {
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
     document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
-    const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
       let m = 'Eroare server.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1463,7 +1465,7 @@ async function startBundleSummary() {
   });
   try {
     document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
-    const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
       let m = 'Eroare server.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1513,7 +1515,7 @@ async function pollJobStatus(jobId, downloadName) {
     }
     
     try {
-      const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+      const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
       if (!resp.ok) throw new Error('Eșec la obținerea stării jobului');
       const data = await resp.json();
       
@@ -1638,7 +1640,7 @@ async function cancelJob() {
     document.getElementById('rResetBtn').style.display = 'inline-block';
     document.getElementById('processBtn').disabled = false;
     
-    await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     
     document.getElementById('rSub').textContent = 'Jobul a fost anulat și fișierele au fost șterse de pe server.';
   } catch (e) {
@@ -1716,7 +1718,8 @@ window.addEventListener('beforeunload', () => {
       keepalive: true,
       headers: {
         'Bypass-Tunnel-Reminder': 'true'
-      }
+      },
+      credentials: 'include'
     });
     localStorage.removeItem('di_active_job_id');
     localStorage.removeItem('di_active_job_download_name');
