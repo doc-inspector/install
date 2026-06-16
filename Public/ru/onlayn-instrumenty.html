@@ -497,11 +497,10 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
                 <div class="tool-name">Сводный отчёт PDF</div>
               </div>
-              <div class="tool-desc">Перетащите папку с объемом до 100 PDF-файлов (макс. 15 МБ каждый). Создает профессиональный <strong style="color:#f59e0b">отчёт Excel + PDF</strong> с именами файлов, количеством страниц, хэшем SHA-256, статусом шифрования и итогами.</div>
+              <div class="tool-desc">Перетащите папку с объемом до 100 PDF-файлов (макс. 15 МБ каждый). Создает профессиональный <strong style="color:#f59e0b">отчёт Excel + PDF</strong> с именами файлов, количеством страниц, статусом шифрования и итогами.</div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Загрузка папки</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">🔐 SHA-256</span>
               </div>
             </div>
 
@@ -1429,7 +1428,7 @@ async function startBundleSummary() {
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
   document.getElementById('rTitle').innerHTML   = 'Создание сводного отчёта…';
-  document.getElementById('rSub').innerHTML     = 'Извлечение метаданных, подсчёт страниц и расчёт SHA-256 для каждого файла';
+  document.getElementById('rSub').innerHTML     = 'Извлечение метаданных и подсчёт страниц для каждого файла';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
   document.getElementById('processBtn').disabled  = true;

@@ -524,11 +524,10 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
                 <div class="tool-name">Borderou PDF</div>
               </div>
-              <div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu hash SHA-256 și metadate. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu numărul de pagini și metadate. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Încărcare folder</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">🔐 SHA-256</span>
               </div>
             </div>
 
@@ -1475,7 +1474,7 @@ async function startBundleSummary() {
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
     document.getElementById('rTitle').innerHTML = 'Se generează borderoul PDF…';
-    document.getElementById('rSub').innerHTML = 'Se extrag metadatele, nr. pagini și hash-ul SHA-256 pentru fiecare fișier';
+    document.getElementById('rSub').innerHTML = 'Se extrag metadatele și nr. pagini pentru fiecare fișier';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';

@@ -776,11 +776,10 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">&#x1F4CB;</div>
                 <div class="tool-name">PDF Bundle Summary</div>
               </div>
-              <div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> for the folder with SHA-256 hash and metadata. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> for the folder with page counts and metadata. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4CA; Excel + PDF</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F510; SHA-256</span>
               </div>
             </div>
 
@@ -1761,7 +1760,7 @@ async function startBundleSummary() {
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
     document.getElementById('rTitle').innerHTML = 'Generating Bundle Summary…';
-    document.getElementById('rSub').innerHTML = 'Extracting metadata, page counts & SHA-256 for each file';
+    document.getElementById('rSub').innerHTML = 'Extracting metadata & page counts for each file';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
