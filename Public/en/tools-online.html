@@ -294,7 +294,7 @@
       display:flex; align-items:center; gap:.7rem;
       background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
       border-radius:12px; padding:.65rem 1rem; font-size:.88rem;
-      animation:slideInUp .25s ease;
+      animation:slideInUp .25s ease; min-width: 0;
     }
     @keyframes slideInUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     .fi-name { flex:1; color:#fff; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -790,7 +790,7 @@
           <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner">
               <p style="font-size:.78rem;color:var(--text-muted);margin:0 0 .5rem">Select what types of metadata to remove:</p>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:.5rem;margin-top:.4rem">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
                   <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Author &amp; Creator Info
                 </label>
