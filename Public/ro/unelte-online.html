@@ -949,7 +949,7 @@ function updateUI() {
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 100 fișiere/zi, gratuit";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.';
+    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>25 MB</strong> fiecare), 100 gratuit pe zi.';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -960,7 +960,7 @@ function updateUI() {
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 500 fișiere/zi, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>500 de fișiere</strong> simultan (max <strong>50 MB</strong> fiecare), 500 pe zi.';
+    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>500 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), 500 pe zi.';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -971,7 +971,7 @@ function updateUI() {
     if(ub) ub.style.display = "none";
   } else {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Fișiere nelimitate/zi, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1000 de fișiere</strong> simultan (max <strong>50 MB</strong> fiecare), nelimitat pe zi.';
+    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1300 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), nelimitat pe zi.';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -1111,12 +1111,14 @@ function toggleTool(e, name) {
   const dzTitle = document.getElementById('dzTitle');
   const dzSub   = document.getElementById('dzSub');
   if (selectedOps.has('bundle')) {
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
     fi.setAttribute('webkitdirectory', '');
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
     dzTitle.textContent = 'Trage un FOLDER aici (până la 100 fișiere)';
-    dzSub.textContent   = 'sau click pentru a naviga folderul — max 100 fișiere — 15 MB fiecare — max 1 GB în total';
+    dzSub.textContent   = 'sau click pentru a naviga folderul — max 100 fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
@@ -1124,8 +1126,9 @@ function toggleTool(e, name) {
     fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
     dzIcon.textContent  = '📂';
     dzTitle.textContent = 'Trage & Plasează fișierele aici';
-    const maxSz = currentTier === "Free" ? "15" : "50";
-    dzSub.textContent   = 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max 1 GB în total';
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    dzSub.textContent   = 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
@@ -1259,12 +1262,13 @@ function traverseFileTree(item, path = '') {
 function addFiles(newFiles) {
   let currentTotal = files.reduce((acc, f) => acc + f.size, 0);
   let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
-  if (currentTotal + newTotal > 1024 * 1024 * 1024) {
-    alert("Limita totală de încărcare este de 1 GB. Fișierele selectate depășesc această limită.");
+  const totalLimit = currentTier === "Free" ? 1024 * 1024 * 1024 : 2 * 1024 * 1024 * 1024;
+  if (currentTotal + newTotal > totalLimit) {
+    alert("Limita totală de încărcare este de " + (totalLimit/1024/1024/1024) + " GB. Fișierele selectate depășesc această limită.");
     return;
   }
-  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1000);
-  const maxSz = currentTier === "Free" ? 15 * 1024 * 1024 : 50 * 1024 * 1024;
+  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
+  const maxSz = currentTier === "Free" ? 25 * 1024 * 1024 : 100 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
   
   newFiles.filter(f => {
@@ -1286,7 +1290,7 @@ function addFiles(newFiles) {
   
   let msg = [];
   if (skippedLimit) msg.push(skippedLimit + " fișiere ignorate (s-a atins limita maximă de " + CURRENT_MAX + ").");
-  if (skippedSize) msg.push(skippedSize + " fișiere ignorate (depășesc limita de " + (maxSz/1024/1024) + "MB).");
+  if (skippedSize) msg.push("Fișierele tale au fost adăugate, dar " + skippedSize + " fișiere care depășesc limita de " + (maxSz/1024/1024) + " MB au fost omise.");
   if (msg.length) alert(msg.join("\n"));
   
   renderFiles(); updateBtn();
@@ -1326,8 +1330,9 @@ function renderFiles() {
     list.innerHTML = '';
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
     title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la 100 fișiere)' : 'Trage & Plasează fișierele aici';
-    const maxSz = currentTier === "Free" ? "15" : "50";
-    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max 100 fișiere — 15 MB fiecare — max 1 GB în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max 1 GB în total';
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max 100 fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
     return;
   }
   icon.textContent  = '📋';
