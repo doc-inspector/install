@@ -844,7 +844,7 @@ let resetInSeconds = 0;
 
 async function fetchStatus() {
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    const res = await fetch('https://direct-api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (res.ok) {
       const data = await res.json();
       currentTier = data.tier;
@@ -985,7 +985,7 @@ async function activateLicense() {
   fd.append("license_key", key);
   
   try {
-    const res = await fetch('https://api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    const res = await fetch('https://direct-api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     const data = await res.json();
     if (res.ok) {
       msg.style.display = "block";
@@ -1008,7 +1008,7 @@ async function activateLicense() {
 }
 
 async function logoutLicense() {
-  await fetch('https://api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST', credentials: 'include' });
+  await fetch('https://direct-api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST', credentials: 'include' });
   await fetchStatus();
 }
 
@@ -1395,7 +1395,7 @@ async function startProcessing() {
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
     document.getElementById('rSub').innerHTML = 'Отправка ' + fileCount + ' файл' + (fileCount === 1 ? 'a' : (fileCount < 5 ? 'а' : 'ов')) + ' на сервер...';
-    const resp = await fetch('https://api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1443,7 +1443,7 @@ async function startBundleSummary() {
     }
   });
   try {
-    const resp = await fetch('https://api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'} });
     if (!resp.ok) {
       let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
@@ -1491,7 +1491,7 @@ async function pollJobStatus(jobId, downloadName) {
     }
     
     try {
-      const resp = await fetch(`https://api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
+      const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'} });
       if (!resp.ok) throw new Error('Не удалось получить статус задачи');
       const data = await resp.json();
       
@@ -1563,7 +1563,7 @@ async function pollJobStatus(jobId, downloadName) {
           dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать результаты (.zip)';
         }
         
-        dlBtn.href = `https://api.doc-inspector.com/api/job-download/${jobId}`;
+        dlBtn.href = `https://direct-api.doc-inspector.com/api/job-download/${jobId}`;
         dlBtn.download = downloadName;
         dlBtn.style.display = 'inline-flex';
         dlBtn.click();
@@ -1616,7 +1616,7 @@ async function cancelJob() {
     document.getElementById('rResetBtn').style.display = 'inline-block';
     document.getElementById('processBtn').disabled = false;
     
-    await fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'} });
+    await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'} });
     
     document.getElementById('rSub').textContent = 'Задача отменена, и файлы были удалены с сервера.';
   } catch (e) {
@@ -1689,7 +1689,7 @@ function removeRedactKeyword(kw) {
 window.addEventListener('beforeunload', () => {
   const jobId = localStorage.getItem('di_active_job_id');
   if (jobId) {
-    fetch(`https://api.doc-inspector.com/api/job-cancel/${jobId}`, {
+    fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, {
       method: 'POST',
       keepalive: true,
       headers: {
