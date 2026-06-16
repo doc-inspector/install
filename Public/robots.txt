@@ -1,10 +1,11 @@
 User-agent: *
-Allow: /en/
-Allow: /ro/
-Allow: /ru/
-Allow: /assets/
+Allow: /
+
+# Blocheaza doar zone tehnice
 Disallow: /api/
+Disallow: /assets/tmp/
+
+# Nu indexa pagina root duplicat (redirect catre /en/)
 Disallow: /index.html
-Disallow: /en/free-online-document-tools
 
 Sitemap: https://doc-inspector.com/sitemap.xml
