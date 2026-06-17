@@ -913,10 +913,10 @@
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Rebuild Settings</div>
               <div class="opt-row">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Smart Rebuild (Skips pages with selectable text, runs OCR only where text is missing)
+                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Smart Rebuild (Runs OCR only on non-copyable/scanned pages - FASTER)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Force Rebuild (Run OCR on all pages)
+                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Force Rebuild (Runs OCR on all pages, including those with text - SLOWER)
                 </label>
               </div>
             </div>

@@ -609,10 +609,10 @@
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки восстановления</div>
               <div class="opt-row">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Умное восстановление (Пропускает страницы с текстовым слоем, запускает OCR только при его отсутствии)
+                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Умное восстановление (OCR только на отсканированных страницах без выбора текста - БЫСТРЕЕ)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Принудительное восстановление (OCR всех страниц)
+                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Принудительное восстановление (OCR на всех страницах, включая текстовые - МЕДЛЕННЕЕ)
                 </label>
               </div>
             </div>
