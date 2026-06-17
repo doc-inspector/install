@@ -1,15 +1,28 @@
 {
-  "version": "2.2.1",
-  "last_update": "2026-03-23T11:30",
+  "version": "2.2.2",
+  "last_update": "2026-06-17T12:30",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
-
-
-
-
-
-
-{
+    {
+      "version": "2.2.2",
+      "date": "June 17, 2026",
+      "changes_en": [
+        "Smart Rebuild & OCR: Added settings gear to Rebuild & Repair. It now performs page-by-page text copyability checks and skips OCR on pages that already contain selectable text, dramatically increasing speed and preserving vector quality.",
+        "Licensing Limits Enforced: Basic license holders now have a 1,000 files/day limit enforced on both web and desktop, and are limited to a single processing action per run (all tools remain fully active).",
+        "GUI Improvements: Confined DPI selections to 200, 250, 300, 350, and 400 DPI."
+      ],
+      "changes_ro": [
+        "Reconstrucție Inteligentă: S-a adăugat o rotiță de setări pentru Reconstruire și Reparare PDF. Sistemul verifică pagină cu pagină dacă textul este deja copiabil, evitând OCR-ul acolo unde nu este necesar, ceea ce mărește viteza considerabil și păstrează calitatea originală.",
+        "Limitări Licență Basic: Pentru utilizatorii Basic s-a introdus o limită zilnică de 1.000 de fișiere (atât online cât și pe desktop) și restricția de a selecta o singură operațiune la o rulare (toate uneltele rămân active).",
+        "Ajustări interfață: Lista de opțiuni DPI în interfață a fost restrânsă exact la: 200, 250, 300, 350 și 400 DPI."
+      ],
+      "changes_ru": [
+        "Режим Умного Восстановления: Добавлена шестерёнка настроек для восстановления PDF. Теперь система проверяет каждую страницу на наличие копируемого текста, пропуская OCR там, где текст уже распознан, что значительно ускоряет работу и сохраняет исходное качество.",
+        "Ограничения лицензии Basic: Для пользователей Basic введен дневной лимит в 1000 файлов (в веб-версии и на ПК) и ограничение на запуск только одной операции за раз (все инструменты остаются доступными).",
+        "Изменения в интерфейсе: Список выбора DPI в интерфейсе ограничен следующими значениями: 200, 250, 300, 350 и 400 DPI."
+      ]
+    },
+    {
       "version": "2.2.1",
       "date": "March 23, 2026",
       "changes_en": [

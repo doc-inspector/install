@@ -631,6 +631,42 @@
             </div>
           </div>
 
+          <div class="tool-opts" id="opts-rebuild" style="--brand: #6366f1;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Reconstruire</div>
+              <div class="opt-row">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Inteligentă (Verificare pagină cu pagină)
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Forțată (Rulare OCR pe toate paginile)
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 1.5rem;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Opțiuni Globale Procesare</div>
+              <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="global-timeout-enable" style="accent-color:#10b981" onchange="document.getElementById('global-timeout-val').disabled = !this.checked"> Omite fișierul dacă procesarea durează prea mult
+                </label>
+                <select id="global-timeout-val" disabled style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
+                  <option value="120">2 minute</option>
+                  <option value="300" selected>5 minute</option>
+                  <option value="480">8 minute</option>
+                  <option value="900">15 minute</option>
+                  <option value="1500">25 minute</option>
+                  <option value="2400">40 minute</option>
+                  <option value="3600">1 oră</option>
+                  <option value="7200">2 ore</option>
+                  <option value="14400">4 ore</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
         </div><!-- /pasul 2 -->
 
         <!-- Buton procesare + rezultat (sub ambii pași) -->
@@ -961,8 +997,8 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 500 fișiere/zi, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>500 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), 500 pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 1.000 fișiere/zi, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1.000 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), 1.000 pe zi.';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1118,7 +1154,7 @@ function toggleTool(e, name) {
   if (selectedOps.has('bundle')) {
     const maxSz = currentTier === "Free" ? "25" : "100";
     const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     fi.setAttribute('webkitdirectory', 'true');
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
@@ -1273,7 +1309,7 @@ function addFiles(newFiles) {
     alert("Limita totală de încărcare este de " + (totalLimit/1024/1024/1024) + " GB. Fișierele selectate depășesc această limită.");
     return;
   }
-  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
+  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
   const maxSz = currentTier === "Free" ? 25 * 1024 * 1024 : 100 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
   
@@ -1334,7 +1370,7 @@ function renderFiles() {
   const sub   = document.getElementById('dzSub');
   if (!files.length) {
     list.innerHTML = '';
-    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 500 : 1300);
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
     title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)' : 'Trage & Plasează fișierele aici';
     const maxSz = currentTier === "Free" ? "25" : "100";
@@ -1368,6 +1404,9 @@ return {
     sanitizeTime:     document.getElementById('san-time')   ? document.getElementById('san-time').checked   : true,
     sanitizeGps:      document.getElementById('san-gps')    ? document.getElementById('san-gps').checked    : true,
     sanitizeSoftware: document.getElementById('san-software')? document.getElementById('san-software').checked: true,
+    rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
+    timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
+    timeoutValue:     parseInt(document.getElementById('global-timeout-val')?.value || '300'),
   };
 }
 

@@ -971,8 +971,9 @@
               <tr><td>DOCX / Word Processing</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
               <tr><td>XLSX / Excel Processing</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
               <tr><td>Image Processing (JPG, PNG, TIFF)</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
-              <tr><td>Max Files per Session</td><td class="partial">Limited by browser</td><td class="yes">Unlimited</td></tr>
-              <tr><td>Max File Size</td><td class="partial">~100 MB (browser limit)</td><td class="yes">No limit</td></tr>
+              <tr><td>Max File Size</td><td class="partial">Free: 25 MB, Basic/Pro: 100 MB</td><td class="yes">Unlimited</td></tr>
+              <tr><td>Max Files per Session</td><td class="partial">Free: 100, Basic: 1,000, Pro: 1,300</td><td class="yes">Pro: Unlimited, Basic: Unlimited</td></tr>
+              <tr><td>Daily Processing Limit</td><td class="partial">Free: 100/day, Basic: 1,000/day, Pro: Unlimited</td><td class="yes">Pro: Unlimited, Basic: 1,000/day</td></tr>
 
               <!-- Core Tools -->
               <tr class="cat-row"><td colspan="3">Core Tools</td></tr>
@@ -1016,9 +1017,8 @@
       <!-- ═══════════════════════════════════════════════════════ -->
       <div class="faq-section" id="faq">
         <header class="section-header">
-          <div class="section-eyebrow">Questions &amp; Answers</div>
+          <div class="section-eyebrow">FAQ</div>
           <h2 class="section-title text-gradient">Frequently Asked Questions</h2>
-          <p class="section-subtitle">Everything you need to know about DocInspector's tools and capabilities.</p>
         </header>
 
         <div class="faq-list">
@@ -1029,7 +1029,7 @@
               <span class="faq-toggle">+</span>
             </button>
             <div class="faq-a">
-              <p>Yes, all browser-based tools are 100% free with no hidden fees, no account required, and no usage limits. Processing happens entirely in your browser — your files never leave your device.</p>
+              <p>Yes, all browser-based tools are free to use. Free users can process up to 100 files per day. Basic and Pro licenses unlock higher processing limits (up to 1,000 files/day and unlimited files/day respectively).</p>
             </div>
           </div>
 
@@ -1051,7 +1051,7 @@
               <span class="faq-toggle">+</span>
             </button>
             <div class="faq-a">
-              <p>No installation is required. The online tools run entirely in your web browser using modern JavaScript and WebAssembly. Any modern browser (Chrome, Firefox, Edge, Safari) works. For the full desktop application with advanced features like OCR and recursive folder scanning, a Windows installer is available.</p>
+              <p>No installation is required. The online tools run using modern web APIs and a secure VPS sandbox backend. Any modern browser (Chrome, Firefox, Edge, Safari) works. For the full desktop application with advanced features like OCR and recursive folder scanning, a Windows installer is available.</p>
             </div>
           </div>
 
@@ -1062,7 +1062,7 @@
               <span class="faq-toggle">+</span>
             </button>
             <div class="faq-a">
-              <p>Absolutely. The browser tools use a zero-upload architecture — all file processing happens locally in your browser using client-side JavaScript. No data is ever sent to any server. The desktop app also processes everything locally on your Windows machine with no internet connection required.</p>
+              <p>Absolutely. The online tools process files in an isolated, secure VPS sandbox, and all files are deleted immediately after download. Your files are never stored or analyzed. The desktop app processes everything locally on your Windows machine with no internet connection required.</p>
             </div>
           </div>
 
@@ -1073,7 +1073,7 @@
               <span class="faq-toggle">+</span>
             </button>
             <div class="faq-a">
-              <p>Yes. Because the browser tools process files entirely within your browser with zero server uploads, there is no data collection or transfer involved. The desktop application processes files locally on your machine. Both approaches are fully GDPR compliant by design.</p>
+              <p>Yes. Because both the online tools (which delete files immediately after processing) and the desktop application process files locally or in a temporary isolated environment, there is no permanent data collection or transfer involved. Both approaches are fully GDPR compliant by design.</p>
             </div>
           </div>
 
