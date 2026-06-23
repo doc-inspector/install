@@ -1,8 +1,27 @@
 {
-  "version": "2.2.2",
-  "last_update": "2026-06-17T12:30",
+  "version": "2.2.3",
+  "last_update": "2026-06-23T16:15",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.3",
+      "date": "June 23, 2026",
+      "changes_en": [
+        "Self-Contained Installer: Removed system-wide .NET 8 Desktop Runtime check, making the installer completely standalone.",
+        "Licensing Verification Fix: Switched silent startup check to the validation endpoint to prevent exceeding activation limits, and added protections to prevent local cache wiping on temporary network/server glitches.",
+        "Deactivate License Button: Added a 'Remove License' button in the application to easily free up activation slots and transfer licenses between devices."
+      ],
+      "changes_ro": [
+        "Instalare Independentă (Self-Contained): S-a eliminat verificarea și descărcarea .NET 8 Desktop Runtime din installer, facilitând instalarea offline.",
+        "Corecție validare licență: S-a schimbat verificarea de la pornire pentru a apela endpoint-ul de validare (nu cel de activare), prevenind blocajele cauzate de limitele de activare și erorile temporare de conexiune.",
+        "Dezactivare Licență: S-a adăugat butonul 'Remove License' în aplicație pentru a elibera manual slotul de activare și a permite mutarea licenței pe alt PC."
+      ],
+      "changes_ru": [
+        "Автономный установщик: Удалена системная проверка .NET 8 Runtime, так как все файлы включены в сборку.",
+        "Исправление проверки лицензии: Переключена тихая проверка при запуске на метод валидации, чтобы избежать исчерпания лимитов активации и случайной очистки кэша при сбоях сети.",
+        "Деактивация лицензии: Добавлена кнопка 'Remove License' для освобождения слота активации и быстрого переноса на другой ПК."
+      ]
+    },
     {
       "version": "2.2.2",
       "date": "June 17, 2026",
