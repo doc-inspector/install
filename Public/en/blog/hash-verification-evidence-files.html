@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/hash-md5sha-256-pentru-documente-cum-demonstrezi-integritatea-unui-dosar" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/md5sha-256-heshi-dokumentov-kak-dokazaty-tselostnosty-dela" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/hash-verification-evidence-files" />
-  <link rel="stylesheet" href="../../style.css?v=13">
+  <link rel="stylesheet" href="../../style.css?v=12">
   <link rel="icon" href="../../assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -241,21 +241,12 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
-
-  <!-- Constellation Canvas -->
-  <style>
-    #constellation-canvas {
-      position: fixed; inset: 0; z-index: 0;
-      pointer-events: none; width: 100%; height: 100%;
-      opacity: 1;
-    }
-  </style>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
-            <a href=".././" class="brand">
+      <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
@@ -263,12 +254,11 @@
         </span>
       </a>
 
-            <div class="nav-links">
+      <div class="nav-links">
         <a href="../" data-i18n="nav.home">Home</a>
-        <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="../price" data-i18n="nav.price">Price</a>
         <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
-        <a href="../reports" data-i18n="nav.reports">Reports &amp; Feedback</a>
+        <a href="../reports" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
         <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
@@ -305,7 +295,7 @@
       <h2>Introduction</h2><p>In an increasingly digital world, the integrity of documents is paramount. From critical legal filings and financial reports to sensitive intellectual property and long-term archival records, the assurance that a digital file remains unaltered from its original state is non-negotiable. Cryptographic hashes, such as MD5 and SHA-256, serve as powerful digital fingerprints, offering an undeniable method to verify document authenticity and detect even the slightest tampering. Understanding and implementing hash verification is a cornerstone of robust digital asset management.</p><p>This article delves into the crucial role of MD5 and SHA-256 hashes in establishing and proving document integrity. We will explore why these cryptographic tools are indispensable, how they function, and crucially, how they integrate into a comprehensive workflow that prioritizes accuracy, security, and privacy, especially when handled by offline, local applications like DocInspector.</p><h2>The Unseen Threat of Document Tampering and Corruption</h2><p>Digital documents, despite their convenience, are inherently vulnerable to a range of integrity threats. These can stem from accidental corruption during file transfers or storage, software glitches, or more malicious intentions such as unauthorized alteration, data manipulation, or even ransomware attacks that subtly modify content without immediate detection. Imagine a crucial contract clause being subtly changed, a financial figure adjusted in an audit report, or a piece of evidence tampered with in a legal brief. Without a reliable mechanism to detect these changes, the consequences can be severe, leading to legal disputes, financial losses, reputational damage, or invalidation of critical records.</p><p>The challenge lies in the 'silent' nature of many of these changes. A document might appear visually identical, yet its underlying binary structure could be compromised. This makes traditional visual inspection or comparison tools insufficient for high-stakes scenarios. For bundles of files—such as evidence packages, patent applications, or regulatory submissions—proving the integrity of each component, and the bundle as a whole, becomes a complex but vital task that cryptographic hashes are uniquely suited to address.</p><h2>Verifying Immutability with Cryptographic Signatures</h2><p>Cryptographic hash functions like MD5 (Message-Digest Algorithm 5) and SHA-256 (Secure Hash Algorithm 256) are mathematical algorithms that take an input (your document) and produce a fixed-size string of alphanumeric characters—the hash value or digest. This hash is unique to that specific input. Even a single byte change in the document, whether a character, a pixel, or a hidden metadata alteration, will result in a completely different hash value. This makes them exceptionally powerful for integrity checks: if a document's current hash matches a previously recorded, trusted hash, you have strong cryptographic evidence that the document has not been altered.</p><p>While MD5 is faster, SHA-256 offers a higher level of cryptographic security, making it the preferred choice for situations demanding maximum integrity assurance, such as legal evidence or secure archives. The core principle remains the same: generate a hash of the original, untouched document, record it, and then at any later point, generate a new hash of the document in question and compare. Any discrepancy signifies a change, intentional or otherwise, thereby proving a break in the chain of integrity.</p><h2>Establishing a Chain of Trust with DocInspector</h2><p>Integrating cryptographic hash verification into your document management workflow is essential, and DocInspector plays a pivotal role in strengthening this chain of trust. Before a document's definitive hash is taken—the 'fingerprint' that proves its integrity—it's crucial to ensure the document itself is in its optimal, secure, and intended state. This is where DocInspector's unique, privacy-first, offline capabilities shine. As a local desktop application, DocInspector allows you to:</p><ul><li>**Repair Corruption:** Ensure the document is free from structural damage before hashing, preventing erroneous hashes or data loss.</li><li>**Harden PDFs:** Apply security settings to PDFs, making them more resilient before they are finalized and hashed for archival.</li><li>**Clean Metadata:** Remove hidden, potentially sensitive, or integrity-compromising metadata, ensuring the hash reflects only the intended content.</li><li>**OCR Scanned Files:** Convert scanned documents into searchable text, ensuring all content is accounted for before generating a hash.</li></ul><p>By preparing and securing your documents locally with DocInspector *before* generating their hashes, you ensure that the integrity check is performed on a clean, robust, and privacy-compliant file. This proactive step guarantees that the recorded hash genuinely represents the intended, final version of your document, enhancing reliability and auditability without ever sending sensitive data to the cloud.</p><h2>Document Integrity Verification Checklist</h2><ul><li>• Generate a hash (preferably SHA-256) for all critical documents immediately upon creation, receipt, or finalization.</li><li>• Store these original hashes securely in an immutable log or alongside document metadata within a trusted system.</li><li>• **Prior to hashing, process documents using DocInspector to:**</li><li>    ✓ Repair any detected file corruption.</li><li>    ✓ Clean sensitive or unnecessary metadata.</li><li>    ✓ OCR scanned documents to ensure all content is captured.</li><li>    ✓ Harden PDFs for enhanced security.</li><li>• Regularly verify the hash of active or archived documents against their original, trusted hash values.</li><li>• Document the hashing process, including the specific algorithm and tools used, for comprehensive audit trails.</li><li>• When exchanging documents, provide the corresponding hash values to recipients for their independent verification.</li></ul><h2>Conclusion</h2><p>Cryptographic hashing with MD5 and SHA-256 is an indispensable practice for anyone serious about digital document integrity. It provides an unassailable mathematical proof that a document has remained unchanged, critical for legal, financial, and archival contexts. By proactively incorporating document preparation tools like DocInspector—which operate locally and prioritize privacy—into your hashing workflow, you not only ensure the authenticity of your files but also guarantee that their integrity is measured against a robust, clean, and secure baseline. This holistic approach fortifies your digital assets, building an undeniable chain of trust in every document you handle.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog" id="back-blog-link"
+      <a href="../blog.html" id="back-blog-link"
          style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
          onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
          onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
@@ -318,7 +308,6 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-        <a href="../security" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Security</a>
         <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
         <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
@@ -343,79 +332,5 @@
   }
 })();
 </script>
-
-<!-- ═══════════════ CONSTELLATION STARS + MOUSE TRAILS ═══════════════ -->
-<canvas id="constellation-canvas" aria-hidden="true"></canvas>
-<script>
-(function(){
-  var c=document.getElementById('constellation-canvas');
-  if(!c)return;
-  var ctx=c.getContext('2d');
-  var W,H,pts;
-  var COLS=['6,182,212','99,102,241','16,185,129'];
-  var N_BASE=55, CONNECT_DIST=160;
-  var MOUSE={x:-9999,y:-9999};
-  function resize(){
-    W=c.width=window.innerWidth;
-    H=c.height=window.innerHeight;
-    init();
-  }
-  function rand(a,b){return a+Math.random()*(b-a);}
-  function init(){
-    pts=[];
-    var n=Math.round(N_BASE*(W*H)/(1440*900));
-    n=Math.max(35,Math.min(100,n));
-    for(var i=0;i<n;i++){
-      var col=COLS[Math.floor(Math.random()*COLS.length)];
-      pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.5),col:col,alpha:rand(.25,.6),z:rand(.3,1)});
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    // Draw connection lines between close stars
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      for(var j=i+1;j<pts.length;j++){
-        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<CONNECT_DIST){
-          var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;
-          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
-          ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';
-          ctx.lineWidth=fade*1.1*depth;ctx.stroke();
-        }
-      }
-      // Draw mouse trail lines
-      var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
-      if(md<150){
-        var mf=1-md/150;
-        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);
-        ctx.strokeStyle='rgba('+p.col+','+(mf*.28)+')';
-        ctx.lineWidth=mf*1.6;ctx.stroke();
-      }
-    }
-    // Draw stars
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.2*p.z);
-      grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
-      grd.addColorStop(1,'rgba('+p.col+',0)');
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.2*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
-      // Move
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
-      if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
-    }
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',resize);
-  document.addEventListener('mousemove',function(e){MOUSE.x=e.clientX;MOUSE.y=e.clientY;});
-  document.addEventListener('mouseleave',function(){MOUSE.x=-9999;MOUSE.y=-9999;});
-  resize();draw();
-})();
-</script>
-<!-- ════════════════════════════════════════════════════════════════════ -->
-
 </body>
 </html>
