@@ -1,8 +1,27 @@
 {
-  "version": "2.2.4",
-  "last_update": "2026-06-24T12:53",
+  "version": "2.2.5",
+  "last_update": "2026-06-24T18:46",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.5",
+      "date": "June 24, 2026",
+      "changes_en": [
+        "Enhance OCR Accuracy option: Added an optional 'Enhance OCR accuracy' checkbox in Rebuild Settings. When checked, it pre-rasterizes scanned pages using ImageMagick at the user-selected DPI, resolving character recognition regressions and line-select issues on low-res or tilted scans.",
+        "Remove Digital Signatures option: Added a checkbox in Sanitize Settings to strip digital signatures and restrictions from PDF documents without full rebuild or OCR.",
+        "Encryption engine file copy fix: Prevented non-PDF files from being lost during encryption pipeline stages; they are now correctly copied to the destination folder."
+      ],
+      "changes_ro": [
+        "Opțiunea Crește precizia OCR: S-a adăugat o bifă pentru a pre-procesa paginile scanate prin ImageMagick la DPI-ul selectat de utilizator, îmbunătățind recunoașterea caracterelor și corectând problemele de selectare a rândurilor întregi.",
+        "Eliminare Semnături Digitale: S-a adăugat o opțiune în setările de Sanitizare pentru a elimina semnăturile digitale și restricțiile din PDF-uri fără a fi necesară reconstrucția completă.",
+        "Corecție copiere fișiere non-PDF: Fișierele care nu sunt PDF (imagini, Excel, Word) nu mai sunt pierdute atunci când este activată criptarea, fiind copiate corect în folderul de destinație."
+      ],
+      "changes_ru": [
+        "Повышение точности OCR: Добавлен параметр для предварительной обработки страниц с помощью ImageMagick с выбранным пользователем разрешением DPI, что значительно улучшает распознавание текста на сканах.",
+        "Удаление цифровых подписей: Добавлена опция в настройках очистки (Sanitize) для удаления подписей и ограничений в документах PDF без полного распознавания.",
+        "Исправление копирования не-PDF файлов: Не-PDF файлы (изображения, документы Excel и Word) больше не теряются при шифровании и корректно копируются в выходную папку."
+      ]
+    },
     {
       "version": "2.2.4",
       "date": "June 24, 2026",
@@ -16,7 +35,7 @@
       ],
       "changes_ru": [
         "Оптимизация восстановления (OCR): Внедрен быстрый путь для одностраничных и полностью отсканированных документов, увеличивающий скорость OCR до 50% за счет исключения разделения страниц.",
-        "Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю четкости текста при совмещении операций."
+        "Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю чёткости текста при совмещении операций."
       ]
     },
     {
