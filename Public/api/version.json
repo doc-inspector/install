@@ -1,8 +1,24 @@
 {
-  "version": "2.2.3",
-  "last_update": "2026-06-23T16:15",
+  "version": "2.2.4",
+  "last_update": "2026-06-24T12:53",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.4",
+      "date": "June 24, 2026",
+      "changes_en": [
+        "Rebuild OCR Engine Optimization: Implemented a fast path for 1-page and fully scanned documents, increasing OCR speed by up to 50% by eliminating redundant page-by-page split/merge processes.",
+        "High-Fidelity Rendering: Configured ImageMagick and Ghostscript to render with 95% JPEG quality (-quality 95 and -dJPEGQ=95), drastically reducing generation loss when combining multiple pipeline options."
+      ],
+      "changes_ro": [
+        "Optimizare Rebuild OCR: S-a implementat o cale rapidă (Fast Path) pentru documentele de 1 pagină sau scanate complet, mărind viteza de procesare OCR cu până la 50% prin eliminarea buclei lente pagină-cu-pagină.",
+        "Randare de Înaltă Calitate: S-au configurat ImageMagick și Ghostscript pentru a folosi o calitate de 95% la compresia JPEG, reducând la minimum degradarea calității textului la selectarea simultană a mai multor instrumente."
+      ],
+      "changes_ru": [
+        "Оптимизация восстановления (OCR): Внедрен быстрый путь для одностраничных и полностью отсканированных документов, увеличивающий скорость OCR до 50% за счет исключения разделения страниц.",
+        "Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю четкости текста при совмещении операций."
+      ]
+    },
     {
       "version": "2.2.3",
       "date": "June 23, 2026",
