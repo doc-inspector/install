@@ -292,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">The Danger of Invisible Redactions: Why Black Bars Aren&#x27;t Enough</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Redaction is the process of removing sensitive, classified, or proprietary information from a document before it is shared publicly. In the digital age, this is commonly done by placing black rectangles over names, financial figures, or social security numbers. However, a significant technical vulnerability arises when this redaction is done incorrectly. Many users rely on basic drawing tools in word processors or PDF editors to overlay black boxes on top of text, believing the content is secured. In reality, this action only creates a visual mask on a separate layer. The underlying text characters, vector graphics, and metadata remain completely intact within the file structure, making the redacted information easily accessible to anyone with basic computer skills.</p>
 
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>The consequences of failed or "invisible" redactions can be catastrophic, leading to data breaches, legal liabilities, and public embarrassment. Because the underlying text is not physically removed from the file, anyone who receives the document can simply highlight the area beneath the black box, copy the text, and paste it into a plain text editor to reveal the secret information. Alternatively, text search indexing tools and web scrapers can read and index the hidden text, making confidential court cases, trade secrets, or personal data searchable on public engines. High-profile leaks in government filings, corporate disputes, and intelligence reports have occurred specifically because staff relied on visual overlays instead of true cryptographic and structural redaction.</p>
 
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>Securing sensitive information requires a transition from visual redaction to structural data sanitization. When redacting a document, the original text objects must be deleted from the file payload, and the corresponding space must be replaced with neutral filler or a clean rasterized block. Organizations should use professional redaction tools that physically alter the document’s code, removing both the text rendering instructions and the searchable text layer from the PDF structure. Additionally, once redactions are applied, the document should be inspected using analytical tools to confirm that no hidden text layers, OCR search data, or comment annotations containing the original content persist in the file before it is published.</p>
 
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Avoid using simple drawing or shape tools to cover sensitive information with black boxes.</li>
   <li>Utilize dedicated redaction tools that remove the selected text from the underlying file content.</li>
@@ -310,7 +310,7 @@
   <li>Ensure that annotations, comments, and metadata fields are cleaned, as they can also store the original unredacted text.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector acts as a vital quality control layer in your document publishing workflow. By scanning files locally, DocInspector analyzes the internal layers of your PDFs to identify potential redaction failures, such as hidden text layers remaining beneath drawing objects, comments containing confidential data, or uncleaned metadata fields. Because it runs offline on your workstation, DocInspector allows you to verify the integrity of your redacted files without exposing them to external web servers. This local inspection ensures that your public documents are thoroughly sanitized, eliminating the risk of accidental data leaks and ensuring compliance with confidentiality mandates.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

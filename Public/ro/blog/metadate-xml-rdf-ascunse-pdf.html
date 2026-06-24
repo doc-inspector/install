@@ -292,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Metadate XML și RDF ascunse în PDF: Scurgerea tăcută de informații</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Fișierele în format PDF (Portable Document Format) sunt adesea considerate a fi echivalentele digitale statice ale hârtiei tipărite. Cu toate acestea, în spatele stratului vizual se află o structură complexă de date orientată pe obiecte, care conține informații ascunse extrem de detaliate. Printre cele mai răspândite surse de metadate se numără schemele XMP (Extensible Metadata Platform), structurate folosind XML (Extensible Markup Language) și RDF (Resource Description Framework). Dezvoltat de Adobe, standardul XMP permite aplicațiilor să introducă metadate standardizate direct în interiorul containerului de fișiere. Deși aceste metadate sunt utile pentru gestionarea documentelor și automatizarea fluxurilor de lucru, ele conțin frecvent detalii sensibile—cum ar fi identitatea autorului, numele organizației, timestamp-uri exacte, istoricul creării, versiunile de software și chiar căi de fișiere locale—care sunt complet invizibile pentru un utilizator obișnuit.</p>
 
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Scurgerea tăcută de metadate XML și RDF prezintă riscuri majore de securitate, confidențialitate și conformitate legală. Atunci când organizațiile publică PDF-uri la nivel extern fără a igieniza aceste metadate subiacente, ele expun involuntar detalii interne care pot fi exploatate de atacatori cibernetici. De exemplu, căile de directoare locale încorporate în metadatele XMP pot dezvălui structura internă a numelor de utilizator, numele serverelor și organizarea directoarelor, oferind informații prețioase în faza de recunoaștere a unui atac cibernetic. Mai mult, metadatele pot contrazice declarațiile publice sau pot dezvălui detalii de colaborare confidențiale, cum ar fi utilizarea unei firme externe de PR. În conformitate cu reglementări precum GDPR, diseminarea de fișiere care conțin date cu caracter personal în metadate reprezintă o încălcare a conformității și poate atrage sancțiuni severe.</p>
 
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Abordarea riscurilor legate de metadatele XML și RDF necesită un proces structurat de igienizare a documentelor înainte de distribuire. În loc să se bazeze pe verificări manuale, organizațiile trebuie să implementeze fluxuri automate de inspecție și curățare. Primul pas este stabilirea unei politici care definește ce metadate sunt permise pentru diseminarea externă. Apoi, documentele trebuie scanate la nivel structural pentru a detecta pachetele XMP, metadatele RDF și fluxurile XML personalizate. Vizualizatoarele standard de PDF nu afișează aceste elemente; de aceea, sunt necesare instrumente specializate de inspecție. Igienizarea presupune eliminarea fizică a acestor fluxuri de metadate din structura PDF-ului. Esențial este ca acest proces să fie executat local pe un sistem securizat pentru a evita trimiterea fișierelor sensibile către utilitare web externe.</p>
 
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Inspectați toate fișierele PDF de ieșire pentru a detecta prezența pachetelor de metadate XMP și RDF încorporate.</li>
   <li>Asigurați-vă că câmpurile de metadate referitoare la creator, autor, producător și companie sunt șterse sau anonimizate.</li>
@@ -310,7 +310,7 @@
   <li>Efectuați curățarea metadatelor offline, pe o infrastructură locală securizată, pentru a menține controlul deplin asupra datelor.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector oferă o soluție complet securizată și offline pentru inspectarea și igienizarea metadatelor PDF. Deoarece rulează local pe stația dumneavoastră de lucru, DocInspector garantează că documentele corporative sensibile, dosarele juridice și rapoartele financiare nu sunt niciodată încărcate în cloud sau pe servere externe. Motorul său puternic de inspecție scanează PDF-urile la nivel binar, detectând metadatele XML și RDF ascunse, proprietățile XMP personalizate și istoricul de revizuiri. Cu DocInspector, echipele pot analiza rapid loturi mari de documente, pot identifica riscurile de conformitate și pot elimina metadatele ascunse cu deplină încredere, asigurând confidențialitatea totală a documentelor înainte de publicare.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

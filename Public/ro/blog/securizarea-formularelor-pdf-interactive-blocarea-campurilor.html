@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Securizarea formularelor PDF interactive: Blocarea câmpurilor de formular</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Formularele PDF interactive, cunoscute sub numele de AcroForms sau XFA (XML Forms Architecture), permit utilizatorilor să completeze câmpuri de text, să bifeze casete și să trimită date digital. Deși sunt utile pentru colectarea de date, aceste fișiere păstrează elementele de formular active după ce utilizatorul a terminat de introdus informațiile. Dacă documentul este partajat în această stare activă, orice destinatar poate modifica valorile completate, poate altera semnăturile sau poate exploata motoarele de scripting integrate în PDF. Securizarea corectă a acestor formulare necesită un proces numit aplatizare (flattening), care îmbină valorile câmpurilor interactive direct în stratul vizual al paginii, făcându-le statice și doar pentru citire.</p>
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Distribuirea formularelor PDF interactive fără blocarea câmpurilor expune organizațiile la riscuri semnificative de integritate și securitate. Persoanele rău intenționate pot edita cu ușurință valorile numerice, pot modifica clauzele contractuale sau pot schimba casetele de bifare după ce documentul a fost semnat sau aprobat. În plus, câmpurile de formular interactive pot conține JavaScript integrat care se execută la deschiderea sau accesarea fișierului, prezentând un risc de execuție a scripturilor malițioase sau de scurgere a datelor. Din perspectiva conformității (cum ar fi GDPR), lăsarea datelor sensibile în câmpuri editabile poate duce la modificări neautorizate și încalcă standardele de protecție a datelor.</p>
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Pentru a bloca câmpurile de formular în siguranță, trebuie să convertiți straturile interactive în conținut static de pagină. Acest lucru se realizează prin aplatizarea PDF-ului. Din punct de vedere programatic, acest lucru se poate face utilizând biblioteci precum Apache PDFBox în Java sau PyPDF în Python, apelând funcțiile specifice de aplatizare a formularelor. În aplicațiile desktop precum Adobe Acrobat, utilizatorii pot folosi opțiunea „Print to PDF” sau pot rula un proces de optimizare care aplatizează câmpurile. Este esențial să efectuați o inspecție după aplatizare pentru a verifica dacă toate obiectele de formular (elementele de dicționar AcroForm) au fost eliminate complet din structura fișierului, asigurându-vă că nu mai persistă funcționalități interactive sau date ascunse.</p>
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Identificați toate documentele PDF care conțin câmpuri active sau editabile AcroForm/XFA.</li>
   <li>Rulați un proces de aplatizare de încredere pentru a îmbina valorile câmpurilor în fundalul paginii.</li>
@@ -306,7 +306,7 @@
   <li>Verificați și eliminați orice script JavaScript asociat cu câmpurile de formular.</li>
   <li>Asigurați-vă că formatarea vizuală, fonturile și alinierea sunt păstrate intacte după aplatizare.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector vă ajută să automatizați securizarea PDF-urilor interactive prin scanarea locală a loturilor de documente și identificarea fișierelor care încă conțin câmpuri editabile, widgeturi interactive sau scripturi JavaScript. Operând în întregime offline pe mașina dumneavoastră, DocInspector garantează că formularele sensibile sunt analizate fără a fi trimise către platforme online terțe, protejând confidențialitatea și asigurând conformitatea.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

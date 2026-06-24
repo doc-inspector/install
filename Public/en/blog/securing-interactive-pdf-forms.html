@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Securing Interactive PDF Forms: Locking Form Fields</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Interactive PDF forms, often referred to as AcroForms or XFA (XML Forms Architecture), allow users to fill out fields, check boxes, and submit data digitally. While convenient for data collection, these files retain active form elements after the user has finished inputting their information. If shared in this active state, any recipient can modify the filled values, tamper with signatures, or exploit scripting engines embedded within the PDF. Properly securing these forms requires a process known as flattening, which merges the interactive field values directly into the visual page description layer, rendering them read-only and static.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Distributing interactive PDF forms without locking their fields exposes organizations to significant integrity and security risks. Bad actors can easily edit numeric values, alter contractual terms, or change status checkboxes after a document has been signed or approved. Furthermore, interactive form fields can contain embedded JavaScript that triggers upon opening or clicking, posing a risk of malicious script execution or data exfiltration. From a compliance perspective (such as GDPR or HIPAA), leaving personal or sensitive data in editable form fields can lead to unauthorized modifications and violates data protection standards that mandate the prevention of tampering.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>To lock form fields securely, you must convert the interactive field layers into static page content. This is achieved by flattening the PDF. Programmatically, this can be done using libraries such as Apache PDFBox in Java or PyPDF in Python by calling their respective form-flattening functions. In desktop applications like Adobe Acrobat, users can use the "Print to PDF" option or run an optimization task that flattens form fields. It is essential to perform a post-flattening inspection to verify that all form objects (AcroForm dictionary elements) have been completely removed from the file structure, ensuring that no interactive capabilities or hidden form data persist.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Identify all PDF documents containing active or editable AcroForm/XFA fields.</li>
   <li>Execute a reliable flattening process to merge field values into the background page layer.</li>
@@ -306,7 +306,7 @@
   <li>Check for and remove any embedded JavaScript actions associated with form fields.</li>
   <li>Ensure that visual formatting, fonts, and alignments are preserved after the flattening process.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector helps you automate the process of securing interactive PDFs by scanning document batches locally and identifying files that still contain editable form fields, interactive widgets, or embedded JavaScript. By running entirely on your local machine, DocInspector ensures that your sensitive forms are analyzed without being uploaded to third-party online tools, protecting document privacy while maintaining compliance.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

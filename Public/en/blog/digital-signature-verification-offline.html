@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Digital Signature Verification Offline: Confirming Authenticity Locally</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Digital signatures on PDF documents (often implemented via PAdES or PKCS#7 standards) are critical for ensuring document integrity and proving the identity of the signer. Verification normally checks online directories, Certificate Revocation Lists (CRLs), and Online Certificate Status Protocol (OCSP) servers. However, in high-security, air-gapped environments or scenarios with restricted internet connectivity, digital signatures must be verified offline. Offline verification relies on locally cached trust stores, certificate path validation algorithms, and structural analysis of the signed PDF file itself.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Relying solely on online signature verification introduces critical privacy and operational risks. When a PDF reader checks a signature online, it may leak the document’s unique identifiers, metadata, or signing authority details to external certificate authorities. In sensitive industries like defense, legal services, or government, this exposure is unacceptable. Furthermore, if the internet connection is disrupted, signature validation can fail or hang, delaying critical business workflows. Offline validation ensures that organizations can verify the authenticity of incoming contracts and certificates locally, securely, and immediately.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>To verify digital signatures offline, organizations must maintain an up-to-date local repository of trusted root and intermediate certificate authorities (CAs), such as the Adobe Approved Trust List (AATL) or European Union Trusted Lists (EUTL). Programmatically, verification tools parse the PDF’s signature dictionary, extract the cryptographic signature, recalculate the document’s byte-range hash, and compare it to the signed hash to confirm the document has not been altered after signing. To confirm revocation status offline, the document should ideally have LTV (Long-Term Validation) enabled, which embeds CRL or OCSP responses directly inside the PDF at the time of signing.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Verify that the PDF signature byte-range covers the entire document except the signature itself.</li>
   <li>Establish and update a secure local store containing trusted root and intermediate CAs.</li>
@@ -306,7 +306,7 @@
   <li>Check the signature's embedded signing time and verify it falls within the certificate's validity period.</li>
   <li>Verify if Long-Term Validation (LTV) is enabled to leverage embedded revocation data offline.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector supports offline digital signature audits by analyzing the internal structure of signed PDF documents locally. It scans your files to identify signature blocks, verify byte-ranges, and detect post-signing modifications. Because DocInspector runs completely offline on your workstation, you can audit your signed contracts, invoices, and certificates without exposing metadata or connecting to external servers, keeping your verification workflow secure and compliant.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

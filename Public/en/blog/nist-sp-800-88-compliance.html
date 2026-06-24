@@ -292,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">NIST SP 800-88 Compliance for Digital Files: Media Sanitization Explained</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>The National Institute of Standards and Technology (NIST) Special Publication 800-88 Revision 1 (SP 800-88 Rev. 1), titled "Guidelines for Media Sanitization," is the gold standard for data destruction and sanitization globally. While historically associated with decommissioning physical hardware such as hard drives and tapes, the framework applies directly to digital file sanitization and logical data destruction. As businesses transition to fully digital workflows, understanding how to apply the principles of "Clear," "Purge," and "Destroy" to logical files, cloud environments, and document management systems is critical. Logical sanitization ensures that sensitive data cannot be recovered through standard system interfaces or advanced file recovery software, preventing information leakage from files that are shared or archived.</p>
 
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>In modern corporate and government environments, simple deletion is not equivalent to sanitization. When a file is deleted from an operating system, the system merely removes the pointer to that data, leaving the actual binary content on the disk until it is overwritten. Similarly, document formats like PDF, DOCX, and XLSX contain internal data pockets, revision histories, and hidden streams that are not visible in standard viewers. Releasing files that have not been logically sanitized violates international data protection standards and industry compliance regulations. Organizations that fail to implement NIST SP 800-88 standards for digital document workflows risk severe compliance audits, security breaches, and the unintended exposure of intellectual property or personal data.</p>
 
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>Achieving compliance with NIST SP 800-88 for digital files requires incorporating media sanitization concepts into your document lifecycle management. First, categorize your digital assets based on confidentiality. For logical files that are being repurposed or released outside the organization’s security boundary, a "Clear" level of sanitization must be applied. This involves using software tools to overwrite logical storage locations and strip all non-obvious data structures—such as hidden layers, revision history metadata, and embedded comments—from the file container. Verification is a key step in the NIST framework: after sanitization, a separate process or tool must verify that the target data is completely unrecoverable, creating an audit log of the sanitization event.</p>
 
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Classify digital documents based on sensitivity to determine the required sanitization level.</li>
   <li>Ensure that file deletion workflows involve overwriting logical data blocks, rather than just removing pointers.</li>
@@ -310,7 +310,7 @@
   <li>Maintain detailed records and audit logs of sanitization activities for compliance and audit reporting.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector supports your alignment with NIST SP 800-88 media sanitization guidelines by providing the essential verification layer for digital files. Running entirely offline, DocInspector analyzes document structures locally, allowing you to audit files for residual data, hidden metadata, and uncleared revision history. By integrating DocInspector into your deployment pipeline, you can verify that files have been successfully sanitized before they leave your internal network. Its automated reporting generates clean documentation of the verification process, helping your organization maintain compliance records and prove that data sanitization procedures are actively and successfully enforced.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

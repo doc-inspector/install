@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Email PDF Attachments Safety: Preventing Malicious Macros and Links</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Email attachments remain the leading vector for cyberattacks, and PDF files are frequently targeted. While many users believe that PDFs are static and therefore safer than Microsoft Office documents with macro capabilities, modern PDF standards allow highly dynamic content. Cybercriminals exploit features like embedded JavaScript, Launch Actions (which can trigger external programs), Open Actions (which execute scripts immediately upon opening), and obfuscated external links to bypass filters and execute malicious payloads on target systems.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Receiving or sending unsafe PDF attachments poses massive security and reputational risks. An employee opening a malicious PDF can trigger a drive-by download, compromise their workstation, and allow ransomware to spread across the corporate network. Furthermore, attackers often insert credential harvesting links in PDFs, taking advantage of the fact that traditional email gateways may inspect the email body but skip links embedded inside attachments. Protecting the company requires scanning incoming files for active code and outgoing files to ensure no sensitive links or data leakages occur.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>To prevent PDF attachment threats, organizations should deploy a multi-layered security strategy. First, email servers must filter out files containing specific PDF keywords associated with active triggers (such as /JS, /JavaScript, /Launch, and /AA). Second, users should configure their PDF readers to disable automatic JavaScript execution and block external URL connections by default. Finally, any suspicious or high-risk PDF attachment should be analyzed locally inside a secure, offline tool or sandbox to dissect its structure, check for hidden actions, and verify the safety of embedded hyperlinks before they are opened by end users.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Scan all incoming and outgoing PDF attachments for active contents and embedded scripts.</li>
   <li>Verify that default PDF readers have JavaScript execution disabled for standard business activities.</li>
@@ -306,7 +306,7 @@
   <li>Configure email gateways to block PDFs containing launch commands or hidden executable attachments.</li>
   <li>Educate employees on verifying the sender and the legitimacy of requested document reviews.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector addresses email PDF attachment safety by allowing you to scan files locally before opening or sending them. It analyzes the underlying PDF code structure to detect dangerous actions, embedded scripts, and external links. Because DocInspector runs completely offline on your desktop, you can inspect suspect attachments without risking the exposure of confidential email content to external analysis sites, maintaining a high level of security.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

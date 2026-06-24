@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">How to Verify Document Integrity Using SHA-256 Hashes</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Ensuring that critical business documents remain unchanged during transfer or storage is key to digital security. Whether sending contract drafts to clients, archiving financial tax records, or preparing legal evidence for court, minor modifications can have severe consequences. Generating a unique cryptographic fingerprint, known as a SHA-256 hash, provides absolute proof of a document's integrity.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Traditional methods, like comparing file modification dates or file sizes, are easily manipulated and unreliable. A SHA-256 hash algorithm processes the entire binary structure of a file, generating a unique 64-character string. If even a single comma or pixel is modified in a multi-megabyte PDF, the resulting hash changes completely (known as the avalanche effect). Performing this hashing offline prevents sensitive documents from being exposed to third-party web tools.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>The integration of hashing into daily operations requires a simple, local script or tool. For a batch of documents, the system computes the SHA-256 checksum for each file and records it in an inventory manifest. When the files are received or audited, the tool recalculates the hashes and compares them to the original record to verify that no unauthorized alterations have occurred.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Select a secure offline checksum tool to protect sensitive file contents.</li>
   <li>Calculate and record the initial SHA-256 hash values immediately after finalizing documents.</li>
@@ -306,7 +306,7 @@
   <li>Verify incoming files by comparing their current hash against the recorded baseline.</li>
   <li>Flag any files where hashes do not match, and investigate for corruption or tampering.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector includes local hashing tools that generate SHA-256 checksums for files and folders in batch. It runs fully offline, allowing users to verify file integrity and build inventory manifests instantly. This creates a secure, verifiable record of original documents, ensuring complete data traceability without cloud exposure.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

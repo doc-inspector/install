@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">How to Clean Metadata and Hidden Properties from Invoices</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Invoices and financial statements are exchanged daily by businesses, but their digital files contain much more than visible numbers. When generated from accounting software or office packages, PDFs carry embedded metadata. This hidden data includes the original author's name, creation dates, software tools, file paths, and editing history. Leaving this metadata intact can compromise business intelligence and create security vulnerabilities.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Invoice metadata can leak sensitive operational details. For example, it might reveal the specific software versions used by the company (helping hackers find exploits), internal server file structures, or the names of contractors and employees. For privacy compliance, businesses must remove this hidden information. Using cloud-based sanitization tools is highly risky, as it requires uploading sensitive billing information to external servers, violating client privacy.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>A secure invoice workflow integrates local metadata sanitization. Before sending any PDF invoice, an offline utility scans the file, locates the metadata dictionaries (such as `/Info` and `/Metadata`), and overwrites their fields with neutral values or strips them entirely. This leaves the visible billing information untouched while protecting internal corporate details.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Identify hidden fields like Author, Creator, Producer, and Source File Paths.</li>
   <li>Remove document properties that list specific names, internal directories, or software versions.</li>
@@ -306,7 +306,7 @@
   <li>Verify that the visible text, formatting, and payment details are unaffected after cleaning.</li>
   <li>Set up a local pre-send rule to clean all outgoing client invoices automatically.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector provides dedicated offline metadata cleaning tools for PDF invoices and billing documents. Running locally, it strips out authors, software properties, and file paths in batch, ensuring that outgoing financial records are sanitized and compliant with corporate privacy standards before they are shared with clients or vendors.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

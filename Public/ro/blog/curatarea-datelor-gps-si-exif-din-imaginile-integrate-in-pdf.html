@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Curățarea datelor GPS și EXIF din imaginile integrate în documente PDF</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Atunci când utilizatorii introduc fotografii, scanări făcute cu smartphone-ul sau instantanee de la camere digitale în rapoarte PDF, manuale sau contracte, adesea ignoră metadatele ascunse salvate în interiorul fișierelor de imagine. Aceste metadate — de obicei în format EXIF (Exchangeable Image File Format) sau XMP (Extensible Metadata Platform) — pot include coordonate GPS precise, modelul camerei, setările de expunere, data și ora la care a fost realizată fotografia și chiar o imagine în miniatură (thumbnail) integrată. Simpla introducere a acestor imagini într un fișier PDF nu elimină automat aceste metadate, lăsând detalii geografice și detalii despre dispozitiv ascunse în structura fișierului.</p>
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Persistența datelor EXIF și GPS în imaginile integrate în PDF reprezintă un risc grav de confidențialitate și securitate fizică. De exemplu, un raport de evaluare imobiliară, un raport de inspecție sau o fotografie a unei facilități cu securitate ridicată partajate ca PDF ar putea dezvălui latitudinea și longitudinea exactă unde au fost realizate pozele. În plus, detaliile despre modelul camerei și versiunile de firmware pot ajuta atacatorii să pregătească exploit-uri specifice. În conformitate cu reglementările privind confidențialitatea precum GDPR, coordonatele GPS sunt considerate date cu caracter personal, transformând partajarea lor neintenționată într-o încălcare a conformității.</p>
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Curățarea metadatelor imaginilor integrate necesită inspectarea și procesarea obiectelor de imagine (cum ar fi fluxurile JPEG sau PNG) din interiorul PDF-ului. Deși cititoarele PDF simple nu afișează aceste date, utilitarele de extracție sau scripturile specializate pot prelua fluxurile de imagini brute. Soluțiile programatice pot folosi instrumente precum ExifTool sau biblioteci Python (cum ar fi PyPDF pentru localizarea imaginilor și Pillow pentru eliminarea datelor EXIF) pentru a reconstrui fluxurile de imagini fără metadate. Alternativ, se pot folosi procese automate de sanitizare a PDF-urilor care inspectează toate fluxurile binare și suprascriu tabelele de metadate înainte ca documentul să fie distribuit extern.</p>
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Auditați documentele PDF pentru a găsi imagini fotografice integrate care pot conține date EXIF.</li>
   <li>Extrageți obiectele de imagine sau inspectați fluxurile lor de metadate pentru tag-uri GPS și detalii despre dispozitiv.</li>
@@ -306,7 +306,7 @@
   <li>Asigurați-vă că miniaturile (thumbnails) originale sunt eliminate sau regenerate pentru a preveni scurgerea de imagini vechi.</li>
   <li>Verificați calitatea vizuală și integritatea layout-ului PDF-ului după sanitizarea imaginilor.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector oferă o soluție puternică și offline pentru detectarea metadatelor EXIF și GPS integrate în imaginile din PDF-uri. Acesta scanează directoarele de documente de pe sistemul dumneavoastră local, analizând obiectele de imagine pentru a le semnala pe cele care conțin coordonate, detalii despre dispozitiv sau miniaturi ascunse. Deoarece rulează complet offline, DocInspector se asigură că documentele dumneavoastră private nu părăsesc mediul securizat, prevenind scurgerile de locație.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

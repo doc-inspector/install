@@ -292,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Hidden XML &amp; RDF Metadata in PDF: The Silent Leak</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>Portable Document Format (PDF) files are often assumed to be static, digital equivalents of printed paper. However, behind the visual layer lies a complex, object-oriented data structure containing extensive hidden information. Among the most pervasive sources of metadata are Extensible Metadata Platform (XMP) schemas, which are structured using Extensible Markup Language (XML) and Resource Description Framework (RDF). Developed by Adobe, XMP allows applications to embed standardized metadata directly within the file container. While this metadata is highly useful for document management and workflow automation, it frequently contains sensitive details—such as document author identities, organization names, exact timestamps, creation history, software versions, and even local file paths—that are completely invisible to the average user viewing the document.</p>
 
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>The silent leak of XML and RDF metadata poses significant security, privacy, and compliance risks. When organizations publish PDFs externally without sanitizing this underlying metadata, they inadvertently expose internal details that can be exploited by malicious actors. For example, local directory paths embedded in XMP metadata can reveal internal username structures, server names, and directory organization, which are valuable in reconnaissance phases of cyber attacks. Furthermore, metadata can contradict public disclosures or leak confidential collaboration details, such as when an external PR firm drafts a corporate press release, or when deleted sections of text remain cached within metadata streams. Under regulations like GDPR, HIPAA, and CCPA, releasing files containing personally identifiable information (PII) in the metadata is a compliance failure that can result in substantial regulatory penalties.</p>
 
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>Addressing the risks of XML and RDF metadata requires a structured approach to document sanitization prior to distribution. Rather than relying on manual checks, organizations must implement automated inspection and cleaning workflows. The first step is to establish a policy defining what metadata is permissible for external release. Next, documents must be scanned at a structural level to detect XMP packets, RDF metadata, and custom XML streams. Standard PDF viewers do not display these elements; specialized inspection tools must be used. Sanitization involves physically stripping these metadata streams from the PDF structure or replacing them with a standardized, anonymous template. It is critical that this process is executed locally on a secure system to avoid sending sensitive, uncleaned documents to external web-based utilities that might store or log the files.</p>
 
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Inspect all outgoing PDF files for the presence of embedded XMP and RDF metadata packets.</li>
   <li>Ensure that creator, author, producer, and company metadata fields are either cleared or standardized.</li>
@@ -310,7 +310,7 @@
   <li>Perform metadata cleaning offline on secure, local infrastructure to maintain strict data custody.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector provides a secure, fully offline solution for inspecting and sanitizing PDF metadata. Because it runs locally on your workstation, DocInspector ensures that sensitive corporate documents, legal filings, and financial reports are never uploaded to the cloud or external servers. Its powerful inspection engine scans PDFs at a binary level, detecting hidden XML and RDF metadata, custom XMP properties, and revision history. With DocInspector, teams can quickly analyze large batches of documents, identify compliance risks, and strip hidden metadata with confidence, ensuring complete privacy and professional document security before publication.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

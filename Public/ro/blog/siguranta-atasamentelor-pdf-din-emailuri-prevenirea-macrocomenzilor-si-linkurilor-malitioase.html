@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Siguranța atașamentelor PDF din e-mailuri: Prevenirea macrocomenzilor și a linkurilor malițioase</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Atașamentele din e-mailuri rămân principalul vector pentru atacurile cibernetice, iar fișierele PDF sunt adesea folosite ca țintă. Deși mulți utilizatori cred că PDF-urile sunt statice și, prin urmare, mai sigure decât documentele Microsoft Office cu macrocomenzi, standardele moderne de PDF permit conținut extrem de dinamic. Infractorii cibernetici exploatează funcții precum JavaScript integrat, comenzi de lansare (Launch Actions - care pot lansa programe externe), comenzi de deschidere (Open Actions - care execută scripturi la deschidere) și linkuri externe mascate pentru a ocoli filtrele de e-mail.</p>
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Primirea sau trimiterea de atașamente PDF nesigure prezintă riscuri enorme de securitate și reputație. Un angajat care deschide un PDF malițios poate declanșa o descărcare automată de malware, compromițându-și stația de lucru și permițând ransomware-ului să se răspândească în rețeaua companiei. În plus, atacatorii introduc adesea linkuri de phishing în PDF-uri, profitând de faptul că filtrele tradiționale de e-mail pot analiza corpul e-mailului, dar ignoră linkurile din atașamente. Protejarea companiei necesită scanarea fișierelor primite pentru cod activ și a celor trimise pentru a preveni scurgerea de date.</p>
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Pentru a preveni amenințările legate de atașamentele PDF, organizațiile ar trebui să implementeze o strategie de securitate pe mai multe niveluri. În primul rând, serverele de e-mail trebuie să filtreze fișierele care conțin cuvinte-cheie PDF specific asociate cu declanșatori activi (cum ar fi /JS, /JavaScript, /Launch și /AA). În al doilea rând, cititoarele PDF ar trebui configurate să dezactiveze execuția automată a JavaScript și să blocheze conexiunile URL externe în mod implicit. În cele din urmă, orice atașament PDF suspect ar trebui analizat local într-un instrument offline securizat pentru a-i verifica structura și linkurile.</p>
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Scanați toate atașamentele PDF primite și trimise pentru conținut activ și scripturi integrate.</li>
   <li>Verificați ca cititoarele PDF implicite să aibă execuția JavaScript dezactivată.</li>
@@ -306,7 +306,7 @@
   <li>Configurați filtrele de e-mail pentru a bloca PDF-urile ce conțin comenzi de lansare (/Launch).</li>
   <li>Instruiți angajații să verifice expeditorul și legitimitatea documentelor primite.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector răspunde nevoilor de siguranță a atașamentelor PDF prin scanarea locală a fișierelor înainte ca acestea să fie deschise sau trimise. Acesta analizează structura codului PDF pentru a detecta acțiuni periculoase, scripturi integrate și linkuri externe. Deoarece rulează complet offline, puteți inspecta atașamentele suspecte fără a trimite conținutul e-mailurilor confidențiale către servere externe de analiză.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

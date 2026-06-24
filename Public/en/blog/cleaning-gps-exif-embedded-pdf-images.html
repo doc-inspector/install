@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Cleaning GPS &amp; Camera EXIF Data from Embedded PDF Images</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>When users insert photos, smartphone scans, or digital camera snapshots into PDF reports, manuals, or contracts, they often overlook the hidden metadata stored within the image files themselves. This metadata—typically in EXIF (Exchangeable Image File Format) or XMP (Extensible Metadata Platform) format—can include GPS coordinates, the camera model, exposure settings, the date and time the picture was taken, and even embedded preview thumbnails. Simply packaging these images into a PDF container does not automatically strip this data, leaving sensitive geological and device details hidden inside the PDF file structure.</p>
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>The persistence of EXIF and GPS data in embedded PDF images represents a serious privacy and physical security risk. For example, a real estate appraisal, an inspection report, or a photo of a high-security facility shared as a PDF could reveal the precise latitude and longitude where the pictures were taken, exposing sensitive locations to public view or competitive intelligence. Furthermore, details about the camera model and firmware versions can help malicious actors craft targeted exploits. Under privacy regulations like GDPR, GPS coordinates are considered personal data, making the unintentional sharing of location information a potential compliance breach.</p>
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>Cleaning embedded image metadata requires inspecting and processing the image objects (such as JPEG, PNG, or TIFF stream objects) inside the PDF. While simple PDF viewers do not display this data, specialized extraction utilities or scripts can retrieve the raw image streams. Programmatic solutions can use tools like ExifTool or Python libraries (e.g., PyPDF to locate image objects and Pillow to strip EXIF data) to rebuild the image streams without metadata. Alternatively, organizations can use PDF sanitization pipelines that inspect all binary streams and overwrite metadata tables, ensuring that all embedded images are completely sanitized before the document is distributed externally.</p>
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Audit PDF documents for embedded photographic images that may contain EXIF data.</li>
   <li>Extract image objects or inspect their metadata streams for GPS tags and device information.</li>
@@ -306,7 +306,7 @@
   <li>Verify that original image thumbnails are removed or regenerated to prevent leaking hidden areas.</li>
   <li>Verify the visual quality and integrity of the PDF layout after image sanitization.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector provides a powerful, offline solution for detecting EXIF and GPS metadata embedded in PDF images. It scans document repositories on your local system, analyzing image objects to flag those containing coordinates, device details, or thumbnails. Since it operates entirely offline, DocInspector ensures that your private documents never leave your secure environment, preventing location leaks while satisfying strict data protection standards.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

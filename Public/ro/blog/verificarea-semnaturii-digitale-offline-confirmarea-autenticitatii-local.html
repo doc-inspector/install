@@ -292,13 +292,13 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Verificarea semnăturii digitale offline: Confirmarea autenticității la nivel local</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Semnăturile digitale pe documentele PDF (adesea implementate prin standardele PAdES sau PKCS#7) sunt esențiale pentru a asigura integritatea documentelor și a dovedi identitatea semnatarului. Verificarea normală implică interogarea directoarelor online, a Listelor de Revocare a Certificatelor (CRL) și a serverelor OCSP. Cu toate acestea, în medii cu securitate ridicată, izolate de rețea sau în caz de conexiune limitată, semnăturile digitale trebuie verificate offline. Verificarea offline se bazează pe depozite locale de încredere, algoritmi de validare a căilor de certificate și analiza structurală a fișierului PDF semnat.</p>
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Baza exclusivă pe verificarea online a semnăturilor introduce riscuri operaționale și de confidențialitate. Când un cititor PDF verifică online o semnătură, poate transmite identificatori unici ai documentului, metadate sau detalii despre autoritatea de semnare către servere externe. În industriile sensibile (apărare, servicii juridice, administrație publică), această expunere este inacceptabilă. De asemenea, dacă conexiunea la internet este întreruptă, procesele pot fi blocate. Validarea offline oferă capacitatea de a verifica autenticitatea contractelor și certificatelor la nivel local, sigur și imediat.</p>
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Pentru a verifica semnăturile digitale offline, organizațiile trebuie să mențină un depozit local actualizat de autorități de certificare (CA) rădăcină și intermediare de încredere. Din punct de vedere tehnic, instrumentele de verificare analizează dicționarul de semnătură al PDF-ului, extrag semnătura criptografică, recalculează hash-ul (byte-range) al documentului și îl compară cu cel semnat pentru a confirma că fișierul nu a fost modificat. Pentru validarea revocării offline, documentul ar trebui să aibă LTV (Long-Term Validation) activat, care integrează răspunsurile CRL sau OCSP direct în PDF în momentul semnării.</p>
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Verificați ca intervalul de octeți (byte-range) al semnăturii să acopere întregul PDF, cu excepția semnăturii propriu-zise.</li>
   <li>Stabiliți și actualizați un depozit local securizat de certificate rădăcină și intermediare de încredere.</li>
@@ -306,7 +306,7 @@
   <li>Verificați data semnării și asigurați-vă că se încadrează în perioada de valabilitate a certificatului.</li>
   <li>Verificați dacă validarea pe termen lung (LTV) este activată pentru a utiliza datele de revocare integrate offline.</li>
 </ul>
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector sprijină auditurile offline ale semnăturilor digitale prin analiza locală a structurii interne a documentelor PDF semnate. Acesta scanează fișierele pentru a identifica blocurile de semnătură, a verifica byte-range-ul și a detecta modificările post-semnare. Deoarece rulează complet offline pe stația dumneavoastră de lucru, puteți audita contractele, facturile și certificatele semnate fără a expune metadate sau a vă conecta la servere externe.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">

@@ -292,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Scurgerea istoricului de revizuiri PDF: Pagini ascunse și obiecte șterse</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2>Introducere</h2>
 <p>Formatul PDF (Portable Document Format) acceptă o caracteristică cunoscută sub numele de salvare incrementală. Atunci când un utilizator editează un document PDF—de exemplu, prin ștergerea de pagini, modificarea textului sau eliminarea imaginilor—și salvează fișierul, multe programe de editare PDF nu reconstruiesc documentul de la zero. În schimb, ele adaugă noile modificări la sfârșitul fișierului, lăsând obiectele originale intacte în structura fișierului, marcându-le doar ca fiind modificate. Acest mecanism permite salvarea mai rapidă a fișierelor, dar creează o vulnerabilitate de securitate majoră: întregul istoric de revizuiri, inclusiv paginile care au fost aparent șterse și textul care a fost modificat, rămâne stocat în fișier și poate fi recuperat.</p>
 
-<h2>What makes this issue important</h2>
+<h2>Unde apare problema</h2>
 <p>Vulnerabilitățile legate de actualizările incrementale duc la divulgarea neintenționată a datelor, fenomen cunoscut sub numele de scurgere a istoricului de revizuiri. Organizațiile reutilizează frecvent documente șablon sau editează ciorne pentru a elimina informațiile confidențiale ale clienților înainte de distribuirea finală. Dacă documentul este salvat incremental, un destinatar poate inspecta structura fizică a PDF-ului și poate recupera versiunile anterioare ale textului, tabelele șterse sau paginile eliminate. Acest lucru poate expune termeni de negociere sensibili, recenzii interne sau date de identificare ale clienților. Deoarece aceste date există ca obiecte nelinkate în structura fișierului, ele sunt invizibile la vizualizarea standard, dar ușor de extras.</p>
 
-<h2>Practical approach</h2>
+<h2>Abordare practică</h2>
 <p>Prevenirea scurgerilor de istoric de revizuiri necesită modificarea modului în care documentele sunt salvate și finalizate. Cea mai directă metodă de eliminare a actualizărilor incrementale este efectuarea unei operațiuni de salvare completă de tip „Save As” (Salvare ca), care forțează programul de scriere PDF să rescrie fișierul complet, eliminând toate obiectele inactive și șterse din structură. De asemenea, documentele pot fi aplatizate (flattened), ceea ce îmbină straturile și elimină istoricul structural, sau exportate într-un format standardizat PDF/A curat. Înainte ca orice document să fie distribuit extern, acesta trebuie analizat la nivel binar pentru a verifica dacă nu conține fluxuri de obiecte vechi.</p>
 
-<h2>Practical checklist</h2>
+<h2>Checklist practic</h2>
 <ul>
   <li>Evitați să vă bazați pe simple operațiuni de salvare (Save) după ce ați șters pagini sau conținut sensibil dintr-un PDF.</li>
   <li>Utilizați opțiunea „Save As” sau funcții de reconstrucție completă în editoarele PDF pentru a forța rescrierea fișierului.</li>
@@ -310,7 +310,7 @@
   <li>Inspectați structura fizică a fișierului utilizând instrumente de analiză pentru a confirma absența actualizărilor incrementale anterioare.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2>Cum se integrează DocInspector în acest flux</h2>
 <p>DocInspector oferă o analiză automatizată și locală pentru a vă proteja organizația de scurgerile de istoric de revizuiri PDF. Prin parsarea structurii de obiecte a fișierelor dumneavoastră PDF în mod offline, DocInspector identifică rapid actualizările incrementale, obiectele necorelate și rămășițele paginilor șterse care sunt încă prezente fizic în fișier. Deoarece instrumentul funcționează exclusiv local, puteți audita întreaga arhivă de documente fără a risca expunerea datelor sensibile pe internet. DocInspector semnalează fișierele ce conțin istorice de revizuire ascunse, permițându-vă să le reconstruiți și să le igienizați înainte de publicare.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
