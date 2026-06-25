@@ -242,6 +242,7 @@
         display: grid; grid-template-rows: 0fr;
         transition: grid-template-rows .4s ease, opacity .3s;
         opacity: 0;
+        overflow: hidden;
       }
       .tool-opts.open { grid-template-rows: 1fr; opacity: 1; }
       .tool-opts > div { overflow: hidden; }
@@ -886,13 +887,28 @@
             </div>
 
             <!-- PDF Bundle Summary -->
-            <div class="tool-card gsap-card" id="card-bundle" style="--brand: #f59e0b;" onclick="toggleTool(event,'bundle')" style="border-color:rgba(245,158,11,.25);position:relative">
+            <div class="tool-card gsap-card" id="card-bundle" style="--brand: #f59e0b; border-color:rgba(245,158,11,.25); position:relative" onclick="toggleTool(event,'bundle')">
               <div class="check-ring">&#x2714;</div>
               <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NEW</div>
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">&#x1F4CB;</div>
                 <div class="tool-name">PDF Bundle Summary</div>
               </div>
+
+            <!-- Advanced Bundle Report -->
+            <div class="tool-card gsap-card" id="card-bundle-advanced" style="--brand: #eab308; border-color:rgba(234,179,8,.25); position:relative" onclick="toggleTool(event,'bundle-advanced')">
+              <div class="check-ring">&#x2714;</div>
+              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#eab308,#f59e0b);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NEW</div>
+              <div class="tool-header" style="margin-top:.5rem">
+                <div class="tool-icon-wrap" style="background:rgba(234,179,8,.15);color:#eab308">&#x1F4D8;</div>
+                <div class="tool-name">Advanced Bundle Report</div>
+              </div>
+              <div class="tool-desc">Generates a detailed folder report with <strong style="color:#eab308">SHA-256 signatures, size, format, and last modified dates</strong>. <strong style="color:#eab308">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
+                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Folder upload</span>
+                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F516; Extended Metadata</span>
+              </div>
+            </div>
               <div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF report</strong> for the folder with each document's title, page count per file and a grand total at the end (total pages + total files). <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
@@ -1094,7 +1110,7 @@
           </div>
           </div>
 
-          <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 1.5rem;">
+          <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 1.5rem; opacity: 1;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Global Processing Options</div>
               <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;">
@@ -1590,11 +1606,26 @@ function toggleTool(e, name) {
   const opts = document.getElementById('opts-' + name);
 
   // Bundle is exclusive — deselect other tools
-  if (name === 'bundle') {
-    if (selectedOps.has('bundle')) {
-      selectedOps.delete('bundle');
+  if (name === 'bundle' || name === 'bundle-advanced') {
+    if (selectedOps.has(name)) {
+      selectedOps.delete(name);
       card.classList.remove('selected');
+      if (opts) opts.classList.remove('open');
     } else {
+      // Deselect everything else first
+      selectedOps.forEach(op => {
+        const c = document.getElementById('card-' + op);
+        if (c) c.classList.remove('selected');
+        const o = document.getElementById('opts-' + op);
+        if (o) o.classList.remove('open');
+      });
+      selectedOps.clear();
+      selectedOps.add(name);
+      card.classList.add('selected');
+      if (opts) opts.classList.add('open');
+      gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
+    }
+  } else {
       // Deselect everything else first
       selectedOps.forEach(op => {
         const c = document.getElementById('card-' + op);
@@ -1605,6 +1636,7 @@ function toggleTool(e, name) {
       selectedOps.clear();
       selectedOps.add('bundle');
       card.classList.add('selected');
+      if (opts) opts.classList.add('open');
       gsap.from('#card-bundle', { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   } else {
@@ -1612,6 +1644,11 @@ function toggleTool(e, name) {
     if (selectedOps.has('bundle')) {
       selectedOps.delete('bundle');
       const bc = document.getElementById('card-bundle');
+      if (bc) bc.classList.remove('selected');
+    }
+    if (selectedOps.has('bundle-advanced')) {
+      selectedOps.delete('bundle-advanced');
+      const bc = document.getElementById('card-bundle-advanced');
       if (bc) bc.classList.remove('selected');
     }
     
@@ -1922,7 +1959,7 @@ async function startProcessing() {
   if (!files.length || !selectedOps.size) return;
 
   // Route bundle summary to its own endpoint
-  if (selectedOps.has('bundle')) {
+  if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
     await startBundleSummary();
     return;
   }
@@ -2015,8 +2052,8 @@ async function startBundleSummary() {
       fileCount++;
     }
   });
-  fd.append('includeSha256', document.getElementById('bundle-advanced')?.checked ? 'true' : 'false');
-  fd.append('bundleAdvanced', document.getElementById('bundle-advanced')?.checked ? 'true' : 'false');
+  fd.append('includeSha256', selectedOps.has('bundle-advanced') ? 'true' : 'false');
+  fd.append('bundleAdvanced', selectedOps.has('bundle-advanced') ? 'true' : 'false');
   try {
     document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
