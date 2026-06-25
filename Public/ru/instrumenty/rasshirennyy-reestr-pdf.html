@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creare Borderou PDF Online - Audit Documente Folder</title>
-  <meta name="description" content="Încarcă un folder cu documente pentru a număra paginile, detecta formatele și genera un raport detaliat Excel/CSV. Instrument de audit în batch.">
-  <meta name="keywords" content="borderou pdf online, inventar documente folder, numarare pagini excel, raport audit documente">
-  <meta property="og:title" content="Creare Borderou PDF Online - Audit Documente Folder">
-  <meta property="og:description" content="Încarcă un folder cu documente pentru a număra paginile, detecta formatele și genera un raport detaliat Excel/CSV. Instrument de audit în batch.">
+  <title>Создать реестр документов PDF онлайн - Опись папки файлов</title>
+  <meta name="description" content="Загрузить папку документов для подсчета страниц, определения расширений и создания отчета Excel/CSV. Удобный аудит папок онлайн.">
+  <meta name="keywords" content="реестр документов pdf, опись папки файлов онлайн, подсчет страниц в папке">
+  <meta property="og:title" content="Создать реестр документов PDF онлайн - Опись папки файлов">
+  <meta property="og:description" content="Загрузить папку документов для подсчета страниц, определения расширений и создания отчета Excel/CSV. Удобный аудит папок онлайн.">
   <meta property="og:type" content="website">
   <link rel="icon" href="../../assets/logo.png">
-  <link rel="canonical" href="https://doc-inspector.com/ro/unelte/borderou-pdf-online">
-  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/pdf-bundle-summary-online" />
-  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/borderou-pdf-online" />
-  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/reestr-dokumentov-pdf" />
-  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/pdf-bundle-summary-online" />
+  <link rel="canonical" href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/borderou-pdf-avansat" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report" />
   
   
   
@@ -42,20 +42,9 @@
     gtag('config', 'G-80038W7D1J');
   </script>
   <style>
-    /* ══ Animated mesh background ══ */
     .mesh-bg { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
-    .mesh-bg::before {
-      content:''; position:absolute; width:900px; height:900px;
-      background:radial-gradient(circle, rgba(6,182,212,.07) 0%, transparent 65%);
-      top:-200px; left:-200px;
-      animation:meshMove1 18s ease-in-out infinite alternate;
-    }
-    .mesh-bg::after {
-      content:''; position:absolute; width:700px; height:700px;
-      background:radial-gradient(circle, rgba(99,102,241,.06) 0%, transparent 65%);
-      bottom:-100px; right:-100px;
-      animation:meshMove2 22s ease-in-out infinite alternate;
-    }
+    .mesh-bg::before { content:''; position:absolute; width:900px; height:900px; background:radial-gradient(circle, rgba(6,182,212,.07) 0%, transparent 65%); top:-200px; left:-200px; animation:meshMove1 18s ease-in-out infinite alternate; }
+    .mesh-bg::after  { content:''; position:absolute; width:700px; height:700px; background:radial-gradient(circle, rgba(99,102,241,.06) 0%, transparent 65%); bottom:-100px; right:-100px; animation:meshMove2 22s ease-in-out infinite alternate; }
     @keyframes meshMove1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(200px,150px) scale(1.3)} }
     @keyframes meshMove2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-180px,-120px) scale(1.2)} }
     .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter:blur(80px); opacity:0.4; }
@@ -63,14 +52,9 @@
     .orb-2 { width:300px; height:300px; background:rgba(139,92,246,.07); top:50%; right:8%; animation:orbFloat 16s ease-in-out infinite reverse; }
     .orb-3 { width:250px; height:250px; background:rgba(16,185,129,.06); bottom:20%; left:25%; animation:orbFloat 14s ease-in-out infinite 2s; }
     @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
-    .grid-lines {
-      position:fixed; inset:0; z-index:0; pointer-events:none;
-      background-image: linear-gradient(rgba(6,182,212,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,.025) 1px, transparent 1px);
-      background-size:60px 60px;
-      mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
-    }
+    .grid-lines { position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(rgba(6,182,212,.025) 1px, transparent 1px),linear-gradient(90deg,rgba(6,182,212,.025) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%); }
     .tools-hero { padding:6.5rem 0 2rem; position:relative; z-index:1; text-align:center; overflow:hidden; }
-    .tools-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,.13) 0%, transparent 70%); pointer-events:none; }
+    .tools-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(6,182,212,.13) 0%,transparent 70%); pointer-events:none; }
     .hero-eyebrow-pill { display:inline-flex; align-items:center; gap:.6rem; background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.3); border-radius:50px; padding:.45rem 1.2rem; margin-bottom:1.8rem; font-size:.82rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand, var(--cyan)); }
     .live-dot { width:8px; height:8px; border-radius:50%; background:var(--cyan); animation:pulseDot 1.5s ease-in-out infinite; }
     @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
@@ -113,7 +97,7 @@
       box-shadow: 0 0 25px color-mix(in srgb, var(--brand, #06b6d4) 25%, transparent), inset 0 1px 0 rgba(255,255,255,0.15);
     }
     .tool-card .ripple { position:absolute; border-radius:50%; background:color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent); transform:scale(0); animation:rippleAnim .6s linear; pointer-events:none; }
-    @keyframes rippleAnim { to{transform:scale(4); opacity:0;} }
+    @keyframes rippleAnim { to{transform:scale(4);opacity:0;} }
     .check-ring { position:absolute; top:12px; right:12px; width:22px; height:22px; border-radius:50%; background:var(--brand, var(--cyan)); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900; opacity:0; transform:scale(.4) rotate(-90deg); transition:all .3s cubic-bezier(.34,1.56,.64,1); }
     .tool-card.selected .check-ring { opacity:1; transform:scale(1) rotate(0deg); }
     .tool-header { display:flex; align-items:center; gap:.9rem; margin-bottom:.8rem; }
@@ -173,7 +157,7 @@
     .process-btn { width:100%; padding:1.1rem; margin-top:1.4rem; background:linear-gradient(135deg,var(--cyan),#38bdf8); border:none; border-radius:14px; color:#0a1628; font-family:inherit; font-size:1.05rem; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.7rem; transition:all .3s; box-shadow:0 4px 20px rgba(6,182,212,.3); position:relative; overflow:hidden; }
     .process-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.15),transparent); opacity:0; transition:opacity .3s; }
     .process-btn:hover:not(:disabled)::before { opacity:1; }
-    .process-btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 30px rgba(6,182,212,.5), 0 0 40px rgba(6,182,212,.2); }
+    .process-btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 30px rgba(6,182,212,.5),0 0 40px rgba(6,182,212,.2); }
     .process-btn:disabled { opacity:.4; cursor:not-allowed; }
     .result-area { display:none; margin-top:1.4rem; background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.2); border-radius:16px; padding:2rem; text-align:center; }
     .result-area.show { display:block; animation:fadeIn .4s ease; }
@@ -425,7 +409,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Creare Borderou PDF Online - Audit Documente Folder",
+      "name": "Создать реестр документов PDF онлайн - Опись папки файлов",
       "operatingSystem": "All",
       "applicationCategory": "BusinessApplication",
       "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -454,34 +438,34 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Ремонт, пакетный менеджер документов и аудит</span>
         </span>
       </a>
 
             <div class="nav-links">
-        <a href="../" data-i18n="nav.home">Acasă</a>
-        <a href="../unelte-online" class="active" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
-        <a href="../preturi" data-i18n="nav.price">Preț</a>
-        <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
-        <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
-        <a href="../blog" data-i18n="nav.blog">Blog</a>
-        <a href="../contact" data-i18n="nav.contact">Contact</a>
-        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../" data-i18n="nav.home">Главная</a>
+        <a href="../onlayn-instrumenty" class="active" style="color:#06b6d4;font-weight:700">🌐 Онлайн-инструменты</a>
+        <a href="../tseny" data-i18n="nav.price">Цена</a>
+        <a href="../rukovodstvo" data-i18n="nav.guide">Руководство</a>
+        <a href="../otchety" data-i18n="nav.reports">Отчёты и отзывы</a>
+        <a href="../blog" data-i18n="nav.blog">Блог</a>
+        <a href="../kontakty" data-i18n="nav.contact">Контакты</a>
+        <a href="../skachat" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
       </div>
 
       <div class="nav-actions">
         <div class="lang-dropdown">
           <button class="lang-btn" aria-label="Language">
-            <span class="lang-pill">RO</span>
+            <span class="lang-pill">RU</span>
             <span class="chev">▾</span>
           </button>
                     <div class="lang-menu">
             <a href="../../en/tools/pdf-bundle-summary-online.html" class="lang-item" data-lang="en">EN</a>
-            <a href="adaugare-watermark-pdf-online.html" class="lang-item active" data-lang="ro">RO</a>
-            <a href="../../ru/instrumenty/reestr-dokumentov-pdf.html" class="lang-item" data-lang="ru">RU</a>
+            <a href="../../ro/unelte/borderou-pdf-online.html" class="lang-item" data-lang="ro">RO</a>
+            <a href="dobavit-vodyanoy-znak-pdf.html" class="lang-item active" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../skachat" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -497,206 +481,195 @@
   <div class="container">
     <div class="hero-eyebrow-pill gsap-fade">
       <span class="live-dot"></span>
-      UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
+      БЕСПЛАТНЫЕ ОНЛАЙН ИНСТРУМЕНТЫ &#x2014; БЕЗ УСТАНОВКИ
     </div>
-    <h1 class="hero-h1 gsap-fade">Procesează PDF-uri Direct în Browserul Tău</h1>
+    <h1 class="hero-h1 gsap-fade">Обрабатывайте PDF Прямо в Браузере</h1>
     <p class="hero-lead gsap-fade">
-      Sanitizează metadate, adaugă watermark, criptează, redactează sau repară documente PDF online &#x2014; <strong style="color:#fff">sandbox izolat</strong>
-        și șterse imediat după descărcare. Nu este necesar un cont.
+      Очистка метаданных, добавление водяных знаков, шифрование, удаление данных или ремонт PDF документов онлайн. Файлы обрабатываются в <strong style="color:#fff">изолированной песочнице</strong>
+        и удаляются сразу после скачивания.
     </p>
       <div class="badges-row gsap-fade">
-        <span class="sec-badge">🛡️ Zero stocare în cloud</span>
-        <span class="sec-badge">⚡ Șters după descărcare</span>
-        <span class="sec-badge">🔒 Tranzit criptat (HTTPS)</span>
-        <span class="sec-badge">🤖 Fără AI — 100% determinist</span>
-        <span class="sec-badge">🇪🇺 Conform GDPR</span>
-        <span class="sec-badge" id="sec-badge-desc">📄 Până la 100 fișiere/zi, gratuit</span>
+        <span class="sec-badge">🛡️ Без облачного хранилища</span>
+        <span class="sec-badge">⚡ Удаляется после скачивания</span>
+        <span class="sec-badge">🔒 Зашифрованный трафик (HTTPS)</span>
+        <span class="sec-badge">🤖 Без ИИ — 100% детерминированно</span>
+        <span class="sec-badge">🇪🇺 Соответствует GDPR</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 До 100 файлов/день бесплатно</span>
       </div>
     
   </div>
 </section>
 
-<!-- ═══════ TOOLS AREA ═══════ -->
+<!-- ═══════ ОБЛАСТЬ ИНСТРУМЕНТОВ ═══════ -->
 <section style="padding-top:0;position:relative;z-index:1">
   <div class="container">
     <div class="tools-layout">
 
-      <!-- ══ COLOANA STÂNGA ══ -->
+      <!-- ══ ЛЕВАЯ КОЛОНКА ══ -->
       <div>
-        <!-- Pasul 1 -->
+        <!-- Шаг 1 -->
         <div style="margin-bottom:2.5rem">
-          <span class="step-label">Pasul 1</span>
-          <div class="step-title">Încarcă Fișierele Tale</div>
-          <div class="step-desc" id="step1-desc">Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.</div>
+          <span class="step-label">Шаг 1</span>
+          <div class="step-title">Загрузите ваши файлы</div>
+          <div class="step-desc" id="step1-desc">Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>15 МБ</strong> каждый), 100 бесплатно в день.</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">📂</span>
-            <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele aici</div>
+            <div class="dz-title" id="dzTitle">Перетащите PDF-файлы сюда</div>
             <div class="dz-sub" id="dzSub"></div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
-              <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Selectează Folder</button>
-              <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Selectează Fișiere</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
             </div>
           </div>
 
-          <div class="supported-formats" style="margin-top:0.8rem; font-size:0.75rem; color:var(--text-muted); display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
-            <span>Formate suportate:</span>
-            <strong>PDF</strong>,
-            <strong>DOCX / DOC</strong>,
-            <strong>XLSX / XLS / XLSM</strong>,
-            <strong>CSV</strong>,
-            <strong>TXT</strong>,
-            <strong>PNG / JPG / JPEG</strong>,
-            <strong>PPTX / PPT</strong>
-          </div>
-
           <div class="file-list" id="fileList"></div>
-        </div><!-- /pasul 1 -->
+        </div><!-- /шаг 1 -->
 
-        <!-- Pasul 2 -->
+        <!-- Шаг 2 -->
         <div style="margin-bottom:2.5rem">
-          <span class="step-label">Pasul 2</span>
-          <div class="step-title">Selectează Operațiunile</div>
-          <div class="step-desc">Alege unul sau mai multe instrumente — ele rulează în secvență pe fișierele tale.</div>
+          <span class="step-label">Шаг 2</span>
+          <div class="step-title">Выберите Операции</div>
+          <div class="step-desc">Выберите один или несколько инструментов — они выполняются последовательно на ваших файлах.</div>
 
           <div class="tools-grid">
 
-            <!-- Sanitizare -->
-            <!-- Eliminare Semnaturi -->
+            <!-- Санитизация -->
+            <!-- Удаление подписей -->
             <div class="tool-card gsap-card" id="card-removesigs" style="--brand: #ec4899;" onclick="toggleTool(event,'removesigs')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap" style="background:rgba(236,72,153,.15);color:#ec4899">🔏</div>
-                <div class="tool-name">Elimină Semnăturile</div>
+                <div class="tool-name">Удалить подписи</div>
               </div>
-              <div class="tool-desc">Elimină semnăturile digitale, blocurile de certificare, câmpurile și restricțiile de editare. <strong style="color:#ec4899">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Удалите цифровые подписи, сертифицированные блокировки, поля форм и ограничения на редактирование. <strong style="color:#ec4899">Поддерживается только PDF.</strong></div>
             </div>
 
             <div class="tool-card gsap-card" id="card-sanitize" style="--brand: #f97316;" onclick="toggleTool(event,'sanitize')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-blue">🧹</div>
-                <div class="tool-name">Sanitizare Metadate</div>
+                <div class="tool-name">Санитизация метаданных</div>
               </div>
-              <div class="tool-desc">Elimină numele autorului, data creării, amprentele software, GPS și metadatele. <strong style="color:#f97316">Suportă PDF, DOCX, XLSX, CSV, TXT, Imagini, PPTX.</strong></div>
+              <div class="tool-desc">Удалите имя автора, дату создания, программные отпечатки, GPS-данные и все скрытые метаданные из PDF. Обязательно перед отправкой документов внешним сторонам.</div>
             </div>
 
-            <!-- Watermark -->
+            <!-- Водяной знак -->
             <div class="tool-card gsap-card" id="card-watermark" style="--brand: #0ea5e9;" onclick="toggleTool(event,'watermark')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-green">💧</div>
-                <div class="tool-name">Adaugă Watermark</div>
+                <div class="tool-name">Добавить водяной знак</div>
               </div>
-              <div class="tool-desc">Aplică un watermark text diagonal pe fiecare pagină a documentului. <strong style="color:#0ea5e9">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Нанесите диагональный текстовый водяной знак (например: КОНФИДЕНЦИАЛЬНО, ЧЕРНОВИК) на каждую страницу PDF с настраиваемой прозрачностью и размером шрифта.</div>
             </div>
 
-            <!-- Criptare -->
+            <!-- Шифрование -->
             <div class="tool-card gsap-card" id="card-encrypt" style="--brand: #8b5cf6;" onclick="toggleTool(event,'encrypt')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-purple">🔐</div>
-                <div class="tool-name">Criptează PDF</div>
+                <div class="tool-name">Зашифровать PDF</div>
               </div>
-              <div class="tool-desc">Protejează PDF-ul cu parolă prin criptare AES 256-bit. <strong style="color:#8b5cf6">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Защитите PDF паролем с 256-битным шифрованием AES. Только получатели с правильным паролем смогут открыть документ.</div>
             </div>
 
-            <!-- Redactare -->
+            <!-- Редактирование -->
             <div class="tool-card gsap-card" id="card-redact" style="--brand: #ef4444;" onclick="toggleTool(event,'redact')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-red">⬛</div>
-                <div class="tool-name">Găsește &amp; Redactează</div>
+                <div class="tool-name">Найти &amp; Отредактировать</div>
               </div>
-              <div class="tool-desc">Elimină permanent textul sensibil din documentul tău. <strong style="color:#ef4444">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Навсегда удалите конфиденциальный текст из PDF, преобразовав его в безопасную версию только с изображениями без выделяемого текстового слоя.</div>
             </div>
 
-            <!-- Aplatizare -->
+            <!-- Сглаживание -->
             <div class="tool-card gsap-card" id="card-flatten" style="--brand: #10b981;" onclick="toggleTool(event,'flatten')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-orange">🖼️</div>
-                <div class="tool-name">Aplatizare în PDF-Imagine</div>
+                <div class="tool-name">Сглаживание в PDF-изображение</div>
               </div>
-              <div class="tool-desc">Convertește fiecare pagină într-o imagine raster în interiorul PDF-ului. <strong style="color:#10b981">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Преобразуйте каждую страницу в растровое изображение внутри PDF. Удаляет весь встроенный текст, шрифты, скрипты и активные поля форм.</div>
             </div>
 
-            <!-- Reconstruire -->
+            <!-- Восстановление -->
             <div class="tool-card gsap-card" id="card-rebuild" style="--brand: #6366f1;" onclick="toggleTool(event,'rebuild')">
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-indigo">🛠️</div>
-                <div class="tool-name">Reconstruiește &amp; Repară PDF</div>
+                <div class="tool-name">Восстановить &amp; Починить PDF</div>
               </div>
-              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. <strong style="color:#6366f1">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Исправьте повреждённые, сломанные или некорректно сформированные структуры PDF. Линеаризует и перекодирует документ для максимальной совместимости.</div>
             </div>
 
             <!-- PDF Bundle Summary -->
             <div class="tool-card gsap-card" id="card-bundle" style="--brand: #f59e0b;" onclick="toggleTool(event,'bundle')" style="border-color:rgba(245,158,11,.25);position:relative">
               <div class="check-ring">✓</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NOU</div>
+              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">НОВОЕ</div>
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
-                <div class="tool-name">Borderou PDF</div>
+                <div class="tool-name">Сводный отчёт PDF</div>
               </div>
-              <div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF</strong> pentru folder cu titlurile documentelor, numărul de pagini per fișier și totalul la final (pagini + fișiere). <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX.</strong></div>
+              <div class="tool-desc">Создаёт профессиональный <strong style="color:#f59e0b">отчёт Excel + PDF</strong> с названиями документов, количеством страниц каждого файла и итогами в конце (всего страниц + всего файлов). <strong style="color:#f59e0b">Поддерживает PDF, DOCX, XLSX.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Încărcare folder</span>
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Загрузка папки</span>
                 <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
               </div>
             </div>
 
           </div><!-- /tools-grid -->
 
-          <!-- Panouri de opțiuni -->
+          <!-- Панели опций -->
                               <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Igienizare</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки очистки</div>
               
               <div class="opt-row" style="margin-bottom: 0.6rem;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;font-weight:bold;">
-                  <input type="checkbox" id="san-all" checked style="accent-color:var(--brand, var(--cyan))"> ☢ Elimină TOATE metadatele (recomandat — cel mai sigur)
+                  <input type="checkbox" id="san-all" checked style="accent-color:var(--brand, var(--cyan))"> ☢ Удалить ВСЕ метаданные (наиболее безопасно)
                 </label>
               </div>
               
               <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem; display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:.5rem;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Autor
+                  <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Автор
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-lastmodby" checked style="accent-color:var(--brand, var(--cyan))"> Ultimul Modificator
+                  <input type="checkbox" id="san-lastmodby" checked style="accent-color:var(--brand, var(--cyan))"> Последний изменивший
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-company" checked style="accent-color:var(--brand, var(--cyan))"> Companie
+                  <input type="checkbox" id="san-company" checked style="accent-color:var(--brand, var(--cyan))"> Компания
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-manager" checked style="accent-color:var(--brand, var(--cyan))"> Manager
+                  <input type="checkbox" id="san-manager" checked style="accent-color:var(--brand, var(--cyan))"> Менеджер
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-title" checked style="accent-color:var(--brand, var(--cyan))"> Titlu
+                  <input type="checkbox" id="san-title" checked style="accent-color:var(--brand, var(--cyan))"> Заголовок
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-subject" checked style="accent-color:var(--brand, var(--cyan))"> Subiect
+                  <input type="checkbox" id="san-subject" checked style="accent-color:var(--brand, var(--cyan))"> Тема
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-keywords" checked style="accent-color:var(--brand, var(--cyan))"> Cuvinte cheie / Etichete
+                  <input type="checkbox" id="san-keywords" checked style="accent-color:var(--brand, var(--cyan))"> Ключевые слова / Теги
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-comments" checked style="accent-color:var(--brand, var(--cyan))"> Comentarii
+                  <input type="checkbox" id="san-comments" checked style="accent-color:var(--brand, var(--cyan))"> Комментарии
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-categories" checked style="accent-color:var(--brand, var(--cyan))"> Categorii
+                  <input type="checkbox" id="san-categories" checked style="accent-color:var(--brand, var(--cyan))"> Категории
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-software" checked style="accent-color:var(--brand, var(--cyan))"> Aplicație / Nume Producător
+                  <input type="checkbox" id="san-software" checked style="accent-color:var(--brand, var(--cyan))"> Приложение / Производитель
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-time" checked style="accent-color:var(--brand, var(--cyan))"> Date Creare &amp; Modificare
+                  <input type="checkbox" id="san-time" checked style="accent-color:var(--brand, var(--cyan))"> Даты создания и изменения
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--brand, var(--cyan))"> Date GPS &amp; Locație
+                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--brand, var(--cyan))"> GPS и геолокация
                 </label>
               </div>
             </div>
@@ -705,13 +678,13 @@
           <div class="tool-opts" id="opts-watermark" style="--brand: #0ea5e9;">
             <div class="tool-opts-inner">
               <div class="opt-row">
-                <label class="opt-label" for="wm-text">Text Watermark</label>
-                <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">CONFIDENȚIAL</textarea>
+                <label class="opt-label" for="wm-text">Текст водяного знака</label>
+                <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">КОНФИДЕНЦИАЛЬНО</textarea>
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="wm-font">Familie Font</label>
+                <label class="opt-label" for="wm-font">Семейство Шрифта</label>
                 <select class="opt-input" id="wm-font" style="background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.55rem .9rem">
-                  <option value="Helvetica-Bold" selected>Helvetica Bold (implicit)</option>
+                  <option value="Helvetica-Bold" selected>Helvetica Bold (по умолчанию)</option>
                   <option value="Helvetica">Helvetica Regular</option>
                   <option value="Helvetica-Oblique">Helvetica Italic</option>
                   <option value="Times-Bold">Times New Roman Bold</option>
@@ -722,7 +695,7 @@
                 </select>
               </div>
               <div class="opt-row">
-                <label class="opt-label">Dimensiune Font</label>
+                <label class="opt-label">Размер шрифта</label>
                 <div class="range-row">
                   <input class="opt-range" id="wm-size" type="range" min="20" max="120" value="60"
                     oninput="document.getElementById('wm-size-v').textContent=this.value+'pt'">
@@ -730,7 +703,7 @@
                 </div>
               </div>
               <div class="opt-row">
-                <label class="opt-label">Opacitate</label>
+                <label class="opt-label">Прозрачность</label>
                 <div class="range-row">
                   <input class="opt-range" id="wm-opacity" type="range" min="5" max="80" value="15"
                     oninput="document.getElementById('wm-op-v').textContent=this.value+'%'">
@@ -738,11 +711,11 @@
                 </div>
               </div>
                 <div class="opt-row">
-                  <label class="opt-label" for="wm-angle">Unghi (Rotație)</label>
+                  <label class="opt-label" for="wm-angle">Угол (Вращение)</label>
                   <select class="opt-select" id="wm-angle">
-                    <option value="-45" selected>Diagonal (-45&deg;)</option>
-                    <option value="0">Drept (0&deg;)</option>
-                    <option value="45">Diagonal (45&deg;)</option>
+                    <option value="-45" selected>Диагональ (-45&deg;)</option>
+                    <option value="0">Прямо (0&deg;)</option>
+                    <option value="45">Диагональ (45&deg;)</option>
                   </select>
                 </div>
             </div>
@@ -751,12 +724,12 @@
           <div class="tool-opts" id="opts-encrypt" style="--brand: #a855f7;">
             <div class="tool-opts-inner">
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw">Parolă (obligatorie)</label>
-                <input class="opt-input" id="enc-pw" type="password" placeholder="Introduceți parola pentru criptarea PDF-ului">
+                <label class="opt-label" for="enc-pw">Пароль (обязательно)</label>
+                <input class="opt-input" id="enc-pw" type="password" placeholder="Введите пароль для шифрования PDF">
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw2">Confirmați Parola</label>
-                <input class="opt-input" id="enc-pw2" type="password" placeholder="Repetați parola">
+                <label class="opt-label" for="enc-pw2">Подтвердите пароль</label>
+                <input class="opt-input" id="enc-pw2" type="password" placeholder="Повторите пароль">
               </div>
             </div>
           </div>
@@ -764,36 +737,36 @@
           <div class="tool-opts" id="opts-redact" style="--brand: #ef4444;">
             <div class="tool-opts-inner">
               <div class="opt-row">
-                <label class="opt-label" for="redact-kw-input">Cuvinte cheie de redactat (expresii exacte)</label>
+                <label class="opt-label" for="redact-kw-input">Ключевые слова для удаления (точные фразы)</label>
                 <div style="display:flex;gap:.5rem">
-                  <input class="opt-input" id="redact-kw-input" type="text" placeholder="Scrie un cuvânt sau expresie și apasă Adaugă..." style="flex:1">
-                  <button type="button" class="btn btn-primary btn-sm" id="btn-add-kw" style="border-radius:10px;padding:.55rem 1rem">Adaugă</button>
+                  <input class="opt-input" id="redact-kw-input" type="text" placeholder="Введите слово или фразу и нажмите Добавить..." style="flex:1">
+                  <button type="button" class="btn btn-primary btn-sm" id="btn-add-kw" style="border-radius:10px;padding:.55rem 1rem">Добавить</button>
                 </div>
                 <input type="hidden" id="redact-kw" value="">
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
-              <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Întregul strat de text al paginii este eliminat pentru a garanta că nu rămâne niciun conținut sensibil (ieșire doar-imagine).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Atenție: Dacă documentul este scanat/imagine, textul nu va fi găsit. Recomandăm să bifați și "Rebuild & Repair" pentru OCR, însă procesarea va dura semnificativ mai mult.</p>
+              <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Весь текстовый слой страницы удаляется, чтобы гарантировать отсутствие конфиденциального содержимого (выходной файл только из изображений).</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Внимание: Если ваш PDF-файл представляет собой отсканированный документ, текст не будет найден. Мы рекомендуем также выбрать "Rebuild & Repair" для OCR, но это значительно увеличит время обработки.</p>
             </div>
           </div>
 
           <div class="tool-opts" id="opts-rebuild" style="--brand: #6366f1;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Reconstruire</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки восстановления</div>
               <div class="opt-row">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Inteligentă (Rulează OCR doar pe paginile scanate/fără text selectabil - MAI RAPID)
+                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Умное восстановление (OCR только на отсканированных страницах без выбора текста - БЫСТРЕЕ)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Forțată (Rulează OCR pe toate paginile, inclusiv cele cu text - MAI ÎNCET)
+                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Принудительное восстановление (OCR на всех страницах, включая текстовые - МЕДЛЕННЕЕ)
                 </label>
               </div>
                             <div class="opt-row" style="margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="rebuild-enhance" style="accent-color:var(--brand, var(--cyan))"> Imbunatatește acuratețea OCR (pre-procesare pagini - MAI ÎNCET)
+                  <input type="checkbox" id="rebuild-enhance" style="accent-color:var(--brand, var(--cyan))"> Повысить точность OCR (предварительная обработка страниц - МЕДЛЕННЕЕ)
                 </label>
                 <div style="display: flex; align-items: center; gap: 0.4rem;">
-                  <label for="rebuild-dpi" style="font-size: .82rem; color: #fff;">Rezoluție:</label>
+                  <label for="rebuild-dpi" style="font-size: .82rem; color: #fff;">Разрешение:</label>
                   <select id="rebuild-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
                     <option value="200">200 DPI</option>
                     <option value="250">250 DPI</option>
@@ -807,10 +780,10 @@
 
           <div class="tool-opts" id="opts-bundle" style="--brand: #f59e0b;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Raport Pachet</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки отчета пакета</div>
               <div class="opt-row">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="checkbox" id="bundle-advanced" checked style="accent-color:var(--brand, var(--cyan))"> Generează Raport Avansat Pachet (include Format, Dimensiune, SHA-256, Protecție, Data modificării)
+                  <input type="checkbox" id="bundle-advanced" checked style="accent-color:var(--brand, var(--cyan))"> Создать расширенную опись пакета (включает формат, размер, SHA-256, защиту, время изменения)
                 </label>
               </div>
             </div>
@@ -819,40 +792,40 @@
 
           <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 1.5rem;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Opțiuni Globale Procesare</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Глобальные параметры обработки</div>
               <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="global-timeout-enable" style="accent-color:#10b981" onchange="document.getElementById('global-timeout-val').disabled = !this.checked"> Omite fișierul dacă procesarea durează prea mult
+                  <input type="checkbox" id="global-timeout-enable" style="accent-color:#10b981" onchange="document.getElementById('global-timeout-val').disabled = !this.checked"> Пропускать файл, если обработка занимает слишком много времени
                 </label>
                 <select id="global-timeout-val" disabled style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
-                  <option value="120">2 minute</option>
-                  <option value="300" selected>5 minute</option>
-                  <option value="480">8 minute</option>
-                  <option value="900">15 minute</option>
-                  <option value="1500">25 minute</option>
-                  <option value="2400">40 minute</option>
-                  <option value="3600">1 oră</option>
-                  <option value="7200">2 ore</option>
-                  <option value="14400">4 ore</option>
+                  <option value="120">2 минуты</option>
+                  <option value="300" selected>5 минут</option>
+                  <option value="480">8 минут</option>
+                  <option value="900">15 минут</option>
+                  <option value="1500">25 минут</option>
+                  <option value="2400">40 минут</option>
+                  <option value="3600">1 час</option>
+                  <option value="7200">2 часа</option>
+                  <option value="14400">4 часа</option>
                 </select>
               </div>
             </div>
           </div>
 
-        </div><!-- /pasul 2 -->
+        </div><!-- /шаг 2 -->
 
-        <!-- Buton procesare + rezultat (sub ambii pași) -->
+        <!-- Кнопка обработки + результат (ниже обоих шагов) -->
         <div style="margin-top:2rem">
           <button class="process-btn" id="processBtn" disabled onclick="startProcessing()" style="background:linear-gradient(135deg, #10b981, #34d399); box-shadow: 0 4px 20px rgba(16,185,129,.3); color:#ffffff;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Procesează Fișierele Acum
+            Обработать файлы сейчас
           </button>
 
           <div class="result-area" id="resultArea">
             <div class="spin" id="rSpin"></div>
             <div class="r-icon" id="rIcon" style="display:none"></div>
-            <div class="r-title" id="rTitle">Se procesează fișierele tale…</div>
-            <div class="r-sub"   id="rSub">Acest lucru poate dura câteva secunde</div>
+            <div class="r-title" id="rTitle">Обрабатываем ваши файлы…</div>
+            <div class="r-sub"   id="rSub">Это может занять несколько секунд</div>
             <div id="rProgressContainer" style="display:none; margin: 1rem auto; max-width: 400px;">
               <div style="height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
                 <div id="rProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #10b981); transition: width 0.5s ease; box-shadow: 0 0 8px rgba(6,182,212,0.6);"></div>
@@ -861,68 +834,68 @@
             </div>
             <a href="#" class="dl-btn" id="rDlBtn" style="display:none" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Descarcă Rezultatele (.zip)
+              Скачать результаты (.zip)
             </a>
-            <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">↺ Procesează un alt lot</button>
-            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Oprește Procesarea</button>
+            <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">↺ Обработать ещё раз</button>
+            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Остановить обработку</button>
           </div>
         </div>
 
-      </div><!-- /coloana stânga -->
+      </div><!-- /левая колонка -->
 
-      <!-- ══ SIDEBAR ══ -->
+      <!-- ══ САЙДБАР ══ -->
       <div class="sidebar-sticky">
         <div class="sidebar-card" id="license-panel" style="margin-bottom:1.5rem">
-          <div class="sb-title">&#x1F511; Licență & Limite</div>
+          <div class="sb-title">&#x1F511; Лицензия и лимиты</div>
           <div id="license-tier" style="margin-bottom:.8rem;font-size:1.1rem;font-weight:700">
-            <span style="color:var(--text-muted)">Nivel curent:</span>
+            <span style="color:var(--text-muted)">Текущий уровень:</span>
             <span id="tier-badge" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:.15rem .5rem;color:var(--text-muted);font-size:.9rem;margin-left:.4rem">Free</span>
           </div>
           <div class="daily-bar">
             <div class="daily-top">
-              <span class="daily-lbl" id="dailyLbl">Utilizare zilnică</span>
-              <span class="daily-cnt" id="dailyCnt">0 / 100 fișiere</span>
+              <span class="daily-lbl" id="dailyLbl">Дневное использование</span>
+              <span class="daily-cnt" id="dailyCnt">0 / 100 файлов</span>
             </div>
             <div class="bar-track"><div class="bar-fill" id="dailyFill" style="width:0%"></div></div>
             <div id="dailyReset" style="font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem;text-align:right;display:none;"></div>
           </div>
           <div id="license-activate-form">
-            <input type="text" id="license-key-input" class="opt-input" placeholder="Introdu cheia DocInspector..." style="margin-bottom:.5rem">
-            <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Activează Cheia</button>
+            <input type="text" id="license-key-input" class="opt-input" placeholder="Введите ключ DocInspector..." style="margin-bottom:.5rem">
+            <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Активировать ключ</button>
             <div id="license-msg" style="font-size:.8rem;margin-top:.4rem;display:none;text-align:center"></div>
             <div style="margin-top: 15px; text-align: center;">
               <span style="font-size: 0.8rem; color: var(--text-muted);">
-                Ai nevoie de limite mai mari? <a href="../preturi" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Treci la Pro</a> pentru fișiere nelimitate.
+                Нужно больше лимитов? <a href="../tseny" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Перейти на Pro</a> для безлимитной обработки.
               </span>
             </div>
           </div>
           <div id="license-active-info" style="display:none">
-            <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Șterge Licența</button>
+            <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Удалить лицензию</button>
           </div>
         </div>
 
         <div class="sidebar-card">
-          <div class="sb-title">&#x1F4CA; Operațiuni Selectate</div>
+          <div class="sb-title">&#x1F4CA; Выбранные операции</div>
 
           <div class="ops-list" id="opsList">
-            <div class="ops-empty">Nicio operațiune selectată încă.<br>Alege instrumente din stânga.</div>
+            <div class="ops-empty">Операции не выбраны.<br>Выберите инструменты слева.</div>
           </div>
 
           <div class="pipeline-section" id="pipelineSection" style="display:none">
-            <div class="pipeline-lbl">Pipeline de procesare</div>
+            <div class="pipeline-lbl">Конвейер обработки</div>
             <div class="pipeline-flow" id="pipelineFlow"></div>
           </div>
 
           <div class="sb-info">
-            <div class="sb-info-item">🔒 <strong>Zero retenție</strong> — fișierele sunt șterse imediat după descărcare</div>
-            <div class="sb-info-item">⚡ <strong>Motor CLI</strong> — aceleași motoare ca în aplicația desktop</div>
-            <div class="sb-info-item">📄 <strong>Doar PDF</strong> — suportul DOCX/XLSX este în aplicația desktop</div>
+            <div class="sb-info-item">🔒 <strong>Нулевое хранение</strong> — файлы удаляются сразу после загрузки</div>
+            <div class="sb-info-item">⚡ <strong>Движок CLI</strong> — те же движки, что в настольном приложении</div>
+            <div class="sb-info-item">📄 <strong>Только PDF</strong> — поддержка DOCX/XLSX в настольном приложении</div>
           </div>
 
           <div class="upsell-box" id="upsell-box">
-            <div class="upsell-title">💼 Ai nevoie de procesare batch nelimitată?</div>
-            <div class="upsell-desc">Descarcă aplicația desktop pentru Windows — procesează mii de fișiere local fără limite.</div>
-            <a href="../descarca" class="upsell-btn">Descarcă Aplicația Desktop</a>
+            <div class="upsell-title">💼 Нужна неограниченная пакетная обработка?</div>
+            <div class="upsell-desc">Скачайте настольное приложение для Windows — обрабатывайте тысячи файлов локально без ограничений.</div>
+            <a href="../skachat" class="upsell-btn">Скачать настольное приложение</a>
           </div>
         </div>
       </div>
@@ -931,59 +904,59 @@
   </div>
 </section>
 
-<!-- ═══════ SECURITATE ═══════ -->
-<section class="section-gap sec-section" id="arhitectura-securitate">
+<!-- ═══════ БЕЗОПАСНОСТЬ ═══════ -->
+<section class="section-gap sec-section" id="arkhitektura-bezopasnosti">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
-      <span class="section-eyebrow">Arhitectura de Securitate</span>
-      <h2 class="section-title"><span class="text-gradient">Cum Protejăm Documentele Tale</span></h2>
-      <p class="section-subtitle">Instrumentul nostru online este construit pe aceleași principii de izolare ca și aplicația desktop. Iată fluxul exact al datelor de la browserul tău până la rezultatul procesat.</p>
+      <span class="section-eyebrow">Архитектура безопасности</span>
+      <h2 class="section-title"><span class="text-gradient">Как мы защищаем ваши документы</span></h2>
+      <p class="section-subtitle">Наш онлайн-инструмент построен на тех же принципах изоляции, что и настольное приложение. Вот точный поток данных от вашего браузера до обработанного результата.</p>
     </div>
 
     <div class="flow-visual reveal">
-      <div class="fv-node"><span>🖥️</span> Browserul Tău</div>
+      <div class="fv-node"><span>🖥️</span> Ваш браузер</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node fv-hl"><span>🔒</span> Upload HTTPS Criptat</div>
+      <div class="fv-node fv-hl"><span>🔒</span> Зашифрованная HTTPS загрузка</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node"><span>⚙️</span> Sandbox Izolat</div>
+      <div class="fv-node"><span>⚙️</span> Изолированная песочница</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node fv-hl"><span>🗑️</span> Ștergere Automată Imediată</div>
+      <div class="fv-node fv-hl"><span>🗑️</span> Немедленное автоудаление</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node"><span>📥</span> Descărcare Securizată</div>
+      <div class="fv-node"><span>📥</span> Защищённая загрузка</div>
     </div>
 
     <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:2.5rem;margin-top:2rem">
-      <h3 class="section-title" style="text-align:center;font-size:1.4rem;margin-bottom:2rem"><span class="text-gradient">Angajamentele Noastre de Securitate</span></h3>
+      <h3 class="section-title" style="text-align:center;font-size:1.4rem;margin-bottom:2rem"><span class="text-gradient">Наши обязательства по безопасности</span></h3>
       <div class="sec-grid">
         <div class="sec-item reveal">
           <div class="sec-icon">🛡️</div>
-          <div class="sec-item-title">Fără Stocare Persistentă</div>
-          <div class="sec-item-desc">Fișierele sunt stocate doar în RAM sau un director temporar. Șterse automat la 5 minute după procesare — sau imediat la descărcare.</div>
+          <div class="sec-item-title">Без постоянного хранения</div>
+          <div class="sec-item-desc">Файлы хранятся только в ОЗУ или кратковременной временной директории. Удаляются автоматически через 5 минут — или сразу при загрузке.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">🔐</div>
-          <div class="sec-item-title">Criptat în Tranzit</div>
-          <div class="sec-item-desc">Toate încărcările și descărcările folosesc HTTPS/TLS. Documentul tău nu călătorește niciodată în text simplu prin rețea.</div>
+          <div class="sec-item-title">Зашифровано при передаче</div>
+          <div class="sec-item-desc">Все загрузки и скачивания используют HTTPS/TLS. Ваш документ никогда не передаётся в открытом виде по сети.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">🤖</div>
-          <div class="sec-item-title">Fără AI, Fără Antrenament</div>
-          <div class="sec-item-desc">Folosim instrumente CLI deterministe (qpdf, ExifTool, Ghostscript). Documentele tale nu sunt niciodată introduse în niciun model de machine learning.</div>
+          <div class="sec-item-title">Без ИИ, без обучения</div>
+          <div class="sec-item-desc">Мы используем детерминированные инструменты CLI (qpdf, ExifTool, Ghostscript). Ваши документы никогда не передаются в модели машинного обучения.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">🇪🇺</div>
-          <div class="sec-item-title">Conform GDPR</div>
-          <div class="sec-item-desc">Nu colectăm, stocăm sau înregistrăm conținutul fișierelor. Procesarea este fără stare și privată prin proiectare.</div>
+          <div class="sec-item-title">Соответствие GDPR</div>
+          <div class="sec-item-desc">Мы не собираем, не храним и не записываем содержимое файлов. Обработка не имеет состояния и является конфиденциальной по своей архитектуре.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">⚙️</div>
-          <div class="sec-item-title">Motoare CLI Open Source</div>
-          <div class="sec-item-desc">ExifTool, qpdf, Ghostscript — instrumente open-source testate în luptă, folosite la nivel mondial de profesioniști în securitate.</div>
+          <div class="sec-item-title">Открытые CLI-движки</div>
+          <div class="sec-item-desc">ExifTool, qpdf, Ghostscript — проверенные открытые инструменты, используемые профессионалами безопасности по всему миру.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">🔍</div>
-          <div class="sec-item-title">Jurnale Gata pentru Audit</div>
-          <div class="sec-item-desc">Pentru aplicația desktop: fiecare operațiune este înregistrată cu marcaj temporal și hash SHA-256 pentru lanț complet de custodie.</div>
+          <div class="sec-item-title">Журналы для аудита</div>
+          <div class="sec-item-desc">Для настольного приложения: каждая операция записывается с отметкой времени и хэшем SHA-256 для полной цепочки хранения.</div>
         </div>
       </div>
     </div>
@@ -994,14 +967,14 @@
 <section class="cta-section section-gap">
   <div class="cta-glow"></div>
   <div class="container reveal">
-    <h2 class="cta-title text-gradient">Ai nevoie de putere nelimitată?</h2>
-    <p class="cta-subtitle">Instrumentul online este excelent pentru fișiere individuale. Pentru procesarea batch a mii de documente, arbori de foldere, pachete de dovezi și raportare avansată — descarcă aplicația desktop DocInspector.</p>
+    <h2 class="cta-title text-gradient">Нужна неограниченная мощь?</h2>
+    <p class="cta-subtitle">Онлайн-инструмент отлично подходит для отдельных файлов. Для пакетной обработки тысяч документов, деревьев папок, доказательных пакетов и расширенной отчётности — скачайте полное настольное приложение DocInspector.</p>
     <div class="hero-buttons" style="justify-content:center">
-      <a href="../descarca" class="btn btn-primary btn-lg">
+      <a href="../skachat" class="btn btn-primary btn-lg">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descarcă Aplicația Desktop — Trial Gratuit
+        Скачать настольное приложение — бесплатный триал
       </a>
-      <a href="../preturi" class="btn btn-outline btn-lg">Vezi Prețuri &amp; Planuri</a>
+      <a href="../tseny" class="btn btn-outline btn-lg">Посмотреть цены &amp; планы</a>
     </div>
   </div>
 </section>
@@ -1015,26 +988,26 @@
       <div class="seo-grid">
         <!-- Benefits -->
         <div class="benefits-card">
-          <h3>💎 Avantaje Cheie</h3>
+          <h3>💎 Ключевые преимущества</h3>
           <ul class="benefits-list">
-            <li>Auditează mii de fișiere și generează rapoarte de index</li><li>Numărare precisă a paginilor pentru PDF, Word și Excel</li><li>Păstrează structura exactă a folderelor în fișierul Excel</li><li>Datele sunt șterse imediat — procesare volatilă fără stocare cloud</li>
+            <li>Аудит тысяч файлов и быстрое создание сводных отчетов</li><li>Точный подсчет страниц в файлах PDF, Word и Excel</li><li>Сохранение структуры подпапок в таблице реестра</li><li>Полная безопасность — файлы удаляются сразу после анализа</li>
           </ul>
         </div>
         <!-- FAQ -->
         <div class="faq-card">
-          <h3>❓ Întrebări Frecvente (FAQ)</h3>
+          <h3>❓ Часто задаваемые вопросы (FAQ)</h3>
           
           <div class="faq-item">
-            <div class="faq-question">Ce este un Borderou PDF?</div>
-            <div class="faq-answer">Este un raport de inventar (descărcabil ca Excel și PDF) care listează fiecare fișier din folder cu titlul și numărul de pagini, iar la final afișează totalul de pagini și numărul total de fișiere.</div>
+            <div class="faq-question">Что такое реестр документов (Bundle Summary)?</div>
+            <div class="faq-answer">Это инвентарный отчёт (скачиваемый как Excel и PDF), который перечисляет каждый файл из папки с названием и количеством страниц, а в конце отображает общий итог страниц и число файлов.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Ce formate sunt acceptate pentru numărare?</div>
-            <div class="faq-answer">Sistemul numără paginile din fișiere PDF, Word (DOCX, DOC, RTF, ODT) și Excel (XLSX, XLS, XLSM).</div>
+            <div class="faq-question">Какие форматы поддерживаются для подсчета страниц?</div>
+            <div class="faq-answer">Инструмент считает страницы в PDF, Word (DOCX, DOC, RTF, ODT) и Excel (XLSX, XLS, XLSM).</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Ce conține raportul generat?</div>
-            <div class="faq-answer">Raportul conține titlul fiecărui fișier și numărul de pagini, ordonate exact cum au fost încărcate, cu un total final de pagini și număr de fișiere.</div>
+            <div class="faq-question">Сохраняется ли структура папок в реестре?</div>
+            <div class="faq-answer">Да, в отчете будет колонка, показывающая точный относительный путь к файлу внутри загруженной вами структуры папок.</div>
           </div>
         </div>
       </div>
@@ -1044,12 +1017,12 @@
   <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <span data-i18n="footer.copyright">© 2025 Владимир Тону — Все права защищены</span>
       <div class="footer-links">
-        <a href="../securitate" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Securitate</a>
-        <a href="politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
-        <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
-        <a href="politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="../bezopasnost" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Безопасность</a>
+        <a href="../politika-konfidentsialnosti" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="../usloviya-ispolzovaniya" data-i18n="footer.terms">Условия использования</a>
+        <a href="../politika-vozvrata" data-i18n="footer.refund">Политика возврата</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
         </a>
@@ -1100,14 +1073,14 @@ if (typeof gsap !== 'undefined') {
 }
 
 const TOOLS = {
-  removesigs: { label:'Elimină Semnăturile',    emoji:'🔏' },
-  sanitize : { label:'Sanitizare Metadate',        emoji:'🧹' },
-  watermark: { label:'Adaugă Watermark',            emoji:'💧' },
-  encrypt  : { label:'Criptează PDF',               emoji:'🔐' },
-  redact   : { label:'Găsește & Redactează',        emoji:'⬛' },
-  flatten  : { label:'Aplatizare în PDF-Imagine',   emoji:'🖼️' },
-  rebuild  : { label:'Reconstruiește & Repară PDF', emoji:'🛠️' },
-  bundle   : { label:'Borderou PDF',                emoji:'📋' },
+  removesigs: { label:'Удалить подписи',          emoji:'🔏' },
+  sanitize : { label:'Санитизация метаданных',        emoji:'🧹' },
+  watermark: { label:'Добавить водяной знак',          emoji:'💧' },
+  encrypt  : { label:'Зашифровать PDF',                emoji:'🔐' },
+  redact   : { label:'Найти & Отредактировать',        emoji:'⬛' },
+  flatten  : { label:'Сглаживание в PDF-изображение',  emoji:'🖼️' },
+  rebuild  : { label:'Восстановить & Починить PDF',    emoji:'🛠️' },
+  bundle   : { label:'Сводный отчёт PDF',              emoji:'📋' },
 };
 const selectedOps = new Set();
 let files = [];
@@ -1127,8 +1100,8 @@ async function fetchStatus() {
       currentLimit = data.limit_today;
       resetInSeconds = data.reset_in_seconds || 0;
       updateUI();
-      if(data.kicked_out) alert("Licența a fost activată pe un alt browser. Sesiunea curentă a fost retrogradată la Gratuit.");
-      if(data.revoked) alert("Licența a fost anulată sau a expirat. Retrogradat la Gratuit.");
+      if(data.kicked_out) alert("License activated on another device. This session has been downgraded to Free.");
+      if(data.revoked) alert("License revoked or expired. Downgraded to Free.");
     }
   } catch(e) {}
 }
@@ -1196,8 +1169,9 @@ function updateUI() {
   const secBadgeDesc = document.getElementById('sec-badge-desc');
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 100 fișiere/zi, gratuit";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>25 MB</strong> fiecare), 100 gratuit pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 100 fișiere/zi, gratuit"; // Keep it consistent or translate correctly
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 До 100 файлов/день бесплатно";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>25 МБ</strong> каждый), 100 бесплатно в день.';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1207,8 +1181,8 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 1.000 fișiere/zi, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1.000 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), 1.000 pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 До 1000 файлов/день, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>1000 файлов</strong> одновременно (макс. <strong>100 МБ</strong> каждый), 1000 в день.';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1218,8 +1192,8 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Fișiere nelimitate/zi, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1300 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), nelimitat pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Без лимита файлов/день, Pro";
+    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>1300 файлов</strong> одновременно (макс. <strong>100 МБ</strong> каждый), безлимитно в день.';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -1231,14 +1205,14 @@ function updateUI() {
   }
   
   if (currentLimit === "unlimited") {
-    dCnt.textContent = currentUsed + " / nelimitat";
+    dCnt.textContent = currentUsed + " / безлимитно";
     dFill.style.width = "0%";
     const dReset = document.getElementById('dailyReset');
     if (dReset) dReset.style.display = 'none';
   } else {
-    dCnt.textContent = currentUsed + " / " + currentLimit + " fișiere";
+    dCnt.textContent = currentUsed + " / " + currentLimit + " файлов";
     dFill.style.width = Math.min((currentUsed / currentLimit) * 100, 100) + '%';
-    startResetCountdown(resetInSeconds, 'ro');
+    startResetCountdown(resetInSeconds, 'ru');
   }
   
   // Update visually locked cards
@@ -1252,7 +1226,7 @@ async function activateLicense() {
   if (!key) return;
   
   btn.disabled = true;
-  btn.innerHTML = '<div class="spin" style="width:16px;height:16px;border-width:2px;margin:0"></div> Se activează...';
+  btn.innerHTML = '<div class="spin" style="width:16px;height:16px;border-width:2px;margin:0"></div> Активация...';
   msg.style.display = "none";
   
   const fd = new FormData();
@@ -1264,21 +1238,21 @@ async function activateLicense() {
     if (res.ok) {
       msg.style.display = "block";
       msg.style.color = "#34d399";
-      msg.textContent = "Activat cu succes!";
+      msg.textContent = "Успешно активирован!";
       await fetchStatus();
     } else {
       msg.style.display = "block";
       msg.style.color = "#f87171";
-      msg.textContent = data.error || "Cheie invalidă.";
+      msg.textContent = data.error || "Неверный ключ.";
     }
   } catch(e) {
     msg.style.display = "block";
     msg.style.color = "#f87171";
-    msg.textContent = "Eroare de rețea.";
+    msg.textContent = "Ошибка сети.";
   }
   
   btn.disabled = false;
-  btn.textContent = "Activează Cheia";
+  btn.textContent = "Активировать ключ";
 }
 
 async function logoutLicense() {
@@ -1307,13 +1281,13 @@ function toggleTool(e, name) {
   addRipple(e, card);
   const opts = document.getElementById('opts-' + name);
 
-  // Borderoul este exclusiv — deselectează alte instrumente
+  // Сводный отчёт является эксклюзивным — отменяет выбор других инструментов
   if (name === 'bundle') {
     if (selectedOps.has('bundle')) {
       selectedOps.delete('bundle');
       card.classList.remove('selected');
     } else {
-      // Deselectează tot restul mai întâi
+      // Сначала снимаем выбор со всего остального
       selectedOps.forEach(op => {
         const c = document.getElementById('card-' + op);
         if (c) c.classList.remove('selected');
@@ -1326,7 +1300,7 @@ function toggleTool(e, name) {
       gsap.from('#card-bundle', { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   } else {
-    // Deselectează borderoul dacă se alege un instrument normal
+    // Отменяем выбор сводного отчёта, если выбирается обычный инструмент
     if (selectedOps.has('bundle')) {
       selectedOps.delete('bundle');
       const bc = document.getElementById('card-bundle');
@@ -1335,7 +1309,7 @@ function toggleTool(e, name) {
     
     // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
     if (currentTier !== "Pro" && selectedOps.size > 0 && !selectedOps.has(name)) {
-      alert("Rularea mai multor acțiuni simultan necesită o licență Pro. Selecția anterioară a fost anulată.");
+      alert("Запуск нескольких операций одновременно требует лицензии Pro. Предыдущий выбор был отменен.");
       selectedOps.forEach(op => {
         const c = document.getElementById('card-' + op);
         if (c) c.classList.remove('selected');
@@ -1357,38 +1331,99 @@ function toggleTool(e, name) {
     }
   }
 
-  // Schimbă modul dropzone: folder pentru borderou, fișiere pentru altele
+  // Переключение режима dropzone: папка для сводного отчёта, файлы для других
   const dzIcon  = document.getElementById('dzIcon');
   const dzTitle = document.getElementById('dzTitle');
   const dzSub   = document.getElementById('dzSub');
   if (selectedOps.has('bundle')) {
     const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
     const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     fi.setAttribute('webkitdirectory', 'true');
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
-    dzTitle.textContent = 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)';
-    dzSub.textContent   = 'sau click pentru a naviga folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
+    dzTitle.textContent = 'Перетащите ПАПКУ сюда (до ' + bundleMax + ' файлов)';
+    dzSub.textContent   = 'или кликните для выбора папки — макс. ' + bundleMax + ' файлов — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
     fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
     dzIcon.textContent  = '📂';
-    dzTitle.textContent = 'Trage & Plasează fișierele aici';
+    dzTitle.textContent = 'Перетащите файлы сюда';
     const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    dzSub.textContent   = 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
+    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
+    dzSub.textContent   = 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
-  // Șterge lista de fișiere la schimbarea modului
+  // Очистка списка файлов при смене режима
   // files = []; renderFiles();
 
   updateSidebar();
   updateBtn();
+}
+
+function getFileCountSummary() {
+  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (ext === 'pdf') counts.pdf++;
+    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
+    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
+    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
+    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
+    else if (ext === 'txt') counts.text++;
+  });
+  
+  function ruPlural(count, one, two, five) {
+    const n = Math.abs(count) % 100;
+    const n1 = n % 10;
+    if (n > 10 && n < 20) return count + ' ' + five;
+    if (n1 > 1 && n1 < 5) return count + ' ' + two;
+    if (n1 === 1) return count + ' ' + one;
+    return count + ' ' + five;
+  }
+  
+  const parts = [];
+  const style = 'style="color: #22d3ee; font-weight: 500;"';
+  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF</span>`);
+  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
+  if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
+  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
+  if (counts.image) parts.push(`<span ${style}>${ruPlural(counts.image, 'изображение', 'изображения', 'изображений')}</span>`);
+  if (counts.text) parts.push(`<span ${style}>${ruPlural(counts.text, 'текстовый файл', 'текстовых файла', 'текстовых файлов')}</span>`);
+  
+  if (parts.length === 0) return 'Нажмите, чтобы добавить ещё';
+  const limitMsg = files.length >= MAX ? ' (Максимум достигнут)' : ' — нажмите, чтобы добавить ещё';
+  return parts.join(', ') + limitMsg;
+}
+
+function renderFiles() {
+  const list  = document.getElementById('fileList');
+  const icon  = document.getElementById('dzIcon');
+  const title = document.getElementById('dzTitle');
+  const sub   = document.getElementById('dzSub');
+  if (!files.length) {
+    list.innerHTML = '';
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
+    icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
+    title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до ' + bundleMax + ' файлов)' : 'Перетащите файлы сюда';
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
+    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. ' + bundleMax + ' файлов — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
+    return;
+  }
+  icon.textContent  = '📋';
+  title.textContent = files.length + ' файл' + (files.length > 1 ? (files.length < 5 ? 'а' : 'ов') : '') + ' выбрано';
+  sub.innerHTML     = getFileCountSummary();
+  list.innerHTML = files.map((f, i) => {
+    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
+    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
+      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' КБ</span>'
+      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Удалить">✕</button></div>';
+  }).join('');
 }
 
 function updateSidebar() {
@@ -1396,29 +1431,29 @@ function updateSidebar() {
   const ps   = document.getElementById('pipelineSection');
   const pf   = document.getElementById('pipelineFlow');
   if (!selectedOps.size) {
-    list.innerHTML = '<div class="ops-empty">Nicio operațiune selectată încă.<br>Alege instrumente din stânga.</div>';
+    list.innerHTML = '<div class="ops-empty">Операции не выбраны.<br>Выберите инструменты слева.</div>';
     ps.style.display = 'none';
     return;
   }
   list.innerHTML = [...selectedOps].map(op => {
     const m = TOOLS[op];
     return '<div class="op-chip"><span>'+m.emoji+'</span><span class="op-chip-name">'+m.label+'</span>'
-      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Elimină">✕</button></div>';
+      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Удалить">✕</button></div>';
   }).join('');
   ps.style.display = 'block';
   
   // Construct a premium vertical pipeline tree instead of messy horizontal tags
   const nodes = [
-    { label: 'Fișiere PDF de Intrare', emoji: '📄', desc: 'Încărcat & gata' },
+    { label: 'Входные файлы PDF', emoji: '📄', desc: 'Загружено и готово' },
     ...[...selectedOps].sort((a,b) => {
         const order = { 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
         return (order[a]||99) - (order[b]||99);
       }).map(op => ({
       label: TOOLS[op].label,
       emoji: TOOLS[op].emoji,
-      desc: 'Etapă activă procesare'
+      desc: 'Активный этап обработки'
     })),
-    { label: 'Pregătit de Descărcare', emoji: '✅', desc: 'Pachet rezultat final' }
+    { label: 'Готово к скачиванию', emoji: '✅', desc: 'Итоговый пакет результатов' }
   ];
 
   const stepsHTML = nodes.map((node, i) => {
@@ -1516,7 +1551,7 @@ function addFiles(newFiles) {
   let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
   const totalLimit = currentTier === "Free" ? 1024 * 1024 * 1024 : 2 * 1024 * 1024 * 1024;
   if (currentTotal + newTotal > totalLimit) {
-    alert("Limita totală de încărcare este de " + (totalLimit/1024/1024/1024) + " GB. Fișierele selectate depășesc această limită.");
+    alert("Общий лимит загрузки составляет " + (totalLimit/1024/1024/1024) + " ГБ. Выбранные файлы превышают этот лимит.");
     return;
   }
   const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
@@ -1541,67 +1576,17 @@ function addFiles(newFiles) {
   });
   
   let msg = [];
-  if (skippedLimit) msg.push(skippedLimit + " fișiere ignorate (s-a atins limita maximă de " + CURRENT_MAX + ").");
-  if (skippedSize) msg.push("Fișierele tale au fost adăugate, dar " + skippedSize + " fișiere care depășesc limita de " + (maxSz/1024/1024) + " MB au fost omise.");
+  if (skippedLimit) msg.push(skippedLimit + " файлов пропущено (достигнут лимит в " + CURRENT_MAX + ").");
+  if (skippedSize) msg.push("Ваши файлы добавлены, но " + skippedSize + " файлов, превышающих лимит в " + (maxSz/1024/1024) + " МБ, были пропущены.");
   if (msg.length) alert(msg.join("\n"));
   
   renderFiles(); updateBtn();
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
-function getFileCountSummary() {
-  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
-  files.forEach(f => {
-    const ext = f.name.toLowerCase().split('.').pop();
-    if (ext === 'pdf') counts.pdf++;
-    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
-    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
-    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
-    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
-    else if (ext === 'txt') counts.text++;
-  });
-  const parts = [];
-  const style = 'style="color: #22d3ee; font-weight: 500;"';
-  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF</span>`);
-  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
-  if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
-  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
-  if (counts.image) parts.push(`<span ${style}>${counts.image} imagine${counts.image > 1 ? 'i' : ''}</span>`);
-  if (counts.text) parts.push(`<span ${style}>${counts.text} text${counts.text > 1 ? 'e' : ''}</span>`);
-  
-  if (parts.length === 0) return 'Fă clic pentru a adăuga mai multe';
-  const limitMsg = files.length >= MAX ? ' (Limită atinsă)' : ' — fă clic pentru a adăuga';
-  return parts.join(', ') + limitMsg;
-}
-
-function renderFiles() {
-  const list  = document.getElementById('fileList');
-  const icon  = document.getElementById('dzIcon');
-  const title = document.getElementById('dzTitle');
-  const sub   = document.getElementById('dzSub');
-  if (!files.length) {
-    list.innerHTML = '';
-    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
-    icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)' : 'Trage & Plasează fișierele aici';
-    const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
-    return;
-  }
-  icon.textContent  = '📋';
-  title.textContent = files.length + ' fișier' + (files.length > 1 ? 'e' : '') + ' selectate';
-  sub.innerHTML     = getFileCountSummary();
-  list.innerHTML = files.map((f, i) => {
-    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
-    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
-      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
-      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Elimină">✕</button></div>';
-  }).join('');
-}
 
 function gatherOptions() {
-return {
-    watermarkText:    document.getElementById('wm-text')?.value    || 'CONFIDENȚIAL',
+  return {
+    watermarkText:    document.getElementById('wm-text')?.value    || 'КОНФИДЕНЦИАЛЬНО',
     watermarkFont:    document.getElementById('wm-font')?.value    || 'Helvetica-Bold',
     watermarkSize:    document.getElementById('wm-size')?.value    || 60,
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
@@ -1638,30 +1623,29 @@ return {
 async function startProcessing() {
   if (!files.length || !selectedOps.size) return;
 
-  // Route bundle summary to its own endpoint
+  // Перенаправляем сводный отчёт на собственный эндпоинт API
   if (selectedOps.has('bundle')) {
     await startBundleSummary();
     return;
   }
 
-  // Validate encrypt
   if (selectedOps.has('encrypt')) {
       const pw  = document.getElementById('enc-pw') ? document.getElementById('enc-pw').value : '';
       const pw2 = document.getElementById('enc-pw2') ? document.getElementById('enc-pw2').value : '';
       const pwOwner = document.getElementById('enc-owner') ? document.getElementById('enc-owner').value : '';
       const pwOwner2 = document.getElementById('enc-owner2') ? document.getElementById('enc-owner2').value : '';
-      if (!pw && !pwOwner) { alert('Vă rugăm să introduceți cel puțin o parolă (Deschidere Document sau Permisiuni).'); return; }
-      if (pw && pw !== pw2){ alert('Parolele de deschidere a documentului nu se potrivesc.'); return; }
-      if (pwOwner && pwOwner !== pwOwner2) { alert('Parolele de permisiuni nu se potrivesc.'); return; }
+      if (!pw && !pwOwner) { alert('Пожалуйста, введите пароль (для открытия или для разрешений).'); return; }
+      if (pw && pw !== pw2){ alert('Пароли для открытия не совпадают.'); return; }
+      if (pwOwner && pwOwner !== pwOwner2) { alert('Пароли для разрешений не совпадают.'); return; }
     }
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
-  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
+  document.getElementById('rTitle').innerHTML   = 'Загрузка файлов на сервер…';
+  document.getElementById('rSub').innerHTML     = 'Пожалуйста подождите, отправка...';
   document.getElementById('rDlBtn').style.display = 'none';
-  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
+  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать результаты (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
   if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
@@ -1681,10 +1665,10 @@ async function startProcessing() {
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
-    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
+    document.getElementById('rSub').innerHTML = 'Отправка ' + fileCount + ' файл' + (fileCount === 1 ? 'a' : (fileCount < 5 ? 'а' : 'ов')) + ' на сервер...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
-      let m = 'Eroare server.';
+      let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
@@ -1693,35 +1677,33 @@ async function startProcessing() {
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
     const ORDER = { 'removesigs': 1, 'rebuild': 2, 'redact': 3, 'flatten': 4, 'watermark': 5, 'sanitize': 6, 'encrypt': 7 };
     const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] || 99) - (ORDER[b] || 99));
-    document.getElementById('rTitle').innerHTML = 'Se procesează fișierele tale… (Pipeline: ' + sortedOps.join(' → ') + ')';
+    document.getElementById('rTitle').innerHTML = 'Обрабатываем ваши файлы… (Конвейер: ' + sortedOps.join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
     document.getElementById('rIcon').textContent     = '❌';
-    document.getElementById('rTitle').textContent    = 'Procesare Eșuată';
-    document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
+    document.getElementById('rTitle').textContent    = 'Ошибка обработки';
+    document.getElementById('rSub').textContent      = err.message || 'Убедитесь, что локальный сервер запущен (python server.py)';
     if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
 }
 
-// Borderou PDF — apelează /api/bundle-summary, returnează ZIP cu Excel+PDF+TXT
+// Сводный отчёт PDF — вызывает /api/bundle-summary, возвращает ZIP с Excel+PDF+TXT
 async function startBundleSummary() {
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
-  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
+  document.getElementById('rTitle').innerHTML   = 'Создание сводного отчёта…';
+  document.getElementById('rSub').innerHTML     = 'Извлечение метаданных и подсчёт страниц для каждого файла';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
-  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
   ra.scrollIntoView({ behavior:'smooth', block:'center' });
   const fd = new FormData();
-  let fileCount = 0;
   files.forEach(f => {
     const ext = f.name.toLowerCase().split('.').pop();
     const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'];
@@ -1729,32 +1711,28 @@ async function startBundleSummary() {
       const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
       fd.append('files[]', f, relPath);
       fd.append('relativePaths[]', relPath);
-      fileCount++;
     }
   });
   fd.append('includeSha256', document.getElementById('bundle-advanced')?.checked ? 'true' : 'false');
   fd.append('bundleAdvanced', document.getElementById('bundle-advanced')?.checked ? 'true' : 'false');
   try {
-    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
-      let m = 'Eroare server.';
+      let m = 'Ошибка сервера.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
     const data = await resp.json();
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
-    document.getElementById('rTitle').innerHTML = 'Se generează borderoul PDF…';
-    document.getElementById('rSub').innerHTML = 'Se extrag metadatele și nr. pagini pentru fiecare fișier';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
     document.getElementById('rIcon').textContent     = '❌';
-    document.getElementById('rTitle').textContent    = 'Generare Borderou Eșuată';
-    document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
-    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
+    document.getElementById('rTitle').textContent    = 'Ошибка создания отчёта';
+    document.getElementById('rSub').textContent      = err.message || 'Убедитесь, что локальный сервер запущен (python server.py)';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
@@ -1787,7 +1765,7 @@ async function pollJobStatus(jobId, downloadName) {
     
     try {
       const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
-      if (!resp.ok) throw new Error('Eșec la obținerea stării jobului');
+      if (!resp.ok) throw new Error('Не удалось получить статус задачи');
       const data = await resp.json();
       
       // Check if cancelled on VPS
@@ -1797,8 +1775,8 @@ async function pollJobStatus(jobId, downloadName) {
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
         rIcon.textContent = '⚠️';
-        rTitle.textContent = 'Procesare Oprită';
-        rSub.textContent = 'Jobul a fost anulat de utilizator.';
+        rTitle.textContent = 'Обработка остановлена';
+        rSub.textContent = 'Задача отменена пользователем.';
         if (cancelBtn) cancelBtn.style.display = 'none';
         if (progContainer) progContainer.style.display = 'none';
         resetBtn.style.display = 'inline-block';
@@ -1807,7 +1785,7 @@ async function pollJobStatus(jobId, downloadName) {
       }
       
       if (data.status === 'processing' || data.status === 'pending') {
-        const progStr = data.progress || 'Se procesează...';
+        const progStr = data.progress || 'Обработка...';
         const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
         if (match) {
           const current = parseInt(match[1], 10);
@@ -1817,7 +1795,7 @@ async function pollJobStatus(jobId, downloadName) {
           if (progContainer) progContainer.style.display = 'block';
           if (progBar) progBar.style.width = pct + '%';
           if (progText) progText.textContent = `📄 ${filename}`;
-          rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+          rSub.textContent = `Обработка файла ${current} из ${total}`;
         } else {
           const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
           if (bundleMatch) {
@@ -1828,7 +1806,7 @@ async function pollJobStatus(jobId, downloadName) {
             if (progContainer) progContainer.style.display = 'block';
             if (progBar) progBar.style.width = pct + '%';
             if (progText) progText.textContent = `📄 ${filename}`;
-            rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+            rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
           } else {
             rSub.textContent = progStr;
           }
@@ -1837,7 +1815,7 @@ async function pollJobStatus(jobId, downloadName) {
         localStorage.removeItem('di_active_job_id');
         localStorage.removeItem('di_active_job_download_name');
         
-        await fetchStatus(); // Actualizare limită zilnică
+        await fetchStatus(); // Обновить суточный лимит
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
         if (cancelBtn) cancelBtn.style.display = 'none';
@@ -1848,14 +1826,14 @@ async function pollJobStatus(jobId, downloadName) {
         
         if (downloadName.includes('Bundle')) {
           rIcon.textContent = '📊';
-          rTitle.textContent = 'Borderou Pregătit!';
-          rSub.textContent = 'Arhiva ZIP conține: raportul Excel (2 foi) + PDF + CSV';
-          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Borderou (.zip)';
+          rTitle.textContent = 'Отчёт готов!';
+          rSub.textContent = 'ZIP-архив содержит: Отчёт Excel (2 листа) + PDF + CSV';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать отчёт (.zip)';
         } else {
           rIcon.textContent = '✅';
-          rTitle.textContent = 'Procesare Finalizată!';
-          rSub.textContent = 'Fișierele tale au fost procesate cu succes';
-          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
+          rTitle.textContent = 'Обработка завершена!';
+          rSub.textContent = 'Ваши файлы были успешно обработаны';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Скачать результаты (.zip)';
         }
         
         dlBtn.href = `https://direct-api.doc-inspector.com/api/job-download/${jobId}`;
@@ -1866,7 +1844,7 @@ async function pollJobStatus(jobId, downloadName) {
         resetBtn.style.display = 'inline-block';
         break;
       } else if (data.status === 'failed') {
-        throw new Error(data.error || 'Jobul a eșuat pe server.');
+        throw new Error(data.error || 'Ошибка задачи на сервере.');
       }
     } catch(err) {
       localStorage.removeItem('di_active_job_id');
@@ -1877,11 +1855,11 @@ async function pollJobStatus(jobId, downloadName) {
       if (cancelBtn) cancelBtn.style.display = 'none';
       if (progContainer) progContainer.style.display = 'none';
       if (downloadName.includes('Bundle')) {
-        rTitle.textContent = 'Generare Borderou Eșuată';
+        rTitle.textContent = 'Ошибка создания отчёта';
       } else {
-        rTitle.textContent = 'Procesare Eșuată';
+        rTitle.textContent = 'Ошибка обработки';
       }
-      rSub.textContent = err.message || 'Eroare la verificarea stării.';
+      rSub.textContent = err.message || 'Ошибка проверки статуса.';
       processBtn.disabled = false;
       resetBtn.style.display = 'inline-block';
       break;
@@ -1893,7 +1871,7 @@ async function cancelJob() {
   const jobId = localStorage.getItem('di_active_job_id');
   if (!jobId) return;
   
-  const confirmMsg = 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?';
+  const confirmMsg = 'Вы уверены, что хотите остановить обработку файлов и освободить ресурсы?';
   if (!confirm(confirmMsg)) return;
   
   try {
@@ -1904,8 +1882,8 @@ async function cancelJob() {
     document.getElementById('rSpin').style.display = 'none';
     document.getElementById('rIcon').style.display = 'block';
     document.getElementById('rIcon').textContent = '⚠️';
-    document.getElementById('rTitle').textContent = 'Procesare Oprită';
-    document.getElementById('rSub').textContent = 'Se oprește procesarea pe server...';
+    document.getElementById('rTitle').textContent = 'Обработка остановлена';
+    document.getElementById('rSub').textContent = 'Остановка обработки на сервере...';
     document.getElementById('rCancelBtn').style.display = 'none';
     if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
     document.getElementById('rResetBtn').style.display = 'inline-block';
@@ -1913,7 +1891,7 @@ async function cancelJob() {
     
     await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     
-    document.getElementById('rSub').textContent = 'Jobul a fost anulat și fișierele au fost șterse de pe server.';
+    document.getElementById('rSub').textContent = 'Задача отменена, и файлы были удалены с сервера.';
   } catch (e) {
     console.error(e);
   }
@@ -1932,7 +1910,7 @@ window.addEventListener('scroll', () => {
   const el = document.getElementById('progress-bar');
   if (!el) return;
   const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  el.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;height:2px;background:linear-gradient(90deg,var(--cyan),#818cf8);width:'+p+'%;transition:width .1s';
+  el.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));width:'+p+'%;transition:width .1s';
 });
 
 // Redact keyword tags manager
@@ -1949,7 +1927,7 @@ function renderRedactTags() {
   const container = document.getElementById('kwTagsContainer');
   if (!container) return;
   if (redactKeywordsSet.size === 0) {
-    container.innerHTML = '<span style="font-size:.78rem;color:var(--text-muted)">Niciun cuvânt cheie adăugat încă. Căutarea va găsi expresia exactă.</span>';
+    container.innerHTML = '<span style="font-size:.78rem;color:var(--text-muted)">Ключевые слова ещё не добавлены. Поиск выполняется по точной фразе.</span>';
     return;
   }
   container.innerHTML = [...redactKeywordsSet].map((kw, i) => {
@@ -2029,8 +2007,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ra.classList.add('show');
       document.getElementById('rSpin').style.display  = 'block';
       document.getElementById('rIcon').style.display  = 'none';
-      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Se generează borderoul PDF…' : 'Se procesează fișierele tale…';
-      document.getElementById('rSub').innerHTML     = 'Se restabilește starea jobului activ...';
+      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Создание сводного отчёта…' : 'Обрабатываем ваши файлы…';
+      document.getElementById('rSub').innerHTML     = 'Восстановление состояния активной задачи...';
       document.getElementById('rDlBtn').style.display = 'none';
       document.getElementById('rResetBtn').style.display = 'none';
       if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';

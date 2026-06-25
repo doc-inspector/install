@@ -4560,4 +4560,64 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/obnaruzhenie-i-udalenie-pustykh-stranits"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/blank-page-detection-removal"/>
   </url>
+  <url>
+    <loc>https://doc-inspector.com/en/tools/remove-pdf-signatures</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/eliminare-semnaturi-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/udalit-cifrovye-podpisi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/unelte/eliminare-semnaturi-pdf</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/eliminare-semnaturi-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/udalit-cifrovye-podpisi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/instrumenty/udalit-cifrovye-podpisi</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/eliminare-semnaturi-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/udalit-cifrovye-podpisi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/remove-pdf-signatures"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/tools/advanced-pdf-bundle-report</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/borderou-pdf-avansat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/unelte/borderou-pdf-avansat</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/borderou-pdf-avansat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/borderou-pdf-avansat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"/>
+  </url>
 </urlset>

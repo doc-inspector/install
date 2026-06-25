@@ -1,8 +1,30 @@
 {
-  "version": "2.2.5",
-  "last_update": "2026-06-24T18:46",
+  "version": "2.2.6",
+  "last_update": "2026-06-25T16:00",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.6",
+      "date": "June 25, 2026",
+      "changes_en": [
+        "Smart Rebuild & OCR Optimization: Made ImageMagick pre-rasterization ('Enhance OCR accuracy') optional, allowing significantly faster OCR runs when unchecked. Default settings now have Smart Rebuild enabled and Enhance OCR disabled.",
+        "Remove Digital Signatures Card: Extracted digital signature stripping into a standalone pipeline step (runs as Step 1) and card, restricted to Pro and Trial tiers.",
+        "GUI Help button redirect: Updated help action to redirect users directly to localized website guide sections based on current interface language.",
+        "Pricing and Guide Updates: Added standalone 'Remove Digital Signatures' tool and page, updated pricing tables, sitemaps, and robots.txt."
+      ],
+      "changes_ro": [
+        "Optimizare Smart Rebuild și OCR: Rasterizarea prealabilă cu ImageMagick ('Crește precizia OCR') a fost făcută opțională, accelerând semnificativ procesul OCR când este debifată. Implicit, Smart Rebuild este activat, iar 'Crește precizia OCR' este dezactivată.",
+        "Instrument dedicat Eliminare Semnături Digitale: Semnăturile digitale au fost separate într-un pas de sine stătător în pipeline (rulat ca Pasul 1) și card separat, fiind o funcționalitate Pro/Trial.",
+        "Redirecționare buton Help: Butonul de ajutor din aplicație redirecționează utilizatorul direct către secțiunea de ghid corespunzătoare în limba selectată în interfață.",
+        "Actualizări Prețuri și Ghiduri: S-a adăugat noul instrument online 'Eliminare Semnături Digitale', s-au actualizat tabelele de prețuri, sitemaps și robots.txt."
+      ],
+      "changes_ru": [
+        "Оптимизация Smart Rebuild и OCR: Предварительная растеризация через ImageMagick ('Повысить точность OCR') сделана опциональной, что значительно ускоряет OCR, если флажок снят. По умолчанию Smart Rebuild включен, а 'Повысить точность' отключена.",
+        "Отдельный инструмент удаления цифровых подписей: Извлечено удаление цифровых подписей в отдельный шаг конвейера (выполняется как Шаг 1) и отдельную карточку, доступную только в версиях Pro и Trial.",
+        "Перенаправление кнопки Справка: Кнопка помощи в приложении теперь открывает соответствующий раздел руководства на сайте в зависимости от языка интерфейса.",
+        "Обновление цен и руководств: Добавлен новый онлайн-инструмент удаления цифровых подписей, обновлены таблицы цен, sitemaps и robots.txt."
+      ]
+    },
     {
       "version": "2.2.5",
       "date": "June 24, 2026",
