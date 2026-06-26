@@ -235,13 +235,9 @@
 
     /* Options accordion */
     .tool-opts {
-        display: grid; grid-template-rows: 0fr;
-        transition: grid-template-rows .4s ease, opacity .3s;
-        opacity: 0;
-        overflow: hidden;
+        display: none;
       }
-      .tool-opts.open { grid-template-rows: 1fr; opacity: 1; }
-      .tool-opts > div { overflow: hidden; }
+      .tool-opts.open { display: block; }
     .tool-opts-inner {
         border-top:1px solid rgba(255,255,255,.07);
         padding:1rem; display:grid; gap:.8rem;
