@@ -492,7 +492,7 @@
                 <div class="tool-icon-wrap icon-purple">🔐</div>
                 <div class="tool-name">Criptează PDF</div>
               </div>
-              <div class="tool-desc">Protejează PDF-ul cu parolă prin criptare AES 256-bit. <strong style="color:#8b5cf6">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Protejează PDF-ul cu parolă de deschidere și/sau setează restricții de copiere, editare și printare — securizat prin AES 256-bit. <strong style="color:#8b5cf6">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- Redactare -->
@@ -522,7 +522,7 @@
                 <div class="tool-icon-wrap icon-indigo">🛠️</div>
                 <div class="tool-name">Reconstruiește &amp; Repară PDF</div>
               </div>
-              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. <strong style="color:#6366f1">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. Face documentele scanate citibile și textul selectabil/copiabil (OCR). <strong style="color:#6366f1">Suportă doar PDF.</strong></div>
             </div>
 
             <!-- PDF Bundle Summary -->
@@ -533,13 +533,7 @@
                 <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
                 <div class="tool-name">Borderou PDF</div>
               </div>
-
-            <!-- Advanced Bundle Report -->
-<div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu numărul de pagini și metadate. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
-              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Încărcare folder</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
-              </div>
+              <div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu titlurile documentelor, numărul de pagini și totaluri. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
             </div>
 
             <div class="tool-card gsap-card" id="card-bundle-advanced" style="--brand: #eab308; border-color:rgba(234,179,8,.25); position:relative" onclick="toggleTool(event,'bundle-advanced')">
@@ -549,10 +543,10 @@
                 <div class="tool-icon-wrap" style="background:rgba(234,179,8,.15);color:#eab308">&#x1F4D8;</div>
                 <div class="tool-name">Borderou PDF Avansat</div>
               </div>
-              <div class="tool-desc">Generează un raport detaliat al folderului cu <strong style="color:#eab308">semnături SHA-256, dimensiune, format și data ultimei modificări</strong>. <strong style="color:#eab308">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div class="tool-desc">Generează un raport detaliat al folderului cu <strong style="color:#eab308">număr document, titlu, format, dimensiune, semnătură SHA-256, status protecție, număr pagini și data ultimei modificări</strong> — plus totaluri. <strong style="color:#eab308">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Încărcare folder</span>
-                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F516; Metadate extinse</span>
+                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4CA; Raport Complet</span>
               </div>
             </div>
 
@@ -657,14 +651,35 @@
           </div>
 
           <div class="tool-opts" id="opts-encrypt" style="--brand: #a855f7;">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Criptare</div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw">Parolă (obligatorie)</label>
-                <input class="opt-input" id="enc-pw" type="password" placeholder="Introduceți parola pentru criptarea PDF-ului">
+                <label class="opt-label" for="enc-pw">Parolă Deschidere Document (Opțională)</label>
+                <input class="opt-input" id="enc-pw" type="password" placeholder="Utilizatorul trebuie să introducă această parolă pentru a deschide PDF-ul">
+              </div>
+              <div class="opt-row" style="margin-top:0.5rem;">
+                <label class="opt-label" for="enc-pw2">Confirmă Parola de Deschidere</label>
+                <input class="opt-input" id="enc-pw2" type="password" placeholder="Reintroduți parola pentru confirmare">
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw2">Confirmați Parola</label>
-                <input class="opt-input" id="enc-pw2" type="password" placeholder="Repetați parola">
+                <label class="opt-label" for="enc-owner">Parolă Permisiuni (Opțională)</label>
+                <input class="opt-input" id="enc-owner" type="password" placeholder="Parolă pentru blocarea/deblocarea restricțiilor">
+              </div>
+                <div class="opt-row" style="margin-top:0.5rem;">
+                  <label class="opt-label" for="enc-owner2">Confirmă Parola de Permisiuni</label>
+                  <input class="opt-input" id="enc-owner2" type="password" placeholder="Reintroduți pentru confirmare">
+                </div>
+              <div class="opt-row" style="margin-top:0.5rem;">
+                <label class="opt-label">Restricții (Necesită Parolă Permisiuni)</label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-print" style="accent-color:var(--brand, var(--cyan))"> Interzice Printarea
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-copy" style="accent-color:var(--brand, var(--cyan))"> Interzice Copierea Textului/Imaginilor
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-edit" style="accent-color:var(--brand, var(--cyan))"> Interzice Modificarea/Editarea
+                </label>
               </div>
             </div>
           </div>
@@ -1502,7 +1517,10 @@ return {
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
       watermarkAngle:   document.getElementById('wm-angle')?.value   || '-45',
     encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
-    encryptOwnerPw:   document.getElementById('enc-pw')?.value     || 'docprotect',
+    encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
+    encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
+    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked  || false,
+    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked  || false,
     encryptBits:      '256',
     redactKeywords:   document.getElementById('redact-kw')?.value  || '',
     sanitizeAll:      document.getElementById('san-all') ? document.getElementById('san-all').checked : true,
