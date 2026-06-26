@@ -503,13 +503,14 @@
       "priceCurrency": "USD"
     },
     "featureList": [
+      "Remove Digital Signatures from PDF",
       "Sanitize Metadata from PDF, DOCX, XLSX, JPG, PNG, TIFF",
       "Watermark PDF Documents",
       "Encrypt PDF with 256-bit AES",
       "Redact Sensitive Text in PDF",
       "Flatten PDF to Image",
-      "Repair & Rebuild PDF",
-      "Bundle Summary & Advanced Borderou"
+      "Repair & Rebuild PDF with built-in OCR",
+      "PDF Bundle Summary & Advanced Borderou Report"
     ],
     "author": {
       "@type": "Person",
@@ -860,6 +861,23 @@
           <p class="kb-col-subtitle">Free, instant document processing in your browser. Zero server uploads — everything runs locally via JavaScript &amp; WebAssembly.</p>
 
           <div class="kb-accordion">
+            <!-- 0. Remove Signatures -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">✍️</span>
+                <span class="acc-title">Remove Digital Signatures</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Strip digital signatures, certified locks, form fields, and editing restrictions from PDF files. Useful when a signed PDF needs to be modified, re-signed, or submitted without prior certification locks.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
             <!-- 1. Sanitize -->
             <div class="kb-acc-item">
               <button class="kb-acc-trigger" onclick="toggleAcc(this)">
@@ -959,7 +977,7 @@
                 <span class="acc-chevron">▼</span>
               </button>
               <div class="kb-acc-body">
-                <p>Automatically fix corrupted, damaged, or malformed PDFs. Rebuilds the internal cross-reference table, repairs broken object streams, and recovers page content.</p>
+                <p>Automatically fix corrupted, damaged, or malformed PDFs. Rebuilds the internal cross-reference table, repairs broken object streams, and recovers page content. Also applies built-in OCR to scanned PDFs — making image-based text selectable and copiable in one step.</p>
                 <div class="fmt-chips">
                   <span class="fmt-chip">.PDF</span>
                 </div>
@@ -967,20 +985,19 @@
               </div>
             </div>
 
-            <!-- 7. Bundle Summary -->
+            <!-- 7. Bundle Summary & Advanced Borderou -->
             <div class="kb-acc-item">
               <button class="kb-acc-trigger" onclick="toggleAcc(this)">
                 <span class="acc-icon">📋</span>
-                <span class="acc-title">Bundle Summary &amp; Advanced Borderou &amp; Folder Evidence</span>
+                <span class="acc-title">Bundle Summary &amp; Advanced Borderou</span>
                 <span class="acc-formats">Any file type</span>
                 <span class="acc-chevron">▼</span>
               </button>
               <div class="kb-acc-body">
-                <p>Generate comprehensive Excel reports: Bundle Summary with file counts and totals, Advanced Borderou with full metadata inventory, and Folder Evidence Report with recursive directory mapping and hash verification.</p>
+                <p>Generate court-ready Excel reports directly in the browser: Bundle Summary with file counts, hashes, and totals; Advanced Borderou with full metadata inventory per file. Available on Basic &amp; Pro plans.</p>
                 <div class="fmt-chips">
                   <span class="fmt-chip">ANY</span>
-                  <span class="fmt-chip">.XLSX</span>
-                  <span class="fmt-chip">output</span>
+                  <span class="fmt-chip">.XLSX output</span>
                 </div>
                 <a href="tools-online" class="acc-cta">Open Free Tool →</a>
               </div>
