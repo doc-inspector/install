@@ -1278,6 +1278,108 @@
   </div>
 </section>
 
+<!-- ════════════════ FAQ ════════════════ -->
+<section class="section-gap" id="faq" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:2.5rem;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title"><span class="text-gradient">Common questions</span></h2>
+      <p class="section-subtitle">Quick answers before you dive in.</p>
+    </div>
+
+    <div style="max-width:780px;margin:0 auto;" class="reveal">
+
+      <!-- FAQ items -->
+      <div class="hi-faq-list">
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Are the online tools completely free?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Yes — all browser tools are free, no account needed. Free users get up to 100 files/day. Basic and Pro licenses unlock higher daily limits and advanced features.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Are my files safe? Do you store them?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>No files are ever stored. The online tools process everything in an isolated VPS sandbox and delete your files immediately after download. The desktop app works 100% locally — no internet required.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>What's the difference between the browser tools and the desktop app?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Browser tools handle core operations (sanitize, repair, watermark, encrypt, flatten) for individual or batch files — free, no install. The desktop app adds OCR, recursive folder batch processing, format conversions, and full audit reports for power users.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Can I process multiple files at once?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Yes. Upload up to 100 files at once in the browser — all operations apply to the entire batch in one run. Pro license removes the daily limit entirely.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Is DocInspector GDPR compliant?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Yes. No permanent data collection, no file storage, no tracking of document contents. Both the online and desktop versions are GDPR compliant by design.</p>
+          </div>
+        </div>
+
+      </div><!-- /.hi-faq-list -->
+
+      <!-- Still have questions banner -->
+      <div style="margin-top:2.5rem;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.2);border-radius:18px;padding:1.6rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <div style="font-weight:700;color:#f1f5f9;font-size:1rem;">Still have questions?</div>
+          <div style="color:var(--text-muted);font-size:.88rem;margin-top:.25rem;">See the full User Guide & FAQ — 13 detailed answers.</div>
+        </div>
+        <a href="user-guide#faq" class="btn btn-outline" style="white-space:nowrap;padding:.75rem 1.5rem;font-size:.9rem;">View Full FAQ →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.hi-faq-list { display:flex; flex-direction:column; gap:.75rem; }
+.hi-faq-item { background:rgba(15,23,42,.6); border:1px solid rgba(6,182,212,.14); border-radius:16px; overflow:hidden; transition:border-color .2s; }
+.hi-faq-item:hover { border-color:rgba(6,182,212,.32); }
+.hi-faq-item.open { border-color:rgba(6,182,212,.35); }
+.hi-faq-q { width:100%; background:none; border:none; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; cursor:pointer; text-align:left; color:#f1f5f9; font-size:.97rem; font-weight:600; font-family:inherit; }
+.hi-faq-q:hover { color:#67e8f9; }
+.hi-faq-icon { flex-shrink:0; width:26px; height:26px; border-radius:50%; border:1.5px solid rgba(6,182,212,.4); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#06b6d4; transition:transform .25s, background .2s; line-height:1; }
+.hi-faq-item.open .hi-faq-icon { transform:rotate(45deg); background:rgba(6,182,212,.15); }
+.hi-faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .3s; }
+.hi-faq-a p { margin:0; padding:0 1.5rem 1.25rem; color:#94a3b8; font-size:.92rem; line-height:1.7; }
+.hi-faq-item.open .hi-faq-a { max-height:300px; }
+</style>
+
+<script>
+function hiFaq(btn){
+  var item = btn.closest('.hi-faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.hi-faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+
 <!-- ════════════════ FOOTER ════════════════ -->
 <footer class="site-footer">
   <div class="container">

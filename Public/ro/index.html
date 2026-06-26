@@ -1261,6 +1261,88 @@
   </div>
 </section>
 
+<!-- ════════════════ FAQ ════════════════ -->
+<section class="section-gap" id="faq" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:2.5rem;">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title"><span class="text-gradient">Întrebări frecvente</span></h2>
+      <p class="section-subtitle">Răspunsuri rapide înainte să începi.</p>
+    </div>
+    <div style="max-width:780px;margin:0 auto;" class="reveal">
+      <div class="hi-faq-list">
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Instrumentele online sunt complet gratuite?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Da — toate instrumentele din browser sunt gratuite, fără cont necesar. Utilizatorii gratuiți pot procesa până la 100 fișiere/zi. Licențele Basic și Pro deblochează limite mai mari și funcții avansate.</p>
+          </div>
+        </div>
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Fișierele mele sunt în siguranță? Le stocați?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Niciun fișier nu este stocat vreodată. Instrumentele online procesează totul într-un sandbox VPS izolat și șterg fișierele imediat după descărcare. Aplicația desktop funcționează 100% local — fără internet necesar.</p>
+          </div>
+        </div>
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Care e diferența dintre instrumentele browser și aplicația desktop?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Instrumentele browser gestionează operațiunile de bază (sanitizare, reparare, watermark, criptare, flatten) pentru fișiere individuale sau în batch — gratuit, fără instalare. Aplicația desktop adaugă OCR, procesare batch recursivă a folderelor, conversii de format și rapoarte complete de audit.</p>
+          </div>
+        </div>
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Pot procesa mai multe fișiere simultan?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Da. Încarcă până la 100 de fișiere simultan în browser — toate operațiunile se aplică întregului batch dintr-o singură rulare. Licența Pro elimină complet limita zilnică.</p>
+          </div>
+        </div>
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>DocInspector este conform GDPR?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Da. Nicio colectare permanentă de date, nicio stocare de fișiere, nicio urmărire a conținutului documentelor. Atât versiunea online cât și cea desktop sunt conforme GDPR prin design.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.2);border-radius:18px;padding:1.6rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <div style="font-weight:700;color:#f1f5f9;font-size:1rem;">Mai ai întrebări?</div>
+          <div style="color:var(--text-muted);font-size:.88rem;margin-top:.25rem;">Vezi Ghidul complet & FAQ — 13 răspunsuri detaliate.</div>
+        </div>
+        <a href="ghid-utilizare#faq" class="btn btn-outline" style="white-space:nowrap;padding:.75rem 1.5rem;font-size:.9rem;">Vezi FAQ complet →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.hi-faq-list{display:flex;flex-direction:column;gap:.75rem;}
+.hi-faq-item{background:rgba(15,23,42,.6);border:1px solid rgba(6,182,212,.14);border-radius:16px;overflow:hidden;transition:border-color .2s;}
+.hi-faq-item:hover{border-color:rgba(6,182,212,.32);}
+.hi-faq-item.open{border-color:rgba(6,182,212,.35);}
+.hi-faq-q{width:100%;background:none;border:none;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;text-align:left;color:#f1f5f9;font-size:.97rem;font-weight:600;font-family:inherit;}
+.hi-faq-q:hover{color:#67e8f9;}
+.hi-faq-icon{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(6,182,212,.4);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#06b6d4;transition:transform .25s,background .2s;line-height:1;}
+.hi-faq-item.open .hi-faq-icon{transform:rotate(45deg);background:rgba(6,182,212,.15);}
+.hi-faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;}
+.hi-faq-a p{margin:0;padding:0 1.5rem 1.25rem;color:#94a3b8;font-size:.92rem;line-height:1.7;}
+.hi-faq-item.open .hi-faq-a{max-height:300px;}
+</style>
+<script>
+function hiFaq(btn){var item=btn.closest('.hi-faq-item');var isOpen=item.classList.contains('open');document.querySelectorAll('.hi-faq-item.open').forEach(function(el){el.classList.remove('open');});if(!isOpen)item.classList.add('open');}
+</script>
 <!-- ════════════════ FOOTER ════════════════ -->
 <footer class="site-footer">
   <div class="container">
