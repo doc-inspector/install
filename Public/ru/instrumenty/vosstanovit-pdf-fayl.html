@@ -617,6 +617,13 @@
               </div>
 
             <!-- Advanced Bundle Report -->
+<div class="tool-desc">Перетащите папку с объемом до 100 PDF-файлов (макс. 15 МБ каждый). Создает профессиональный <strong style="color:#f59e0b">отчёт Excel + PDF</strong> с именами файлов, количеством страниц, статусом шифрования и итогами.</div>
+              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Загрузка папки</span>
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
+              </div>
+            </div>
+
             <div class="tool-card gsap-card" id="card-bundle-advanced" style="--brand: #eab308; border-color:rgba(234,179,8,.25); position:relative" onclick="toggleTool(event,'bundle-advanced')">
               <div class="check-ring">&#x2714;</div>
               <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#eab308,#f59e0b);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">НОВОЕ</div>
@@ -628,12 +635,6 @@
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Загрузка папки</span>
                 <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F516; Расширенные метаданные</span>
-              </div>
-            </div>
-              <div class="tool-desc">Перетащите папку с объемом до 100 PDF-файлов (макс. 15 МБ каждый). Создает профессиональный <strong style="color:#f59e0b">отчёт Excel + PDF</strong> с именами файлов, количеством страниц, статусом шифрования и итогами.</div>
-              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Загрузка папки</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
               </div>
             </div>
 
@@ -1104,6 +1105,7 @@ const TOOLS = {
   flatten  : { label:'Сглаживание в PDF-изображение',  emoji:'🖼️' },
   rebuild  : { label:'Восстановить & Починить PDF',    emoji:'🛠️' },
   bundle   : { label:'Сводный отчёт PDF',              emoji:'📋' },
+  'bundle-advanced': { label:'Расширенный реестр PDF', emoji:'📘' },
 };
 const selectedOps = new Set();
 let files = [];
@@ -1287,11 +1289,14 @@ async function logoutLicense() {
 fetchStatus();
 
 function addRipple(e, el) {
+  if (!el) return;
   const r = document.createElement('span');
   r.className = 'ripple';
   const rect = el.getBoundingClientRect();
   const s = Math.max(rect.width, rect.height) * 2;
-  r.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(e.clientX-rect.left-s/2)+'px;top:'+(e.clientY-rect.top-s/2)+'px';
+  const x = (e && typeof e.clientX === 'number') ? e.clientX : (rect.left + rect.width / 2);
+  const y = (e && typeof e.clientY === 'number') ? e.clientY : (rect.top + rect.height / 2);
+  r.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(x-rect.left-s/2)+'px;top:'+(y-rect.top-s/2)+'px';
   el.appendChild(r);
   setTimeout(() => r.remove(), 600);
 }
@@ -1303,8 +1308,13 @@ function toggleTool(e, name) {
   const card = document.getElementById('card-' + name);
   addRipple(e, card);
   const opts = document.getElementById('opts-' + name);
+  const dz = document.getElementById('dropZone');
+  const fi = document.getElementById('fileInput');
+  const dzIcon = document.getElementById('dzIcon');
+  const dzTitle = document.getElementById('dzTitle');
+  const dzSub = document.getElementById('dzSub');
 
-  // Сводный отчёт является эксклюзивным — отменяет выбор других инструментов
+  // Bundle is exclusive — deselect other tools
   if (name === 'bundle' || name === 'bundle-advanced') {
     if (selectedOps.has(name)) {
       selectedOps.delete(name);
@@ -1325,29 +1335,25 @@ function toggleTool(e, name) {
       gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   } else {
-      // Сначала снимаем выбор со всего остального
-      selectedOps.forEach(op => {
-        const c = document.getElementById('card-' + op);
-        if (c) c.classList.remove('selected');
-        const o = document.getElementById('opts-' + op);
-        if (o) o.classList.remove('open');
-      });
-      selectedOps.clear();
-      selectedOps.add('bundle');
-      card.classList.add('selected');
-      gsap.from('#card-bundle', { scale:.97, duration:.3, ease:'back.out(2)' });
-    }
-  } else {
-    // Отменяем выбор сводного отчёта, если выбирается обычный инструмент
+    // Deselect bundle if switching to regular tools
     if (selectedOps.has('bundle')) {
       selectedOps.delete('bundle');
       const bc = document.getElementById('card-bundle');
       if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle');
+      if (bo) bo.classList.remove('open');
+    }
+    if (selectedOps.has('bundle-advanced')) {
+      selectedOps.delete('bundle-advanced');
+      const bc = document.getElementById('card-bundle-advanced');
+      if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle-advanced');
+      if (bo) bo.classList.remove('open');
     }
     
     // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
     if (currentTier !== "Pro" && selectedOps.size > 0 && !selectedOps.has(name)) {
-      alert("Запуск нескольких операций одновременно требует лицензии Pro. Предыдущий выбор был отменен.");
+      alert("Запуск нескольких действий одновременно требует Pro-лицензии. Предыдущий выбор был сброшен.");
       selectedOps.forEach(op => {
         const c = document.getElementById('card-' + op);
         if (c) c.classList.remove('selected');
@@ -1368,21 +1374,17 @@ function toggleTool(e, name) {
       gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   }
-
-  // Переключение режима dropzone: папка для сводного отчёта, файлы для других
-  const dzIcon  = document.getElementById('dzIcon');
-  const dzTitle = document.getElementById('dzTitle');
-  const dzSub   = document.getElementById('dzSub');
-  if (selectedOps.has('bundle')) {
+  
+  if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
     const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
     const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     fi.setAttribute('webkitdirectory', 'true');
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
     dzTitle.textContent = 'Перетащите ПАПКУ сюда (до ' + bundleMax + ' файлов)';
-    dzSub.textContent   = 'или кликните для выбора папки — макс. ' + bundleMax + ' файлов — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
+    dzSub.textContent   = 'или нажмите для выбора папки — макс. ' + bundleMax + ' файлов — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
@@ -1391,77 +1393,14 @@ function toggleTool(e, name) {
     dzIcon.textContent  = '📂';
     dzTitle.textContent = 'Перетащите файлы сюда';
     const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
     dzSub.textContent   = 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
-  // Очистка списка файлов при смене режима
-  // files = []; renderFiles();
 
   updateSidebar();
   updateBtn();
-}
-
-function getFileCountSummary() {
-  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
-  files.forEach(f => {
-    const ext = f.name.toLowerCase().split('.').pop();
-    if (ext === 'pdf') counts.pdf++;
-    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
-    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
-    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
-    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
-    else if (ext === 'txt') counts.text++;
-  });
-  
-  function ruPlural(count, one, two, five) {
-    const n = Math.abs(count) % 100;
-    const n1 = n % 10;
-    if (n > 10 && n < 20) return count + ' ' + five;
-    if (n1 > 1 && n1 < 5) return count + ' ' + two;
-    if (n1 === 1) return count + ' ' + one;
-    return count + ' ' + five;
-  }
-  
-  const parts = [];
-  const style = 'style="color: #22d3ee; font-weight: 500;"';
-  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF</span>`);
-  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
-  if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
-  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
-  if (counts.image) parts.push(`<span ${style}>${ruPlural(counts.image, 'изображение', 'изображения', 'изображений')}</span>`);
-  if (counts.text) parts.push(`<span ${style}>${ruPlural(counts.text, 'текстовый файл', 'текстовых файла', 'текстовых файлов')}</span>`);
-  
-  if (parts.length === 0) return 'Нажмите, чтобы добавить ещё';
-  const limitMsg = files.length >= MAX ? ' (Максимум достигнут)' : ' — нажмите, чтобы добавить ещё';
-  return parts.join(', ') + limitMsg;
-}
-
-function renderFiles() {
-  const list  = document.getElementById('fileList');
-  const icon  = document.getElementById('dzIcon');
-  const title = document.getElementById('dzTitle');
-  const sub   = document.getElementById('dzSub');
-  if (!files.length) {
-    list.innerHTML = '';
-    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
-    icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Перетащите ПАПКУ сюда (до ' + bundleMax + ' файлов)' : 'Перетащите файлы сюда';
-    const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 ГБ" : "2 ГБ";
-    sub.textContent   = selectedOps.has('bundle') ? 'или кликните для выбора папки — макс. ' + bundleMax + ' файлов — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего' : 'или нажмите для выбора — макс. ' + currentLimit + ' файлов в день — ' + maxSz + ' МБ каждый — макс. ' + totalLimitStr + ' всего';
-    return;
-  }
-  icon.textContent  = '📋';
-  title.textContent = files.length + ' файл' + (files.length > 1 ? (files.length < 5 ? 'а' : 'ов') : '') + ' выбрано';
-  sub.innerHTML     = getFileCountSummary();
-  list.innerHTML = files.map((f, i) => {
-    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
-    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
-      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' КБ</span>'
-      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Удалить">✕</button></div>';
-  }).join('');
 }
 
 function updateSidebar() {

@@ -791,6 +791,13 @@
               </div>
 
             <!-- Advanced Bundle Report -->
+<div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> for the folder with page counts and metadata. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4CA; Excel + PDF</span>
+              </div>
+            </div>
+
             <div class="tool-card gsap-card" id="card-bundle-advanced" style="--brand: #eab308; border-color:rgba(234,179,8,.25); position:relative" onclick="toggleTool(event,'bundle-advanced')">
               <div class="check-ring">&#x2714;</div>
               <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#eab308,#f59e0b);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NEW</div>
@@ -802,12 +809,6 @@
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
                 <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Folder upload</span>
                 <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F516; Extended Metadata</span>
-              </div>
-            </div>
-              <div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> for the folder with page counts and metadata. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
-              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4CA; Excel + PDF</span>
               </div>
             </div>
 
@@ -1271,6 +1272,7 @@ const TOOLS = {
   flatten  : { label:'Flatten to Image PDF',    emoji:'🖼️ ' },
   rebuild  : { label:'Rebuild & Repair PDF',    emoji:'🛠️ ' },
   bundle   : { label:'PDF Bundle Summary',      emoji:'📋' },
+  'bundle-advanced': { label:'Advanced Bundle Report', emoji:'📘' },
 };
 const selectedOps = new Set();
 let files = [];
@@ -1456,11 +1458,14 @@ fetchStatus();
 
 // Ripple effect
 function addRipple(e, el) {
+  if (!el) return;
   const r = document.createElement('span');
   r.className = 'ripple';
   const rect = el.getBoundingClientRect();
   const s = Math.max(rect.width, rect.height) * 2;
-  r.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(e.clientX-rect.left-s/2)+'px;top:'+(e.clientY-rect.top-s/2)+'px';
+  const x = (e && typeof e.clientX === 'number') ? e.clientX : (rect.left + rect.width / 2);
+  const y = (e && typeof e.clientY === 'number') ? e.clientY : (rect.top + rect.height / 2);
+  r.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(x-rect.left-s/2)+'px;top:'+(y-rect.top-s/2)+'px';
   el.appendChild(r);
   setTimeout(() => r.remove(), 600);
 }
@@ -1472,6 +1477,11 @@ function toggleTool(e, name) {
   const card = document.getElementById('card-' + name);
   addRipple(e, card);
   const opts = document.getElementById('opts-' + name);
+  const dz = document.getElementById('dropZone');
+  const fi = document.getElementById('fileInput');
+  const dzIcon = document.getElementById('dzIcon');
+  const dzTitle = document.getElementById('dzTitle');
+  const dzSub = document.getElementById('dzSub');
 
   // Bundle is exclusive — deselect other tools
   if (name === 'bundle' || name === 'bundle-advanced') {
@@ -1494,30 +1504,20 @@ function toggleTool(e, name) {
       gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   } else {
-      // Deselect everything else first
-      selectedOps.forEach(op => {
-        const c = document.getElementById('card-' + op);
-        if (c) c.classList.remove('selected');
-        const o = document.getElementById('opts-' + op);
-        if (o) o.classList.remove('open');
-      });
-      selectedOps.clear();
-      selectedOps.add('bundle');
-      card.classList.add('selected');
-      if (opts) opts.classList.add('open');
-      gsap.from('#card-bundle', { scale:.97, duration:.3, ease:'back.out(2)' });
-    }
-  } else {
     // Deselect bundle if switching to regular tools
     if (selectedOps.has('bundle')) {
       selectedOps.delete('bundle');
       const bc = document.getElementById('card-bundle');
       if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle');
+      if (bo) bo.classList.remove('open');
     }
     if (selectedOps.has('bundle-advanced')) {
       selectedOps.delete('bundle-advanced');
       const bc = document.getElementById('card-bundle-advanced');
       if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle-advanced');
+      if (bo) bo.classList.remove('open');
     }
     
     // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
@@ -1543,32 +1543,30 @@ function toggleTool(e, name) {
       gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
     }
   }
-
-    if (selectedOps.has('bundle')) {
-      const maxSz = currentTier === "Free" ? "25" : "100";
-      const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-      const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
-      fi.setAttribute('webkitdirectory', 'true');
-      fi.setAttribute('multiple', '');
-      fi.removeAttribute('accept');
-      dzIcon.textContent  = '📁';
-      dzTitle.textContent = 'Drag a FOLDER here (up to ' + bundleMax + ' files)';
-      dzSub.textContent   = 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
-      dz.style.borderColor = 'rgba(245,158,11,.4)';
-      dz.style.background  = 'rgba(245,158,11,.02)';
-    } else {
-      fi.removeAttribute('webkitdirectory');
-      fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
-      dzIcon.textContent  = '📂';
-      dzTitle.textContent = 'Drag & Drop files here';
-      const maxSz = currentTier === "Free" ? "25" : "100";
-      const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-      dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
-      dz.style.borderColor = '';
-      dz.style.background  = '';
-    }
-    // Clear file list when switching modes
-    // files = []; renderFiles();
+  
+  if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
+    fi.setAttribute('webkitdirectory', 'true');
+    fi.setAttribute('multiple', '');
+    fi.removeAttribute('accept');
+    dzIcon.textContent  = '📁';
+    dzTitle.textContent = 'Drag a FOLDER here (up to ' + bundleMax + ' files)';
+    dzSub.textContent   = 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
+    dz.style.borderColor = 'rgba(245,158,11,.4)';
+    dz.style.background  = 'rgba(245,158,11,.02)';
+  } else {
+    fi.removeAttribute('webkitdirectory');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
+    dzIcon.textContent  = '📂';
+    dzTitle.textContent = 'Drag & Drop files here';
+    const maxSz = currentTier === "Free" ? "25" : "100";
+    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
+    dz.style.borderColor = '';
+    dz.style.background  = '';
+  }
 
   updateSidebar();
   updateBtn();
