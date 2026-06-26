@@ -633,6 +633,86 @@
           "@type": "Answer",
           "text": "Browser Tools are free, require no installation, and handle core operations like sanitize, watermark, encrypt, redact, flatten, and repair for individual files. The Desktop App offers advanced features including OCR, batch processing of entire folder trees, recursive scanning, secure file deletion, system auditing, and full format conversion capabilities."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I process multiple PDF files at once in the browser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All browser-based tools support batch processing — you can upload up to 100 files simultaneously and apply any operation to all of them in a single run. Free users get 100 files/day; Pro license users have no daily limit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I apply multiple operations to the same files in one session?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. DocInspector supports a multi-operation pipeline — you can select several operations (e.g. sanitize metadata + add watermark + encrypt) and apply all of them to your batch of files in a single run, without re-uploading anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the repair tool make scanned PDF text selectable and copiable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Beyond fixing structural corruption, the repair tool applies OCR to scanned or image-based PDFs, converting visual content into real, searchable, selectable, and copiable text — all in one step, without a separate OCR tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My PDF opens fine but I cannot select or copy any text — what do I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This happens when a PDF was created from a scan or a photo — the text is an image, not real characters. Use the Repair & Rebuild tool with OCR enabled: it will convert that image-text into real, copiable text without needing any separate software."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Redact tool work? Is redaction permanent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, redaction is permanent and forensically sound. The tool replaces keywords or regions with solid black bars, then flattens the PDF so the hidden content cannot be extracted or recovered. Suitable for legal, compliance, and court submission use cases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What encryption does the Encrypt PDF tool use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Encrypt PDF tool applies AES-256 encryption with a password you set. It supports both user password (required to open the file) and owner password (controls printing, copying, and editing permissions). Fully compatible with Adobe Acrobat and all standard PDF readers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Flatten PDF and Repair PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flatten PDF converts all interactive elements (form fields, annotations, signatures) into static content. Repair PDF fixes structural corruption in the file and optionally applies OCR to make text selectable. They solve different problems and can be combined in the multi-operation pipeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between the Free plan and the Pro license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Free plan allows up to 100 files per day with full access to all browser tools. Basic license raises the limit to 1,000 files/day. Pro license removes all daily limits (unlimited files/day) and unlocks priority processing. All plans use the same tools — only processing volume differs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the license key work on multiple computers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. A DocInspector license key is tied to your account, not a specific machine. You can use it on any browser or device by entering the key in the license panel on any tool page. There is no device limit per license."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Desktop App require an internet connection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The DocInspector Desktop App processes all files locally on your Windows machine with no internet connection required. It is fully air-gapped capable, making it suitable for sensitive environments where data must never leave the local network."
+        }
       }
     ]
   }
@@ -1128,6 +1208,116 @@
             </button>
             <div class="faq-a">
               <p>Browser Tools are free, require no installation, and handle core operations like sanitize, watermark, encrypt, redact, flatten, and repair for individual files. The Desktop App is a licensed Windows application offering advanced features including OCR, batch processing of entire folder trees, recursive scanning, format conversions, secure file deletion (DoD-grade shredder), and full system auditing. See the <a href="#compare" style="color:var(--cyan)">comparison table above</a> for a detailed breakdown.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 11 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Can I process multiple PDF files at once in the browser?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. All browser-based tools support batch processing — you can upload up to 100 files simultaneously and apply any operation to all of them in a single run. Free users get 100 files/day; Pro license users have no daily limit.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 12 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Can I apply multiple operations to the same files in one session?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. DocInspector supports a multi-operation pipeline — you can select several operations (e.g. sanitize metadata + add watermark + encrypt) and apply all of them to your batch of files in a single run, without re-uploading anything.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 13 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Can the repair tool make scanned PDF text selectable and copiable?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. Beyond fixing structural corruption, the repair tool applies OCR (Optical Character Recognition) to scanned or image-based PDFs. This converts visual content into real, searchable, selectable, and copiable text — all in one step, without a separate OCR tool.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 14 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>My PDF opens fine but I cannot select or copy any text — what do I do?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>This happens when a PDF was created from a scan or a photo — the text is an image, not real characters. Use the Repair &amp; Rebuild tool with OCR enabled: it will convert that image-text into real, copiable text without needing any separate software.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 15 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>How does the Redact tool work? Is redaction permanent?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Yes, redaction is permanent and forensically sound. The tool finds keywords or regions you specify and replaces them with solid black bars, then flattens the PDF so the hidden content cannot be extracted or recovered. This is suitable for legal, compliance, and court submission use cases.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 16 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>What encryption does the Encrypt PDF tool use?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>The Encrypt PDF tool applies AES-256 encryption with a password you set. It supports both user password (required to open the file) and owner password (controls printing, copying, and editing permissions). The encryption is fully compatible with Adobe Acrobat and all standard PDF readers.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 17 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>What is the difference between Flatten PDF and Repair PDF?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Flatten PDF converts all interactive elements (form fields, annotations, signatures) into static content — the visual appearance is preserved but the elements become non-editable. Repair PDF fixes structural corruption in the file itself (broken cross-reference tables, truncated streams) and optionally applies OCR to make text selectable. They solve different problems and can be combined in the pipeline.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 18 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>What is the difference between the Free plan and the Pro license?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>The Free plan allows up to 100 files per day with full access to all browser tools. The Basic license raises the limit to 1,000 files/day. The Pro license removes all daily limits (unlimited files/day) and unlocks priority processing. All plans use the same tools with no feature restrictions — only processing volume differs.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 19 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Does the license key work on multiple computers?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Yes. A DocInspector license key is tied to your account, not a specific machine. You can use it on any browser or device by entering the key in the license panel on any tool page. There is no device limit per license.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 20 -->
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span>Does the Desktop App require an internet connection?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a">
+              <p>No. The DocInspector Desktop App processes all files locally on your Windows machine with no internet connection required. It is fully air-gapped capable, making it suitable for sensitive environments where data must never leave the local network.</p>
             </div>
           </div>
         </div>
