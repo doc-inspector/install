@@ -1,0 +1,50 @@
+# DocInspector
+
+> DocInspector is a free, privacy-first online PDF toolkit. All processing happens client-side in the browser — no files are uploaded to any server. No registration required.
+
+DocInspector provides professional-grade PDF tools accessible directly in the browser. It also offers a downloadable desktop application for Windows/Mac/Linux for offline use.
+
+## Key Features
+
+- **100% Private**: Files never leave the user's device. All PDF operations run locally in the browser using WebAssembly.
+- **Free**: All tools are free to use, no account required.
+- **Batch Processing**: Most tools support processing multiple files simultaneously.
+- **Multilingual**: Available in English, Romanian, and Russian.
+
+## Online PDF Tools
+
+- [Encrypt PDF Online](https://doc-inspector.com/en/tools/encrypt-pdf-online) — Password protect PDF files, restrict printing/copying/editing permissions.
+- [Add Watermark to PDF](https://doc-inspector.com/en/tools/add-watermark-pdf-online) — Add custom text watermarks to single or multiple PDFs.
+- [Redact PDF Online](https://doc-inspector.com/en/tools/redact-pdf-online) — Permanently black out sensitive text and images in PDFs.
+- [Sanitize PDF Metadata](https://doc-inspector.com/en/tools/sanitize-pdf-metadata) — Remove hidden metadata (author, creation date, software info) from PDFs.
+- [Flatten PDF Online](https://doc-inspector.com/en/tools/flatten-pdf-online) — Flatten form fields and annotations into permanent content.
+- [Repair PDF Online](https://doc-inspector.com/en/tools/repair-pdf-online) — Fix corrupted or broken PDF files.
+- [PDF Bundle Summary](https://doc-inspector.com/en/tools/pdf-bundle-summary-online) — Generate a summary report (borderou) for a collection of PDF documents.
+- [Advanced PDF Bundle Report](https://doc-inspector.com/en/tools/advanced-pdf-bundle-report) — Detailed analysis and reporting for PDF document bundles.
+- [Remove PDF Signatures](https://doc-inspector.com/en/tools/remove-pdf-signatures) — Strip digital signatures from PDF files.
+
+## All Tools Hub
+
+- [All Online PDF Tools](https://doc-inspector.com/en/tools-online.html) — Overview of all available browser-based tools.
+
+## Blog & Guides
+
+- [Document Metadata Leaks](https://doc-inspector.com/en/blog/document-metadata-leaks) — Why hidden PDF metadata is a privacy risk.
+- [All Blog Articles](https://doc-inspector.com/en/) — Security guides, PDF best practices, privacy tips.
+
+## Desktop Application
+
+DocInspector is also available as a downloadable desktop app for Windows, macOS, and Linux. It provides offline access to all tools with the same privacy guarantees.
+
+## Use Cases
+
+- Legal professionals redacting sensitive documents before sharing
+- Accountants and businesses creating document bundle reports (borderou)
+- Privacy-conscious users removing metadata before sending PDFs
+- HR and compliance teams encrypting confidential documents
+- IT professionals flattening and sanitizing PDFs for archival
+
+## Contact & Links
+
+- Website: https://doc-inspector.com
+- GitHub: https://github.com/doc-inspector/install

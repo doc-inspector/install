@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "DocInspector PDF Tools",
+  "name_for_model": "doc_inspector",
+  "description_for_human": "Free privacy-first PDF toolkit. Encrypt, redact, watermark, sanitize, flatten, repair PDFs — all in the browser, no uploads.",
+  "description_for_model": "DocInspector provides free client-side PDF processing tools. All operations run locally in the browser using WebAssembly — no files are sent to any server. Available tools: encrypt PDF with password, add text watermarks, redact sensitive content, sanitize/remove metadata, flatten form fields, repair corrupted PDFs, generate PDF bundle summaries (borderou), and remove digital signatures. Supports batch processing of multiple files. Also available as a desktop application.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "https://doc-inspector.com/assets/logo.png",
+  "contact_email": "contact@doc-inspector.com",
+  "legal_info_url": "https://doc-inspector.com/en/"
+}

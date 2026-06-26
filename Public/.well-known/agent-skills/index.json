@@ -1,0 +1,53 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "encrypt-pdf",
+      "type": "tool",
+      "description": "Password protect a PDF file online. Restrict printing, copying, and editing permissions.",
+      "url": "https://doc-inspector.com/en/tools/encrypt-pdf-online"
+    },
+    {
+      "name": "add-watermark-pdf",
+      "type": "tool",
+      "description": "Add custom text watermarks to PDF files. Supports batch processing.",
+      "url": "https://doc-inspector.com/en/tools/add-watermark-pdf-online"
+    },
+    {
+      "name": "redact-pdf",
+      "type": "tool",
+      "description": "Permanently redact (black out) sensitive text and images in PDF files.",
+      "url": "https://doc-inspector.com/en/tools/redact-pdf-online"
+    },
+    {
+      "name": "sanitize-pdf-metadata",
+      "type": "tool",
+      "description": "Remove hidden metadata from PDF files including author name, creation date, and software information.",
+      "url": "https://doc-inspector.com/en/tools/sanitize-pdf-metadata"
+    },
+    {
+      "name": "flatten-pdf",
+      "type": "tool",
+      "description": "Flatten PDF form fields and annotations into permanent page content.",
+      "url": "https://doc-inspector.com/en/tools/flatten-pdf-online"
+    },
+    {
+      "name": "repair-pdf",
+      "type": "tool",
+      "description": "Repair and recover corrupted or broken PDF files.",
+      "url": "https://doc-inspector.com/en/tools/repair-pdf-online"
+    },
+    {
+      "name": "pdf-bundle-summary",
+      "type": "tool",
+      "description": "Generate a summary report (borderou/reestr) for a collection of PDF documents.",
+      "url": "https://doc-inspector.com/en/tools/pdf-bundle-summary-online"
+    },
+    {
+      "name": "remove-pdf-signatures",
+      "type": "tool",
+      "description": "Strip digital signatures from PDF files.",
+      "url": "https://doc-inspector.com/en/tools/remove-pdf-signatures"
+    }
+  ]
+}
