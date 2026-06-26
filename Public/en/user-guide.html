@@ -1040,47 +1040,51 @@
             <tbody>
               <!-- General -->
               <tr class="cat-row"><td colspan="3">General</td></tr>
-              <tr><td>Price</td><td class="yes">Free</td><td class="partial">Licensed</td></tr>
-              <tr><td>Installation Required</td><td class="yes">None</td><td class="partial">Windows Installer</td></tr>
-              <tr><td>Works Offline</td><td class="no">No (needs browser)</td><td class="yes">Yes ✓</td></tr>
+              <tr><td>Price</td><td class="yes">Free (100 files/day, no account needed)</td><td class="partial">Licensed — Basic €9.99/mo · Pro €15/mo</td></tr>
+              <tr><td>Installation Required</td><td class="yes">None — works in any browser</td><td class="partial">Windows Installer (.exe)</td></tr>
+              <tr><td>Works Offline</td><td class="no">No — requires internet</td><td class="yes">Yes ✓ — fully air-gapped capable</td></tr>
+              <tr><td>Account / Login Required</td><td class="yes">No — use free tier instantly</td><td class="partial">License key required</td></tr>
 
               <!-- Processing -->
               <tr class="cat-row"><td colspan="3">File Processing</td></tr>
-              <tr><td>PDF Processing</td><td class="yes">✓ Full</td><td class="yes">✓ Full</td></tr>
-              <tr><td>DOCX / Word Processing</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
-              <tr><td>XLSX / Excel Processing</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
-              <tr><td>Image Processing (JPG, PNG, TIFF)</td><td class="partial">Sanitize only</td><td class="yes">✓ Full</td></tr>
-              <tr><td>Max File Size</td><td class="partial">Free: 25 MB, Basic/Pro: 100 MB</td><td class="yes">Unlimited</td></tr>
-              <tr><td>Max Files per Session</td><td class="partial">Free: 100, Basic: 1,000, Pro: 1,300</td><td class="yes">Pro: Unlimited, Basic: Unlimited</td></tr>
-              <tr><td>Daily Processing Limit</td><td class="partial">Free: 100/day, Basic: 1,000/day, Pro: Unlimited</td><td class="yes">Pro: Unlimited, Basic: 1,000/day</td></tr>
+              <tr><td>PDF Processing</td><td class="yes">✓ Full (all 9 tools)</td><td class="yes">✓ Full</td></tr>
+              <tr><td>DOCX / Word Processing</td><td class="partial">Sanitize metadata only</td><td class="yes">✓ Full (sanitize, convert, batch)</td></tr>
+              <tr><td>XLSX / Excel Processing</td><td class="partial">Sanitize metadata only</td><td class="yes">✓ Full (sanitize, convert, batch)</td></tr>
+              <tr><td>Image Processing (JPG, PNG, TIFF)</td><td class="partial">Sanitize metadata only</td><td class="yes">✓ Full</td></tr>
+              <tr><td>Max File Size</td><td class="partial">Free: 25 MB · Basic/Pro: 100 MB per file</td><td class="yes">Unlimited file size</td></tr>
+              <tr><td>Max Files per Upload Run</td><td class="partial">Free: up to 100 · Basic: 1,000 · Pro: 1,300</td><td class="yes">No per-run limit</td></tr>
+              <tr><td>Daily Processing Limit</td><td class="partial">Free: 100/day · Basic: 1,000/day · Pro: Unlimited</td><td class="yes">Basic: 1,000/day · Pro: Unlimited</td></tr>
+              <tr><td>Multi-Action Pipeline (batch operations)</td><td class="no">Basic: single action · Pro: multi-action</td><td class="yes">Pro only — combine actions in one pass</td></tr>
 
-              <!-- Core Tools -->
-              <tr class="cat-row"><td colspan="3">Core Tools</td></tr>
-              <tr><td>Sanitize Metadata</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Watermark</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Encrypt (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Redact Sensitive Text</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Flatten to Image</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Repair &amp; Rebuild</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-
-              <!-- Conversions -->
-              <tr class="cat-row"><td colspan="3">Conversions</td></tr>
-              <tr><td>Convert Word → PDF</td><td class="no">Coming Soon</td><td class="yes">✓</td></tr>
-              <tr><td>Convert Excel → PDF</td><td class="no">Coming Soon</td><td class="yes">✓</td></tr>
-              <tr><td>Convert Image → PDF</td><td class="no">Coming Soon</td><td class="yes">✓</td></tr>
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Core PDF Tools (Browser &amp; Desktop)</td></tr>
+              <tr><td>Remove Digital Signatures</td><td class="yes">✓ Online</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Sanitize Metadata</td><td class="yes">✓ Online (PDF, DOCX, XLSX, images)</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Repair &amp; Rebuild PDF (+ built-in OCR)</td><td class="yes">✓ Online — fixes corruption &amp; makes scanned text selectable</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Add Watermark</td><td class="yes">✓ Online</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Encrypt PDF (AES-256)</td><td class="yes">✓ Online</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Redact Sensitive Text</td><td class="yes">✓ Online — permanent, forensically sound</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Flatten to Image-Only PDF</td><td class="yes">✓ Online</td><td class="yes">✓ Desktop</td></tr>
 
               <!-- Reporting -->
               <tr class="cat-row"><td colspan="3">Reporting &amp; Evidence</td></tr>
-              <tr><td>Bundle Summary</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Advanced Borderou</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Folder Evidence Report</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>PDF Bundle Summary (Borderou)</td><td class="yes">✓ Online (Basic &amp; Pro)</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Advanced Bundle Report (PDF/Word/Excel)</td><td class="yes">✓ Online (Basic &amp; Pro)</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Folder Evidence Report (full directory tree)</td><td class="no">— Not available online</td><td class="yes">✓ Desktop — Pro only</td></tr>
 
-              <!-- Advanced -->
-              <tr class="cat-row"><td colspan="3">Advanced Features</td></tr>
-              <tr><td>OCR (Optical Character Recognition)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Recursive Folder Scan</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>System Audit (Drives &amp; Partitions)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Secure File Deletion (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Format Conversions</td></tr>
+              <tr><td>Convert Word → PDF</td><td class="no">Coming Soon</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Convert Excel → PDF</td><td class="no">Coming Soon</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>Convert Image → PDF</td><td class="no">Coming Soon</td><td class="yes">✓ Desktop</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Advanced — Desktop Only</td></tr>
+              <tr><td>OCR Standalone (scan entire folders)</td><td class="no">— (OCR is built into Repair tool online)</td><td class="yes">✓ Desktop — recursive folder OCR</td></tr>
+              <tr><td>Recursive Folder Scan</td><td class="no">—</td><td class="yes">✓ Desktop</td></tr>
+              <tr><td>System Audit (Drives &amp; Partitions)</td><td class="no">—</td><td class="yes">✓ Desktop — Pro only</td></tr>
+              <tr><td>Find &amp; Remove Sensitive Content</td><td class="no">—</td><td class="yes">✓ Desktop — Pro only</td></tr>
+              <tr><td>Secure File Deletion (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Desktop — Pro only</td></tr>
             </tbody>
           </table>
         </div>
