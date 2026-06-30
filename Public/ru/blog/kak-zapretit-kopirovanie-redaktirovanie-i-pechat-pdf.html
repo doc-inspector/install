@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Как запретить копирование, редактирование и печать PDF | DocInspector</title>
+  <meta name="description" content="Полное руководство по защите PDF паролями разрешений. Как заблокировать копирование, редактирование и печать, и каковы ограничения.">
+  <link rel="canonical" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf">
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf">
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf">
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Как запретить копирование, редактирование и печать PDF | DocInspector","datePublished":"2026-06-29","dateModified":"2026-06-29","author":{"@type":"Organization","name":"DocInspector"},"publisher":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},"inLanguage":"ru","url":"https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf/"}</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .article-body{font-family:'Inter',sans-serif;font-size:1.125rem;line-height:1.85;color:#cbd5e1}
+    .article-body p{margin-bottom:1.8rem;color:#cbd5e1}
+    .article-body h2{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2.8rem 0 1.25rem;font-size:1.65rem;border-left:4px solid #06b6d4;padding-left:14px;text-shadow:0 0 15px rgba(6,182,212,.15)}
+    .article-body h3{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2rem 0 1rem;font-size:1.3rem;border-left:3px solid #38bdf8;padding-left:10px}
+    .article-body ul{margin:0.5rem 0 1.8rem;padding-left:0;list-style:none}
+    .article-body ul li{position:relative;margin-bottom:.8rem;padding-left:1.5rem;line-height:1.75}
+    .article-body ul li::before{content:"•";color:#06b6d4;font-weight:bold;font-size:1.3rem;position:absolute;left:4px;top:-2px;text-shadow:0 0 8px rgba(6,182,212,.6)}
+    .article-body ol{margin:.5rem 0 1.8rem;padding-left:0;list-style:none;counter-reset:cc}
+    .article-body ol li{position:relative;margin-bottom:.8rem;padding-left:1.8rem;line-height:1.75;counter-increment:cc}
+    .article-body ol li::before{content:counter(cc)".";color:#38bdf8;font-weight:700;position:absolute;left:4px;top:0}
+    .tool-callout{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.25);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.95rem;color:#e2e8f0}
+    .tool-callout a{color:#06b6d4;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(6,182,212,.3)}
+    .faq-q{font-weight:700;color:#f1f5f9;margin:1.5rem 0 .3rem;font-size:1.05rem}
+    .faq-a{color:#94a3b8;margin-bottom:1rem}
+    a.tool-link{color:#06b6d4;border-bottom:1px solid rgba(6,182,212,.3);text-decoration:none}
+    a.tool-link:hover{border-bottom-color:#06b6d4}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Восстановление, Менеджер документов &amp; Аудит</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Главная</a>
+        <a href="../onlayn-instrumenty" style="color:#06b6d4;font-weight:700">🌐 Онлайн Инструменты</a>
+        <a href="../price" data-i18n="nav.price">Цены</a>
+        <a href="../user-guide" data-i18n="nav.guide">Руководство</a>
+        <a href="../otchety" data-i18n="nav.reports">Отзывы</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Блог</a>
+        <a href="../contact" data-i18n="nav.contact">Контакт</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language"><span class="lang-pill">RU</span><span class="chev">▾</span></button>
+          <div class="lang-menu">
+            <a href="../../en/blog/how-to-block-copying-editing-and-printing-of-a-pdf" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf" class="lang-item" data-lang="ro">RO</a>
+            <a href="../../ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+      <span style="color:#64748b;font-size:.85rem">2026-06-29 · DocInspector Team</span>
+    </div>
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:2rem;color:#fff">Как запретить копирование, редактирование и печать PDF | DocInspector</h1>
+    <div class="article-body">
+
+<p>У вас есть конфиденциальный документ, которым вы хотите поделиться, не позволяя получателю редактировать, копировать или печатать его? Стандарт PDF предлагает решение через пароли разрешений — вот как это работает и каковы реальные ограничения.</p>
+<h2>Пароль открытия vs. пароль разрешений</h2>
+<p>Пароль открытия защищает доступ к документу — без него файл нельзя открыть. Пароль разрешений (также называемый паролем владельца) не блокирует открытие, но ограничивает действия: копирование текста, редактирование, печать, добавление аннотаций или заполнение форм.</p>
+<h2>Как установить ограничения в Adobe Acrobat</h2>
+<ul><li>Откройте PDF в Adobe Acrobat Pro → Файл → Свойства → Безопасность</li><li>Выберите «Безопасность с паролем» → установите флажок «Запретить редактирование и печать документа»</li><li>Установите пароль разрешений и выберите разрешённые действия</li><li>Выберите уровень шифрования: 128-bit RC4 (более широкая совместимость) или 256-bit AES (рекомендуется)</li></ul>
+<h2>Уровни шифрования и их значение</h2>
+<p>40-битное шифрование (устаревшее, избегайте) легко взламывается. 128-bit RC4 более безопасно, но не для сверхчувствительных данных. 256-bit AES (текущий стандарт) считается безопасным для профессионального использования и включён в Adobe Acrobat и Foxit.</p>
+<h2>Реальные ограничения защиты PDF</h2>
+<p>Важно: ограничения PDF не являются надёжными. Продвинутые инструменты могут извлекать текст из визуального PDF даже с включёнными ограничениями. Фотографирование экрана или скриншоты обходят любую цифровую защиту. Для сверхконфиденциальных документов рассмотрите NDA в дополнение к технической защите.</p>
+<div class="tool-callout"><strong>🔒 DocInspector Security:</strong> <a href="../onlayn-instrumenty" class="tool-link">DocInspector</a> может добавить шифрование AES-256 и полные ограничения к вашим PDF, обрабатывая локально без отправки файлов в интернет.</div>
+<h2>Часто задаваемые вопросы</h2>
+<p class="faq-q">Могу ли я снять ограничения PDF, если забыл пароль разрешений?</p>
+<p class="faq-a">Некоторые инструменты могут снять слабые ограничения (40-bit). Шифрование AES-256 значительно более устойчиво. Если вы владелец документа, всегда храните пароль в безопасном месте.</p>
+<p class="faq-q">Признают ли ограничения PDF все программы для чтения?</p>
+<p class="faq-a">Adobe Reader и основные программы чтения соблюдают ограничения. Некоторые сторонние приложения могут игнорировать ограничения — абсолютной гарантии нет.</p>
+<h2>Заключение</h2>
+<p>Пароли разрешений PDF — полезный уровень защиты профессиональных документов, но они не непробиваемы. В сочетании с юридическими соглашениями и водяными знаками они обеспечивают значительную защиту конфиденциальной информации.</p>
+
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Назад ко всем статьям</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../bezopasnost" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Безопасность</a>
+        <a href="../politika-konfidentsialnosti" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="../usloviya-ispolzovaniya" data-i18n="footer.terms">Условия использования</a>
+        <a href="../politika-vozvrata" data-i18n="footer.refund">Политика возврата</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cum Detectezi un PDF Falsificat sau Modificat | DocInspector</title>
+  <meta name="description" content="Ghid practic pentru detectarea modificărilor neautorizate într-un PDF. Metode de verificare a integrității, analiză metadate și instrumente specializate.">
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified">
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat">
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen">
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cum Detectezi un PDF Falsificat sau Modificat | DocInspector","datePublished":"2026-06-13","dateModified":"2026-06-13","author":{"@type":"Organization","name":"DocInspector"},"publisher":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},"inLanguage":"ro","url":"https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat/"}</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .article-body{font-family:'Inter',sans-serif;font-size:1.125rem;line-height:1.85;color:#cbd5e1}
+    .article-body p{margin-bottom:1.8rem;color:#cbd5e1}
+    .article-body h2{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2.8rem 0 1.25rem;font-size:1.65rem;border-left:4px solid #06b6d4;padding-left:14px;text-shadow:0 0 15px rgba(6,182,212,.15)}
+    .article-body h3{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2rem 0 1rem;font-size:1.3rem;border-left:3px solid #38bdf8;padding-left:10px}
+    .article-body ul{margin:0.5rem 0 1.8rem;padding-left:0;list-style:none}
+    .article-body ul li{position:relative;margin-bottom:.8rem;padding-left:1.5rem;line-height:1.75}
+    .article-body ul li::before{content:"•";color:#06b6d4;font-weight:bold;font-size:1.3rem;position:absolute;left:4px;top:-2px;text-shadow:0 0 8px rgba(6,182,212,.6)}
+    .article-body ol{margin:.5rem 0 1.8rem;padding-left:0;list-style:none;counter-reset:cc}
+    .article-body ol li{position:relative;margin-bottom:.8rem;padding-left:1.8rem;line-height:1.75;counter-increment:cc}
+    .article-body ol li::before{content:counter(cc)".";color:#38bdf8;font-weight:700;position:absolute;left:4px;top:0}
+    .tool-callout{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.25);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.95rem;color:#e2e8f0}
+    .tool-callout a{color:#06b6d4;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(6,182,212,.3)}
+    .faq-q{font-weight:700;color:#f1f5f9;margin:1.5rem 0 .3rem;font-size:1.05rem}
+    .faq-a{color:#94a3b8;margin-bottom:1rem}
+    a.tool-link{color:#06b6d4;border-bottom:1px solid rgba(6,182,212,.3);text-decoration:none}
+    a.tool-link:hover{border-bottom-color:#06b6d4}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Manager de Documente &amp; Audit Suite</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Acasă</a>
+        <a href="../unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
+        <a href="../price" data-i18n="nav.price">Prețuri</a>
+        <a href="../user-guide" data-i18n="nav.guide">Ghid</a>
+        <a href="../reports" data-i18n="nav.reports">Rapoarte</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact" data-i18n="nav.contact">Contact</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language"><span class="lang-pill">RO</span><span class="chev">▾</span></button>
+          <div class="lang-menu">
+            <a href="../../en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../../ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descarcă</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+      <span style="color:#64748b;font-size:.85rem">2026-06-13 · DocInspector Team</span>
+    </div>
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:2rem;color:#fff">Cum Detectezi un PDF Falsificat sau Modificat | DocInspector</h1>
+    <div class="article-body">
+
+<p>PDF-urile falsificate sau modificate neautorizat sunt o amenințare reală în mediul profesional. Contracte alterate, facturi falsificate sau certificate modificate pot cauza pierderi financiare sau juridice serioase. Iată cum le detectezi.</p>
+<h2>Tipuri comune de falsificare a PDF-urilor</h2>
+<ul><li><strong>Modificare text:</strong> Suma dintr-o factură, data unui contract sau o clauză importantă a fost schimbată</li><li><strong>Inserare/eliminare pagini:</strong> Pagini adăugate sau scoase dintr-un document semnat</li><li><strong>Semnături digitale înlăturate sau falsificate:</strong> Semnătura electronică a fost eliminată sau înlocuită</li><li><strong>Metadate manipulate:</strong> Data creării sau autorul au fost modificate pentru a ascunde manipularea</li></ul>
+<h2>Cum verifici integritatea unui PDF</h2>
+<p>Prima verificare: semnăturile digitale. Un PDF semnat electronic arată în Adobe Reader dacă semnătura este validă sau dacă documentul a fost modificat după semnare. Culoarea verde înseamnă integritate confirmată, roșu sau galben indică probleme.</p>
+<h2>Analiza metadatelor — indicii clare</h2>
+<p>Metadatele unui PDF conțin data creării, ultima modificare, aplicația utilizată și autorul. Dacă primești un „contract original" cu data modificării mai recentă decât data semnării — acesta este un semnal de alarmă clar. DocInspector afișează toate aceste câmpuri instant.</p>
+<h2>Verificare avansată prin hash</h2>
+<p>Hashul criptografic (SHA-256) al unui fișier se schimbă dacă se modifică un singur bit din document. Dacă expeditorul îți furnizează hashul original și hashul fișierului primit diferă — documentul a fost alterat.</p>
+<div class="tool-callout"><strong>🔒 DocInspector Security:</strong> <a href="../unelte-online" class="tool-link">Instrumentele DocInspector</a> analizează metadatele PDF, detectează inconsistențe și verifică structura internă a documentului pentru semne de manipulare.</div>
+<h2>Întrebări frecvente</h2>
+<p class="faq-q">Un PDF fără semnătură digitală poate fi verificat?</p>
+<p class="faq-a">Da — analiza metadatelor, a fonturilor și a structurii interne poate revela modificări chiar și fără semnătură digitală.</p>
+<p class="faq-q">Există PDF-uri atât de bine falsificate încât nu pot fi detectate?</p>
+<p class="faq-a">Falsificările avansate sunt mai greu de detectat, dar metadatele și structura internă lasă întotdeauna urme. O analiză completă rareori rămâne fără indicii.</p>
+<h2>Concluzie</h2>
+<p>Detectarea PDF-urilor falsificate necesită atenție la metadate, semnături digitale și structura internă. Instrumentele specializate fac această verificare rapidă și accesibilă oricui lucrează cu documente importante.</p>
+
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
+        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
+</body>
+</html>

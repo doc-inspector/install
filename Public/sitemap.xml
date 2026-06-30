@@ -5139,4 +5139,334 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/bezopasnaya-otpravka-pdf-luchshie-praktiki-2025"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/secure-pdf-sharing-best-practices-2025"/>
   </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-comprim-un-pdf-fara-pierdere-calitate"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhav-pdf-bez-poteri-kachestva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-comprim-un-pdf-fara-pierdere-calitate</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-comprim-un-pdf-fara-pierdere-calitate"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhav-pdf-bez-poteri-kachestva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-szhav-pdf-bez-poteri-kachestva</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-comprim-un-pdf-fara-pierdere-calitate"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-szhav-pdf-bez-poteri-kachestva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-compress-pdf-without-losing-quality"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-separi-paginile-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-razdelit-pdf-na-otdelnye-stranitsy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-separi-paginile-unui-pdf</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-separi-paginile-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-razdelit-pdf-na-otdelnye-stranitsy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-razdelit-pdf-na-otdelnye-stranitsy</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-separi-paginile-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-razdelit-pdf-na-otdelnye-stranitsy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-split-pdf-into-individual-pages"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-convertesti-pdf-in-word-editabil"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-konvertirovat-pdf-v-redaktiruemyy-word"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-convertesti-pdf-in-word-editabil</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-convertesti-pdf-in-word-editabil"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-konvertirovat-pdf-v-redaktiruemyy-word"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-konvertirovat-pdf-v-redaktiruemyy-word</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-convertesti-pdf-in-word-editabil"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-konvertirovat-pdf-v-redaktiruemyy-word"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-convert-pdf-to-editable-word-document"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-detectezi-un-pdf-falsificat-sau-modificat"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-opredelit-byl-li-pdf-poddelan-ili-izmenen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-detect-if-a-pdf-has-been-tampered-or-falsified"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-a-si-de-ce-conteaza-pentru-arhivare"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-a-i-zachem-on-nuzhen-dlya-arkhivatsii"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/ce-este-pdf-a-si-de-ce-conteaza-pentru-arhivare</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-a-si-de-ce-conteaza-pentru-arhivare"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-a-i-zachem-on-nuzhen-dlya-arkhivatsii"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/chto-takoe-pdf-a-i-zachem-on-nuzhen-dlya-arkhivatsii</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-pdf-a-si-de-ce-conteaza-pentru-arhivare"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-pdf-a-i-zachem-on-nuzhen-dlya-arkhivatsii"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-pdfa-and-why-it-matters-for-document-archiving"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-completezi-un-formular-pdf-online-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapolnit-formu-pdf-onlayn-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-completezi-un-formular-pdf-online-gratuit</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-completezi-un-formular-pdf-online-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapolnit-formu-pdf-onlayn-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-zapolnit-formu-pdf-onlayn-besplatno</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-completezi-un-formular-pdf-online-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapolnit-formu-pdf-onlayn-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-fill-out-a-pdf-form-online-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-prea-mare-pentru-email-5-metode"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-slishkom-bolshoy-dlya-email-5-sposobov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/pdf-prea-mare-pentru-email-5-metode</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-prea-mare-pentru-email-5-metode"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-slishkom-bolshoy-dlya-email-5-sposobov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/pdf-slishkom-bolshoy-dlya-email-5-sposobov</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pdf-prea-mare-pentru-email-5-metode"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/pdf-slishkom-bolshoy-dlya-email-5-sposobov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdf-too-large-for-email-5-methods-to-fix-it"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-adaugi-semnatura-digitala-pdf-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavit-tsifrovuyu-podpis-v-pdf-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-adaugi-semnatura-digitala-pdf-gratuit</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-adaugi-semnatura-digitala-pdf-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavit-tsifrovuyu-podpis-v-pdf-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-dobavit-tsifrovuyu-podpis-v-pdf-besplatno</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-adaugi-semnatura-digitala-pdf-gratuit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-dobavit-tsifrovuyu-podpis-v-pdf-besplatno"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-add-digital-signature-to-pdf-for-free"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-informatii-ascunde-un-pdf-despre-tine"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kakuyu-skrytuyu-informatsiyu-soderzhit-pdf-o-vas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/ce-informatii-ascunde-un-pdf-despre-tine</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-informatii-ascunde-un-pdf-despre-tine"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kakuyu-skrytuyu-informatsiyu-soderzhit-pdf-o-vas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kakuyu-skrytuyu-informatsiyu-soderzhit-pdf-o-vas</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-informatii-ascunde-un-pdf-despre-tine"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kakuyu-skrytuyu-informatsiyu-soderzhit-pdf-o-vas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-hidden-information-does-a-pdf-contain-about-you"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-unesti-mai-multe-pdf-uri-intr-un-singur-fisier"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-obedinit-neskolko-pdf-v-odin-fayl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-unesti-mai-multe-pdf-uri-intr-un-singur-fisier</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-unesti-mai-multe-pdf-uri-intr-un-singur-fisier"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-obedinit-neskolko-pdf-v-odin-fayl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-obedinit-neskolko-pdf-v-odin-fayl</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-unesti-mai-multe-pdf-uri-intr-un-singur-fisier"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-obedinit-neskolko-pdf-v-odin-fayl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-merge-multiple-pdfs-into-one-file"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-sa-blochezi-copierea-editarea-si-tiparirea-unui-pdf"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
+  </url>
 </urlset>
