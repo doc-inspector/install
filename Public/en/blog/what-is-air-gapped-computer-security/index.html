@@ -1,104 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What Is an Air-Gapped Computer? Security Explained</title>
-<meta name="description" content="Learn what air-gapped computers are, how they protect sensitive documents, and when you need one for maximum security.">
-<meta name="keywords" content="air gapped computer, air gap security, offline document security, secure workstation">
-<meta property="og:title" content="What Is an Air-Gapped Computer? Security Explained">
-<meta property="og:description" content="Learn what air-gapped computers are, how they protect sensitive documents, and when you need one for maximum security.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security">
-<meta property="og:site_name" content="DocInspector">
-<link rel="canonical" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security">
-<link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security">
-<link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-air-gapped-securitate-calculator">
-<link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-air-gapped-kompyuter-bezopasnost">
-<link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security">
-<script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"What Is an Air-Gapped Computer? Security Explained",
-  "datePublished":"2026-06-30",
-  "dateModified":"2026-06-30",
-  "author":{"@type":"Organization","name":"DocInspector"},
-  "publisher":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},
-  "inLanguage":"en",
-  "url":"https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security"
-}</script>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f0;line-height:1.7}
-.site-header{background:#0f1117;border-bottom:1px solid rgba(255,255,255,0.08);padding:1rem 2rem;display:flex;align-items:center;gap:1rem}
-.site-header a{color:#e2e8f0;text-decoration:none;font-weight:700;font-size:1.1rem}
-.site-header nav{margin-left:auto;display:flex;gap:1.5rem}
-.site-header nav a{color:#94a3b8;font-size:.9rem;text-decoration:none}
-.site-header nav a:hover{color:#e2e8f0}
-.hero{background:linear-gradient(135deg,#1e293b 0%,#0f1117 100%);padding:4rem 2rem 3rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
-.hero h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;line-height:1.2;max-width:860px;margin:0 auto 1rem}
-.hero .meta{color:#64748b;font-size:.85rem}
-.container{max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
-h2{font-size:1.35rem;font-weight:700;margin:2.5rem 0 .8rem;padding-left:.9rem;border-left:4px solid #06b6d4;color:#f1f5f9}
-h3{font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem;color:#cbd5e1}
-p{margin-bottom:1rem;color:#cbd5e1}
-ul,ol{margin:0 0 1rem 1.5rem;color:#cbd5e1}
-li{margin-bottom:.4rem}
-.tool-callout{background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.25);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.95rem;color:#e2e8f0}
-.faq-q{font-weight:700;color:#f1f5f9;margin:1.5rem 0 .3rem}
-.faq-a{color:#94a3b8;margin-bottom:1rem}
-.tag{display:inline-block;background:rgba(6,182,212,0.15);color:#06b6d4;border-radius:4px;padding:.1rem .5rem;font-size:.75rem;margin-right:.3rem}
-footer{text-align:center;padding:2rem;color:#374151;font-size:.8rem;border-top:1px solid rgba(255,255,255,0.06)}
-@media(max-width:600px){.hero{padding:2.5rem 1rem 2rem}.container{padding:1.5rem 1rem 3rem}}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>What Is an Air-Gapped Computer? Security Explained</title>
+  <meta name="description" content="Learn what air-gapped computers are, how they protect sensitive documents, and when you need one for maximum security.">
+  <link rel="canonical" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security/">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security/">
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-air-gapped-securitate-calculator/">
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/chto-takoe-air-gapped-kompyuter-bezopasnost/">
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is an Air-Gapped Computer? Security Explained","datePublished":"2026-06-30","dateModified":"2026-06-30","author":{"@type":"Organization","name":"DocInspector"},"publisher":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},"inLanguage":"en","url":"https://doc-inspector.com/en/blog/what-is-air-gapped-computer-security/"}</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
+  <link rel="stylesheet" href="../../../style.css?v=12">
+  <link rel="icon" href="../../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .article-body{font-family:'Inter',sans-serif;font-size:1.125rem;line-height:1.85;color:#cbd5e1}
+    .article-body p{margin-bottom:1.8rem;color:#cbd5e1}
+    .article-body h2{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2.8rem 0 1.25rem;font-size:1.65rem;border-left:4px solid #06b6d4;padding-left:14px;text-shadow:0 0 15px rgba(6,182,212,.15)}
+    .article-body h3{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2rem 0 1rem;font-size:1.3rem;border-left:3px solid #38bdf8;padding-left:10px}
+    .article-body ul{margin:0.5rem 0 1.8rem;padding-left:0;list-style:none}
+    .article-body ul li{position:relative;margin-bottom:.8rem;padding-left:1.5rem;line-height:1.75}
+    .article-body ul li::before{content:"•";color:#06b6d4;font-weight:bold;font-size:1.3rem;position:absolute;left:4px;top:-2px;text-shadow:0 0 8px rgba(6,182,212,.6)}
+    .article-body ol{margin:.5rem 0 1.8rem;padding-left:0;list-style:none;counter-reset:cc}
+    .article-body ol li{position:relative;margin-bottom:.8rem;padding-left:1.8rem;line-height:1.75;counter-increment:cc}
+    .article-body ol li::before{content:counter(cc)".";color:#38bdf8;font-weight:700;position:absolute;left:4px;top:0}
+    .tool-callout{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.25);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.95rem;color:#e2e8f0}
+    .tool-callout a{color:#06b6d4;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(6,182,212,.3)}
+    .faq-q{font-weight:700;color:#f1f5f9;margin:1.5rem 0 .3rem;font-size:1.05rem}
+    .faq-a{color:#94a3b8;margin-bottom:1rem}
+    .article-meta{margin-bottom:1rem;opacity:.8}
+    a.tool-link{color:#06b6d4;border-bottom:1px solid rgba(6,182,212,.3);text-decoration:none}
+    a.tool-link:hover{border-bottom-color:#06b6d4}
+  </style>
 </head>
 <body>
 <header class="site-header">
-  <a href="https://doc-inspector.com/en/">DocInspector</a>
-  <nav>
-    <a href="https://doc-inspector.com/en/">Home</a>
-    <a href="https://doc-inspector.com/en/tools">Tools</a>
-    <a href="https://doc-inspector.com/en/blog">Blog</a>
-  </nav>
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Home</a>
+        <a href="../price" data-i18n="nav.price">Price</a>
+        <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
+        <a href="../reports" data-i18n="nav.reports">Reports &amp; Feedback</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact" data-i18n="nav.contact">Contact</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language"><span class="lang-pill">EN</span><span class="chev">▾</span></button>
+          <div class="lang-menu">
+            <a href="../../../en/blog/what-is-air-gapped-computer-security/" class="lang-item active" data-lang="en">EN</a>
+            <a href="../../../ro/blog/ce-este-air-gapped-securitate-calculator/" class="lang-item" data-lang="ro">RO</a>
+            <a href="../../../ru/blog/chto-takoe-air-gapped-kompyuter-bezopasnost/" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
 </header>
-<div class="hero">
-  <h1>What Is an Air-Gapped Computer? Security Explained</h1>
-  <p class="meta">2026-06-30 &nbsp;·&nbsp; By DocInspector Team</p>
-</div>
-<div class="container">
-
-<p>An <strong>air-gapped computer</strong> is a machine physically isolated from the internet and all local networks. No Wi-Fi, no Bluetooth, no Ethernet — nothing in or out except physical media. Governments, banks, and intelligence agencies use them to protect their most sensitive data.</p>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+      <span style="color:#64748b;font-size:.85rem">2026-06-30 · DocInspector Team</span>
+    </div>
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:2rem;color:#fff">What Is an Air-Gapped Computer? Security Explained</h1>
+    <div class="article-body">
+<p>An <strong>air-gapped computer</strong> is a machine physically isolated from the internet and all local networks. No Wi-Fi, no Bluetooth, no Ethernet — nothing in or out except physical media. Governments, banks, and intelligence agencies use them to protect the most sensitive data.</p>
 <h2>Why Air Gaps Exist</h2>
-<p>Every network connection is a potential attack vector. Malware, remote exploits, man-in-the-middle attacks — they all require connectivity. Remove the connection, and you eliminate the entire class of network-based threats.</p>
+<p>Every network connection is a potential attack vector. Malware, remote exploits, man-in-the-middle attacks — they all require connectivity. Remove the connection and you eliminate the entire class of network-based threats.</p>
 <p>Air gaps are used for: nuclear facility controls, classified government systems, financial transaction signing, and long-term secret storage.</p>
-<h2>Practical Use: Documents & PDFs</h2>
+<h2>Practical Use: Documents &amp; PDFs</h2>
 <p>Most organizations don't need a full air-gapped workstation, but they do need <strong>air-gapped document practices</strong>: cleaning metadata before sharing, encrypting files before transit, and redacting sensitive data before distribution.</p>
-<div class="tool-callout">Try our free <a href="../../en/tools/sanitize-pdf-metadata" style="color:#06b6d4;font-weight:600;text-decoration:none;">PDF Metadata Remover</a> — no registration, no upload limits.</div>
-<h2>Air Gap vs. Encryption: Which Do You Need?</h2>
-<p>Air gaps prevent <em>remote</em> access. Encryption protects data <em>in transit and at rest</em>. They solve different problems — serious security programs use both.</p>
+<div class="tool-callout">Remove hidden metadata from your PDFs before sending — use our free <a href="../../../en/tools/sanitize-pdf-metadata.html">PDF Metadata Remover</a>. No registration, no upload limits.</div>
+<h2>Air Gap vs. Encryption</h2>
+<p>Air gaps prevent <em>remote</em> access. Encryption protects data <em>in transit and at rest</em>. Serious security programs use both.</p>
 <ul>
 <li>Air gap: stops network intrusion</li>
-<li>Encryption: protects the file even if stolen</li>
-<li><a href="../../en/tools/encrypt-pdf-online" style="color:#06b6d4;border-bottom:1px solid rgba(6,182,212,0.3);text-decoration:none;">PDF Encryption Tool</a> adds a layer of protection for any document leaving your system</li>
+<li>Encryption: protects files even if physically stolen — use our <a href="../../../en/tools/encrypt-pdf-online.html" class="tool-link">PDF Encryption Tool</a></li>
+<li>Redaction: removes visible sensitive content permanently — try our <a href="../../../en/tools/redact-pdf-online.html" class="tool-link">PDF Redaction Tool</a></li>
 </ul>
 <h2>Limits of Air Gaps</h2>
-<p>Air gaps aren't invincible. The famous Stuxnet worm spread via USB drives into air-gapped Iranian nuclear facilities. Physical access, compromised hardware, and insider threats still apply.</p>
+<p>Air gaps aren't invincible. The Stuxnet worm spread via USB drives into air-gapped Iranian nuclear facilities. Physical access, compromised hardware, and insider threats still apply.</p>
 <h2>FAQ</h2>
 <div class="faq-q">Can a laptop be air-gapped?</div>
-<div class="faq-a">Yes — disable all wireless hardware, disable Bluetooth in BIOS, and never connect it to a network. Use USB only with scanned, verified media.</div>
+<div class="faq-a">Yes — disable all wireless hardware, disable Bluetooth in BIOS, and never connect to a network. Use only scanned, verified USB media.</div>
 <div class="faq-q">Is air-gapping necessary for PDFs?</div>
-<div class="faq-a">Rarely. For most use cases, combining <a href="../../en/tools/encrypt-pdf-online" style="color:#06b6d4;border-bottom:1px solid rgba(6,182,212,0.3);text-decoration:none;">encryption</a>, <a href="../../en/tools/redact-pdf-online" style="color:#06b6d4;border-bottom:1px solid rgba(6,182,212,0.3);text-decoration:none;">redaction</a>, and <a href="../../en/tools/sanitize-pdf-metadata" style="color:#06b6d4;border-bottom:1px solid rgba(6,182,212,0.3);text-decoration:none;">metadata removal</a> gives strong protection without the operational cost of air-gapping.</div>
-<div class="faq-q">What operating system is best for an air-gapped PC?</div>
-<div class="faq-a">Tails OS or a hardened Linux installation with disabled network modules are common choices. Windows can work if network hardware is physically removed.</div>
-
-</div>
-<footer>© 2026 DocInspector — <a href="https://doc-inspector.com/en/" style="color:#374151">doc-inspector.com</a></footer>
+<div class="faq-a">Rarely. Combining <a href="../../../en/tools/encrypt-pdf-online.html" class="tool-link">encryption</a>, <a href="../../../en/tools/redact-pdf-online.html" class="tool-link">redaction</a>, and <a href="../../../en/tools/sanitize-pdf-metadata.html" class="tool-link">metadata removal</a> gives strong protection without the operational cost.</div>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
+        <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../cookies.js"></script>
+<script src="../../../i18n-dict.js"></script>
+<script src="../../../i18n.js"></script>
 </body>
 </html>
