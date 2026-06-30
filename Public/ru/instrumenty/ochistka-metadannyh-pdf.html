@@ -482,8 +482,7 @@
     </div>
     <h1 class="hero-h1 gsap-fade">Обрабатывайте PDF Прямо в Браузере</h1>
     <p class="hero-lead gsap-fade">
-      Очистка метаданных, добавление водяных знаков, шифрование, удаление данных или ремонт PDF документов онлайн. Файлы обрабатываются в <strong style="color:#fff">изолированной песочнице</strong>
-        и удаляются сразу после скачивания.
+      Очистите и удалите скрытые метаданные из файлов PDF, Word, Excel и изображений онлайн бесплатно. Пакетное стирание авторов, дат, GPS-координат и свойств системы.
     </p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Без облачного хранилища</span>
@@ -759,7 +758,7 @@
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
               <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Весь текстовый слой страницы удаляется, чтобы гарантировать отсутствие конфиденциального содержимого (выходной файл только из изображений).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Внимание: Если ваш PDF-файл представляет собой отсканированный документ, текст не будет найден. Мы рекомендуем также выбрать "Rebuild & Repair" для OCR, но это значительно увеличит время обработки.</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Внимание: Если ваш PDF-файл представляет собой отсканированный документ, текст не будет найден. Мы рекомендуем также выбрать "Rebuild & Repair PDF" для OCR, но это значительно увеличит время обработки.</p>
             </div>
           </div>
 
@@ -1565,7 +1564,10 @@ function gatherOptions() {
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
       watermarkAngle:   document.getElementById('wm-angle')?.value   || '-45',
     encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
-    encryptOwnerPw:   document.getElementById('enc-pw')?.value     || 'docprotect',
+    encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
+    encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
+    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked  || false,
+    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked  || false,
     encryptBits:      '256',
     redactKeywords:   document.getElementById('redact-kw')?.value  || '',
     sanitizeAll:      document.getElementById('san-all') ? document.getElementById('san-all').checked : true,
@@ -1754,31 +1756,206 @@ async function pollJobStatus(jobId, downloadName) {
         break;
       }
       
-      if (data.status === 'processing' || data.status === 'pending') {
-        const progStr = data.progress || 'Обработка...';
-        const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
-        if (match) {
-          const current = parseInt(match[1], 10);
-          const total = parseInt(match[2], 10);
-          const filename = match[3];
-          const pct = Math.min((current / total) * 100, 100);
+      if (data.status === 'processing' || data.status === 'pending')  {
+        const progStr = data.progress || 'Processing...';
+        let parsed = null;
+        try {
+          if (progStr.trim().startsWith('{')) {
+            parsed = JSON.parse(progStr);
+          }
+        } catch (e) {}
+
+        if (parsed) {
+          const current = parsed.current_file_idx;
+          const total = parsed.total_files;
+          const filename = parsed.current_file_name;
+          const ops = parsed.operations || [];
+          const currentOp = parsed.current_op;
+
+          let pct = 0;
+          if (total > 0) {
+            let filePct = (current - 1) / total;
+            if (ops.length > 0 && currentOp) {
+              const opIndex = ops.indexOf(currentOp);
+              if (opIndex !== -1) {
+                filePct += (opIndex / ops.length) * (1 / total);
+              }
+            }
+            pct = Math.min(filePct * 100, 100);
+          }
+
           if (progContainer) progContainer.style.display = 'block';
-          if (progBar) progBar.style.width = pct + '%';
-          if (progText) progText.textContent = `📄 ${filename}`;
-          rSub.textContent = `Обработка файла ${current} из ${total}`;
+          if (progBar) progBar.style.width = pct.toFixed(1) + '%';
+          if (progText) progText.textContent = filename ? `📄 ${filename}` : '';
+
+          if (parsed.type === 'bundle') {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Extracting metadata from file ${current} of ${total}`;
+            }
+          } else if (parsed.type === 'bundle_generating') {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se generează rapoartele Excel + PDF + CSV...`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Генерация отчетов Excel + PDF + CSV...`;
+            } else {
+              rSub.textContent = `Generating Excel + PDF + CSV reports...`;
+            }
+          } else {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Обработка файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Processing file ${current} of ${total}`;
+            }
+          }
+
+          let opsContainer = document.getElementById('rOpsContainer');
+          if (!opsContainer) {
+            opsContainer = document.createElement('div');
+            opsContainer.id = 'rOpsContainer';
+            opsContainer.style.marginTop = '1.2rem';
+            opsContainer.style.display = 'flex';
+            opsContainer.style.flexDirection = 'column';
+            opsContainer.style.gap = '0.6rem';
+            opsContainer.style.padding = '0.8rem';
+            opsContainer.style.background = 'rgba(255, 255, 255, 0.03)';
+            opsContainer.style.border = '1px solid rgba(255, 255, 255, 0.06)';
+            opsContainer.style.borderRadius = '8px';
+            progContainer.appendChild(opsContainer);
+          }
+
+          if (ops.length > 0) {
+            opsContainer.style.display = 'flex';
+            const opNames = {
+              en: {
+                removesigs: "Remove Signatures",
+                rebuild: "Rebuild & Repair PDF",
+                redact: "Find & Redact",
+                flatten: "Convert PDF to Image-only (Flatten)",
+                watermark: "Add Watermark",
+                sanitize: "Sanitize Metadata",
+                encrypt: "Encrypt PDF"
+              },
+              ro: {
+                removesigs: "Elimină Semnăturile",
+                rebuild: "Reconstruiește & Repară PDF",
+                redact: "Găsește & Redactează",
+                flatten: "Convertește PDF în Imagine (Aplatizare)",
+                watermark: "Adaugă Filigran",
+                sanitize: "Igienizează Metadate",
+                encrypt: "Criptează PDF"
+              },
+              ru: {
+                removesigs: "Удаление подписей",
+                rebuild: "Восстановление структуры PDF",
+                redact: "Поиск и скрытие",
+                flatten: "Преобразовать PDF в изображение (Растеризовать)",
+                watermark: "Добавление водяного знака",
+                sanitize: "Очистка метаданных",
+                encrypt: "Шифрование PDF"
+              }
+            };
+
+            const lang = (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) ? 'ro' : 
+                         ((window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) ? 'ru' : 'en');
+            const currentOpIndex = ops.indexOf(currentOp);
+
+            opsContainer.innerHTML = '';
+            ops.forEach((op, index) => {
+              const name = (opNames[lang] && opNames[lang][op]) || op;
+              const stepRow = document.createElement('div');
+              stepRow.style.display = 'flex';
+              stepRow.style.alignItems = 'center';
+              stepRow.style.justifyContent = 'space-between';
+              stepRow.style.fontSize = '0.82rem';
+
+              let statusText = "";
+              let statusColor = "";
+              let icon = "⚪";
+              let glowEffect = "";
+
+              if (index < currentOpIndex) {
+                statusText = lang === 'ro' ? 'Finalizat' : (lang === 'ru' ? 'Готово' : 'Done');
+                statusColor = '#10b981';
+                icon = "🟢";
+              } else if (index === currentOpIndex) {
+                statusText = lang === 'ro' ? 'Activ' : (lang === 'ru' ? 'Активно' : 'Active');
+                statusColor = '#06b6d4';
+                icon = "🔵";
+                glowEffect = 'animation: pulseGlow 1.5s infinite ease-in-out;';
+              } else {
+                statusText = lang === 'ro' ? 'În așteptare' : (lang === 'ru' ? 'В ожидании' : 'Pending');
+                statusColor = 'rgba(255,255,255,0.3)';
+                icon = "⚪";
+              }
+
+              if (!document.getElementById('diPulseStyle')) {
+                const styleSheet = document.createElement('style');
+                styleSheet.id = 'diPulseStyle';
+                styleSheet.textContent = `
+                  @keyframes pulseGlow {
+                    0% { opacity: 0.6; transform: scale(1); }
+                    50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 6px #06b6d4; }
+                    100% { opacity: 0.6; transform: scale(1); }
+                  }
+                `;
+                document.head.appendChild(styleSheet);
+              }
+
+              stepRow.innerHTML = `
+                <div style="display:flex; align-items:center; gap:0.5rem; color:${index <= currentOpIndex ? '#fff' : 'rgba(255,255,255,0.4)'}">
+                  <span>${icon}</span>
+                  <span style="font-weight:${index === currentOpIndex ? 'bold' : 'normal'}">${name}</span>
+                </div>
+                <span style="color:${statusColor}; font-size:0.75rem; font-weight:700; text-transform:uppercase; ${glowEffect}">${statusText}</span>
+              `;
+              opsContainer.appendChild(stepRow);
+            });
+          } else {
+            opsContainer.style.display = 'none';
+          }
         } else {
-          const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
-          if (bundleMatch) {
-            const current = parseInt(bundleMatch[1], 10);
-            const total = parseInt(bundleMatch[2], 10);
-            const filename = bundleMatch[3];
+          const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+          if (match) {
+            const current = parseInt(match[1], 10);
+            const total = parseInt(match[2], 10);
+            const filename = match[3];
             const pct = Math.min((current / total) * 100, 100);
             if (progContainer) progContainer.style.display = 'block';
             if (progBar) progBar.style.width = pct + '%';
             if (progText) progText.textContent = `📄 ${filename}`;
-            rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Обработка файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Processing file ${current} of ${total}`;
+            }
           } else {
-            rSub.textContent = progStr;
+            const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+            if (bundleMatch) {
+              const current = parseInt(bundleMatch[1], 10);
+              const total = parseInt(bundleMatch[2], 10);
+              const filename = bundleMatch[3];
+              const pct = Math.min((current / total) * 100, 100);
+              if (progContainer) progContainer.style.display = 'block';
+              if (progBar) progBar.style.width = pct + '%';
+              if (progText) progText.textContent = `📄 ${filename}`;
+              if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+                rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+              } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+                rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+              } else {
+                rSub.textContent = `Extracting metadata from file ${current} of ${total}`;
+              }
+            } else {
+              rSub.textContent = progStr;
+            }
           }
         }
       } else if (data.status === 'completed') {
@@ -1791,7 +1968,7 @@ async function pollJobStatus(jobId, downloadName) {
         if (cancelBtn) cancelBtn.style.display = 'none';
         if (progContainer) {
           if (progBar) progBar.style.width = '100%';
-          setTimeout(() => { progContainer.style.display = 'none'; }, 1000);
+          setTimeout(() => { progContainer.style.display = 'none'; if (document.getElementById('rOpsContainer')) document.getElementById('rOpsContainer').style.display = 'none'; }, 1000);
         }
         
         if (downloadName.includes('Bundle')) {
@@ -1856,6 +2033,7 @@ async function cancelJob() {
     document.getElementById('rSub').textContent = 'Остановка обработки на сервере...';
     document.getElementById('rCancelBtn').style.display = 'none';
     if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
+    if (document.getElementById('rOpsContainer')) document.getElementById('rOpsContainer').style.display = 'none';
     document.getElementById('rResetBtn').style.display = 'inline-block';
     document.getElementById('processBtn').disabled = false;
     
@@ -1946,15 +2124,6 @@ window.addEventListener('beforeunload', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Auto-select specific tool for landing page
-  setTimeout(() => {
-    const card = document.getElementById('card-sanitize');
-    if (card && !selectedOps.has('sanitize')) {
-      toggleTool({ clientX: 0, clientY: 0 }, 'sanitize');
-    }
-  }, 100);
-
   const addBtn = document.getElementById('btn-add-kw');
   const input = document.getElementById('redact-kw-input');
   if (addBtn && input) {

@@ -505,7 +505,7 @@
                 <div class="tool-name">Сглаживание в PDF-изображение</div>
               </div>
               <div class="tool-desc">Преобразуйте каждую страницу в растровое изображение внутри PDF. Удаляет весь встроенный текст, шрифты, скрипты и активные поля форм.</div>
-              <a href="https://doc-inspector.com/ru/instrumenty/obiedinit-sloi-pdf" aria-label="Сглаживание PDF онлайн" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Объединить слои PDF онлайн</a>
+              <a href="https://doc-inspector.com/ru/instrumenty/obiedinit-sloi-pdf" aria-label="Сглаживание PDF онлайн" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Преобразовать PDF в изображение (Растеризовать) онлайн</a>
             </div>
 
             <!-- PDF Bundle Summary -->
@@ -687,7 +687,7 @@
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
               <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Весь текстовый слой страницы удаляется, чтобы гарантировать отсутствие конфиденциального содержимого (выходной файл только из изображений).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Внимание: Если ваш PDF-файл представляет собой отсканированный документ, текст не будет найден. Мы рекомендуем также выбрать "Rebuild & Repair" для OCR, но это значительно увеличит время обработки.</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Внимание: Если ваш PDF-файл представляет собой отсканированный документ, текст не будет найден. Мы рекомендуем также выбрать "Rebuild & Repair PDF" для OCR, но это значительно увеличит время обработки.</p>
             </div>
           </div>
 
@@ -1729,27 +1729,27 @@ async function pollJobStatus(jobId, downloadName) {
             const opNames = {
               en: {
                 removesigs: "Remove Signatures",
-                rebuild: "Rebuild & Repair",
+                rebuild: "Rebuild & Repair PDF",
                 redact: "Find & Redact",
-                flatten: "Flatten to Image",
+                flatten: "Convert PDF to Image-only (Flatten)",
                 watermark: "Add Watermark",
                 sanitize: "Sanitize Metadata",
                 encrypt: "Encrypt PDF"
               },
               ro: {
                 removesigs: "Elimină Semnăturile",
-                rebuild: "Reconstruiește & Repară",
+                rebuild: "Reconstruiește & Repară PDF",
                 redact: "Găsește & Redactează",
-                flatten: "Aplatizează în Imagine",
+                flatten: "Convertește PDF în Imagine (Aplatizare)",
                 watermark: "Adaugă Filigran",
                 sanitize: "Igienizează Metadate",
                 encrypt: "Criptează PDF"
               },
               ru: {
                 removesigs: "Удаление подписей",
-                rebuild: "Восстановление структуры",
+                rebuild: "Восстановление структуры PDF",
                 redact: "Поиск и скрытие",
-                flatten: "Преобразование в растр",
+                flatten: "Преобразовать PDF в изображение (Растеризовать)",
                 watermark: "Добавление водяного знака",
                 sanitize: "Очистка метаданных",
                 encrypt: "Шифрование PDF"

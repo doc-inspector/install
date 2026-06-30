@@ -7,7 +7,7 @@
   <meta name="description" content="Unelte online gratuite pentru PDF cu procesare în lot — până la 100 de fișiere simultan și operații înlănțuite într-un singur pipeline: sanitizare metadate, watermark, criptare, redactare, reparare, divizare, unire și mai mult. Zero stocare în cloud — fișierele sunt procesate în sandbox izolat și șterse imediat după descărcare.">
   <meta name="keywords" content="unelte PDF online gratuite, sanitizare metadate PDF, watermark PDF, criptare PDF, redactare PDF, reparare PDF, fara cloud, GDPR PDF">
   <meta property="og:title" content="Unelte Online PDF Gratuite — DocInspector">
-  <meta property="og:description" content="Procesează PDF-uri direct în browser. Sanitizează, adaugă watermark, criptează, redactează, repară — complet gratuit. Fișierele sunt șterse imediat după descărcare.">
+  <meta property="og:description" content="Procesează documente direct în browser. Sanitizează, adaugă watermark, criptează, redactează, repară — complet gratuit. Fișierele sunt șterse imediat după descărcare.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
   <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
@@ -394,9 +394,9 @@
       <span class="live-dot"></span>
       UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
     </div>
-    <h1 class="hero-h1 gsap-fade">Procesează PDF-uri Direct în Browserul Tău</h1>
+    <h1 class="hero-h1 gsap-fade">Manager de Documente în Lot și Securitate PDF</h1>
     <p class="hero-lead gsap-fade">
-      Sanitizează metadate, adaugă watermark, criptează, redactează sau repară documente PDF online &#x2014; <strong style="color:#fff">sandbox izolat</strong>
+      Sanitizează metadate, adaugă watermark, criptează, redactează sau repară documente online &#x2014; <strong style="color:#fff">sandbox izolat</strong>
         și șterse imediat după descărcare. Nu este necesar un cont.
     </p>
       <div class="badges-row gsap-fade">
@@ -529,7 +529,7 @@
               <div class="check-ring">✓</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-orange">🖼️</div>
-                <div class="tool-name">Aplatizare în PDF-Imagine</div>
+                <div class="tool-name">Convertește PDF în Imagine (Aplatizare)</div>
               </div>
               <div class="tool-desc">Convertește fiecare pagină într-o imagine raster în interiorul PDF-ului. <strong style="color:#10b981">Suportă doar PDF.</strong></div>
               <a href="https://doc-inspector.com/ro/unelte/aplatizare-pdf-online" aria-label="Aplatizare PDF online" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Aplatizare PDF Online</a>
@@ -708,7 +708,7 @@
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
               <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Întregul strat de text al paginii este eliminat pentru a garanta că nu rămâne niciun conținut sensibil (ieșire doar-imagine).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Atenție: Dacă documentul este scanat/imagine, textul nu va fi găsit. Recomandăm să bifați și "Rebuild & Repair" pentru OCR, însă procesarea va dura semnificativ mai mult.</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Atenție: Dacă documentul este scanat/imagine, textul nu va fi găsit. Recomandăm să bifați și "Rebuild & Repair PDF" pentru OCR, însă procesarea va dura semnificativ mai mult.</p>
             </div>
           </div>
 
@@ -1013,7 +1013,7 @@ const TOOLS = {
   watermark: { label:'Adaugă Watermark',            emoji:'💧' },
   encrypt  : { label:'Criptează PDF',               emoji:'🔐' },
   redact   : { label:'Găsește & Redactează',        emoji:'⬛' },
-  flatten  : { label:'Aplatizare în PDF-Imagine',   emoji:'🖼️' },
+  flatten  : { label:'Convertește PDF în Imagine (Aplatizare)',   emoji:'🖼️' },
   rebuild  : { label:'Reconstruiește & Repară PDF', emoji:'🛠️' },
   bundle   : { label:'Borderou PDF',                emoji:'📋' },
   'bundle-advanced': { label:'Borderou PDF Avansat', emoji:'📘' },
@@ -1806,27 +1806,27 @@ async function pollJobStatus(jobId, downloadName) {
             const opNames = {
               en: {
                 removesigs: "Remove Signatures",
-                rebuild: "Rebuild & Repair",
+                rebuild: "Rebuild & Repair PDF",
                 redact: "Find & Redact",
-                flatten: "Flatten to Image",
+                flatten: "Convert PDF to Image-only (Flatten)",
                 watermark: "Add Watermark",
                 sanitize: "Sanitize Metadata",
                 encrypt: "Encrypt PDF"
               },
               ro: {
                 removesigs: "Elimină Semnăturile",
-                rebuild: "Reconstruiește & Repară",
+                rebuild: "Reconstruiește & Repară PDF",
                 redact: "Găsește & Redactează",
-                flatten: "Aplatizează în Imagine",
+                flatten: "Convertește PDF în Imagine (Aplatizare)",
                 watermark: "Adaugă Filigran",
                 sanitize: "Igienizează Metadate",
                 encrypt: "Criptează PDF"
               },
               ru: {
                 removesigs: "Удаление подписей",
-                rebuild: "Восстановление структуры",
+                rebuild: "Восстановление структуры PDF",
                 redact: "Поиск и скрытие",
-                flatten: "Преобразование в растр",
+                flatten: "Преобразовать PDF в изображение (Растеризовать)",
                 watermark: "Добавление водяного знака",
                 sanitize: "Очистка метаданных",
                 encrypt: "Шифрование PDF"

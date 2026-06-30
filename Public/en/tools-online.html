@@ -646,10 +646,9 @@
       <span class="live-dot"></span>
       Free Online Document Tools &#x2014; No Download Required
     </div>
-    <h1 class="hero-h1 gsap-fade">Process Documents Directly in Your Browser</h1>
+    <h1 class="hero-h1 gsap-fade">Unified Batch Document Manager & PDF Security Suite</h1>
     <p class="hero-lead gsap-fade">
-      Sanitize metadata, add watermarks, encrypt, redact or repair your documents online &#x2014; <strong style="color:#fff">isolated sandbox</strong>
-      and deleted immediately after download. No account needed.
+      Sanitize metadata, add watermarks, encrypt, redact, flatten, remove signatures, repair PDFs, and generate professional page-count or advanced folder reports in batch. Use our zero-storage online sandbox for quick free tasks, or run them completely offline using the professional DocInspector desktop application for absolute privacy.
     </p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero cloud storage</span>
@@ -781,7 +780,7 @@
               <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap icon-orange">&#x1F5BC;&#xFE0F;</div>
-                <div class="tool-name">Flatten to Image PDF</div>
+                <div class="tool-name">Convert PDF to Image-only (Flatten)</div>
               </div>
               <div class="tool-desc">Convert every page into a raster image inside a PDF. <strong style="color:#10b981">Supports PDF only.</strong></div>
               <a href="https://doc-inspector.com/en/tools/flatten-pdf-online" aria-label="Flatten PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Flatten PDF Online</a>
@@ -970,7 +969,7 @@
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
               <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ The entire page text layer is removed to guarantee no sensitive content remains (image-only output).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Note: If your PDF is an image or scanned document, text cannot be found. We recommend selecting "Rebuild & Repair" alongside Redact for OCR, but this will increase processing time.</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Note: If your PDF is an image or scanned document, text cannot be found. We recommend selecting "Rebuild & Repair PDF" alongside Redact for OCR, but this will increase processing time.</p>
             </div>
           </div>
 
@@ -1287,7 +1286,7 @@ const TOOLS = {
   watermark: { label:'Add Watermark',           emoji:'💧' },
   encrypt  : { label:'Encrypt PDF',             emoji:'🔐 ' },
   redact   : { label:'Find & Redact',           emoji:'⬛' },
-  flatten  : { label:'Flatten to Image PDF',    emoji:'🖼️ ' },
+  flatten  : { label:'Convert PDF to Image-only (Flatten)',    emoji:'🖼️ ' },
   rebuild  : { label:'Rebuild & Repair PDF',    emoji:'🛠️ ' },
   bundle   : { label:'PDF Bundle Summary',      emoji:'📋' },
   'bundle-advanced': { label:'Advanced Bundle Report', emoji:'📘' },
@@ -2085,27 +2084,27 @@ async function pollJobStatus(jobId, downloadName) {
             const opNames = {
               en: {
                 removesigs: "Remove Signatures",
-                rebuild: "Rebuild & Repair",
+                rebuild: "Rebuild & Repair PDF",
                 redact: "Find & Redact",
-                flatten: "Flatten to Image",
+                flatten: "Convert PDF to Image-only (Flatten)",
                 watermark: "Add Watermark",
                 sanitize: "Sanitize Metadata",
                 encrypt: "Encrypt PDF"
               },
               ro: {
                 removesigs: "Elimină Semnăturile",
-                rebuild: "Reconstruiește & Repară",
+                rebuild: "Reconstruiește & Repară PDF",
                 redact: "Găsește & Redactează",
-                flatten: "Aplatizează în Imagine",
+                flatten: "Convertește PDF în Imagine (Aplatizare)",
                 watermark: "Adaugă Filigran",
                 sanitize: "Igienizează Metadate",
                 encrypt: "Criptează PDF"
               },
               ru: {
                 removesigs: "Удаление подписей",
-                rebuild: "Восстановление структуры",
+                rebuild: "Восстановление структуры PDF",
                 redact: "Поиск и скрытие",
-                flatten: "Преобразование в растр",
+                flatten: "Преобразовать PDF в изображение (Растеризовать)",
                 watermark: "Добавление водяного знака",
                 sanitize: "Очистка метаданных",
                 encrypt: "Шифрование PDF"
