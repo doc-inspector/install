@@ -541,6 +541,17 @@
               <a href="https://doc-inspector.com/ru/instrumenty/rasshirennyy-reestr-pdf" aria-label="Расширенный реестр PDF онлайн" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Расширенный реестр документов PDF онлайн</a>
             </div>
 
+            <!-- Convert Any Format to PDF -->
+            <div class="tool-card gsap-card" id="card-to-pdf" style="--brand: #a855f7; border-color:rgba(168,85,247,.25); position:relative" onclick="toggleTool(event,'to-pdf')">
+              <div class="check-ring">&#x2714;</div>
+              <div class="tool-header">
+                <div class="tool-icon-wrap" style="background:rgba(168,85,247,.15);color:#a855f7">&#x1F504;</div>
+                <div class="tool-name">Конвертировать любой формат в PDF</div>
+              </div>
+              <div class="tool-desc">Пакетное преобразование Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), текста и изображений в PDF. <strong style="color:#a855f7">Поддерживает множество форматов.</strong></div>
+              <a href="https://doc-inspector.com/ru/instrumenty/konvertirovat-v-pdf-onlayn" aria-label="Convert Any Format to PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Конвертировать любой документ или формат в PDF бесплатно онлайн</a>
+            </div>
+
           </div><!-- /tools-grid -->
 
           <!-- Панели опций -->
@@ -724,6 +735,63 @@
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки расширенного реестра PDF</div>
               <div style="font-size:0.82rem; color:#cbd5e1; margin-top:0.3rem;">
                 Генерирует подробный отчёт по папке по каждому документу: Номер, Название, Формат, Размер, Подпись SHA-256, Статус защиты, Количество страниц и Дата изменения — плюс итоги. Дополнительная настройка не требуется.
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-opts" id="opts-to-pdf" style="--brand: #a855f7;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Настройки конвертации в PDF</div>
+              
+              <!-- Excel-only options -->
+              <div class="opts-sec-excel" style="display:none; margin-bottom:0.8rem;">
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Разметка таблиц Excel</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-fit-width" checked style="accent-color:#a855f7"> Вписать столбцы по ширине (Рекомендуется)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-fit-sheet" style="accent-color:#a855f7"> Вписать весь лист на одну страницу
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-no-scale" style="accent-color:#a855f7"> Без масштабирования (Исходный размер)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Image-only options -->
+              <div class="opts-sec-image" style="display:none; margin-bottom:0.8rem;">
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Режим конвертации изображений</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-output" id="img-separate" checked style="accent-color:#a855f7"> Каждое изображение в отдельный PDF (1-к-1)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-output" id="img-merge" style="accent-color:#a855f7"> Объединить все изображения в один PDF
+                  </label>
+                </div>
+                
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-top:0.5rem; margin-bottom:0.3rem;">Масштабирование страниц изображений</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-scaling" id="img-scale-fit" checked style="accent-color:#a855f7"> Вписать в формат А4 (Без потери качества)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-scaling" id="img-scale-orig" style="accent-color:#a855f7"> Исходный размер
+                  </label>
+                </div>
+              </div>
+
+              <!-- Shared Excel & Image option: auto-landscape -->
+              <div class="opts-sec-landscape" style="display:none; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; margin-top:0.5rem;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="convert-auto-landscape" checked style="accent-color:#a855f7"> Авто-альбомный режим (Поворачивать широкие таблицы/изображения)
+                </label>
+              </div>
+
+              <!-- General Word/Text info note -->
+              <div class="opts-sec-info" style="display:block; font-size:0.8rem; color:#94a3b8;">
+                📄 Автоматическое преобразование файлов Word (.docx/.doc) и текста (.txt). Дополнительные параметры не требуются.
               </div>
             </div>
           </div>
@@ -1313,7 +1381,7 @@ function updateSidebar() {
   const nodes = [
     { label: 'Входные файлы PDF', emoji: '📄', desc: 'Загружено и готово' },
     ...[...selectedOps].sort((a,b) => {
-        const order = { 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
+        const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
         return (order[a]||99) - (order[b]||99);
       }).map(op => ({
       label: TOOLS[op].label,
@@ -1451,6 +1519,52 @@ function addFiles(newFiles) {
 }
 function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
 
+function updateConvertOptions() {
+  const optsPanel = document.getElementById('opts-to-pdf');
+  if (!optsPanel) return;
+  
+  const excelSec = optsPanel.querySelector('.opts-sec-excel');
+  const imageSec = optsPanel.querySelector('.opts-sec-image');
+  const landscapeSec = optsPanel.querySelector('.opts-sec-landscape');
+  const infoSec = optsPanel.querySelector('.opts-sec-info');
+  
+  let hasExcel = false;
+  let hasImage = false;
+  
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) hasExcel = true;
+    if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) hasImage = true;
+  });
+  
+  if (excelSec) excelSec.style.display = hasExcel ? 'block' : 'none';
+  if (imageSec) imageSec.style.display = hasImage ? 'block' : 'none';
+  if (landscapeSec) landscapeSec.style.display = (hasExcel || hasImage) ? 'block' : 'none';
+  if (infoSec) infoSec.style.display = (hasExcel || hasImage) ? 'none' : 'block';
+  
+  // Dynamic warning tip
+  const hasNonPdf = hasExcel || hasImage || files.some(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    return ['doc', 'docx', 'rtf', 'odt', 'txt', 'pptx', 'ppt'].includes(ext);
+  });
+  const hasPdfOnlyOps = [...selectedOps].some(op => op !== 'to-pdf' && op !== 'sanitize');
+  
+  const existingTip = document.getElementById('non-pdf-warning');
+  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('to-pdf')) {
+    if (!existingTip) {
+      const warningDiv = document.createElement('div');
+      warningDiv.id = 'non-pdf-warning';
+      warningDiv.style.cssText = 'background:rgba(249,115,22,0.1); border-left:3px solid #f97316; border-radius:4px; padding:10px; font-size:0.8rem; color:#f97316; margin-bottom:1rem; font-weight:600;';
+      warningDiv.innerHTML = '⚠️ Примечание: Вы загрузили документы не в формате PDF. Пожалуйста, выберите операцию "Конвертировать любой формат в PDF", чтобы обработать их.';
+      optsPanel.parentNode.insertBefore(warningDiv, optsPanel);
+    } else {
+      existingTip.style.display = 'block';
+    }
+  } else {
+    if (existingTip) existingTip.style.display = 'none';
+  }
+}
+
 function gatherOptions() {
   return {
     watermarkText:    document.getElementById('wm-text')?.value    || 'КОНФИДЕНЦИАЛЬНО',
@@ -1478,6 +1592,10 @@ function gatherOptions() {
     sanitizeSoftware: document.getElementById('san-software')? document.getElementById('san-software').checked: true,
     sanitizeTime:     document.getElementById('san-time')   ? document.getElementById('san-time').checked   : true,
     sanitizeGps:      document.getElementById('san-gps')    ? document.getElementById('san-gps').checked    : true,
+    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || 'fit-width',
+    autoLandscape:    document.getElementById('convert-auto-landscape')?.checked ?? true,
+    imageOutput:      document.querySelector('input[name="image-output"]:checked')?.id?.replace('img-', '') || 'separate',
+    imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
     rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
     rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || false,
     dpiValue:         document.getElementById('rebuild-dpi')?.value || '300',
@@ -1747,6 +1865,7 @@ async function pollJobStatus(jobId, downloadName) {
               },
               ru: {
                 removesigs: "Удаление подписей",
+                "to-pdf": "Конвертация в PDF",
                 rebuild: "Восстановление структуры PDF",
                 redact: "Поиск и скрытие",
                 flatten: "Преобразовать PDF в изображение (Растеризовать)",

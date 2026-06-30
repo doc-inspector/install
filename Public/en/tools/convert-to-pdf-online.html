@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
+  <title>Convert Any Document or Format to PDF Free Online - DocInspector</title>
+  <meta name="description" content="Convert Word (DOCX), Excel (XLSX), PowerPoint (PPTX), text, and images (JPG, PNG, WEBP) to PDF in batch for free. 100% client-side security.">
+  <meta name="keywords" content="convert to pdf online, batch word to pdf, excel to pdf free, images to pdf, txt to pdf">
+  <link rel="canonical" href="https://doc-inspector.com/en/tools/convert-to-pdf-online">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/convert-to-pdf-online" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/conversie-in-pdf-online" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/konvertirovat-v-pdf-onlayn" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/convert-to-pdf-online" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redactare PDF Online - Ascunde Textul Sensibil</title>
-  <meta name="description" content="Șterge și acoperă permanent textul sau cuvintele cheie sensibile din fișierele PDF online. Instrument securizat de redactare în batch.">
-  <meta name="keywords" content="redactare pdf online, ascunde text pdf, cenzurare pdf, sterge date personale pdf">
-  <meta property="og:title" content="Redactare PDF Online - Ascunde Textul Sensibil">
-  <meta property="og:description" content="Șterge și acoperă permanent textul sau cuvintele cheie sensibile din fișierele PDF online. Instrument securizat de redactare în batch.">
+  
+  
+  
+  <meta property="og:title" content="Free Online Document Tools &#x2014; DocInspector">
+  <meta property="og:description" content="Process documents directly in your browser. Sanitize, watermark, encrypt, redact, repair &#x2014; completely free. Files deleted immediately after download.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="../../assets/logo.png">
-  <link rel="canonical" href="https://doc-inspector.com/ro/unelte/redactare-pdf-online">
-  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/redact-pdf-online" />
-  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/redactare-pdf-online" />
-  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/skryt-dannye-v-pdf" />
-  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/redact-pdf-online" />
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/logo.png">
+  
   
   
   
@@ -22,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=13">
+  <link rel="stylesheet" href="../style.css?v=13">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- Microsoft Clarity -->
@@ -42,8 +49,19 @@
     gtag('config', 'G-80038W7D1J');
   </script>
   <style>
-    /* ══ Animated mesh background ══ */
-    .mesh-bg { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+    /* â•â• CSS Variables (defined here so they work even without style.css) â•â• */
+    :root {
+      --cyan:       #06b6d4;
+      --text-muted: #94a3b8;
+      --green:      #10b981;
+      --purple:     #8b5cf6;
+      --bg:         #0a1628;
+    }
+
+    /* â•â• Animated mesh background â•â• */
+    .mesh-bg {
+      position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+    }
     .mesh-bg::before {
       content:''; position:absolute; width:900px; height:900px;
       background:radial-gradient(circle, rgba(6,182,212,.07) 0%, transparent 65%);
@@ -58,33 +76,108 @@
     }
     @keyframes meshMove1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(200px,150px) scale(1.3)} }
     @keyframes meshMove2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-180px,-120px) scale(1.2)} }
+
+    /* Floating orbs */
     .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter:blur(80px); opacity:0.4; }
     .orb-1 { width:400px; height:400px; background:rgba(6,182,212,.08); top:10%; left:5%; animation:orbFloat 12s ease-in-out infinite; }
     .orb-2 { width:300px; height:300px; background:rgba(139,92,246,.07); top:50%; right:8%; animation:orbFloat 16s ease-in-out infinite reverse; }
     .orb-3 { width:250px; height:250px; background:rgba(16,185,129,.06); bottom:20%; left:25%; animation:orbFloat 14s ease-in-out infinite 2s; }
     @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+
+    /* Animated grid lines */
     .grid-lines {
       position:fixed; inset:0; z-index:0; pointer-events:none;
-      background-image: linear-gradient(rgba(6,182,212,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,.025) 1px, transparent 1px);
+      background-image:
+        linear-gradient(rgba(6,182,212,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6,182,212,.025) 1px, transparent 1px);
       background-size:60px 60px;
       mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
     }
-    .tools-hero { padding:6.5rem 0 2rem; position:relative; z-index:1; text-align:center; overflow:hidden; }
-    .tools-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,.13) 0%, transparent 70%); pointer-events:none; }
-    .hero-eyebrow-pill { display:inline-flex; align-items:center; gap:.6rem; background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.3); border-radius:50px; padding:.45rem 1.2rem; margin-bottom:1.8rem; font-size:.82rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand, var(--cyan)); }
-    .live-dot { width:8px; height:8px; border-radius:50%; background:var(--cyan); animation:pulseDot 1.5s ease-in-out infinite; }
+
+    /* â•â• Hero â•â• */
+    .tools-hero {
+      padding:6.5rem 0 2rem;
+      position:relative; z-index:1; text-align:center; overflow:hidden;
+    }
+    .tools-hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,.13) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-eyebrow-pill {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.3);
+      border-radius:50px; padding:.45rem 1.2rem; margin-bottom:1.8rem;
+      font-size:.82rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--brand, var(--cyan));
+    }
+    .live-dot {
+      width:8px; height:8px; border-radius:50%; background:var(--cyan);
+      animation:pulseDot 1.5s ease-in-out infinite;
+    }
     @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
-    .hero-h1 { font-family:'Outfit',sans-serif; font-size:clamp(2.2rem,4.5vw,3.6rem); font-weight:900; line-height:1.08; margin:0 auto 1.2rem; max-width:960px; background:linear-gradient(135deg,#fff 0%,var(--cyan) 50%,#818cf8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; letter-spacing:-.03em; }
-    .hero-lead { color:var(--text-muted); font-size:1.1rem; line-height:1.7; max-width:660px; margin:0 auto 1.5rem; }
-    .badges-row { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; margin-bottom:1.5rem; }
-    .sec-badge { display:inline-flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:50px; padding:.4rem 1rem; font-size:.82rem; color:var(--text-muted); font-weight:500; transition:all .25s; }
-    .sec-badge:hover { border-color:rgba(6,182,212,.3); color:#fff; background:rgba(6,182,212,.06); }
-    .tools-layout { display:grid; grid-template-columns:1fr 380px; gap:2.5rem; align-items:start; position:relative; z-index:1; }
+
+    .hero-h1 {
+      font-family:'Outfit',sans-serif;
+      font-size:clamp(2.2rem,4.5vw,3.6rem);
+      font-weight:900; line-height:1.08;
+      margin:0 auto 1.2rem; max-width:960px;
+      background:linear-gradient(135deg,#fff 0%,var(--cyan) 50%,#818cf8 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      letter-spacing:-.03em;
+    }
+    .hero-lead {
+      color:var(--text-muted); font-size:1.1rem; line-height:1.7;
+      max-width:660px; margin:0 auto 1.5rem;
+    }
+
+    /* Badges */
+    .badges-row {
+      display:flex; flex-wrap:wrap; justify-content:center;
+      gap:.7rem; margin-bottom:1.5rem;
+    }
+    .sec-badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+      border-radius:50px; padding:.4rem 1rem;
+      font-size:.82rem; color:var(--text-muted); font-weight:500;
+      transition:all .25s;
+    }
+    .sec-badge:hover {
+      border-color:rgba(6,182,212,.3); color:#fff;
+      background:rgba(6,182,212,.06);
+    }
+
+    /* â•â• 2-col layout â•â• */
+    .tools-layout {
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:2.5rem; align-items:start;
+      position:relative; z-index:1;
+    }
     @media(max-width:980px){ .tools-layout{grid-template-columns:1fr;} }
-    .step-label { display:inline-block; background:rgba(6,182,212,.12); border:1px solid rgba(6,182,212,.2); border-radius:50px; padding:.3rem .9rem; font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--brand, var(--cyan)); margin-bottom:.6rem; }
-    .step-title { font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800; background:linear-gradient(90deg,#fff,var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:.4rem; }
-    .step-desc { font-size:.9rem; color:var(--text-muted); margin-bottom:1.5rem; }
-    .tools-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.2rem; margin-bottom:2rem; }
+
+    /* â•â• Step labels â•â• */
+    .step-label {
+      display:inline-block;
+      background:rgba(6,182,212,.12); border:1px solid rgba(6,182,212,.2);
+      border-radius:50px; padding:.3rem .9rem;
+      font-size:.72rem; font-weight:800; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--brand, var(--cyan)); margin-bottom:.6rem;
+    }
+    .tool-step-title {
+      font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800;
+      color: #ffffff !important;
+      margin-bottom:.4rem;
+    }
+    .tool-step-desc { font-size:.9rem; color:#94a3b8 !important; margin-bottom:1.5rem; }
+
+    /* â•â• Tool cards â•â• */
+    .tools-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+      gap:1.2rem; margin-bottom:2rem;
+    }
     .tool-card {
       background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 5%, transparent), rgba(15, 32, 66, 0.8)) !important;
       border: 1px solid color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent) !important;
@@ -99,7 +192,11 @@
       user-select: text;
       -webkit-user-select: text;
     }
-    .tool-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent),transparent); opacity:0; transition:opacity .35s; }
+    .tool-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent),transparent);
+      opacity:0; transition:opacity .35s;
+    }
     .tool-card:hover {
       border-color: color-mix(in srgb, var(--brand, #06b6d4) 65%, transparent) !important;
       background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent), rgba(20, 50, 95, 0.85)) !important;
@@ -108,14 +205,27 @@
     }
     .tool-card:hover::before { opacity:1; }
     .tool-card.selected {
-      border-color: rgba(6, 182, 212, 0.95) !important;
+      border-color: var(--brand, #06b6d4) !important;
       background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent), rgba(10, 30, 60, 0.9)) !important;
       box-shadow: 0 0 25px color-mix(in srgb, var(--brand, #06b6d4) 25%, transparent), inset 0 1px 0 rgba(255,255,255,0.15);
     }
-    .tool-card .ripple { position:absolute; border-radius:50%; background:color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent); transform:scale(0); animation:rippleAnim .6s linear; pointer-events:none; }
+    .tool-card .ripple {
+      position:absolute; border-radius:50%;
+      background:color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent); transform:scale(0);
+      animation:rippleAnim .6s linear; pointer-events:none;
+    }
     @keyframes rippleAnim { to{transform:scale(4); opacity:0;} }
-    .check-ring { position:absolute; top:12px; right:12px; width:22px; height:22px; border-radius:50%; background:var(--brand, var(--cyan)); display:flex; align-items:center; justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900; opacity:0; transform:scale(.4) rotate(-90deg); transition:all .3s cubic-bezier(.34,1.56,.64,1); }
+
+    .check-ring {
+      position:absolute; top:12px; right:12px;
+      width:22px; height:22px; border-radius:50%;
+      background:var(--brand, var(--cyan)); display:flex; align-items:center;
+      justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900;
+      opacity:0; transform:scale(.4) rotate(-90deg);
+      transition:all .3s cubic-bezier(.34,1.56,.64,1);
+    }
     .tool-card.selected .check-ring { opacity:1; transform:scale(1) rotate(0deg); }
+
     .tool-header { display:flex; align-items:center; gap:.9rem; margin-bottom:.8rem; }
     .tool-icon-wrap {
       width:48px; height:48px; border-radius:14px;
@@ -131,8 +241,10 @@
     .icon-red    { background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.05)); border: 1px solid rgba(239, 68, 68, 0.3) !important; color: #f87171; }
     .icon-orange { background: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(249, 115, 22, 0.05)); border: 1px solid rgba(249, 115, 22, 0.3) !important; color: #fb923c; }
     .icon-indigo { background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(99, 102, 241, 0.3) !important; color: #818cf8; }
-    .tool-name { font-size:1.1rem; font-weight:700; color:#fff !important; line-height:1.2; font-family:'Outfit',sans-serif; }
+    .tool-name { font-size:1.1rem; font-weight:700; color:#ffffff !important; line-height:1.2; font-family:'Outfit',sans-serif; }
     .tool-desc { font-size:.86rem; color:#cbd5e1 !important; line-height:1.55; font-weight:400; }
+
+    /* Options accordion */
     .tool-opts {
         display: none;
       }
@@ -146,53 +258,147 @@
         margin-bottom: 1rem;
       }
     .opt-row { display:flex; flex-direction:column; gap:.35rem; }
-    .opt-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); }
-    .opt-input { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:.55rem .9rem; color:#fff; font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box; transition:border-color .2s; }
+    .opt-label {
+      font-size:.72rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.08em; color:var(--text-muted);
+    }
+    .opt-input {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:10px; padding:.55rem .9rem; color:#fff;
+      font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box;
+      transition:border-color .2s;
+    }
     .opt-input:focus { outline:none; border-color:var(--brand, var(--cyan)); }
     .range-row { display:flex; align-items:center; gap:.8rem; }
     .opt-range { flex:1; accent-color:var(--brand, var(--cyan)); cursor:pointer; height:4px; }
     .range-val { min-width:40px; text-align:right; font-size:.85rem; font-weight:700; color:var(--brand, var(--cyan)); }
-    .dropzone { border:2px dashed rgba(6,182,212,.2); border-radius:18px; padding:3.2rem 2rem; text-align:center; cursor:pointer; background:rgba(6,182,212,.015); transition:all .3s; position:relative; overflow:hidden; }
-    .dropzone::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(56,189,248,.04)); opacity:0; transition:opacity .3s; }
-    .dropzone:hover, .dropzone.over { border-color:var(--brand, var(--cyan)); box-shadow:0 0 40px rgba(6,182,212,.12); }
+
+    /* â•â• Drop zone â•â• */
+    .dropzone {
+      border:2px dashed rgba(6,182,212,.2);
+      border-radius:18px; padding:3.2rem 2rem; text-align:center;
+      cursor:pointer; background:rgba(6,182,212,.015);
+      transition:all .3s; position:relative; overflow:hidden;
+    }
+    .dropzone::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(56,189,248,.04));
+      opacity:0; transition:opacity .3s;
+    }
+    .dropzone:hover, .dropzone.over {
+      border-color:var(--brand, var(--cyan));
+      box-shadow:0 0 40px rgba(6,182,212,.12);
+    }
     .dropzone:hover::after, .dropzone.over::after { opacity:1; }
-    .dz-icon { font-size:2.8rem; margin-bottom:.8rem; display:block; transition:transform .3s; position:relative; z-index:1; }
+    .dz-icon {
+      font-size:2.8rem; margin-bottom:.8rem; display:block;
+      transition:transform .3s; position:relative; z-index:1;
+    }
     .dropzone:hover .dz-icon { transform:scale(1.1) translateY(-4px); }
     .dz-title { font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:.3rem; position:relative; z-index:1; }
     .dz-sub   { font-size:.85rem; color:var(--text-muted); position:relative; z-index:1; }
-    .file-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; }
-    .file-item { display:flex; align-items:center; gap:.7rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:.65rem 1rem; font-size:.88rem; animation:slideInUp .25s ease; min-width: 0; }
+
+    /* File list */
+    .file-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; max-height: 250px; overflow-y: auto; padding-right: 5px; }
+    .file-item {
+      display:flex; align-items:center; gap:.7rem;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:12px; padding:.65rem 1rem; font-size:.88rem;
+      animation:slideInUp .25s ease; min-width: 0;
+    }
     @keyframes slideInUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     .fi-name { flex:1; color:#fff; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width: 0; }
     .fi-size { color:var(--text-muted); font-size:.78rem; white-space:nowrap; }
-    .fi-remove { width:20px; height:20px; border-radius:50%; border:none; background:rgba(239,68,68,.15); color:#f87171; cursor:pointer; font-size:.8rem; display:flex; align-items:center; justify-content:center; transition:background .2s; flex-shrink:0; line-height:1; }
+    .fi-remove {
+      width:20px; height:20px; border-radius:50%; border:none;
+      background:rgba(239,68,68,.15); color:#f87171; cursor:pointer;
+      font-size:.8rem; display:flex; align-items:center; justify-content:center;
+      transition:background .2s; flex-shrink:0; line-height:1;
+    }
     .fi-remove:hover { background:rgba(239,68,68,.3); }
-    .process-btn { width:100%; padding:1.1rem; margin-top:1.4rem; background:linear-gradient(135deg,var(--cyan),#38bdf8); border:none; border-radius:14px; color:#0a1628; font-family:inherit; font-size:1.05rem; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.7rem; transition:all .3s; box-shadow:0 4px 20px rgba(6,182,212,.3); position:relative; overflow:hidden; }
-    .process-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.15),transparent); opacity:0; transition:opacity .3s; }
+
+    /* Process button */
+    .process-btn {
+      width:100%; padding:1.1rem; margin-top:1.4rem;
+      background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border:none; border-radius:14px; color:#0a1628;
+      font-family:inherit; font-size:1.05rem; font-weight:800;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.7rem;
+      transition:all .3s;
+      box-shadow:0 4px 20px rgba(6,182,212,.3);
+      position:relative; overflow:hidden;
+    }
+    .process-btn::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+      opacity:0; transition:opacity .3s;
+    }
     .process-btn:hover:not(:disabled)::before { opacity:1; }
-    .process-btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 30px rgba(6,182,212,.5), 0 0 40px rgba(6,182,212,.2); }
+    .process-btn:hover:not(:disabled) {
+      transform:translateY(-2px);
+      box-shadow:0 8px 30px rgba(6,182,212,.5), 0 0 40px rgba(6,182,212,.2);
+    }
     .process-btn:disabled { opacity:.4; cursor:not-allowed; }
-    .result-area { display:none; margin-top:1.4rem; background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.2); border-radius:16px; padding:2rem; text-align:center; }
+
+    /* Result area */
+    .result-area {
+      display:none; margin-top:1.4rem;
+      background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.2);
+      border-radius:16px; padding:2rem; text-align:center;
+    }
     .result-area.show { display:block; animation:fadeIn .4s ease; }
     @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-    .spin { width:42px; height:42px; border-radius:50%; border:3px solid rgba(6,182,212,.2); border-top-color:var(--brand, var(--cyan)); animation:spin .7s linear infinite; margin:0 auto 1rem; }
+    .spin {
+      width:42px; height:42px; border-radius:50%;
+      border:3px solid rgba(6,182,212,.2); border-top-color:var(--brand, var(--cyan));
+      animation:spin .7s linear infinite; margin:0 auto 1rem;
+    }
     @keyframes spin { to{transform:rotate(360deg)} }
     .r-icon { font-size:2.5rem; margin-bottom:.8rem; }
     .r-title { font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.3rem; }
     .r-sub   { font-size:.88rem; color:var(--text-muted); margin-bottom:1rem; }
-    .dl-btn { display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 2rem; background:linear-gradient(135deg,var(--cyan),#38bdf8); border:none; border-radius:50px; color:#0a1628; font-weight:700; font-size:.92rem; cursor:pointer; text-decoration:none; transition:all .25s; margin-bottom:.8rem; }
+    .dl-btn {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.75rem 2rem; background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border:none; border-radius:50px; color:#0a1628; font-weight:700;
+      font-size:.92rem; cursor:pointer; text-decoration:none;
+      transition:all .25s; margin-bottom:.8rem;
+    }
     .dl-btn:hover { transform:translateY(-2px); box-shadow:0 0 25px rgba(6,182,212,.4); }
-    .reset-btn { display:block; margin:.5rem auto 0; background:none; border:1px solid rgba(255,255,255,.1); border-radius:50px; padding:.45rem 1.2rem; color:var(--text-muted); cursor:pointer; font-family:inherit; font-size:.82rem; transition:all .2s; }
+    .reset-btn {
+      display:block; margin:.5rem auto 0;
+      background:none; border:1px solid rgba(255,255,255,.1);
+      border-radius:50px; padding:.45rem 1.2rem;
+      color:var(--text-muted); cursor:pointer;
+      font-family:inherit; font-size:.82rem; transition:all .2s;
+    }
     .reset-btn:hover { border-color:rgba(255,255,255,.2); color:#fff; }
+
+    /* â•â• Sidebar â•â• */
     .sidebar-sticky { position:sticky; top:100px; }
-    .sidebar-card { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); border-radius:20px; padding:1.6rem; }
-    .sb-title { font-size:1rem; font-weight:700; color:#fff; display:flex; align-items:center; gap:.6rem; margin-bottom:1.2rem; }
-    .daily-bar { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:.9rem 1rem; margin-bottom:1.2rem; }
-    .daily-top { display:flex; justify-content:space-between; font-size:.78rem; margin-bottom:.5rem; }
+    .sidebar-card {
+      background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07);
+      border-radius:20px; padding:1.6rem;
+    }
+    .sb-title {
+      font-size:1rem; font-weight:700; color:#fff;
+      display:flex; align-items:center; gap:.6rem; margin-bottom:1.2rem;
+    }
+    .daily-bar {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:10px; padding:.9rem 1rem; margin-bottom:1.2rem;
+    }
+    .daily-top {
+      display:flex; justify-content:space-between; font-size:.78rem; margin-bottom:.5rem;
+    }
     .daily-lbl { color:var(--text-muted); }
     .daily-cnt { color:var(--brand, var(--cyan)); font-weight:700; }
     .bar-track { height:5px; border-radius:3px; background:rgba(255,255,255,.07); overflow:hidden; }
-    .bar-fill { height:100%; background:linear-gradient(90deg,var(--cyan),#38bdf8); border-radius:3px; transition:width .5s ease; }
+    .bar-fill {
+      height:100%; background:linear-gradient(90deg,var(--cyan),#38bdf8);
+      border-radius:3px; transition:width .5s ease;
+    }
+
     .ops-list { display:flex; flex-direction:column; gap:.5rem; min-height:60px; }
     .ops-empty { text-align:center; color:var(--text-muted); font-size:.85rem; padding:1.2rem 0; }
     .op-chip {
@@ -210,8 +416,13 @@
       transform: translateX(3px);
     }
     .op-chip-name { flex:1; font-size:.85rem; font-weight:600; color:#fff; }
-    .op-chip-remove { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:.9rem; transition:color .2s; line-height:1; }
+    .op-chip-remove {
+      background:none; border:none; color:var(--text-muted);
+      cursor:pointer; font-size:.9rem; transition:color .2s; line-height:1;
+    }
     .op-chip-remove:hover { color:#f87171; }
+
+    /* Pipeline */
     .pipeline-section {
       margin-top:1.2rem; padding-top:1.2rem;
       border-top:1px solid rgba(255,255,255,.07);
@@ -304,25 +515,72 @@
       color: var(--text-muted) !important;
       margin-top: 0.05rem;
     }
-    .upsell-box { margin-top:1.4rem; padding:1rem; background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.15); border-radius:12px; }
+
+    /* Upsell */
+    .upsell-box {
+      margin-top:1.4rem; padding:1rem;
+      background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.15);
+      border-radius:12px;
+    }
     .upsell-title { font-size:.8rem; font-weight:700; color:var(--brand, var(--cyan)); margin-bottom:.3rem; }
     .upsell-desc  { font-size:.78rem; color:var(--text-muted); margin-bottom:.8rem; line-height:1.5; }
-    .upsell-btn { display:block; width:100%; text-align:center; padding:.65rem 1rem; background:linear-gradient(135deg,var(--cyan),#38bdf8); border-radius:10px; color:#0a1628; font-weight:700; font-size:.85rem; text-decoration:none; transition:all .25s; }
+    .upsell-btn {
+      display:block; width:100%; text-align:center;
+      padding:.65rem 1rem; background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border-radius:10px; color:#0a1628; font-weight:700; font-size:.85rem;
+      text-decoration:none; transition:all .25s;
+    }
     .upsell-btn:hover { opacity:.9; transform:translateY(-1px); }
+
+    /* â•â• Security section â•â• */
     .sec-section { position:relative; z-index:1; }
-    .flow-visual { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.6rem; margin:2.5rem 0; }
-    .fv-node { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:.65rem 1.1rem; font-size:.85rem; font-weight:600; color:#fff; display:flex; align-items:center; gap:.5rem; }
+    .flow-visual {
+      display:flex; flex-wrap:wrap; align-items:center;
+      justify-content:center; gap:.6rem; margin:2.5rem 0;
+    }
+    .fv-node {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; padding:.65rem 1.1rem; font-size:.85rem;
+      font-weight:600; color:#fff; display:flex; align-items:center; gap:.5rem;
+    }
     .fv-node.fv-hl { background:rgba(6,182,212,.15); border-color:rgba(6,182,212,.4); color:var(--cyan-light); box-shadow:0 0 15px rgba(6,182,212,0.15); }
     .fv-arrow { color:var(--text-muted); font-size:1.1rem; }
-    .sec-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
+
+    .sec-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1.5rem;
+    }
     .sec-item { text-align:center; }
-    .sec-icon { width:52px; height:52px; border-radius:14px; background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.2); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto .9rem; transition:all .3s; }
-    .sec-item:hover .sec-icon { background:rgba(6,182,212,.2); box-shadow:0 0 20px rgba(6,182,212,.2); }
+    .sec-icon {
+      width:52px; height:52px; border-radius:14px;
+      background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; margin:0 auto .9rem;
+      transition:all .3s;
+    }
+    .sec-item:hover .sec-icon {
+      background:rgba(6,182,212,.2);
+      box-shadow:0 0 20px rgba(6,182,212,.2);
+    }
     .sec-item-title { font-size:.92rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
     .sec-item-desc  { font-size:.82rem; color:var(--text-muted); line-height:1.5; }
+
+    /* Sidebar info */
     .sb-info { display:flex; flex-direction:column; gap:.6rem; margin:1rem 0; }
     .sb-info-item { font-size:.78rem; color:var(--text-muted); line-height:1.5; }
     .sb-info-item strong { color:#fff; }
+    /* Font select styling */
+    .opt-select {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:10px; padding:.55rem .9rem; color:#fff;
+      font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box;
+      transition:border-color .2s; appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right .9rem center;
+      cursor:pointer;
+    }
+    .opt-select:focus { outline:none; border-color:var(--brand, var(--cyan)); }
+    .opt-select option { background:#0f2040; color:#e2e8f0; }
   
     #constellation-canvas {
       position: absolute; inset: 0; z-index: 0;
@@ -331,107 +589,6 @@
 
   #processBtn:hover:not(:disabled) { box-shadow: 0 8px 30px rgba(16,185,129,.5), 0 0 40px rgba(16,185,129,.2) !important; transform: translateY(-2px); }
   </style>
-<style>
-/* ── SEO FAQ & BENEFITS SECTION ──────────────────────── */
-.seo-section {
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 1px solid var(--border);
-  position: relative;
-  z-index: 1;
-}
-.seo-title {
-  font-family: var(--font-head);
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #fff 30%, var(--cyan-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.seo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-}
-@media (max-width: 768px) {
-  .seo-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.benefits-card, .faq-card {
-  background: rgba(255,255,255,0.01);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2.5rem;
-  backdrop-filter: blur(10px);
-}
-.benefits-card h3, .faq-card h3 {
-  font-family: var(--font-head);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.benefits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.benefits-list li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1.25rem;
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.benefits-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--cyan);
-  font-weight: 800;
-  font-size: 1.1rem;
-}
-.faq-item {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  padding: 1.25rem 0;
-}
-.faq-item:last-child {
-  border-bottom: none;
-}
-.faq-question {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-.faq-answer {
-  font-size: 0.94rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-</style>
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Redactare PDF Online - Ascunde Textul Sensibil",
-      "operatingSystem": "All",
-      "applicationCategory": "BusinessApplication",
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0"
-      }
-    }
-    </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden">
 <div class="mesh-bg"></div>
@@ -441,44 +598,45 @@
 <div class="orb orb-3"></div>
 <div class="page">
 
+<!-- Progress bar -->
 <div id="progress-bar"></div>
 
-<!-- ═══════ HEADER ═══════ -->
+<!-- â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â• -->
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
-            <a href="../" class="brand">
-        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+            <a href="./" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
             <div class="nav-links">
-        <a href="../" data-i18n="nav.home">Acasă</a>
-        <a href="../unelte-online" class="active" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
-        <a href="../preturi" data-i18n="nav.price">Preț</a>
-        <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
-        <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
+        <a href="./" data-i18n="nav.home">Home</a>
+        <a href="../tools-online" class="active" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+        <a href="../price" data-i18n="nav.price">Price</a>
+        <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
+        <a href="../reports-and-feedback" data-i18n="nav.reports">Reports &amp; Feedback</a>
         <a href="../blog" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
-        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
 
       <div class="nav-actions">
         <div class="lang-dropdown">
           <button class="lang-btn" aria-label="Language">
-            <span class="lang-pill">RO</span>
+            <span class="lang-pill">EN</span>
             <span class="chev">▾</span>
           </button>
-                    <div class="lang-menu">
-            <a href="../../en/tools/redact-pdf-online.html" class="lang-item" data-lang="en">EN</a>
-            <a href="adaugare-watermark-pdf-online.html" class="lang-item active" data-lang="ro">RO</a>
-            <a href="../../ru/instrumenty/skryt-dannye-v-pdf.html" class="lang-item" data-lang="ru">RU</a>
+          <div class="lang-menu">
+            <a href="../tools-online" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/unelte-online" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/onlayn-instrumenty" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -488,57 +646,57 @@
   </div>
 </header>
 
-<!-- ═══════ HERO ═══════ -->
+<!-- â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â• -->
 <section class="tools-hero" style="position:relative;overflow:hidden;">
     
   <div class="container">
     <div class="hero-eyebrow-pill gsap-fade">
       <span class="live-dot"></span>
-      UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
+      Free Online Document Tools &#x2014; No Download Required
     </div>
-    <h1 class="hero-h1 gsap-fade">Procesează Documente Direct în Browserul Tău</h1>
+    <h1 class="hero-h1 gsap-fade">Unified Batch Document Manager & PDF Security Suite</h1>
     <p class="hero-lead gsap-fade">
-      Găsește și redactează cuvinte cheie sau fraze sensibile în documente PDF online, complet gratuit. Protejează fișierele în lot prin eliminarea definitivă a textului și transformarea paginilor în imagini.
+      Sanitize metadata, add watermarks, encrypt, redact, flatten, remove signatures, repair PDFs, and generate professional page-count or advanced folder reports in batch. Use our zero-storage online sandbox for quick free tasks, or run them completely offline using the professional DocInspector desktop application for absolute privacy.
     </p>
       <div class="badges-row gsap-fade">
-        <span class="sec-badge">🛡️ Zero stocare în cloud</span>
-        <span class="sec-badge">⚡ Șters după descărcare</span>
-        <span class="sec-badge">🔒 Tranzit criptat (HTTPS)</span>
-        <span class="sec-badge">🤖 Fără AI — 100% determinist</span>
-        <span class="sec-badge">🇪🇺 Conform GDPR</span>
-        <span class="sec-badge" id="sec-badge-desc">📄 Până la 100 fișiere/zi, gratuit</span>
+        <span class="sec-badge">🛡️ Zero cloud storage</span>
+        <span class="sec-badge">⚡ Deleted after download</span>
+        <span class="sec-badge">🔒 Encrypted transit (HTTPS)</span>
+        <span class="sec-badge">🤖 No AI — 100% deterministic</span>
+        <span class="sec-badge">🇪🇺 GDPR Compliant</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 Up to 100 files/day, free</span>
       </div>
     
   </div>
 </section>
 
-<!-- ═══════ TOOLS AREA ═══════ -->
+<!-- â• â• â• â• â• â• â•  TOOLS AREA â• â• â• â• â• â• â•  -->
 <section style="padding-top:0;position:relative;z-index:1">
   <div class="container">
     <div class="tools-layout">
 
-      <!-- ══ COLOANA STÂNGA ══ -->
+      <!-- â• â•  LEFT COLUMN â• â•  -->
       <div>
-        <!-- Pasul 1 -->
-        <div style="margin-bottom:2.5rem">
-          <span class="step-label">Pasul 1</span>
-          <div class="step-title">Încarcă Fișierele Tale</div>
-          <div class="step-desc" id="step1-desc">Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>15 MB</strong> fiecare), 100 gratuit pe zi.</div>
+        <!-- Step 1: Upload -->
+        <div>
+          <span class="step-label">Step 1</span>
+          <div class="tool-step-title">Upload Your Files</div>
+          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
-            <span class="dz-icon" id="dzIcon">📂</span>
-            <div class="dz-title" id="dzTitle">Trage &amp; Plasează fișierele aici</div>
-            <div class="dz-sub" id="dzSub"></div>
+            <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
+            <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
+            <div class="dz-sub" id="dzSub">or click to browse &mdash; max 100 files per day &mdash; 15 MB each</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
-              <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Selectează Folder</button>
-              <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Selectează Fișiere</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
             </div>
           </div>
 
           <div class="supported-formats" style="margin-top:0.8rem; font-size:0.75rem; color:var(--text-muted); display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
-            <span>Formate suportate:</span>
+            <span>Supported Formats:</span>
             <strong>PDF</strong>,
             <strong>DOCX / DOC</strong>,
             <strong>XLSX / XLS / XLSM</strong>,
@@ -549,115 +707,124 @@
           </div>
 
           <div class="file-list" id="fileList"></div>
-        </div><!-- /pasul 1 -->
+        </div>
 
-        <!-- Pasul 2 -->
-        <div style="margin-bottom:2.5rem">
-          <span class="step-label">Pasul 2</span>
-          <div class="step-title">Selectează Operațiunile</div>
-          <div class="step-desc">Alege unul sau mai multe instrumente — ele rulează în secvență pe fișierele tale.</div>
+        <!-- Step 2: Select Operations -->
+        <div style="margin-top:2.5rem">
+          <span class="step-label">Step 2</span>
+          <div class="tool-step-title">Select Operations</div>
+          <div class="tool-step-desc">Choose one or more tools &#x2014; they run in sequence on your files.</div>
 
           <div class="tools-grid">
 
-            <!-- Sanitizare -->
-            <!-- Eliminare Semnaturi -->
+            <!-- Sanitize -->
+            <!-- Remove Signatures -->
             <div class="tool-card gsap-card" id="card-removesigs" style="--brand: #ec4899;" onclick="toggleTool(event,'removesigs')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap" style="background:rgba(236,72,153,.15);color:#ec4899">🔏</div>
-                <div class="tool-name">Elimină Semnăturile</div>
+                <div class="tool-icon-wrap" style="background:rgba(236,72,153,.15);color:#ec4899">&#x1F50F;</div>
+                <div class="tool-name">Remove Signatures</div>
               </div>
-              <div class="tool-desc">Elimină semnăturile digitale, blocurile de certificare, câmpurile și restricțiile de editare. <strong style="color:#ec4899">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Strip digital signatures, certified locks, fields, and editing restrictions. <strong style="color:#ec4899">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/remove-pdf-signatures" aria-label="Remove PDF Signatures standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Remove PDF Signatures Online</a>
             </div>
 
             <div class="tool-card gsap-card" id="card-sanitize" style="--brand: #f97316;" onclick="toggleTool(event,'sanitize')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-blue">🧹</div>
-                <div class="tool-name">Sanitizare Metadate</div>
+                <div class="tool-icon-wrap icon-blue">&#x1F9F9;</div>
+                <div class="tool-name">Sanitize Metadata</div>
               </div>
-              <div class="tool-desc">Elimină numele autorului, data creării, amprentele software, GPS și metadatele. <strong style="color:#f97316">Suportă PDF, DOCX, XLSX, CSV, TXT, Imagini, PPTX.</strong></div>
+              <div class="tool-desc">Remove author, creation date, software fingerprints, GPS and hidden metadata. <strong style="color:#f97316">Supports PDF, DOCX, XLSX, CSV, TXT, Images, PPTX.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/sanitize-pdf-metadata" aria-label="Sanitize PDF Metadata standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Sanitize PDF Metadata Online</a>
             </div>
 
+            <!-- Rebuild (moved up — key feature) -->
             <div class="tool-card gsap-card" id="card-rebuild" style="--brand: #6366f1;" onclick="toggleTool(event,'rebuild')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-indigo">🛠️</div>
-                <div class="tool-name">Reconstruiește &amp; Repară PDF</div>
+                <div class="tool-icon-wrap icon-indigo">&#x1F6E0;&#xFE0F;</div>
+                <div class="tool-name">Rebuild &amp; Repair PDF</div>
               </div>
-              <div class="tool-desc">Repară structuri PDF corupte, defecte sau malformate. <strong style="color:#6366f1">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Fix corrupted, broken or malformed PDF structures. Also makes scanned text <strong style="color:#06b6d4">selectable &amp; copiable</strong> via built-in OCR. <strong style="color:#6366f1">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/repair-pdf-online" aria-label="Repair PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Repair PDF Online</a>
             </div>
 
             <!-- Watermark -->
             <div class="tool-card gsap-card" id="card-watermark" style="--brand: #0ea5e9;" onclick="toggleTool(event,'watermark')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-green">💧</div>
-                <div class="tool-name">Adaugă Watermark</div>
+                <div class="tool-icon-wrap icon-green">&#x1F4A7;</div>
+                <div class="tool-name">Add Watermark</div>
               </div>
-              <div class="tool-desc">Aplică un watermark text diagonal pe fiecare pagină a documentului. <strong style="color:#0ea5e9">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Stamp a diagonal text watermark onto every page of your document. <strong style="color:#0ea5e9">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/add-watermark-pdf-online" aria-label="Add Watermark to PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Add Watermark to PDF Online</a>
             </div>
 
-            <!-- Criptare -->
+            <!-- Encrypt -->
             <div class="tool-card gsap-card" id="card-encrypt" style="--brand: #8b5cf6;" onclick="toggleTool(event,'encrypt')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-purple">🔐</div>
-                <div class="tool-name">Criptează PDF</div>
+                <div class="tool-icon-wrap icon-purple">&#x1F510;</div>
+                <div class="tool-name">Encrypt PDF</div>
               </div>
-              <div class="tool-desc">Protejează PDF-ul cu parolă prin criptare AES 256-bit. <strong style="color:#8b5cf6">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Password-protect your PDF and/or restrict copying, editing &amp; printing — secured by 256-bit AES encryption. <strong style="color:#8b5cf6">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/encrypt-pdf-online" aria-label="Encrypt PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Encrypt PDF Online</a>
             </div>
 
-            <!-- Redactare -->
+            <!-- Redact -->
             <div class="tool-card gsap-card" id="card-redact" style="--brand: #ef4444;" onclick="toggleTool(event,'redact')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-red">⬛</div>
-                <div class="tool-name">Găsește &amp; Redactează</div>
+                <div class="tool-icon-wrap icon-red">&#x2B1B;</div>
+                <div class="tool-name">Find &amp; Redact</div>
               </div>
-              <div class="tool-desc">Elimină permanent textul sensibil din documentul tău. <strong style="color:#ef4444">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Permanently remove sensitive text from your document. <strong style="color:#ef4444">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/redact-pdf-online" aria-label="Redact PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Redact PDF Online</a>
             </div>
 
-            <!-- Aplatizare -->
+            <!-- Flatten -->
             <div class="tool-card gsap-card" id="card-flatten" style="--brand: #10b981;" onclick="toggleTool(event,'flatten')">
-              <div class="check-ring">✓</div>
+              <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
-                <div class="tool-icon-wrap icon-orange">🖼️</div>
-                <div class="tool-name">Convertește PDF în Imagine (Aplatizare)</div>
+                <div class="tool-icon-wrap icon-orange">&#x1F5BC;&#xFE0F;</div>
+                <div class="tool-name">Convert PDF to Image-only (Flatten)</div>
               </div>
-              <div class="tool-desc">Convertește fiecare pagină într-o imagine raster în interiorul PDF-ului. <strong style="color:#10b981">Suportă doar PDF.</strong></div>
+              <div class="tool-desc">Convert every page into a raster image inside a PDF. <strong style="color:#10b981">Supports PDF only.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/flatten-pdf-online" aria-label="Flatten PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Flatten PDF Online</a>
             </div>
 
-            <!-- Reconstruire -->
             <!-- PDF Bundle Summary -->
             <div class="tool-card gsap-card" id="card-bundle" style="--brand: #f59e0b; border-color:rgba(245,158,11,.25); position:relative" onclick="toggleTool(event,'bundle')">
-              <div class="check-ring">✓</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NOU</div>
+              <div class="check-ring">&#x2714;</div>
+              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NEW</div>
               <div class="tool-header" style="margin-top:.5rem">
-                <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">📋</div>
-                <div class="tool-name">Borderou PDF</div>
+                <div class="tool-icon-wrap" style="background:rgba(245,158,11,.15)">&#x1F4CB;</div>
+                <div class="tool-name">PDF Bundle Summary</div>
               </div>
 
             <!-- Advanced Bundle Report -->
-<div class="tool-desc">Generează un raport profesional <strong style="color:#f59e0b">Excel + PDF + CSV</strong> pentru folder cu numărul de pagini și metadate. <strong style="color:#f59e0b">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+<div class="tool-desc">Generates a professional <strong style="color:#f59e0b">Excel + PDF + CSV report</strong> listing document titles, page counts, and totals. <strong style="color:#f59e0b">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📁 Încărcare folder</span>
-                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">📊 Excel + PDF</span>
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4C1; Folder upload</span>
+                <span style="font-size:.7rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:6px;padding:.2rem .5rem;color:#f59e0b">&#x1F4CA; Excel + PDF</span>
               </div>
+              <a href="https://doc-inspector.com/en/tools/pdf-bundle-summary-online" aria-label="PDF Bundle Summary standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">PDF Bundle Summary Online</a>
             </div>
 
             <div class="tool-card gsap-card" id="card-bundle-advanced" style="--brand: #eab308; border-color:rgba(234,179,8,.25); position:relative" onclick="toggleTool(event,'bundle-advanced')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#eab308,#f59e0b);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NOU</div>
+              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#eab308,#f59e0b);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">NEW</div>
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(234,179,8,.15);color:#eab308">&#x1F4D8;</div>
-                <div class="tool-name">Borderou PDF Avansat</div>
+                <div class="tool-name">Advanced Bundle Report</div>
               </div>
-              <div class="tool-desc">Generează un raport detaliat al folderului cu <strong style="color:#eab308">semnături SHA-256, dimensiune, format și data ultimei modificări</strong>. <strong style="color:#eab308">Suportă PDF, DOCX, XLSX, CSV, TXT.</strong></div>
+              <div class="tool-desc">Generates a detailed folder report with <strong style="color:#eab308">document number, title, format, size, SHA-256 signature, protection status, page count, and last modified date</strong> — plus total file and page counts. <strong style="color:#eab308">Supports PDF, DOCX, XLSX, CSV, TXT.</strong></div>
               <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
-                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Încărcare folder</span>
-                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F516; Metadate extinse</span>
+                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4C1; Folder upload</span>
+                <span style="font-size:.7rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.2rem .5rem;color:#eab308">&#x1F4CA; Full Detailed Report</span>
               </div>
+              <a href="https://doc-inspector.com/en/tools/advanced-pdf-bundle-report" aria-label="Advanced PDF Bundle Report standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Advanced PDF Bundle Report Online</a>
             </div>
 
             <!-- Convert Any Format to PDF -->
@@ -665,87 +832,89 @@
               <div class="check-ring">&#x2714;</div>
               <div class="tool-header">
                 <div class="tool-icon-wrap" style="background:rgba(168,85,247,.15);color:#a855f7">&#x1F504;</div>
-                <div class="tool-name">Convertește orice format în PDF</div>
+                <div class="tool-name">Convert Any Format to PDF</div>
               </div>
-              <div class="tool-desc">Convertește fișiere Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), text și imagini în PDF în lot. <strong style="color:#a855f7">Suportă formate multiple.</strong></div>
-              <a href="https://doc-inspector.com/ro/unelte/conversie-in-pdf-online" aria-label="Convert Any Format to PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Convertește orice document sau format în PDF online gratuit</a>
+              <div class="tool-desc">Convert Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), Text (TXT) and Images (JPG/PNG/WEBP) to PDF in batch. <strong style="color:#a855f7">Supports multiple formats.</strong></div>
+              <a href="https://doc-inspector.com/en/tools/convert-to-pdf-online" aria-label="Convert Any Format to PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Convert Any Document or Format to PDF Free Online</a>
             </div>
 
           </div><!-- /tools-grid -->
 
-          <!-- Panouri de opțiuni -->
+          <!-- Options panels -->
                               <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Igienizare</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Sanitize Settings</div>
               
               <div class="opt-row" style="margin-bottom: 0.6rem;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;font-weight:bold;">
-                  <input type="checkbox" id="san-all" checked style="accent-color:var(--brand, var(--cyan))"> ☢ Elimină TOATE metadatele (recomandat — cel mai sigur)
+                  <input type="checkbox" id="san-all" checked style="accent-color:var(--brand, var(--cyan))"> ☢ Remove ALL metadata (safest — recommended)
                 </label>
               </div>
               
               <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem; display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:.5rem;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Autor
+                  <input type="checkbox" id="san-author" checked style="accent-color:var(--brand, var(--cyan))"> Author
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-lastmodby" checked style="accent-color:var(--brand, var(--cyan))"> Ultimul Modificator
+                  <input type="checkbox" id="san-lastmodby" checked style="accent-color:var(--brand, var(--cyan))"> Last Modified By
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-company" checked style="accent-color:var(--brand, var(--cyan))"> Companie
+                  <input type="checkbox" id="san-company" checked style="accent-color:var(--brand, var(--cyan))"> Company
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
                   <input type="checkbox" id="san-manager" checked style="accent-color:var(--brand, var(--cyan))"> Manager
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-title" checked style="accent-color:var(--brand, var(--cyan))"> Titlu
+                  <input type="checkbox" id="san-title" checked style="accent-color:var(--brand, var(--cyan))"> Title
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-subject" checked style="accent-color:var(--brand, var(--cyan))"> Subiect
+                  <input type="checkbox" id="san-subject" checked style="accent-color:var(--brand, var(--cyan))"> Subject
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-keywords" checked style="accent-color:var(--brand, var(--cyan))"> Cuvinte cheie / Etichete
+                  <input type="checkbox" id="san-keywords" checked style="accent-color:var(--brand, var(--cyan))"> Keywords / Tags
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-comments" checked style="accent-color:var(--brand, var(--cyan))"> Comentarii
+                  <input type="checkbox" id="san-comments" checked style="accent-color:var(--brand, var(--cyan))"> Comments
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-categories" checked style="accent-color:var(--brand, var(--cyan))"> Categorii
+                  <input type="checkbox" id="san-categories" checked style="accent-color:var(--brand, var(--cyan))"> Categories
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-software" checked style="accent-color:var(--brand, var(--cyan))"> Aplicație / Nume Producător
+                  <input type="checkbox" id="san-software" checked style="accent-color:var(--brand, var(--cyan))"> Application / Producer name
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-time" checked style="accent-color:var(--brand, var(--cyan))"> Date Creare &amp; Modificare
+                  <input type="checkbox" id="san-time" checked style="accent-color:var(--brand, var(--cyan))"> Creation &amp; Mod Dates
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--brand, var(--cyan))"> Date GPS &amp; Locație
+                  <input type="checkbox" id="san-gps" checked style="accent-color:var(--brand, var(--cyan))"> GPS &amp; Location Data
                 </label>
               </div>
             </div>
           </div>
 
           <div class="tool-opts" id="opts-watermark" style="--brand: #0ea5e9;">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Watermark Settings</div>
               <div class="opt-row">
-                <label class="opt-label" for="wm-text">Text Watermark</label>
-                <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">CONFIDENȚIAL</textarea>
+                <label class="opt-label" for="wm-text">Watermark Text</label>
+                <textarea class="opt-input" id="wm-text" rows="3" maxlength="120">CONFIDENTIAL</textarea>
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="wm-font">Familie Font</label>
-                <select class="opt-input" id="wm-font" style="background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.55rem .9rem">
-                  <option value="Helvetica-Bold" selected>Helvetica Bold (implicit)</option>
+                <label class="opt-label" for="wm-font">Font Family</label>
+                <select class="opt-select" id="wm-font">
+                  <option value="Helvetica-Bold" selected>Helvetica Bold (default)</option>
                   <option value="Helvetica">Helvetica Regular</option>
                   <option value="Helvetica-Oblique">Helvetica Italic</option>
                   <option value="Times-Bold">Times New Roman Bold</option>
                   <option value="Times-Roman">Times New Roman Regular</option>
                   <option value="Times-BoldItalic">Times New Roman Bold Italic</option>
+                  <option value="Palatino-Roman">Palatino Linotype</option>
                   <option value="Courier-Bold">Courier Bold (monospace)</option>
                   <option value="Courier">Courier Regular (monospace)</option>
                 </select>
               </div>
               <div class="opt-row">
-                <label class="opt-label">Dimensiune Font</label>
+                <label class="opt-label">Font Size</label>
                 <div class="range-row">
                   <input class="opt-range" id="wm-size" type="range" min="20" max="120" value="60"
                     oninput="document.getElementById('wm-size-v').textContent=this.value+'pt'">
@@ -753,7 +922,7 @@
                 </div>
               </div>
               <div class="opt-row">
-                <label class="opt-label">Opacitate</label>
+                <label class="opt-label">Opacity</label>
                 <div class="range-row">
                   <input class="opt-range" id="wm-opacity" type="range" min="5" max="80" value="15"
                     oninput="document.getElementById('wm-op-v').textContent=this.value+'%'">
@@ -761,159 +930,85 @@
                 </div>
               </div>
                 <div class="opt-row">
-                  <label class="opt-label" for="wm-angle">Unghi (Rotație)</label>
+                  <label class="opt-label" for="wm-angle">Angle (Rotation)</label>
                   <select class="opt-select" id="wm-angle">
                     <option value="-45" selected>Diagonal (-45&deg;)</option>
-                    <option value="0">Drept (0&deg;)</option>
+                    <option value="0">Straight (0&deg;)</option>
                     <option value="45">Diagonal (45&deg;)</option>
                   </select>
                 </div>
+              
             </div>
           </div>
 
           <div class="tool-opts" id="opts-encrypt" style="--brand: #a855f7;">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Encryption Settings</div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw">Parolă (obligatorie)</label>
-                <input class="opt-input" id="enc-pw" type="password" placeholder="Introduceți parola pentru criptarea PDF-ului">
+                <label class="opt-label" for="enc-pw">Document Open Password (Optional)</label>
+                <input class="opt-input" id="enc-pw" type="password" placeholder="User must enter this to open the PDF">
+              </div>
+              <div class="opt-row" style="margin-top:0.5rem;">
+                <label class="opt-label" for="enc-pw2">Confirm Document Open Password</label>
+                <input class="opt-input" id="enc-pw2" type="password" placeholder="Re-enter to confirm">
               </div>
               <div class="opt-row">
-                <label class="opt-label" for="enc-pw2">Confirmați Parola</label>
-                <input class="opt-input" id="enc-pw2" type="password" placeholder="Repetați parola">
+                <label class="opt-label" for="enc-owner">Permissions Password (Optional)</label>
+                <input class="opt-input" id="enc-owner" type="password" placeholder="Password to lock/unlock restrictions">
+              </div>
+                <div class="opt-row" style="margin-top:0.5rem;">
+                  <label class="opt-label" for="enc-owner2">Confirm Permissions Password</label>
+                  <input class="opt-input" id="enc-owner2" type="password" placeholder="Re-enter to confirm">
+                </div>
+              <div class="opt-row" style="margin-top:0.5rem;">
+                <label class="opt-label">Restrictions (Requires Permissions Password)</label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-print" style="accent-color:var(--brand, var(--cyan))"> Prevent Printing
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-copy" style="accent-color:var(--brand, var(--cyan))"> Prevent Copying Text/Images
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="checkbox" id="enc-no-edit" style="accent-color:var(--brand, var(--cyan))"> Prevent Modifying/Editing
+                </label>
               </div>
             </div>
           </div>
 
           <div class="tool-opts" id="opts-redact" style="--brand: #ef4444;">
-            <div class="tool-opts-inner">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Redaction Settings</div>
               <div class="opt-row">
-                <label class="opt-label" for="redact-kw-input">Cuvinte cheie de redactat (expresii exacte)</label>
+                <label class="opt-label" for="redact-kw-input">Keywords to Redact (exact phrases)</label>
                 <div style="display:flex;gap:.5rem">
-                  <input class="opt-input" id="redact-kw-input" type="text" placeholder="Scrie un cuvânt sau expresie și apasă Adaugă..." style="flex:1">
-                  <button type="button" class="btn btn-primary btn-sm" id="btn-add-kw" style="border-radius:10px;padding:.55rem 1rem">Adaugă</button>
+                  <input class="opt-input" id="redact-kw-input" type="text" placeholder="Type a keyword and click Add (or comma-separated list)..." style="flex:1">
+                  <button type="button" class="btn btn-primary btn-sm" id="btn-add-kw" style="border-radius:10px;padding:.55rem 1rem">Add</button>
                 </div>
                 <input type="hidden" id="redact-kw" value="">
                 <div class="kw-tags-container" id="kwTagsContainer" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem"></div>
               </div>
-              <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ Întregul strat de text al paginii este eliminat pentru a garanta că nu rămâne niciun conținut sensibil (ieșire doar-imagine).</p>
-<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Atenție: Dacă documentul este scanat/imagine, textul nu va fi găsit. Recomandăm să bifați și "Rebuild & Repair PDF" pentru OCR, însă procesarea va dura semnificativ mai mult.</p>
+              <p style="font-size:.78rem;color:var(--text-muted);margin:.4rem 0 0">ℹ️ The entire page text layer is removed to guarantee no sensitive content remains (image-only output).</p>
+<p style="font-size:.78rem;color:#f97316;margin:.6rem 0 0;font-weight:600;padding:8px;background:rgba(249,115,22,0.1);border-left:3px solid #f97316;border-radius:4px;">⚠️ Note: If your PDF is an image or scanned document, text cannot be found. We recommend selecting "Rebuild & Repair PDF" alongside Redact for OCR, but this will increase processing time.</p>
             </div>
           </div>
 
           <div class="tool-opts" id="opts-rebuild" style="--brand: #6366f1;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Reconstruire</div>
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Rebuild Settings</div>
               <div class="opt-row">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Inteligentă (Rulează OCR doar pe paginile scanate/fără text selectabil - MAI RAPID)
+                  <input type="radio" name="rebuild-mode" id="rebuild-smart" checked style="accent-color:var(--brand, var(--cyan))"> Smart Rebuild (Runs OCR only on non-copyable/scanned pages - FASTER)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Reconstrucție Forțată (Rulează OCR pe toate paginile, inclusiv cele cu text - MAI ÎNCET)
+                  <input type="radio" name="rebuild-mode" id="rebuild-force" style="accent-color:var(--brand, var(--cyan))"> Force Rebuild (Runs OCR on all pages, including those with text - SLOWER)
                 </label>
               </div>
                             <div class="opt-row" style="margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.5rem; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="rebuild-enhance" style="accent-color:var(--brand, var(--cyan))"> Imbunatatește acuratețea OCR (pre-procesare pagini - MAI ÎNCET)
+                  <input type="checkbox" id="rebuild-enhance" style="accent-color:var(--brand, var(--cyan))"> Enhance OCR accuracy (pre-process pages - SLOWER)
                 </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-opts" id="opts-bundle" style="--brand: #f59e0b;">
-            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Borderou PDF Simplu</div>
-              <div style="font-size:0.82rem; color:#cbd5e1; margin-top:0.3rem;">
-                Generează un raport simplu Excel + PDF cu numărul de pagini al documentelor. Nu sunt necesare configurări suplimentare.
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-opts" id="opts-bundle-advanced" style="--brand: #eab308;">
-            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Borderou PDF Avansat</div>
-              <div style="font-size:0.82rem; color:#cbd5e1; margin-top:0.3rem;">
-                Generează un raport detaliat de folder care include Format, Dimensiune, semnături SHA-256, Protecție și Data ultimei modificări. Nu sunt necesare configurări suplimentare.
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-opts" id="opts-to-pdf" style="--brand: #a855f7;">
-            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Conversie în PDF</div>
-              
-              <!-- Excel-only options -->
-              <div class="opts-sec-excel" style="display:none; margin-bottom:0.8rem;">
-                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Aspect Tabel Excel</div>
-                <div class="opt-row">
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="excel-layout" id="ex-fit-width" checked style="accent-color:#a855f7"> Încadrează coloanele pe lățime (Recomandat)
-                  </label>
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="excel-layout" id="ex-fit-sheet" style="accent-color:#a855f7"> Încadrează tot tabelul pe o pagină
-                  </label>
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="excel-layout" id="ex-no-scale" style="accent-color:#a855f7"> Fără scalare (Dimensiune originală)
-                  </label>
-                </div>
-              </div>
-
-              <!-- Image-only options -->
-              <div class="opts-sec-image" style="display:none; margin-bottom:0.8rem;">
-                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Mod Conversie Imagine</div>
-                <div class="opt-row">
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="image-output" id="img-separate" checked style="accent-color:#a855f7"> Fiecare imagine în PDF separat (1-la-1)
-                  </label>
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="image-output" id="img-merge" style="accent-color:#a855f7"> Unește toate imaginile într-un singur PDF
-                  </label>
-                </div>
-                
-                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-top:0.5rem; margin-bottom:0.3rem;">Scalare Pagină Imagine</div>
-                <div class="opt-row">
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="image-scaling" id="img-scale-fit" checked style="accent-color:#a855f7"> Încadrează vizual în marginile A4 (Fără pierderi de calitate)
-                  </label>
-                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
-                    <input type="radio" name="image-scaling" id="img-scale-orig" style="accent-color:#a855f7"> Păstrează dimensiunea originală
-                  </label>
-                </div>
-              </div>
-
-              <!-- Shared Excel & Image option: auto-landscape -->
-              <div class="opts-sec-landscape" style="display:none; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; margin-top:0.5rem;">
-                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="convert-auto-landscape" checked style="accent-color:#a855f7"> Auto-Landscape (Rotește tabelele sau imaginile late)
-                </label>
-              </div>
-
-              <!-- General Word/Text info note -->
-              <div class="opts-sec-info" style="display:block; font-size:0.8rem; color:#94a3b8;">
-                📄 Conversie automată pentru fișiere Word (.docx/.doc) și Text (.txt). Nu sunt necesari parametri suplimentari.
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 0.8rem; opacity: 1;">
-            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Opțiuni Globale Procesare</div>
-              <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;">
-                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="global-timeout-enable" style="accent-color:#10b981" onchange="document.getElementById('global-timeout-val').disabled = !this.checked"> Omite fișierul dacă procesarea durează prea mult
-                </label>
-                <select id="global-timeout-val" disabled style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
-                  <option value="120">2 minute</option>
-                  <option value="300" selected>5 minute</option>
-                  <option value="480">8 minute</option>
-                  <option value="900">15 minute</option>
-                  <option value="1500">25 minute</option>
-                  <option value="2400">40 minute</option>
-                  <option value="3600">1 oră</option>
-                  <option value="7200">2 ore</option>
-                  <option value="14400">4 ore</option>
-                </select>
-                <div style="display: flex; align-items: center; gap: 0.4rem; margin-left: auto;">
-                  <label for="rebuild-dpi" style="font-size: .82rem; color: #fff;">Rezoluție / DPI:</label>
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <label for="rebuild-dpi" style="font-size: .82rem; color: #fff;">Resolution:</label>
                   <select id="rebuild-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
                     <option value="200">200 DPI</option>
                     <option value="250">250 DPI</option>
@@ -926,20 +1021,127 @@
             </div>
           </div>
 
-        </div><!-- /pasul 2 -->
+          <div class="tool-opts" id="opts-bundle" style="--brand: #f59e0b;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">PDF Bundle Summary Settings</div>
+              <div style="font-size:0.82rem; color:#cbd5e1; margin-top:0.3rem;">
+                Generates a simple Excel + PDF report of document page counts. No additional configuration required.
+              </div>
+            </div>
+          </div>
 
-        <!-- Buton procesare + rezultat (sub ambii pași) -->
+          <div class="tool-opts" id="opts-bundle-advanced" style="--brand: #eab308;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Advanced Bundle Report Settings</div>
+              <div style="font-size:0.82rem; color:#cbd5e1; margin-top:0.3rem;">
+                Generates a detailed folder report per document: Document Number, Title, Format, Size, SHA-256 Signature, Protection Status, Page Count, and Last Modified Date — plus total file and page counts. No additional configuration required.
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-opts" id="opts-to-pdf" style="--brand: #a855f7;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Convert to PDF Settings</div>
+              
+              <!-- Excel-only options -->
+              <div class="opts-sec-excel" style="display:none; margin-bottom:0.8rem;">
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Excel Spreadsheet Layout</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-fit-width" checked style="accent-color:#a855f7"> Fit columns to width (Recommended)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-fit-sheet" style="accent-color:#a855f7"> Fit entire sheet to single page
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="excel-layout" id="ex-no-scale" style="accent-color:#a855f7"> No scaling (Original size)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Image-only options -->
+              <div class="opts-sec-image" style="display:none; margin-bottom:0.8rem;">
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Image Conversion Mode</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-output" id="img-separate" checked style="accent-color:#a855f7"> Convert each image to a separate PDF (1-to-1)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-output" id="img-merge" style="accent-color:#a855f7"> Merge all images into a single combined PDF (Many-to-1)
+                  </label>
+                </div>
+                
+                <div style="font-size:0.75rem; color:#a855f7; font-weight:bold; text-transform:uppercase; margin-top:0.5rem; margin-bottom:0.3rem;">Image Page Scaling</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-scaling" id="img-scale-fit" checked style="accent-color:#a855f7"> Fit visually to A4 boundaries (Zero quality loss)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="image-scaling" id="img-scale-orig" style="accent-color:#a855f7"> Keep original size
+                  </label>
+                </div>
+              </div>
+
+              <!-- Shared Excel & Image option: auto-landscape -->
+              <div class="opts-sec-landscape" style="display:none; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; margin-top:0.5rem;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="convert-auto-landscape" checked style="accent-color:#a855f7"> Auto-Landscape (Rotate wide tables or images)
+                </label>
+              </div>
+
+              <!-- General Word/Text info note -->
+              <div class="opts-sec-info" style="display:block; font-size:0.8rem; color:#94a3b8;">
+                📄 Auto-converting Word (.docx/.doc) and Text (.txt) files. No additional parameters required.
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-opts" id="opts-global-settings" style="--brand: #10b981; display: block; margin-top: 0.8rem; opacity: 1;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Global Processing Options</div>
+              <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap; margin-top:0.4rem;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="global-timeout-enable" style="accent-color:#10b981" onchange="document.getElementById('global-timeout-val').disabled = !this.checked"> Skip file if it takes too long to process
+                </label>
+                <select id="global-timeout-val" disabled style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
+                  <option value="120">2 minutes</option>
+                  <option value="300" selected>5 minutes</option>
+                  <option value="480">8 minutes</option>
+                  <option value="900">15 minutes</option>
+                  <option value="1500">25 minutes</option>
+                  <option value="2400">40 minutes</option>
+                  <option value="3600">1 hour</option>
+                  <option value="7200">2 hours</option>
+                  <option value="14400">4 hours</option>
+                </select>
+                <div style="display: flex; align-items: center; gap: 0.4rem; margin-left: auto;">
+                  <label for="rebuild-dpi" style="font-size: .82rem; color: #fff;">Resolution / DPI:</label>
+                  <select id="rebuild-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
+                    <option value="200">200 DPI</option>
+                    <option value="250">250 DPI</option>
+                    <option value="300" selected>300 DPI</option>
+                    <option value="350">350 DPI</option>
+                    <option value="400">400 DPI</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /step2 -->
+
+        <!-- Process button + result (below both steps) -->
         <div style="margin-top:1.2rem">
           <button class="process-btn" id="processBtn" disabled onclick="startProcessing()" style="background:linear-gradient(135deg, #10b981, #34d399); box-shadow: 0 4px 20px rgba(16,185,129,.3); color:#ffffff;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Procesează Fișierele Acum
+            Process Files Now
           </button>
 
           <div class="result-area" id="resultArea">
             <div class="spin" id="rSpin"></div>
             <div class="r-icon" id="rIcon" style="display:none"></div>
-            <div class="r-title" id="rTitle">Se procesează fișierele tale…</div>
-            <div class="r-sub"   id="rSub">Acest lucru poate dura câteva secunde</div>
+            <div class="r-title" id="rTitle">Processing your files&#x2026;</div>
+            <div class="r-sub"   id="rSub">This may take a few seconds</div>
             <div id="rProgressContainer" style="display:none; margin: 1rem auto; max-width: 400px;">
               <div style="height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
                 <div id="rProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #06b6d4, #10b981); transition: width 0.5s ease; box-shadow: 0 0 8px rgba(6,182,212,0.6);"></div>
@@ -948,68 +1150,69 @@
             </div>
             <a href="#" class="dl-btn" id="rDlBtn" style="display:none" download>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Descarcă Rezultatele (.zip)
+              Download Results (.zip)
             </a>
-            <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">↺ Procesează un alt lot</button>
-            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Oprește Procesarea</button>
+            <button class="reset-btn" id="rResetBtn" style="display:none" onclick="resetTool()">&#8635; Process another batch</button>
+            <button class="reset-btn" id="rCancelBtn" style="display:none; margin-top: 1rem; border:1px solid #ef4444; color:#ef4444; background: transparent;" onclick="cancelJob()">🛑 Stop Processing</button>
           </div>
         </div>
 
-      </div><!-- /coloana stânga -->
+      </div><!-- /left col -->
 
-      <!-- ══ SIDEBAR ══ -->
+      <!-- ——— SIDEBAR ——— -->
+
       <div class="sidebar-sticky">
         <div class="sidebar-card" id="license-panel" style="margin-bottom:1.5rem">
-          <div class="sb-title">&#x1F511; Licență & Limite</div>
+          <div class="sb-title">&#x1F511; License & Limits</div>
           <div id="license-tier" style="margin-bottom:.8rem;font-size:1.1rem;font-weight:700">
-            <span style="color:var(--text-muted)">Nivel curent:</span>
+            <span style="color:var(--text-muted)">Current Tier:</span>
             <span id="tier-badge" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:.15rem .5rem;color:var(--text-muted);font-size:.9rem;margin-left:.4rem">Free</span>
           </div>
           <div class="daily-bar">
             <div class="daily-top">
-              <span class="daily-lbl" id="dailyLbl">Utilizare zilnică</span>
-              <span class="daily-cnt" id="dailyCnt">0 / 100 fișiere</span>
+              <span class="daily-lbl" id="dailyLbl">Daily Usage</span>
+              <span class="daily-cnt" id="dailyCnt">0 / 100 files</span>
             </div>
             <div class="bar-track"><div class="bar-fill" id="dailyFill" style="width:0%"></div></div>
             <div id="dailyReset" style="font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem;text-align:right;display:none;"></div>
           </div>
           <div id="license-activate-form">
-            <input type="text" id="license-key-input" class="opt-input" placeholder="Introdu cheia DocInspector..." style="margin-bottom:.5rem">
-            <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Activează Cheia</button>
+            <input type="text" id="license-key-input" class="opt-input" placeholder="Enter DocInspector License Key..." style="margin-bottom:.5rem">
+            <button class="process-btn" onclick="activateLicense()" style="width:100%;border-radius:10px;padding:.6rem;font-size:.9rem;margin-top:0" id="activate-btn">Activate Key</button>
             <div id="license-msg" style="font-size:.8rem;margin-top:.4rem;display:none;text-align:center"></div>
             <div style="margin-top: 15px; text-align: center;">
               <span style="font-size: 0.8rem; color: var(--text-muted);">
-                Ai nevoie de limite mai mari? <a href="../preturi" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Treci la Pro</a> pentru fișiere nelimitate.
+                Need more limits? <a href="../price" style="color: #22d3ee; text-decoration: underline; font-weight: 500;">Upgrade to Pro</a> for unlimited files.
               </span>
             </div>
           </div>
           <div id="license-active-info" style="display:none">
-            <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Șterge Licența</button>
+            <button class="reset-btn" onclick="logoutLicense()" style="width:100%;margin-top:0;background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.3)">Remove License</button>
           </div>
         </div>
 
         <div class="sidebar-card">
-          <div class="sb-title">&#x1F4CA; Operațiuni Selectate</div>
+          <div class="sb-title">&#x1F4CA; Selected Operations</div>
 
           <div class="ops-list" id="opsList">
-            <div class="ops-empty">Nicio operațiune selectată încă.<br>Alege instrumente din stânga.</div>
+            <div class="ops-empty">No operations selected yet.<br>Pick tools from the left.</div>
           </div>
 
           <div class="pipeline-section" id="pipelineSection" style="display:none">
-            <div class="pipeline-lbl">Pipeline de procesare</div>
+            <div class="pipeline-lbl">Processing pipeline</div>
             <div class="pipeline-flow" id="pipelineFlow"></div>
           </div>
 
           <div class="sb-info">
-            <div class="sb-info-item">🔒 <strong>Zero retenție</strong> — fișierele sunt șterse imediat după descărcare</div>
-            <div class="sb-info-item">⚡ <strong>Motor CLI</strong> — aceleași motoare ca în aplicația desktop</div>
-            <div class="sb-info-item">📄 <strong>Doar PDF</strong> — suportul DOCX/XLSX este în aplicația desktop</div>
+            <div class="sb-info-item">&#x26A1; <strong>Zero retention</strong> &#x2014; files deleted immediately after you download</div>
+            <div class="sb-info-item">&#x2699;&#xFE0F; <strong>CLI-powered</strong> &#x2014; same engines as the desktop app</div>
+            <div class="sb-info-item">📄 <strong>Online:</strong> PDF focus — <strong>Desktop app</strong> supports DOCX, XLSX &amp; more</div>
           </div>
 
           <div class="upsell-box" id="upsell-box">
-            <div class="upsell-title">💼 Ai nevoie de procesare batch nelimitată?</div>
-            <div class="upsell-desc">Descarcă aplicația desktop pentru Windows — procesează mii de fișiere local fără limite.</div>
-            <a href="../preturi" class="upsell-btn">Upgrade — Vezi Planuri</a>
+            <div class="upsell-title"><div class="upsell-title">&#x1F680; Need unlimited batch processing?</div>#x26A1; Need more power? Upgrade your plan</div>
+            <div class="upsell-desc">Download the desktop app for Windows &#x2014; process thousands of files locally with no limits.</div>
+            <a href="../price" class="upsell-btn">Upgrade — View Plans</a>
           </div>
         </div>
       </div>
@@ -1018,125 +1221,91 @@
   </div>
 </section>
 
-<!-- ═══════ SECURITATE ═══════ -->
-<section class="section-gap sec-section" id="arhitectura-securitate">
+<!-- ——————— SECURITY SECTION ——————— -->
+<section class="section-gap sec-section" id="security-architecture">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
-      <span class="section-eyebrow">Arhitectura de Securitate</span>
-      <h2 class="section-title"><span class="text-gradient">Cum Protejăm Documentele Tale</span></h2>
-      <p class="section-subtitle">Instrumentul nostru online este construit pe aceleași principii de izolare ca și aplicația desktop. Iată fluxul exact al datelor de la browserul tău până la rezultatul procesat.</p>
+      <span class="section-eyebrow">Security Architecture</span>
+      <h2 class="section-title"><span class="text-gradient">How We Protect Your Documents</span></h2>
+      <p class="section-subtitle">Our online tool is built on the same isolation principles as the desktop app. Here is the exact data flow from your browser to the processed output.</p>
     </div>
 
     <div class="flow-visual reveal">
-      <div class="fv-node"><span>🖥️</span> Browserul Tău</div>
+      <div class="fv-node"><span>💻</span> Your Browser</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node fv-hl"><span>🔒</span> Upload HTTPS Criptat</div>
+      <div class="fv-node fv-hl"><span>🔑</span> Encrypted HTTPS Upload</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node"><span>⚙️</span> Sandbox Izolat</div>
+      <div class="fv-node"><span>⚙️</span> Isolated Sandbox</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node fv-hl"><span>🗑️</span> Ștergere Automată Imediată</div>
+      <div class="fv-node fv-hl"><span>🗑️</span> Immediate Auto-Delete</div>
       <span class="fv-arrow">→</span>
-      <div class="fv-node"><span>📥</span> Descărcare Securizată</div>
+      <div class="fv-node"><span>📥</span> Secure Download</div>
     </div>
 
     <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:2.5rem;margin-top:2rem">
-      <h3 class="section-title" style="text-align:center;font-size:1.4rem;margin-bottom:2rem"><span class="text-gradient">Angajamentele Noastre de Securitate</span></h3>
+      <h3 class="section-title" style="text-align:center;font-size:1.4rem;margin-bottom:2rem"><span class="text-gradient">Our Security Commitments</span></h3>
       <div class="sec-grid">
         <div class="sec-item reveal">
-          <div class="sec-icon">🛡️</div>
-          <div class="sec-item-title">Fără Stocare Persistentă</div>
-          <div class="sec-item-desc">Fișierele sunt stocate doar în RAM sau un director temporar. Șterse automat la 5 minute după procesare — sau imediat la descărcare.</div>
+          <div class="sec-icon">🛡️ </div>
+          <div class="sec-item-title">No Persistent Storage</div>
+          <div class="sec-item-desc">Files are stored only in RAM or a short-lived temp directory. Deleted automatically 5 minutes after processing — or immediately upon download.</div>
         </div>
         <div class="sec-item reveal">
-          <div class="sec-icon">🔐</div>
-          <div class="sec-item-title">Criptat în Tranzit</div>
-          <div class="sec-item-desc">Toate încărcările și descărcările folosesc HTTPS/TLS. Documentul tău nu călătorește niciodată în text simplu prin rețea.</div>
+          <div class="sec-icon">&#x1F512;</div>
+          <div class="sec-item-title">Encrypted in Transit</div>
+          <div class="sec-item-desc">All uploads and downloads use HTTPS/TLS. Your document never travels in plaintext over the network.</div>
         </div>
         <div class="sec-item reveal">
-          <div class="sec-icon">🤖</div>
-          <div class="sec-item-title">Fără AI, Fără Antrenament</div>
-          <div class="sec-item-desc">Folosim instrumente CLI deterministe (qpdf, ExifTool, Ghostscript). Documentele tale nu sunt niciodată introduse în niciun model de machine learning.</div>
+          <div class="sec-icon">&#x1F6AB;</div>
+          <div class="sec-item-title">No AI, No Training</div>
+          <div class="sec-item-desc">We use deterministic CLI tools (qpdf, ExifTool, Ghostscript). Your documents are never fed into any machine learning model.</div>
         </div>
         <div class="sec-item reveal">
-          <div class="sec-icon">🇪🇺</div>
-          <div class="sec-item-title">Conform GDPR</div>
-          <div class="sec-item-desc">Nu colectăm, stocăm sau înregistrăm conținutul fișierelor. Procesarea este fără stare și privată prin proiectare.</div>
+          <div class="sec-icon">&#x1F1EA;&#x1F1FA;</div>
+          <div class="sec-item-title">GDPR Compliant</div>
+          <div class="sec-item-desc">We don't collect, store or log file contents. Processing is stateless and private by design.</div>
         </div>
         <div class="sec-item reveal">
-          <div class="sec-icon">⚙️</div>
-          <div class="sec-item-title">Motoare CLI Open Source</div>
-          <div class="sec-item-desc">ExifTool, qpdf, Ghostscript — instrumente open-source testate în luptă, folosite la nivel mondial de profesioniști în securitate.</div>
+          <div class="sec-icon">⚙️ </div>
+          <div class="sec-item-title">Open CLI Engines</div>
+          <div class="sec-item-desc">ExifTool, qpdf, Ghostscript — battle-tested open-source tools used worldwide by security professionals.</div>
         </div>
         <div class="sec-item reveal">
           <div class="sec-icon">🔍</div>
-          <div class="sec-item-title">Jurnale Gata pentru Audit</div>
-          <div class="sec-item-desc">Pentru aplicația desktop: fiecare operațiune este înregistrată cu marcaj temporal și hash SHA-256 pentru lanț complet de custodie.</div>
+          <div class="sec-item-title">Audit-Ready Logs</div>
+          <div class="sec-item-desc">For the desktop app: every operation is logged with timestamp and SHA-256 hash for full chain-of-custody.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ CTA ═══════ -->
+<!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
   <div class="cta-glow"></div>
   <div class="container reveal">
-    <h2 class="cta-title text-gradient">Ai nevoie de mai multă putere?</h2>
-    <p class="cta-subtitle">Deblochează limite mai mari, procesare batch pentru mii de fișiere, arbori de foldere, pipeline-uri multi-acțiune și raportare avansată. Alege planul potrivit pentru tine.</p>
+    <h2 class="cta-title text-gradient">Need more power?</h2>
+    <p class="cta-subtitle">Unlock higher limits, batch processing of thousands of files, folder trees, multi-action pipelines and advanced reporting. Choose the plan that fits your workflow.</p>
     <div class="hero-buttons" style="justify-content:center">
-      <a href="../preturi" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg,#06b6d4 0%,#0891b2 100%);border-color:#06b6d4;color:#040d1a;box-shadow:0 0 25px rgba(6,182,212,.35)">
+      <a href="../price" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg,#06b6d4 0%,#0891b2 100%);border-color:#06b6d4;color:#040d1a;box-shadow:0 0 25px rgba(6,182,212,.35)">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        Upgrade — Vezi Planuri &amp; Prețuri
+        Upgrade — View Plans &amp; Pricing
       </a>
-      <a href="../descarca" class="btn btn-outline btn-lg">Descarcă Aplicația Desktop</a>
+      <a href="../download" class="btn btn-outline btn-lg">Download Desktop App</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
-
-  <!-- SEO Content Section -->
-  <section class="section seo-section">
-    <div class="container">
-      <h2 class="seo-title">DocInspector Online Suite</h2>
-      <div class="seo-grid">
-        <!-- Benefits -->
-        <div class="benefits-card">
-          <h3>💎 Avantaje Cheie</h3>
-          <ul class="benefits-list">
-            <li>Ștergere definitivă a datelor — nu doar acoperire vizuală</li><li>Căutare și redactare în masă a cuvintelor cheie introduse</li><li>Procesare securizată pe server fără salvarea documentelor</li><li>Economisește ore întregi de editare manuală a paginilor</li>
-          </ul>
-        </div>
-        <!-- FAQ -->
-        <div class="faq-card">
-          <h3>❓ Întrebări Frecvente (FAQ)</h3>
-          
-          <div class="faq-item">
-            <div class="faq-question">Textul este șters definitiv?</div>
-            <div class="faq-answer">Da! Instrumentul nostru nu doar desenează un dreptunghi negru, ci elimină definitiv bytes-ii de text din fișier, astfel încât acesta să nu poată fi recuperat.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Cum funcționează redactarea pe baza de cuvinte cheie?</div>
-            <div class="faq-answer">Introduci o listă de cuvinte cheie (ex: nume, emailuri, cifre), iar sistemul va căuta și va acoperi automat toate aparițiile din document.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Pot redacta mai multe documente simultan?</div>
-            <div class="faq-answer">Da, poți încărca până la 50+ documente și aplica aceeași listă de cuvinte cheie pentru toate deodată.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<!-- ——————— FOOTER ——————— -->
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-        <a href="../securitate" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Securitate</a>
-        <a href="politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
-        <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
-        <a href="politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="security" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Security</a>
+        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
+        <a href="refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
         </a>
@@ -1147,8 +1316,8 @@
 
 </div><!-- .page -->
 
-<script src="../../cookies.js"></script>
-<script src="../../scroll-fx.js?v=11"></script>
+<script src="../cookies.js"></script>
+<script src="../scroll-fx.js?v=11"></script>
 <script>
 if (typeof gsap !== 'undefined') {
   if (typeof ScrollTrigger !== 'undefined') {
@@ -1186,20 +1355,23 @@ if (typeof gsap !== 'undefined') {
   }
 }
 
+// Tool metadata
 const TOOLS = {
-    'to-pdf'  : { label:'Convertește orice format în PDF', emoji:'🔄' },
-  removesigs: { label:'Elimină Semnăturile',    emoji:'🔏' },
-  sanitize : { label:'Sanitizare Metadate',        emoji:'🧹' },
-  watermark: { label:'Adaugă Watermark',            emoji:'💧' },
-  encrypt  : { label:'Criptează PDF',               emoji:'🔐' },
-  redact   : { label:'Găsește & Redactează',        emoji:'⬛' },
-  flatten  : { label:'Convertește PDF în Imagine (Aplatizare)',   emoji:'🖼️' },
-  rebuild  : { label:'Reconstruiește & Repară PDF', emoji:'🛠️' },
-  bundle   : { label:'Borderou PDF',                emoji:'📋' },
-  'bundle-advanced': { label:'Borderou PDF Avansat', emoji:'📘' },
+  'to-pdf'  : { label:'Convert Any Format to PDF', emoji:'🔄' },
+  removesigs: { label:'Remove Signatures',      emoji:'🔏' },
+  sanitize : { label:'Sanitize Metadata',      emoji:'🧹' },
+  watermark: { label:'Add Watermark',           emoji:'💧' },
+  encrypt  : { label:'Encrypt PDF',             emoji:'🔐 ' },
+  redact   : { label:'Find & Redact',           emoji:'⬛' },
+  flatten  : { label:'Convert PDF to Image-only (Flatten)',    emoji:'🖼️ ' },
+  rebuild  : { label:'Rebuild & Repair PDF',    emoji:'🛠️ ' },
+  bundle   : { label:'PDF Bundle Summary',      emoji:'📋' },
+  'bundle-advanced': { label:'Advanced Bundle Report', emoji:'📘' },
 };
 const selectedOps = new Set();
 let files = [];
+const MAX = 100;
+
 // License & Limit state
 let currentTier = "Free";
 let currentLimit = 100;
@@ -1216,8 +1388,8 @@ async function fetchStatus() {
       currentLimit = data.limit_today;
       resetInSeconds = data.reset_in_seconds || 0;
       updateUI();
-      if(data.kicked_out) alert("Licența a fost activată pe un alt browser. Sesiunea curentă a fost retrogradată la Gratuit.");
-      if(data.revoked) alert("Licența a fost anulată sau a expirat. Retrogradat la Gratuit.");
+      if(data.kicked_out) alert("License activated on another device. This session has been downgraded to Free.");
+      if(data.revoked) alert("License revoked or expired. Downgraded to Free.");
     }
   } catch(e) {}
 }
@@ -1285,8 +1457,8 @@ function updateUI() {
   const secBadgeDesc = document.getElementById('sec-badge-desc');
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 100 fișiere/zi, gratuit";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>100 de fișiere</strong> simultan (max <strong>25 MB</strong> fiecare), 100 gratuit pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>25 MB</strong> each), 100 free per day.';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1296,8 +1468,8 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 1.000 fișiere/zi, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1.000 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), 1.000 pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 1,000 files/day, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>100 MB</strong> each), 1,000 per day.';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1307,8 +1479,8 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Fișiere nelimitate/zi, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Trage &amp; plasează sau fă clic pentru a selecta — până la <strong>1300 de fișiere</strong> simultan (max <strong>100 MB</strong> fiecare), nelimitat pe zi.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>100 MB</strong> each), unlimited per day.';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -1320,14 +1492,14 @@ function updateUI() {
   }
   
   if (currentLimit === "unlimited") {
-    dCnt.textContent = currentUsed + " / nelimitat";
+    dCnt.textContent = currentUsed + " / unlimited";
     dFill.style.width = "0%";
     const dReset = document.getElementById('dailyReset');
     if (dReset) dReset.style.display = 'none';
   } else {
-    dCnt.textContent = currentUsed + " / " + currentLimit + " fișiere";
+    dCnt.textContent = currentUsed + " / " + currentLimit + " files";
     dFill.style.width = Math.min((currentUsed / currentLimit) * 100, 100) + '%';
-    startResetCountdown(resetInSeconds, 'ro');
+    startResetCountdown(resetInSeconds, 'en');
   }
   
   // Update visually locked cards
@@ -1341,7 +1513,7 @@ async function activateLicense() {
   if (!key) return;
   
   btn.disabled = true;
-  btn.innerHTML = '<div class="spin" style="width:16px;height:16px;border-width:2px;margin:0"></div> Se activează...';
+  btn.innerHTML = '<div class="spin" style="width:16px;height:16px;border-width:2px;margin:0"></div> Activating...';
   msg.style.display = "none";
   
   const fd = new FormData();
@@ -1353,21 +1525,21 @@ async function activateLicense() {
     if (res.ok) {
       msg.style.display = "block";
       msg.style.color = "#34d399";
-      msg.textContent = "Activat cu succes!";
+      msg.textContent = "Activated successfully!";
       await fetchStatus();
     } else {
       msg.style.display = "block";
       msg.style.color = "#f87171";
-      msg.textContent = data.error || "Cheie invalidă.";
+      msg.textContent = data.error || "Invalid key.";
     }
   } catch(e) {
     msg.style.display = "block";
     msg.style.color = "#f87171";
-    msg.textContent = "Eroare de rețea.";
+    msg.textContent = "Network error. Is the backend running?";
   }
   
   btn.disabled = false;
-  btn.textContent = "Activează Cheia";
+  btn.textContent = "Activate Key";
 }
 
 async function logoutLicense() {
@@ -1378,6 +1550,7 @@ async function logoutLicense() {
 // Initial fetch on load
 fetchStatus();
 
+// Ripple effect
 function addRipple(e, el) {
   if (!el) return;
   const r = document.createElement('span');
@@ -1443,7 +1616,7 @@ function toggleTool(e, name) {
     
     // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
     if (currentTier !== "Pro" && selectedOps.size > 0 && !selectedOps.has(name)) {
-      alert("Rularea mai multor acțiuni simultan necesită o licență Pro. Selecția anterioară a fost anulată.");
+      alert("Running multiple actions at once requires a Pro license. The previous selection has been cleared.");
       selectedOps.forEach(op => {
         const c = document.getElementById('card-' + op);
         if (c) c.classList.remove('selected');
@@ -1473,18 +1646,18 @@ function toggleTool(e, name) {
     fi.setAttribute('multiple', '');
     fi.removeAttribute('accept');
     dzIcon.textContent  = '📁';
-    dzTitle.textContent = 'Trage un FOLDER aici (maxim ' + bundleMax + ' fișiere)';
-    dzSub.textContent   = 'sau fă click pentru a selecta folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' total';
+    dzTitle.textContent = 'Drag a FOLDER here (up to ' + bundleMax + ' files)';
+    dzSub.textContent   = 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
     dz.style.borderColor = 'rgba(245,158,11,.4)';
     dz.style.background  = 'rgba(245,158,11,.02)';
   } else {
     fi.removeAttribute('webkitdirectory');
     fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
     dzIcon.textContent  = '📂';
-    dzTitle.textContent = 'Trage și plasează fișierele aici';
+    dzTitle.textContent = 'Drag & Drop files here';
     const maxSz = currentTier === "Free" ? "25" : "100";
     const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    dzSub.textContent   = 'sau fă click pentru a selecta — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' total';
+    dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
     dz.style.borderColor = '';
     dz.style.background  = '';
   }
@@ -1498,29 +1671,29 @@ function updateSidebar() {
   const ps   = document.getElementById('pipelineSection');
   const pf   = document.getElementById('pipelineFlow');
   if (!selectedOps.size) {
-    list.innerHTML = '<div class="ops-empty">Nicio operațiune selectată încă.<br>Alege instrumente din stânga.</div>';
+    list.innerHTML = '<div class="ops-empty">No operations selected yet.<br>Pick tools from the left.</div>';
     ps.style.display = 'none';
     return;
   }
   list.innerHTML = [...selectedOps].map(op => {
     const m = TOOLS[op];
     return '<div class="op-chip"><span>'+m.emoji+'</span><span class="op-chip-name">'+m.label+'</span>'
-      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Elimină">✕</button></div>';
+      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Remove">✕</button></div>';
   }).join('');
   ps.style.display = 'block';
   
   // Construct a premium vertical pipeline tree instead of messy horizontal tags
   const nodes = [
-    { label: 'Fișiere PDF de Intrare', emoji: '📄', desc: 'Încărcat & gata' },
+    { label: 'Input PDF Files', emoji: '📄', desc: 'Uploaded & ready' },
     ...[...selectedOps].sort((a,b) => {
         const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
         return (order[a]||99) - (order[b]||99);
       }).map(op => ({
       label: TOOLS[op].label,
       emoji: TOOLS[op].emoji,
-      desc: 'Etapă activă procesare'
+      desc: 'Pipeline active stage'
     })),
-    { label: 'Pregătit de Descărcare', emoji: '✅', desc: 'Pachet rezultat final' }
+    { label: 'Ready for Download', emoji: '✅', desc: 'Processed output package' }
   ];
 
   const stepsHTML = nodes.map((node, i) => {
@@ -1548,10 +1721,12 @@ function updateSidebar() {
   pf.innerHTML = '<div class="pipeline-tree">' + stepsHTML + '</div>';
 }
 
+
 function updateBtn() {
   document.getElementById('processBtn').disabled = !(files.length > 0 && selectedOps.size > 0);
 }
 
+// Drop zone
 const dz = document.getElementById('dropZone');
 const fi = document.getElementById('fileInput');
 dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('over'); });
@@ -1618,7 +1793,7 @@ function addFiles(newFiles) {
   let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
   const totalLimit = currentTier === "Free" ? 1024 * 1024 * 1024 : 2 * 1024 * 1024 * 1024;
   if (currentTotal + newTotal > totalLimit) {
-    alert("Limita totală de încărcare este de " + (totalLimit/1024/1024/1024) + " GB. Fișierele selectate depășesc această limită.");
+    alert("Total upload limit is " + (totalLimit/1024/1024/1024) + " GB. Selected files exceed this limit.");
     return;
   }
   const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
@@ -1643,8 +1818,8 @@ function addFiles(newFiles) {
   });
   
   let msg = [];
-  if (skippedLimit) msg.push(skippedLimit + " fișiere ignorate (s-a atins limita maximă de " + CURRENT_MAX + ").");
-  if (skippedSize) msg.push("Fișierele tale au fost adăugate, dar " + skippedSize + " fișiere care depășesc limita de " + (maxSz/1024/1024) + " MB au fost omise.");
+  if (skippedLimit) msg.push(skippedLimit + " files ignored (max " + CURRENT_MAX + " reached).");
+  if (skippedSize) msg.push("Your files have been added, but " + skippedSize + " files exceeding the " + (maxSz/1024/1024) + " MB limit were skipped.");
   if (msg.length) alert(msg.join("\n"));
   
   renderFiles(); updateBtn();
@@ -1663,15 +1838,15 @@ function getFileCountSummary() {
   });
   const parts = [];
   const style = 'style="color: #22d3ee; font-weight: 500;"';
-  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF</span>`);
-  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
-  if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
-  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
-  if (counts.image) parts.push(`<span ${style}>${counts.image} imagine${counts.image > 1 ? 'i' : ''}</span>`);
-  if (counts.text) parts.push(`<span ${style}>${counts.text} text${counts.text > 1 ? 'e' : ''}</span>`);
+  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF${counts.pdf > 1 ? 's' : ''}</span>`);
+  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel${counts.excel > 1 ? 's' : ''}</span>`);
+  if (counts.word) parts.push(`<span ${style}>${counts.word} Word${counts.word > 1 ? 's' : ''}</span>`);
+  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint${counts.powerpoint > 1 ? 's' : ''}</span>`);
+  if (counts.image) parts.push(`<span ${style}>${counts.image} Image${counts.image > 1 ? 's' : ''}</span>`);
+  if (counts.text) parts.push(`<span ${style}>${counts.text} Text${counts.text > 1 ? 's' : ''}</span>`);
   
-  if (parts.length === 0) return 'Fă clic pentru a adăuga mai multe';
-  const limitMsg = files.length >= MAX ? ' (Limită atinsă)' : ' — fă clic pentru a adăuga';
+  if (parts.length === 0) return 'Click to add more';
+  const limitMsg = files.length >= MAX ? ' (Maximum reached)' : ' — click to add more';
   return parts.join(', ') + limitMsg;
 }
 
@@ -1684,21 +1859,29 @@ function renderFiles() {
     list.innerHTML = '';
     const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
-    title.textContent = selectedOps.has('bundle') ? 'Trage un FOLDER aici (până la ' + bundleMax + ' fișiere)' : 'Trage & Plasează fișierele aici';
+    title.textContent = selectedOps.has('bundle') ? 'Drag a FOLDER here (up to ' + bundleMax + ' files)' : 'Drag & Drop files here';
     const maxSz = currentTier === "Free" ? "25" : "100";
     const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
-    sub.textContent   = selectedOps.has('bundle') ? 'sau click pentru a naviga folderul — max ' + bundleMax + ' fișiere — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total' : 'sau click pentru a naviga — max ' + currentLimit + ' fișiere pe zi — ' + maxSz + ' MB fiecare — max ' + totalLimitStr + ' în total';
+    sub.textContent   = selectedOps.has('bundle') ? 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total' : 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
     return;
   }
   icon.textContent  = '📋';
-  title.textContent = files.length + ' fișier' + (files.length > 1 ? 'e' : '') + ' selectate';
-  sub.innerHTML     = getFileCountSummary();
+    title.textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
+    sub.innerHTML     = getFileCountSummary();
   updateConvertOptions();
+  // Auto-select Convert to PDF tool on subpage load
+  setTimeout(() => {
+    const card = document.getElementById('card-to-pdf');
+    if (card && !selectedOps.has('to-pdf')) {
+      card.click();
+    }
+  }, 100);
+  
   list.innerHTML = files.map((f, i) => {
     const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
     return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
       + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
-      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Elimină">✕</button></div>';
+      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Remove">✕</button></div>';
   }).join('');
 }
 
@@ -1738,7 +1921,7 @@ function updateConvertOptions() {
       const warningDiv = document.createElement('div');
       warningDiv.id = 'non-pdf-warning';
       warningDiv.style.cssText = 'background:rgba(249,115,22,0.1); border-left:3px solid #f97316; border-radius:4px; padding:10px; font-size:0.8rem; color:#f97316; margin-bottom:1rem; font-weight:600;';
-      warningDiv.innerHTML = '⚠️ Notă: Ați încărcat documente care nu sunt PDF. Vă rugăm să selectați operațiunea "Convertește orice format în PDF" pentru a le procesa.';
+      warningDiv.innerHTML = '⚠️ Note: You have uploaded non-PDF documents. Please select the "Convert Any Format to PDF" operation to process them.';
       optsPanel.parentNode.insertBefore(warningDiv, optsPanel);
     } else {
       existingTip.style.display = 'block';
@@ -1749,8 +1932,8 @@ function updateConvertOptions() {
 }
 
 function gatherOptions() {
-return {
-    watermarkText:    document.getElementById('wm-text')?.value    || 'CONFIDENȚIAL',
+  return {
+    watermarkText:    document.getElementById('wm-text')?.value    || 'CONFIDENTIAL',
     watermarkFont:    document.getElementById('wm-font')?.value    || 'Helvetica-Bold',
     watermarkSize:    document.getElementById('wm-size')?.value    || 60,
     watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
@@ -1758,8 +1941,8 @@ return {
     encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
     encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
     encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
-    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked  || false,
-    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked  || false,
+    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked || false,
+    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked || false,
     encryptBits:      '256',
     redactKeywords:   document.getElementById('redact-kw')?.value  || '',
     sanitizeAll:      document.getElementById('san-all') ? document.getElementById('san-all').checked : true,
@@ -1803,18 +1986,18 @@ async function startProcessing() {
       const pw2 = document.getElementById('enc-pw2') ? document.getElementById('enc-pw2').value : '';
       const pwOwner = document.getElementById('enc-owner') ? document.getElementById('enc-owner').value : '';
       const pwOwner2 = document.getElementById('enc-owner2') ? document.getElementById('enc-owner2').value : '';
-      if (!pw && !pwOwner) { alert('Vă rugăm să introduceți cel puțin o parolă (Deschidere Document sau Permisiuni).'); return; }
-      if (pw && pw !== pw2){ alert('Parolele de deschidere a documentului nu se potrivesc.'); return; }
-      if (pwOwner && pwOwner !== pwOwner2) { alert('Parolele de permisiuni nu se potrivesc.'); return; }
+      if (!pw && !pwOwner) { alert('Please enter at least one password (Document Open or Permissions).'); return; }
+      if (pw && pw !== pw2){ alert('Document Open Passwords do not match.'); return; }
+      if (pwOwner && pwOwner !== pwOwner2) { alert('Permissions passwords do not match.'); return; }
     }
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
-  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
   document.getElementById('rDlBtn').style.display = 'none';
-  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
+  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Results (.zip)';
   document.getElementById('rResetBtn').style.display = 'none';
   if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
   document.getElementById('processBtn').disabled  = true;
@@ -1834,10 +2017,10 @@ async function startProcessing() {
   fd.append('operations', JSON.stringify([...selectedOps]));
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
-    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
-      let m = 'Eroare server.';
+      let m = 'Server error.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
@@ -1846,28 +2029,28 @@ async function startProcessing() {
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
     const ORDER = { 'removesigs': 1, 'rebuild': 2, 'redact': 3, 'flatten': 4, 'watermark': 5, 'sanitize': 6, 'encrypt': 7 };
     const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] || 99) - (ORDER[b] || 99));
-    document.getElementById('rTitle').innerHTML = 'Se procesează fișierele tale… (Pipeline: ' + sortedOps.join(' → ') + ')';
+    document.getElementById('rTitle').innerHTML = 'Processing your files… (Pipeline: ' + sortedOps.join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
     document.getElementById('rIcon').textContent     = '❌';
-    document.getElementById('rTitle').textContent    = 'Procesare Eșuată';
-    document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
+    document.getElementById('rTitle').textContent    = 'Processing Failed';
+    document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
     if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
   }
 }
 
-// Borderou PDF — apelează /api/bundle-summary, returnează ZIP cu Excel+PDF+TXT
+// Bundle Summary — calls /api/bundle-summary, returns ZIP with Excel+PDF+TXT
 async function startBundleSummary() {
   const ra = document.getElementById('resultArea');
   ra.classList.add('show');
   document.getElementById('rSpin').style.display  = 'block';
   document.getElementById('rIcon').style.display  = 'none';
-  document.getElementById('rTitle').innerHTML   = 'Se încarcă fișierele pe server…';
-  document.getElementById('rSub').innerHTML     = 'Vă rugăm așteptați, se trimite...';
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
   document.getElementById('rDlBtn').style.display = 'none';
   document.getElementById('rResetBtn').style.display = 'none';
   if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
@@ -1888,25 +2071,25 @@ async function startBundleSummary() {
   fd.append('includeSha256', selectedOps.has('bundle-advanced') ? 'true' : 'false');
   fd.append('bundleAdvanced', selectedOps.has('bundle-advanced') ? 'true' : 'false');
   try {
-    document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
-      let m = 'Eroare server.';
+      let m = 'Server error.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}
       throw new Error(m);
     }
     const data = await resp.json();
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
-    document.getElementById('rTitle').innerHTML = 'Se generează borderoul PDF…';
-    document.getElementById('rSub').innerHTML = 'Se extrag metadatele și nr. pagini pentru fiecare fișier';
+    document.getElementById('rTitle').innerHTML = 'Generating Bundle Summary…';
+    document.getElementById('rSub').innerHTML = 'Extracting metadata & page counts for each file';
     await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
   } catch(err) {
     document.getElementById('rSpin').style.display   = 'none';
     document.getElementById('rIcon').style.display   = 'block';
     document.getElementById('rIcon').textContent     = '❌';
-    document.getElementById('rTitle').textContent    = 'Generare Borderou Eșuată';
-    document.getElementById('rSub').textContent      = err.message || 'Asigurați-vă că serverul local rulează (python server.py)';
+    document.getElementById('rTitle').textContent    = 'Bundle Summary Failed';
+    document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
     if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
     document.getElementById('processBtn').disabled   = false;
     document.getElementById('rResetBtn').style.display = 'inline-block';
@@ -1940,7 +2123,7 @@ async function pollJobStatus(jobId, downloadName) {
     
     try {
       const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
-      if (!resp.ok) throw new Error('Eșec la obținerea stării jobului');
+      if (!resp.ok) throw new Error('Failed to fetch job status');
       const data = await resp.json();
       
       // Check if cancelled on VPS
@@ -1950,8 +2133,8 @@ async function pollJobStatus(jobId, downloadName) {
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
         rIcon.textContent = '⚠️';
-        rTitle.textContent = 'Procesare Oprită';
-        rSub.textContent = 'Jobul a fost anulat de utilizator.';
+        rTitle.textContent = window.location.pathname.includes('/ro/') ? 'Procesare Oprită' : (window.location.pathname.includes('/ru/') ? 'Обработка остановлена' : 'Processing Stopped');
+        rSub.textContent = window.location.pathname.includes('/ro/') ? 'Jobul a fost anulat de utilizator.' : (window.location.pathname.includes('/ru/') ? 'Задание отменено пользователем.' : 'Job was cancelled by user.');
         if (cancelBtn) cancelBtn.style.display = 'none';
         if (progContainer) progContainer.style.display = 'none';
         resetBtn.style.display = 'inline-block';
@@ -2047,7 +2230,6 @@ async function pollJobStatus(jobId, downloadName) {
               },
               ro: {
                 removesigs: "Elimină Semnăturile",
-                "to-pdf": "Convertește în PDF",
                 rebuild: "Reconstruiește & Repară PDF",
                 redact: "Găsește & Redactează",
                 flatten: "Convertește PDF în Imagine (Aplatizare)",
@@ -2057,7 +2239,6 @@ async function pollJobStatus(jobId, downloadName) {
               },
               ru: {
                 removesigs: "Удаление подписей",
-                "to-pdf": "Конвертация в PDF",
                 rebuild: "Восстановление структуры PDF",
                 redact: "Поиск и скрытие",
                 flatten: "Преобразовать PDF в изображение (Растеризовать)",
@@ -2168,7 +2349,7 @@ async function pollJobStatus(jobId, downloadName) {
         localStorage.removeItem('di_active_job_id');
         localStorage.removeItem('di_active_job_download_name');
         
-        await fetchStatus(); // Actualizare limită zilnică
+        await fetchStatus(); // Refresh daily limit
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
         if (cancelBtn) cancelBtn.style.display = 'none';
@@ -2179,14 +2360,14 @@ async function pollJobStatus(jobId, downloadName) {
         
         if (downloadName.includes('Bundle')) {
           rIcon.textContent = '📊';
-          rTitle.textContent = 'Borderou Pregătit!';
-          rSub.textContent = 'Arhiva ZIP conține: raportul Excel (2 foi) + PDF + CSV';
-          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Borderou (.zip)';
+          rTitle.textContent = 'Bundle Summary Ready!';
+          rSub.textContent = 'Your ZIP contains: Excel report (2 sheets) + PDF + CSV';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Bundle Summary (.zip)';
         } else {
           rIcon.textContent = '✅';
-          rTitle.textContent = 'Procesare Finalizată!';
-          rSub.textContent = 'Fișierele tale au fost procesate cu succes';
-          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarcă Rezultatele (.zip)';
+          rTitle.textContent = 'Processing Complete!';
+          rSub.textContent = 'Your files processed successfully';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Results (.zip)';
         }
         
         dlBtn.href = `https://direct-api.doc-inspector.com/api/job-download/${jobId}`;
@@ -2197,7 +2378,7 @@ async function pollJobStatus(jobId, downloadName) {
         resetBtn.style.display = 'inline-block';
         break;
       } else if (data.status === 'failed') {
-        throw new Error(data.error || 'Jobul a eșuat pe server.');
+        throw new Error(data.error || 'Job failed on server.');
       }
     } catch(err) {
       localStorage.removeItem('di_active_job_id');
@@ -2208,11 +2389,11 @@ async function pollJobStatus(jobId, downloadName) {
       if (cancelBtn) cancelBtn.style.display = 'none';
       if (progContainer) progContainer.style.display = 'none';
       if (downloadName.includes('Bundle')) {
-        rTitle.textContent = 'Generare Borderou Eșuată';
+        rTitle.textContent = 'Bundle Summary Failed';
       } else {
-        rTitle.textContent = 'Procesare Eșuată';
+        rTitle.textContent = 'Processing Failed';
       }
-      rSub.textContent = err.message || 'Eroare la verificarea stării.';
+      rSub.textContent = err.message || 'Error checking status.';
       processBtn.disabled = false;
       resetBtn.style.display = 'inline-block';
       break;
@@ -2224,7 +2405,11 @@ async function cancelJob() {
   const jobId = localStorage.getItem('di_active_job_id');
   if (!jobId) return;
   
-  const confirmMsg = 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?';
+  const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+  const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+  const confirmMsg = isRo ? 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?' : 
+                     (isRu ? 'Вы уверены, что хотите остановить обработку файлов и освободить ресурсы?' : 'Are you sure you want to stop processing files and free up resources?');
+  
   if (!confirm(confirmMsg)) return;
   
   try {
@@ -2235,8 +2420,8 @@ async function cancelJob() {
     document.getElementById('rSpin').style.display = 'none';
     document.getElementById('rIcon').style.display = 'block';
     document.getElementById('rIcon').textContent = '⚠️';
-    document.getElementById('rTitle').textContent = 'Procesare Oprită';
-    document.getElementById('rSub').textContent = 'Se oprește procesarea pe server...';
+    document.getElementById('rTitle').textContent = isRo ? 'Procesare Oprită' : (isRu ? 'Обработка остановлена' : 'Processing Stopped');
+    document.getElementById('rSub').textContent = isRo ? 'Se oprește procesarea pe server...' : (isRu ? 'Остановка обработки на сервере...' : 'Stopping processing on server...');
     document.getElementById('rCancelBtn').style.display = 'none';
     if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
     if (document.getElementById('rOpsContainer')) document.getElementById('rOpsContainer').style.display = 'none';
@@ -2245,7 +2430,8 @@ async function cancelJob() {
     
     await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     
-    document.getElementById('rSub').textContent = 'Jobul a fost anulat și fișierele au fost șterse de pe server.';
+    document.getElementById('rSub').textContent = isRo ? 'Jobul a fost anulat și fișierele au fost șterse de pe server.' : 
+                                                 (isRu ? 'Задание отменено, и файлы были удалены с сервера.' : 'Job was cancelled and files were deleted from server.');
   } catch (e) {
     console.error(e);
   }
@@ -2260,6 +2446,7 @@ function resetTool() {
   localStorage.removeItem('di_active_job_download_name');
 }
 
+// Progress bar on scroll
 window.addEventListener('scroll', () => {
   const el = document.getElementById('progress-bar');
   if (!el) return;
@@ -2281,7 +2468,7 @@ function renderRedactTags() {
   const container = document.getElementById('kwTagsContainer');
   if (!container) return;
   if (redactKeywordsSet.size === 0) {
-    container.innerHTML = '<span style="font-size:.78rem;color:var(--text-muted)">Niciun cuvânt cheie adăugat încă. Căutarea va găsi expresia exactă.</span>';
+    container.innerHTML = '<span style="font-size:.78rem;color:var(--text-muted)">No keywords added yet. Search matches exact phrases.</span>';
     return;
   }
   container.innerHTML = [...redactKeywordsSet].map((kw, i) => {
@@ -2316,6 +2503,7 @@ function removeRedactKeyword(kw) {
 window.addEventListener('beforeunload', () => {
   const jobId = localStorage.getItem('di_active_job_id');
   if (jobId) {
+    // Send a fire-and-forget cancel request to the backend using keepalive: true
     fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, {
       method: 'POST',
       keepalive: true,
@@ -2352,8 +2540,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ra.classList.add('show');
       document.getElementById('rSpin').style.display  = 'block';
       document.getElementById('rIcon').style.display  = 'none';
-      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Se generează borderoul PDF…' : 'Se procesează fișierele tale…';
-      document.getElementById('rSub').innerHTML     = 'Se restabilește starea jobului activ...';
+      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Generating Bundle Summary…' : 'Processing your files…';
+      document.getElementById('rSub').innerHTML     = 'Restoring active job status...';
       document.getElementById('rDlBtn').style.display = 'none';
       document.getElementById('rResetBtn').style.display = 'none';
       if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
@@ -2439,3 +2627,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
