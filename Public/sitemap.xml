@@ -91,34 +91,34 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide"/>
   </url>
   <url>
-    <loc>https://doc-inspector.com/en/reports</loc>
+    <loc>https://doc-inspector.com/en/reports-and-feedback</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports-and-feedback"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports-and-feedback"/>
   </url>
   <url>
     <loc>https://doc-inspector.com/ro/rapoarte-feedback</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports-and-feedback"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports-and-feedback"/>
   </url>
   <url>
     <loc>https://doc-inspector.com/ru/otchety</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports-and-feedback"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/reports-and-feedback"/>
   </url>
   <url>
     <loc>https://doc-inspector.com/en/contact</loc>

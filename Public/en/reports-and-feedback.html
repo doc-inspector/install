@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +36,7 @@
       opacity: 1;
     }
   </style>
-  <link rel="canonical" href="https://doc-inspector.com/ro/rapoarte-feedback" />
+  <link rel="canonical" href="https://doc-inspector.com/en/reports-and-feedback" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/reports-and-feedback" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/rapoarte-feedback" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/otchety" />
@@ -54,34 +54,34 @@
         <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
             <div class="nav-links">
-        <a href="./" data-i18n="nav.home">Acasă</a>
-        <a href="unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
-        <a href="preturi" data-i18n="nav.price">Preț</a>
-        <a href="ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
-        <a href="rapoarte-feedback" class="active" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
+        <a href="./" data-i18n="nav.home">Home</a>
+        <a href="tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+        <a href="price" data-i18n="nav.price">Price</a>
+        <a href="user-guide" data-i18n="nav.guide">User Guide</a>
+        <a href="reports-and-feedback" class="active" data-i18n="nav.reports">Reports &amp; Feedback</a>
         <a href="blog" data-i18n="nav.blog">Blog</a>
         <a href="contact" data-i18n="nav.contact">Contact</a>
-        <a href="descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
 
       <div class="nav-actions">
         <div class="lang-dropdown">
           <button class="lang-btn" aria-label="Language">
-            <span class="lang-pill">RO</span>
+            <span class="lang-pill">EN</span>
             <span class="chev">▾</span>
           </button>
           <div class="lang-menu">
-            <a href="../en/reports" class="lang-item" data-lang="en">EN</a>
-            <a href="rapoarte-feedback" class="lang-item active" data-lang="ro">RO</a>
+            <a href="reports" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/rapoarte-feedback" class="lang-item" data-lang="ro">RO</a>
             <a href="../ru/otchety" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -98,8 +98,8 @@
     <div class="container" style="position:relative;z-index:1;">
       <header class="section-header reveal-flip">
         <div class="section-eyebrow">Feedback</div>
-        <h1 class="section-title text-gradient" data-i18n="report.title">Rapoarte & Feedback</h1>
-        <p class="section-subtitle" data-i18n="report.subtitle">Ajută-ne să îmbunătățim DocInspector raportând bug-uri sau solicitând funcții noi.</p>
+        <h1 class="section-title text-gradient" data-i18n="report.title">Reports & Feedback</h1>
+        <p class="section-subtitle" data-i18n="report.subtitle">Help us improve the DocInspector Repair suite by reporting bugs or requesting new batch features.</p>
       </header>
 
       <div class="form-card reveal-flip" style="max-width:800px;margin:0 auto;">
@@ -110,30 +110,30 @@
               <input type="email" name="email" required style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
             </div>
             <div>
-              <label data-i18n="report.type" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Tip Raport</label>
+              <label data-i18n="report.type" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Report Type</label>
               <select name="type" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;">
-                <option data-i18n="report.type.bug">Raportare Bug</option>
-                <option data-i18n="report.type.feature">Solicitare Funcție</option>
-                <option data-i18n="report.type.ui">Sugestie Interfață</option>
-                <option data-i18n="report.type.perf">Problemă Performanță</option>
+                <option data-i18n="report.type.bug">Bug Report</option>
+                <option data-i18n="report.type.feature">Feature Request</option>
+                <option data-i18n="report.type.ui">User Interface Suggestion</option>
+                <option data-i18n="report.type.perf">Performance Issue</option>
               </select>
             </div>
             <div>
-              <label data-i18n="report.details" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Detalii</label>
+              <label data-i18n="report.details" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Details</label>
               <textarea name="message" rows="6" required placeholder="Describe the issue or suggestion..." data-i18n-placeholder="report.details.placeholder" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1.2rem;border-radius:16px;color:#fff;outline:none;resize:vertical;transition:border-color .2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
             </div>
             <div>
-              <label data-i18n="report.attachments" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Atașamente</label>
+              <label data-i18n="report.attachments" style="display:block;margin-bottom:.75rem;font-size:.9rem;color:var(--text-muted);">Attachments</label>
               <input type="file" name="attachment" accept=".png,.jpg,.jpeg,.txt,.doc,.docx,.xls,.xlsx,.zip,.rar,.pdf" multiple style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem;border-radius:16px;color:var(--text-muted);">
-              <small data-i18n="report.attachments.hint" style="color:var(--text-muted);display:block;margin-top:.5rem;font-size:.8rem;">Acceptate: png, jpg, jpeg, txt, word, excel, zip, rar, pdf</small>
+              <small data-i18n="report.attachments.hint" style="color:var(--text-muted);display:block;margin-top:.5rem;font-size:.8rem;">Accepted: png, jpg, jpeg, txt, word, excel, zip, rar, pdf</small>
             </div>
             <div>
               <label style="display:flex;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.9rem;cursor:pointer;">
                 <input type="checkbox" name="botcheck" required style="width:18px;height:18px;accent-color:var(--cyan);">
-                <span data-i18n="report.bot">Sunt om (Verificare anti-spam)</span>
+                <span data-i18n="report.bot">I am human (Anti-spam verification)</span>
               </label>
             </div>
-            <button type="submit" class="btn btn-primary" style="padding:1.4rem;" data-i18n="report.submit">Trimite Raport</button>
+            <button type="submit" class="btn btn-primary" style="padding:1.4rem;" data-i18n="report.submit">Submit Report</button>
           </div>
         </form>
       </div>
@@ -144,6 +144,7 @@
   <section class="section" style="position:relative;overflow:hidden;padding-top:0;">
     <div class="container" style="position:relative;z-index:1;">
 
+      <!-- Schema.org structured data for reviews -->
       <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -172,13 +173,30 @@
 
       <div style="max-width:900px;margin:0 auto;padding-top:2rem;">
 
+        <!-- Section header -->
         <div class="section-header reveal-flip" style="margin-bottom:2.5rem;">
-          <div class="section-eyebrow">Recenzii utilizatori</div>
-          <h2 class="section-title text-gradient">Ce spun utilizatorii</h2>
-          <p class="section-subtitle">Feedback real de la persoane care folosesc DocInspector zilnic.</p>
+          <div class="section-eyebrow">User Reviews</div>
+          <h2 class="section-title text-gradient">What users say</h2>
+          <p class="section-subtitle">Real feedback from people using DocInspector daily.</p>
         </div>
 
+        <!-- Reviews grid — add cards here when you get real reviews -->
         <div id="reviews-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
+          <!-- EXAMPLE card structure (remove comment and fill with real data):
+          <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.18);border-radius:20px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;gap:.25rem;">
+              <span style="color:#f59e0b;font-size:1.1rem;">★★★★★</span>
+            </div>
+            <p style="color:#e2e8f0;font-size:.95rem;line-height:1.65;margin:0;">"Review text here..."</p>
+            <div style="display:flex;align-items:center;gap:.75rem;margin-top:auto;">
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#6366f1);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem;">A</div>
+              <div>
+                <div style="color:#f1f5f9;font-weight:600;font-size:.9rem;">Name Surname</div>
+                <div style="color:var(--text-muted);font-size:.78rem;">Accountant · Romania</div>
+              </div>
+            </div>
+          </div>
+          -->
           <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.18);border-radius:20px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;">
             <div style="display:flex;gap:.25rem;">
               <span style="color:#f59e0b;font-size:1.1rem;">★★★★★</span>
@@ -194,32 +212,37 @@
           </div>
         </div>
 
+        <!-- Divider -->
         <div style="border-top:1px solid rgba(6,182,212,.15);margin-bottom:3rem;"></div>
 
+        <!-- Leave a review form -->
         <div class="section-header reveal-flip" style="margin-bottom:2rem;text-align:left;">
-          <div class="section-eyebrow">Lasă o recenzie</div>
-          <h2 class="section-title" style="font-size:1.6rem;">Împărtășește experiența ta</h2>
-          <p class="section-subtitle" style="font-size:.9rem;">Durează 30 de secunde. Nu ai nevoie de cont.</p>
+          <div class="section-eyebrow">Leave a Review</div>
+          <h2 class="section-title" style="font-size:1.6rem;">Share your experience</h2>
+          <p class="section-subtitle" style="font-size:.9rem;">Takes 30 seconds. No account needed.</p>
         </div>
 
         <div class="form-card reveal-flip">
           <form method="post" action="https://formspree.io/f/xreggdqk" id="reviewForm">
-            <input type="hidden" name="_subject" value="⭐ Recenzie nouă DocInspector">
+            <input type="hidden" name="_subject" value="⭐ New DocInspector Review">
             <input type="hidden" name="form_type" value="review">
             <div style="display:flex;flex-direction:column;gap:1.8rem;">
 
+              <!-- Name -->
               <div>
-                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Numele tău <span style="color:var(--text-muted);font-size:.8rem;">(opțional)</span></label>
-                <input type="text" name="reviewer_name" placeholder="ex: Maria P." style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
+                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Your name <span style="color:var(--text-muted);font-size:.8rem;">(optional)</span></label>
+                <input type="text" name="reviewer_name" placeholder="e.g. Maria P." style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
               </div>
 
+              <!-- Role -->
               <div>
-                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Profesia ta <span style="color:var(--text-muted);font-size:.8rem;">(opțional)</span></label>
-                <input type="text" name="reviewer_role" placeholder="ex: Contabil, Avocat, Manager IT..." style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
+                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Your role / profession <span style="color:var(--text-muted);font-size:.8rem;">(optional)</span></label>
+                <input type="text" name="reviewer_role" placeholder="e.g. Accountant, Lawyer, IT Manager..." style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'">
               </div>
 
+              <!-- Rating -->
               <div>
-                <label style="display:block;margin-bottom:.75rem;font-size:.88rem;color:var(--text-muted);">Evaluare</label>
+                <label style="display:block;margin-bottom:.75rem;font-size:.88rem;color:var(--text-muted);">Rating</label>
                 <div id="star-rating" style="display:flex;gap:.4rem;cursor:pointer;">
                   <span class="star" data-val="1" style="font-size:2rem;color:#334155;transition:color .15s;">★</span>
                   <span class="star" data-val="2" style="font-size:2rem;color:#334155;transition:color .15s;">★</span>
@@ -230,24 +253,26 @@
                 <input type="hidden" name="rating" id="rating-value" value="" required>
               </div>
 
+              <!-- Review text -->
               <div>
-                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Recenzia ta <span style="color:#ef4444;font-size:.8rem;">*</span></label>
-                <textarea name="review_text" rows="4" required placeholder="Pentru ce ai folosit DocInspector? Ce problemă a rezolvat?" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;resize:vertical;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+                <label style="display:block;margin-bottom:.6rem;font-size:.88rem;color:var(--text-muted);">Your review <span style="color:#ef4444;font-size:.8rem;">*</span></label>
+                <textarea name="review_text" rows="4" required placeholder="What did you use DocInspector for? What problem did it solve?" style="width:100%;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:14px;color:#fff;outline:none;resize:vertical;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='var(--border)'"></textarea>
               </div>
 
+              <!-- Anti-spam -->
               <div>
                 <label style="display:flex;align-items:center;gap:.5rem;color:var(--text-muted);font-size:.88rem;cursor:pointer;">
                   <input type="checkbox" name="botcheck" required style="width:16px;height:16px;accent-color:var(--cyan);">
-                  <span>Sunt om (anti-spam)</span>
+                  <span>I am human (anti-spam)</span>
                 </label>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="padding:1.2rem 2rem;width:fit-content;">Trimite recenzia →</button>
+              <button type="submit" class="btn btn-primary" style="padding:1.2rem 2rem;width:fit-content;">Submit Review →</button>
             </div>
           </form>
           <div id="review-thanks" style="display:none;text-align:center;padding:2rem;color:#10b981;">
             <div style="font-size:2rem;margin-bottom:.75rem;">✅</div>
-            <p style="font-weight:600;font-size:1.05rem;margin:0;">Mulțumim! Recenzia ta a fost trimisă spre moderare.</p>
+            <p style="font-weight:600;font-size:1.05rem;margin:0;">Thank you! Your review has been submitted for moderation.</p>
           </div>
         </div>
 
@@ -255,6 +280,7 @@
     </div>
   </section>
 
+  <!-- Star rating + form submit script -->
   <script>
   (function(){
     var stars = document.querySelectorAll('#star-rating .star');
@@ -274,18 +300,19 @@
     document.getElementById('star-rating').addEventListener('mouseleave', function(){
       stars.forEach(function(x){ x.style.color = parseInt(x.dataset.val) <= selected ? '#f59e0b' : '#334155'; });
     });
+
     var form = document.getElementById('reviewForm');
     if(form){
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        if(!ratingInput.value){ alert('Selectează o evaluare.'); return; }
+        if(!ratingInput.value){ alert('Please select a rating.'); return; }
         var data = new FormData(form);
         fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} })
           .then(function(r){ return r.json(); })
           .then(function(d){
             if(d.ok){ form.style.display='none'; document.getElementById('review-thanks').style.display='block'; }
-            else { alert('Ceva nu a mers. Încearcă din nou.'); }
-          }).catch(function(){ alert('Eroare de rețea. Încearcă din nou.'); });
+            else { alert('Something went wrong. Please try again.'); }
+          }).catch(function(){ alert('Network error. Please try again.'); });
       });
     }
   })();
@@ -295,12 +322,12 @@
   <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2025 Vladimir Tonu – Toate drepturile rezervate</span>
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-        <a href="securitate" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Securitate</a>
-        <a href="politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
-        <a href="termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
-        <a href="politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="security" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Security</a>
+        <a href="privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms" data-i18n="footer.terms">Terms of Service</a>
+        <a href="refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
         </a>
