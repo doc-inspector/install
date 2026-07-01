@@ -1422,7 +1422,7 @@ function updateSidebar() {
     { label: 'Fișiere PDF de Intrare', emoji: '📄', desc: 'Încărcat & gata' },
     ...[...selectedOps].sort((a,b) => {
         const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
-        return (order[a]||99) - (order[b]||99);
+        const orderA = order[a] !== undefined ? order[a] : 99; const orderB = order[b] !== undefined ? order[b] : 99; return orderA - orderB;
       }).map(op => ({
       label: TOOLS[op].label,
       emoji: TOOLS[op].emoji,
@@ -1752,8 +1752,8 @@ async function startProcessing() {
     const data = await resp.json();
     localStorage.setItem('di_active_job_id', data.job_id);
     localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
-    const ORDER = { 'removesigs': 1, 'rebuild': 2, 'redact': 3, 'flatten': 4, 'watermark': 5, 'sanitize': 6, 'encrypt': 7 };
-    const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] || 99) - (ORDER[b] || 99));
+    const ORDER = { 'to-pdf': 0, 'removesigs': 1, 'rebuild': 2, 'redact': 3, 'flatten': 4, 'watermark': 5, 'sanitize': 6, 'encrypt': 7 };
+    const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] !== undefined ? ORDER[a] : 99) - (ORDER[b] !== undefined ? ORDER[b] : 99));
     document.getElementById('rTitle').innerHTML = 'Se procesează fișierele tale… (Pipeline: ' + sortedOps.join(' → ') + ')';
     await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
   } catch(err) {
