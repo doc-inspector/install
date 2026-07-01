@@ -1,53 +1,66 @@
 {
   "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "batch_note": "All tools below can be combined and executed in a single batch. Upload an entire folder, select multiple operations simultaneously, and receive all processed files in a ZIP with the original folder structure preserved.",
   "skills": [
     {
-      "name": "encrypt-pdf",
+      "name": "remove-pdf-signatures",
       "type": "tool",
-      "description": "Password protect a PDF file online. Restrict printing, copying, and editing permissions.",
-      "url": "https://doc-inspector.com/en/tools/encrypt-pdf-online"
+      "description": "Strip digital signatures, certified locks, approval locks, and editing restrictions from PDF files. Makes the PDF fully editable again. Supports batch processing — combine with other operations in one pass. PDF only.",
+      "url": "https://doc-inspector.com/en/tools/remove-pdf-signatures"
+    },
+    {
+      "name": "sanitize-metadata",
+      "type": "tool",
+      "description": "Permanently remove hidden metadata from documents: author name, creation/modification dates, software fingerprints, GPS coordinates, revision history, and other identifying information. Supports: PDF, DOCX, XLSX, CSV, TXT, PNG, JPG, JPEG, PPTX. Essential for GDPR compliance. Can be combined with other operations in one batch.",
+      "url": "https://doc-inspector.com/en/tools/sanitize-pdf-metadata"
+    },
+    {
+      "name": "rebuild-repair-pdf",
+      "type": "tool",
+      "description": "Fix corrupted, broken, or malformed PDF file structures. Includes built-in OCR engine that makes scanned or image-based PDFs fully text-selectable, searchable, and copy-pasteable. Supports batch processing. PDF only.",
+      "url": "https://doc-inspector.com/en/tools/repair-pdf-online"
     },
     {
       "name": "add-watermark-pdf",
       "type": "tool",
-      "description": "Add custom text watermarks to PDF files. Supports batch processing.",
+      "description": "Stamp a custom diagonal text watermark on every page of a PDF. Supports batch processing — combine with other operations in one pass. PDF only.",
       "url": "https://doc-inspector.com/en/tools/add-watermark-pdf-online"
+    },
+    {
+      "name": "encrypt-pdf",
+      "type": "tool",
+      "description": "Password-protect a PDF using 256-bit AES encryption. Optionally restrict permissions: copying text, editing content, printing. Supports batch processing — combine with other operations in one pass. PDF only.",
+      "url": "https://doc-inspector.com/en/tools/encrypt-pdf-online"
     },
     {
       "name": "redact-pdf",
       "type": "tool",
-      "description": "Permanently redact (black out) sensitive text and images in PDF files.",
+      "description": "Permanently black out (redact) sensitive text — names, IDs, addresses, financial data — from PDF pages. Irreversible, pixel-level removal. Supports batch processing. PDF only.",
       "url": "https://doc-inspector.com/en/tools/redact-pdf-online"
     },
     {
-      "name": "sanitize-pdf-metadata",
+      "name": "flatten-pdf-to-image",
       "type": "tool",
-      "description": "Remove hidden metadata from PDF files including author name, creation date, and software information.",
-      "url": "https://doc-inspector.com/en/tools/sanitize-pdf-metadata"
-    },
-    {
-      "name": "flatten-pdf",
-      "type": "tool",
-      "description": "Flatten PDF form fields and annotations into permanent page content.",
+      "description": "Convert every page of a PDF into a raster image embedded in a new PDF. Removes all text layers, form fields, and interactive elements — content becomes non-selectable and non-copyable. Supports batch processing. PDF only.",
       "url": "https://doc-inspector.com/en/tools/flatten-pdf-online"
     },
     {
-      "name": "repair-pdf",
+      "name": "convert-any-format-to-pdf",
       "type": "tool",
-      "description": "Repair and recover corrupted or broken PDF files.",
-      "url": "https://doc-inspector.com/en/tools/repair-pdf-online"
+      "description": "Batch-convert Word (DOCX/DOC), Excel (XLSX/XLS/XLSM), PowerPoint (PPTX/PPT), plain text (TXT), and images (JPG/PNG/WEBP) to PDF. Can be combined with other operations — non-PDF files are first converted, then processed by selected PDF tools. Up to 100 files at once. Original folder structure preserved in output ZIP.",
+      "url": "https://doc-inspector.com/en/tools/convert-to-pdf-online"
     },
     {
       "name": "pdf-bundle-summary",
       "type": "tool",
-      "description": "Generate a summary report (borderou/reestr) for a collection of PDF documents.",
+      "description": "Generate a professional dossier summary report (borderou/reestr) for a folder of documents. Output: Excel (.xlsx), PDF, and CSV. Report columns: document title, page count per document, cumulative total pages, grand total. Supports: PDF, DOCX, XLSX, CSV, TXT. Designed for legal, administrative, and archival use cases. Folder structure supported.",
       "url": "https://doc-inspector.com/en/tools/pdf-bundle-summary-online"
     },
     {
-      "name": "remove-pdf-signatures",
+      "name": "advanced-bundle-report",
       "type": "tool",
-      "description": "Strip digital signatures from PDF files.",
-      "url": "https://doc-inspector.com/en/tools/remove-pdf-signatures"
+      "description": "Generate a comprehensive folder audit report in Excel format. Report columns: document number, document title, file format, file size (bytes), SHA-256 cryptographic hash/signature, protection status (locked/open), page count, last modified date, plus grand totals for file count and total page count. Supports: PDF, DOCX, XLSX, CSV, TXT. Ideal for audits, archives, legal dossiers.",
+      "url": "https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"
     }
   ]
 }
