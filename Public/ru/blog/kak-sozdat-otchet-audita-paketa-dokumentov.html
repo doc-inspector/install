@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Как создать отчёт аудита пакета документов с хешами SHA-256 | Блог DocInspector</title>
+  <meta name="description" content="Создайте полный инвентарь документов (реестр) с количеством страниц, размерами файлов, хешами SHA-256 и статусом защиты для 100+ файлов. Пошаговое руководство с DocInspector Bundle Report.">
+  <link rel="canonical" href="https://doc-inspector.com/ru/blog/kak-sozdat-otchet-audita-paketa-dokumentov">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/how-to-create-document-bundle-audit-report">
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/cum-creezi-borderou-raport-audit-documente">
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-sozdat-otchet-audita-paketa-dokumentov">
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-create-document-bundle-audit-report">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":'Как создать отчёт аудита пакета документов с хешами SHA-256 | Блог DocInspector',"description":'Создайте полный инвентарь документов (реестр) с количеством страниц, размерами файлов, хешами SHA-256 и статусом защиты для 100+ файлов. Пошаговое руководство с DocInspector Bundle Report.',"url":"https://doc-inspector.com/ru/blog/kak-sozdat-otchet-audita-paketa-dokumentov","datePublished":"2026-07-01","dateModified":"2026-07-01","inLanguage":"ru-MD","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},"publisher":{"@type":"Organization","name":"DocInspector","url":"https://doc-inspector.com"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
+  <link rel="stylesheet" href="../../style.css?v=13">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .article-body{font-family:'Inter',sans-serif;font-size:1.125rem;line-height:1.85;color:#cbd5e1}
+    .article-body p{margin-bottom:1.8rem;color:#cbd5e1}
+    .article-body h2{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2.8rem 0 1.25rem;font-size:1.65rem;border-left:4px solid #06b6d4;padding-left:14px;text-shadow:0 0 15px rgba(6,182,212,.15)}
+    .article-body h3{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;margin:2rem 0 1rem;font-size:1.3rem;border-left:3px solid #38bdf8;padding-left:10px}
+    .article-body ul{margin:0.5rem 0 1.8rem;padding-left:0;list-style:none}
+    .article-body ul li{position:relative;margin-bottom:.8rem;padding-left:1.5rem;line-height:1.75}
+    .article-body ul li::before{content:"•";color:#06b6d4;font-weight:bold;font-size:1.3rem;position:absolute;left:4px;top:-2px;text-shadow:0 0 8px rgba(6,182,212,.6)}
+    .article-body ol{margin:.5rem 0 1.8rem;padding-left:0;list-style:none;counter-reset:cc}
+    .article-body ol li{position:relative;margin-bottom:.8rem;padding-left:1.8rem;line-height:1.75;counter-increment:cc}
+    .article-body ol li::before{content:counter(cc)".";color:#38bdf8;font-weight:700;position:absolute;left:4px;top:0}
+    .tool-callout{background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.25);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.95rem;color:#e2e8f0}
+    .tool-callout a{color:#06b6d4;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(6,182,212,.3)}
+    .faq-q{font-weight:700;color:#f1f5f9;margin:1.5rem 0 .3rem;font-size:1.05rem}
+    .faq-a{color:#94a3b8;margin-bottom:1rem}
+    a.tool-link{color:#06b6d4;border-bottom:1px solid rgba(6,182,212,.3);text-decoration:none}
+    a.tool-link:hover{border-bottom-color:#06b6d4}
+    table.cmp{width:100%;border-collapse:collapse;margin:1.5rem 0 2rem}
+    table.cmp th{background:rgba(6,182,212,.12);color:#e2e8f0;padding:.6rem .9rem;text-align:left;font-size:.9rem;font-weight:700;border-bottom:1px solid rgba(6,182,212,.3)}
+    table.cmp td{padding:.55rem .9rem;border-bottom:1px solid rgba(255,255,255,.06);font-size:.92rem;color:#cbd5e1}
+    table.cmp tr:hover td{background:rgba(255,255,255,.03)}
+    .yes{color:#10b981;font-weight:700} .no{color:#f87171;font-weight:700}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="../" class="brand">
+        <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span><span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+        <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents &amp; Audit Suite</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="../" data-i18n="nav.home">Главная</a>
+        <a href="../onlayn-instrumenty" style="color:#06b6d4;font-weight:700">🌐 Онлайн Инструменты</a>
+        <a href="../price" data-i18n="nav.price">Цены</a>
+        <a href="../user-guide" data-i18n="nav.guide">Руководство</a>
+        <a href="../otchety" data-i18n="nav.reports">Отзывы</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Блог</a>
+        <a href="../contact" data-i18n="nav.contact">Контакт</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language"><span class="lang-pill">RU</span><span class="chev">▾</span></button>
+          <div class="lang-menu">
+            <a href="../../en/blog/how-to-create-document-bundle-audit-report" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/cum-creezi-borderou-raport-audit-documente" class="lang-item" data-lang="ro">RO</a>
+            <a href="../../ru/blog/kak-sozdat-otchet-audita-paketa-dokumentov" class="lang-item active" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+      <span style="color:#64748b;font-size:.85rem">2026-07-01 · Команда DocInspector</span>
+    </div>
+    <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:2rem;color:#fff">Как создать отчёт аудита пакета документов с хешами SHA-256</h1>
+    <div class="article-body">
+
+<p>Отчёт аудита пакета документов — известный в румынской и молдавской бухгалтерской практике как "borderou" (реестр) — это полный инвентарь всех файлов в коллекции: имена, форматы, количество страниц, размеры, хеши целостности и статус защиты. Этот тип отчёта используется юридическими фирмами для доказательных пакетов, бухгалтерами для реестров документов и командами комплаенса для архивных подач.</p>
+
+<h2>Что содержит отчёт реестра</h2>
+<p>DocInspector генерирует два типа отчётов реестра:</p>
+
+<h3>PDF Bundle Summary (Краткий отчёт реестра)</h3>
+<ul>
+<li>Название документа или имя файла</li>
+<li>Формат файла (PDF, DOCX, XLSX и т.д.)</li>
+<li>Количество страниц</li>
+<li>Размер файла</li>
+<li>Общее количество страниц по всем документам</li>
+<li>Общий размер всех файлов</li>
+</ul>
+
+<h3>Advanced Bundle Report (Расширенный отчёт аудита)</h3>
+<p>Детальный отчёт уровня аудита, добавляющий:</p>
+<ul>
+<li>Порядковый номер документа</li>
+<li>Криптографический хеш SHA-256 (проверка целостности файла)</li>
+<li>Статус защиты (защищён паролем, зашифрован, подписан)</li>
+<li>Дата последнего изменения</li>
+</ul>
+<p>Расширенный отчёт Bundle — правильный инструмент для юридических доказательных пакетов, подач в суд, архивов комплаенса и любого контекста, где целостность файлов должна быть проверяема.</p>
+
+<h2>Пошаговое создание отчёта аудита</h2>
+<ol>
+<li><strong>Подготовьте файлы:</strong> Соберите все PDF, DOCX, XLSX, CSV или TXT файлы в папку. DocInspector поддерживает до 100 файлов на пакет онлайн (без ограничений на десктопе).</li>
+<li><strong>Загрузите:</strong> Перейдите в <a href="../onlayn-instrumenty" class="tool-link">Онлайн-инструменты DocInspector</a> и перетащите всю папку в зону загрузки.</li>
+<li><strong>Выберите тип отчёта:</strong> Нажмите "PDF Bundle Summary" (быстрый отчёт) или "Advanced Bundle Report" (полный аудит с SHA-256).</li>
+<li><strong>Настройте:</strong> Выберите формат вывода — Excel (.xlsx), PDF и CSV генерируются одновременно.</li>
+<li><strong>Запустите:</strong> Нажмите Run. Типичное время обработки — менее 30 секунд для 100 файлов.</li>
+<li><strong>Скачайте:</strong> Файлы отчёта упакованы в ZIP-архив для скачивания.</li>
+</ol>
+
+<h2>Понимание хешей SHA-256 в отчёте</h2>
+<p>Каждый файл в Расширенном отчёте Bundle получает хеш SHA-256 — строку из 64 символов, являющуюся уникальным отпечатком точного содержимого этого файла. Если даже один байт файла изменится после генерации отчёта, его хеш SHA-256 полностью изменится.</p>
+<p>Это делает отчёт юридически значимым: он доказывает, что поданные файлы соответствуют файлам, перечисленным в отчёте на момент подачи.</p>
+
+<h2>Случаи использования</h2>
+<ul>
+<li><strong>Юридические фирмы:</strong> Создание доказательных пакетов для судебных подач — каждый документ получает порядковый номер и хеш SHA-256</li>
+<li><strong>Бухгалтеры и аудиторы:</strong> Генерация реестра документов для бухгалтерских подач</li>
+<li><strong>Команды комплаенса:</strong> Архивные подачи в регуляторные органы — доказательство неизменности архивных файлов</li>
+<li><strong>IT-команды:</strong> Верификация миграции документов — подтверждение целостности файлов после миграции хранилища</li>
+</ul>
+
+<div class="tool-callout"><strong>📊 DocInspector Bundle Report:</strong> Создайте полный инвентарь Excel+PDF+CSV аудита с хешами SHA-256 для до 100 файлов одновременно. <a href="../onlayn-instrumenty" class="tool-link">Расширенный отчёт Bundle →</a></div>
+
+<h2>Часто задаваемые вопросы</h2>
+<p class="faq-q">Можно ли использовать отчёт реестра как юридический документ?</p>
+<p class="faq-a">Сам отчёт является документом инвентаризации. Его хеши SHA-256 обеспечивают криптографическое доказательство целостности файлов на момент генерации. Имеет ли отчёт юридическую силу — зависит от юрисдикции и контекста использования.</p>
+<p class="faq-q">Изменяет ли генерация отчёта реестра исходные файлы?</p>
+<p class="faq-a">Нет. Отчёт реестра — только для чтения: он анализирует и инвентаризирует ваши файлы без их изменения.</p>
+<p class="faq-q">Какие форматы поддерживает отчёт реестра?</p>
+<p class="faq-a">Файлы PDF, DOCX, XLSX, CSV и TXT поддерживаются как входные данные. Сгенерированный отчёт доступен одновременно в форматах Excel (.xlsx), PDF и CSV.</p>
+
+<h2>Заключение</h2>
+<p>Отчёт аудита пакета документов с хешами SHA-256 — профессиональный стандарт для любой подачи нескольких документов, архива или доказательного пакета. DocInspector генерирует этот отчёт менее чем за минуту для до 100 файлов, одновременно выводя Excel, PDF и CSV — готово к немедленному использованию в юридических, бухгалтерских или комплаенс-контекстах.</p>
+
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Назад ко всем статьям</a>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
+        <a href="../privacy" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a href="../terms" data-i18n="footer.terms">Условия использования</a>
+        <a href="../refund" data-i18n="footer.refund">Политика возврата</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>(function(){var s=sessionStorage.getItem('blogListPage');if(s){var l=document.getElementById('back-blog-link');if(l)l.href=s;}})()</script>
+</body>
+</html>
