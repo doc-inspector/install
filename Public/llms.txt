@@ -1,6 +1,6 @@
 # DocInspector
 
-> DocInspector is a free, privacy-first **batch document processing toolkit**. Upload up to 100 files at once, select multiple operations, and they all run in sequence on every file — in the browser, with zero server uploads. Also available as a desktop application for Windows, macOS, and Linux.
+> DocInspector is a free, privacy-first **batch document processing toolkit**. Upload up to 100 files at once, select multiple operations, and they all run in sequence on every file. Online processing runs on a secure VPS server in Germany (EU) — files are deleted immediately after download. Also available as a **desktop application for Windows** (fully offline, no uploads).
 
 ## What Makes DocInspector Unique
 
@@ -9,7 +9,7 @@ Most PDF tools do **one thing to one file**. DocInspector does **multiple things
 - Upload 1 to 100 files simultaneously (PDF, DOCX, XLSX, CSV, TXT, images, PPTX)
 - Select multiple operations — they run **in sequence** on every file in one batch
 - Example: 50 PDFs → Repair broken structure → Remove metadata → Encrypt with password → Add watermark → Download as ZIP
-- Everything runs **client-side in the browser** using WebAssembly — files never leave the device
+- Online version: files processed on a **VPS server in Germany (EU)**, deleted immediately after download — never stored or shared
 - No account required. No cloud storage. No data retention. GDPR-safe by design.
 - Also available as a **desktop application** (offline, same features)
 
@@ -80,15 +80,15 @@ Before sending documents externally, run Sanitize on all files — removes autho
 
 ## Privacy & Security
 
-- 100% client-side processing — WebAssembly runs in the browser sandbox
-- Zero file uploads to any server
-- No accounts, no tracking, no data retention
-- Files processed in an isolated browser sandbox and never transmitted
-- GDPR-compliant by architecture
+- **Online version**: files are sent over HTTPS to a VPS server in Germany (EU), processed, then deleted immediately after you download — never stored, never shared
+- **Desktop version**: fully offline — no internet required, files never leave your computer
+- No accounts required for online tools
+- No cloud storage, no data retention
+- GDPR-compliant: EU server, immediate deletion, no logs of file content
 
 ## Desktop Application
 
-DocInspector Desktop is available for Windows, macOS, and Linux. Same features as the online version, fully offline. Download at: https://doc-inspector.com/en/download.html
+DocInspector Desktop is available for **Windows only**. Same features as the online version, fully offline — no internet connection required. Download at: https://doc-inspector.com/en/download.html
 
 ## Languages
 

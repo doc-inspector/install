@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Watermark PDF — Add Watermark to 100 PDFs at Once | DocInspector</title>
+  <meta name="description" content="Add watermarks to PDF files in batch online. Stamp diagonal or custom text watermarks with customizable font, size, opacity, and angle. Process up to 100 PDFs at once. EU server, files deleted after download.">
+  <meta name="keywords" content="batch watermark pdf, add watermark to multiple pdfs, bulk pdf watermark, watermark pdf online, confidential watermark pdf, stamp pdf watermark">
+  <meta property="og:title" content="Batch Watermark PDF — Add Watermark to 100 PDFs at Once | DocInspector">
+  <meta property="og:description" content="Stamp watermarks on 100 PDFs in one click. Customize text, font, size, opacity, angle. EU server, GDPR compliant, files deleted after download.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="canonical" href="https://doc-inspector.com/en/features/batch-watermark">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/batch-watermark">
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/batch-watermark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=13">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DocInspector — Batch PDF Watermark",
+    "description": "Add diagonal or custom text watermarks to PDFs in batch. Customize font, size, opacity, angle. Process up to 100 PDFs at once. EU server processing.",
+    "url": "https://doc-inspector.com/en/features/batch-watermark",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web browser, Windows",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "featureList":["Custom watermark text","Adjustable font, size, opacity, angle","Every page watermarked","Batch up to 100 PDFs","Combine with encrypt and sanitize","EU server, GDPR compliant"]
+  }
+  </script>
+  <style>
+    :root{--cyan:#06b6d4;--text-muted:#94a3b8;--green:#10b981;--purple:#8b5cf6;--bg:#0a1628;}
+    .mesh-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+    .mesh-bg::before{content:'';position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(6,182,212,.07) 0%,transparent 65%);top:-200px;left:-200px;animation:meshMove1 18s ease-in-out infinite alternate;}
+    .mesh-bg::after{content:'';position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(99,102,241,.06) 0%,transparent 65%);bottom:-100px;right:-100px;animation:meshMove2 22s ease-in-out infinite alternate;}
+    @keyframes meshMove1{0%{transform:translate(0,0)}100%{transform:translate(200px,150px) scale(1.3)}}
+    @keyframes meshMove2{0%{transform:translate(0,0)}100%{transform:translate(-180px,-120px) scale(1.2)}}
+    .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.4;}
+    .orb-1{width:400px;height:400px;background:rgba(6,182,212,.08);top:10%;left:5%;animation:orbFloat 12s ease-in-out infinite;}
+    .orb-2{width:300px;height:300px;background:rgba(139,92,246,.07);top:50%;right:8%;animation:orbFloat 16s ease-in-out infinite reverse;}
+    @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px) scale(1.05)}}
+    .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(6,182,212,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);}
+    .feat-hero{padding:8rem 0 4rem;position:relative;z-index:1;text-align:center;}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:50px;padding:.4rem 1.1rem;margin-bottom:1.6rem;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#06b6d4;}
+    .hero-h1{font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:900;line-height:1.1;margin:0 auto 1.2rem;max-width:820px;background:linear-gradient(135deg,#fff 0%,#06b6d4 60%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.03em;}
+    .hero-lead{color:var(--text-muted);font-size:1.08rem;line-height:1.75;max-width:640px;margin:0 auto 2.5rem;}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem;}
+    .btn-hero-primary{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#000;font-weight:800;font-size:.95rem;padding:.85rem 2rem;border-radius:14px;text-decoration:none;transition:all .3s;}
+    .btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(6,182,212,.35);}
+    .btn-hero-ghost{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:700;font-size:.95rem;padding:.85rem 2rem;border-radius:14px;text-decoration:none;transition:all .3s;}
+    .btn-hero-ghost:hover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.08);transform:translateY(-2px);}
+    .feat-section{position:relative;z-index:1;padding:4rem 0;}
+    .section-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);border-radius:50px;padding:.3rem .9rem;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#06b6d4;margin-bottom:.7rem;}
+    .section-title{font-family:'Outfit',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:900;background:linear-gradient(90deg,#fff,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.6rem;}
+    .section-sub{font-size:1rem;color:var(--text-muted);line-height:1.7;max-width:620px;margin-bottom:2.5rem;}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+    .feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2rem;transition:all .3s;}
+    .feat-card:hover{border-color:rgba(6,182,212,.35);transform:translateY(-4px);box-shadow:0 12px 30px rgba(6,182,212,.1);}
+    .feat-card-icon{font-size:2rem;margin-bottom:1rem;}
+    .feat-card h3{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.5rem;}
+    .feat-card p{font-size:.9rem;color:var(--text-muted);line-height:1.65;}
+    .settings-demo{background:rgba(255,255,255,.03);border:1px solid rgba(6,182,212,.15);border-radius:20px;padding:2rem;margin-top:2rem;}
+    .settings-demo h3{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:1.2rem;}
+    .settings-row{display:flex;flex-wrap:wrap;gap:1rem;}
+    .setting-item{flex:1;min-width:180px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.12);border-radius:12px;padding:1rem 1.2rem;}
+    .setting-label{font-size:.75rem;font-weight:700;color:#06b6d4;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem;}
+    .setting-val{font-size:.9rem;color:#e2e8f0;font-weight:600;}
+    .faq-list{display:flex;flex-direction:column;gap:1rem;}
+    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;}
+    .faq-q{width:100%;text-align:left;background:none;border:none;color:#fff;font-size:.95rem;font-weight:700;padding:1.2rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+    .faq-q .faq-chev{color:#06b6d4;transition:transform .3s;}
+    .faq-a{display:none;padding:.2rem 1.5rem 1.2rem;font-size:.9rem;color:var(--text-muted);line-height:1.7;}
+    .faq-item.open .faq-q .faq-chev{transform:rotate(180deg);}
+    .faq-item.open .faq-a{display:block;}
+    .cta-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(139,92,246,.06));border:1px solid rgba(6,182,212,.2);border-radius:28px;padding:3.5rem 2.5rem;text-align:center;}
+    .cta-box h2{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:#fff;margin-bottom:1rem;}
+    .cta-box p{font-size:1rem;color:var(--text-muted);margin-bottom:2rem;}
+    .eu-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:50px;padding:.4rem 1rem;font-size:.8rem;font-weight:700;color:#10b981;margin-bottom:1.5rem;}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="mesh-bg"></div><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="grid-lines"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../" class="brand">
+          <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+          <span><span class="brand-name">DocInspector</span><br><span class="brand-subtitle">Repair, Batch Manager of Documents & Audit Suite</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="../">Home</a>
+          <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+          <a href="../price">Price</a>
+          <a href="../user-guide">User Guide</a>
+          <a href="../blog">Blog</a>
+          <a href="../contact">Contact</a>
+          <a href="../download" class="btn btn-primary btn-sm mobile-only">Download</a>
+        </div>
+        <div class="nav-actions">
+          <div class="lang-dropdown">
+            <button class="lang-btn" aria-label="Language"><span class="lang-pill">EN</span><span class="chev">▾</span></button>
+            <div class="lang-menu"><a href="#" class="lang-item active" data-lang="en">EN</a></div>
+          </div>
+          <a href="../download" class="btn btn-primary btn-sm desktop-only">Download</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="feat-hero">
+      <div class="container">
+        <div class="eyebrow">💧 Feature</div>
+        <h1 class="hero-h1">Batch PDF Watermark</h1>
+        <p class="hero-lead">Stamp CONFIDENTIAL, DRAFT, or any custom text across every page of up to 100 PDFs in a single click. Fully customizable — font, size, opacity, angle, color. All files delivered as one ZIP.</p>
+        <div class="hero-btns">
+          <a href="../tools/add-watermark-pdf-online" class="btn-hero-primary">⚡ Add Watermark Free</a>
+          <a href="../download" class="btn-hero-ghost">⬇ Download Desktop App</a>
+        </div>
+        <div class="eu-badge">🇩🇪 Processed on EU server (Germany) — files deleted after download</div>
+      </div>
+    </section>
+
+    <section class="feat-section">
+      <div class="container">
+        <div class="section-label">Customization Options</div>
+        <h2 class="section-title">Full Control Over Every Setting</h2>
+        <p class="section-sub">The same watermark settings apply to all files in the batch — configure once, stamp hundreds.</p>
+        <div class="settings-demo">
+          <h3>Watermark Settings</h3>
+          <div class="settings-row">
+            <div class="setting-item"><div class="setting-label">Text</div><div class="setting-val">CONFIDENTIAL</div></div>
+            <div class="setting-item"><div class="setting-label">Opacity</div><div class="setting-val">30% (adjustable)</div></div>
+            <div class="setting-item"><div class="setting-label">Angle</div><div class="setting-val">45° diagonal</div></div>
+            <div class="setting-item"><div class="setting-label">Font Size</div><div class="setting-val">72pt (adjustable)</div></div>
+            <div class="setting-item"><div class="setting-label">Color</div><div class="setting-val">Red / any color</div></div>
+            <div class="setting-item"><div class="setting-label">Placement</div><div class="setting-val">Every page</div></div>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:3rem;">Features</div>
+        <h2 class="section-title">Why Use DocInspector for Watermarking</h2>
+        <div class="cards-grid">
+          <div class="feat-card">
+            <div class="feat-card-icon">📚</div>
+            <h3>True Batch Processing</h3>
+            <p>Upload a folder of 100 PDFs — all get the same watermark applied to every page. One click, one ZIP output.</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card-icon">🎨</div>
+            <h3>Fully Customizable</h3>
+            <p>Change watermark text, font size, opacity, rotation angle, and color. Preview before processing.</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card-icon">🔗</div>
+            <h3>Pipeline Integration</h3>
+            <p>Combine Watermark + Encrypt + Sanitize in the same batch run — apply all three operations on every file simultaneously.</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card-icon">🌐</div>
+            <h3>Works in Browser</h3>
+            <p>No installation required for online use. Or use the Windows desktop app for unlimited offline processing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feat-section">
+      <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Watermark Questions</h2>
+        <div class="faq-list" style="max-width:720px;">
+          <div class="faq-item open">
+            <button class="faq-q">Can I watermark all pages of all PDFs in one run? <span class="faq-chev">▾</span></button>
+            <div class="faq-a">Yes. Upload up to 100 PDFs (or drag an entire folder), select Add Watermark, configure the text and appearance, click Run. Every page of every file gets the watermark. All results are delivered as a single ZIP.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Can I use different watermarks for different files? <span class="faq-chev">▾</span></button>
+            <div class="faq-a">In one batch run, all files share the same watermark settings. For different watermarks on different files, run separate batches — each takes seconds to configure.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Is the watermark removable? <span class="faq-chev">▾</span></button>
+            <div class="faq-a">The watermark is burned into each page as part of the PDF content stream. It's not a removable annotation overlay. For maximum security, combine with the Flatten to Image operation to make the PDF a pure image-based document.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How many PDFs can I watermark at once? <span class="faq-chev">▾</span></button>
+            <div class="faq-a">Online: up to 100 files per batch. Desktop app (Windows): unlimited files with no size restrictions, fully offline.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feat-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Watermark PDFs in Batch — Free</h2>
+          <p>No account. No install. Works in browser. EU server. Files deleted after download.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+            <a href="../tools/add-watermark-pdf-online" class="btn-hero-primary">⚡ Add Watermark Online</a>
+            <a href="../download" class="btn-hero-ghost">⬇ Download for Windows</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2025 DocInspector. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;">🔒 Security</a>
+          <a href="../privacy">Privacy Policy</a>
+          <a href="../terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script>document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{b.closest('.faq-item').classList.toggle('open');});});</script>
+<script src="../../cookies.js"></script>
+</body>
+</html>
