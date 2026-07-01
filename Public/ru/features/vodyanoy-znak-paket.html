@@ -126,6 +126,17 @@
     .format-icon{font-size:2.5rem;}
     .format-info h4{font-weight:700;color:#fff;margin-bottom:.25rem;}
     .format-info p{font-size:.85rem;color:var(--text-muted);}
+
+    .limits-table{width:100%;border-collapse:collapse;margin-top:1.5rem;}
+    .limits-table th,.limits-table td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);font-size:.88rem;vertical-align:top;}
+    .limits-table th{font-family:'Outfit',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#06b6d4;background:rgba(6,182,212,.06);}
+    .limits-table td:first-child{font-weight:700;color:#fff;white-space:nowrap;}
+    .limits-table .col-free{color:#94a3b8;}
+    .limits-table .col-basic{color:#e2e8f0;}
+    .limits-table .col-pro{color:#06b6d4;font-weight:700;}
+    .limits-table td small{display:block;color:#64748b;font-size:.78rem;margin-top:.2rem;font-weight:400;}
+    .limits-table tr:last-child td{border-bottom:none;}
+    .limits-table .no{color:#f87171;}
   </style>
 </head>
 <body>
@@ -204,6 +215,48 @@
       </div>
     </section>
 
+    <section class="feat-section" style="padding-top:0">
+      <div class="container" style="position:relative;z-index:1">
+        <div style="text-align:center;margin-bottom:1.5rem">
+          <div class="section-label">Лимиты</div>
+          <div class="section-title">Free · Basic · Pro</div>
+          <p class="section-sub" style="margin:0 auto">Все онлайн-инструменты доступны бесплатно. Лицензии открывают более высокие лимиты и расширенные функции.</p>
+        </div>
+        <div style="overflow-x:auto;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:1.5rem">
+          <table class="limits-table">
+            <thead>
+              <tr>
+                <th>Тип лимита</th>
+                <th>Free</th>
+                <th>Basic</th>
+                <th class="col-pro">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Онлайн инструменты<br><small>Веб браузер</small></td>
+                <td class="col-free">100 файлов/день<small>Макс 100 МБ/файл</small></td>
+                <td class="col-basic">1.000 файлов/день<small>Макс 100 МБ/файл</small></td>
+                <td class="col-pro">Безлимит/день<small>Макс 1.300 файлов за запуск · 100 МБ/файл</small></td>
+              </tr>
+              <tr>
+                <td>Десктоп приложение<br><small>Windows</small></td>
+                <td class="col-free no">❌ Не включено</td>
+                <td class="col-basic">1.000 файлов/день<small>Размер файла без ограничений</small></td>
+                <td class="col-pro">Безлимит/день<small>Размер файла без ограничений · Запуски без ограничений</small></td>
+              </tr>
+              <tr>
+                <td>Запуски обработки</td>
+                <td class="col-free">Одна операция за запуск</td>
+                <td class="col-basic">Одна операция за запуск<small>Все инструменты доступны</small></td>
+                <td class="col-pro">Мультиоперационные<small>Несколько операций в одном запуске</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="text-align:center;margin-top:1rem;font-size:.82rem;color:#64748b">→ <a href="../price" style="color:#06b6d4;text-decoration:none">Все планы и цены</a></p>
+      </div>
+    </section>
     <section class="feat-section">
       <div class="container">
         <div class="section-label">FAQ</div>
