@@ -812,7 +812,7 @@
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
             <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
-            <div class="dz-sub" id="dzSub">or click to browse &mdash; <span style="color:#06b6d4">drag an entire folder</span> &mdash; max 100 files per day &mdash; 15 MB each</div>
+            <div class="dz-sub" id="dzSub">or click to browse &mdash; <span style="color:#06b6d4">drag an entire folder</span> &mdash; max 100 files per day &mdash; 100 MB each</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
@@ -1605,7 +1605,7 @@ function updateUI() {
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>25 MB</strong> each), 100 free per day.';
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>100 MB</strong> each), 100 free per day.';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1616,7 +1616,7 @@ function updateUI() {
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 1,000 files/day, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>100 MB</strong> each), 1,000 per day.';
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>200 MB</strong> each), 1,000 per day.';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1627,7 +1627,7 @@ function updateUI() {
     if(ub) ub.style.display = "none";
   } else {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>100 MB</strong> each), unlimited per day.';
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>200 MB</strong> each), unlimited per day.';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -1786,8 +1786,8 @@ function toggleTool(e, name) {
   }
   
   if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
-    const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
     const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     fi.setAttribute('webkitdirectory', 'true');
     fi.setAttribute('multiple', '');
@@ -1802,8 +1802,8 @@ function toggleTool(e, name) {
     fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
     dzIcon.textContent  = '📂';
     dzTitle.textContent = 'Drag & Drop files here';
-    const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
     dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
     dz.style.borderColor = '';
     dz.style.background  = '';
@@ -1938,13 +1938,13 @@ function traverseFileTree(item, path = '') {
 function addFiles(newFiles) {
   let currentTotal = files.reduce((acc, f) => acc + f.size, 0);
   let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
-  const totalLimit = currentTier === "Free" ? 1024 * 1024 * 1024 : 2 * 1024 * 1024 * 1024;
+  const totalLimit = currentTier === "Free" ? 2 * 1024 * 1024 * 1024 : 4 * 1024 * 1024 * 1024;
   if (currentTotal + newTotal > totalLimit) {
     alert("Total upload limit is " + (totalLimit/1024/1024/1024) + " GB. Selected files exceed this limit.");
     return;
   }
   const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
-  const maxSz = currentTier === "Free" ? 25 * 1024 * 1024 : 100 * 1024 * 1024;
+  const maxSz = currentTier === "Free" ? 100 * 1024 * 1024 : 200 * 1024 * 1024;
   let skippedLimit = 0; let skippedSize = 0;
   
   newFiles.filter(f => {
@@ -2007,8 +2007,8 @@ function renderFiles() {
     const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
     icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
     title.textContent = selectedOps.has('bundle') ? 'Drag a FOLDER here (up to ' + bundleMax + ' files)' : 'Drag & Drop files here';
-    const maxSz = currentTier === "Free" ? "25" : "100";
-    const totalLimitStr = currentTier === "Free" ? "1 GB" : "2 GB";
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
     sub.textContent   = selectedOps.has('bundle') ? 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total' : 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
     return;
   }
