@@ -173,34 +173,90 @@
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/descarca" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/skachat" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/download" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "DocInspector",
-    "operatingSystem": "Windows",
-    "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Professional Windows desktop application for batch PDF processing. Repair, sanitize metadata, add watermarks, encrypt, redact, split and merge up to 100 documents at once using a multi-operation pipeline. No cloud upload — everything runs locally.",
-    "url": "https://doc-inspector.com/en/download",
-    "downloadUrl": "https://doc-inspector.com/en/download",
-    "softwareVersion": "latest",
-    "screenshot": "https://doc-inspector.com/assets/white-theme-GUI.png",
-    "featureList": "Batch processing up to 100 files, Multi-operation pipeline, PDF repair, Metadata sanitization, Watermark, Encryption, Redaction, Split, Merge",
-    "publisher": {
-      "@type": "Organization",
-      "name": "DocInspector",
-      "url": "https://doc-inspector.com"
-    }
-  }
-  </script>
   <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
   <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
   <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://doc-inspector.com/#desktop-app",
+      "name": "DocInspector Desktop — Document Processing, Security & Audit Suite",
+      "url": "https://doc-inspector.com/en/download",
+      "downloadUrl": "https://doc-inspector.com/en/download",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows",
+      "screenshot": "https://doc-inspector.com/assets/white-theme-GUI.png",
+      "description": "Professional Windows desktop application for batch PDF processing. Repair, sanitize metadata, watermark, encrypt, redact, flatten, remove signatures, generate audit reports, convert to PDF. Fully local — no upload, no internet required, no file size limits, no file count limits.",
+      "featureList": [
+        "Fully offline — files never leave your computer",
+        "No file size limits, no file count limits",
+        "Batch processing with multi-operation pipeline in a single pass",
+        "Original folder and subfolder structure preserved in output ZIP",
+        "PDF repair with optional OCR (smart and force rebuild modes)",
+        "Metadata sanitization — author, GPS, software, hidden layers",
+        "Watermark, AES-256 encryption, redaction, flatten, remove digital signatures",
+        "PDF bundle summary and advanced audit reports with risk scoring",
+        "Convert DOCX, XLSX, PPTX, images to PDF"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Basic",
+          "price": "9.99",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "15.00",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://doc-inspector.com/#organization",
+        "name": "DocInspector",
+        "url": "https://doc-inspector.com",
+        "logo": "https://doc-inspector.com/assets/logo.png",
+        "sameAs": [
+          "https://doc-inspector.com"
+        ]
+      },
+      "potentialAction": {
+        "@type": "DownloadAction",
+        "target": "https://doc-inspector.com/en/download"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://doc-inspector.com/en/download#page",
+      "name": "Download DocInspector — Windows Desktop App for Batch PDF Processing",
+      "description": "Download DocInspector for Windows. Professional batch PDF processing — repair, sanitize metadata, watermark, encrypt, redact, flatten, remove signatures, audit reports, convert to PDF. Fully local. No upload. No limits.",
+      "url": "https://doc-inspector.com/en/download",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://doc-inspector.com/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://doc-inspector.com/#organization",
+        "name": "DocInspector",
+        "url": "https://doc-inspector.com",
+        "logo": "https://doc-inspector.com/assets/logo.png",
+        "sameAs": [
+          "https://doc-inspector.com"
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body style="background:#0a1628;color:#f1f5f9">
 <div id="progress-bar"></div>
