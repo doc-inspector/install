@@ -5500,4 +5500,108 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/kak-zapretit-kopirovanie-redaktirovanie-i-pechat-pdf"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/how-to-block-copying-editing-and-printing-of-a-pdf"/>
   </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/pdf-repair</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/pdf-repair"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/pdf-repair"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/batch-watermark</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/batch-watermark"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/batch-watermark"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/pdf-redaction</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/pdf-redaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/pdf-redaction"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/metadata-sanitizer</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/metadata-sanitizer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/metadata-sanitizer"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/word-excel-to-pdf</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/word-excel-to-pdf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/word-excel-to-pdf"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/features/batch-processing</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/features/batch-processing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/features/batch-processing"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/compare/vs-adobe-acrobat</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/compare/vs-adobe-acrobat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/compare/vs-adobe-acrobat"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/compare/vs-abbyy</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/compare/vs-abbyy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/compare/vs-abbyy"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/compare/vs-foxit</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/compare/vs-foxit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/compare/vs-foxit"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/compare/vs-pdf24</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/compare/vs-pdf24"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/compare/vs-pdf24"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/compare/vs-docufreezer</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/compare/vs-docufreezer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/compare/vs-docufreezer"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/alternatives/adobe-acrobat-alternative</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/alternatives/adobe-acrobat-alternative"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/alternatives/adobe-acrobat-alternative"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/alternatives/abbyy-finereader-alternative</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/alternatives/abbyy-finereader-alternative"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/alternatives/abbyy-finereader-alternative"/>
+  </url>
 </urlset>
