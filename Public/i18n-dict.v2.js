@@ -177,7 +177,7 @@ window.I18N = {
     "guide.title": "Knowledge Hub",
     "hero.eyebrow": "Free Online Tools + Pro Desktop App — Process documents anywhere",
     "hero.footnote": "🌐 Online: Files processed securely and deleted in <5 min. 💻 Desktop: 100% Local processing. GDPR Native.",
-    "hero.lead": "Instantly repair corrupted PDFs, safely strip document metadata, flat-flatten layouts, and add professional watermarks directly in your browser — 100% free and secure. Need unlimited offline power for bulk Word, Excel, and PDF directories? Download our high-performance desktop application.",
+    "hero.lead": "Instantly repair corrupted PDFs, safely strip document metadata, flatten layouts, and add professional watermarks directly in your browser — 100% free and secure. Need unlimited offline power for bulk Word, Excel, and PDF directories? Download our high-performance desktop application.",
     "hero.screenshotLabel": "Click to explore the professional GUI interface",
     "hero.titleFull": "Free <span class=\"highlight\">Online Document Tools</span> &amp; Professional Batch Repair Suite.",
     "hscroll.batch.desc": "Convert, repair, flatten, and audit all at once. Set your options, hit run, walk away.",
