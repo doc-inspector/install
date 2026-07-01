@@ -812,7 +812,7 @@
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
             <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
-            <div class="dz-sub" id="dzSub">or click to browse &mdash; max 100 files per day &mdash; 15 MB each</div>
+            <div class="dz-sub" id="dzSub">or click to browse &mdash; <span style="color:#06b6d4">drag an entire folder</span> &mdash; max 100 files per day &mdash; 15 MB each</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
@@ -828,6 +828,10 @@
             <strong>TXT</strong>,
             <strong>PNG / JPG / JPEG</strong>,
             <strong>PPTX / PPT</strong>
+          </div>
+
+          <div style="margin-top:0.5rem; font-size:0.78rem; color:var(--text-muted); text-align:center; padding:0.3rem 0;">
+            📦 All processed files are bundled into a single <strong style="color:#06b6d4">ZIP archive</strong> for instant one-click download.
           </div>
 
           <div class="file-list" id="fileList"></div>
@@ -876,7 +880,7 @@
                 <div class="tool-icon-wrap icon-indigo">&#x1F6E0;&#xFE0F;</div>
                 <div class="tool-name">Rebuild &amp; Repair PDF</div>
               </div>
-              <div class="tool-desc">Fix corrupted, broken or malformed PDF structures. Also makes scanned text <strong style="color:#06b6d4">selectable &amp; copiable</strong> via built-in OCR. <strong style="color:#6366f1">Supports PDF only.</strong></div>
+              <div class="tool-desc">Fix corrupted, broken or malformed PDF structures. Built-in <strong style="color:#06b6d4">OCR runs entirely in the browser</strong> — makes scanned pages selectable &amp; searchable with no software installation required. <strong style="color:#6366f1">Supports PDF only.</strong></div>
               <a href="https://doc-inspector.com/en/tools/repair-pdf-online" aria-label="Repair PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Repair PDF Online</a>
             </div>
 
@@ -909,7 +913,7 @@
                 <div class="tool-icon-wrap icon-red">&#x2B1B;</div>
                 <div class="tool-name">Find &amp; Redact</div>
               </div>
-              <div class="tool-desc">Permanently remove sensitive text from your document. <strong style="color:#ef4444">Supports PDF only.</strong></div>
+              <div class="tool-desc">Permanently erase sensitive content — strips the full <strong style="color:#ef4444">text layer, OCR layer, annotations and metadata</strong>, producing a clean image-only PDF that no forensic tool can recover. <strong style="color:#ef4444">Supports PDF only.</strong></div>
               <a href="https://doc-inspector.com/en/tools/redact-pdf-online" aria-label="Redact PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Redact PDF Online</a>
             </div>
 
@@ -939,7 +943,7 @@
                 <div class="tool-icon-wrap" style="background:rgba(168,85,247,.15);color:#a855f7">&#x1F504;</div>
                 <div class="tool-name">Convert Any Format to PDF</div>
               </div>
-              <div class="tool-desc">Convert Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), Text (TXT) and Images (JPG/PNG/WEBP) to PDF in batch. <strong style="color:#a855f7">Supports multiple formats.</strong></div>
+              <div class="tool-desc">Convert Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), Text (TXT) and Images (JPG/PNG/WEBP) to PDF <strong style="color:#a855f7">in batch — directly in your browser, no software needed</strong>. <strong style="color:#a855f7">Supports multiple formats.</strong></div>
               <a href="https://doc-inspector.com/en/tools/convert-to-pdf-online" aria-label="Convert Any Format to PDF standalone tool" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Convert Any Document or Format to PDF Free Online</a>
             </div>
           </div><!-- /tools-grid -->
