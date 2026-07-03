@@ -1112,6 +1112,31 @@
               </div>
             </div>
           </div>
+          <!-- Compliance & Long-Term Archiving Section -->
+          <div class="reports-section-header" style="margin-top: 2.2rem; margin-bottom: 1rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem;">
+            <div style="font-size: 1.25rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+                Compliance &amp; Long-Term Archiving
+            </div>
+            <div style="font-size: 0.88rem; color: #94a3b8; margin-top: 0.2rem;">Standardize files to ISO 19005 compliance standards for legal courts, notary submissions, and long-term digital retention.</div>
+          </div>
+
+          <div class="tools-grid">
+            <!-- PDF/A Archival Converter -->
+            <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
+              <div class="check-ring">&#x2714;</div>
+              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <div class="tool-header" style="margin-top:.5rem">
+                <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
+                <div class="tool-name">PDF/A Archival Converter</div>
+                <span class="pro-badge" style="margin-left:auto;font-size:.7rem;background:rgba(236,72,153,.15);color:#ec4899;border:1px solid rgba(236,72,153,.3);padding:.1rem .35rem;border-radius:4px;font-weight:700">PRO</span>
+              </div>
+              <div class="tool-desc">Convert Word, Excel, Images, and PDFs to standardized <strong>PDF/A-2b</strong> (ISO 19005-2). Automatically embeds all system fonts, strips active layers (JS), maps color profiles, and injects compliant XML metadata. <strong style="color:#06b6d4">Supports Word, Excel, Images, PDF.</strong></div>
+              <div style="margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap">
+                <span style="font-size:.7rem;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);border-radius:6px;padding:.2rem .5rem;color:#06b6d4">&#x1F4C1; Batch Upload</span>
+                <span style="font-size:.7rem;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);border-radius:6px;padding:.2rem .5rem;color:#06b6d4">&#x1F4DC; ISO 19005-2</span>
+              </div>
+            </div>
+          </div>
 
           <!-- Options panels -->
                               <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
@@ -1882,8 +1907,19 @@ function toggleTool(e, name) {
   const dzTitle = document.getElementById('dzTitle');
   const dzSub = document.getElementById('dzSub');
 
-  // Bundle is exclusive — deselect other tools
-  if (name === 'bundle' || name === 'bundle-advanced') {
+    // Pro-only tool gating
+  if (name === 'pdfa' && currentTier !== 'Pro') {
+    const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+    const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+    const msg = isRo ? "Convertorul de Arhivare PDF/A este o func\u021bie Pro-only. Te rug\u0103m s\u0103 activezi o licen\u021b\u0103 Pro." :
+                (isRu ? "\u041a\u043e\u043d\u0432\u0435\u0440\u0442\u0435\u0440 PDF/A \u0434\u043e\u0441\u0442\u0443\u043f\u0435\u043d \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u0432\u0435\u0440\u0441\u0438\u0438 Pro." :
+                "PDF/A Archival Converter is a Pro-only feature. Please upgrade to a Pro license.");
+    alert(msg);
+    return;
+  }
+
+// Bundle is exclusive — deselect other tools
+  if (name === 'bundle' || name === 'bundle-advanced' || name === 'pdfa') {
     if (selectedOps.has(name)) {
       selectedOps.delete(name);
       card.classList.remove('selected');
@@ -1916,6 +1952,13 @@ function toggleTool(e, name) {
       const bc = document.getElementById('card-bundle-advanced');
       if (bc) bc.classList.remove('selected');
       const bo = document.getElementById('opts-bundle-advanced');
+      if (bo) bo.classList.remove('open');
+    }
+    if (selectedOps.has('pdfa')) {
+      selectedOps.delete('pdfa');
+      const bc = document.getElementById('card-pdfa');
+      if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-pdfa');
       if (bo) bo.classList.remove('open');
     }
     

@@ -6130,4 +6130,32 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/zaschita-stroitelnyh-chertezhey-i-tendernyh-dokumentov"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
   </url>
+  <url>
+    <loc>https://doc-inspector.com/en/tools/convert-to-pdfa-online</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/tools/convert-to-pdfa-online"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte/convertire-pdfa-online"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/instrumenty/convertirovat-v-pdfa-onlayn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools/convert-to-pdfa-online"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/pdfa-compliance-legal-archiving-courts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdfa-compliance-legal-archiving-courts"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/conformitate-pdfa-arhivare-legala-instante"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/sootvetstvie-pdfa-yuridicheskoe-arhivirovanie-sudy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/pdfa-compliance-legal-archiving-courts"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/long-term-archiving-tax-accounting-records</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/long-term-archiving-tax-accounting-records"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/arhivare-termen-lung-documente-contabile-fiscale"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/dolgosrochnoe-arhivirovanie-buhgalterskih-nalogovyh-dokumentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/long-term-archiving-tax-accounting-records"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/offline-pdfa-conversion-privacy-vs-cloud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/offline-pdfa-conversion-privacy-vs-cloud"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/conversie-pdfa-offline-confidentialitate-vs-cloud"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/oflayn-pdfa-konvertaciya-konfidencialnost-protiv-oblaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/offline-pdfa-conversion-privacy-vs-cloud"/>
+  </url>
 </urlset>
