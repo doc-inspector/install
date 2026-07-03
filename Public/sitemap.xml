@@ -6100,4 +6100,34 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/podpisannyy-audit-kontrol-tselostnosti-papok-sha256"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/signed-audit-trail-folder-integrity-sha256"/>
   </url>
+  <url>
+    <loc>https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/securizarea-planurilor-constructie-documente-licitatie"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/zaschita-stroitelnyh-chertezhey-i-tendernyh-dokumentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ro/blog/securizarea-planurilor-constructie-documente-licitatie</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/securizarea-planurilor-constructie-documente-licitatie"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/zaschita-stroitelnyh-chertezhey-i-tendernyh-dokumentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+  </url>
+  <url>
+    <loc>https://doc-inspector.com/ru/blog/zaschita-stroitelnyh-chertezhey-i-tendernyh-dokumentov</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/securizarea-planurilor-constructie-documente-licitatie"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/zaschita-stroitelnyh-chertezhey-i-tendernyh-dokumentov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/securing-construction-blueprints-bidding-documents"/>
+  </url>
 </urlset>
