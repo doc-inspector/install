@@ -241,7 +241,7 @@
     <div class="container">
       <nav class="navbar">
               <a href="./" class="brand" id="brand-link">
-        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span class="brand-logo"><img src="/assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span>
           <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
           <span class="brand-subtitle" data-i18n="brand.subtitle" id="brand-subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
@@ -365,6 +365,7 @@
         blog: "/en/blog.html",
         contact: "/en/contact.html",
         download: "/en/download.html",
+        security: "/en/security.html",
         privacy: "/en/privacy.html",
         terms: "/en/terms.html",
         refund: "/en/refund.html"
@@ -400,6 +401,7 @@
         blog: "/ro/blog.html",
         contact: "/ro/contact.html",
         download: "/ro/descarca.html",
+        security: "/ro/securitate.html",
         privacy: "/ro/politica-de-confidentialitate.html",
         terms: "/ro/termeni-si-conditii.html",
         refund: "/ro/politica-de-rambursare.html"
@@ -435,6 +437,7 @@
         blog: "/ru/blog.html",
         contact: "/ru/kontakty.html",
         download: "/ru/skachat.html",
+        security: "/en/security.html",
         privacy: "/ru/politika-konfidentsialnosti.html",
         terms: "/ru/usloviya-ispolzovaniya.html",
         refund: "/ru/politika-vozvrata.html"
@@ -509,6 +512,7 @@
     document.getElementById('footer-copyright').innerText = t.copyright;
     const footerLinksContainer = document.getElementById('footer-links-box');
     footerLinksContainer.innerHTML = `
+      <a href="${t.paths.security}" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">🔒 Security</a>
       <a href="${t.paths.privacy}">${t.footer.privacy}</a>
       <a href="${t.paths.terms}">${t.footer.terms}</a>
       <a href="${t.paths.refund}">${t.footer.refund}</a>
