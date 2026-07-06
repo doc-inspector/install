@@ -844,54 +844,58 @@
             <thead>
               <tr>
                 <th>Характеристика</th>
-                <th>🌐 Инструменты в браузере (Бесплатно)</th>
+                <th>🌐 Веб-инструменты в браузере</th>
                 <th>🖥️ Настольное приложение</th>
               </tr>
             </thead>
             <tbody>
               <!-- General -->
               <tr class="cat-row"><td colspan="3">Общие</td></tr>
-              <tr><td>Цена</td><td class="yes">Бесплатно</td><td class="partial">Лицензировано</td></tr>
-              <tr><td>Требуется установка</td><td class="yes">Нет</td><td class="partial">Установщик Windows</td></tr>
-              <tr><td>Работает офлайн</td><td class="no">Нет (нужен браузер)</td><td class="yes">Да ✓</td></tr>
+              <tr><td>Цена</td><td class="yes">Free Tier: €0 · Basic: €9.99/мес · Pro: €15/мес</td><td class="partial">Trial 3 дня: €0 · Basic: €9.99/мес · Pro: €15/мес</td></tr>
+              <tr><td>Требуется установка</td><td class="yes">Нет — работает прямо в браузере</td><td class="partial">Установщик Windows (.exe)</td></tr>
+              <tr><td>Работает офлайн</td><td class="no">Нет — требуется подключение к Интернету</td><td class="yes">Да ✓ — работает полностью автономно</td></tr>
+              <tr><td>Требуется авторизация / аккаунт</td><td class="yes">Нет для Free Tier · Да для Basic и Pro</td><td class="partial">Да (требуется лицензионный ключ)</td></tr>
 
               <!-- Processing -->
               <tr class="cat-row"><td colspan="3">Обработка файлов</td></tr>
-              <tr><td>Обработка PDF</td><td class="yes">✓ Полная</td><td class="yes">✓ Полная</td></tr>
-              <tr><td>Обработка DOCX / Word</td><td class="partial">Только очистка</td><td class="yes">✓ Полная</td></tr>
-              <tr><td>Обработка XLSX / Excel</td><td class="partial">Только очистка</td><td class="yes">✓ Полная</td></tr>
-              <tr><td>Обработка изображений (JPG, PNG, TIFF)</td><td class="partial">Только очистка</td><td class="yes">✓ Полная</td></tr>
-              <tr><td>Макс. размер файла</td><td class="partial">Бесплатно: 25 МБ, Basic/Pro: 100 МБ</td><td class="yes">Без лимита (на размер файла)</td></tr>
-              <tr><td>Макс. файлов за сессию (upload run)</td><td class="partial">Бесплатно: Ограничено дневным лимитом (100) · Basic: Ограничено дневным лимитом (1000) · Pro: до 1300 / run</td><td class="yes">Без лимита (для Trial, Basic и Pro)</td></tr>
-              <tr><td>Дневной лимит обработки</td><td class="partial">Бесплатно: 100/день, Basic: 1000/день, Pro: Безлимитные запуски</td><td class="yes">Без лимита (нет дневного лимита для Trial, Basic и Pro)</td></tr>
+              <tr><td>Обработка PDF</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Обработка DOCX / Word</td><td class="partial">Free, Basic, Pro: Только очистка метаданных</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетно)</td></tr>
+              <tr><td>Обработка XLSX / Excel</td><td class="partial">Free, Basic, Pro: Только очистка метаданных</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетно)</td></tr>
+              <tr><td>Обработка изображений (JPG, PNG, TIFF)</td><td class="partial">Free, Basic, Pro: Только очистка метаданных</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетно)</td></tr>
+              <tr><td>Макс. размер файла</td><td class="partial">Free: 25 МБ · Basic/Pro: 100 МБ на файл</td><td class="yes">Без ограничений (нет лимита на размер)</td></tr>
+              <tr><td>Макс. файлов за сессию (upload run)</td><td class="partial">Free: Ограничено дневным лимитом (100) · Basic: Ограничено дневным лимитом (1000) · Pro: до 1300 / run</td><td class="yes">Без ограничений (нет лимита за запуск)</td></tr>
+              <tr><td>Дневной лимит обработки</td><td class="partial">Free: 100/день · Basic: 1000/день · Pro: Безлимитные запуски</td><td class="yes">Без ограничений (нет дневного лимита для Trial, Basic и Pro)</td></tr>
+              <tr><td>Конвейер мульти-действий (batch)</td><td class="no">Free и Basic: одно действие · Pro: мульти-действие</td><td class="yes">Trial и Basic: одно действие · Pro: конвейер мульти-действий</td></tr>
 
-              <!-- Core Tools -->
-              <tr class="cat-row"><td colspan="3">Основные инструменты</td></tr>
-              <tr><td>Очистить метаданные</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Водяной знак (Watermark)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Шифрование (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Редактирование текста</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Сглаживание в изображение</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Восстановление и пересборка</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-
-              <!-- Conversions -->
-              <tr class="cat-row"><td colspan="3">Конвертация</td></tr>
-              <tr><td>Конвертация Word → PDF</td><td class="no">Вскоре</td><td class="yes">✓</td></tr>
-              <tr><td>Конвертация Excel → PDF</td><td class="no">Вскоре</td><td class="yes">✓</td></tr>
-              <tr><td>Конвертация изображений → PDF</td><td class="no">Вскоре</td><td class="yes">✓</td></tr>
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Основные инструменты PDF</td></tr>
+              <tr><td>Удалить цифровые подписи</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Очистить метаданные</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Восстановление PDF (+ встроенный OCR)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Водяной знак (Watermark)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Шифрование PDF (AES-256)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Редактирование текста (скрытие)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Сведение PDF (Flatten to Image)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
 
               <!-- Reporting -->
               <tr class="cat-row"><td colspan="3">Отчетность &amp; Доказательства</td></tr>
-              <tr><td>Сводный отчет о пакете</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Расширенное Бордеро</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Отчет Folder Evidence</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Сводный отчет о пакете (Бордеро)</td><td class="yes">Только Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Расширенное Бордеро (PDF/Word/Excel)</td><td class="yes">Только Basic и Pro</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Отчет Folder Evidence (структура папок)</td><td class="no">— Недоступно онлайн</td><td class="yes">✓ Только Pro</td></tr>
 
-              <!-- Advanced -->
-              <tr class="cat-row"><td colspan="3">Дополнительные функции</td></tr>
-              <tr><td>OCR (Распознавание текста)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Рекурсивное сканирование</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Аудит системы (Диски &amp; Разделы)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Безопасное удаление (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Конвертация форматов</td></tr>
+              <tr><td>Конвертация Word → PDF</td><td class="no">Вскоре</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Конвертация Excel → PDF</td><td class="no">Вскоре</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Конвертация изображений → PDF</td><td class="no">Вскоре</td><td class="yes">✓ Basic и Pro</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Дополнительные функции — Только Desktop</td></tr>
+              <tr><td>OCR Standalone (распознавание папок)</td><td class="no">— (OCR онлайн встроен в инструмент Восстановления)</td><td class="yes">✓ Basic и Pro (рекурсивный OCR)</td></tr>
+              <tr><td>Рекурсивное сканирование папок</td><td class="no">—</td><td class="yes">✓ Basic и Pro</td></tr>
+              <tr><td>Аудит системы (Диски &amp; Разделы)</td><td class="no">—</td><td class="yes">✓ Только Pro</td></tr>
+              <tr><td>Поиск и удаление контента (bulk)</td><td class="no">—</td><td class="yes">✓ Только Pro</td></tr>
+              <tr><td>Безопасное удаление (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Только Pro</td></tr>
             </tbody>
           </table>
         </div>

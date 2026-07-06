@@ -845,46 +845,58 @@
             <thead>
               <tr>
                 <th>Caracteristică</th>
-                <th>🌐 Unelte în Browser (Gratuit)</th>
+                <th>🌐 Unelte în Browser / Web</th>
                 <th>🖥️ Aplicație Desktop</th>
               </tr>
             </thead>
             <tbody>
               <!-- General -->
               <tr class="cat-row"><td colspan="3">General</td></tr>
-              <tr><td>Preț</td><td class="yes">Gratuit</td><td class="partial">Licențiat</td></tr>
-              <tr><td>Necesită Instalare</td><td class="yes">Nu</td><td class="partial">Kit Windows</td></tr>
-              <tr><td>Fișiere maxime pe sesiune (upload run)</td><td class="partial">Gratuit: Limitat de cota zilnică (100) · Basic: Limitat de cota zilnică (1.000) · Pro: max. 1.300 / run</td><td class="yes">Nelimitat (fără limită per sesiune pentru Trial, Basic sau Pro)</td></tr>
-              <tr><td>Dimensiune maximă fișier</td><td class="partial">Gratuit: 25 MB, Basic/Pro: 100 MB</td><td class="yes">Nelimitat (fără limită de dimensiune)</td></tr>
-              <tr><td>Limită zilnică procesare</td><td class="partial">Gratuit: 100/zi, Basic: 1.000/zi, Pro: Rulări Nelimitate</td><td class="yes">Nelimitat (fără limită zilnică pentru Trial, Basic sau Pro)</td></tr>
+              <tr><td>Preț</td><td class="yes">Free Tier: €0 · Basic: €9.99/lună · Pro: €15/lună</td><td class="partial">Trial 3 zile: €0 · Basic: €9.99/lună · Pro: €15/lună</td></tr>
+              <tr><td>Necesită Instalare</td><td class="yes">Nu — funcționează direct în browser</td><td class="partial">Kit instalare Windows (.exe)</td></tr>
+              <tr><td>Funcționează Offline</td><td class="no">Nu — necesită conexiune internet</td><td class="yes">Da ✓ — funcționează complet offline</td></tr>
+              <tr><td>Necesită Autentificare / Cont</td><td class="yes">Nu pentru Free Tier · Da pentru Basic &amp; Pro</td><td class="partial">Da (necesită Cheie de Licență)</td></tr>
 
-              <!-- Core Tools -->
-              <tr class="cat-row"><td colspan="3">Unelte Principale</td></tr>
-              <tr><td>Sanitizare Metadate</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Filigranare (Watermark)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Criptare (AES-256)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Redactare Text Sensibil</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Aplatizare în Imagine</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Reparare &amp; Reconstrucție</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <!-- Processing -->
+              <tr class="cat-row"><td colspan="3">Procesare Fișiere</td></tr>
+              <tr><td>Procesare PDF</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Procesare DOCX / Word</td><td class="partial">Free, Basic, Pro: Doar curățare metadate</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Procesare XLSX / Excel</td><td class="partial">Free, Basic, Pro: Doar curățare metadate</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Procesare Imagine (JPG, PNG, TIFF)</td><td class="partial">Free, Basic, Pro: Doar curățare metadate</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Dimensiune maximă fișier</td><td class="partial">Free: 25 MB · Basic/Pro: 100 MB per fișier</td><td class="yes">Nelimitat (fără limită de dimensiune)</td></tr>
+              <tr><td>Fișiere maxime pe sesiune (upload run)</td><td class="partial">Free: Limitat de cota zilnică (100) · Basic: Limitat de cota zilnică (1.000) · Pro: max. 1.300 / run</td><td class="yes">Nelimitat (fără limită per sesiune)</td></tr>
+              <tr><td>Limită zilnică procesare</td><td class="partial">Free: 100/zi · Basic: 1.000/zi · Pro: Rulări Nelimitate</td><td class="yes">Nelimitat (fără limită zilnică pentru Trial, Basic sau Pro)</td></tr>
+              <tr><td>Pipeline Multi-Acțiune (batch)</td><td class="no">Free &amp; Basic: o singură acțiune · Pro: multi-acțiune</td><td class="yes">Trial &amp; Basic: o singură acțiune · Pro: pipeline multi-acțiune</td></tr>
 
-              <!-- Conversions -->
-              <tr class="cat-row"><td colspan="3">Conversii</td></tr>
-              <tr><td>Conversie Word → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
-              <tr><td>Conversie Excel → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
-              <tr><td>Conversie Imagine → PDF</td><td class="no">În curând</td><td class="yes">✓</td></tr>
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Unelte Principale PDF</td></tr>
+              <tr><td>Eliminare semnături digitale</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Sanitizare metadate</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Reparare &amp; Reconstrucție PDF (+ OCR integrat)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Adăugare filigran (Watermark)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Criptare PDF (AES-256)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Redactare text sensibil (permanentă)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Aplatizare PDF (Flatten to Image)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
 
               <!-- Reporting -->
               <tr class="cat-row"><td colspan="3">Raportare &amp; Evidență</td></tr>
-              <tr><td>Rezumat Pachet</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Borderou Avansat</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-              <tr><td>Raport Folder Evidence</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              <tr><td>Rezumat Pachet PDF (Borderou simplu)</td><td class="yes">Doar Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Borderou Avansat (PDF/Word/Excel)</td><td class="yes">Doar Basic &amp; Pro</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Raport Folder Evidence (structură directoare)</td><td class="no">— Indisponibil online</td><td class="yes">✓ Doar Pro</td></tr>
 
-              <!-- Advanced -->
-              <tr class="cat-row"><td colspan="3">Funcții Avansate</td></tr>
-              <tr><td>OCR (Recunoaștere text)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Audit sistem (Unități &amp; Partiții)</td><td class="no">—</td><td class="yes">✓</td></tr>
-              <tr><td>Ștergere securizată (Shredder)</td><td class="no">—</td><td class="yes">✓</td></tr>
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Conversii Formate</td></tr>
+              <tr><td>Conversie Word → PDF</td><td class="no">În curând</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Conversie Excel → PDF</td><td class="no">În curând</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Conversie Imagine → PDF</td><td class="no">În curând</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Avansat — Doar pe Desktop</td></tr>
+              <tr><td>OCR Standalone (scanare foldere întregi)</td><td class="no">— (OCR online este integrat în Reparare)</td><td class="yes">✓ Basic &amp; Pro (OCR recursiv)</td></tr>
+              <tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓ Basic &amp; Pro</td></tr>
+              <tr><td>Audit sistem (Unități &amp; Partiții)</td><td class="no">—</td><td class="yes">✓ Doar Pro</td></tr>
+              <tr><td>Găsire &amp; Eliminare conținut sensibil (bulk)</td><td class="no">—</td><td class="yes">✓ Doar Pro</td></tr>
+              <tr><td>Ștergere securizată fișiere (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Doar Pro</td></tr>
             </tbody>
           </table>
         </div>
