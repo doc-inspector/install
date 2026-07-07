@@ -476,7 +476,111 @@
       height: 1px;
       background: var(--border);
     }
-  </style>
+  
+    /* ── UNIFIED MODULE STYLES ───────────────────────────────── */
+    .kb-module {
+      margin-bottom: 4rem;
+    }
+    .kb-module-header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .kb-module-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 0.5rem;
+    }
+    .kb-module-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .kb-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .kb-tool-item {
+      background: rgba(6,182,212,0.02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .kb-tool-item:hover {
+      border-color: rgba(6,182,212,0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 24px rgba(6,182,212,0.08);
+      transform: translateY(-2px);
+    }
+    .kb-tool-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .kb-tool-icon {
+      font-size: 1.5rem;
+      background: rgba(6,182,212,0.1);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: var(--cyan);
+    }
+    .kb-tool-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin: 0;
+    }
+    .kb-tool-section {
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .kb-tool-section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .kb-tool-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .kb-tool-text strong {
+      color: #e2e8f0;
+    }
+    .kb-tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 1rem;
+      transition: gap 0.3s;
+    }
+    .kb-tool-link:hover {
+      gap: 0.7rem;
+    }
+\n  </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -575,263 +679,256 @@
       </header>
 
       <!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT -->
-      <div class="kb-dashboard">
-
-        <!-- LEFT COLUMN: Desktop Application -->
-        <div class="kb-column kb-left">
-          <div class="kb-col-label purple">🖥️ Локальная рабочая станция</div>
-          <h2 class="kb-col-title purple-accent">Настольное приложение</h2>
-          <p class="kb-col-subtitle">Мощный пакет для пакетной обработки, установленный прямо на вашем компьютере Windows. OCR, рекурсивное сканирование, безопасное удаление файлов и многое другое.</p>
-
-          <div class="kb-cards">
-            <!-- Card 1: PDF Repair -->
-            <article class="kb-card reveal">
-              <div class="kb-card-header">
-                <div class="kb-card-icon">🔧</div>
-                <h3>Восстановление &amp; Защита PDF</h3>
-              </div>
-              <p>Освойте пакетный рабочий процесс восстановления поврежденных или рискованных пакетов PDF с автоматической пересборкой и OCR.</p>
-              <ul>
-                <li>Пересборка поврежденных PDF + встроенный OCR</li>
-                <li>Пакетное сглаживание в формат только-изображение</li>
-                <li>Конвейер преобразования Office в PDF</li>
-              </ul>
-              <a href="rukovodstvo-remont-pdf" class="btn-purple">Исследовать руководство по PDF →</a>
-            </article>
-
-            <!-- Card 2: Reporting -->
-            <article class="kb-card reveal">
-              <div class="kb-card-header">
-                <div class="kb-card-icon">📊</div>
-                <h3>Отчёты &amp; Доказательства</h3>
-              </div>
-              <p>Создавайте готовые для суда/аудита отчёты Excel для многофайловых каталогов с полным аудитом метаданных.</p>
-              <ul>
-                <li>Сводные отчеты по пакетам с верификацией хэшей</li>
-                <li>Расширенные отчеты инвентаризации (Бордеро)</li>
-                <li>Отчет Folder Evidence с картой папок</li>
-              </ul>
-              <a href="rukovodstvo-otchety" class="btn-purple">Исследовать руководство по отчётам →</a>
-            </article>
-
-            <!-- Card 3: Audit -->
-            <article class="kb-card reveal">
-              <div class="kb-card-header">
-                <div class="kb-card-icon">🛡️</div>
-                <h3>Аудит &amp; Безопасность</h3>
-              </div>
-              <p>Инструменты обнаружения на рабочих станциях и безопасного управления данными для юридических отделов и комплаенс-контроля.</p>
-              <ul>
-                <li>Полный аудит обнаружения дисков и разделов</li>
-                <li>Пакетная очистка метаданных</li>
-                <li>Безопасный уничтожитель файлов (стандарт DoD)</li>
-              </ul>
-              <a href="rukovodstvo-audit" class="btn-purple">Исследовать руководство по аудиту →</a>
-            </article>
+      
+      
+      <div class="kb-unified-container">
+        <!-- MODULE 1 -->
+        <section class="kb-module">
+          <div class="kb-module-header">
+            <h2 class="kb-module-title">1. Операции с PDF и документами</h2>
+            <p class="kb-module-desc">Основные утилиты для редактирования, защиты и преобразования документов.</p>
           </div>
-        </div>
-
-        <!-- RIGHT COLUMN: Browser Tools -->
-        <div class="kb-column kb-right">
-          <div class="kb-col-label cyan">🌐 Онлайн-движок без загрузки</div>
-          <h2 class="kb-col-title cyan-accent">Инструменты в браузере</h2>
-          <p class="kb-col-subtitle">Бесплатная мгновенная обработка документов прямо в браузере. Нулевая загрузка на сервер — всё выполняется локально через JavaScript и WebAssembly.</p>
-
-          <div class="kb-accordion">
-
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">✍️</span>
-                <span class="acc-title">Удалить цифровые подписи</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Удаление цифровых подписей, сертификационных блокировок и ограничений на редактирование из файлов PDF. Полезно, когда подписанный PDF нужно изменить или подписать заново.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+          <div class="kb-tools-grid">
+            <!-- Sanitize Metadata -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🧹</div>
+                <h3 class="kb-tool-name">Очистка Метаданных</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Скрытые метаданные могут раскрыть конфиденциальную информацию. Защищает вашу конфиденциальность, удаляя все криминалистические следы.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-sanitize-metadata" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/ochistka-metadannykh-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">📄</span>
-                <span class="acc-title">Конвертировать любой формат в PDF</span>
-                <span class="acc-formats">DOCX, XLSX, PPTX, JPG, PNG, TIFF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Легко конвертируйте документы Word, таблицы Excel, презентации PowerPoint и изображения в стандартизированный формат PDF прямо в браузере.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.DOCX</span>
-                  <span class="fmt-chip">.XLSX</span>
-                  <span class="fmt-chip">.PPTX</span>
-                  <span class="fmt-chip">.JPG</span>
-                  <span class="fmt-chip">.PNG</span>
-                  <span class="fmt-chip">.TIFF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Add Watermark -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">©️</div>
+                <h3 class="kb-tool-name">Добавить Водяной Знак</h3>
               </div>
-            </div>
-            <!-- 1. Sanitize -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">🧹</span>
-                <span class="acc-title">Очистить метаданные</span>
-                <span class="acc-formats">PDF, DOCX, XLSX, JPG, PNG, TIFF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Удалите скрытые метаданные из документов и изображений — имя автора, координаты GPS, историю изменений, сведения о ПО и многое другое. Защитите конфиденциальность перед отправкой.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                  <span class="fmt-chip">.DOCX</span>
-                  <span class="fmt-chip">.XLSX</span>
-                  <span class="fmt-chip">.JPG</span>
-                  <span class="fmt-chip">.PNG</span>
-                  <span class="fmt-chip">.TIFF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Защищает вашу интеллектуальную собственность, нанося постоянный текстовый водяной знак на все страницы.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-add-watermark" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/dobavit-vodyanoy-znak-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 2. Watermark -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">💧</span>
-                <span class="acc-title">Добавить водяной знак (Watermark)</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Добавляйте настраиваемые текстовые водяные знаки в PDF — выбирайте положение, угол, непрозрачность, размер и цвет шрифта. Идеально для маркировки черновиков или конфиденциальных копий.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Encrypt PDF -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔐</div>
+                <h3 class="kb-tool-name">Шифрование PDF</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Защищает строго конфиденциальные файлы с использованием шифрования военного уровня AES-256.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-encrypt-pdf" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/zashifrovat-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 3. Encrypt -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">🔐</span>
-                <span class="acc-title">Зашифровать PDF (256-bit AES)</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Защитите PDF-файлы шифрованием военного уровня AES-256. Установите пароли владельца и пользователя, ограничьте печать, копирование и права на редактирование.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Redact Text -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">⬛</div>
+                <h3 class="kb-tool-name">Скрытие Текста</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Навсегда удаляет определенные слова, имена или финансовые цифры из документа, разрушая базовые данные текста.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-redact-pdf" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/redaktirovanie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 4. Redact -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">⬛</span>
-                <span class="acc-title">Редактирование текста</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Навсегда удалите конфиденциальную информацию в PDF. Отредактированное содержимое безвозвратно уничтожается из структуры файла, а не просто скрывается визуально.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Flatten PDF -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🖼️</div>
+                <h3 class="kb-tool-name">Сглаживание (Flatten) PDF</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Преобразует интерактивные PDF-файлы в статический формат. Предотвращает изменение данных формы после ее заполнения.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-flatten-pdf" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/sglazhivanie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 5. Flatten -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">🖼️</span>
-                <span class="acc-title">Сглаживание в изображение</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Преобразуйте страницы PDF в формат только-изображение — исключая выделяемый текст, поля форм, скрипты и скрытые слои. Идеально для безопасного архивирования.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Repair PDF -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔧</div>
+                <h3 class="kb-tool-name">Восстановление и Ремонт</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Исправляет поврежденные или сломанные PDF-файлы. Применяет OCR к отсканированным документам.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-repair-pdf" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/vosstanovlenie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 6. Repair -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">🛠️</span>
-                <span class="acc-title">Восстановление &amp; Пересборка</span>
-                <span class="acc-formats">PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Автоматически исправляйте поврежденные, сломанные или некорректно сформированные PDF. Восстанавливает внутреннюю таблицу перекрестных ссылок и содержимое страниц.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.PDF</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Remove Signatures -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">✍️</div>
+                <h3 class="kb-tool-name">Удаление Подписей</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Удаляет криптографические цифровые подписи из PDF для возможности редактирования.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-remove-signatures" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/udalit-podpisi-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 7. Сводный отчёт PDF / Бордеро -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">📋</span>
-                <span class="acc-title">Сводный отчёт PDF / Бордеро / Карта папок</span>
-                <span class="acc-formats">Любой тип файла</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Создавайте подробные отчеты Excel: Сводный отчет о пакете, Расширенное Бордеро с полной инвентаризацией метаданных и отчет Folder Evidence с рекурсивным картированием и хэш-аудитом.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">ЛЮБОЙ</span>
-                  <span class="fmt-chip">.XLSX</span>
-                  <span class="fmt-chip">вывод</span>
-                </div>
-                <a href="onlayn-instrumenty" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- Convert to PDF -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔄</div>
+                <h3 class="kb-tool-name">Конвертер в PDF</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Автоматически преобразует документы Word, таблицы Excel и изображения в стандартные PDF-файлы.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-convert-to-pdf" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/konvertirovat-v-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
               </div>
             </div>
 
-            <!-- 8. Конвертация: Word→PDF, Excel→PDF, Изображение→PDF -->
-            <div class="kb-acc-item">
-              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
-                <span class="acc-icon">🔄</span>
-                <span class="acc-title">Конвертация: Word→PDF, Excel→PDF, Изображение→PDF</span>
-                <span class="acc-chevron">▼</span>
-              </button>
-              <div class="kb-acc-body">
-                <p>Инструменты конвертации форматов теперь доступны онлайн! Преобразуйте документы Word, таблицы Excel и изображения прямо в PDF — быстро и безопасно.</p>
-                <div class="fmt-chips">
-                  <span class="fmt-chip">.DOCX</span>
-                  <span class="fmt-chip">.XLSX</span>
-                  <span class="fmt-chip">.JPG</span>
-                  <span class="fmt-chip">.PNG</span>
-                  <span class="fmt-chip">→ .PDF</span>
-                </div>
-                <a href="instrumenty/konvertirovat-v-pdf-onlayn" class="acc-cta">Открыть бесплатный инструмент →</a>
+            <!-- OCR Standalone -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">👁️</div>
+                <h3 class="kb-tool-name">Автономный OCR</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Извлекает необработанный текст из изображений или отсканированных документов.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-standalone-ocr" class="kb-tool-link">📖 Подробнее</a>
               </div>
             </div>
-        </div>
+
+            <!-- File Shredder -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔥</div>
+                <h3 class="kb-tool-name">Безопасное Уничтожение</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Навсегда удаляет файлы с вашего жесткого диска, чтобы их не смогли восстановить криминалистические программы.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-file-shredder" class="kb-tool-link">📖 Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 2 -->
+        <section class="kb-module">
+          <div class="kb-module-header">
+            <h2 class="kb-module-title">2. Отчеты и Сводки</h2>
+            <p class="kb-module-desc">Создавайте готовые для суда отчеты об инвентаризации.</p>
+          </div>
+          <div class="kb-tools-grid">
+            <!-- Bundle Summary -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">📄</div>
+                <h3 class="kb-tool-name">Сводка по Папке</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Быстрая титульная страница для печати, в которой перечислены все PDF-файлы в папке.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-bundle-summary" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/svodka-po-papke-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
+              </div>
+            </div>
+
+            <!-- Advanced Borderou -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">📊</div>
+                <h3 class="kb-tool-name">Расширенная Опись</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Очень подробная электронная таблица инвентаризации с криминалистическими метаданными.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-advanced-borderou" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/rasshirenniy-otchet-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
+              </div>
+            </div>
+
+            <!-- Folder Evidence -->
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🗂️</div>
+                <h3 class="kb-tool-name">Отчет о Доказательствах</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Рекурсивно сканирует сложные структуры папок для отображения каждого присутствующего файла.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-folder-evidence" class="kb-tool-link">📖 Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 3 -->
+        <section class="kb-module">
+          <div class="kb-module-header">
+            <h2 class="kb-module-title">3. Долгосрочное Архивирование</h2>
+          </div>
+          <div class="kb-tools-grid">
+            <div class="kb-tool-item reveal" style="grid-column: 1 / -1; max-width: 800px;">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🏛️</div>
+                <h3 class="kb-tool-name">Конвертер PDF/A (ISO 19005)</h3>
+              </div>
+              <div class="kb-tool-section">
+                <div class="kb-tool-section-title">Что это и зачем нужно</div>
+                <p class="kb-tool-text">Многие порталы автоматически отклоняют стандартные PDF. Стандарт PDF/A навсегда встраивает все шрифты, гарантируя совместимость через 50 лет.</p>
+              </div>
+              <div class="kb-tool-actions">
+                <a href="user-guide-pdfa-archival" class="kb-tool-link">📖 Подробнее</a>
+                <a href="instrumenty/konvertirovat-v-pdfa-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <div style="font-size:2.5rem;line-height:1;flex-shrink:0">&#x1F510;</div>
-        <div style="flex:1;min-width:220px">
-          <div style="color:#c4b5fd;font-weight:700;font-size:1.05rem;margin-bottom:.35rem">Как DocInspector защищает ваши данные</div>
-          <div style="color:#94a3b8;font-size:.88rem;line-height:1.5">Нулевое хранение в облаке &middot; Файлы удаляются автоматически &middot; Без обработки АИ &middot; Соответствие GDPR.</div>
-        </div>
-        <a href="bezopasnost" style="display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.4rem;border-radius:50px;background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(109,40,217,.3));border:1px solid rgba(139,92,246,.5);color:#c4b5fd;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .2s;flex-shrink:0" onmouseover="this.style.background='linear-gradient(135deg,rgba(139,92,246,.45),rgba(109,40,217,.5))';this.style.borderColor='rgba(167,139,250,.8)';this.style.color='#ede9fe'" onmouseout="this.style.background='linear-gradient(135deg,rgba(139,92,246,.25),rgba(109,40,217,.3))';this.style.borderColor='rgba(139,92,246,.5)';this.style.color='#c4b5fd'">Читать политику безопасности &#8594;</a>
-      </div>
-
-      <!-- FEATURE COMPARISON TABLE -->
+\n\n      <!-- FEATURE COMPARISON TABLE -->
       <div class="compare-section" id="compare">
         <header class="section-header">
           <div class="section-eyebrow">Сравнение</div>

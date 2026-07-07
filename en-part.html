@@ -1,0 +1,320 @@
+<div class="container">
+    <nav class="navbar">
+            <a href="./" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
+        </span>
+      </a>
+
+            <div class="nav-links">
+        <a href="./" data-i18n="nav.home">Home</a>
+        <a href="tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+        <a href="price" data-i18n="nav.price">Price</a>
+        <a href="user-guide" class="active" data-i18n="nav.guide">User Guide</a>
+        <a href="reports-and-feedback" data-i18n="nav.reports">Reports &amp; Feedback</a>
+        <a href="blog" data-i18n="nav.blog">Blog</a>
+        <a href="contact" data-i18n="nav.contact">Contact</a>
+        <a href="download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="user-guide" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/ghid-utilizare" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/rukovodstvo" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+  <!-- CONTENT -->
+  <section class="section" style="position:relative;overflow:hidden;">
+    <div class="cyber-grid"></div>
+    <div class="hex-particles"></div>
+    <div class="container" style="position:relative;z-index:1;">
+
+      <!-- Page Header -->
+      <header class="section-header reveal-flip">
+        <div class="section-eyebrow">Documentation</div>
+        <h1 class="section-title text-gradient" data-i18n="guide.title">Knowledge Hub</h1>
+        <p class="section-subtitle" data-i18n="guide.subtitle">Maximize your efficiency with DocInspector — powerful desktop batch processing and free browser-based document tools.</p>
+      </header>
+
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT                      -->
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <div class="kb-dashboard">
+
+        <!-- ─── LEFT COLUMN: Desktop Application ─────────────── -->
+        <div class="kb-column kb-left">
+          <div class="kb-col-label purple">🖥️ Local Workstation</div>
+          <h2 class="kb-col-title purple-accent">Desktop Application</h2>
+          <p class="kb-col-subtitle">Full-power batch processing suite installed on your Windows workstation. OCR, recursive scanning, secure deletion, and more.</p>
+
+          <div class="kb-cards">
+            <!-- Card 1: PDF Repair -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">🔧</div>
+                <h3>PDF Repair &amp; Hardening</h3>
+              </div>
+              <p>Master the batch workflow for fixing corrupt or risky PDF evidence bundles with automatic rebuild and OCR.</p>
+              <ul>
+                <li>Rebuild corrupted PDFs + embedded OCR</li>
+                <li>Batch flatten to image-only format</li>
+                <li>Office-to-PDF conversion pipeline</li>
+              </ul>
+              <a href="user-guide-pdf-repair" class="btn-purple">Explore PDF Guide →</a>
+            </article>
+
+            <!-- Card 2: Reporting -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">📊</div>
+                <h3>Reporting &amp; Evidence</h3>
+              </div>
+              <p>Generate court-ready Excel reports for multi-file folder trees with full metadata auditing.</p>
+              <ul>
+                <li>Bundle Summaries with hash verification</li>
+                <li>Advanced Borderou inventory reports</li>
+                <li>Folder Evidence with directory mapping</li>
+              </ul>
+              <a href="user-guide-reporting" class="btn-purple">Explore Reporting Guide →</a>
+            </article>
+
+            <!-- Card 3: Audit -->
+            <article class="kb-card reveal">
+              <div class="kb-card-header">
+                <div class="kb-card-icon">🛡️</div>
+                <h3>Audit &amp; Security</h3>
+              </div>
+              <p>Workstation discovery and secure data management tools for legal teams and compliance officers.</p>
+              <ul>
+                <li>Full drive &amp; partition discovery audit</li>
+                <li>Batch metadata sanitization</li>
+                <li>DoD-grade secure file shredder</li>
+              </ul>
+              <a href="user-guide-audit" class="btn-purple">Explore Audit Guide →</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- ─── RIGHT COLUMN: Browser Tools ──────────────────── -->
+        <div class="kb-column kb-right">
+          <div class="kb-col-label cyan">🌐 Zero-Upload Web Engine</div>
+          <h2 class="kb-col-title cyan-accent">Browser Tools</h2>
+          <p class="kb-col-subtitle">Free, instant document processing in your browser. Zero server uploads — everything runs locally via JavaScript &amp; WebAssembly.</p>
+
+          <div class="kb-accordion">
+
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">📄</span>
+                <span class="acc-title">Convert Any Format to PDF</span>
+                <span class="acc-formats">DOCX, XLSX, PPTX, JPG, PNG, TIFF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Easily convert Word documents, Excel spreadsheets, PowerPoint presentations, and image files into standardized PDF format securely in your browser.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.DOCX</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">.PPTX</span>
+                  <span class="fmt-chip">.JPG</span>
+                  <span class="fmt-chip">.PNG</span>
+                  <span class="fmt-chip">.TIFF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+            <!-- 0. Remove Signatures -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">✍️</span>
+                <span class="acc-title">Remove Digital Signatures</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Strip digital signatures, certified locks, form fields, and editing restrictions from PDF files. Useful when a signed PDF needs to be modified, re-signed, or submitted without prior certification locks.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 1. Sanitize -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🧹</span>
+                <span class="acc-title">Sanitize Metadata</span>
+                <span class="acc-formats">PDF, DOCX, XLSX, JPG, PNG, TIFF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Strip hidden metadata from documents and images — author names, GPS coordinates, revision history, software details, and more. Protect your privacy before sharing files.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                  <span class="fmt-chip">.DOCX</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">.JPG</span>
+                  <span class="fmt-chip">.PNG</span>
+                  <span class="fmt-chip">.TIFF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 2. Watermark -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">💧</span>
+                <span class="acc-title">Watermark Documents</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Add customizable text watermarks to PDFs — choose position, rotation, opacity, font size, and color. Perfect for marking drafts, confidential copies, or internal-only documents.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 3. Encrypt -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🔐</span>
+                <span class="acc-title">Encrypt (256-bit AES)</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Protect PDF files with military-grade AES-256 encryption. Set owner and user passwords, restrict printing, copying, and editing permissions.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 4. Redact -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">⬛</span>
+                <span class="acc-title">Redact Sensitive Text</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Permanently black out sensitive information in PDF documents. Redacted content is irrecoverably removed — not just visually hidden but permanently destroyed from the file structure.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 5. Flatten -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🖼️</span>
+                <span class="acc-title">Flatten to Image</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Convert PDF pages to image-only format — eliminating selectable text, form fields, scripts, and hidden layers. Ideal for evidence submission and tamper-proof archiving.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 6. Repair -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🛠️</span>
+                <span class="acc-title">Repair &amp; Rebuild</span>
+                <span class="acc-formats">PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Automatically fix corrupted, damaged, or malformed PDFs. Rebuilds the internal cross-reference table, repairs broken object streams, and recovers page content. Also applies built-in OCR to scanned PDFs — making image-based text selectable and copiable in one step.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.PDF</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 7. Bundle Summary & Advanced Borderou -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">📋</span>
+                <span class="acc-title">Bundle Summary &amp; Advanced Borderou</span>
+                <span class="acc-formats">Any file type</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Generate court-ready Excel reports directly in the browser: Bundle Summary with file counts, hashes, and totals; Advanced Borderou with full metadata inventory per file. Available on Basic &amp; Pro plans.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">ANY</span>
+                  <span class="fmt-chip">.XLSX output</span>
+                </div>
+                <a href="tools-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+
+            <!-- 8. Conversions -->
+            <div class="kb-acc-item">
+              <button class="kb-acc-trigger" onclick="toggleAcc(this)">
+                <span class="acc-icon">🔄</span>
+                <span class="acc-title">Convert: Word→PDF, Excel→PDF, Image→PDF</span>
+                <span class="acc-chevron">▼</span>
+              </button>
+              <div class="kb-acc-body">
+                <p>Format conversion tools are now live online! Convert Word documents, Excel spreadsheets, and images directly to PDF — processed securely and quickly.</p>
+                <div class="fmt-chips">
+                  <span class="fmt-chip">.DOCX</span>
+                  <span class="fmt-chip">.XLSX</span>
+                  <span class="fmt-chip">.JPG</span>
+                  <span class="fmt-chip">.PNG</span>
+                  <span class="fmt-chip">→ .PDF</span>
+                </div>
+                <a href="tools/convert-to-pdf-online" class="acc-cta">Open Free Tool →</a>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════ -->
+
+      <div style="font-size:2.5rem;line-height:1;flex-shrink:0">🔐</div>
+        <div style="flex:1;min-width:220px">
+          <div style="color:#c4b5fd;font-weight:700;font-size:1.05rem;margin-bottom:.35rem">How DocInspector Protects Your Data</div>
+          <div style="color:#94a3b8;font-size:.88rem;line-height:1.5">Zero cloud storage · Files auto-deleted · No AI processing · GDPR compliant. See the exact technical algorithm behind our privacy-first architecture.</div>
+        </div>
+        <a href="security" style="display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.4rem;border-radius:50px;background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(109,40,217,.3));border:1px solid rgba(139,92,246,.5);color:#c4b5fd;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .2s;flex-shrink:0" onmouseover="this.style.background='linear-gradient(135deg,rgba(139,92,246,.45),rgba(109,40,217,.5))';this.style.borderColor='rgba(167,139,250,.8)';this.style.color='#ede9fe'" onmouseout="this.style.background='linear-gradient(135deg,rgba(139,92,246,.25),rgba(109,40,217,.3))';this.style.borderColor='rgba(139,92,246,.5)';this.style.color='#c4b5fd'">Read Security Policy →</a>
+      </div>
+
+      <!-- FEATURE COMPARISON TABLE                                -->
+      <!-- ═══════════════════════════════════════════════════════ -->
+      
