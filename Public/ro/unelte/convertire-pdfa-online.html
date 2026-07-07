@@ -574,10 +574,8 @@
       <span class="live-dot"></span>
       UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
     </div>
-    <h1 class="hero-h1 gsap-fade">Convertește orice document sau format în PDF online gratuit</h1>
-    <p class="hero-lead gsap-fade">
-      Convertește în format PDF fișiere Word (DOCX), Excel (XLSX), PowerPoint (PPTX), Text (TXT) și Imagini (JPG/PNG/WEBP) în loturi (batch). Trage un folder întreg — structura folderelor păstrată în ZIP-ul de ieșire. Combină cu curățarea metadatelor, filigranul, redactarea sau criptarea într-un singur pipeline. Sandbox online gratuit pentru conversii rapide, sau complet offline cu aplicația DocInspector.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Convertor Arhivare PDF/A — Standardul ISO 19005</h1>
+    <p class="hero-lead gsap-fade">Standardizează documente Word, foi de calcul Excel, imagini și PDF-uri standard în formatul strict PDF/A-2b, acceptat în instanțe (e-Dosar) și de notari. Încorporează automat toate fonturile, elimină scripturile active (JavaScript, linkuri, criptare) și aplică OCR Inteligent pe documente scanate. Păstrează ierarhia originală a directoarelor, izolând fișierele eșuate în folderul 'error'.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero stocare în cloud</span>
         <span class="sec-badge">⚡ Șters după descărcare</span>
@@ -1221,6 +1219,62 @@
       </div>
 
     </div><!-- /tools-layout -->
+  </div>
+</section>
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Arhitectură Tehnică</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Cum Funcționează Motorul PDF/A ISO 19005</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector folosește un pipeline de validare și reconstrucție multi-etapă pentru a converti fișierele în documente de arhivă conforme.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          De Ce Este PDF/A Critic pentru Arhivarea Legală și Instituțională?
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Fișierele PDF standard nu sunt sigure pentru conservarea pe termen lung. Un PDF standard se poate deschide corect astăzi, dar dacă computerul care îl va deschide peste 20 de ani nu are instalate fonturile originale, aspectul și textul documentului vor fi compromise. Mai mult, PDF-urile standard pot conține scripturi active JavaScript, fișiere audio ascunse sau criptare care împiedică accesul viitor.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          Standardul <strong>PDF/A (ISO 19005)</strong> rezolvă acest lucru blocând documentul la un stadiu complet fix. Acesta încorporează forțat toate fonturile, elimină elementele interzise (JavaScript, criptări, linkuri externe) și standardizează spațiile de culoare. Multe portaluri guvernamentale și instanțe electronice (cum ar fi e-Dosar în România) resping fișierele non-PDF/A. Convertorul nostru îți garantează acceptarea documentelor.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Păstrarea Structurii Complexă de Foldere & Pre-Conversie Inteligentă
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Profesioniștii din domeniul juridic lucrează adesea cu structuri ierarhice complexe (ex: Anexa 1, Probe, Finanțe). Când tragi un folder întreg în convertorul DocInspector PDF/A, acesta replică perfect structura originală în ZIP-ul final generat.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          De asemenea, dacă folderul conține formate mixte — cum ar fi fișiere Word, Excel sau imagini scanate JPG — sistemul realizează o <strong>Pre-Conversie Inteligentă</strong>. Se aplică automat logica „Fit-to-Page” pentru Excel pentru a preveni decuparea coloanelor înainte de stocarea în formatul PDF/A.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Reconstrucție cu Ghostscript & Validare Conform Standardelor Europene
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          La nivel intern, DocInspector utilizează un motor robust Ghostscript. Acesta elimină elementele incompatibile, mapează toate culorile în spațiul sRGB și injectează metadatele XML regulamentare (XMP). După reconstrucție, documentul este scanat împotriva conformității europene.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          Rezultatul final este o arhivă ZIP segregată inteligent. Fișierele convertite cu succes sunt păstrate la locul lor original în arborele de foldere. Orice fișiere care au fost prea corupte sau protejate cu parolă pentru a fi procesate sunt izolate în folderul dedicat <strong>„error”</strong>, însoțite de un raport detaliat de audit.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -558,10 +558,8 @@
       <span class="live-dot"></span>
       БЕСПЛАТНЫЕ ОНЛАЙН ИНСТРУМЕНТЫ &#x2014; БЕЗ УСТАНОВКИ
     </div>
-    <h1 class="hero-h1 gsap-fade">Конвертировать любой документ или формат в PDF бесплатно онлайн</h1>
-    <p class="hero-lead gsap-fade">
-      Конвертируйте файлы Word (DOCX), Excel (XLSX), PowerPoint (PPTX), текстовые файлы (TXT) и изображения (JPG/PNG/WEBP) в PDF в пакетном режиме. Перетащите целую папку — структура папок сохраняется в ZIP-архиве. Объедините с очисткой метаданных, водяными знаками, скрытием данных или шифрованием в один проход. Бесплатная онлайн-песочница или полностью оффлайн с приложением DocInspector.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Конвертер PDF/A для архивирования — Стандарт ISO 19005</h1>
+    <p class="hero-lead gsap-fade">Стандартизирует документы Word, таблицы Excel, изображения и обычные PDF в строгий, допустимый в суде формат PDF/A-2b. Автоматически встраивает шрифты, удаляет активный контент (JavaScript, ссылки, шифрование) и запускает Умный OCR на отсканированных страницах. Полностью сохраняет исходную структуру каталогов, изолируя файлы с ошибками в папку 'error'.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Без облачного хранилища</span>
         <span class="sec-badge">⚡ Удаляется после скачивания</span>
@@ -1200,6 +1198,62 @@
       </div>
 
     </div><!-- /tools-layout -->
+  </div>
+</section>
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Техническая Практика</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Как работает движок PDF/A ISO 19005</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector использует многоэтапный конвейер валидации и пересборки для преобразования ваших файлов в архивные документы.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          Почему PDF/A критически важен для юридических и архивных задач?
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Обычные файлы PDF не гарантируют сохранность данных на десятилетия. Стандартный PDF может выглядеть правильно сегодня, но если на компьютере через 20 лет не окажется нужных шрифтов, макет «поплывёт». Более того, обычные PDF могут содержать опасные скрипты JavaScript, скрытые аудиозаписи или шифрование, блокирующее доступ в будущем.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          Стандарт <strong>PDF/A (ISO 19005)</strong> решает эту проблему, жестко фиксируя структуру документа. Он принудительно встраивает шрифты, удаляет запрещенное активное содержимое (скрипты, пароли, внешние ссылки) и стандартизирует цвета. Государственные порталы и электронные суды (такие как e-Dosar) отклоняют не-PDF/A файлы. Наш конвертер гарантирует совместимость на 50+ лет.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Сохранение сложной структуры папок и умная предконвертация
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Юристы и аудиторы часто работают с разветвленными папками (например, Приложение 1, Доказательства, Финансы). При загрузке всей папки в конвертер DocInspector PDF/A, в выходном ZIP-файле будет полностью воссоздана исходная структура каталогов.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          Если папка содержит файлы смешанных форматов — такие как Word, Excel или изображения — система выполняет <strong>Умную Предконвертацию</strong>. Она автоматически подгоняет листы Excel по ширине («Fit-to-Page»), исключая обрезку таблиц.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Пересборка с помощью Ghostscript и валидация
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Внутри DocInspector использует промышленный движок Ghostscript. Он очищает PDF от несовместимых элементов, сопоставляет цвета с безопасным профилем sRGB и внедряет метаданные XML (XMP). После пересборки файл проходит строгую валидацию.
+        </p>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-top:0.8rem;">
+          Результат упаковывается в ZIP-архив. Успешно конвертированные файлы сохраняют свое местоположение в дереве папок. Любые поврежденные или защищенные паролем файлы изолируются в специальную папку <strong>«error»</strong> с детальным журналом ошибок.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
