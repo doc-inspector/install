@@ -681,169 +681,185 @@
       <!-- SPLIT DASHBOARD — 2 COLUMN LAYOUT -->
       
       
+      
       <div class="kb-unified-container">
+        
         <!-- MODULE 1 -->
         <section class="kb-module">
           <div class="kb-module-header">
             <h2 class="kb-module-title">1. Операции с PDF и документами</h2>
-            <p class="kb-module-desc">Основные утилиты для редактирования, защиты и преобразования документов.</p>
+            <p class="kb-module-desc">Основные утилиты для редактирования и защиты документов.</p>
           </div>
           <div class="kb-tools-grid">
-            <!-- Sanitize Metadata -->
+            
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🧹</div>
-                <h3 class="kb-tool-name">Очистка Метаданных</h3>
+                <h3 class="kb-tool-name">Очистка метаданных</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Скрытые метаданные могут раскрыть конфиденциальную информацию. Защищает вашу конфиденциальность, удаляя все криминалистические следы.</p>
+              <p class="kb-tool-text">Скрытые метаданные могут привести к утечке. Этот инструмент глубоко очищает структуру, удаляя все метаданные.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-sanitize-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/sanitize-pdf-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-sanitize-metadata" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/ochistka-metadannykh-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Add Watermark -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
-                <div class="kb-tool-icon">©️</div>
-                <h3 class="kb-tool-name">Добавить Водяной Знак</h3>
+                <div class="kb-tool-icon">🛡️</div>
+                <h3 class="kb-tool-name">Добавить водяной знак</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Защищает вашу интеллектуальную собственность, нанося постоянный текстовый водяной знак на все страницы.</p>
+              <p class="kb-tool-text">Защищает интеллектуальную собственность, добавляя постоянный водяной знак.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-add-watermark" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/add-watermark-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-add-watermark" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/dobavit-vodyanoy-znak-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Encrypt PDF -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
-                <div class="kb-tool-icon">🔐</div>
+                <div class="kb-tool-icon">🔒</div>
                 <h3 class="kb-tool-name">Шифрование PDF</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Защищает строго конфиденциальные файлы с использованием шифрования военного уровня AES-256.</p>
+              <p class="kb-tool-text">Защищает файлы с помощью шифрования AES-256 военного уровня.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-encrypt-pdf" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/zashifrovat-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Redact Text -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">⬛</div>
-                <h3 class="kb-tool-name">Скрытие Текста</h3>
+                <h3 class="kb-tool-name">Скрытие текста</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Навсегда удаляет определенные слова, имена или финансовые цифры из документа, разрушая базовые данные текста.</p>
+              <p class="kb-tool-text">Безвозвратно удаляет определенные слова или имена из документа.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-redact-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/redact-pdf-text" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-redact-pdf" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/redaktirovanie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Flatten PDF -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
-                <div class="kb-tool-icon">🖼️</div>
-                <h3 class="kb-tool-name">Сглаживание (Flatten) PDF</h3>
+                <div class="kb-tool-icon">🔨</div>
+                <h3 class="kb-tool-name">Сведение PDF</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Преобразует интерактивные PDF-файлы в статический формат. Предотвращает изменение данных формы после ее заполнения.</p>
+              <p class="kb-tool-text">Преобразует интерактивные PDF в статический формат.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-flatten-pdf" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/sglazhivanie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Repair PDF -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
-                <div class="kb-tool-icon">🔧</div>
-                <h3 class="kb-tool-name">Восстановление и Ремонт</h3>
+                <div class="kb-tool-icon">🩺</div>
+                <h3 class="kb-tool-name">Восстановление PDF</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Исправляет поврежденные или сломанные PDF-файлы. Применяет OCR к отсканированным документам.</p>
+              <p class="kb-tool-text">Восстанавливает поврежденные или не открывающиеся PDF.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-repair-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/repair-corrupt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-repair-pdf" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/vosstanovlenie-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Remove Signatures -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">✍️</div>
-                <h3 class="kb-tool-name">Удаление Подписей</h3>
+                <h3 class="kb-tool-name">Удаление подписей</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Удаляет криптографические цифровые подписи из PDF для возможности редактирования.</p>
+              <p class="kb-tool-text">Удаляет цифровые подписи из PDF.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-remove-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/remove-digital-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-remove-signatures" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/udalit-podpisi-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Convert to PDF -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🔄</div>
-                <h3 class="kb-tool-name">Конвертер в PDF</h3>
+                <h3 class="kb-tool-name">Конвертация в PDF</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Автоматически преобразует документы Word, таблицы Excel и изображения в стандартные PDF-файлы.</p>
+              <p class="kb-tool-text">Автоматически преобразует документы Office и изображения в PDF.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-convert-to-pdf" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/konvertirovat-v-pdf-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- OCR Standalone -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">👁️</div>
                 <h3 class="kb-tool-name">Автономный OCR</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Извлекает необработанный текст из изображений или отсканированных документов.</p>
+              <p class="kb-tool-text">Извлекает необработанный текст из изображений или отсканированных документов.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-standalone-ocr" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/ocr-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-standalone-ocr" class="kb-tool-link">📖 Подробнее</a>
-              </div>
-            </div>
-
-            <!-- File Shredder -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
-                <div class="kb-tool-icon">🔥</div>
-                <h3 class="kb-tool-name">Безопасное Уничтожение</h3>
+                <div class="kb-tool-icon">🗑️</div>
+                <h3 class="kb-tool-name">Шредер файлов</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Навсегда удаляет файлы с вашего жесткого диска, чтобы их не смогли восстановить криминалистические программы.</p>
-              </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-file-shredder" class="kb-tool-link">📖 Подробнее</a>
+              <p class="kb-tool-text">Безвозвратно удаляет файлы с жесткого диска.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-file-shredder" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Скачать
+                </a>
               </div>
             </div>
           </div>
@@ -852,54 +868,60 @@
         <!-- MODULE 2 -->
         <section class="kb-module">
           <div class="kb-module-header">
-            <h2 class="kb-module-title">2. Отчеты и Сводки</h2>
-            <p class="kb-module-desc">Создавайте готовые для суда отчеты об инвентаризации.</p>
+            <h2 class="kb-module-title">2. Отчеты и сводки</h2>
+            <p class="kb-module-desc">Создание инвентаризационных отчетов и аудитов.</p>
           </div>
           <div class="kb-tools-grid">
-            <!-- Bundle Summary -->
+            
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">📄</div>
-                <h3 class="kb-tool-name">Сводка по Папке</h3>
+                <h3 class="kb-tool-name">Сводка пакета PDF</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Быстрая титульная страница для печати, в которой перечислены все PDF-файлы в папке.</p>
+              <p class="kb-tool-text">Отчет, перечисляющий все PDF-файлы в папке.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-bundle-summary" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Скачать
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-bundle-summary" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/svodka-po-papke-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Advanced Borderou -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">📊</div>
-                <h3 class="kb-tool-name">Расширенная Опись</h3>
+                <h3 class="kb-tool-name">Расширенная опись</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Очень подробная электронная таблица инвентаризации с криминалистическими метаданными.</p>
+              <p class="kb-tool-text">Детализированная таблица инвентаризации, содержащая криминалистические метаданные.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-advanced-borderou" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Скачать
+                </a>
               </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-advanced-borderou" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/rasshirenniy-otchet-pdf" class="kb-tool-link primary">Открыть инструмент 🚀</a>
-              </div>
-            </div>
-
-            <!-- Folder Evidence -->
+            </div>\n
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🗂️</div>
-                <h3 class="kb-tool-name">Отчет о Доказательствах</h3>
+                <h3 class="kb-tool-name">Отчет о доказательствах папки</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Рекурсивно сканирует сложные структуры папок для отображения каждого присутствующего файла.</p>
-              </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-folder-evidence" class="kb-tool-link">📖 Подробнее</a>
+              <p class="kb-tool-text">Рекурсивно сканирует сложные структуры папок.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-folder-evidence" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Скачать
+                </a>
               </div>
             </div>
           </div>
@@ -908,27 +930,33 @@
         <!-- MODULE 3 -->
         <section class="kb-module">
           <div class="kb-module-header">
-            <h2 class="kb-module-title">3. Долгосрочное Архивирование</h2>
+            <h2 class="kb-module-title">3. Долгосрочное архивирование</h2>
+            <p class="kb-module-desc">Стандартизация корпоративного уровня.</p>
           </div>
           <div class="kb-tools-grid">
-            <div class="kb-tool-item reveal" style="grid-column: 1 / -1; max-width: 800px;">
+            
+            <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🏛️</div>
                 <h3 class="kb-tool-name">Конвертер PDF/A (ISO 19005)</h3>
               </div>
-              <div class="kb-tool-section">
-                <div class="kb-tool-section-title">Что это и зачем нужно</div>
-                <p class="kb-tool-text">Многие порталы автоматически отклоняют стандартные PDF. Стандарт PDF/A навсегда встраивает все шрифты, гарантируя совместимость через 50 лет.</p>
-              </div>
-              <div class="kb-tool-actions">
-                <a href="user-guide-pdfa-archival" class="kb-tool-link">📖 Подробнее</a>
-                <a href="instrumenty/konvertirovat-v-pdfa-onlayn" class="kb-tool-link primary">Открыть инструмент 🚀</a>
+              <p class="kb-tool-text">Стандартизирует любой документ в строгий формат PDF/A.</p>
+              
+              <!-- The two buttons requested by user -->
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="/ru/user-guide-iso-19005-pdfa-archiving" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Подробнее
+                </a>
+                <a href="/ru/tools/iso-19005-pdfa-archiver" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Открыть
+                </a>
               </div>
             </div>
           </div>
         </section>
+
       </div>
-\n\n      <!-- FEATURE COMPARISON TABLE -->
+  \n\n      <!-- FEATURE COMPARISON TABLE -->
       <div class="compare-section" id="compare">
         <header class="section-header">
           <div class="section-eyebrow">Сравнение</div>

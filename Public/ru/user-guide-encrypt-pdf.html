@@ -1,1 +1,2122 @@
-<!DOCTYPE html>\n<html lang="ru">\n<head>\n  <title>Руководство: Как зашифровать PDF с помощью AES-256 | DocInspector</title>\n  <meta name="description" content="Узнайте, как защитить конфиденциальные файлы с помощью шифрования военного уровня AES-256.">\n  <link rel="canonical" href="https://doc-inspector.com/ru/user-guide-encrypt-pdf">\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <link rel="icon" href="../assets/logo.png">\n  <link rel="stylesheet" href="../style.css?v=13">\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "HowTo",\n    "name": "Руководство по Шифрованию PDF",\n    "description": "Узнайте, как защитить конфиденциальные файлы с помощью шифрования военного уровня AES-256.",\n    "step": [{"@type": "HowToStep", "text": "Загрузите конфиденциальные PDF-файлы."},{"@type": "HowToStep", "text": "Установите надежный, сложный пароль."},{"@type": "HowToStep", "text": "Инструмент шифрует всю структуру PDF."},{"@type": "HowToStep", "text": "Новый защищенный PDF готов к безопасной передаче."}]\n  }\n  </script>\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "Article",\n    "headline": "Руководство по Шифрованию PDF",\n    "description": "Узнайте, как защитить конфиденциальные файлы с помощью шифрования военного уровня AES-256.",\n    "author": {"@type": "Organization", "name": "DocInspector"}\n  }\n  </script>\n  <style>\n    .guide-page-container {\n      max-width: 800px;\n      margin: 100px auto 50px auto;\n      padding: 0 20px;\n      font-family: "Inter", sans-serif;\n    }\n    .guide-h1 {\n      font-family: "Outfit", sans-serif;\n      font-size: 2.5rem;\n      font-weight: 800;\n      background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);\n      -webkit-background-clip: text;\n      -webkit-text-fill-color: transparent;\n      margin-bottom: 10px;\n    }\n    .guide-subtitle {\n      font-size: 1.2rem;\n      color: var(--text-muted);\n      margin-bottom: 40px;\n    }\n    .guide-box {\n      background: rgba(6,182,212,0.03);\n      border: 1px solid rgba(6,182,212,0.2);\n      border-radius: 16px;\n      padding: 30px;\n      margin-bottom: 30px;\n    }\n    .guide-box-title {\n      font-family: "Outfit", sans-serif;\n      font-size: 1.3rem;\n      color: #fff;\n      margin-bottom: 15px;\n      display: flex;\n      align-items: center;\n      gap: 10px;\n    }\n    .guide-p {\n      color: #cbd5e1;\n      line-height: 1.7;\n      font-size: 1.05rem;\n      margin-bottom: 0;\n    }\n    .guide-steps {\n      list-style: none;\n      padding: 0;\n      margin: 0;\n    }\n    .guide-steps li {\n      position: relative;\n      padding-left: 40px;\n      margin-bottom: 20px;\n      color: #cbd5e1;\n      line-height: 1.6;\n      font-size: 1.05rem;\n    }\n    .guide-steps li::before {\n      content: "✓";\n      position: absolute;\n      left: 0;\n      top: 2px;\n      background: rgba(6,182,212,0.15);\n      color: var(--cyan);\n      width: 25px;\n      height: 25px;\n      border-radius: 50%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 0.8rem;\n      font-weight: bold;\n    }\n    .guide-cta-container {\n      text-align: center;\n      margin-top: 50px;\n    }\n    .guide-cta {\n      display: inline-block;\n      background: linear-gradient(135deg, #06b6d4, #0284c7);\n      color: #fff;\n      text-decoration: none;\n      padding: 15px 40px;\n      border-radius: 50px;\n      font-size: 1.1rem;\n      font-weight: bold;\n      transition: all 0.3s ease;\n      box-shadow: 0 4px 15px rgba(6,182,212,0.3);\n    }\n    .guide-cta:hover {\n      transform: translateY(-3px);\n      box-shadow: 0 8px 25px rgba(6,182,212,0.5);\n    }\n  </style>\n</head>\n<body>\n  <!-- Minimal Nav -->\n  <nav class="navbar" style="border-bottom: 1px solid var(--border);">\n    <div class="nav-container">\n      <a href="../index" class="logo-link">\n        <img src="../assets/logo.png" alt="DocInspector Logo" class="nav-logo-img">\n        <span class="nav-logo-text">DocInspector</span>\n      </a>\n      <div class="nav-links">\n         <a href="../index">Главная</a>\n         <a href="../index#tools">Онлайн Инструменты</a>\n      </div>\n    </div>\n  </nav>\n  <main class="guide-page-container">\n    <h1 class="guide-h1">Руководство по Шифрованию PDF</h1>\n    <p class="guide-subtitle">Заблокируйте свои файлы с помощью шифрования AES-256.</p>\n    <div class="guide-box">\n      <div class="guide-box-title">❌ Проблема</div>\n      <p class="guide-p">Отправка по электронной почте незашифрованных финансовых записей или конфиденциальных контрактов делает их очень уязвимыми для перехвата.</p>\n    </div>\n    <div class="guide-box" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.03);">\n      <div class="guide-box-title">✅ Решение</div>\n      <p class="guide-p">Применяя шифрование AES-256, фактические двоичные данные PDF математически скремблируются. Без правильного пароля открыть его статистически невозможно.</p>\n    </div>\n    <div class="guide-box">\n      <div class="guide-box-title">⚙️ Как это работает</div>\n      <ul class="guide-steps">\n        <li>Загрузите конфиденциальные PDF-файлы.</li>\n        <li>Установите надежный, сложный пароль.</li>\n        <li>Инструмент шифрует всю структуру PDF.</li>\n        <li>Новый защищенный PDF готов к безопасной передаче.</li>\n      </ul>\n    </div>\n    <div class="guide-cta-container">\n      <a href="../ru/tools/encrypt-pdf-online" class="guide-cta">Запустить Шифровальщик 🚀</a>\n    </div>\n  </main>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шифрование PDF Guide | DocInspector</title>
+  <meta name="description" content="Free online PDF tools with batch processing — handle up to 100 files at once and chain multiple operations in a single pipeline: sanitize metadata, watermark, encrypt, redact, repair, split, merge and more. Zero cloud storage — files processed in an isolated sandbox and deleted immediately after download.">
+  <meta name="keywords" content="free PDF tools online, sanitize PDF metadata, PDF watermark, encrypt PDF, redact PDF, repair PDF, no cloud, GDPR PDF">
+  <meta property="og:title" content="Free Online Document Tools &#x2014; DocInspector">
+  <meta property="og:description" content="Process documents directly in your browser. Sanitize, watermark, encrypt, redact, repair &#x2014; completely free. Files deleted immediately after download.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/white-theme-GUI.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://doc-inspector.com/assets/logo.png">
+  <link rel="canonical" href="https://doc-inspector.com/en/tools-online" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/en/tools-online" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/unelte-online" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/onlayn-instrumenty" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/tools-online" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://doc-inspector.com/style.css?v=13">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-80038W7D1J');
+  </script>
+  <style>
+    /* â•â• CSS Variables (defined here so they work even without style.css) â•â• */
+    :root {
+      --cyan:       #06b6d4;
+      --text-muted: #94a3b8;
+      --green:      #10b981;
+      --purple:     #8b5cf6;
+      --bg:         #0a1628;
+    }
+
+    /* â•â• Animated mesh background â•â• */
+    .mesh-bg {
+      position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+    }
+    .mesh-bg::before {
+      content:''; position:absolute; width:900px; height:900px;
+      background:radial-gradient(circle, rgba(6,182,212,.07) 0%, transparent 65%);
+      top:-200px; left:-200px;
+      animation:meshMove1 18s ease-in-out infinite alternate;
+    }
+    .mesh-bg::after {
+      content:''; position:absolute; width:700px; height:700px;
+      background:radial-gradient(circle, rgba(99,102,241,.06) 0%, transparent 65%);
+      bottom:-100px; right:-100px;
+      animation:meshMove2 22s ease-in-out infinite alternate;
+    }
+    @keyframes meshMove1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(200px,150px) scale(1.3)} }
+    @keyframes meshMove2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-180px,-120px) scale(1.2)} }
+
+    /* Floating orbs */
+    .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter:blur(80px); opacity:0.4; }
+    .orb-1 { width:400px; height:400px; background:rgba(6,182,212,.08); top:10%; left:5%; animation:orbFloat 12s ease-in-out infinite; }
+    .orb-2 { width:300px; height:300px; background:rgba(139,92,246,.07); top:50%; right:8%; animation:orbFloat 16s ease-in-out infinite reverse; }
+    .orb-3 { width:250px; height:250px; background:rgba(16,185,129,.06); bottom:20%; left:25%; animation:orbFloat 14s ease-in-out infinite 2s; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+
+    /* Animated grid lines */
+    .grid-lines {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(6,182,212,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6,182,212,.025) 1px, transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    /* â•â• Hero â•â• */
+    .tools-hero {
+      padding:6.5rem 0 2rem;
+      position:relative; z-index:1; text-align:center; overflow:hidden;
+    }
+    .tools-hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,.13) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-eyebrow-pill {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.3);
+      border-radius:50px; padding:.45rem 1.2rem; margin-bottom:1.8rem;
+      font-size:.82rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--brand, var(--cyan));
+    }
+    .live-dot {
+      width:8px; height:8px; border-radius:50%; background:var(--cyan);
+      animation:pulseDot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+    .hero-h1 {
+      font-family:'Outfit',sans-serif;
+      font-size:clamp(2.2rem,4.5vw,3.6rem);
+      font-weight:900; line-height:1.08;
+      margin:0 auto 1.2rem; max-width:960px;
+      background:linear-gradient(135deg,#fff 0%,var(--cyan) 50%,#818cf8 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      letter-spacing:-.03em;
+    }
+    .hero-lead {
+      color:var(--text-muted); font-size:1.1rem; line-height:1.7;
+      max-width:660px; margin:0 auto 1.5rem;
+    }
+
+    /* Badges */
+    .badges-row {
+      display:flex; flex-wrap:wrap; justify-content:center;
+      gap:.7rem; margin-bottom:1.5rem;
+    }
+    .sec-badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+      border-radius:50px; padding:.4rem 1rem;
+      font-size:.82rem; color:var(--text-muted); font-weight:500;
+      transition:all .25s;
+    }
+    .sec-badge:hover {
+      border-color:rgba(6,182,212,.3); color:#fff;
+      background:rgba(6,182,212,.06);
+    }
+
+    /* â•â• 2-col layout â•â• */
+    .tools-layout {
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:2.5rem; align-items:start;
+      position:relative; z-index:1;
+    }
+    @media(max-width:980px){ .tools-layout{grid-template-columns:1fr;} }
+
+    /* â•â• Step labels â•â• */
+    .step-label {
+      display:inline-block;
+      background:rgba(6,182,212,.12); border:1px solid rgba(6,182,212,.2);
+      border-radius:50px; padding:.3rem .9rem;
+      font-size:.72rem; font-weight:800; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--brand, var(--cyan)); margin-bottom:.6rem;
+    }
+    .tool-step-title {
+      font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800;
+      color: #ffffff !important;
+      margin-bottom:.4rem;
+    }
+    .tool-step-desc { font-size:.9rem; color:#94a3b8 !important; margin-bottom:1.5rem; }
+
+    /* â•â• Tool cards â•â• */
+    .tools-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+      gap:1.2rem; margin-bottom:2rem;
+    }
+    .tool-card {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 5%, transparent), rgba(15, 32, 66, 0.8)) !important;
+      border: 1px solid color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent) !important;
+      border-radius:20px; padding:1.5rem;
+      cursor:pointer; position:relative;
+      transition:all .35s cubic-bezier(.4,0,.2,1);
+      overflow:hidden;
+      color: #e2e8f0 !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    .tool-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent),transparent);
+      opacity:0; transition:opacity .35s;
+    }
+    .tool-card:hover {
+      border-color: color-mix(in srgb, var(--brand, #06b6d4) 65%, transparent) !important;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 12%, transparent), rgba(20, 50, 95, 0.85)) !important;
+      box-shadow: 0 12px 36px color-mix(in srgb, var(--brand, #06b6d4) 18%, transparent), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform:translateY(-3px);
+    }
+    .tool-card:hover::before { opacity:1; }
+    .tool-card.selected {
+      border-color: var(--brand, #06b6d4) !important;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent), rgba(10, 30, 60, 0.9)) !important;
+      box-shadow: 0 0 25px color-mix(in srgb, var(--brand, #06b6d4) 25%, transparent), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .tool-card .ripple {
+      position:absolute; border-radius:50%;
+      background:color-mix(in srgb, var(--brand, #06b6d4) 20%, transparent); transform:scale(0);
+      animation:rippleAnim .6s linear; pointer-events:none;
+    }
+    @keyframes rippleAnim { to{transform:scale(4); opacity:0;} }
+
+    .check-ring {
+      position:absolute; top:12px; right:12px;
+      width:22px; height:22px; border-radius:50%;
+      background:var(--brand, var(--cyan)); display:flex; align-items:center;
+      justify-content:center; font-size:.7rem; color:#0a1628; font-weight:900;
+      opacity:0; transform:scale(.4) rotate(-90deg);
+      transition:all .3s cubic-bezier(.34,1.56,.64,1);
+    }
+    .tool-card.selected .check-ring { opacity:1; transform:scale(1) rotate(0deg); }
+
+    .tool-header { display:flex; align-items:center; gap:.9rem; margin-bottom:.8rem; }
+    .tool-icon-wrap {
+      width:48px; height:48px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; flex-shrink:0; transition:all .3s cubic-bezier(.4,0,.2,1);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .tool-card:hover .tool-icon-wrap { transform:scale(1.15) rotate(-5deg); box-shadow: 0 0 15px currentColor; }
+    .icon-blue   { background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(6, 182, 212, 0.3) !important; color: #22d3ee; }
+    .icon-green  { background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3) !important; color: #34d399; }
+    .icon-purple { background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(139, 92, 246, 0.3) !important; color: #a78bfa; }
+    .icon-red    { background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.05)); border: 1px solid rgba(239, 68, 68, 0.3) !important; color: #f87171; }
+    .icon-orange { background: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(249, 115, 22, 0.05)); border: 1px solid rgba(249, 115, 22, 0.3) !important; color: #fb923c; }
+    .icon-indigo { background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(99, 102, 241, 0.3) !important; color: #818cf8; }
+    .tool-name { font-size:1.1rem; font-weight:700; color:#ffffff !important; line-height:1.2; font-family:'Outfit',sans-serif; }
+    .tool-desc { font-size:.86rem; color:#cbd5e1 !important; line-height:1.55; font-weight:400; }
+
+    /* Options accordion */
+    .tool-opts {
+        display: none;
+      }
+      .tool-opts.open { display: block; }
+    .tool-opts-inner {
+        border-top:1px solid rgba(255,255,255,.07);
+        padding:1rem; display:grid; gap:.8rem;
+        background: linear-gradient(to bottom, color-mix(in srgb, var(--brand, #06b6d4) 6%, transparent), rgba(0,0,0,0.3)) !important;
+        border: 1px solid color-mix(in srgb, var(--brand, #06b6d4) 15%, rgba(255,255,255,0.05)) !important;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+    .opt-row { display:flex; flex-direction:column; gap:.35rem; }
+    .opt-label {
+      font-size:.72rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.08em; color:var(--text-muted);
+    }
+    .opt-input {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:10px; padding:.55rem .9rem; color:#fff;
+      font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box;
+      transition:border-color .2s;
+    }
+    .opt-input:focus { outline:none; border-color:var(--brand, var(--cyan)); }
+    .range-row { display:flex; align-items:center; gap:.8rem; }
+    .opt-range { flex:1; accent-color:var(--brand, var(--cyan)); cursor:pointer; height:4px; }
+    .range-val { min-width:40px; text-align:right; font-size:.85rem; font-weight:700; color:var(--brand, var(--cyan)); }
+
+    /* â•â• Drop zone â•â• */
+    .dropzone {
+      border:2px dashed rgba(6,182,212,.2);
+      border-radius:18px; padding:3.2rem 2rem; text-align:center;
+      cursor:pointer; background:rgba(6,182,212,.015);
+      transition:all .3s; position:relative; overflow:hidden;
+    }
+    .dropzone::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(56,189,248,.04));
+      opacity:0; transition:opacity .3s;
+    }
+    .dropzone:hover, .dropzone.over {
+      border-color:var(--brand, var(--cyan));
+      box-shadow:0 0 40px rgba(6,182,212,.12);
+    }
+    .dropzone:hover::after, .dropzone.over::after { opacity:1; }
+    .dz-icon {
+      font-size:2.8rem; margin-bottom:.8rem; display:block;
+      transition:transform .3s; position:relative; z-index:1;
+    }
+    .dropzone:hover .dz-icon { transform:scale(1.1) translateY(-4px); }
+    .dz-title { font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:.3rem; position:relative; z-index:1; }
+    .dz-sub   { font-size:.85rem; color:var(--text-muted); position:relative; z-index:1; }
+
+    /* File list */
+    .file-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; max-height: 250px; overflow-y: auto; padding-right: 5px; }
+    .file-item {
+      display:flex; align-items:center; gap:.7rem;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:12px; padding:.65rem 1rem; font-size:.88rem;
+      animation:slideInUp .25s ease; min-width: 0;
+    }
+    @keyframes slideInUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    .fi-name { flex:1; color:#fff; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width: 0; }
+    .fi-size { color:var(--text-muted); font-size:.78rem; white-space:nowrap; }
+    .fi-remove {
+      width:20px; height:20px; border-radius:50%; border:none;
+      background:rgba(239,68,68,.15); color:#f87171; cursor:pointer;
+      font-size:.8rem; display:flex; align-items:center; justify-content:center;
+      transition:background .2s; flex-shrink:0; line-height:1;
+    }
+    .fi-remove:hover { background:rgba(239,68,68,.3); }
+
+    /* Process button */
+    .process-btn {
+      width:100%; padding:1.1rem; margin-top:1.4rem;
+      background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border:none; border-radius:14px; color:#0a1628;
+      font-family:inherit; font-size:1.05rem; font-weight:800;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.7rem;
+      transition:all .3s;
+      box-shadow:0 4px 20px rgba(6,182,212,.3);
+      position:relative; overflow:hidden;
+    }
+    .process-btn::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+      opacity:0; transition:opacity .3s;
+    }
+    .process-btn:hover:not(:disabled)::before { opacity:1; }
+    .process-btn:hover:not(:disabled) {
+      transform:translateY(-2px);
+      box-shadow:0 8px 30px rgba(6,182,212,.5), 0 0 40px rgba(6,182,212,.2);
+    }
+    .process-btn:disabled { opacity:.4; cursor:not-allowed; }
+
+    /* Result area */
+    .result-area {
+      display:none; margin-top:1.4rem;
+      background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.2);
+      border-radius:16px; padding:2rem; text-align:center;
+    }
+    .result-area.show { display:block; animation:fadeIn .4s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .spin {
+      width:42px; height:42px; border-radius:50%;
+      border:3px solid rgba(6,182,212,.2); border-top-color:var(--brand, var(--cyan));
+      animation:spin .7s linear infinite; margin:0 auto 1rem;
+    }
+    @keyframes spin { to{transform:rotate(360deg)} }
+    .r-icon { font-size:2.5rem; margin-bottom:.8rem; }
+    .r-title { font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:.3rem; }
+    .r-sub   { font-size:.88rem; color:var(--text-muted); margin-bottom:1rem; }
+    .dl-btn {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.75rem 2rem; background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border:none; border-radius:50px; color:#0a1628; font-weight:700;
+      font-size:.92rem; cursor:pointer; text-decoration:none;
+      transition:all .25s; margin-bottom:.8rem;
+    }
+    .dl-btn:hover { transform:translateY(-2px); box-shadow:0 0 25px rgba(6,182,212,.4); }
+    .reset-btn {
+      display:block; margin:.5rem auto 0;
+      background:none; border:1px solid rgba(255,255,255,.1);
+      border-radius:50px; padding:.45rem 1.2rem;
+      color:var(--text-muted); cursor:pointer;
+      font-family:inherit; font-size:.82rem; transition:all .2s;
+    }
+    .reset-btn:hover { border-color:rgba(255,255,255,.2); color:#fff; }
+
+    /* â•â• Sidebar â•â• */
+    .sidebar-sticky { position:sticky; top:100px; }
+    .sidebar-card {
+      background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07);
+      border-radius:20px; padding:1.6rem;
+    }
+    .sb-title {
+      font-size:1rem; font-weight:700; color:#fff;
+      display:flex; align-items:center; gap:.6rem; margin-bottom:1.2rem;
+    }
+    .daily-bar {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:10px; padding:.9rem 1rem; margin-bottom:1.2rem;
+    }
+    .daily-top {
+      display:flex; justify-content:space-between; font-size:.78rem; margin-bottom:.5rem;
+    }
+    .daily-lbl { color:var(--text-muted); }
+    .daily-cnt { color:var(--brand, var(--cyan)); font-weight:700; }
+    .bar-track { height:5px; border-radius:3px; background:rgba(255,255,255,.07); overflow:hidden; }
+    .bar-fill {
+      height:100%; background:linear-gradient(90deg,var(--cyan),#38bdf8);
+      border-radius:3px; transition:width .5s ease;
+    }
+
+    .ops-list { display:flex; flex-direction:column; gap:.5rem; min-height:60px; }
+    .ops-empty { text-align:center; color:var(--text-muted); font-size:.85rem; padding:1.2rem 0; }
+    .op-chip {
+      display:flex; align-items:center; gap:.6rem;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:10px; padding:.55rem .85rem;
+      animation:slideInUp .2s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
+    }
+    .op-chip:hover {
+      background: rgba(6, 182, 212, 0.1) !important;
+      border-color: rgba(6, 182, 212, 0.4) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transform: translateX(3px);
+    }
+    .op-chip-name { flex:1; font-size:.85rem; font-weight:600; color:#fff; }
+    .op-chip-remove {
+      background:none; border:none; color:var(--text-muted);
+      cursor:pointer; font-size:.9rem; transition:color .2s; line-height:1;
+    }
+    .op-chip-remove:hover { color:#f87171; }
+
+    /* Pipeline */
+    .pipeline-section {
+      margin-top:1.2rem; padding-top:1.2rem;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+    .pipeline-lbl {
+      font-size:.72rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.08em; color:var(--text-muted); margin-bottom:.8rem;
+    }
+    .pipeline-tree {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      position: relative;
+      padding: 0.2rem 0;
+    }
+    .pt-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      position: relative;
+      animation: ptFadeIn .3s ease;
+    }
+    @keyframes ptFadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .pt-icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .pt-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .pt-step.completed .pt-icon {
+      background: rgba(16, 185, 129, 0.12) !important;
+      border: 1.5px solid rgba(16, 185, 129, 0.35) !important;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+    }
+    .pt-step.active .pt-icon {
+      background: rgba(6, 182, 212, 0.15) !important;
+      border: 1.5px solid rgba(6, 182, 212, 0.5) !important;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+      animation: ptPulse 2s infinite alternate;
+    }
+    @keyframes ptPulse {
+      0% { box-shadow: 0 0 8px rgba(6, 182, 212, 0.15); }
+      100% { box-shadow: 0 0 16px rgba(6, 182, 212, 0.4); }
+    }
+    .pt-step.pending .pt-icon {
+      background: rgba(255, 255, 255, 0.02) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+      opacity: 0.55;
+    }
+    .pt-line {
+      position: absolute;
+      top: 32px;
+      bottom: -1.1rem;
+      width: 2px;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .pt-step.completed .pt-line, .pt-step.active .pt-line {
+      background: linear-gradient(to bottom, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.4));
+    }
+    .pt-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0.1rem;
+    }
+    .pt-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff !important;
+      transition: color 0.3s;
+    }
+    .pt-step.pending .pt-label {
+      color: var(--text-muted) !important;
+    }
+    .pt-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted) !important;
+      margin-top: 0.05rem;
+    }
+
+    /* Upsell */
+    .upsell-box {
+      margin-top:1.4rem; padding:1rem;
+      background:rgba(6,182,212,.06); border:1px solid rgba(6,182,212,.15);
+      border-radius:12px;
+    }
+    .upsell-title { font-size:.8rem; font-weight:700; color:var(--brand, var(--cyan)); margin-bottom:.3rem; }
+    .upsell-desc  { font-size:.78rem; color:var(--text-muted); margin-bottom:.8rem; line-height:1.5; }
+    .upsell-btn {
+      display:block; width:100%; text-align:center;
+      padding:.65rem 1rem; background:linear-gradient(135deg,var(--cyan),#38bdf8);
+      border-radius:10px; color:#0a1628; font-weight:700; font-size:.85rem;
+      text-decoration:none; transition:all .25s;
+    }
+    .upsell-btn:hover { opacity:.9; transform:translateY(-1px); }
+
+    /* â•â• Security section â•â• */
+    .sec-section { position:relative; z-index:1; }
+    .flow-visual {
+      display:flex; flex-wrap:wrap; align-items:center;
+      justify-content:center; gap:.6rem; margin:2.5rem 0;
+    }
+    .fv-node {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; padding:.65rem 1.1rem; font-size:.85rem;
+      font-weight:600; color:#fff; display:flex; align-items:center; gap:.5rem;
+    }
+    .fv-node.fv-hl { background:rgba(6,182,212,.15); border-color:rgba(6,182,212,.4); color:var(--cyan-light); box-shadow:0 0 15px rgba(6,182,212,0.15); }
+    .fv-arrow { color:var(--text-muted); font-size:1.1rem; }
+
+    .sec-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1.5rem;
+    }
+    .sec-item { text-align:center; }
+    .sec-icon {
+      width:52px; height:52px; border-radius:14px;
+      background:rgba(6,182,212,.1); border:1px solid rgba(6,182,212,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; margin:0 auto .9rem;
+      transition:all .3s;
+    }
+    .sec-item:hover .sec-icon {
+      background:rgba(6,182,212,.2);
+      box-shadow:0 0 20px rgba(6,182,212,.2);
+    }
+    .sec-item-title { font-size:.92rem; font-weight:700; color:#fff; margin-bottom:.35rem; }
+    .sec-item-desc  { font-size:.82rem; color:var(--text-muted); line-height:1.5; }
+
+    /* Sidebar info */
+    .sb-info { display:flex; flex-direction:column; gap:.6rem; margin:1rem 0; }
+    .sb-info-item { font-size:.78rem; color:var(--text-muted); line-height:1.5; }
+    .sb-info-item strong { color:#fff; }
+    /* Font select styling */
+    .opt-select {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:10px; padding:.55rem .9rem; color:#fff;
+      font-family:inherit; font-size:.9rem; width:100%; box-sizing:border-box;
+      transition:border-color .2s; appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right .9rem center;
+      cursor:pointer;
+    }
+    .opt-select:focus { outline:none; border-color:var(--brand, var(--cyan)); }
+    .opt-select option { background:#0f2040; color:#e2e8f0; }
+  
+    #constellation-canvas {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none; opacity: 1; width: 100%; height: 100%;
+    }
+
+  #processBtn:hover:not(:disabled) { box-shadow: 0 8px 30px rgba(16,185,129,.5), 0 0 40px rgba(16,185,129,.2) !important; transform: translateY(-2px); }
+  </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "name": "DocInspector — Free Online Document Tools",
+      "description": "10 free online PDF tools with batch processing — sanitize metadata, watermark, encrypt, redact, repair, flatten, remove signatures, audit reports, convert to PDF. Up to 100 files per batch. GDPR compliant. Zero cloud storage.",
+      "url": "https://doc-inspector.com/en/tools-online",
+      "numberOfItems": 10,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Sanitize PDF Metadata Online",
+          "url": "https://doc-inspector.com/en/tools/sanitize-pdf-metadata",
+          "description": "Strip author, software, GPS, hidden layers and all custom metadata from PDF files in batch."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Add Watermark to PDF Online",
+          "url": "https://doc-inspector.com/en/tools/add-watermark-pdf-online",
+          "description": "Add custom text or image watermarks to PDF pages in batch with full positioning control."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Encrypt PDF Online",
+          "url": "https://doc-inspector.com/en/tools/encrypt-pdf-online",
+          "description": "Password-protect and restrict permissions on PDF files with AES-256 encryption in batch."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Redact PDF Online",
+          "url": "https://doc-inspector.com/en/tools/redact-pdf-online",
+          "description": "Permanently black-out sensitive text and images from PDF files in batch."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Repair PDF Online",
+          "url": "https://doc-inspector.com/en/tools/repair-pdf-online",
+          "description": "Reconstruct and recover corrupted or broken PDF files in batch with optional OCR."
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Flatten PDF Online",
+          "url": "https://doc-inspector.com/en/tools/flatten-pdf-online",
+          "description": "Flatten form fields, annotations and interactive layers into static PDF content in batch."
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Remove PDF Signatures Online",
+          "url": "https://doc-inspector.com/en/tools/remove-pdf-signatures",
+          "description": "Strip digital signatures, certified locks and editing restrictions from PDF files in batch."
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "PDF Bundle Summary Online",
+          "url": "https://doc-inspector.com/en/tools/pdf-bundle-summary-online",
+          "description": "Generate a structured summary report of all PDFs in a folder with metadata and page counts."
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Advanced PDF Bundle Report Online",
+          "url": "https://doc-inspector.com/en/tools/advanced-pdf-bundle-report",
+          "description": "Deep audit report with signature status, encryption, compliance flags and risk scoring per PDF."
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Convert to PDF Online",
+          "url": "https://doc-inspector.com/en/tools/convert-to-pdf-online",
+          "description": "Convert DOCX, XLSX, PPTX, images and other formats to PDF in batch with folder structure preserved."
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://doc-inspector.com/en/tools-online#page",
+      "name": "DocInspector — Free Online Document Tools",
+      "description": "10 free online PDF tools with batch processing — sanitize metadata, watermark, encrypt, redact, repair, flatten, remove signatures, audit reports, convert to PDF. Up to 100 files per batch. GDPR compliant. Zero cloud storage.",
+      "url": "https://doc-inspector.com/en/tools-online",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://doc-inspector.com/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://doc-inspector.com/#organization",
+        "name": "DocInspector",
+        "url": "https://doc-inspector.com",
+        "logo": "https://doc-inspector.com/assets/logo.png",
+        "sameAs": [
+          "https://doc-inspector.com"
+        ]
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://doc-inspector.com/#suite",
+      "name": "DocInspector — Document Processing, Security & Audit Suite",
+      "url": "https://doc-inspector.com",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (Web Browser)",
+      "description": "10 free online PDF tools — sanitize metadata, watermark, encrypt, redact, repair, flatten, remove signatures, generate reports, convert to PDF. Batch process up to 100 files. GDPR compliant. Zero cloud storage.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://doc-inspector.com/#organization",
+        "name": "DocInspector",
+        "url": "https://doc-inspector.com",
+        "logo": "https://doc-inspector.com/assets/logo.png",
+        "sameAs": [
+          "https://doc-inspector.com"
+        ]
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden">
+<div class="mesh-bg"></div>
+<div class="grid-lines"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="page">
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â• -->
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+            <a href="https://doc-inspector.com/ru/" class="brand">
+        <span class="brand-logo"><img src="https://doc-inspector.com/assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
+        </span>
+      </a>
+
+            <div class="nav-links">
+        <a href="https://doc-inspector.com/ru/" data-i18n="nav.home">Home</a>
+        <a href="tools-online" class="active" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+        <a href="price" data-i18n="nav.price">Price</a>
+        <a href="user-guide" data-i18n="nav.guide">User Guide</a>
+        <a href="reports-and-feedback" data-i18n="nav.reports">Reports &amp; Feedback</a>
+        <a href="blog" data-i18n="nav.blog">Blog</a>
+        <a href="contact" data-i18n="nav.contact">Contact</a>
+        <a href="download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="tools-online" class="lang-item active" data-lang="ru">EN</a>
+            <a href="../ro/unelte-online" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/onlayn-instrumenty" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header><main class="section" style="padding-top:100px; padding-bottom:100px; min-height:80vh; position:relative; z-index:1;">\n  <div class="container" style="max-width:800px; margin:0 auto; background:rgba(6,182,212,0.03); border:1px solid rgba(6,182,212,0.2); border-radius:16px; padding:40px; box-shadow:0 10px 40px rgba(0,0,0,0.4); backdrop-filter:blur(10px);">\n    <div style="font-size:3rem; margin-bottom:15px;">🔒</div>\n    <h1 style="font-family:Outfit,sans-serif; font-size:2.5rem; font-weight:800; background:linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:20px;">Шифрование PDF</h1>\n    <div style="font-size:1.1rem; color:#94a3b8; line-height:1.7; margin-bottom:40px;">Шифрует.</div>\n    <a href="https://doc-inspector.com/ru/tools/encrypt-pdf" style="display:inline-block; padding:12px 28px; background:linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color:#040d1a; font-weight:800; border-radius:8px; text-decoration:none; box-shadow:0 5px 20px rgba(6,182,212,0.3); transition:transform 0.2s;">Открыть инструмент &rarr;</a>\n  </div>\n</main><footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="security" data-i18n="footer.security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.8)';this.style.color='#06b6d4'" onmouseout="this.style.borderColor='rgba(6,182,212,.4)';this.style.color='#67e8f9'">&#x1F512; Security</a>
+        <a href="privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms" data-i18n="footer.terms">Terms of Service</a>
+        <a href="refund" data-i18n="footer.refund">Refund Policy</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- .page -->
+
+<script src="../cookies.js"></script>
+<script src="https://doc-inspector.com/scroll-fx.js?v=11"></script>
+<script>
+if (typeof gsap !== 'undefined') {
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  // Entrance animations
+  gsap.from('.gsap-fade', { opacity:0, y:30, stagger:.15, duration:.9, ease:'power3.out' });
+
+  // Disable CSS transitions during animation to prevent rendering conflicts
+  gsap.set('.gsap-card', { transition: 'none' });
+  gsap.from('.gsap-card', {
+    opacity:0,
+    y:40,
+    stagger:.1,
+    duration:.7,
+    ease:'power3.out',
+    delay:.4,
+    onComplete: function() {
+      // Restore CSS transitions after animation finishes
+      gsap.set('.gsap-card', { clearProps: 'transition' });
+    }
+  });
+
+  // Scroll animations for security items
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.utils.toArray('.sec-item.reveal').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity:0, y:30 },
+        { opacity:1, y:0, duration:.7, ease:'power3.out', delay:i*.08,
+          scrollTrigger:{ trigger:el, start:'top 85%' }
+        }
+      );
+    });
+  }
+}
+
+// Tool metadata
+const TOOLS = {
+  'to-pdf'  : { label:'Convert Any Format to PDF', emoji:'🔄' },
+  removesigs: { label:'Remove Signatures',      emoji:'🔏' },
+  sanitize : { label:'Sanitize Metadata',      emoji:'🧹' },
+  watermark: { label:'Add Watermark',           emoji:'💧' },
+  encrypt  : { label:'Encrypt PDF',             emoji:'🔐 ' },
+  redact   : { label:'Find & Redact',           emoji:'⬛' },
+  flatten  : { label:'Convert PDF to Image-only (Flatten)',    emoji:'🖼️ ' },
+  rebuild  : { label:'Rebuild & Repair PDF',    emoji:'🛠️ ' },
+  bundle   : { label:'PDF Bundle Summary',      emoji:'📋' },
+  'bundle-advanced': { label:'Advanced Bundle Report', emoji:'📘' },
+};
+const selectedOps = new Set();
+let files = [];
+const MAX = 100;
+
+// License & Limit state
+let currentTier = "Free";
+let currentLimit = 100;
+let currentUsed = 0;
+let resetInSeconds = 0;
+
+async function fetchStatus() {
+  try {
+    const res = await fetch('https://direct-api.doc-inspector.com/api/auth/status', { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    if (res.ok) {
+      const data = await res.json();
+      currentTier = data.tier;
+      currentUsed = data.used_today;
+      currentLimit = data.limit_today;
+      resetInSeconds = data.reset_in_seconds || 0;
+      updateUI();
+      if(data.kicked_out) alert("License activated on another device. This session has been downgraded to Free.");
+      if(data.revoked) alert("License revoked or expired. Downgraded to Free.");
+    }
+  } catch(e) {}
+}
+
+let resetInterval = null;
+function startResetCountdown(seconds, lang) {
+  if (resetInterval) clearInterval(resetInterval);
+  let remaining = seconds;
+  const dReset = document.getElementById('dailyReset');
+  if (!dReset) return;
+  
+  if (currentTier === "Pro" || remaining <= 0) {
+    dReset.style.display = 'none';
+    return;
+  }
+  
+  dReset.style.display = 'block';
+  
+  function updateText() {
+    if (remaining <= 0) {
+      dReset.textContent = lang === 'ro' ? 'Se resetează...' : (lang === 'ru' ? 'Сброс...' : 'Resetting...');
+      clearInterval(resetInterval);
+      fetchStatus();
+      return;
+    }
+    
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    let timeStr = "";
+    if (lang === 'ro') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ore");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute");
+      timeStr = "Resetare în " + parts.join(" și ");
+    } else if (lang === 'ru') {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " ч.");
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " мин.");
+      timeStr = "Сброс через " + parts.join(" ");
+    } else {
+      let parts = [];
+      if (hours > 0) parts.push(hours + " hour" + (hours !== 1 ? "s" : ""));
+      if (minutes > 0 || parts.length === 0) parts.push(minutes + " minute" + (minutes !== 1 ? "s" : ""));
+      timeStr = "Reset in " + parts.join(" and ");
+    }
+    dReset.textContent = timeStr;
+  }
+  
+  updateText();
+  resetInterval = setInterval(() => {
+    remaining--;
+    updateText();
+  }, 1000);
+}
+
+function updateUI() {
+  const tb = document.getElementById('tier-badge');
+  const dCnt = document.getElementById('dailyCnt');
+  const dFill = document.getElementById('dailyFill');
+  const lForm = document.getElementById('license-activate-form');
+  const lInfo = document.getElementById('license-active-info');
+  
+  tb.textContent = currentTier;
+  
+  const secBadgeDesc = document.getElementById('sec-badge-desc');
+  const step1Desc = document.getElementById('step1-desc');
+  if (currentTier === "Free") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>100 MB</strong> each), 100 free per day.';
+    
+    tb.style.color = "var(--text-muted)";
+    tb.style.borderColor = "rgba(255,255,255,0.1)";
+    tb.style.background = "rgba(255,255,255,0.05)";
+    lForm.style.display = "block";
+    lInfo.style.display = "none";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "block";
+  } else if (currentTier === "Basic") {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 1,000 files/day, Basic";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>200 MB</strong> each), 1,000 per day.';
+    
+    tb.style.color = "#34d399";
+    tb.style.borderColor = "rgba(16,185,129,0.3)";
+    tb.style.background = "rgba(16,185,129,0.1)";
+    lForm.style.display = "none";
+    lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
+  } else {
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
+    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>200 MB</strong> each), unlimited per day.';
+    
+    tb.style.color = "#f59e0b";
+    tb.style.borderColor = "rgba(245,158,11,0.3)";
+    tb.style.background = "rgba(245,158,11,0.1)";
+    lForm.style.display = "none";
+    lInfo.style.display = "block";
+    const ub = document.getElementById("upsell-box");
+    if(ub) ub.style.display = "none";
+  }
+  
+  if (currentLimit === "unlimited") {
+    dCnt.textContent = currentUsed + " / unlimited";
+    dFill.style.width = "0%";
+    const dReset = document.getElementById('dailyReset');
+    if (dReset) dReset.style.display = 'none';
+  } else {
+    dCnt.textContent = currentUsed + " / " + currentLimit + " files";
+    dFill.style.width = Math.min((currentUsed / currentLimit) * 100, 100) + '%';
+    startResetCountdown(resetInSeconds, 'en');
+  }
+  
+  // Update visually locked cards
+  renderFiles();
+}
+
+async function activateLicense() {
+  const key = document.getElementById('license-key-input').value.trim();
+  const msg = document.getElementById('license-msg');
+  const btn = document.getElementById('activate-btn');
+  if (!key) return;
+  
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spin" style="width:16px;height:16px;border-width:2px;margin:0"></div> Activating...';
+  msg.style.display = "none";
+  
+  const fd = new FormData();
+  fd.append("license_key", key);
+  
+  try {
+    const res = await fetch('https://direct-api.doc-inspector.com/api/auth/activate', { method: 'POST', body: fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    const data = await res.json();
+    if (res.ok) {
+      msg.style.display = "block";
+      msg.style.color = "#34d399";
+      msg.textContent = "Activated successfully!";
+      await fetchStatus();
+    } else {
+      msg.style.display = "block";
+      msg.style.color = "#f87171";
+      msg.textContent = data.error || "Invalid key.";
+    }
+  } catch(e) {
+    msg.style.display = "block";
+    msg.style.color = "#f87171";
+    msg.textContent = "Network error. Is the backend running?";
+  }
+  
+  btn.disabled = false;
+  btn.textContent = "Activate Key";
+}
+
+async function logoutLicense() {
+  await fetch('https://direct-api.doc-inspector.com/api/auth/logout', { headers: {'Bypass-Tunnel-Reminder': 'true'}, method: 'POST', credentials: 'include' });
+  await fetchStatus();
+}
+
+// Initial fetch on load
+fetchStatus();
+
+// Ripple effect
+function addRipple(e, el) {
+  if (!el) return;
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  const rect = el.getBoundingClientRect();
+  const s = Math.max(rect.width, rect.height) * 2;
+  const x = (e && typeof e.clientX === 'number') ? e.clientX : (rect.left + rect.width / 2);
+  const y = (e && typeof e.clientY === 'number') ? e.clientY : (rect.top + rect.height / 2);
+  r.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+(x-rect.left-s/2)+'px;top:'+(y-rect.top-s/2)+'px';
+  el.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+}
+
+function toggleTool(e, name) {
+  if (window.getSelection && window.getSelection().toString()) {
+    return; // Don't toggle tool if selecting text
+  }
+  const card = document.getElementById('card-' + name);
+  addRipple(e, card);
+  const opts = document.getElementById('opts-' + name);
+  const dz = document.getElementById('dropZone');
+  const fi = document.getElementById('fileInput');
+  const dzIcon = document.getElementById('dzIcon');
+  const dzTitle = document.getElementById('dzTitle');
+  const dzSub = document.getElementById('dzSub');
+
+      // Pro-only tool gating
+  if ((name === 'pdfa' || name === 'bundle-advanced' || name === 'redact') && currentTier !== 'Pro') {
+    const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+    const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+    let msg = "";
+    if (name === 'pdfa') {
+      msg = isRo ? "Convertorul de Arhivare PDF/A este o funcÈ›ie Pro-only. Te rugÄƒm sÄƒ activezi o licenÈ›Äƒ Pro." :
+            (isRu ? "ÐšÐ¾Ð½Ð²ÐµÑ€Ñ‚ÐµÑ€ PDF/A Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð²ÐµÑ€ÑÐ¸Ð¸ Pro. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€ÑƒÐ¹Ñ‚Ðµ Pro-Ð»Ð¸Ñ†ÐµÐ½Ð·Ð¸ÑŽ." :
+            "PDF/A Archival Converter is a Pro-only feature. Please upgrade to a Pro license.");
+    } else if (name === 'bundle-advanced') {
+      msg = isRo ? "Raportul de Borderou Avansat este o funcÈ›ie Pro-only. Te rugÄƒm sÄƒ activezi o licenÈ›Äƒ Pro." :
+            (isRu ? "Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ð¹ Ð¾Ñ‚Ñ‡ÐµÑ‚ Ð‘Ð¾Ñ€Ð´ÐµÑ€Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð²ÐµÑ€ÑÐ¸Ð¸ Pro. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€ÑƒÐ¹Ñ‚Ðµ Pro-Ð»Ð¸Ñ†ÐµÐ½Ð·Ð¸ÑŽ." :
+            "Advanced Bundle Report is a Pro-only feature. Please upgrade to a Pro license.");
+    } else if (name === 'redact') {
+      msg = isRo ? "FuncÈ›ia de Redactare / Ascundere text sensibil este o funcÈ›ie Pro-only. Te rugÄƒm sÄƒ activezi o licenÈ›Äƒ Pro." :
+            (isRu ? "Ð˜Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ ÐºÐ¾Ð½Ñ„Ð¸Ð´ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ñ… Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð²ÐµÑ€ÑÐ¸Ð¸ Pro. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€ÑƒÐ¹Ñ‚Ðµ Pro-Ð»Ð¸Ñ†ÐµÐ½Ð·Ð¸ÑŽ." :
+            "Find & Redact is a Pro-only feature. Please upgrade to a Pro license.");
+    }
+    alert(msg);
+    return;
+  }
+
+// Bundle is exclusive — deselect other tools
+  if (name === 'bundle' || name === 'bundle-advanced' || name === 'pdfa') {
+    if (selectedOps.has(name)) {
+      selectedOps.delete(name);
+      card.classList.remove('selected');
+      if (opts) opts.classList.remove('open');
+    } else {
+      // Deselect everything else first
+      selectedOps.forEach(op => {
+        const c = document.getElementById('card-' + op);
+        if (c) c.classList.remove('selected');
+        const o = document.getElementById('opts-' + op);
+        if (o) o.classList.remove('open');
+      });
+      selectedOps.clear();
+      selectedOps.add(name);
+      card.classList.add('selected');
+      if (opts) opts.classList.add('open');
+      gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
+    }
+  } else {
+    // Deselect bundle if switching to regular tools
+    if (selectedOps.has('bundle')) {
+      selectedOps.delete('bundle');
+      const bc = document.getElementById('card-bundle');
+      if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle');
+      if (bo) bo.classList.remove('open');
+    }
+    if (selectedOps.has('bundle-advanced')) {
+      selectedOps.delete('bundle-advanced');
+      const bc = document.getElementById('card-bundle-advanced');
+      if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-bundle-advanced');
+      if (bo) bo.classList.remove('open');
+    }
+    if (selectedOps.has('pdfa')) {
+      selectedOps.delete('pdfa');
+      const bc = document.getElementById('card-pdfa');
+      if (bc) bc.classList.remove('selected');
+      const bo = document.getElementById('opts-pdfa');
+      if (bo) bo.classList.remove('open');
+    }
+    
+    // Enforce single tool selection for Free and Basic tiers (no multi-action runs)
+    if (currentTier !== "Pro" && selectedOps.size > 0 && !selectedOps.has(name)) {
+      alert("Running multiple actions at once requires a Pro license. The previous selection has been cleared.");
+      selectedOps.forEach(op => {
+        const c = document.getElementById('card-' + op);
+        if (c) c.classList.remove('selected');
+        const o = document.getElementById('opts-' + op);
+        if (o) o.classList.remove('open');
+      });
+      selectedOps.clear();
+    }
+
+    if (selectedOps.has(name)) {
+      selectedOps.delete(name);
+      card.classList.remove('selected');
+      if (opts) opts.classList.remove('open');
+    } else {
+      selectedOps.add(name);
+      card.classList.add('selected');
+      if (opts) opts.classList.add('open');
+      gsap.from('#card-' + name, { scale:.97, duration:.3, ease:'back.out(2)' });
+    }
+  }
+  
+  if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
+    fi.setAttribute('webkitdirectory', 'true');
+    fi.setAttribute('multiple', '');
+    fi.removeAttribute('accept');
+    dzIcon.textContent  = '📁';
+    dzTitle.textContent = 'Drag a FOLDER here (up to ' + bundleMax + ' files)';
+    dzSub.textContent   = 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
+    dz.style.borderColor = 'rgba(245,158,11,.4)';
+    dz.style.background  = 'rgba(245,158,11,.02)';
+  } else {
+    fi.removeAttribute('webkitdirectory');
+    fi.setAttribute('accept', '.pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.webp,.bmp,.gif,.tiff,.tif,.pptx,.ppt');
+    dzIcon.textContent  = '📂';
+    dzTitle.textContent = 'Drag & Drop files here';
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
+    dzSub.textContent   = 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
+    dz.style.borderColor = '';
+    dz.style.background  = '';
+  }
+
+  updateSidebar();
+  updateBtn();
+}
+
+function updateSidebar() {
+  const list = document.getElementById('opsList');
+  const ps   = document.getElementById('pipelineSection');
+  const pf   = document.getElementById('pipelineFlow');
+  if (!selectedOps.size) {
+    list.innerHTML = '<div class="ops-empty">No operations selected yet.<br>Pick tools from the left.</div>';
+    ps.style.display = 'none';
+    return;
+  }
+  list.innerHTML = [...selectedOps].map(op => {
+    const m = TOOLS[op];
+    return '<div class="op-chip"><span>'+m.emoji+'</span><span class="op-chip-name">'+m.label+'</span>'
+      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Remove">✕</button></div>';
+  }).join('');
+  ps.style.display = 'block';
+  
+  // Construct a premium vertical pipeline tree instead of messy horizontal tags
+  const nodes = [
+    { label: 'Input PDF Files', emoji: '📄', desc: 'Uploaded & ready' },
+    ...[...selectedOps].sort((a,b) => {
+        const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
+        const orderA = order[a] !== undefined ? order[a] : 99; const orderB = order[b] !== undefined ? order[b] : 99; return orderA - orderB;
+      }).map(op => ({
+      label: TOOLS[op].label,
+      emoji: TOOLS[op].emoji,
+      desc: 'Pipeline active stage'
+    })),
+    { label: 'Ready for Download', emoji: '✅', desc: 'Processed output package' }
+  ];
+
+  const stepsHTML = nodes.map((node, i) => {
+    let stateClass = 'pending';
+    if (i === 0) {
+      stateClass = 'completed';
+    } else if (i === nodes.length - 1) {
+      stateClass = 'pending';
+    } else {
+      stateClass = 'active';
+    }
+
+    return '<div class="pt-step ' + stateClass + '">'
+      + '<div class="pt-icon-wrap">'
+      + '<div class="pt-icon">' + node.emoji + '</div>'
+      + (i < nodes.length - 1 ? '<div class="pt-line"></div>' : '')
+      + '</div>'
+      + '<div class="pt-content">'
+      + '<div class="pt-label">' + node.label + '</div>'
+      + '<div class="pt-desc">' + node.desc + '</div>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+  
+  pf.innerHTML = '<div class="pipeline-tree">' + stepsHTML + '</div>';
+}
+
+
+function updateBtn() {
+  document.getElementById('processBtn').disabled = !(files.length > 0 && selectedOps.size > 0);
+}
+
+// Drop zone
+const dz = document.getElementById('dropZone');
+const fi = document.getElementById('fileInput');
+dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('over'); });
+dz.addEventListener('dragleave', ()  => dz.classList.remove('over'));
+dz.addEventListener('drop', async e => {
+  e.preventDefault(); dz.classList.remove('over');
+  if (e.dataTransfer.items) {
+    const newFiles = await getFilesFromDataTransferItems(e.dataTransfer.items);
+    addFiles(newFiles);
+  } else {
+    addFiles([...e.dataTransfer.files]);
+  }
+});
+fi.addEventListener('change', () => { addFiles([...fi.files]); fi.value = ''; });
+const foldI = document.getElementById('folderInput');
+if(foldI) foldI.addEventListener('change', () => { addFiles([...foldI.files]); foldI.value = ''; });
+
+
+async function getFilesFromDataTransferItems(items) {
+  const promises = [];
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.kind === 'file') {
+      const entry = item.webkitGetAsEntry();
+      if (entry) promises.push(traverseFileTree(entry));
+    }
+  }
+  const nestedArrays = await Promise.all(promises);
+  return nestedArrays.flat();
+}
+function traverseFileTree(item, path = '') {
+  return new Promise((resolve) => {
+    if (item.isFile) {
+      item.file(file => {
+        const fileRelPath = path ? `${path}/${file.name}` : file.name;
+        file.customRelativePath = fileRelPath;
+        resolve([file]);
+      });
+    } else if (item.isDirectory) {
+      const dirReader = item.createReader();
+      const dirPath = path ? `${path}/${item.name}` : item.name;
+      let allEntries = [];
+      const readAllEntries = () => {
+        dirReader.readEntries(async entries => {
+          if (entries.length === 0) {
+            const promises = allEntries.map(entry => traverseFileTree(entry, dirPath));
+            const nestedFiles = await Promise.all(promises);
+            resolve(nestedFiles.flat());
+          } else {
+            allEntries = allEntries.concat(entries);
+            readAllEntries();
+          }
+        }, () => {
+          resolve([]);
+        });
+      };
+      readAllEntries();
+    } else resolve([]);
+  });
+}
+
+function addFiles(newFiles) {
+  let currentTotal = files.reduce((acc, f) => acc + f.size, 0);
+  let newTotal = newFiles.reduce((acc, f) => acc + f.size, 0);
+  const totalLimit = currentTier === "Free" ? 2 * 1024 * 1024 * 1024 : 4 * 1024 * 1024 * 1024;
+  if (currentTotal + newTotal > totalLimit) {
+    alert("Total upload limit is " + (totalLimit/1024/1024/1024) + " GB. Selected files exceed this limit.");
+    return;
+  }
+  const CURRENT_MAX = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
+  const maxSz = currentTier === "Free" ? 100 * 1024 * 1024 : 200 * 1024 * 1024;
+  let skippedLimit = 0; let skippedSize = 0;
+  
+  newFiles.filter(f => {
+    const name = f.name.toLowerCase();
+    return name.endsWith('.pdf') || name.endsWith('.doc') || name.endsWith('.docx') ||
+           name.endsWith('.rtf') || name.endsWith('.odt') ||
+           name.endsWith('.xls') || name.endsWith('.xlsx') || name.endsWith('.xlsm') ||
+           name.endsWith('.csv') || name.endsWith('.txt') ||
+           name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') ||
+           name.endsWith('.webp') || name.endsWith('.bmp') || name.endsWith('.gif') ||
+           name.endsWith('.tiff') || name.endsWith('.tif') ||
+           name.endsWith('.pptx') || name.endsWith('.ppt');
+  }).forEach(f => {
+    if (f.size > maxSz) { skippedSize++; return; }
+    if (files.length >= CURRENT_MAX) { skippedLimit++; return; }
+    const fPath = f.customRelativePath || f.webkitRelativePath || f.name;
+    if (!files.find(x => (x.customRelativePath || x.webkitRelativePath || x.name) === fPath && x.size === f.size)) files.push(f);
+  });
+  
+  let msg = [];
+  if (skippedLimit) msg.push(skippedLimit + " files ignored (max " + CURRENT_MAX + " reached).");
+  if (skippedSize) msg.push("Your files have been added, but " + skippedSize + " files exceeding the " + (maxSz/1024/1024) + " MB limit were skipped.");
+  if (msg.length) alert(msg.join("\n"));
+  
+  renderFiles(); updateBtn();
+}
+function removeFile(i) { files.splice(i, 1); renderFiles(); updateBtn(); }
+function getFileCountSummary() {
+  const counts = { pdf: 0, excel: 0, word: 0, powerpoint: 0, image: 0, text: 0 };
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (ext === 'pdf') counts.pdf++;
+    else if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) counts.excel++;
+    else if (['doc', 'docx', 'rtf', 'odt'].includes(ext)) counts.word++;
+    else if (['ppt', 'pptx'].includes(ext)) counts.powerpoint++;
+    else if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) counts.image++;
+    else if (ext === 'txt') counts.text++;
+  });
+  const parts = [];
+  const style = 'style="color: #22d3ee; font-weight: 500;"';
+  if (counts.pdf) parts.push(`<span ${style}>${counts.pdf} PDF${counts.pdf > 1 ? 's' : ''}</span>`);
+  if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel${counts.excel > 1 ? 's' : ''}</span>`);
+  if (counts.word) parts.push(`<span ${style}>${counts.word} Word${counts.word > 1 ? 's' : ''}</span>`);
+  if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint${counts.powerpoint > 1 ? 's' : ''}</span>`);
+  if (counts.image) parts.push(`<span ${style}>${counts.image} Image${counts.image > 1 ? 's' : ''}</span>`);
+  if (counts.text) parts.push(`<span ${style}>${counts.text} Text${counts.text > 1 ? 's' : ''}</span>`);
+  
+  if (parts.length === 0) return 'Click to add more';
+  const limitMsg = files.length >= MAX ? ' (Maximum reached)' : ' — click to add more';
+  return parts.join(', ') + limitMsg;
+}
+
+function renderFiles() {
+  const list  = document.getElementById('fileList');
+  const icon  = document.getElementById('dzIcon');
+  const title = document.getElementById('dzTitle');
+  const sub   = document.getElementById('dzSub');
+  if (!files.length) {
+    list.innerHTML = '';
+    const bundleMax = currentTier === "Free" ? 100 : (currentTier === "Basic" ? 1000 : 1300);
+    icon.textContent  = selectedOps.has('bundle') ? '📁' : '📂';
+    title.textContent = selectedOps.has('bundle') ? 'Drag a FOLDER here (up to ' + bundleMax + ' files)' : 'Drag & Drop files here';
+    const maxSz = currentTier === "Free" ? "100" : "200";
+    const totalLimitStr = currentTier === "Free" ? "2 GB" : "4 GB";
+    sub.textContent   = selectedOps.has('bundle') ? 'or click to browse folder — max ' + bundleMax + ' files — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total' : 'or click to browse — max ' + currentLimit + ' files per day — ' + maxSz + ' MB each — max ' + totalLimitStr + ' total';
+    return;
+  }
+  icon.textContent  = '📋';
+    title.textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
+    sub.innerHTML     = getFileCountSummary();
+  updateConvertOptions();
+  list.innerHTML = files.map((f, i) => {
+    const dispName = f.customRelativePath || f.webkitRelativePath || f.name;
+    return '<div class="file-item">📄 <span class="fi-name" title="'+dispName+'">'+dispName+'</span>'
+      + '<span class="fi-size">'+(f.size/1024).toFixed(0)+' KB</span>'
+      + '<button class="fi-remove" onclick="removeFile('+i+')" title="Remove">✕</button></div>';
+  }).join('');
+}
+
+function updateConvertOptions() {
+  const optsPanel = document.getElementById('opts-to-pdf');
+  if (!optsPanel) return;
+  
+  const excelSec = optsPanel.querySelector('.opts-sec-excel');
+  const imageSec = optsPanel.querySelector('.opts-sec-image');
+  const landscapeSec = optsPanel.querySelector('.opts-sec-landscape');
+  const infoSec = optsPanel.querySelector('.opts-sec-info');
+  
+  let hasExcel = false;
+  let hasImage = false;
+  
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) hasExcel = true;
+    if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) hasImage = true;
+  });
+  
+  if (excelSec) excelSec.style.display = hasExcel ? 'block' : 'none';
+  if (imageSec) imageSec.style.display = hasImage ? 'block' : 'none';
+  if (landscapeSec) landscapeSec.style.display = (hasExcel || hasImage) ? 'block' : 'none';
+  if (infoSec) infoSec.style.display = (hasExcel || hasImage) ? 'none' : 'block';
+  
+  // Dynamic warning tip
+  const hasNonPdf = hasExcel || hasImage || files.some(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    return ['doc', 'docx', 'rtf', 'odt', 'txt', 'pptx', 'ppt'].includes(ext);
+  });
+  const hasPdfOnlyOps = [...selectedOps].some(op => op !== 'to-pdf' && op !== 'sanitize');
+  
+  const existingTip = document.getElementById('non-pdf-warning');
+  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('to-pdf')) {
+    if (!existingTip) {
+      const warningDiv = document.createElement('div');
+      warningDiv.id = 'non-pdf-warning';
+      warningDiv.style.cssText = 'background:rgba(249,115,22,0.1); border-left:3px solid #f97316; border-radius:4px; padding:10px; font-size:0.8rem; color:#f97316; margin-bottom:1rem; font-weight:600;';
+      warningDiv.innerHTML = '⚠️ Note: You have uploaded non-PDF documents. Please select the "Convert Any Format to PDF" operation to process them.';
+      optsPanel.parentNode.insertBefore(warningDiv, optsPanel);
+    } else {
+      existingTip.style.display = 'block';
+    }
+  } else {
+    if (existingTip) existingTip.style.display = 'none';
+  }
+}
+
+function gatherOptions() {
+  return {
+    watermarkText:    document.getElementById('wm-text')?.value    || 'CONFIDENTIAL',
+    watermarkFont:    document.getElementById('wm-font')?.value    || 'Helvetica-Bold',
+    watermarkSize:    document.getElementById('wm-size')?.value    || 60,
+    watermarkOpacity: (parseInt(document.getElementById('wm-opacity')?.value || 15) / 100).toFixed(2),
+      watermarkAngle:   document.getElementById('wm-angle')?.value   || '-45',
+    encryptUserPw:    document.getElementById('enc-pw')?.value     || '',
+    encryptOwnerPw:   document.getElementById('enc-owner')?.value  || '',
+    encryptNoPrint:   document.getElementById('enc-no-print')?.checked || false,
+    encryptNoCopy:    document.getElementById('enc-no-copy')?.checked || false,
+    encryptNoEdit:    document.getElementById('enc-no-edit')?.checked || false,
+    encryptBits:      '256',
+    redactKeywords:   document.getElementById('redact-kw')?.value  || '',
+    sanitizeAll:      document.getElementById('san-all') ? document.getElementById('san-all').checked : true,
+    sanitizeAuthor:   document.getElementById('san-author') ? document.getElementById('san-author').checked : true,
+    sanitizeLastModBy:document.getElementById('san-lastmodby') ? document.getElementById('san-lastmodby').checked : true,
+    sanitizeCompany:  document.getElementById('san-company') ? document.getElementById('san-company').checked : true,
+    sanitizeManager:  document.getElementById('san-manager') ? document.getElementById('san-manager').checked : true,
+    sanitizeTitle:    document.getElementById('san-title') ? document.getElementById('san-title').checked : true,
+    sanitizeSubject:  document.getElementById('san-subject') ? document.getElementById('san-subject').checked : true,
+    sanitizeKeywords: document.getElementById('san-keywords') ? document.getElementById('san-keywords').checked : true,
+    sanitizeComments: document.getElementById('san-comments') ? document.getElementById('san-comments').checked : true,
+    sanitizeCategories:document.getElementById('san-categories') ? document.getElementById('san-categories').checked : true,
+    sanitizeSoftware: document.getElementById('san-software')? document.getElementById('san-software').checked: true,
+    sanitizeTime:     document.getElementById('san-time')   ? document.getElementById('san-time').checked   : true,
+    sanitizeGps:      document.getElementById('san-gps')    ? document.getElementById('san-gps').checked    : true,
+    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || 'fit-width',
+    autoLandscape:    document.getElementById('convert-auto-landscape')?.checked ?? true,
+    imageOutput:      document.querySelector('input[name="image-output"]:checked')?.id?.replace('img-', '') || 'separate',
+    imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
+    rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
+    rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || false,
+    dpiValue:         document.getElementById('rebuild-dpi')?.value || '300',
+    bundleAdvanced:   document.getElementById('bundle-advanced')?.checked || false,
+    timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
+    timeoutValue:     parseInt(document.getElementById('global-timeout-val')?.value || '300'),
+  };
+}
+
+async function startProcessing() {
+  if (!files.length || !selectedOps.size) return;
+
+  // Route bundle summary to its own endpoint
+  if (selectedOps.has('bundle') || selectedOps.has('bundle-advanced')) {
+    await startBundleSummary();
+    return;
+  }
+
+  // Validate encrypt
+  if (selectedOps.has('encrypt')) {
+      const pw  = document.getElementById('enc-pw') ? document.getElementById('enc-pw').value : '';
+      const pw2 = document.getElementById('enc-pw2') ? document.getElementById('enc-pw2').value : '';
+      const pwOwner = document.getElementById('enc-owner') ? document.getElementById('enc-owner').value : '';
+      const pwOwner2 = document.getElementById('enc-owner2') ? document.getElementById('enc-owner2').value : '';
+      if (!pw && !pwOwner) { alert('Please enter at least one password (Document Open or Permissions).'); return; }
+      if (pw && pw !== pw2){ alert('Document Open Passwords do not match.'); return; }
+      if (pwOwner && pwOwner !== pwOwner2) { alert('Permissions passwords do not match.'); return; }
+    }
+  const ra = document.getElementById('resultArea');
+  ra.classList.add('show');
+  document.getElementById('rSpin').style.display  = 'block';
+  document.getElementById('rIcon').style.display  = 'none';
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
+  document.getElementById('rDlBtn').style.display = 'none';
+  document.getElementById('rDlBtn').innerHTML     = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Results (.zip)';
+  document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
+  document.getElementById('processBtn').disabled  = true;
+  ra.scrollIntoView({ behavior:'smooth', block:'center' });
+  const fd = new FormData();
+  let fileCount = 0;
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif', 'pptx', 'ppt'];
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
+  });
+  fd.append('operations', JSON.stringify([...selectedOps]));
+  fd.append('options',    JSON.stringify(gatherOptions()));
+  try {
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    if (!resp.ok) {
+      let m = 'Server error.';
+      try { const j = await resp.json(); m = j.error || m; } catch(_) {}
+      throw new Error(m);
+    }
+    const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Processed.zip');
+    const ORDER = { 'to-pdf': 0, 'removesigs': 1, 'rebuild': 2, 'redact': 3, 'flatten': 4, 'watermark': 5, 'sanitize': 6, 'encrypt': 7 };
+    const sortedOps = [...selectedOps].sort((a, b) => (ORDER[a] !== undefined ? ORDER[a] : 99) - (ORDER[b] !== undefined ? ORDER[b] : 99));
+    document.getElementById('rTitle').innerHTML = 'Processing your files… (Pipeline: ' + sortedOps.join(' → ') + ')';
+    await pollJobStatus(data.job_id, 'DocInspector_Processed.zip');
+  } catch(err) {
+    document.getElementById('rSpin').style.display   = 'none';
+    document.getElementById('rIcon').style.display   = 'block';
+    document.getElementById('rIcon').textContent     = '❌';
+    document.getElementById('rTitle').textContent    = 'Processing Failed';
+    document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
+    document.getElementById('processBtn').disabled   = false;
+    document.getElementById('rResetBtn').style.display = 'inline-block';
+  }
+}
+
+// Bundle Summary — calls /api/bundle-summary, returns ZIP with Excel+PDF+TXT
+async function startBundleSummary() {
+  const ra = document.getElementById('resultArea');
+  ra.classList.add('show');
+  document.getElementById('rSpin').style.display  = 'block';
+  document.getElementById('rIcon').style.display  = 'none';
+  document.getElementById('rTitle').innerHTML   = 'Uploading files to server…';
+  document.getElementById('rSub').innerHTML     = 'Please wait, sending files...';
+  document.getElementById('rDlBtn').style.display = 'none';
+  document.getElementById('rResetBtn').style.display = 'none';
+  if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
+  document.getElementById('processBtn').disabled  = true;
+  ra.scrollIntoView({ behavior:'smooth', block:'center' });
+  const fd = new FormData();
+  let fileCount = 0;
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    const allowed = ['pdf', 'docx', 'doc', 'rtf', 'odt', 'xlsx', 'xls', 'xlsm', 'csv', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'];
+    if (allowed.includes(ext)) {
+      const relPath = f.customRelativePath || f.webkitRelativePath || f.name;
+      fd.append('files[]', f, relPath);
+      fd.append('relativePaths[]', relPath);
+      fileCount++;
+    }
+  });
+  fd.append('includeSha256', selectedOps.has('bundle-advanced') ? 'true' : 'false');
+  fd.append('bundleAdvanced', selectedOps.has('bundle-advanced') ? 'true' : 'false');
+  try {
+    document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/bundle-summary', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    if (!resp.ok) {
+      let m = 'Server error.';
+      try { const j = await resp.json(); m = j.error || m; } catch(_) {}
+      throw new Error(m);
+    }
+    const data = await resp.json();
+    localStorage.setItem('di_active_job_id', data.job_id);
+    localStorage.setItem('di_active_job_download_name', 'DocInspector_Bundle_Summary.zip');
+    document.getElementById('rTitle').innerHTML = 'Generating Bundle Summary…';
+    document.getElementById('rSub').innerHTML = 'Extracting metadata & page counts for each file';
+    await pollJobStatus(data.job_id, 'DocInspector_Bundle_Summary.zip');
+  } catch(err) {
+    document.getElementById('rSpin').style.display   = 'none';
+    document.getElementById('rIcon').style.display   = 'block';
+    document.getElementById('rIcon').textContent     = '❌';
+    document.getElementById('rTitle').textContent    = 'Bundle Summary Failed';
+    document.getElementById('rSub').textContent      = err.message || 'Make sure the local server is running (python server.py)';
+    if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'none';
+    document.getElementById('processBtn').disabled   = false;
+    document.getElementById('rResetBtn').style.display = 'inline-block';
+  }
+}
+
+async function pollJobStatus(jobId, downloadName) {
+  const rSub = document.getElementById('rSub');
+  const rTitle = document.getElementById('rTitle');
+  const rSpin = document.getElementById('rSpin');
+  const rIcon = document.getElementById('rIcon');
+  const dlBtn = document.getElementById('rDlBtn');
+  const resetBtn = document.getElementById('rResetBtn');
+  const cancelBtn = document.getElementById('rCancelBtn');
+  const processBtn = document.getElementById('processBtn');
+  const progContainer = document.getElementById('rProgressContainer');
+  const progBar = document.getElementById('rProgressBar');
+  const progText = document.getElementById('rProgressText');
+  
+  if (cancelBtn) cancelBtn.style.display = 'inline-block';
+  
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    // Check if user cancelled in this browser session
+    if (!localStorage.getItem('di_active_job_id')) {
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
+      break;
+    }
+    
+    try {
+      const resp = await fetch(`https://direct-api.doc-inspector.com/api/job-status/${jobId}`, { headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+      if (!resp.ok) throw new Error('Failed to fetch job status');
+      const data = await resp.json();
+      
+      // Check if cancelled on VPS
+      if (data.status === 'cancelled') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        rIcon.textContent = '⚠️';
+        rTitle.textContent = window.location.pathname.includes('/ro/') ? 'Procesare Oprită' : (window.location.pathname.includes('/ru/') ? 'Обработка остановлена' : 'Processing Stopped');
+        rSub.textContent = window.location.pathname.includes('/ro/') ? 'Jobul a fost anulat de utilizator.' : (window.location.pathname.includes('/ru/') ? 'Задание отменено пользователем.' : 'Job was cancelled by user.');
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) progContainer.style.display = 'none';
+        resetBtn.style.display = 'inline-block';
+        processBtn.disabled = false;
+        break;
+      }
+      
+      if (data.status === 'processing' || data.status === 'pending')  {
+        const progStr = data.progress || 'Processing...';
+        let parsed = null;
+        try {
+          if (progStr.trim().startsWith('{')) {
+            parsed = JSON.parse(progStr);
+          }
+        } catch (e) {}
+
+        if (parsed) {
+          const current = parsed.current_file_idx;
+          const total = parsed.total_files;
+          const filename = parsed.current_file_name;
+          const ops = parsed.operations || [];
+          const currentOp = parsed.current_op;
+
+          let pct = 0;
+          if (total > 0) {
+            let filePct = (current - 1) / total;
+            if (ops.length > 0 && currentOp) {
+              const opIndex = ops.indexOf(currentOp);
+              if (opIndex !== -1) {
+                filePct += (opIndex / ops.length) * (1 / total);
+              }
+            }
+            pct = Math.min(filePct * 100, 100);
+          }
+
+          if (progContainer) progContainer.style.display = 'block';
+          if (progBar) progBar.style.width = pct.toFixed(1) + '%';
+          if (progText) progText.textContent = filename ? `📄 ${filename}` : '';
+
+          if (parsed.type === 'bundle') {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Extracting metadata from file ${current} of ${total}`;
+            }
+          } else if (parsed.type === 'bundle_generating') {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se generează rapoartele Excel + PDF + CSV...`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Генерация отчетов Excel + PDF + CSV...`;
+            } else {
+              rSub.textContent = `Generating Excel + PDF + CSV reports...`;
+            }
+          } else {
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Обработка файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Processing file ${current} of ${total}`;
+            }
+          }
+
+          let opsContainer = document.getElementById('rOpsContainer');
+          if (!opsContainer) {
+            opsContainer = document.createElement('div');
+            opsContainer.id = 'rOpsContainer';
+            opsContainer.style.marginTop = '1.2rem';
+            opsContainer.style.display = 'flex';
+            opsContainer.style.flexDirection = 'column';
+            opsContainer.style.gap = '0.6rem';
+            opsContainer.style.padding = '0.8rem';
+            opsContainer.style.background = 'rgba(255, 255, 255, 0.03)';
+            opsContainer.style.border = '1px solid rgba(255, 255, 255, 0.06)';
+            opsContainer.style.borderRadius = '8px';
+            progContainer.appendChild(opsContainer);
+          }
+
+          if (ops.length > 0) {
+            opsContainer.style.display = 'flex';
+            const opNames = {
+              en: {
+                removesigs: "Remove Signatures",
+                "to-pdf": "Convert Any Format to PDF",
+                rebuild: "Rebuild & Repair PDF",
+                redact: "Find & Redact",
+                flatten: "Convert PDF to Image-only (Flatten)",
+                watermark: "Add Watermark",
+                sanitize: "Sanitize Metadata",
+                encrypt: "Encrypt PDF"
+              },
+              ro: {
+                removesigs: "Elimină Semnăturile",
+                rebuild: "Reconstruiește & Repară PDF",
+                redact: "Găsește & Redactează",
+                flatten: "Convertește PDF în Imagine (Aplatizare)",
+                watermark: "Adaugă Filigran",
+                sanitize: "Igienizează Metadate",
+                encrypt: "Criptează PDF"
+              },
+              ru: {
+                removesigs: "Удаление подписей",
+                rebuild: "Восстановление структуры PDF",
+                redact: "Поиск и скрытие",
+                flatten: "Преобразовать PDF в изображение (Растеризовать)",
+                watermark: "Добавление водяного знака",
+                sanitize: "Очистка метаданных",
+                encrypt: "Шифрование PDF"
+              }
+            };
+
+            const lang = (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) ? 'ro' : 
+                         ((window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) ? 'ru' : 'en');
+            const currentOpIndex = ops.indexOf(currentOp);
+
+            opsContainer.innerHTML = '';
+            ops.forEach((op, index) => {
+              const name = (opNames[lang] && opNames[lang][op]) || op;
+              const stepRow = document.createElement('div');
+              stepRow.style.display = 'flex';
+              stepRow.style.alignItems = 'center';
+              stepRow.style.justifyContent = 'space-between';
+              stepRow.style.fontSize = '0.82rem';
+
+              let statusText = "";
+              let statusColor = "";
+              let icon = "⚪";
+              let glowEffect = "";
+
+              if (index < currentOpIndex) {
+                statusText = lang === 'ro' ? 'Finalizat' : (lang === 'ru' ? 'Готово' : 'Done');
+                statusColor = '#10b981';
+                icon = "🟢";
+              } else if (index === currentOpIndex) {
+                statusText = lang === 'ro' ? 'Activ' : (lang === 'ru' ? 'Активно' : 'Active');
+                statusColor = '#06b6d4';
+                icon = "🔵";
+                glowEffect = 'animation: pulseGlow 1.5s infinite ease-in-out;';
+              } else {
+                statusText = lang === 'ro' ? 'În așteptare' : (lang === 'ru' ? 'В ожидании' : 'Pending');
+                statusColor = 'rgba(255,255,255,0.3)';
+                icon = "⚪";
+              }
+
+              if (!document.getElementById('diPulseStyle')) {
+                const styleSheet = document.createElement('style');
+                styleSheet.id = 'diPulseStyle';
+                styleSheet.textContent = `
+                  @keyframes pulseGlow {
+                    0% { opacity: 0.6; transform: scale(1); }
+                    50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 6px #06b6d4; }
+                    100% { opacity: 0.6; transform: scale(1); }
+                  }
+                `;
+                document.head.appendChild(styleSheet);
+              }
+
+              stepRow.innerHTML = `
+                <div style="display:flex; align-items:center; gap:0.5rem; color:${index <= currentOpIndex ? '#fff' : 'rgba(255,255,255,0.4)'}">
+                  <span>${icon}</span>
+                  <span style="font-weight:${index === currentOpIndex ? 'bold' : 'normal'}">${name}</span>
+                </div>
+                <span style="color:${statusColor}; font-size:0.75rem; font-weight:700; text-transform:uppercase; ${glowEffect}">${statusText}</span>
+              `;
+              opsContainer.appendChild(stepRow);
+            });
+          } else {
+            opsContainer.style.display = 'none';
+          }
+        } else {
+          const match = progStr.match(/file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+          if (match) {
+            const current = parseInt(match[1], 10);
+            const total = parseInt(match[2], 10);
+            const filename = match[3];
+            const pct = Math.min((current / total) * 100, 100);
+            if (progContainer) progContainer.style.display = 'block';
+            if (progBar) progBar.style.width = pct + '%';
+            if (progText) progText.textContent = `📄 ${filename}`;
+            if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+              rSub.textContent = `Se procesează fișierul ${current} din ${total}`;
+            } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+              rSub.textContent = `Обработка файла ${current} из ${total}`;
+            } else {
+              rSub.textContent = `Processing file ${current} of ${total}`;
+            }
+          } else {
+            const bundleMatch = progStr.match(/extracting metadata from file\s+(\d+)\s+of\s+(\d+):\s*(.*)/i);
+            if (bundleMatch) {
+              const current = parseInt(bundleMatch[1], 10);
+              const total = parseInt(bundleMatch[2], 10);
+              const filename = bundleMatch[3];
+              const pct = Math.min((current / total) * 100, 100);
+              if (progContainer) progContainer.style.display = 'block';
+              if (progBar) progBar.style.width = pct + '%';
+              if (progText) progText.textContent = `📄 ${filename}`;
+              if (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) {
+                rSub.textContent = `Se extrag metadatele din fișierul ${current} din ${total}`;
+              } else if (window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) {
+                rSub.textContent = `Извлечение метаданных файла ${current} из ${total}`;
+              } else {
+                rSub.textContent = `Extracting metadata from file ${current} of ${total}`;
+              }
+            } else {
+              rSub.textContent = progStr;
+            }
+          }
+        }
+      } else if (data.status === 'completed') {
+        localStorage.removeItem('di_active_job_id');
+        localStorage.removeItem('di_active_job_download_name');
+        
+        await fetchStatus(); // Refresh daily limit
+        rSpin.style.display = 'none';
+        rIcon.style.display = 'block';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (progContainer) {
+          if (progBar) progBar.style.width = '100%';
+          setTimeout(() => { progContainer.style.display = 'none'; if (document.getElementById('rOpsContainer')) document.getElementById('rOpsContainer').style.display = 'none'; }, 1000);
+        }
+        
+        if (downloadName.includes('Bundle')) {
+          rIcon.textContent = '📊';
+          rTitle.textContent = 'Bundle Summary Ready!';
+          rSub.textContent = 'Your ZIP contains: Excel report (2 sheets) + PDF + CSV';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Bundle Summary (.zip)';
+        } else {
+          rIcon.textContent = '✅';
+          rTitle.textContent = 'Processing Complete!';
+          rSub.textContent = 'Your files processed successfully';
+          dlBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Results (.zip)';
+        }
+        
+        dlBtn.href = `https://direct-api.doc-inspector.com/api/job-download/${jobId}`;
+        dlBtn.download = downloadName;
+        dlBtn.style.display = 'inline-flex';
+        dlBtn.click();
+        
+        resetBtn.style.display = 'inline-block';
+        break;
+      } else if (data.status === 'failed') {
+        throw new Error(data.error || 'Job failed on server.');
+      }
+    } catch(err) {
+      localStorage.removeItem('di_active_job_id');
+      localStorage.removeItem('di_active_job_download_name');
+      rSpin.style.display = 'none';
+      rIcon.style.display = 'block';
+      rIcon.textContent = '❌';
+      if (cancelBtn) cancelBtn.style.display = 'none';
+      if (progContainer) progContainer.style.display = 'none';
+      if (downloadName.includes('Bundle')) {
+        rTitle.textContent = 'Bundle Summary Failed';
+      } else {
+        rTitle.textContent = 'Processing Failed';
+      }
+      rSub.textContent = err.message || 'Error checking status.';
+      processBtn.disabled = false;
+      resetBtn.style.display = 'inline-block';
+      break;
+    }
+  }
+}
+
+async function cancelJob() {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (!jobId) return;
+  
+  const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+  const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+  const confirmMsg = isRo ? 'Ești sigur că vrei să oprești procesarea fișierelor și să eliberezi resursele?' : 
+                     (isRu ? 'Вы уверены, что хотите остановить обработку файлов и освободить ресурсы?' : 'Are you sure you want to stop processing files and free up resources?');
+  
+  if (!confirm(confirmMsg)) return;
+  
+  try {
+    // Optimistic UI update
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+    
+    document.getElementById('rSpin').style.display = 'none';
+    document.getElementById('rIcon').style.display = 'block';
+    document.getElementById('rIcon').textContent = '⚠️';
+    document.getElementById('rTitle').textContent = isRo ? 'Procesare Oprită' : (isRu ? 'Обработка остановлена' : 'Processing Stopped');
+    document.getElementById('rSub').textContent = isRo ? 'Se oprește procesarea pe server...' : (isRu ? 'Остановка обработки на сервере...' : 'Stopping processing on server...');
+    document.getElementById('rCancelBtn').style.display = 'none';
+    if (document.getElementById('rProgressContainer')) document.getElementById('rProgressContainer').style.display = 'none';
+    if (document.getElementById('rOpsContainer')) document.getElementById('rOpsContainer').style.display = 'none';
+    document.getElementById('rResetBtn').style.display = 'inline-block';
+    document.getElementById('processBtn').disabled = false;
+    
+    await fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, { method: 'POST', headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    
+    document.getElementById('rSub').textContent = isRo ? 'Jobul a fost anulat și fișierele au fost șterse de pe server.' : 
+                                                 (isRu ? 'Задание отменено, и файлы были удалены с сервера.' : 'Job was cancelled and files were deleted from server.');
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function resetTool() {
+  files = [];
+  renderFiles(); updateBtn();
+  document.getElementById('resultArea').classList.remove('show');
+  document.getElementById('processBtn').disabled = false;
+  localStorage.removeItem('di_active_job_id');
+  localStorage.removeItem('di_active_job_download_name');
+}
+
+// Progress bar on scroll
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('progress-bar');
+  if (!el) return;
+  const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  el.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;height:2px;background:linear-gradient(90deg,var(--cyan),#818cf8);width:'+p+'%;transition:width .1s';
+});
+
+// Redact keyword tags manager
+const redactKeywordsSet = new Set();
+function updateRedactKeywordsHidden() {
+  const hiddenInput = document.getElementById('redact-kw');
+  if (hiddenInput) {
+    hiddenInput.value = [...redactKeywordsSet].join(', ');
+  }
+  renderRedactTags();
+}
+
+function renderRedactTags() {
+  const container = document.getElementById('kwTagsContainer');
+  if (!container) return;
+  if (redactKeywordsSet.size === 0) {
+    container.innerHTML = '<span style="font-size:.78rem;color:var(--text-muted)">No keywords added yet. Search matches exact phrases.</span>';
+    return;
+  }
+  container.innerHTML = [...redactKeywordsSet].map((kw, i) => {
+    return '<span class="kw-tag" style="display:inline-flex;align-items:center;gap:.35rem;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.4);border-radius:6px;padding:.2rem .5rem;font-size:.78rem;color:#38bdf8;animation:ptFadeIn .2s ease">'
+      + kw
+      + '<button type="button" onclick="removeRedactKeyword(\'' + kw.replace(/'/g, "\\'") + '\')" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:.8rem;padding:0;line-height:1" onmouseover="this.style.color=\'#f87171\'" onmouseout="this.style.color=\'#94a3b8\'">✕</button>'
+      + '</span>';
+  }).join('');
+}
+
+function addRedactKeywords() {
+  const input = document.getElementById('redact-kw-input');
+  if (!input) return;
+  const val = input.value.trim();
+  if (!val) return;
+  
+  // Split by comma in case they copy-paste a list
+  val.split(',').forEach(item => {
+    const clean = item.trim();
+    if (clean) redactKeywordsSet.add(clean);
+  });
+  
+  input.value = '';
+  updateRedactKeywordsHidden();
+}
+
+function removeRedactKeyword(kw) {
+  redactKeywordsSet.delete(kw);
+  updateRedactKeywordsHidden();
+}
+
+window.addEventListener('beforeunload', () => {
+  const jobId = localStorage.getItem('di_active_job_id');
+  if (jobId) {
+    // Send a fire-and-forget cancel request to the backend using keepalive: true
+    fetch(`https://direct-api.doc-inspector.com/api/job-cancel/${jobId}`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Bypass-Tunnel-Reminder': 'true'
+      },
+      credentials: 'include'
+    });
+    localStorage.removeItem('di_active_job_id');
+    localStorage.removeItem('di_active_job_download_name');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addBtn = document.getElementById('btn-add-kw');
+  const input = document.getElementById('redact-kw-input');
+  if (addBtn && input) {
+    addBtn.addEventListener('click', addRedactKeywords);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        addRedactKeywords();
+      }
+    });
+  }
+  renderRedactTags();
+  
+  // Restore active job if page refreshed
+  const savedJobId = localStorage.getItem('di_active_job_id');
+  const savedDlName = localStorage.getItem('di_active_job_download_name');
+  if (savedJobId && savedDlName) {
+    const ra = document.getElementById('resultArea');
+    if (ra) {
+      ra.classList.add('show');
+      document.getElementById('rSpin').style.display  = 'block';
+      document.getElementById('rIcon').style.display  = 'none';
+      document.getElementById('rTitle').innerHTML   = savedDlName.includes('Bundle') ? 'Generating Bundle Summary…' : 'Processing your files…';
+      document.getElementById('rSub').innerHTML     = 'Restoring active job status...';
+      document.getElementById('rDlBtn').style.display = 'none';
+      document.getElementById('rResetBtn').style.display = 'none';
+      if (document.getElementById('rCancelBtn')) document.getElementById('rCancelBtn').style.display = 'inline-block';
+      document.getElementById('processBtn').disabled  = true;
+      ra.scrollIntoView({ behavior:'smooth', block:'center' });
+      pollJobStatus(savedJobId, savedDlName);
+    }
+  }
+});
+</script>
+
+  <!-- Constellation Particles -->
+  <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+  <script>
+  (function(){
+    var c=document.getElementById('constellation-canvas');
+    if(!c)return;
+    var ctx=c.getContext('2d');
+    var W,H,pts,RAF;
+    var COLS=['6,182,212','99,102,241','16,185,129'];
+    var N_BASE=55, CONNECT_DIST=160;
+    var MOUSE={x:-999,y:-999};
+    
+    function resize(){
+      var hero = document.querySelector('.tools-hero');
+      W=c.width=hero ? hero.offsetWidth : window.innerWidth;
+      H=c.height=hero ? hero.offsetHeight : 500;
+      init();
+    }
+    
+    function rand(a,b){return a+Math.random()*(b-a);}
+    function init(){
+      pts=[];
+      var n=Math.round(N_BASE*(W*H)/(1440*900));
+      n=Math.max(35,Math.min(90,n));
+      for(var i=0;i<n;i++){
+        var col=COLS[Math.floor(Math.random()*COLS.length)];
+        pts.push({x:rand(0,W),y:rand(0,H),vx:rand(-.25,.25),vy:rand(-.18,.18),r:rand(.6,1.4),col:col,alpha:rand(.25,.55),z:rand(.3,1)});
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        for(var j=i+1;j<pts.length;j++){
+          var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<CONNECT_DIST){var fade=1-d/CONNECT_DIST,depth=(p.z+q.z)*.5;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+p.col+','+(fade*.13*depth)+')';ctx.lineWidth=fade*1.1*depth;ctx.stroke();}
+        }
+        var mdx=p.x-MOUSE.x,mdy=p.y-MOUSE.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
+        if(md<140){var mf=1-md/140;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(MOUSE.x,MOUSE.y);ctx.strokeStyle='rgba('+p.col+','+(mf*.22)+')';ctx.lineWidth=mf*1.4;ctx.stroke();}
+      }
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.0*p.z);
+        grd.addColorStop(0,'rgba('+p.col+','+(p.alpha*p.z)+')');
+        grd.addColorStop(1,'rgba('+p.col+',0)');
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.0*p.z,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.z,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+(p.alpha*p.z)+')';ctx.fill();
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
+        if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
+      }
+      RAF=requestAnimationFrame(draw);
+    }
+    
+    // Position the canvas inside the hero section
+    var hero = document.querySelector('.tools-hero');
+    if (hero) {
+      hero.style.position = 'relative';
+      hero.insertBefore(c, hero.firstChild);
+    }
+    
+    window.addEventListener('resize',resize);
+    document.addEventListener('mousemove',function(e){
+      var rect = c.getBoundingClientRect();
+      MOUSE.x=e.clientX - rect.left;
+      MOUSE.y=e.clientY - rect.top;
+    });
+    document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
+    resize();draw();
+  })();
+  </script>
+
+</body>
+</html>
+
