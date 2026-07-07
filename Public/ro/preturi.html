@@ -213,6 +213,7 @@
         <a href="./" data-i18n="nav.home">Acasă</a>
         <a href="unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
         <a href="preturi" class="active" data-i18n="nav.price">Preț</a>
+        <a href="https://doc-inspector.lemonsqueezy.com/billing" target="_blank" data-i18n="nav.manage" style="font-weight:600;">Gestionare Abonament</a>
         <a href="ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
         <a href="rapoarte-feedback" data-i18n="nav.reports">Rapoarte &amp; Feedback</a>
         <a href="blog" data-i18n="nav.blog">Blog</a>
@@ -321,6 +322,10 @@
           <div class="plan-period" id="period-pro" data-i18n="price.perMonth">Pe Lună</div>
           <div class="plan-disclaimer" data-i18n="price.pro.disclaimer">Cea mai bună opțiune pentru cazuri active și echipe.</div>
 
+          <div class="quantity-selector" style="text-align: center; margin-bottom: 15px;">
+            <label for="pro-qty" style="font-size: 0.9rem; margin-right: 8px; color: var(--text-dim);" data-i18n="price.qty">Licențe:</label>
+            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 60px; padding: 6px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; text-align: center; outline: none;" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98"
               id="btn-pro" class="btn btn-primary lemonsqueezy-button" data-i18n="btn.goPro">Alege Pro</a>
@@ -349,6 +354,11 @@
         </article>
 
       </div><!-- /pricing-grid -->
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <p style="margin-bottom: 1rem; color: var(--text-dim);" data-i18n="price.manage.desc">Ai deja un abonament sau dorești să modifici numărul de licențe?</p>
+        <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn" style="background: transparent; border: 1px solid var(--border); color: var(--text-white);" target="_blank" rel="noopener" data-i18n="price.manage.btn">Gestionare Abonament</a>
+      </div>
 
       <!-- LIMITS DETAIL SECTION -->
       <div style="margin-top: 5rem; text-align: center;">
@@ -439,7 +449,9 @@
     document.getElementById('price-pro').textContent    = prices[billing].pro;
     document.getElementById('period-pro').textContent   = periodText;
     document.getElementById('btn-basic').href = urls[billing].basic;
-    document.getElementById('btn-pro').href   = urls[billing].pro;
+    const qtyInput = document.getElementById('pro-qty');
+    const qty = (qtyInput && qtyInput.value > 1) ? "?quantity=" + qtyInput.value : "";
+    document.getElementById('btn-pro').href   = urls[billing].pro + qty;
   }
 
   document.querySelectorAll('#billingToggle button').forEach(btn => {
