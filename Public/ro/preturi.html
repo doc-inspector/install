@@ -325,9 +325,9 @@
           <div class="plan-period" id="period-pro" data-i18n="price.perMonth">Pe Lună</div>
           <div class="plan-disclaimer" data-i18n="price.pro.disclaimer">Cea mai bună opțiune pentru cazuri active și echipe.</div>
 
-          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.25); padding: 8px 12px 8px 18px; border-radius: 50px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);">
-            <label for="pro-qty" style="font-weight: 700; color: #c4b5fd; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="price.qty">Cantitate</label>
-            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 70px; padding: 6px; border-radius: 20px; background: rgba(10,22,40,0.8); border: 1px solid rgba(167,139,250,0.4); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#a78bfa'; this.style.boxShadow='0 0 12px rgba(167,139,250,0.4)'" onblur="this.style.borderColor='rgba(167,139,250,0.4)'; this.style.boxShadow='none'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); padding: 8px 12px 8px 18px; border-radius: 50px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);">
+            <label for="pro-qty" style="font-weight: 700; color: var(--cyan-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="price.qty">Cantitate</label>
+            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 70px; padding: 6px; border-radius: 20px; background: rgba(10,22,40,0.8); border: 1px solid rgba(6,182,212,0.4); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='var(--cyan)'; this.style.boxShadow='0 0 12px rgba(6,182,212,0.4)'" onblur="this.style.borderColor='rgba(6,182,212,0.4)'; this.style.boxShadow='none'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
           </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98"
@@ -379,9 +379,9 @@
             <tbody>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <td style="padding: 12px 15px; font-weight: 600; color: var(--text-white);" data-i18n="price.limits.web">Unelte Online (Web)</td>
-                <td style="padding: 12px 15px;" data-i18n="price.limits.web.free">100 fișiere / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max 100 MB per fișier<br>(Limitat de cota zilnică)</span></td>
-                <td style="padding: 12px 15px;" data-i18n="price.limits.web.basic">1,000 fișiere / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max 200 MB per fișier<br>(Limitat de cota zilnică)</span></td>
-                <td style="padding: 12px 15px; color: var(--cyan); font-weight: 600;" data-i18n="price.limits.web.pro">Fișiere nelimitate / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max. 1.300 fișiere per rulare <strong>(Rulări nelimitate)</strong> (200 MB/fișier)</span></td>
+                <td style="padding: 12px 15px;" data-i18n="price.limits.web.free">100 fișiere / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max 100 MB/fișier (Total 2 GB/rulare)<br>(Limitat de cota zilnică)</span></td>
+                <td style="padding: 12px 15px;" data-i18n="price.limits.web.basic">1,000 fișiere / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max 200 MB/fișier (Total 4 GB/rulare)<br>(Limitat de cota zilnică)</span></td>
+                <td style="padding: 12px 15px; color: var(--cyan); font-weight: 600;" data-i18n="price.limits.web.pro">Fișiere nelimitate / zi<br><span style="font-size: 0.8rem; color: var(--text-muted);">Max. 1.300 fișiere per rulare <strong>(Rulări nelimitate)</strong><br>Max 200 MB/fișier (Total 4 GB/rulare)</span></td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <td style="padding: 12px 15px; font-weight: 600; color: var(--text-white);" data-i18n="price.limits.desktop">Aplicație Desktop (Windows)</td>
