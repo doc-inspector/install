@@ -2320,7 +2320,7 @@ async function startProcessing() {
   fd.append('options',    JSON.stringify(gatherOptions()));
   try {
     document.getElementById('rSub').innerHTML = 'Sending ' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + ' to server...';
-    const resp = await fetch('https://direct-api.doc-inspector.com/api/pdfa-archival', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
+    const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
     if (!resp.ok) {
       let m = 'Server error.';
       try { const j = await resp.json(); m = j.error || m; } catch(_) {}

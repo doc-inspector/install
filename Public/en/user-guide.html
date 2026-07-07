@@ -813,6 +813,7 @@
       
       
       
+      
       <div class="kb-unified-container">
         
         <!-- MODULE 1 -->
@@ -826,169 +827,168 @@
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🧹</div>
-                <h3 class="kb-tool-name">Sanitize Metadata</h3>
+                <h3 class="kb-tool-name">Sanitize PDF Metadata</h3>
               </div>
-              <p class="kb-tool-text">Hidden metadata can leak sensitive info. This tool deeply sanitizes the file structure, stripping all hidden metadata tags.</p>
+              <p class="kb-tool-text">Recursively scans your entire folder structure to strip hidden XMP/RDF properties, GPS geotags, authors, and revision histories. Supports batch execution alongside other tools, processing files one by one and preserving the original nesting structure. Failed files are isolated in the 'error' folder.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-sanitize-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-sanitize-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/sanitize-pdf-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/sanitize-pdf-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🛡️</div>
-                <h3 class="kb-tool-name">Add Watermark</h3>
+                <h3 class="kb-tool-name">Add Watermark to PDF</h3>
               </div>
-              <p class="kb-tool-text">Protects your intellectual property by applying a permanent text watermark across all pages.</p>
+              <p class="kb-tool-text">Embeds permanent diagonal text watermarks directly into the PDF content stream to prevent unauthorized redistribution. Processes multi-level directory trees in batch while keeping folder structures intact. Runs sequentially after other active operations. Failed items are isolated in the 'error' directory.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-add-watermark" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-add-watermark" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/add-watermark-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/add-watermark-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🔒</div>
-                <h3 class="kb-tool-name">Encrypt PDF</h3>
+                <h3 class="kb-tool-name">Encrypt PDF with AES-256</h3>
               </div>
-              <p class="kb-tool-text">Secures highly sensitive files using military-grade AES-256 encryption.</p>
+              <p class="kb-tool-text">Protects sensitive documents using secure military-grade AES-256 bit encryption. Define granular permissions for printing, editing, and text copying. Executes as the final stage of the batch processing pipeline, running concurrently after other operations have finalized. Keeps folder structure intact; error files go to the 'error' folder.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/encrypt-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">⬛</div>
-                <h3 class="kb-tool-name">Redact Text</h3>
+                <h3 class="kb-tool-name">Redact Sensitive Text</h3>
               </div>
-              <p class="kb-tool-text">Permanently erases specific words or names from a document.</p>
+              <p class="kb-tool-text">Permanently erases private keywords, personal information, or specific names from the text and OCR layers of the PDF, flattening the document to make it irreversible. Can be chained in batch with pre-conversions or watermarking, executing sequentially. Original folder structures are preserved; failed items are isolated in 'error'.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-redact-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-redact-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/redact-pdf-text" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/redact-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🔨</div>
-                <h3 class="kb-tool-name">Flatten PDF</h3>
+                <h3 class="kb-tool-name">Flatten PDF Forms & Layers</h3>
               </div>
-              <p class="kb-tool-text">Converts interactive PDFs into a static, image-only format.</p>
+              <p class="kb-tool-text">Converts interactive form fields, checkboxes, digital signatures, and layered annotations into static, non-editable background content. Protects submissions from tampering. Executes sequentially alongside metadata sanitization or other active batch operations. Preserves nested folder trees; invalid files go to the 'error' folder.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/flatten-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🩺</div>
-                <h3 class="kb-tool-name">Repair PDF</h3>
+                <h3 class="kb-tool-name">Repair & Rebuild PDF</h3>
               </div>
-              <p class="kb-tool-text">Fixes corrupted, broken, or unopenable PDFs.</p>
+              <p class="kb-tool-text">Reconstructs corrupted, broken, or unopenable PDFs from their raw binary structure, recovering cross-references and page trees. Includes integrated Smart OCR to handle scanned pages automatically. Runs sequentially as the initial recovery step in the batch pipeline. Preserves folder tree; unrecoverable items go to 'error'.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-repair-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-repair-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/repair-corrupt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/repair-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">✍️</div>
-                <h3 class="kb-tool-name">Remove Signatures</h3>
+                <h3 class="kb-tool-name">Remove Digital Signatures</h3>
               </div>
-              <p class="kb-tool-text">Strips cryptographic digital signatures from a PDF.</p>
+              <p class="kb-tool-text">Strips cryptographic signature objects and certificate-based restrictions from PDFs to allow merging or editing. The visual layout remains completely untouched. Runs concurrently as part of the batch pipeline, executing before redaction or sanitization. Preserves folder hierarchy; errors are logged and isolated in 'error'.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-remove-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-remove-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/remove-digital-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/remove-pdf-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🔄</div>
-                <h3 class="kb-tool-name">Convert to PDF</h3>
+                <h3 class="kb-tool-name">Convert Any Format to PDF</h3>
               </div>
-              <p class="kb-tool-text">Transforms Word documents, Excel spreadsheets, and Images into standard PDFs automatically.</p>
+              <p class="kb-tool-text">Transforms Word documents, Excel spreadsheets, PowerPoint presentations, and images into clean, standard PDFs. Excel files get automatic Fit-to-Page scaling. Can be chained in batch with active operations (like watermarking) that execute sequentially on the resulting PDFs. Keeps folder structure; failed jobs go to 'error'.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/convert-to-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">👁️</div>
-                <h3 class="kb-tool-name">Standalone OCR</h3>
+                <h3 class="kb-tool-name">OCR Text Extraction</h3>
               </div>
-              <p class="kb-tool-text">Extracts raw text from images or scanned documents.</p>
+              <p class="kb-tool-text">Applies high-accuracy Tesseract OCR to scan image files and image-only PDFs, making all embedded text searchable and copyable. Supports English, Romanian, and Russian. Can be executed in batch, processing multiple files one after another, maintaining the original directory tree. Unreadable items are isolated in 'error'.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-standalone-ocr" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-standalone-ocr" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/ocr-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/repair-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🗑️</div>
                 <h3 class="kb-tool-name">Secure File Shredder</h3>
               </div>
-              <p class="kb-tool-text">Permanently deletes files from your hard drive so they cannot be recovered.</p>
+              <p class="kb-tool-text">Permanently wipes files from your local hard drive using the military DoD 5220.22-M multi-pass overwrite standard, making recovery mathematically impossible. Fully offline desktop operation ensuring total data privacy. Runs locally on your workstation; no network calls or remote servers are involved.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-file-shredder" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-file-shredder" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Download App
                 </a>
               </div>
@@ -1009,48 +1009,47 @@
                 <div class="kb-tool-icon">📄</div>
                 <h3 class="kb-tool-name">PDF Bundle Summary</h3>
               </div>
-              <p class="kb-tool-text">A quick, printable cover sheet that lists all PDFs in a folder.</p>
+              <p class="kb-tool-text">Generates a clean, printable PDF cover sheet listing every PDF in a directory tree — documenting file names, page counts, sizes, and timestamps. Essential for legal submissions, audits, and case indexing. Runs offline on your desktop workstation, protecting sensitive file records from cloud exposure.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-bundle-summary" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-bundle-summary" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Download App
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">📊</div>
-                <h3 class="kb-tool-name">Advanced Borderou</h3>
+                <h3 class="kb-tool-name">Advanced Borderou Report</h3>
               </div>
-              <p class="kb-tool-text">A highly detailed inventory spreadsheet containing forensic metadata.</p>
+              <p class="kb-tool-text">Creates a detailed forensic Excel spreadsheet inventory of your document collections, generating cryptographic MD5 hashes for every file to verify integrity. Scans subdirectories recursively to catalog paths, page counts, authors, and metadata. Operates completely locally inside the secure desktop sandbox.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-advanced-borderou" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-advanced-borderou" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Download App
                 </a>
               </div>
-            </div>\n
+            </div>
+
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🗂️</div>
                 <h3 class="kb-tool-name">Folder Evidence Report</h3>
               </div>
-              <p class="kb-tool-text">Recursively scans complex folder structures to map out every single file.</p>
+              <p class="kb-tool-text">Traverses deep, nested folder hierarchies recursively to build a complete architectural tree directory report of all files (PDF, Word, Excel, images) with exact paths, file sizes, and write times. Ideal for IT compliance audits and litigation discovery. Runs entirely offline on the desktop application.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-folder-evidence" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-folder-evidence" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="download" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Download App
                 </a>
               </div>
@@ -1069,16 +1068,15 @@
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
                 <div class="kb-tool-icon">🏛️</div>
-                <h3 class="kb-tool-name">PDF/A Archival Converter (ISO 19005)</h3>
+                <h3 class="kb-tool-name">PDF/A Archival (ISO 19005)</h3>
               </div>
-              <p class="kb-tool-text">Standardizes any document into a strict, court-admissible PDF/A format.</p>
+              <p class="kb-tool-text">Converts Office documents, images, and standard PDFs to strictly compliant ISO 19005 PDF/A-2b format. Automatically embeds all fonts, strips dynamic scripts/encryption, and runs Smart OCR on scanned pages. Recursively preserves directory structures in the output ZIP, isolating any failed items in the 'error' folder. Runs sequentially in batch with other options.</p>
               
-              <!-- The two buttons requested by user -->
               <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
-                <a href="/en/user-guide-iso-19005-pdfa-archiving" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                <a href="user-guide-iso-19005-pdfa-archiving" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
                   More Detailed
                 </a>
-                <a href="/en/tools/iso-19005-pdfa-archiver" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <a href="tools/convert-to-pdfa-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
                   Open Tool
                 </a>
               </div>
@@ -1087,7 +1085,9 @@
         </section>
 
       </div>
-  \n\n      <!-- FEATURE COMPARISON TABLE                                -->
+  
+
+      <!-- FEATURE COMPARISON TABLE                                -->
       <!-- ═══════════════════════════════════════════════════════ -->
       <div class="compare-section" id="compare">
         <header class="section-header">
