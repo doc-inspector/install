@@ -272,9 +272,9 @@
           <div class="plan-period" id="period-basic" data-i18n="price.perMonth">Per Month</div>
           <div class="plan-disclaimer" data-i18n="price.basic.disclaimer">Cancel or upgrade any time.</div>
 
-          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px 15px; border-radius: 12px;">
-            <label for="basic-qty" style="font-weight: 600; color: var(--text-white);" data-i18n="price.qty">Licenses:</label>
-            <input type="number" id="basic-qty" value="1" min="1" max="100" style="width: 70px; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); padding: 8px 12px 8px 18px; border-radius: 50px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);">
+            <label for="basic-qty" style="font-weight: 700; color: var(--cyan-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="price.qty">Quantity</label>
+            <input type="number" id="basic-qty" value="1" min="1" max="100" style="width: 70px; padding: 6px; border-radius: 20px; background: rgba(10,22,40,0.8); border: 1px solid rgba(6,182,212,0.4); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='var(--cyan)'; this.style.boxShadow='0 0 12px rgba(6,182,212,0.4)'" onblur="this.style.borderColor='rgba(6,182,212,0.4)'; this.style.boxShadow='none'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
           </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/ae3bba3b-6d09-4cbf-921a-460d843cbc28"
@@ -325,9 +325,9 @@
           <div class="plan-period" id="period-pro" data-i18n="price.perMonth">Per Month</div>
           <div class="plan-disclaimer" data-i18n="price.pro.disclaimer">Best option for active cases and teams.</div>
 
-          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px 15px; border-radius: 12px;">
-            <label for="pro-qty" style="font-weight: 600; color: var(--text-white);" data-i18n="price.qty">Licenses:</label>
-            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 70px; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.25); padding: 8px 12px 8px 18px; border-radius: 50px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);">
+            <label for="pro-qty" style="font-weight: 700; color: #c4b5fd; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="price.qty">Quantity</label>
+            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 70px; padding: 6px; border-radius: 20px; background: rgba(10,22,40,0.8); border: 1px solid rgba(167,139,250,0.4); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#a78bfa'; this.style.boxShadow='0 0 12px rgba(167,139,250,0.4)'" onblur="this.style.borderColor='rgba(167,139,250,0.4)'; this.style.boxShadow='none'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
           </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98"
@@ -358,7 +358,7 @@
       </div><!-- /pricing-grid -->
 
       <div style="max-width: 600px; margin: 4rem auto 0; text-align: center; background: linear-gradient(145deg, rgba(6,182,212,0.1) 0%, rgba(0,0,0,0.3) 100%); border: 1px solid rgba(6,182,212,0.3); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 10px 30px -10px rgba(6,182,212,0.1);">
-        <p style="margin-bottom: 1.5rem; color: var(--text-white); font-size: 1.1rem; font-weight: 500;" data-i18n="price.manage.desc">Already have a subscription or need to change your license quantity?</p>
+        <p style="margin-bottom: 1.5rem; color: var(--text-white); font-size: 1.1rem; font-weight: 500;" data-i18n="price.manage.desc">Already have a subscription, need to change your license quantity, or view payment details &amp; invoices?</p>
         <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn btn-primary" style="background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.5); color: #fff; padding: 12px 28px; font-weight: 600;" target="_blank" rel="noopener" data-i18n="price.manage.btn">Manage Subscription</a>
       </div>
 
