@@ -213,7 +213,6 @@
         <a href="./" data-i18n="nav.home">Home</a>
         <a href="tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="price" class="active" data-i18n="nav.price">Price</a>
-        <a href="https://doc-inspector.lemonsqueezy.com/billing" target="_blank" data-i18n="nav.manage" style="font-weight:600;">Manage Subscription</a>
         <a href="user-guide" data-i18n="nav.guide">User Guide</a>
         <a href="reports-and-feedback" data-i18n="nav.reports">Reports &amp; Feedback</a>
         <a href="blog" data-i18n="nav.blog">Blog</a>
@@ -273,6 +272,10 @@
           <div class="plan-period" id="period-basic" data-i18n="price.perMonth">Per Month</div>
           <div class="plan-disclaimer" data-i18n="price.basic.disclaimer">Cancel or upgrade any time.</div>
 
+          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px 15px; border-radius: 12px;">
+            <label for="basic-qty" style="font-weight: 600; color: var(--text-white);" data-i18n="price.qty">Licenses:</label>
+            <input type="number" id="basic-qty" value="1" min="1" max="100" style="width: 70px; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/ae3bba3b-6d09-4cbf-921a-460d843cbc28"
               id="btn-basic" class="btn btn-outline lemonsqueezy-button" data-i18n="btn.startBasic">Start with Basic</a>
@@ -322,9 +325,9 @@
           <div class="plan-period" id="period-pro" data-i18n="price.perMonth">Per Month</div>
           <div class="plan-disclaimer" data-i18n="price.pro.disclaimer">Best option for active cases and teams.</div>
 
-          <div class="quantity-selector" style="text-align: center; margin-bottom: 15px;">
-            <label for="pro-qty" style="font-size: 0.9rem; margin-right: 8px; color: var(--text-dim);" data-i18n="price.qty">Licenses:</label>
-            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 60px; padding: 6px; border-radius: 6px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; text-align: center; outline: none;" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
+          <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 8px 15px; border-radius: 12px;">
+            <label for="pro-qty" style="font-weight: 600; color: var(--text-white);" data-i18n="price.qty">Licenses:</label>
+            <input type="number" id="pro-qty" value="1" min="1" max="100" style="width: 70px; padding: 8px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 1rem; font-weight: 700; text-align: center; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" oninput="const act = document.querySelector('#billingToggle button.active'); if(act) act.click();">
           </div>
           <div class="plan-cta">
             <a href="https://doc-inspector.lemonsqueezy.com/checkout/buy/4194969d-cd17-4540-9c1d-b91de3220f98"
@@ -354,9 +357,9 @@
 
       </div><!-- /pricing-grid -->
 
-      <div style="text-align: center; margin-top: 3rem;">
-        <p style="margin-bottom: 1rem; color: var(--text-dim);" data-i18n="price.manage.desc">Already have a subscription or need to change your license quantity?</p>
-        <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn" style="background: transparent; border: 1px solid var(--border); color: var(--text-white);" target="_blank" rel="noopener" data-i18n="price.manage.btn">Manage Subscription</a>
+      <div style="max-width: 600px; margin: 4rem auto 0; text-align: center; background: linear-gradient(145deg, rgba(6,182,212,0.1) 0%, rgba(0,0,0,0.3) 100%); border: 1px solid rgba(6,182,212,0.3); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 10px 30px -10px rgba(6,182,212,0.1);">
+        <p style="margin-bottom: 1.5rem; color: var(--text-white); font-size: 1.1rem; font-weight: 500;" data-i18n="price.manage.desc">Already have a subscription or need to change your license quantity?</p>
+        <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn btn-primary" style="background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.5); color: #fff; padding: 12px 28px; font-weight: 600;" target="_blank" rel="noopener" data-i18n="price.manage.btn">Manage Subscription</a>
       </div>
 
       <!-- LIMITS DETAIL SECTION -->
@@ -447,10 +450,12 @@
     document.getElementById('period-basic').textContent = periodText;
     document.getElementById('price-pro').textContent    = prices[billing].pro;
     document.getElementById('period-pro').textContent   = periodText;
-    document.getElementById('btn-basic').href = urls[billing].basic;
-    const qtyInput = document.getElementById('pro-qty');
-    const qty = (qtyInput && qtyInput.value > 1) ? "?quantity=" + qtyInput.value : "";
-    document.getElementById('btn-pro').href   = urls[billing].pro + qty;
+    const bQtyInput = document.getElementById('basic-qty');
+    const bQty = (bQtyInput && bQtyInput.value > 1) ? "?quantity=" + bQtyInput.value : "";
+    document.getElementById('btn-basic').href = urls[billing].basic + bQty;
+    const pQtyInput = document.getElementById('pro-qty');
+    const pQty = (pQtyInput && pQtyInput.value > 1) ? "?quantity=" + pQtyInput.value : "";
+    document.getElementById('btn-pro').href   = urls[billing].pro + pQty;
   }
 
   document.querySelectorAll('#billingToggle button').forEach(btn => {
