@@ -1414,11 +1414,11 @@ hr.plan-divider { border: none; border-top: 1px solid var(--border); margin: 1.6
 
 /* Morphing background mesh — cyan geometric grid */
 .cyber-grid {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute; top: 0; left: 0; right: 0; height: 700px;
   overflow: hidden; pointer-events: none; z-index: 0;
   perspective: 800px;
-  mask-image: linear-gradient(to bottom, black 0%, black 30%, transparent 85%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 30%, transparent 85%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 .cyber-grid::before {
   content: '';
