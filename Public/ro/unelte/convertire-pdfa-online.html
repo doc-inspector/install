@@ -789,7 +789,7 @@
 
           <div class="tools-grid">
             <!-- PDF/A Archival Converter -->
-            <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
+            <div class="tool-card gsap-card selected" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
               <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
               <div class="tool-header" style="margin-top:.5rem">
@@ -806,7 +806,7 @@
           </div>
 
           <!-- Panouri de opțiuni -->
-                                        <div class="tool-opts open" id="opts-pdfa" style="--brand: #06b6d4;">
+                                                  <div class="tool-opts open" id="opts-pdfa" style="--brand: #06b6d4;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(6,182,212,0.2); margin-bottom:1rem; border-radius:12px;">
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.8rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">🏛️ Setări Arhivare PDF/A (ISO 19005)</div>
 
@@ -841,7 +841,7 @@
                 </div>
               </div>
 
-              <!-- OFFICE SETTINGS (visible for Excel/Word) -->
+              <!-- OFFICE SETTINGS -->
               <div id="pdfa-office-opts" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:none;">
                 <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">📊 Opțiuni Office / Excel</div>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
@@ -855,6 +855,7 @@
               </div>
             </div>
           </div>
+
 
 <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
@@ -1951,8 +1952,8 @@ function renderFiles() {
   updateConvertOptions();
   // Auto-select Convert to PDF tool on subpage load
   setTimeout(() => {
-    const card = document.getElementById('card-to-pdf');
-    if (card && !selectedOps.has('to-pdf')) {
+    const card = document.getElementById('card-pdfa');
+    if (card && !selectedOps.has('pdfa')) {
       card.click();
     }
   }, 100);
@@ -1996,7 +1997,7 @@ function updateConvertOptions() {
   const hasPdfOnlyOps = [...selectedOps].some(op => op !== 'to-pdf' && op !== 'sanitize');
   
   const existingTip = document.getElementById('non-pdf-warning');
-  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('to-pdf')) {
+  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('pdfa')) {
     if (!existingTip) {
       const warningDiv = document.createElement('div');
       warningDiv.id = 'non-pdf-warning';

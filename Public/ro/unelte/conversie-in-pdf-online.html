@@ -808,7 +808,57 @@
           </div>
 
           <!-- Panouri de opțiuni -->
-                              <div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
+                                        <div class="tool-opts " id="opts-pdfa" style="--brand: #06b6d4;">
+            <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(6,182,212,0.2); margin-bottom:1rem; border-radius:12px;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.8rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">🏛️ Setări Arhivare PDF/A (ISO 19005)</div>
+
+              <!-- OCR MODE -->
+              <div class="opt-row" style="margin-bottom:0.8rem;">
+                <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">Recunoaștere Text (OCR)</div>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-smart" checked style="accent-color:var(--brand, var(--cyan))"> 🧠 Smart OCR — se aplică doar pe paginile scanate/imagine (MAI RAPID, Recomandat)
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-force" style="accent-color:var(--brand, var(--cyan))"> ⚡ Force OCR — se aplică pe TOATE paginile, inclusiv pe cele cu text (MAI ÎNCET)
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-none" style="accent-color:var(--brand, var(--cyan))"> 🚫 Fără OCR — omite recunoașterea textului (CEL MAI RAPID, doar pt. documente digitale)
+                </label>
+              </div>
+
+              <!-- OCR QUALITY -->
+              <div class="opt-row" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="pdfa-enhance" style="accent-color:var(--brand, var(--cyan))"> Îmbunătățește acuratețea OCR (pre-procesare pagini — MAI ÎNCET)
+                </label>
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <label for="pdfa-dpi" style="font-size:.82rem; color:#fff;">Rezoluție:</label>
+                  <select id="pdfa-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
+                    <option value="200">200 DPI</option>
+                    <option value="250">250 DPI</option>
+                    <option value="300" selected>300 DPI</option>
+                    <option value="350">350 DPI</option>
+                    <option value="400">400 DPI</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- OFFICE SETTINGS -->
+              <div id="pdfa-office-opts" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:none;">
+                <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">📊 Opțiuni Office / Excel</div>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="pdfa-fit-page" checked style="accent-color:var(--brand, var(--cyan))"> Fit to Page (recomandat pentru tabele Excel mari)
+                </label>
+              </div>
+
+              <!-- INFO BADGE -->
+              <div style="margin-top:1rem; padding:0.75rem; background:rgba(6,182,212,0.06); border:1px solid rgba(6,182,212,0.2); border-radius:8px; font-size:0.78rem; color:rgba(255,255,255,0.6); line-height:1.5;">
+                <strong style="color:#22d3ee;">ℹ️ Standardul ISO 19005:</strong> Toate fonturile sunt încorporate permanent. Scripturile JavaScript, criptarea și link-urile externe sunt eliminate. Documentele vor fi redate identic în următorii 50+ ani. Fișierele care nu pot fi arhivate sunt plasate într-un folder numit <code style="color:#f59e0b;">error</code> cu un jurnal detaliat.
+              </div>
+            </div>
+          </div>
+
+<div class="tool-opts" id="opts-sanitize" style="--brand: #f97316;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
               <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Setări Igienizare</div>
               
@@ -1991,7 +2041,13 @@ async function startProcessing() {
     }
   });
   fd.append('operations', JSON.stringify([...selectedOps]));
-  fd.append('options',    JSON.stringify(gatherOptions()));
+  
+  let finalOpts = gatherOptions();
+  if (typeof getPdfaOptions === 'function') {
+    finalOpts = Object.assign({}, finalOpts, getPdfaOptions());
+  }
+  fd.append('options', JSON.stringify(finalOpts));
+  
   try {
     document.getElementById('rSub').innerHTML = 'Se trimite ' + fileCount + ' fișier' + (fileCount !== 1 ? 'e' : '') + ' pe server...';
     const resp = await fetch('https://direct-api.doc-inspector.com/api/process', { method:'POST', body:fd, headers: {'Bypass-Tunnel-Reminder': 'true'}, credentials: 'include' });
@@ -2592,7 +2648,52 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseleave',function(){MOUSE.x=-999;MOUSE.y=-999;});
     resize();draw();
   })();
-  </script>
+  
+  // PDF/A Smart: Show Office options when Excel/Word files are detected
+  (function() {
+    const fileInput = document.querySelector('input[type="file"]') || document.querySelector('#file-input');
+    const officeOptsDiv = document.getElementById('pdfa-office-opts');
+    if (!fileInput || !officeOptsDiv) return;
+
+    const officeExts = ['.docx', '.doc', '.xlsx', '.xls', '.pptx', '.ppt', '.odt', '.ods'];
+    
+    function checkFiles(files) {
+      const hasOffice = Array.from(files).some(f =>
+        officeExts.some(ext => f.name.toLowerCase().endsWith(ext))
+      );
+      officeOptsDiv.style.display = hasOffice ? 'block' : 'none';
+    }
+
+    fileInput.addEventListener('change', function() { checkFiles(this.files); });
+
+    const dropArea = document.querySelector('.upload-area') || document.querySelector('[data-drop]') || document.body;
+    dropArea.addEventListener('drop', function(e) {
+      if (e.dataTransfer && e.dataTransfer.files) checkFiles(e.dataTransfer.files);
+    });
+  })();
+
+  // Build PDF/A options object before submission
+  function getPdfaOptions() {
+    const ocrSmart = document.getElementById('pdfa-ocr-smart');
+    const ocrForce = document.getElementById('pdfa-ocr-force');
+    const ocrNone  = document.getElementById('pdfa-ocr-none');
+    const enhance  = document.getElementById('pdfa-enhance');
+    const dpi      = document.getElementById('pdfa-dpi');
+    const fitPage  = document.getElementById('pdfa-fit-page');
+
+    let ocrMode = 'smart';
+    if (ocrForce && ocrForce.checked) ocrMode = 'force';
+    if (ocrNone && ocrNone.checked)   ocrMode = 'none';
+
+    return {
+      ocrMode:       ocrMode,
+      rebuildEnhance: enhance ? enhance.checked : false,
+      dpiValue:       dpi ? dpi.value : '300',
+      fitToPage:      fitPage ? fitPage.checked : true
+    };
+  }
+
+</script>
 
 </body>
 </html>
