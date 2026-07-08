@@ -25,3 +25,4 @@ Public/temp*.js
 Public/test*.js
 Public/test*.pdf
 Public/test*.zip
+.env
