@@ -1543,6 +1543,36 @@
           </div>
         </div>
 
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Does batch processing preserve my original folder and subfolder structure?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Yes. Drop an entire folder tree and DocInspector rebuilds the exact same folder and subfolder structure inside a single downloadable ZIP archive — nothing gets flattened or mixed together, however many files or subfolders you process.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Can I convert PDF and Office files to PDF/A for long-term archiving?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Yes. The PDF/A Archival Converter (ISO 19005) prepares PDF, Word and Excel files for long-term digital archiving and acceptance by government portals, e-Justice systems and notaries that reject standard PDFs lacking embedded fonts and archival metadata.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>What happens if a file fails or times out during batch processing?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>DocInspector skips it instead of stopping the whole batch — failed or corrupted files are moved into a separate "error" folder inside the final ZIP, together with a diagnostic report, while the rest of your batch completes normally.</p>
+          </div>
+        </div>
+
       </div><!-- /.hi-faq-list -->
 
       <!-- Still have questions banner -->
@@ -1572,7 +1602,10 @@
     {"@type":"Question","name":"Can I redact (black out) sensitive text in multiple PDF files at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Find & Redact removes the underlying text layer, OCR layer, and annotations — not just a visual overlay — so redacted content can never be recovered. Runs across your whole batch in one pass."}},
     {"@type":"Question","name":"Can I remove digital signatures from a PDF online?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Remove Digital Signatures tool strips signature fields safely without corrupting the rest of the document, and can run on multiple files in the same batch."}},
     {"@type":"Question","name":"Does DocInspector generate a folder audit report with SHA-256 file hashes?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Bundle Report tool scans an entire folder and produces a full inventory — file names, page counts, and SHA-256 hashes for every document — exportable as Excel, PDF or CSV, giving you a verifiable chain-of-custody record most online PDF tools don't offer."}},
-    {"@type":"Question","name":"Can I convert many Word and Excel files to PDF in one batch, for free?","acceptedAnswer":{"@type":"Answer","text":"Yes — Convert to PDF handles DOCX, XLSX, PPTX and image files, processing your whole batch online at once, or unlimited offline with the desktop app."}}
+    {"@type":"Question","name":"Can I convert many Word and Excel files to PDF in one batch, for free?","acceptedAnswer":{"@type":"Answer","text":"Yes — Convert to PDF handles DOCX, XLSX, PPTX and image files, processing your whole batch online at once, or unlimited offline with the desktop app."}},
+    {"@type":"Question","name":"Does batch processing preserve my original folder and subfolder structure?","acceptedAnswer":{"@type":"Answer","text":"Yes. Drop an entire folder tree and DocInspector rebuilds the exact same folder and subfolder structure inside a single downloadable ZIP archive — nothing gets flattened or mixed together, however many files or subfolders you process."}},
+    {"@type":"Question","name":"Can I convert PDF and Office files to PDF/A for long-term archiving?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDF/A Archival Converter (ISO 19005) prepares PDF, Word and Excel files for long-term digital archiving and acceptance by government portals, e-Justice systems and notaries that reject standard PDFs lacking embedded fonts and archival metadata."}},
+    {"@type":"Question","name":"What happens if a file fails or times out during batch processing?","acceptedAnswer":{"@type":"Answer","text":"DocInspector skips it instead of stopping the whole batch — failed or corrupted files are moved into a separate \"error\" folder inside the final ZIP, together with a diagnostic report, while the rest of your batch completes normally."}}
   ]
 }
 </script>

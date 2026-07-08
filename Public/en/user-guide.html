@@ -1412,6 +1412,183 @@
     </div>
   </section>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the online document tools completely free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all browser-based tools are free to use. Free users can process up to 100 files per day. Basic and Pro licenses unlock higher processing limits (up to 1,000 files/day and unlimited files/day respectively)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What file formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The browser tools support PDF, DOCX, XLSX, JPG, PNG, and TIFF for metadata sanitization. Watermark, encrypt, redact, flatten, and repair operations currently support PDF. The Bundle Summary and Folder Evidence tools work with any file type. The desktop application supports all these formats plus full batch processing capabilities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything to use the online tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No installation is required. The online tools run using modern web APIs and a secure VPS sandbox backend. Any modern browser (Chrome, Firefox, Edge, Safari) works. For the full desktop application with advanced features like OCR and recursive folder scanning, a Windows installer is available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my files safe when using DocInspector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The online tools process files in an isolated, secure VPS sandbox, and all files are deleted immediately after download. Your files are never stored or analyzed. The desktop app processes everything locally on your Windows machine with no internet connection required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is DocInspector GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Because both the online tools (which delete files immediately after processing) and the desktop application process files locally or in a temporary isolated environment, there is no permanent data collection or transfer involved. Both approaches are fully GDPR compliant by design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is document metadata and why should I remove it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Document metadata includes hidden information embedded in files — author names, creation dates, GPS coordinates (in images), revision history, software versions, and internal comments. Removing metadata protects privacy, prevents unintended information leakage, and is often required for legal evidence submission and regulatory compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Advanced Borderou?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Advanced Borderou is a detailed inventory report generated as an Excel spreadsheet. It catalogs all files in a selected folder with comprehensive metadata including file names, sizes, types, creation dates, modification dates, SHA-256 hash values, and page counts for documents. It's essential for legal evidence management and compliance auditing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Folder Evidence Report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Folder Evidence Report is a comprehensive Excel-based audit trail that documents the complete directory structure, file integrity hashes, and metadata for all files in a folder tree. It provides a court-ready snapshot of folder contents and is designed for legal evidence management, chain-of-custody documentation, and compliance requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will file format conversions be available in the browser tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "File format conversions including Word to PDF, Excel to PDF, and Image to PDF are currently in active development for the browser tools and will be available in a future update. In the meantime, these conversion features are already fully available in the desktop application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the main differences between Browser Tools and the Desktop App?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser Tools are free, require no installation, and handle core operations like sanitize, rebuild & repair, watermark, encrypt, redact, and flatten for individual files. The Desktop App is a licensed Windows application offering advanced features including OCR, batch processing of entire folder trees, recursive scanning, format conversions, secure file deletion (DoD-grade shredder), and full system auditing. See the comparison table above for a detailed breakdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I process multiple PDF files at once in the browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All browser-based tools support batch processing — you can upload up to 100 files simultaneously and apply any operation to all of them in a single run. Free users get 100 files/day; Pro license users have no daily limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply multiple operations to the same files in one session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DocInspector supports a multi-operation pipeline — you can select several operations (e.g. sanitize metadata + add watermark + encrypt) and apply all of them to your batch of files in a single run, without re-uploading anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the repair tool make scanned PDF text selectable and copiable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Beyond fixing structural corruption, the repair tool applies OCR (Optical Character Recognition) to scanned or image-based PDFs. This converts visual content into real, searchable, selectable, and copiable text — all in one step, without a separate OCR tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My PDF opens fine but I cannot select or copy any text — what do I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This happens when a PDF was created from a scan or a photo — the text is an image, not real characters. Use the Repair & Rebuild tool with OCR enabled: it will convert that image-text into real, copiable text without needing any separate software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Redact tool work? Is redaction permanent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, redaction is permanent and forensically sound. The tool finds keywords or regions you specify and replaces them with solid black bars, then flattens the PDF so the hidden content cannot be extracted or recovered. This is suitable for legal, compliance, and court submission use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What encryption does the Encrypt PDF tool use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Encrypt PDF tool applies AES-256 encryption with a password you set. It supports both user password (required to open the file) and owner password (controls printing, copying, and editing permissions). The encryption is fully compatible with Adobe Acrobat and all standard PDF readers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Flatten PDF and Repair PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flatten PDF converts all interactive elements (form fields, annotations, signatures) into static content — the visual appearance is preserved but the elements become non-editable. Repair PDF fixes structural corruption in the file itself (broken cross-reference tables, truncated streams) and optionally applies OCR to make text selectable. They solve different problems and can be combined in the pipeline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between the Free plan and the Pro license?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Free plan allows up to 100 files per day with full access to all browser tools. The Basic license raises the limit to 1,000 files/day. The Pro license removes all daily limits (unlimited files/day) and unlocks priority processing. All plans use the same tools with no feature restrictions — only processing volume differs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many devices can I activate my license on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each DocInspector license allows 2 activations: one for the website (any browser) and one for the Desktop App (Windows PC). If you want to switch to a different computer, deactivate the old device first from the license panel, then activate on the new machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Desktop App require an internet connection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All document processing is done 100% locally on your machine. An internet connection is only required to verify your license. However, if your internet connection drops, the app features a 24-hour offline bypass, allowing you to continue your work without interruption for a full day. Your files and data never leave your local network."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I manage my subscription, licenses, and invoices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You have full control over your subscription through our Customer Portal, accessible by clicking \"Manage Subscription\" on the Pricing or Online Tools pages. In the portal, you can view your active subscriptions, current license keys, and billing history. To add licenses (e.g., for new team members), simply increase the subscription quantity. To move a license, click on your License Key and deactivate an old device to free up a slot. Invoices are generated automatically and emailed to you on your billing date (which starts on the date of your first purchase), and can also be downloaded anytime from the portal. If you upgrade your quantity mid-cycle, you will only be charged a prorated amount for the remaining days of that month or year."
+      }
+    }
+  ]
+}
+</script>
+
   <!-- FOOTER -->
   <footer class="site-footer">
   <div class="container">

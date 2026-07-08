@@ -1512,6 +1512,36 @@
             <p>Da — Convert to PDF procesează DOCX, XLSX, PPTX și fișiere imagine, întregul lot online deodată, sau nelimitat offline cu aplicația desktop.</p>
           </div>
         </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Structura originală de foldere și subfoldere este păstrată la procesarea în lot?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Da. Încarcă un întreg folder cu subfoldere, iar DocInspector reconstruiește exact aceeași structură de foldere și subfoldere într-o singură arhivă ZIP descărcabilă — nimic nu se amestecă sau se aplatizează, indiferent câte fișiere sau subfoldere procesezi.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Pot converti fișiere PDF și Office în PDF/A pentru arhivare pe termen lung?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>Da. Convertorul PDF/A Archival (ISO 19005) pregătește fișiere PDF, Word și Excel pentru arhivare digitală pe termen lung și acceptare de către portaluri guvernamentale, sisteme e-Justice și notari care resping PDF-urile standard fără fonturi încorporate și metadate de arhivare.</p>
+          </div>
+        </div>
+
+        <div class="hi-faq-item">
+          <button class="hi-faq-q" onclick="hiFaq(this)">
+            <span>Ce se întâmplă dacă un fișier eșuează sau depășește timpul limită în timpul procesării în lot?</span>
+            <span class="hi-faq-icon">+</span>
+          </button>
+          <div class="hi-faq-a">
+            <p>DocInspector îl omite în loc să oprească întregul lot — fișierele eșuate sau corupte sunt mutate într-un folder separat "error" în arhiva ZIP finală, împreună cu un raport de diagnostic, în timp ce restul lotului se finalizează normal.</p>
+          </div>
+        </div>
       </div>
       <div style="margin-top:2.5rem;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.2);border-radius:18px;padding:1.6rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <div>
@@ -1538,7 +1568,10 @@
     {"@type":"Question","name":"Pot redacta (acoperi) text sensibil în mai multe fișiere PDF deodată?","acceptedAnswer":{"@type":"Answer","text":"Da. Find & Redact elimină stratul de text de bază, stratul OCR și adnotările — nu doar un overlay vizual — astfel încât conținutul redactat nu poate fi niciodată recuperat. Rulează pe tot lotul de fișiere într-o singură trecere."}},
     {"@type":"Question","name":"Pot elimina semnăturile digitale dintr-un PDF online?","acceptedAnswer":{"@type":"Answer","text":"Da, unealta Remove Digital Signatures elimină în siguranță câmpurile de semnătură fără a corupe restul documentului și poate rula pe mai multe fișiere în același lot."}},
     {"@type":"Question","name":"DocInspector generează un raport de audit al folderului cu hash-uri SHA-256?","acceptedAnswer":{"@type":"Answer","text":"Da. Bundle Report scanează un întreg folder și produce un inventar complet — nume de fișiere, număr de pagini și hash-uri SHA-256 pentru fiecare document — exportabil ca Excel, PDF sau CSV, oferindu-ți o dovadă verificabilă de lanț de custodie pe care majoritatea uneltelor online gratuite nu o oferă."}},
-    {"@type":"Question","name":"Pot converti mai multe fișiere Word și Excel în PDF într-un singur lot, gratuit?","acceptedAnswer":{"@type":"Answer","text":"Da — Convert to PDF procesează DOCX, XLSX, PPTX și fișiere imagine, întregul lot online deodată, sau nelimitat offline cu aplicația desktop."}}
+    {"@type":"Question","name":"Pot converti mai multe fișiere Word și Excel în PDF într-un singur lot, gratuit?","acceptedAnswer":{"@type":"Answer","text":"Da — Convert to PDF procesează DOCX, XLSX, PPTX și fișiere imagine, întregul lot online deodată, sau nelimitat offline cu aplicația desktop."}},
+    {"@type":"Question","name":"Structura originală de foldere și subfoldere este păstrată la procesarea în lot?","acceptedAnswer":{"@type":"Answer","text":"Da. Încarcă un întreg folder cu subfoldere, iar DocInspector reconstruiește exact aceeași structură de foldere și subfoldere într-o singură arhivă ZIP descărcabilă — nimic nu se amestecă sau se aplatizează, indiferent câte fișiere sau subfoldere procesezi."}},
+    {"@type":"Question","name":"Pot converti fișiere PDF și Office în PDF/A pentru arhivare pe termen lung?","acceptedAnswer":{"@type":"Answer","text":"Da. Convertorul PDF/A Archival (ISO 19005) pregătește fișiere PDF, Word și Excel pentru arhivare digitală pe termen lung și acceptare de către portaluri guvernamentale, sisteme e-Justice și notari care resping PDF-urile standard fără fonturi încorporate și metadate de arhivare."}},
+    {"@type":"Question","name":"Ce se întâmplă dacă un fișier eșuează sau depășește timpul limită în timpul procesării în lot?","acceptedAnswer":{"@type":"Answer","text":"DocInspector îl omite în loc să oprească întregul lot — fișierele eșuate sau corupte sunt mutate într-un folder separat \"error\" în arhiva ZIP finală, împreună cu un raport de diagnostic, în timp ce restul lotului se finalizează normal."}}
   ]
 }
 </script>
