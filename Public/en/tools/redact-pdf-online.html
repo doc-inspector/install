@@ -880,7 +880,7 @@
         <a href="../reports-and-feedback">Reports & Feedback</a>
         <a href="../blog">Blog</a>
         <a href="../contact">Contact</a>
-        <a href="../download" class="btn btn-primary btn-sm mobile-only">Download App</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
       <div class="nav-actions">
         <div class="lang-dropdown">
@@ -894,7 +894,7 @@
             <a href="../../ru/instrumenty/skryt-dannye-v-pdf" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../download" class="btn btn-primary btn-sm desktop-only">Download App</a>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download App</a>
       </div>
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -2361,7 +2361,7 @@ function updateConvertOptions() {
   const hasPdfOnlyOps = [...selectedOps].some(op => op !== 'to-pdf' && op !== 'sanitize');
   
   const existingTip = document.getElementById('non-pdf-warning');
-  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('to-pdf')) {
+  if (hasNonPdf && hasPdfOnlyOps && !selectedOps.has('to-pdf') && !selectedOps.has('pdfa')) {
     if (!existingTip) {
       const warningDiv = document.createElement('div');
       warningDiv.id = 'non-pdf-warning';
@@ -2409,7 +2409,7 @@ function gatherOptions() {
     imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
     rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
     rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || false,
-    dpiValue:         document.getElementById('rebuild-dpi')?.value || '300',
+    dpiValue:         (document.getElementById('rebuild-dpi') || document.getElementById('pdfa-dpi'))?.value || '300',
     bundleAdvanced:   document.getElementById('bundle-advanced')?.checked || false,
     timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
     timeoutValue:     parseInt(document.getElementById('global-timeout-val')?.value || '300'),

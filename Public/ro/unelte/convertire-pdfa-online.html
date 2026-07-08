@@ -2119,7 +2119,7 @@ return {
     imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
     rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
     rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || false,
-    dpiValue:         document.getElementById('rebuild-dpi')?.value || '300',
+    dpiValue:         (document.getElementById('rebuild-dpi') || document.getElementById('pdfa-dpi'))?.value || '300',
     bundleAdvanced:   document.getElementById('bundle-advanced')?.checked || false,
     timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
     timeoutValue:     parseInt(document.getElementById('global-timeout-val')?.value || '300'),
@@ -2672,6 +2672,13 @@ window.addEventListener('beforeunload', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Auto-select PDF/A card on dedicated page
+  setTimeout(() => {
+    const pdfaCard = document.getElementById('card-pdfa');
+    if (pdfaCard && !selectedOps.has('pdfa')) {
+      toggleTool({}, 'pdfa');
+    }
+  }, 100);
   const addBtn = document.getElementById('btn-add-kw');
   const input = document.getElementById('redact-kw-input');
   if (addBtn && input) {
