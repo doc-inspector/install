@@ -1392,7 +1392,7 @@
 
           <div class="tool-opts" id="opts-to-pdf" style="--brand: #a855f7;">
             <div class="tool-opts-inner" style="background:rgba(0,0,0,0.2); padding:1rem; border:1px solid rgba(255,255,255,0.05); margin-bottom:1rem;">
-              <div style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Convert to PDF Settings</div>
+              <div class="convert-opts-title" style="font-size:0.85rem; font-weight:800; color:var(--brand, var(--cyan)); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.4rem;">Convert to PDF Settings</div>
               
               <!-- Excel-only options -->
               <div class="opts-sec-excel" style="display:none; margin-bottom:0.8rem;">
@@ -1975,7 +1975,7 @@ function toggleTool(e, name) {
   }
   const card = document.getElementById('card-' + name);
   addRipple(e, card);
-  const opts = document.getElementById('opts-' + name);
+  let opts = name === 'pdfa' ? document.getElementById('opts-to-pdf') : document.getElementById('opts-' + name);
   const dz = document.getElementById('dropZone');
   const fi = document.getElementById('fileInput');
   const dzIcon = document.getElementById('dzIcon');
@@ -2096,8 +2096,27 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
+    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
+    if (selectedOps.has(name)) {
+      card.insertAdjacentElement('afterend', opts);
+      const titleEl = opts.querySelector('.convert-opts-title');
+      if (titleEl) {
+        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
+        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
+        if (name === 'pdfa') {
+          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
+        } else {
+          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
+        }
+      }
+    }
+  }
+
   updateSidebar();
   updateBtn();
+  if (files.length > 0) {
+    renderFiles();
+  }
 }
 
 function updateSidebar() {
