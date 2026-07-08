@@ -1923,7 +1923,7 @@ function getFileCountSummary() {
   if (counts.excel) parts.push(`<span ${style}>${counts.excel} Excel</span>`);
   if (counts.word) parts.push(`<span ${style}>${counts.word} Word</span>`);
   if (counts.powerpoint) parts.push(`<span ${style}>${counts.powerpoint} PowerPoint</span>`);
-  if (counts.image) parts.push(`<span ${style}>${counts.image} imagine${counts.image > 1 ? 'i' : ''}</span>`);
+  if (counts.image) parts.push(`<span ${style}>${counts.image} ${counts.image > 1 ? 'imagini' : 'imagine'}</span>`);
   if (counts.text) parts.push(`<span ${style}>${counts.text} text${counts.text > 1 ? 'e' : ''}</span>`);
   
   if (parts.length === 0) return 'Fă clic pentru a adăuga mai multe';
