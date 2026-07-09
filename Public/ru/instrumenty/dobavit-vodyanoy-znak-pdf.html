@@ -424,7 +424,7 @@
       "@id": "https://doc-inspector.com/ru/instrumenty/dobavit-vodyanoy-znak-pdf#webapp",
       "name": "Add Watermark to PDF Online — Batch Diagonal Text Stamp",
       "url": "https://doc-inspector.com/ru/instrumenty/dobavit-vodyanoy-znak-pdf",
-      "description": "Stamp a custom diagonal text watermark on every page of your PDF documents. Set your watermark text, opacity, and positioning. Batch watermark up to 100 PDF files at once. Combine with other operations (encrypt, sanitize, redact) in a single pipeline. GDPR compliant. Files deleted after download. Zero storage.",
+      "description": "Накладывайте настраиваемый текстовый или графический водяной знак на файлы PDF пакетно. Регулируйте угол, прозрачность, цвет и позиционирование для защиты авторских прав. Комбинируйте добавление водяных знаков с конвертацией в PDF/A, очисткой метаданных, шифрованием и объединением слоев.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any (Web Browser)",
       "browserRequirements": "Requires JavaScript and HTML5",
@@ -451,7 +451,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Free tier — up to 100 files per day, 25 MB each, 1 GB total per session"
+          "description": "Накладывайте настраиваемый текстовый или графический водяной знак на файлы PDF пакетно. Регулируйте угол, прозрачность, цвет и позиционирование для защиты авторских прав. Комбинируйте добавление водяных знаков с конвертацией в PDF/A, очисткой метаданных, шифрованием и объединением слоев."
         }
       ],
       "provider": {
@@ -648,17 +648,15 @@
       <span class="live-dot"></span>
       БЕСПЛАТНЫЕ ОНЛАЙН ИНСТРУМЕНТЫ &#x2014; БЕЗ УСТАНОВКИ
     </div>
-    <h1 class="hero-h1 gsap-fade">Обрабатывайте PDF Прямо в Браузере</h1>
-    <p class="hero-lead gsap-fade">
-      Добавьте текстовый водяной знак на PDF документы онлайн бесплатно. Перетащите целую папку или загрузите до 100 файлов — все обработанные файлы доставляются в виде одного ZIP-архива. Настройте текст, шрифт, размер и прозрачность, и опционально объедините с очисткой метаданных, шифрованием или скрытием данных.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Добавить водяной знак в PDF онлайн (Текст и Лого)</h1>
+    <p class="hero-lead gsap-fade">Накладывайте настраиваемый текстовый или графический водяной знак на файлы PDF пакетно. Регулируйте угол, прозрачность, цвет и позиционирование для защиты авторских прав. Комбинируйте добавление водяных знаков с конвертацией в PDF/A, очисткой метаданных, шифрованием и объединением слоев.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Без облачного хранилища</span>
         <span class="sec-badge">⚡ Удаляется после скачивания</span>
         <span class="sec-badge">🔒 Зашифрованный трафик (HTTPS)</span>
         <span class="sec-badge">🤖 Без ИИ — 100% детерминированно</span>
         <span class="sec-badge">🇪🇺 Соответствует GDPR</span>
-        <span class="sec-badge" id="sec-badge-desc">📄 До 100 файлов/день бесплатно</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 Быстрая пакетная обработка</span>
       </div>
       <div class="desktop-promo-text gsap-fade" style="margin-top: 1.5rem; font-size: 0.92rem; color: #34d399; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span>🔒 Предпочитаете 100% офлайн-обработку без интернета?</span>
@@ -682,7 +680,7 @@
         <div style="margin-bottom:2.5rem">
           <span class="step-label">Шаг 1</span>
           <div class="step-title">Загрузите ваши файлы</div>
-          <div class="step-desc" id="step1-desc">Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>100 МБ</strong> каждый), 100 бесплатно в день.</div>
+          <div class="step-desc" id="step1-desc">Перетащите или нажмите для выбора — файлов (лимиты зависят от уровня лицензии).</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
@@ -853,7 +851,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">Архивный конвертер PDF/A</div>
@@ -1264,6 +1262,56 @@
 </section>
 
 <!-- ═══════ БЕЗОПАСНОСТЬ ═══════ -->
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Technical Architecture</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Как работает движок водяных знаков</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector накладывает водяные знаки на векторном уровне, сохраняя исходное разрешение документа.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          Векторное внедрение в поток
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          В отличие от простых оверлеев, водяной знак встраивается непосредственно в поток содержимого PDF как векторный элемент, что усложняет его удаление в стандартных редакторах.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Прозрачность и контрастность
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Точно настраивайте прозрачность. Алгоритм адаптирует контрастность водяного знака, чтобы он оставался читаемым как на светлом, так и на темном фоне, не перекрывая важную информацию.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Пакетные конвейеры
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Обрабатывайте папки с сохранением иерахии. Вы можете наложить водяной знак на всю структуру каталогов, попутно сглаживая слои и шифруя файлы паролем в одну сессию.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ——————— SECURITY SECTION ——————— -->
 <section class="section-gap sec-section" id="arkhitektura-bezopasnosti">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
@@ -1322,33 +1370,35 @@
   </div>
 </section>
 
-  <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Добавление постоянного водяного знака на страницы PDF</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Техническое руководство</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Инструмент водяных знаков встраивает постоянный диагональный текст на страницы документов. В панели настроек можно ввести свой текст, выбрать размер шрифта, прозрачность и диапазон страниц. Система рекурсивно обрабатывает каталоги, сохраняя структуру. Файлы с ошибками или превысившие таймаут (5, 10, 15 минут) переносятся в папку "error" в ZIP-архиве с логом ошибок. Вы можете запускать эту функцию пакетно с другими операциями, такими как очистка метаданных, шифрование или конвертация PDF/A.</p>
-      </div>
 
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Часто задаваемые вопросы</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Может ли получатель удалить водяной знак?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Нет, он внедряется непосредственно в контент как статический объект, что делает его постоянным.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Поддерживаются ли символы разных языков?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Да, полностью поддерживаются символы Юникода для английского, румынского и русского языков.</p>
-        </div>
+<!-- SEO Content Section -->
+<section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
+  <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
+    <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Инструмент наложения водяных знаков на PDF</span></h2>
+    
+    <!-- Detailed Description -->
+    <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
+      <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
+      <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Накладывайте логотипы и текст на документы пакетом. В панели настроек можно задать шрифт, размер, угол наклона (от -90 до 90 градусов), прозрачность (0-100%) и расположение. Обрабатывайте целые папки рекурсивно. Совмещайте водяные знаки со сглаживанием, очисткой метаданных и шифрованием.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Можно ли удалить водяной знак позже?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Если вы объединили слои (сгладили PDF) после наложения знака, он становится частью изображения страницы и его нельзя стереть. Без сглаживания он остается отдельным элементом.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Влияет ли водяной знак на размер файла?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Векторный текст добавляет менее 1 КБ на страницу. Графический логотип увеличит размер в зависимости от разрешения картинки.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-<!-- ═══════ CTA ═══════ -->
+
+<!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
   <div class="cta-glow"></div>
   <div class="container reveal">
@@ -1364,35 +1414,7 @@
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
-
-    <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Добавление постоянного водяного знака на страницы PDF</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Техническое руководство</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Инструмент водяных знаков встраивает постоянный диагональный текст на страницы документов. В панели настроек можно ввести свой текст, выбрать размер шрифта, прозрачность и диапазон страниц. Система рекурсивно обрабатывает каталоги, сохраняя структуру. Файлы с ошибками или превысившие таймаут (5, 10, 15 минут) переносятся в папку "error" в ZIP-архиве с логом ошибок. Вы можете запускать эту функцию пакетно с другими операциями, такими как очистка метаданных, шифрование или конвертация PDF/A.</p>
-      </div>
-
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Часто задаваемые вопросы</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Может ли получатель удалить водяной знак?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Нет, он внедряется непосредственно в контент как статический объект, что делает его постоянным.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Поддерживаются ли символы разных языков?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Да, полностью поддерживаются символы Юникода для английского, румынского и русского языков.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 DocInspector. All rights reserved.</span>
@@ -1550,8 +1572,7 @@ function updateUI() {
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
     if (secBadgeDesc) secBadgeDesc.textContent = "📄 Până la 100 fișiere/zi, gratuit"; // Keep it consistent or translate correctly
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 До 100 файлов/день бесплатно";
-    if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора — до <strong>100 файлов</strong> одновременно (макс. <strong>100 МБ</strong> каждый), 100 бесплатно в день.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Действуют лимиты Free"; if (step1Desc) step1Desc.innerHTML = 'Перетащите или нажмите для выбора файлов (макс. <strong>100 МБ</strong> на файл).';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1783,21 +1804,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();

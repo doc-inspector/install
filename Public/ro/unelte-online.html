@@ -738,7 +738,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">Convertor de Arhivare PDF/A</div>
@@ -1620,21 +1620,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();

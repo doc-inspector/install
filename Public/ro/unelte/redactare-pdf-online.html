@@ -440,7 +440,7 @@
       "@id": "https://doc-inspector.com/ro/unelte/redactare-pdf-online#webapp",
       "name": "Redact PDF Online — Permanently Remove Sensitive Text",
       "url": "https://doc-inspector.com/ro/unelte/redactare-pdf-online",
-      "description": "Permanently black out sensitive text from PDF documents — names, IDs, addresses, financial data, personal information. Pixel-level, irreversible redaction that cannot be undone or revealed. Unlike highlight-over approaches, the text is destroyed, not hidden. Batch redact up to 100 PDF files at once. Combine with other operations in a single pipeline. GDPR compliant. Files deleted after download. Zero storage.",
+      "description": "Ștergeți în siguranță textul sensibil, CNP-ul, numerele de securitate socială, parolele, e-mailurile, numele sau cuvintele-cheie din PDF-uri. Generează un PDF curat cu textul cenzurat definitiv. Puteți rula redactarea în lot alături de eliminarea semnăturilor digitale, curățarea metadatelor sau criptarea fișierelor.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any (Web Browser)",
       "browserRequirements": "Requires JavaScript and HTML5",
@@ -466,7 +466,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Free tier — up to 100 files per day, 25 MB each, 1 GB total per session"
+          "description": "Ștergeți în siguranță textul sensibil, CNP-ul, numerele de securitate socială, parolele, e-mailurile, numele sau cuvintele-cheie din PDF-uri. Generează un PDF curat cu textul cenzurat definitiv. Puteți rula redactarea în lot alături de eliminarea semnăturilor digitale, curățarea metadatelor sau criptarea fișierelor."
         }
       ],
       "provider": {
@@ -663,10 +663,8 @@
       <span class="live-dot"></span>
       UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
     </div>
-    <h1 class="hero-h1 gsap-fade">Procesează Documente Direct în Browserul Tău</h1>
-    <p class="hero-lead gsap-fade">
-      Redactează definitiv datele sensibile din documente PDF online, complet gratuit — nume, CNP-uri, adrese, date financiare. Spre deosebire de simpla acoperire cu negru, DocInspector distruge stratul de text, stratul OCR, adnotările și metadatele ascunse: paginile devin exclusiv imagine, fără date recuperabile. Trage un folder întreg sau încarcă până la 100 de fișiere — toate redactate și livrate ca un singur pachet ZIP.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Cenzurare și Redactare Date Sensibile PDF Online</h1>
+    <p class="hero-lead gsap-fade">Ștergeți în siguranță textul sensibil, CNP-ul, numerele de securitate socială, parolele, e-mailurile, numele sau cuvintele-cheie din PDF-uri. Generează un PDF curat cu textul cenzurat definitiv. Puteți rula redactarea în lot alături de eliminarea semnăturilor digitale, curățarea metadatelor sau criptarea fișierelor.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero stocare în cloud</span>
         <span class="sec-badge">⚡ Șters după descărcare</span>
@@ -879,7 +877,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">Convertor de Arhivare PDF/A</div>
@@ -1290,6 +1288,56 @@
 </section>
 
 <!-- ═══════ SECURITATE ═══════ -->
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Technical Architecture</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Motorul de Redactare și Cenzurare PDF</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector șterge textul sensibil la nivel binar, prevenind recuperarea datelor prin programe de recuperare.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          Ștergere binară reală
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Spre deosebire de editoarele care doar desenează un chenar negru peste text, DocInspector elimină textul din structura de cod a PDF-ului, înlocuindu-l cu un dreptunghi opac.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Căutare automată de cuvinte-cheie
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Introduceți cuvintele pe care vreți să le cenzurați. Motorul scanează textul din PDF, găsește potrivirile și le cenzurează automat în tot lotul de documente.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Curățarea straturilor ascunse
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Redactarea elimină metadatele și indecșii de căutare asociați cuvintele șterse, prevenind scurgerile de informații prin copy-paste.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ——————— SECURITY SECTION ——————— -->
 <section class="section-gap sec-section" id="arhitectura-securitate">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
@@ -1348,33 +1396,35 @@
   </div>
 </section>
 
-  <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Căutare & Cenzurare Permanentă a Conținutului Sensibil</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Ghid Tehnic Detaliat</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Redactarea caută permanent cuvinte-cheie sau expresii sensibile (nume, numere de cont, CNP-uri) în stratul de text PDF și le înlocuiește cu dreptunghiuri negre solide, aplatizând documentul pentru a distruge textul de dedesubt. În panoul de setări, poți adăuga etichete cu termeni exacți. Sistemul parcurge recursiv ierarhiile de foldere, păstrând structura originală. Fișierele care dau erori sau depășesc timpul (5, 10, 15 minute) sunt izolate în folderul "error" în ZIP-ul final, însoțite de un raport de audit. Poți asocia redactarea în lot (batch) cu curățarea metadatelor, eliminarea semnăturilor sau conversia PDF/A.</p>
-      </div>
 
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Întrebări Frecvente (FAQ)</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Textul cenzurat mai poate fi recuperat?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Nu. Procesul este complet distructiv. Caracterele textului sunt șterse definitiv din fișierul binar și înlocuite cu pixeli negri.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Funcționează pe PDF-uri scanate (imagini)?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Da. PDF-urile scanate trec mai întâi prin etapa OCR în cadrul pipeline-ului pentru a genera un strat de text căutabil ce poate fi cenzurat.</p>
-        </div>
+<!-- SEO Content Section -->
+<section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
+  <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
+    <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Cenzurare Date Sensibile și Redactare PDF</span></h2>
+    
+    <!-- Detailed Description -->
+    <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
+      <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
+      <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Redactați PDF-uri online. În panoul de setări, introduceți cuvinte-cheie pentru cenzurare. Procesați foldere întregi recursiv. Combinați cenzurarea cu curățarea metadatelor sau criptarea cu parolă în același lot.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Se mai poate recupera textul cenzurat?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Nu. Textul este șters definitiv din codul documentului. Nu există straturi ascunse care să mai conțină textul original.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Pot cenzura documente scanate?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Dacă documentul scanat are strat de text (OCR), motorul poate identifica și șterge cuvintele-cheie specificate.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-<!-- ═══════ CTA ═══════ -->
+
+<!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
   <div class="cta-glow"></div>
   <div class="container reveal">
@@ -1390,35 +1440,7 @@
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
-
-    <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Căutare & Cenzurare Permanentă a Conținutului Sensibil</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Ghid Tehnic Detaliat</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Redactarea caută permanent cuvinte-cheie sau expresii sensibile (nume, numere de cont, CNP-uri) în stratul de text PDF și le înlocuiește cu dreptunghiuri negre solide, aplatizând documentul pentru a distruge textul de dedesubt. În panoul de setări, poți adăuga etichete cu termeni exacți. Sistemul parcurge recursiv ierarhiile de foldere, păstrând structura originală. Fișierele care dau erori sau depășesc timpul (5, 10, 15 minute) sunt izolate în folderul "error" în ZIP-ul final, însoțite de un raport de audit. Poți asocia redactarea în lot (batch) cu curățarea metadatelor, eliminarea semnăturilor sau conversia PDF/A.</p>
-      </div>
-
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Întrebări Frecvente (FAQ)</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Textul cenzurat mai poate fi recuperat?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Nu. Procesul este complet distructiv. Caracterele textului sunt șterse definitiv din fișierul binar și înlocuite cu pixeli negri.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Funcționează pe PDF-uri scanate (imagini)?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Da. PDF-urile scanate trec mai întâi prin etapa OCR în cadrul pipeline-ului pentru a genera un strat de text căutabil ce poate fi cenzurat.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 DocInspector. All rights reserved.</span>
@@ -1809,21 +1831,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();

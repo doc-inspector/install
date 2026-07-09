@@ -440,7 +440,7 @@
       "@id": "https://doc-inspector.com/ro/unelte/criptare-pdf-online#webapp",
       "name": "Encrypt PDF Online — Add Password & Restrict Permissions (AES-256)",
       "url": "https://doc-inspector.com/ro/unelte/criptare-pdf-online",
-      "description": "Password-protect PDF files online using 256-bit AES encryption. Optionally restrict permissions: prevent copying text, editing content, and printing. Batch encrypt up to 100 PDF files at once. Combine with other operations (sanitize metadata, watermark, redact) in a single pipeline. GDPR compliant. Files deleted after download. Zero storage.",
+      "description": "Protejați documentele PDF cu criptare avansată AES pe 256 de biți. Setați parole de deschidere, parole de proprietar și restricții pentru imprimare, copiere text sau modificare. Rulați criptarea la finalul unei pipeline ce conține adăugare de watermark, curățare metadate sau aplatizare.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any (Web Browser)",
       "browserRequirements": "Requires JavaScript and HTML5",
@@ -466,7 +466,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Free tier — up to 100 files per day, 25 MB each, 1 GB total per session"
+          "description": "Protejați documentele PDF cu criptare avansată AES pe 256 de biți. Setați parole de deschidere, parole de proprietar și restricții pentru imprimare, copiere text sau modificare. Rulați criptarea la finalul unei pipeline ce conține adăugare de watermark, curățare metadate sau aplatizare."
         }
       ],
       "provider": {
@@ -663,10 +663,8 @@
       <span class="live-dot"></span>
       UNELTE ONLINE GRATUITE PENTRU PDF &#x2014; FĂRĂ INSTALARE
     </div>
-    <h1 class="hero-h1 gsap-fade">Procesează Documente Direct în Browserul Tău</h1>
-    <p class="hero-lead gsap-fade">
-      Criptează documente PDF online, complet gratuit. Trage un folder întreg sau încarcă până la 100 de fișiere — toate criptate și livrate ca un singur pachet ZIP. Setează parole de deschidere, permisiuni de proprietar și blocări de restricții (imprimare, copiere, editare), cu igienizare opțională a metadatelor.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Protejare cu Parolă și Criptare PDF Online</h1>
+    <p class="hero-lead gsap-fade">Protejați documentele PDF cu criptare avansată AES pe 256 de biți. Setați parole de deschidere, parole de proprietar și restricții pentru imprimare, copiere text sau modificare. Rulați criptarea la finalul unei pipeline ce conține adăugare de watermark, curățare metadate sau aplatizare.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero stocare în cloud</span>
         <span class="sec-badge">⚡ Șters după descărcare</span>
@@ -879,7 +877,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">Convertor de Arhivare PDF/A</div>
@@ -1290,6 +1288,56 @@
 </section>
 
 <!-- ═══════ SECURITATE ═══════ -->
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Technical Architecture</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Arhitectura de Securitate și Criptare PDF</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector aplică restricții securizate criptografic, blocând accesul la funcții conform standardelor avansate.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          Chei de criptare AES pe 256 de biți
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Aplicăm criptare AES pe 256 de biți, standardul utilizat în sistemele bancare. Acest lucru securizează complet documentul, prevenind deschiderea neautorizată.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Politici granulare de permisiuni
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Configurați permisiunile independent. Puteți permite vizualizarea documentului, dar bloca copierea textului, extragerea paginilor sau imprimarea.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Integrare în fluxul de procesare
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Rulați criptarea ca ultim pas. Curățați metadatele ascunse mai întâi, aplicați watermark-ul, aplatizați straturile și apoi criptați fișierul rezultat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ——————— SECURITY SECTION ——————— -->
 <section class="section-gap sec-section" id="arhitectura-securitate">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
@@ -1348,33 +1396,35 @@
   </div>
 </section>
 
-  <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Criptare PDF cu Setări de Securitate AES-256</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Ghid Tehnic Detaliat</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Securizează fișierele sensibile folosind criptare de nivel militar AES-256 biți. În panoul de setări, poți seta o parolă puternică, restricționa imprimarea, bloca copierea textului și dezactiva permisiunile de editare. Unealta parcurge recursiv directoarele, păstrând structura folderelor intactă. Dacă un fișier nu poate fi criptat (este deja securizat sau corupt), este mutat în folderul "error" din ZIP-ul final, însoțit de un raport explicativ. Poți rula criptarea în lot (batch) împreună cu alte instrumente precum curățarea metadatelor, filigranarea sau conversia PDF/A.</p>
-      </div>
 
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Întrebări Frecvente (FAQ)</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Cât de sigură este criptarea AES-256?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">AES-256 este standardul industrial utilizat de bănci și guverne, fiind imposibil de spart prin atacuri brute-force.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Pot aplica criptarea pe alte formate non-PDF?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Criptarea se aplică fișierelor PDF. Documentele Word sau Excel vor fi convertite mai întâi în PDF înainte de a fi criptate.</p>
-        </div>
+<!-- SEO Content Section -->
+<section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
+  <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
+    <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Criptare PDF Securizată și Parole</span></h2>
+    
+    <!-- Detailed Description -->
+    <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
+      <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
+      <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Protejați fișierele PDF cu parole. În panoul de setări setați parole de utilizator (pentru deschidere) și parole de proprietar (pentru restricții). Blocați copierea și imprimarea. Combinați criptarea cu curățarea metadatelor, watermark-ul și aplatizarea în aceeași rulare.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Poate fi decriptat un PDF dacă pierd parola?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Nu. Algoritmul AES pe 256 de biți este extrem de securizat. Nu există nicio posibilitate de recuperare a documentului fără parolă.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Sunt parolele salvate pe serverele dvs.?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Niciodată. Parolele sunt procesate temporar în memoria RAM în timpul criptării și nu sunt jurnalizate sau salvate.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-<!-- ═══════ CTA ═══════ -->
+
+<!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
   <div class="cta-glow"></div>
   <div class="container reveal">
@@ -1390,35 +1440,7 @@
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
-
-    <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Criptare PDF cu Setări de Securitate AES-256</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Ghid Tehnic Detaliat</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Securizează fișierele sensibile folosind criptare de nivel militar AES-256 biți. În panoul de setări, poți seta o parolă puternică, restricționa imprimarea, bloca copierea textului și dezactiva permisiunile de editare. Unealta parcurge recursiv directoarele, păstrând structura folderelor intactă. Dacă un fișier nu poate fi criptat (este deja securizat sau corupt), este mutat în folderul "error" din ZIP-ul final, însoțit de un raport explicativ. Poți rula criptarea în lot (batch) împreună cu alte instrumente precum curățarea metadatelor, filigranarea sau conversia PDF/A.</p>
-      </div>
-
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Întrebări Frecvente (FAQ)</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Cât de sigură este criptarea AES-256?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">AES-256 este standardul industrial utilizat de bănci și guverne, fiind imposibil de spart prin atacuri brute-force.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Pot aplica criptarea pe alte formate non-PDF?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Criptarea se aplică fișierelor PDF. Documentele Word sau Excel vor fi convertite mai întâi în PDF înainte de a fi criptate.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 DocInspector. All rights reserved.</span>
@@ -1809,21 +1831,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();

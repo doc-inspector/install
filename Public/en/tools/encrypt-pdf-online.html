@@ -687,7 +687,7 @@
       "@id": "https://doc-inspector.com/en/tools/encrypt-pdf-online#webapp",
       "name": "Encrypt PDF Online — Add Password & Restrict Permissions (AES-256)",
       "url": "https://doc-inspector.com/en/tools/encrypt-pdf-online",
-      "description": "Password-protect PDF files online using 256-bit AES encryption. Optionally restrict permissions: prevent copying text, editing content, and printing. Batch encrypt up to 100 PDF files at once. Combine with other operations (sanitize metadata, watermark, redact) in a single pipeline. GDPR compliant. Files deleted after download. Zero storage.",
+      "description": "Secure your PDF documents with industrial-grade 256-bit AES encryption. Set custom open passwords, owner passwords, and restrict printing, text copying, or modification permissions. Run encryption at the end of a multi-tool pipeline alongside watermarking, sanitizing, or flattening in a single session.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any (Web Browser)",
       "browserRequirements": "Requires JavaScript and HTML5",
@@ -713,7 +713,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Free tier — up to 100 files per day, 25 MB each, 1 GB total per session"
+          "description": "Secure your PDF documents with industrial-grade 256-bit AES encryption. Set custom open passwords, owner passwords, and restrict printing, text copying, or modification permissions. Run encryption at the end of a multi-tool pipeline alongside watermarking, sanitizing, or flattening in a single session."
         }
       ],
       "provider": {
@@ -911,17 +911,15 @@
       <span class="live-dot"></span>
       Free Online Document Tools &#x2014; No Download Required
     </div>
-    <h1 class="hero-h1 gsap-fade">Process Documents Directly in Your Browser</h1>
-    <p class="hero-lead gsap-fade">
-      Encrypt PDF documents online for free. Drag an entire folder or upload up to 100 files — all encrypted and delivered as a single ZIP package. Set open passwords, owner permissions, and restriction locks (prevent printing, copying, or editing), with optional metadata sanitization.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Password Protect & Encrypt PDF Online</h1>
+    <p class="hero-lead gsap-fade">Secure your PDF documents with industrial-grade 256-bit AES encryption. Set custom open passwords, owner passwords, and restrict printing, text copying, or modification permissions. Run encryption at the end of a multi-tool pipeline alongside watermarking, sanitizing, or flattening in a single session.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero cloud storage</span>
         <span class="sec-badge">⚡ Deleted after download</span>
         <span class="sec-badge">🔒 Encrypted transit (HTTPS)</span>
         <span class="sec-badge">🤖 No AI — 100% deterministic</span>
         <span class="sec-badge">🇪🇺 GDPR Compliant</span>
-        <span class="sec-badge" id="sec-badge-desc">📄 Up to 100 files/day, free</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 Secure Batch processing</span>
       </div>
       <div class="desktop-promo-text gsap-fade" style="margin-top: 1.5rem; font-size: 0.92rem; color: #34d399; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span>🔒 Prefer 100% offline processing with no internet required?</span>
@@ -945,14 +943,14 @@
         <div>
           <span class="step-label">Step 1</span>
           <div class="tool-step-title">Upload Your Files</div>
-          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.</div>
+          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — files (limits depend on your license level).</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
             <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
-            <div class="dz-sub" id="dzSub">or click to browse &mdash; max 100 files per day &mdash; 100 MB each</div>
+            <div class="dz-sub" id="dzSub">or click to browse folder or files</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
@@ -1127,7 +1125,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">PDF/A Archival Converter</div>
@@ -1574,6 +1572,56 @@
 </section>
 
 <!-- ——————— SECURITY SECTION ——————— -->
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Technical Architecture</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">PDF Security & Encryption Architecture</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector enforces cryptographically secure restrictions, locking PDF features using advanced security standards.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          256-Bit AES Encryption Keys
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          We apply 256-bit AES encryption (the banking and military standard). This completely locks the document structure, preventing unauthorized parties from opening or modifying it without the correct decryption key.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Granular Permission Policies
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Set permissions independently. You can allow users to view the document but block them from copying text, extracting pages, filling form fields, or printing in high resolution.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Pipeline Lock Integration
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Run encryption as the final step in a multi-stage pipeline. Sanitize hidden metadata first, apply a watermark overlay, flatten the layers, and then encrypt the output - keeping files safe in transit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ——————— SECURITY SECTION ——————— -->
 <section class="section-gap sec-section" id="security-architecture">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
@@ -1632,31 +1680,33 @@
   </div>
 </section>
 
-  <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Encrypt PDF with AES-256 Security Settings</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Secures highly sensitive files using military-grade AES-256 bit encryption. Under the options panel, you can specify a strong password, restrict printing capabilities, prevent text copy/paste, and disable editing permissions. The tool recursively processes your directory tree, maintaining your exact folder structure. If a file fails to encrypt or is already locked, it is skipped and isolated inside the "error" folder of the ZIP archive with a detailed diagnostic log. You can batch encrypt folders concurrently with other options like metadata sanitization, watermarking, or PDF/A archiving in a single sequential pipeline.</p>
-      </div>
 
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ What is the strength of AES-256 encryption?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">AES-256 is the industry standard used by financial and government institutions, virtually impossible to crack by brute force.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Can I apply encryption to non-PDF formats?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Encryption applies to PDFs. Other files (like Word, Excel) will be converted to PDF first in the pipeline before applying encryption.</p>
-        </div>
+<!-- SEO Content Section -->
+<section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
+  <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
+    <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Secure PDF Encryption & Password Lock</span></h2>
+    
+    <!-- Detailed Description -->
+    <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
+      <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
+      <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Protect PDF files online with password encryption. In the settings panel, set User Passwords (for opening) and Owner Passwords (for restricting modifications). Restrict text copying, modifications, and printing. Combine encryption with metadata sanitization, watermarking, and signature stripping in a single pipeline.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Can an encrypted PDF be decrypted if I lose the password?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">No. The 256-bit AES algorithm is cryptographically secure. There is no backdoor to recover files without the original password.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Are passwords saved on your servers?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Never. Passwords are processed temporarily in RAM during encryption and are never logged, stored, or transmitted anywhere.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
@@ -1674,35 +1724,7 @@
   </div>
 </section>
 
-<!-- ——————— FOOTER ——————— -->
-
-    <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Encrypt PDF with AES-256 Security Settings</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Secures highly sensitive files using military-grade AES-256 bit encryption. Under the options panel, you can specify a strong password, restrict printing capabilities, prevent text copy/paste, and disable editing permissions. The tool recursively processes your directory tree, maintaining your exact folder structure. If a file fails to encrypt or is already locked, it is skipped and isolated inside the "error" folder of the ZIP archive with a detailed diagnostic log. You can batch encrypt folders concurrently with other options like metadata sanitization, watermarking, or PDF/A archiving in a single sequential pipeline.</p>
-      </div>
-
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ What is the strength of AES-256 encryption?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">AES-256 is the industry standard used by financial and government institutions, virtually impossible to crack by brute force.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Can I apply encryption to non-PDF formats?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Encryption applies to PDFs. Other files (like Word, Excel) will be converted to PDF first in the pipeline before applying encryption.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 DocInspector. All rights reserved.</span>
@@ -1862,8 +1884,7 @@ function updateUI() {
   const secBadgeDesc = document.getElementById('sec-badge-desc');
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>100 MB</strong> each), 100 free per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Free Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>100 MB</strong> each).';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1873,8 +1894,7 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 1,000 files/day, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>200 MB</strong> each), 1,000 per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Basic Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>200 MB</strong> each).';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1884,8 +1904,7 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>200 MB</strong> each), unlimited per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Pro Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>200 MB</strong> each, unlimited files/day).';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -2096,21 +2115,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();
@@ -3125,4 +3130,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-

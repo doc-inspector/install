@@ -715,7 +715,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Free tier — up to 100 files per day, 25 MB each, 1 GB total per session"
+          "description": "Generate deep, audit-grade Excel, PDF, and CSV folder reports. Extract document numbers, titles, formats, file sizes, SHA-256 digital signatures, encryption levels, page counts, and last modified dates. Ideal for compliance audits, judicial submissions, and enterprise-grade documentation. Run report generation together with signature removal, metadata sanitization, and watermark protection simultaneously."
         }
       ],
       "provider": {
@@ -913,17 +913,15 @@
       <span class="live-dot"></span>
       Free Online Document Tools &#x2014; No Download Required
     </div>
-    <h1 class="hero-h1 gsap-fade">Process Documents Directly in Your Browser</h1>
-    <p class="hero-lead gsap-fade">
-      Generate a detailed folder evidence report for your document bundles online. Drag an entire folder or upload up to 100 files — SHA-256 signatures, page counts, formats, and last modified dates extracted to Excel, PDF, and CSV, all delivered as a single ZIP output. Optional metadata sanitization included.
-    </p>
+    <h1 class="hero-h1 gsap-fade">Advanced PDF Bundle Report — Detailed Metadata Audits</h1>
+    <p class="hero-lead gsap-fade">Generate deep, audit-grade Excel, PDF, and CSV folder reports. Extract document numbers, titles, formats, file sizes, SHA-256 digital signatures, encryption levels, page counts, and last modified dates. Ideal for compliance audits, judicial submissions, and enterprise-grade documentation. Run report generation together with signature removal, metadata sanitization, and watermark protection simultaneously.</p>
       <div class="badges-row gsap-fade">
         <span class="sec-badge">🛡️ Zero cloud storage</span>
         <span class="sec-badge">⚡ Deleted after download</span>
         <span class="sec-badge">🔒 Encrypted transit (HTTPS)</span>
         <span class="sec-badge">🤖 No AI — 100% deterministic</span>
         <span class="sec-badge">🇪🇺 GDPR Compliant</span>
-        <span class="sec-badge" id="sec-badge-desc">📄 Up to 100 files/day, free</span>
+        <span class="sec-badge" id="sec-badge-desc">📄 Secure Batch processing</span>
       </div>
       <div class="desktop-promo-text gsap-fade" style="margin-top: 1.5rem; font-size: 0.92rem; color: #34d399; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span>🔒 Prefer 100% offline processing with no internet required?</span>
@@ -947,14 +945,14 @@
         <div>
           <span class="step-label">Step 1</span>
           <div class="tool-step-title">Upload Your Files</div>
-          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>15 MB</strong> each), 100 free per day.</div>
+          <div class="tool-step-desc" id="step1-desc">Drag &amp; drop or click to select — files (limits depend on your license level).</div>
 
           <div class="dropzone" id="dropZone" >
             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.doc,.rtf,.odt,.xlsx,.xls,.xlsm,.csv,.txt,.png,.jpg,.jpeg,.pptx,.ppt" style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <input type="file" id="folderInput" multiple webkitdirectory directory style="display:none" onchange="addFiles(Array.from(this.files)); this.value = '';">
             <span class="dz-icon" id="dzIcon">&#x1F4C2;</span>
             <div class="dz-title" id="dzTitle">Drag &amp; Drop files here</div>
-            <div class="dz-sub" id="dzSub">or click to browse &mdash; max 100 files per day &mdash; 100 MB each</div>
+            <div class="dz-sub" id="dzSub">or click to browse folder or files</div>
             <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;position:relative;z-index:2;">
               <button type="button" class="btn btn-outline btn-sm" onclick="event.stopPropagation(); document.getElementById('folderInput').click()">📁 Select Folder</button>
               <button type="button" class="btn btn-primary btn-sm" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">📄 Select Files</button>
@@ -1129,7 +1127,7 @@
             <!-- PDF/A Archival Converter -->
             <div class="tool-card gsap-card" id="card-pdfa" style="--brand: #06b6d4; border-color:rgba(6,182,212,.25); position:relative" onclick="toggleTool(event,'pdfa')">
               <div class="check-ring">&#x2714;</div>
-              <div style="position:absolute;top:10px;left:12px;background:linear-gradient(135deg,#06b6d4,#818cf8);border-radius:6px;padding:.15rem .55rem;font-size:.62rem;font-weight:800;color:#fff;letter-spacing:.07em;text-transform:uppercase">PRO</div>
+              <!-- PRO tag removed -->
               <div class="tool-header" style="margin-top:.5rem">
                 <div class="tool-icon-wrap" style="background:rgba(6,182,212,.15);color:#06b6d4">&#x1F512;</div>
                 <div class="tool-name">PDF/A Archival Converter</div>
@@ -1576,6 +1574,56 @@
 </section>
 
 <!-- ——————— SECURITY SECTION ——————— -->
+
+
+<!-- ——————— TECHNICAL DETAILS SECTION ——————— -->
+<section class="section-gap tech-section" style="background: rgba(6,182,212,0.02); border-top: 1px solid rgba(6,182,212,0.1); border-bottom: 1px solid rgba(6,182,212,0.1); padding: 5rem 0;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-header" style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="section-eyebrow" style="font-size:0.8rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--cyan)">Technical Architecture</span>
+      <h2 class="section-title" style="font-family:'Outfit',sans-serif; font-size:2.2rem; font-weight:900; margin-top: 0.5rem;"><span class="text-gradient">Advanced Bundle Indexing Engine</span></h2>
+      <p class="section-subtitle" style="color:var(--text-muted); font-size:1.05rem; max-width:700px; margin:0.8rem auto 0; line-height:1.6;">DocInspector parses deep metadata structures, calculating secure hashes and compiling structured indices for compliance auditing.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- STEP 1 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">1</span>
+          SHA-256 Cryptographic Hashing
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Every document processed is cryptographically hashed using the SHA-256 algorithm. This guarantees a secure chain-of-custody and verifies that files have not been modified or tampered with since the audit.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">2</span>
+          Deep Meta Extraction & Formats
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          The parser extracts page counts, protection/encryption status, creation dates, and mime-types. It recursively goes through folder trees, building a complete relational map of your files, including Word, Excel, Images, and PDFs.
+        </p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div style="background: rgba(10,22,40,0.6); border: 1px solid rgba(6,182,212,0.15); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-bottom:0.7rem; display:flex; align-items:center; gap:0.6rem;">
+          <span style="background:rgba(6,182,212,0.1); color:var(--cyan); border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem;">3</span>
+          Multi-Format Structured Export
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin:0;">
+          Export your file audits to a structured index PDF, a spreadsheet Excel file, or a clean CSV file. This provides instant institutional reporting for legal courts, compliance registries, and internal documentation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ——————— SECURITY SECTION ——————— -->
 <section class="section-gap sec-section" id="security-architecture">
   <div class="container">
     <div class="section-header reveal" style="text-align:center">
@@ -1634,31 +1682,33 @@
   </div>
 </section>
 
-  <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Advanced Excel Borderou (Forensic Metadata Inventory)</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Creates a detailed forensic Excel spreadsheet inventory of your document collections, generating cryptographic MD5 hashes for every file to verify integrity. Scans subdirectories recursively to catalog paths, page counts, authors, metadata, and creation dates. The tool recursively processes directory trees, keeping the original folder layout intact. Any file that fails processing or times out (exceeding 5, 10, or 15 minutes) is isolated in a separate "error" folder inside the downloaded ZIP, with a detailed log. You can combine this tool in batch with other options like metadata sanitization, watermarking, encryption, and PDF/A archiving.</p>
-      </div>
 
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ What is the purpose of MD5 hashes in the Excel report?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">An MD5 hash acts as a unique digital fingerprint, proving in court that the file has not been modified after the inventory was compiled.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Does it extract author metadata from Word and Excel?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Yes, it reads document information dictionaries and properties from Office files recursively.</p>
-        </div>
+<!-- SEO Content Section -->
+<section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
+  <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
+    <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Advanced Document Auditing & Hashing</span></h2>
+    
+    <!-- Detailed Description -->
+    <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
+      <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
+      <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Create detailed folder audits in PDF, Excel, and CSV formats. The advanced bundle tool scans folders recursively, extracting filenames, titles, page counts, sizes, SHA-256 hashes, and security flags. Perfect for legal submissions and audits. Run report compilation alongside metadata sanitization or watermarking in a single execution.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Does the report include subfolders?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Yes. When folder upload is selected, the engine scans all nested directories recursively, preserving and mapping the folder tree in the final index.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ What formats are supported for page counting?</h4>
+        <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">The page counter supports PDF, Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX/PPT) and raw text documents.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- ——————— CTA ——————— -->
 <section class="cta-section section-gap">
@@ -1676,35 +1726,7 @@
   </div>
 </section>
 
-<!-- ——————— FOOTER ——————— -->
-
-    <!-- SEO Content Section -->
-  <section class="section seo-section" style="border-top:1px solid rgba(255,255,255,0.05); padding: 5rem 0;">
-    <div class="container" style="max-width:960px; margin:0 auto; padding:0 1rem;">
-      <h2 class="seo-title" style="font-family:'Outfit',sans-serif; font-size:2rem; font-weight:800; text-align:center; margin-bottom:2.5rem; color:#fff;"><span class="text-gradient">Advanced Excel Borderou (Forensic Metadata Inventory)</span></h2>
-      
-      <!-- Detailed Description -->
-      <div style="background:rgba(10,22,40,0.4); border:1px solid rgba(6,182,212,0.15); border-radius:16px; padding:2rem; margin-bottom:2.5rem; backdrop-filter:blur(10px);">
-        <h3 style="color:#22d3ee; font-family:'Outfit',sans-serif; font-size:1.3rem; margin-top:0; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">📘 Detailed Technical Guide</h3>
-        <p style="color:#cbd5e1; font-size:0.96rem; line-height:1.75; margin-bottom:1rem;">Creates a detailed forensic Excel spreadsheet inventory of your document collections, generating cryptographic MD5 hashes for every file to verify integrity. Scans subdirectories recursively to catalog paths, page counts, authors, metadata, and creation dates. The tool recursively processes directory trees, keeping the original folder layout intact. Any file that fails processing or times out (exceeding 5, 10, or 15 minutes) is isolated in a separate "error" folder inside the downloaded ZIP, with a detailed log. You can combine this tool in batch with other options like metadata sanitization, watermarking, encryption, and PDF/A archiving.</p>
-      </div>
-
-      <!-- FAQ Section -->
-      <h3 style="color:#fff; font-family:'Outfit',sans-serif; font-size:1.4rem; text-align:center; margin-bottom:1.5rem;">❓ Frequently Asked Questions</h3>
-      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ What is the purpose of MD5 hashes in the Excel report?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">An MD5 hash acts as a unique digital fingerprint, proving in court that the file has not been modified after the inventory was compiled.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:1.5rem; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(6,182,212,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-          <h4 style="color:#fff; font-size:1.05rem; margin-top:0; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.4rem;">❓ Does it extract author metadata from Word and Excel?</h4>
-          <p style="color:#94a3b8; font-size:0.93rem; line-height:1.65; margin:0;">Yes, it reads document information dictionaries and properties from Office files recursively.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 DocInspector. All rights reserved.</span>
@@ -1864,8 +1886,7 @@ function updateUI() {
   const secBadgeDesc = document.getElementById('sec-badge-desc');
   const step1Desc = document.getElementById('step1-desc');
   if (currentTier === "Free") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 100 files/day, free";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>100 files</strong> at once (max <strong>100 MB</strong> each), 100 free per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Free Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>100 MB</strong> each).';
     
     tb.style.color = "var(--text-muted)";
     tb.style.borderColor = "rgba(255,255,255,0.1)";
@@ -1875,8 +1896,7 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "block";
   } else if (currentTier === "Basic") {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Up to 1,000 files/day, Basic";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1,000 files</strong> at once (max <strong>200 MB</strong> each), 1,000 per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Basic Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>200 MB</strong> each).';
     
     tb.style.color = "#34d399";
     tb.style.borderColor = "rgba(16,185,129,0.3)";
@@ -1886,8 +1906,7 @@ function updateUI() {
     const ub = document.getElementById("upsell-box");
     if(ub) ub.style.display = "none";
   } else {
-    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Unlimited files/day, Pro";
-    if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select — up to <strong>1300 files</strong> at once (max <strong>200 MB</strong> each), unlimited per day.';
+    if (secBadgeDesc) secBadgeDesc.textContent = "📄 Pro Tier active"; if (step1Desc) step1Desc.innerHTML = 'Drag &amp; drop or click to select files (max <strong>200 MB</strong> each, unlimited files/day).';
     
     tb.style.color = "#f59e0b";
     tb.style.borderColor = "rgba(245,158,11,0.3)";
@@ -2098,21 +2117,7 @@ function toggleTool(e, name) {
     dz.style.background  = '';
   }
 
-    if (opts && (name === 'to-pdf' || name === 'pdfa')) {
-    if (selectedOps.has(name)) {
-      card.insertAdjacentElement('afterend', opts);
-      const titleEl = opts.querySelector('.convert-opts-title');
-      if (titleEl) {
-        const isRo = window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte');
-        const isRu = window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn');
-        if (name === 'pdfa') {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF/A' : (isRu ? 'Настройки конвертации в PDF/A' : 'Convert to PDF/A Settings');
-        } else {
-          titleEl.textContent = isRo ? 'Setări Conversie în PDF' : (isRu ? 'Настройки конвертации в PDF' : 'Convert to PDF Settings');
-        }
-      }
-    }
-  }
+
 
   updateSidebar();
   updateBtn();
@@ -3127,4 +3132,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
