@@ -843,9 +843,51 @@
                 </div>
               </div>
 
-              <!-- OFFICE SETTINGS -->
-              <div id="pdfa-office-opts" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:none;">
-                <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">📊 Opțiuni Office / Excel</div>
+              <!-- Excel-only options (PDF/A) -->
+              <div class="pdfa-opts-sec-excel" style="display:none; margin-top:0.8rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem;">
+                <div style="font-size:0.75rem; color:#06b6d4; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Machetă tabel Excel</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-excel-layout" id="pdfa-ex-fit-width" checked style="accent-color:#06b6d4"> Potrivește coloanele la lățime (Recomandat)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-excel-layout" id="pdfa-ex-fit-sheet" style="accent-color:#06b6d4"> Încadrează tot tabelul pe o singură pagină
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-excel-layout" id="pdfa-ex-no-scale" style="accent-color:#06b6d4"> Fără scalare (Dimensiune originală)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Image-only options (PDF/A) -->
+              <div class="pdfa-opts-sec-image" style="display:none; margin-top:0.8rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem;">
+                <div style="font-size:0.75rem; color:#06b6d4; font-weight:bold; text-transform:uppercase; margin-bottom:0.3rem;">Mod conversie imagine</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-image-output" id="pdfa-img-separate" checked style="accent-color:#06b6d4"> Convertește fiecare imagine într-un PDF separat (1-la-1)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-image-output" id="pdfa-img-merge" style="accent-color:#06b6d4"> Unește toate imaginile într-un singur PDF (Mulți-la-1)
+                  </label>
+                </div>
+                
+                <div style="font-size:0.75rem; color:#06b6d4; font-weight:bold; text-transform:uppercase; margin-top:0.5rem; margin-bottom:0.3rem;">Scalare pagină imagine</div>
+                <div class="opt-row">
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-image-scaling" id="pdfa-img-scale-fit" checked style="accent-color:#06b6d4"> Potrivește vizual la marginile A4 (Fără pierderi de calitate)
+                  </label>
+                  <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.3rem;">
+                    <input type="radio" name="pdfa-image-scaling" id="pdfa-img-scale-orig" style="accent-color:#06b6d4"> Păstrează dimensiunea originală
+                  </label>
+                </div>
+              </div>
+
+              <!-- Shared Excel & Image option: auto-landscape (PDF/A) -->
+              <div class="pdfa-opts-sec-landscape" style="display:none; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; margin-top:0.5rem;">
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer">
+                  <input type="checkbox" id="pdfa-auto-landscape" checked style="accent-color:#06b6d4"> Auto-Landscape (Rotește tabelele sau imaginile late)
+                </label>
+              </div>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
                   <input type="checkbox" id="pdfa-fit-page" checked style="accent-color:var(--brand, var(--cyan))"> Fit to Page (recomandat pentru tabele Excel mari)
                 </label>
@@ -1997,21 +2039,7 @@ function renderFiles() {
 
 function updateConvertOptions() {
   const optsPanel = document.getElementById('opts-to-pdf');
-  const pdfaOffice = document.getElementById('pdfa-office-opts');
-  
-  let hasOffice = false;
-  files.forEach(f => {
-    const ext = f.name.toLowerCase().split('.').pop();
-    if (['doc', 'docx', 'xls', 'xlsx', 'xlsm', 'csv', 'rtf', 'odt', 'ppt', 'pptx'].includes(ext)) hasOffice = true;
-  });
-  if (pdfaOffice) pdfaOffice.style.display = hasOffice ? 'block' : 'none';
-  
-  if (!optsPanel) return;
-  
-  const excelSec = optsPanel.querySelector('.opts-sec-excel');
-  const imageSec = optsPanel.querySelector('.opts-sec-image');
-  const landscapeSec = optsPanel.querySelector('.opts-sec-landscape');
-  const infoSec = optsPanel.querySelector('.opts-sec-info');
+  const pdfaPanel = document.getElementById('opts-pdfa');
   
   let hasExcel = false;
   let hasImage = false;
@@ -2021,6 +2049,23 @@ function updateConvertOptions() {
     if (['xls', 'xlsx', 'xlsm', 'csv'].includes(ext)) hasExcel = true;
     if (['png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif', 'tiff', 'tif'].includes(ext)) hasImage = true;
   });
+  
+  if (pdfaPanel) {
+    const excelSec = pdfaPanel.querySelector('.pdfa-opts-sec-excel');
+    const imageSec = pdfaPanel.querySelector('.pdfa-opts-sec-image');
+    const landscapeSec = pdfaPanel.querySelector('.pdfa-opts-sec-landscape');
+    
+    if (excelSec) excelSec.style.display = hasExcel ? 'block' : 'none';
+    if (imageSec) imageSec.style.display = hasImage ? 'block' : 'none';
+    if (landscapeSec) landscapeSec.style.display = (hasExcel || hasImage) ? 'block' : 'none';
+  }
+  
+  if (!optsPanel) return;
+  
+  const excelSec = optsPanel.querySelector('.opts-sec-excel');
+  const imageSec = optsPanel.querySelector('.opts-sec-image');
+  const landscapeSec = optsPanel.querySelector('.opts-sec-landscape');
+  const infoSec = optsPanel.querySelector('.opts-sec-info');
   
   if (excelSec) excelSec.style.display = hasExcel ? 'block' : 'none';
   if (imageSec) imageSec.style.display = hasImage ? 'block' : 'none';
@@ -2077,10 +2122,10 @@ return {
     sanitizeSoftware: document.getElementById('san-software')? document.getElementById('san-software').checked: true,
     sanitizeTime:     document.getElementById('san-time')   ? document.getElementById('san-time').checked   : true,
     sanitizeGps:      document.getElementById('san-gps')    ? document.getElementById('san-gps').checked    : true,
-    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || (document.getElementById('pdfa-fit-page')?.checked ? 'fit-sheet' : 'fit-width'),
-    autoLandscape:    document.getElementById('convert-auto-landscape')?.checked ?? true,
-    imageOutput:      document.querySelector('input[name="image-output"]:checked')?.id?.replace('img-', '') || 'separate',
-    imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
+    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || document.querySelector('input[name="pdfa-excel-layout"]:checked')?.id?.replace('pdfa-ex-', '') || 'fit-width',
+    autoLandscape:    (document.getElementById('convert-auto-landscape') ? document.getElementById('convert-auto-landscape').checked : (document.getElementById('pdfa-auto-landscape') ? document.getElementById('pdfa-auto-landscape').checked : true)),
+    imageOutput:      document.querySelector('input[name="image-output"]:checked')?.id?.replace('img-', '') || document.querySelector('input[name="pdfa-image-output"]:checked')?.id?.replace('pdfa-img-', '') || 'separate',
+    imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || document.querySelector('input[name="pdfa-image-scaling"]:checked')?.id?.replace('pdfa-img-scale-', '') || 'fit-a4',
     rebuildForce:     document.getElementById('rebuild-force')?.checked || document.getElementById('pdfa-ocr-force')?.checked || false,
     rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || document.getElementById('pdfa-enhance')?.checked || false,
     dpiValue:         (document.getElementById('rebuild-dpi') || document.getElementById('pdfa-dpi'))?.value || '300',
