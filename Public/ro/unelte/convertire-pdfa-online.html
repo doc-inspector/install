@@ -814,40 +814,29 @@
 
               <!-- OCR MODE -->
               <div class="opt-row" style="margin-bottom:0.8rem;">
-                <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">Recunoaștere Text (OCR)</div>
+                <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.06em;">Recunoaștere text (OCR)</div>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-smart" checked style="accent-color:var(--brand, var(--cyan))"> 🧠 Smart OCR — se aplică doar pe paginile scanate/imagine (MAI RAPID, Recomandat)
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-smart" checked style="accent-color:var(--brand, var(--cyan))" onchange="document.getElementById('pdfa-enhance-wrapper').style.display = 'flex'"> 🧠 Smart OCR — se aplică doar paginilor scanate (MAI RAPID, Recomandat)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-force" style="accent-color:var(--brand, var(--cyan))"> ⚡ Force OCR — se aplică pe TOATE paginile, inclusiv pe cele cu text (MAI ÎNCET)
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-force" style="accent-color:var(--brand, var(--cyan))" onchange="document.getElementById('pdfa-enhance-wrapper').style.display = 'flex'"> ⚡ Force OCR — se aplică tuturor paginilor, inclusiv text selectabil (MAI LENT)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer;margin-top:0.3rem;">
-                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-none" style="accent-color:var(--brand, var(--cyan))"> 🚫 Fără OCR — omite recunoașterea textului (CEL MAI RAPID, doar pt. documente digitale)
+                  <input type="radio" name="pdfa-ocr-mode" id="pdfa-ocr-none" style="accent-color:var(--brand, var(--cyan))" onchange="document.getElementById('pdfa-enhance-wrapper').style.display = this.checked ? 'none' : 'flex'"> 🚫 Fără OCR — sare peste recunoașterea textului (CEL MAI RAPID, doar pentru PDF-uri digitale)
+                </label>
+                <label id="pdfa-enhance-wrapper" style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#cbd5e1;cursor:pointer;margin-top:0.6rem;padding-top:0.4rem;border-top:1px solid rgba(255,255,255,0.05)">
+                  <input type="checkbox" id="pdfa-enhance" style="accent-color:var(--brand, var(--cyan))"> 📐 Aliniere și Rotire automată — îndreaptă scanările strâmbe și rotește paginile (Mai lent)
                 </label>
               </div>
-
-              <!-- OCR QUALITY -->
+              <!-- ARCHIVAL SETTINGS -->
               <div class="opt-row" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
-                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="pdfa-enhance" style="accent-color:var(--brand, var(--cyan))"> Îmbunătățește OCR
-                </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
                   <input type="checkbox" id="pdfa-strip-metadata" checked style="accent-color:var(--brand, var(--cyan))"> Elimină metadatele (Autor, Companie)
                 </label>
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
                   <input type="checkbox" id="pdfa-strip-annotations" checked style="accent-color:var(--brand, var(--cyan))"> Elimină comentariile și linkurile
                 </label>
-                <div style="display:flex; align-items:center; gap:0.4rem;">
-                  <label for="pdfa-dpi" style="font-size:.82rem; color:#fff;">DPI:</label>
-                  <select id="pdfa-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
-                    <option value="200">200</option>
-                    <option value="250">250</option>
-                    <option value="300" selected>300</option>
-                    <option value="350">350</option>
-                    <option value="400">400</option>
-                  </select>
-                </div>
-                <div style="display:flex; align-items:center; gap:0.4rem;">
+                <div style="display:flex; align-items:center; gap:0.4rem; margin-left:auto;">
                   <label for="pdfa-version" style="font-size:.82rem; color:#fff;">Standard:</label>
                   <select id="pdfa-version" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
                     <option value="1b">PDF/A-1b (Compatibilitate veche)</option>
@@ -2170,7 +2159,7 @@ return {
     imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || document.querySelector('input[name="pdfa-image-scaling"]:checked')?.id?.replace('pdfa-img-scale-', '') || 'fit-a4',
     rebuildForce:     document.getElementById('rebuild-force')?.checked || document.getElementById('pdfa-ocr-force')?.checked || false,
     rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || document.getElementById('pdfa-enhance')?.checked || false,
-    dpiValue:         (document.getElementById('rebuild-dpi') || document.getElementById('pdfa-dpi'))?.value || '300',
+    dpiValue:         document.getElementById('rebuild-dpi')?.value || '300',
     bundleAdvanced:   document.getElementById('bundle-advanced')?.checked || false,
     timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
     timeoutValue:     parseInt(document.getElementById('global-timeout-val')?.value || '300'),
