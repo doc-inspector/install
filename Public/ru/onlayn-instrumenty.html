@@ -1267,6 +1267,7 @@ if (typeof gsap !== 'undefined') {
 }
 
 const TOOLS = {
+  'to-pdf'  : { label:'Конвертировать любой формат в PDF', emoji:'🔄' },
   removesigs: { label:'Удалить подписи',          emoji:'🔏' },
   sanitize : { label:'Санитизация метаданных',        emoji:'🧹' },
   watermark: { label:'Добавить водяной знак',          emoji:'💧' },
@@ -1276,6 +1277,7 @@ const TOOLS = {
   rebuild  : { label:'Восстановить & Починить PDF',    emoji:'🛠️' },
   bundle   : { label:'Сводный отчёт PDF',              emoji:'📋' },
   'bundle-advanced': { label:'Расширенный реестр PDF', emoji:'📘' },
+  pdfa     : { label:'Конвертировать в PDF/A (Архив)', emoji:'🔒' }
 };
 const selectedOps = new Set();
 let files = [];
@@ -1627,7 +1629,7 @@ function updateSidebar() {
   const nodes = [
     { label: 'Входные файлы PDF', emoji: '📄', desc: 'Загружено и готово' },
     ...[...selectedOps].sort((a,b) => {
-        const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
+        const order = { 'to-pdf':0, 'pdfa':1, 'removesigs':2, 'rebuild':3, 'redact':4, 'flatten':5, 'watermark':6, 'sanitize':7, 'encrypt':8 };
         const orderA = order[a] !== undefined ? order[a] : 99; const orderB = order[b] !== undefined ? order[b] : 99; return orderA - orderB;
       }).map(op => ({
       label: TOOLS[op].label,

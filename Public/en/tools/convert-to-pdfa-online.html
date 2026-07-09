@@ -1716,6 +1716,7 @@ const TOOLS = {
   rebuild  : { label:'Rebuild & Repair PDF',    emoji:'🛠️ ' },
   bundle   : { label:'PDF Bundle Summary',      emoji:'📋' },
   'bundle-advanced': { label:'Advanced Bundle Report', emoji:'📘' },
+  pdfa     : { label:'Convert to PDF/A (Archival)', emoji:'🔒' }
 };
 const selectedOps = new Set(['pdfa']);
 let files = [];
@@ -2066,7 +2067,7 @@ function updateSidebar() {
   const nodes = [
     { label: 'Input PDF Files', emoji: '📄', desc: 'Uploaded & ready' },
     ...[...selectedOps].sort((a,b) => {
-        const order = { 'to-pdf':0, 'removesigs':1, 'rebuild':2, 'redact':3, 'flatten':4, 'watermark':5, 'sanitize':6, 'encrypt':7 };
+        const order = { 'to-pdf':0, 'pdfa':1, 'removesigs':2, 'rebuild':3, 'redact':4, 'flatten':5, 'watermark':6, 'sanitize':7, 'encrypt':8 };
         const orderA = order[a] !== undefined ? order[a] : 99; const orderB = order[b] !== undefined ? order[b] : 99; return orderA - orderB;
       }).map(op => ({
       label: TOOLS[op].label,
