@@ -1087,16 +1087,30 @@
               <!-- OCR QUALITY -->
               <div class="opt-row" style="margin-top:0.6rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:0.5rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
                 <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
-                  <input type="checkbox" id="pdfa-enhance" style="accent-color:var(--brand, var(--cyan))"> Enhance OCR accuracy (page pre-processing — SLOWER)
+                  <input type="checkbox" id="pdfa-enhance" style="accent-color:var(--brand, var(--cyan))"> Enhance OCR
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="pdfa-strip-metadata" checked style="accent-color:var(--brand, var(--cyan))"> Strip Metadata (Author, Company)
+                </label>
+                <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#fff;cursor:pointer">
+                  <input type="checkbox" id="pdfa-strip-annotations" checked style="accent-color:var(--brand, var(--cyan))"> Strip Comments & Links
                 </label>
                 <div style="display:flex; align-items:center; gap:0.4rem;">
-                  <label for="pdfa-dpi" style="font-size:.82rem; color:#fff;">Resolution:</label>
+                  <label for="pdfa-dpi" style="font-size:.82rem; color:#fff;">DPI:</label>
                   <select id="pdfa-dpi" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
-                    <option value="200">200 DPI</option>
-                    <option value="250">250 DPI</option>
-                    <option value="300" selected>300 DPI</option>
-                    <option value="350">350 DPI</option>
-                    <option value="400">400 DPI</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="300" selected>300</option>
+                    <option value="350">350</option>
+                    <option value="400">400</option>
+                  </select>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <label for="pdfa-version" style="font-size:.82rem; color:#fff;">Standard:</label>
+                  <select id="pdfa-version" style="background:#151821; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff; padding:0.25rem 0.5rem; font-size:0.8rem; outline:none;">
+                    <option value="1b">PDF/A-1b (Legacy)</option>
+                    <option value="2b" selected>PDF/A-2b (Recommended)</option>
+                    <option value="3b">PDF/A-3b (Allows attachments)</option>
                   </select>
                 </div>
               </div>
