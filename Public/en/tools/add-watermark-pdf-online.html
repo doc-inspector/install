@@ -1996,7 +1996,7 @@ function toggleTool(e, name) {
   }
   const card = document.getElementById('card-' + name);
   addRipple(e, card);
-  let opts = name === 'pdfa' ? document.getElementById('opts-to-pdf') : document.getElementById('opts-' + name);
+  let opts = document.getElementById('opts-' + name);
   const dz = document.getElementById('dropZone');
   const fi = document.getElementById('fileInput');
   const dzIcon = document.getElementById('dzIcon');
@@ -2339,6 +2339,15 @@ function renderFiles() {
 
 function updateConvertOptions() {
   const optsPanel = document.getElementById('opts-to-pdf');
+  const pdfaOffice = document.getElementById('pdfa-office-opts');
+  
+  let hasOffice = false;
+  files.forEach(f => {
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (['doc', 'docx', 'xls', 'xlsx', 'xlsm', 'csv', 'rtf', 'odt', 'ppt', 'pptx'].includes(ext)) hasOffice = true;
+  });
+  if (pdfaOffice) pdfaOffice.style.display = hasOffice ? 'block' : 'none';
+  
   if (!optsPanel) return;
   
   const excelSec = optsPanel.querySelector('.opts-sec-excel');
@@ -2410,12 +2419,12 @@ function gatherOptions() {
     sanitizeSoftware: document.getElementById('san-software')? document.getElementById('san-software').checked: true,
     sanitizeTime:     document.getElementById('san-time')   ? document.getElementById('san-time').checked   : true,
     sanitizeGps:      document.getElementById('san-gps')    ? document.getElementById('san-gps').checked    : true,
-    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || 'fit-width',
+    excelLayout:      document.querySelector('input[name="excel-layout"]:checked')?.id?.replace('ex-', '') || (document.getElementById('pdfa-fit-page')?.checked ? 'fit-sheet' : 'fit-width'),
     autoLandscape:    document.getElementById('convert-auto-landscape')?.checked ?? true,
     imageOutput:      document.querySelector('input[name="image-output"]:checked')?.id?.replace('img-', '') || 'separate',
     imageScaling:     document.querySelector('input[name="image-scaling"]:checked')?.id?.replace('img-scale-', '') || 'fit-a4',
-    rebuildForce:     document.getElementById('rebuild-force')?.checked || false,
-    rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || false,
+    rebuildForce:     document.getElementById('rebuild-force')?.checked || document.getElementById('pdfa-ocr-force')?.checked || false,
+    rebuildEnhance:   document.getElementById('rebuild-enhance')?.checked || document.getElementById('pdfa-enhance')?.checked || false,
     dpiValue:         (document.getElementById('rebuild-dpi') || document.getElementById('pdfa-dpi'))?.value || '300',
     bundleAdvanced:   document.getElementById('bundle-advanced')?.checked || false,
     timeoutEnable:    document.getElementById('global-timeout-enable')?.checked || false,
