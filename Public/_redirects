@@ -20,6 +20,17 @@
 /ru/tools-online     /ru/onlayn-instrumenty 301
 /ru/free-online-document-tools /ru/onlayn-instrumenty 301
 
+# ── Pagini radacina (fara limba) -> traducere EN ──
+/price               /en/price                    301
+/user-guide          /en/user-guide               301
+/reports             /en/reports-and-feedback     301
+/download            /en/download                 301
+/tools-online        /en/tools-online             301
+
+# ── Corectie pagini engleza (reports -> reports-and-feedback) ──
+/en/reports          /en/reports-and-feedback     301
+/en/reports.html     /en/reports-and-feedback     301
+
 # ── Blog: 116 articole redenumite (vechi -> nou) ──
 /ro/blog/accounting-audit-document-management                                              /ro/blog/document-management-pentru-contabili-si-auditori-rapoarte-hash-uri-si-control-de-versiuni 301
 /ro/blog/air-gapped-document-processing                                                    /ro/blog/procesare-documente-in-medii-air-gapped-cum-lucrezi-fara-internet-si-fara-compromisuri 301

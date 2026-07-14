@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0;url=/en/">
   <meta name="robots" content="index, follow">
-  <title>Redirecting...</title>
   <script>
-    window.location.href = "/en/";
+    (function() {
+      var lang = navigator.language || navigator.userLanguage || "en";
+      lang = lang.toLowerCase();
+      if (lang.startsWith("ro")) {
+        window.location.href = "/ro/";
+      } else if (lang.startsWith("ru")) {
+        window.location.href = "/ru/";
+      } else {
+        window.location.href = "/en/";
+      }
+    })();
   </script>
   <link rel="canonical" href="https://doc-inspector.com/en/" />
   <link rel="icon" type="image/png" href="/assets/logo.png" />
