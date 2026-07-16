@@ -26,3 +26,9 @@ Public/test*.js
 Public/test*.pdf
 Public/test*.zip
 .env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
