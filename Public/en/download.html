@@ -465,7 +465,7 @@
   const updateEl = document.getElementById('updateTime');
   let data = null;
   try {
-    const r = await fetch('../api/version.json?t=' + Date.now());
+    const r = await fetch('/api/version.json?t=' + Date.now());
     if (r.ok) data = await r.json();
   } catch(e) {}
   if (!data) data = {
