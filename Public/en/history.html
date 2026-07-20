@@ -136,7 +136,70 @@
 
       <div class="changelog-wrap reveal">
         <div id="changelogContainer">
-          <div style="text-align:center;padding:3rem;color:var(--text-muted);">Loading changelog…</div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.6</span>
+              <span class="changelog-date">June 25, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Smart Rebuild & OCR Optimization: Made ImageMagick pre-rasterization ('Enhance OCR accuracy') optional, allowing significantly faster OCR runs when unchecked. Default settings now have Smart Rebuild enabled and Enhance OCR disabled.</li><li class="changelog-item">Remove Digital Signatures Card: Extracted digital signature stripping into a standalone pipeline step (runs as Step 1) and card, restricted to Pro and Trial tiers.</li><li class="changelog-item">GUI Help button redirect: Updated help action to redirect users directly to localized website guide sections based on current interface language.</li><li class="changelog-item">Pricing and Guide Updates: Added standalone 'Remove Digital Signatures' tool and page, updated pricing tables, sitemaps, and robots.txt.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.5</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Enhance OCR Accuracy option: Added an optional 'Enhance OCR accuracy' checkbox in Rebuild Settings. When checked, it pre-rasterizes scanned pages using ImageMagick at the user-selected DPI, resolving character recognition regressions and line-select issues on low-res or tilted scans.</li><li class="changelog-item">Remove Digital Signatures option: Added a checkbox in Sanitize Settings to strip digital signatures and restrictions from PDF documents without full rebuild or OCR.</li><li class="changelog-item">Encryption engine file copy fix: Prevented non-PDF files from being lost during encryption pipeline stages; they are now correctly copied to the destination folder.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.4</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Rebuild OCR Engine Optimization: Implemented a fast path for 1-page and fully scanned documents, increasing OCR speed by up to 50% by eliminating redundant page-by-page split/merge processes.</li><li class="changelog-item">High-Fidelity Rendering: Configured ImageMagick and Ghostscript to render with 95% JPEG quality (-quality 95 and -dJPEGQ=95), drastically reducing generation loss when combining multiple pipeline options.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.3</span>
+              <span class="changelog-date">June 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Self-Contained Installer: Removed system-wide .NET 8 Desktop Runtime check, making the installer completely standalone.</li><li class="changelog-item">Licensing Verification Fix: Switched silent startup check to the validation endpoint to prevent exceeding activation limits, and added protections to prevent local cache wiping on temporary network/server glitches.</li><li class="changelog-item">Deactivate License Button: Added a 'Remove License' button in the application to easily free up activation slots and transfer licenses between devices.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.2</span>
+              <span class="changelog-date">June 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Smart Rebuild & OCR: Added settings gear to Rebuild & Repair. It now performs page-by-page text copyability checks and skips OCR on pages that already contain selectable text, dramatically increasing speed and preserving vector quality.</li><li class="changelog-item">Licensing Limits Enforced: Basic license holders now have a 1,000 files/day limit enforced on both web and desktop, and are limited to a single processing action per run (all tools remain fully active).</li><li class="changelog-item">GUI Improvements: Confined DPI selections to 200, 250, 300, 350, and 400 DPI.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.1</span>
+              <span class="changelog-date">March 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Metadata Leak Fortified: Expanded exact PDF XMP streams definitions (Author, Producer, Creator), so Sanitize now leaves files strictly bare even on individual selection checkboxes.</li><li class="changelog-item">Unclaimed File Logic Alignment: Unclaimed items now participate in full sanitize buffers fully back to back.</li><li class="changelog-item">Visual Roadmap alignment: Modified the Roadmap simulator triggers so it correctly lists Sanitize corresponding with execution linear streams flawlessly.</li><li class="changelog-item">License Parameter Fix: Resolved length limits absolute.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.0</span>
+              <span class="changelog-date">March 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">   Performance Improvements:</li><li class="changelog-item">Fixed OCR Micro-thrashing: Lifted static image memory cap thresholds in OcrEngine.cs that choked 600 DPI processing into loop-stuck disk buffers.</li><li class="changelog-item">Dynamic Buffering: Processes safely utilize available total RAM dynamically scaling with host workstation power.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.9</span>
+              <span class="changelog-date">March 13, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Fixed progress bar visibility for reporting options (PDF Bundle Summary, Advanced Bundle Report, Folder Evidence Report).</li><li class="changelog-item">Optimized installer size by removing redundant binary files.</li><li class="changelog-item">Added real-time progress tracking for batch tasks.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.8</span>
+              <span class="changelog-date">March 12, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Initial release with batch document repair and auditing.</li><li class="changelog-item">Preserved folder trees in output.</li><li class="changelog-item">Local-only processing for GDPR compliance.</li></ul>
+          </div>
+        </div>
         </div>
         <div style="text-align:center;margin-top:3rem;">
           <a href="download" class="btn btn-outline">&larr; Back to Download</a>
@@ -175,7 +238,7 @@
   }
   async function fetchHistory() {
     try {
-      const r = await fetch('api/version.json?t=' + Date.now());
+      const r = await fetch('/api/version.json?t=' + Date.now());
       const data = await r.json();
       if (data && data.history) {
         const lang = getLang();

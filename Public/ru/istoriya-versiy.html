@@ -136,7 +136,70 @@
 
       <div class="changelog-wrap reveal">
         <div id="changelogContainer">
-          <div style="text-align:center;padding:3rem;color:var(--text-muted);">Loading changelog…</div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.6</span>
+              <span class="changelog-date">June 25, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Оптимизация Smart Rebuild и OCR: Предварительная растеризация через ImageMagick ('Повысить точность OCR') сделана опциональной, что значительно ускоряет OCR, если флажок снят. По умолчанию Smart Rebuild включен, а 'Повысить точность' отключена.</li><li class="changelog-item">Отдельный инструмент удаления цифровых подписей: Извлечено удаление цифровых подписей в отдельный шаг конвейера (выполняется как Шаг 1) и отдельную карточку, доступную только в версиях Pro и Trial.</li><li class="changelog-item">Перенаправление кнопки Справка: Кнопка помощи в приложении теперь открывает соответствующий раздел руководства на сайте в зависимости от языка интерфейса.</li><li class="changelog-item">Обновление цен и руководств: Добавлен новый онлайн-инструмент удаления цифровых подписей, обновлены таблицы цен, sitemaps и robots.txt.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.5</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Повышение точности OCR: Добавлен параметр для предварительной обработки страниц с помощью ImageMagick с выбранным пользователем разрешением DPI, что значительно улучшает распознавание текста на сканах.</li><li class="changelog-item">Удаление цифровых подписей: Добавлена опция в настройках очистки (Sanitize) для удаления подписей и ограничений в документах PDF без полного распознавания.</li><li class="changelog-item">Исправление копирования не-PDF файлов: Не-PDF файлы (изображения, документы Excel и Word) больше не теряются при шифровании и корректно копируются в выходную папку.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.4</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Оптимизация восстановления (OCR): Внедрен быстрый путь для одностраничных и полностью отсканированных документов, увеличивающий скорость OCR до 50% за счет исключения разделения страниц.</li><li class="changelog-item">Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю чёткости текста при совмещении операций.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.3</span>
+              <span class="changelog-date">June 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Автономный установщик: Удалена системная проверка .NET 8 Runtime, так как все файлы включены в сборку.</li><li class="changelog-item">Исправление проверки лицензии: Переключена тихая проверка при запуске на метод валидации, чтобы избежать исчерпания лимитов активации и случайной очистки кэша при сбоях сети.</li><li class="changelog-item">Деактивация лицензии: Добавлена кнопка 'Remove License' для освобождения слота активации и быстрого переноса на другой ПК.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.2</span>
+              <span class="changelog-date">June 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Режим Умного Восстановления: Добавлена шестерёнка настроек для восстановления PDF. Теперь система проверяет каждую страницу на наличие копируемого текста, пропуская OCR там, где текст уже распознан, что значительно ускоряет работу и сохраняет исходное качество.</li><li class="changelog-item">Ограничения лицензии Basic: Для пользователей Basic введен дневной лимит в 1000 файлов (в веб-версии и на ПК) и ограничение на запуск только одной операции за раз (все инструменты остаются доступными).</li><li class="changelog-item">Изменения в интерфейсе: Список выбора DPI в интерфейсе ограничен следующими значениями: 200, 250, 300, 350 и 400 DPI.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.1</span>
+              <span class="changelog-date">March 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Усилена защита от утечки метаданных: были расширены точные определения потоков PDF XMP (Author, Producer, Creator), поэтому функция Sanitize теперь оставляет файлы полностью очищенными, даже при индивидуальном выборе через флажки.</li><li class="changelog-item">Выравнивание логики необработанных файлов: необработанные элементы теперь полностью участвуют в буферах санитизации последовательно, без разрывов.</li><li class="changelog-item">Выравнивание визуальной дорожной карты: были изменены триггеры симулятора Roadmap, чтобы он корректно отображал Sanitize в точном соответствии с линейными потоками выполнения.</li><li class="changelog-item">Исправление параметра лицензии: абсолютные ограничения длины устранены.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.0</span>
+              <span class="changelog-date">March 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">   Улучшения производительности:</li><li class="changelog-item">Исправлен micro-thrashing OCR: были повышены статические пороги лимитов памяти для изображений в OcrEngine.cs, которые перегружали обработку 600 DPI и приводили к зацикливанию буферов на диске.</li><li class="changelog-item">Динамическая буферизация: процессы могут безопасно использовать всю доступную оперативную память, динамически масштабируясь в зависимости от мощности хостовой рабочей станции.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.9</span>
+              <span class="changelog-date">March 13, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Исправлена видимость индикатора выполнения для отчетов.</li><li class="changelog-item">Оптимизирован размер установщика за счет удаления лишних файлов.</li><li class="changelog-item">Добавлено отслеживание выполнения задач в реальном времени.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.8</span>
+              <span class="changelog-date">March 12, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Первый выпуск с пакетным восстановлением и аудитом документов.</li><li class="changelog-item">Сохранение структуры папок в выводе.</li><li class="changelog-item">Локальная обработка для соответствия GDPR.</li></ul>
+          </div>
+        </div>
         </div>
         <div style="text-align:center;margin-top:3rem;">
           <a href="skachat" class="btn btn-outline">&larr; Back to Download</a>
@@ -175,7 +238,7 @@
   }
   async function fetchHistory() {
     try {
-      const r = await fetch('api/version.json?t=' + Date.now());
+      const r = await fetch('/api/version.json?t=' + Date.now());
       const data = await r.json();
       if (data && data.history) {
         const lang = getLang();

@@ -136,7 +136,70 @@
 
       <div class="changelog-wrap reveal">
         <div id="changelogContainer">
-          <div style="text-align:center;padding:3rem;color:var(--text-muted);">Loading changelog…</div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.6</span>
+              <span class="changelog-date">June 25, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Optimizare Smart Rebuild și OCR: Rasterizarea prealabilă cu ImageMagick ('Crește precizia OCR') a fost făcută opțională, accelerând semnificativ procesul OCR când este debifată. Implicit, Smart Rebuild este activat, iar 'Crește precizia OCR' este dezactivată.</li><li class="changelog-item">Instrument dedicat Eliminare Semnături Digitale: Semnăturile digitale au fost separate într-un pas de sine stătător în pipeline (rulat ca Pasul 1) și card separat, fiind o funcționalitate Pro/Trial.</li><li class="changelog-item">Redirecționare buton Help: Butonul de ajutor din aplicație redirecționează utilizatorul direct către secțiunea de ghid corespunzătoare în limba selectată în interfață.</li><li class="changelog-item">Actualizări Prețuri și Ghiduri: S-a adăugat noul instrument online 'Eliminare Semnături Digitale', s-au actualizat tabelele de prețuri, sitemaps și robots.txt.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.5</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Opțiunea Crește precizia OCR: S-a adăugat o bifă pentru a pre-procesa paginile scanate prin ImageMagick la DPI-ul selectat de utilizator, îmbunătățind recunoașterea caracterelor și corectând problemele de selectare a rândurilor întregi.</li><li class="changelog-item">Eliminare Semnături Digitale: S-a adăugat o opțiune în setările de Sanitizare pentru a elimina semnăturile digitale și restricțiile din PDF-uri fără a fi necesară reconstrucția completă.</li><li class="changelog-item">Corecție copiere fișiere non-PDF: Fișierele care nu sunt PDF (imagini, Excel, Word) nu mai sunt pierdute atunci când este activată criptarea, fiind copiate corect în folderul de destinație.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.4</span>
+              <span class="changelog-date">June 24, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Optimizare Rebuild OCR: S-a implementat o cale rapidă (Fast Path) pentru documentele de 1 pagină sau scanate complet, mărind viteza de procesare OCR cu până la 50% prin eliminarea buclei lente pagină-cu-pagină.</li><li class="changelog-item">Randare de Înaltă Calitate: S-au configurat ImageMagick și Ghostscript pentru a folosi o calitate de 95% la compresia JPEG, reducând la minimum degradarea calității textului la selectarea simultană a mai multor instrumente.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.3</span>
+              <span class="changelog-date">June 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Instalare Independentă (Self-Contained): S-a eliminat verificarea și descărcarea .NET 8 Desktop Runtime din installer, facilitând instalarea offline.</li><li class="changelog-item">Corecție validare licență: S-a schimbat verificarea de la pornire pentru a apela endpoint-ul de validare (nu cel de activare), prevenind blocajele cauzate de limitele de activare și erorile temporare de conexiune.</li><li class="changelog-item">Dezactivare Licență: S-a adăugat butonul 'Remove License' în aplicație pentru a elibera manual slotul de activare și a permite mutarea licenței pe alt PC.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.2</span>
+              <span class="changelog-date">June 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Reconstrucție Inteligentă: S-a adăugat o rotiță de setări pentru Reconstruire și Reparare PDF. Sistemul verifică pagină cu pagină dacă textul este deja copiabil, evitând OCR-ul acolo unde nu este necesar, ceea ce mărește viteza considerabil și păstrează calitatea originală.</li><li class="changelog-item">Limitări Licență Basic: Pentru utilizatorii Basic s-a introdus o limită zilnică de 1.000 de fișiere (atât online cât și pe desktop) și restricția de a selecta o singură operațiune la o rulare (toate uneltele rămân active).</li><li class="changelog-item">Ajustări interfață: Lista de opțiuni DPI în interfață a fost restrânsă exact la: 200, 250, 300, 350 și 400 DPI.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.1</span>
+              <span class="changelog-date">March 23, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Fortificarea scurgerilor de metadate: Au fost extinse definițiile exacte ale fluxurilor PDF XMP (Author, Producer, Creator), astfel încât funcția Sanitize să lase acum fișierele complet curate, chiar și în cazul selecției individuale prin checkbox-uri.</li><li class="changelog-item">Alinierea logicii fișierelor neatribuite: Elementele neatribuite participă acum complet la bufferele de sanitizare, consecutiv și fără întreruperi.</li><li class="changelog-item">Alinierea foii de parcurs vizuale: Au fost modificate trigger-ele simulatorului Roadmap, astfel încât acesta să afișeze corect Sanitize, în corespondență perfectă cu fluxurile liniare de execuție.</li><li class="changelog-item">Corectarea parametrului de licență: Limitele absolute de lungime au fost rezolvate.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.2.0</span>
+              <span class="changelog-date">March 17, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">   Îmbunătățiri de performanță:</li><li class="changelog-item">S-a remediat micro-thrashing-ul OCR: au fost ridicate pragurile statice ale limitelor de memorie pentru imagini în OcrEngine.cs, care sufocau procesarea la 600 DPI și o blocau în bucle de buffering pe disc.</li><li class="changelog-item">Bufferizare dinamică: procesele pot utiliza în siguranță memoria RAM totală disponibilă, scalându-se dinamic în funcție de puterea stației de lucru gazdă.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.9</span>
+              <span class="changelog-date">March 13, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">S-a corectat vizibilitatea barei de progres pentru opțiunile de raportare.</li><li class="changelog-item">Dimensiunea kit-ului de instalare a fost optimizată prin eliminarea fișierelor binare redundante.</li><li class="changelog-item">S-a adăugat urmărirea progresului în timp real pentru sarcinile batch.</li></ul>
+          </div>
+        <div class="changelog-entry">
+            <div class="changelog-header">
+              <span class="changelog-version">v2.1.8</span>
+              <span class="changelog-date">March 12, 2026</span>
+            </div>
+            <ul class="changelog-list"><li class="changelog-item">Lansare inițială cu repararea și auditarea documentelor în batch.</li><li class="changelog-item">Păstrarea arborilor de directoare în output.</li><li class="changelog-item">Procesare locală pentru conformitate GDPR.</li></ul>
+          </div>
+        </div>
         </div>
         <div style="text-align:center;margin-top:3rem;">
           <a href="descarca" class="btn btn-outline">&larr; Back to Download</a>
@@ -175,7 +238,7 @@
   }
   async function fetchHistory() {
     try {
-      const r = await fetch('api/version.json?t=' + Date.now());
+      const r = await fetch('/api/version.json?t=' + Date.now());
       const data = await r.json();
       if (data && data.history) {
         const lang = getLang();
