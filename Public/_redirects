@@ -26,6 +26,13 @@
 /reports             /en/reports-and-feedback     301
 /download            /en/download                 301
 /tools-online        /en/tools-online             301
+/blog                /en/blog                     301
+/blog/*              /en/blog/:splat              301
+/blog.html           /en/blog                     301
+/security            /en/security                 301
+/privacy             /en/privacy                  301
+/terms               /en/terms                    301
+/refund              /en/refund                   301
 
 # ── Corectie pagini engleza (reports -> reports-and-feedback) ──
 /en/reports          /en/reports-and-feedback     301
