@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Open Graph / Search Thumbnail -->
-   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta property="og:image:type" content="image/png" />
-   <meta property="og:image:width" content="512" />
-   <meta property="og:image:height" content="512" />
-   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Detect and Remove Blank Pages in Scanned PDFs - DocInspector Blog</title>
   <meta name="description" content="Learn how to automatically scan folders, detect blank divider sheets, and strip empty pages from PDF files offline to clean up digital archives." />
+  <meta property="og:site_name" content="DocInspector">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "How to Detect and Remove Blank Pages in Scanned PDFs",
+    "description": "Learn how to automatically scan folders, detect blank divider sheets, and strip empty pages from PDF files offline to clean up digital archives.",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01",
+    "author": {
+      "@type": "Organization",
+      "name": "DocInspector",
+      "url": "https://doc-inspector.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DocInspector",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://doc-inspector.com/assets/logo.png"
+      }
+    },
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://doc-inspector.com/en/blog/blank-page-detection-removal"
+    }
+  }
+  </script>
   <link rel="canonical" href="https://doc-inspector.com/en/blog/blank-page-detection-removal" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/blank-page-detection-removal" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/obnaruzhenie-i-udalenie-pustykh-stranits" />
@@ -238,6 +260,44 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
+
+    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .tableContainer {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.2rem 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .tableContainer table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .tableContainer th {
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      font-family: 'Outfit', sans-serif;
+    }
+    .tableContainer td {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .tableContainer tr:last-child td {
+      border-bottom: none;
+    }
+    .tableContainer tr:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -248,12 +308,8 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How to Detect and Remove Blank Pages in Scanned PDFs","description":"Learn how to automatically scan folders, detect blank divider sheets, and strip empty pages from PDF files offline to clean up digital archives.","url":"https://doc-inspector.com/en/blog/blank-page-detection-removal","datePublished":"2026-06-24","dateModified":"2026-06-24","inLanguage":"en-US","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
-  <!-- Progress bar -->
-  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -261,7 +317,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents<br>& Audit Suite</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
@@ -270,7 +326,7 @@
         <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="../price" data-i18n="nav.price">Price</a>
         <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
-        <a href="../reports-and-feedback" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="../reports" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
         <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
@@ -300,18 +356,17 @@
 <main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
   <article class="reveal">
     <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
-       <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span> | <time datetime="2026-06-24">2026-06-24</time>
+       <span class="blog-category" data-i18n="blog.cat.how-to">How-To</span> | <time datetime="2025-01-01">2025-01-01</time>
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">How to Detect and Remove Blank Pages in Scanned PDFs</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <p><em>💡 <strong>Quick tool:</strong> Clean signatures and unlock modification permissions with our local <a href="/en/tools/remove-pdf-signatures">Remove PDF Signatures</a> tool.</em></p>
-<h2 data-i18n="blog.section.overview">Overview</h2>
+      <h2>Overview</h2>
 <p>High-speed office scanners often process double-sided paper sheets, producing PDF files that contain unnecessary blank pages (such as the back of single-sided documents or separator sheets). These empty pages make documents look unprofessional, increase file sizes, and slow down readers who must scroll through empty space. Identifying and removing these blank pages is a key cleanup task for digital archiving.</p>
-<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
+<h2>What makes this issue important</h2>
 <p>When manual review is used to delete blank pages, it consumes valuable staff time and is highly prone to human error (such as accidentally deleting pages with critical notes or low-contrast signatures). Automated online converters exist, but uploading business contracts, financial statements, or patient records to third-party cloud servers violates confidentiality regulations. An offline automated solution is essential.</p>
-<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
+<h2>Practical approach</h2>
 <p>An efficient cleanup workflow uses a local analysis tool to evaluate the pixel density of each PDF page. The algorithm checks if a page contains any significant black pixels or vector lines. If the pixel density falls below a defined threshold, the page is flagged as blank and safely removed, and the cleaned document is saved without altering the remaining pages.</p>
-<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
+<h2>Practical checklist</h2>
 <ul>
   <li>Scan files using a local utility to maintain strict document privacy.</li>
   <li>Define a sensitivity threshold to ensure that pages with light pencil marks or small signatures are not misidentified as blank.</li>
@@ -319,7 +374,7 @@
   <li>Run a test run on a diverse sample set to verify page removal accuracy.</li>
   <li>Check the final page count against the original set to log the results.</li>
 </ul>
-<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
+<h2>How DocInspector fits into this workflow</h2>
 <p>DocInspector features a built-in offline blank page detector that scans PDF files in batch. By analyzing page content locally, it identifies and removes empty pages and separator sheets automatically. This optimizes file sizes, cleans up document layouts, and keeps your sensitive records secure by running 100% offline.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
@@ -336,8 +391,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-                <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
-<a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
+        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
         <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">

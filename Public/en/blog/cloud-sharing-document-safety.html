@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Open Graph / Search Thumbnail -->
-   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta property="og:image:type" content="image/png" />
-   <meta property="og:image:width" content="512" />
-   <meta property="og:image:height" content="512" />
-   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Before Uploading Documents to the Cloud: 7 Mandatory Security Checks - DocInspector Blog</title>
   <meta name="description" content="Secure your files before cloud upload! Discover 7 mandatory local security checks for PDFs, Word, and Excel documents to protect sensitive data, repair corruption, clean metadata, and OCR scans with DocInspector. Privacy-first, offline protection." />
+  <meta property="og:site_name" content="DocInspector">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Before Uploading Documents to the Cloud: 7 Mandatory Security Checks",
+    "description": "Secure your files before cloud upload! Discover 7 mandatory local security checks for PDFs, Word, and Excel documents to protect sensitive data, repair corruption, clean metadata, and OCR scans with DocInspector. Privacy-first, offline protection.",
+    "datePublished": "2025-11-21",
+    "dateModified": "2025-11-21",
+    "author": {
+      "@type": "Organization",
+      "name": "DocInspector",
+      "url": "https://doc-inspector.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DocInspector",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://doc-inspector.com/assets/logo.png"
+      }
+    },
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://doc-inspector.com/en/blog/cloud-sharing-document-safety"
+    }
+  }
+  </script>
   <link rel="canonical" href="https://doc-inspector.com/en/blog/cloud-sharing-document-safety" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/cloud-sharing-document-safety" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/inainte-sa-urci-documente-in-cloud-7-controale-de-securitate-obligatorii" />
@@ -238,6 +260,44 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
+
+    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .tableContainer {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.2rem 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .tableContainer table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .tableContainer th {
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      font-family: 'Outfit', sans-serif;
+    }
+    .tableContainer td {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .tableContainer tr:last-child td {
+      border-bottom: none;
+    }
+    .tableContainer tr:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -248,12 +308,8 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Before Uploading Documents to the Cloud: 7 Mandatory Security Checks","description":"Secure your files before cloud upload! Discover 7 mandatory local security checks for PDFs, Word, and Excel documents to protect sensitive data, repair corruption, clean metadata, and OCR scans with DocInspector. Privacy-first, offline protection.","url":"https://doc-inspector.com/en/blog/cloud-sharing-document-safety","datePublished":"2026-05-25","dateModified":"2026-05-25","inLanguage":"en-US","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
-  <!-- Progress bar -->
-  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -261,7 +317,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents<br>& Audit Suite</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
@@ -270,7 +326,7 @@
         <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="../price" data-i18n="nav.price">Price</a>
         <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
-        <a href="../reports-and-feedback" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="../reports" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
         <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
@@ -300,12 +356,11 @@
 <main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
   <article class="reveal">
     <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
-       <span class="blog-category" data-i18n="blog.cat.security">Security</span> | <time datetime="2026-05-25">2026-05-25</time>
+       <span class="blog-category" data-i18n="blog.cat.security">Security</span> | <time datetime="2025-11-21">2025-11-21</time>
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Before Uploading Documents to the Cloud: 7 Mandatory Security Checks</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <p><em>💡 <strong>Quick tool:</strong> Secure your files with passwords instantly using our local <a href="/en/tools/encrypt-pdf-online">Encrypt PDF Online</a> tool.</em></p>
-<h2>Introduction</h2><p>In our hyper-connected digital landscape, cloud storage and collaboration platforms are indispensable. However, the convenience of ubiquitous access often overshadows a critical concern: security. While cloud providers implement robust infrastructure protection, the ultimate responsibility for document integrity and privacy rests with the user. Uploading unvetted files to the cloud risks exposing sensitive information, introducing vulnerabilities, and violating compliance, making a proactive pre-upload security strategy not just advisable, but essential.</p><p>This article outlines crucial security checks every document should undergo before leaving your local machine. We'll explore common pitfalls, hidden data, and potential exploits that can compromise privacy and security once a file enters the cloud environment, emphasizing a privacy-first, offline approach to document preparation.</p><h2>The Hidden Dangers of Cloud Document Sharing</h2><p>Many users mistakenly believe that once a document is uploaded to a reputable cloud service, its contents are inherently secure. This overlooks significant risks. Documents, especially those with multiple authors or long histories, often contain sensitive metadata: author names, company details, creation dates, revision history, or even geographical coordinates. This seemingly innocuous data can be exploited for targeted attacks or to reconstruct confidential timelines. Furthermore, corrupted files, even with minor damage, can sometimes be manipulated to bypass security protocols or cause unexpected system behavior within cloud systems.</p><p>Beyond metadata and structural integrity, documents may contain active content like macros, embedded objects, or hidden layers not immediately visible. These elements pose risks ranging from executing malicious code to inadvertently revealing classified information. Relying solely on cloud providers to neutralize these threats is risky; their focus is typically on post-upload scanning for known malware, not a deep, privacy-centric audit of every potential data leak or structural vulnerability.</p><h2>What to Scrutinize: Beyond Surface-Level Security</h2><p>True document security demands a deeper inspection, moving beyond basic file integrity to scrutinize unseen aspects of digital content. Start with meticulously examining metadata: are there author names, software versions, or internal comments that should remain private? Next, assess structural health; document corruption, whether from a compromised file or poor saving, is a red flag requiring immediate attention to prevent access issues or potential exploitation.</p><p>For scanned documents, accessibility and searchability are key. Without Optical Character Recognition (OCR), text in a scanned PDF remains an unsearchable image, potentially hiding critical information. PDF hardening involves applying robust security settings—encryption, password protection, restricting printing or editing—to control document usage post-upload. Finally, hidden content—layers, objects, or even entire Excel worksheets that are simply ‘hidden’ but still retrievable—presents a significant risk of inadvertent data disclosure, demanding careful review.</p><h2>DocInspector: Your Local Gateway to Secure Cloud Uploads</h2><p>DocInspector, a dedicated local desktop application, is an indispensable part of your document security workflow. Operating entirely offline, it ensures your sensitive files never touch a third-party server until fully vetted and secured by you. DocInspector empowers users to proactively manage document hygiene before any cloud exposure. It deeply scans and repairs corruption in PDF, Word, and Excel files, ensuring structural integrity and accessibility.</p><p>Beyond repair, DocInspector is a powerful privacy protection tool. It meticulously cleans sensitive metadata, removing hidden personal or organizational data. For scanned documents, its robust OCR capabilities transform inaccessible image-based text into searchable and selectable content, vital for compliance. Furthermore, DocInspector hardens PDF documents by applying essential security layers like encryption and usage restrictions. Integrating DocInspector establishes a privacy-first, zero-cloud security gate, ensuring only clean, secure, and fully vetted documents reach your cloud storage.</p><h2>Your Pre-Upload Document Security Checklist</h2><ul>    <li>✓ Scan and repair any corruption in PDF, Word, or Excel files for stability and accessibility.</li>    <li>✓ Meticulously clean all sensitive metadata, including author details, revision history, and hidden comments.</li>    <li>✓ Ensure all scanned documents (PDFs) are fully OCR'd, making text searchable and selectable.</li>    <li>✓ Harden PDF documents by applying encryption, password protection, and restricting printing/editing.</li>    <li>✓ Check for and remove any hidden layers, objects, or content that might inadvertently disclose information.</li>    <li>✓ Verify and remove active content such as macros or embedded scripts that could pose security risks.</li>    <li>✓ Review the document's revision history and remove any previous versions not intended for sharing.</li></ul><h2>Conclusion</h2><p>The convenience of the cloud must not overshadow the imperative of document security. By adopting a diligent, privacy-first approach to document preparation, you transform potential vulnerabilities into robust protections. Tools like DocInspector provide the essential local capabilities to scrutinize, clean, and harden your files, ensuring that when they finally reach the cloud, they are not only functional but also secure, stripped of hidden dangers, and compliant with your privacy standards. Invest in pre-upload security; it's the smartest safeguard against unforeseen digital risks.</p>
+      <h2>Introduction</h2><p>In our hyper-connected digital landscape, cloud storage and collaboration platforms are indispensable. However, the convenience of ubiquitous access often overshadows a critical concern: security. While cloud providers implement robust infrastructure protection, the ultimate responsibility for document integrity and privacy rests with the user. Uploading unvetted files to the cloud risks exposing sensitive information, introducing vulnerabilities, and violating compliance, making a proactive pre-upload security strategy not just advisable, but essential.</p><p>This article outlines crucial security checks every document should undergo before leaving your local machine. We'll explore common pitfalls, hidden data, and potential exploits that can compromise privacy and security once a file enters the cloud environment, emphasizing a privacy-first, offline approach to document preparation.</p><h2>The Hidden Dangers of Cloud Document Sharing</h2><p>Many users mistakenly believe that once a document is uploaded to a reputable cloud service, its contents are inherently secure. This overlooks significant risks. Documents, especially those with multiple authors or long histories, often contain sensitive metadata: author names, company details, creation dates, revision history, or even geographical coordinates. This seemingly innocuous data can be exploited for targeted attacks or to reconstruct confidential timelines. Furthermore, corrupted files, even with minor damage, can sometimes be manipulated to bypass security protocols or cause unexpected system behavior within cloud systems.</p><p>Beyond metadata and structural integrity, documents may contain active content like macros, embedded objects, or hidden layers not immediately visible. These elements pose risks ranging from executing malicious code to inadvertently revealing classified information. Relying solely on cloud providers to neutralize these threats is risky; their focus is typically on post-upload scanning for known malware, not a deep, privacy-centric audit of every potential data leak or structural vulnerability.</p><h2>What to Scrutinize: Beyond Surface-Level Security</h2><p>True document security demands a deeper inspection, moving beyond basic file integrity to scrutinize unseen aspects of digital content. Start with meticulously examining metadata: are there author names, software versions, or internal comments that should remain private? Next, assess structural health; document corruption, whether from a compromised file or poor saving, is a red flag requiring immediate attention to prevent access issues or potential exploitation.</p><p>For scanned documents, accessibility and searchability are key. Without Optical Character Recognition (OCR), text in a scanned PDF remains an unsearchable image, potentially hiding critical information. PDF hardening involves applying robust security settings—encryption, password protection, restricting printing or editing—to control document usage post-upload. Finally, hidden content—layers, objects, or even entire Excel worksheets that are simply ‘hidden’ but still retrievable—presents a significant risk of inadvertent data disclosure, demanding careful review.</p><h2>DocInspector: Your Local Gateway to Secure Cloud Uploads</h2><p>DocInspector, a dedicated local desktop application, is an indispensable part of your document security workflow. Operating entirely offline, it ensures your sensitive files never touch a third-party server until fully vetted and secured by you. DocInspector empowers users to proactively manage document hygiene before any cloud exposure. It deeply scans and repairs corruption in PDF, Word, and Excel files, ensuring structural integrity and accessibility.</p><p>Beyond repair, DocInspector is a powerful privacy protection tool. It meticulously cleans sensitive metadata, removing hidden personal or organizational data. For scanned documents, its robust OCR capabilities transform inaccessible image-based text into searchable and selectable content, vital for compliance. Furthermore, DocInspector hardens PDF documents by applying essential security layers like encryption and usage restrictions. Integrating DocInspector establishes a privacy-first, zero-cloud security gate, ensuring only clean, secure, and fully vetted documents reach your cloud storage.</p><h2>Your Pre-Upload Document Security Checklist</h2><ul>    <li>✓ Scan and repair any corruption in PDF, Word, or Excel files for stability and accessibility.</li>    <li>✓ Meticulously clean all sensitive metadata, including author details, revision history, and hidden comments.</li>    <li>✓ Ensure all scanned documents (PDFs) are fully OCR'd, making text searchable and selectable.</li>    <li>✓ Harden PDF documents by applying encryption, password protection, and restricting printing/editing.</li>    <li>✓ Check for and remove any hidden layers, objects, or content that might inadvertently disclose information.</li>    <li>✓ Verify and remove active content such as macros or embedded scripts that could pose security risks.</li>    <li>✓ Review the document's revision history and remove any previous versions not intended for sharing.</li></ul><h2>Conclusion</h2><p>The convenience of the cloud must not overshadow the imperative of document security. By adopting a diligent, privacy-first approach to document preparation, you transform potential vulnerabilities into robust protections. Tools like DocInspector provide the essential local capabilities to scrutinize, clean, and harden your files, ensuring that when they finally reach the cloud, they are not only functional but also secure, stripped of hidden dangers, and compliant with your privacy standards. Invest in pre-upload security; it's the smartest safeguard against unforeseen digital risks.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"
@@ -321,8 +376,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-                <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
-<a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
+        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
         <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
