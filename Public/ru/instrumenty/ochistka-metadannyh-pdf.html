@@ -1867,10 +1867,11 @@ function updateSidebar() {
     ps.style.display = 'none';
     return;
   }
-  list.innerHTML = [...selectedOps].map(op => {
+    const order = { 'to-pdf':0, 'pdfa':1, 'removesigs':2, 'rebuild':3, 'redact':4, 'flatten':5, 'watermark':6, 'sanitize':7, 'encrypt':8 };
+  const sortedChips = [...selectedOps].sort((a,b) => (order[a] !== undefined ? order[a] : 99) - (order[b] !== undefined ? order[b] : 99));
+  list.innerHTML = sortedChips.map(op => {
     const m = TOOLS[op];
     return '<div class="op-chip"><span>'+m.emoji+'</span><span class="op-chip-name">'+m.label+'</span>'
-      + '<button class="op-chip-remove" onclick="toggleTool(event,\''+op+'\')" title="Удалить">✕</button></div>';
   }).join('');
   ps.style.display = 'block';
   
