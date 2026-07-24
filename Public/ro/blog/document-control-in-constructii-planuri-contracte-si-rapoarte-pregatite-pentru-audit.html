@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+   <!-- Open Graph / Search Thumbnail -->
+   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta property="og:image:type" content="image/png" />
+   <meta property="og:image:width" content="512" />
+   <meta property="og:image:height" content="512" />
+   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document control în construcții: planuri, contracte și rapoarte pregătite pentru audit - DocInspector Blog</title>
   <meta name="description" content="Asigurați documentele de construcție sunt exacte și securizate cu practici adecvate de control, inclusiv verificarea planurilor și revizuirea contractelor." />
-  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/ro/blog/document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/construction-engineering-document-control" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit" />
@@ -232,44 +238,6 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
-
-    /* ── PREMIUM TABLE STYLING ────────────────── */
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin: 2.2rem 0;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 22, 40, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    .tableContainer table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-    .tableContainer th {
-      background: rgba(6, 182, 212, 0.12);
-      color: #38bdf8;
-      font-weight: 700;
-      padding: 1.1rem 1.3rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
-      font-family: 'Outfit', sans-serif;
-    }
-    .tableContainer td {
-      padding: 1.1rem 1.3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .tableContainer tr:last-child td {
-      border-bottom: none;
-    }
-    .tableContainer tr:hover {
-      background: rgba(255, 255, 255, 0.015);
-    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -280,8 +248,12 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Document control în construcții: planuri, contracte și rapoarte pregătite pentru audit","description":"Asigurați documentele de construcție sunt exacte și securizate cu practici adecvate de control, inclusiv verificarea planurilor și revizuirea contractelor.","url":"https://doc-inspector.com/ro/blog/document-control-in-constructii-planuri-contracte-si-rapoarte-pregatite-pentru-audit","datePublished":"2026-05-25","dateModified":"2026-05-25","inLanguage":"ro-MD","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -289,7 +261,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente<br>& Audit</span>
         </span>
       </a>
 
@@ -301,7 +273,7 @@
         <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
-        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
 
       <div class="nav-actions">
@@ -316,7 +288,7 @@
             <a href="../../ru/blog/document-control-v-stroitelystve-plany-dogovory-i-otchety-dlya-audita" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -377,8 +349,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
-        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
-        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+                <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
+<a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
         <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">

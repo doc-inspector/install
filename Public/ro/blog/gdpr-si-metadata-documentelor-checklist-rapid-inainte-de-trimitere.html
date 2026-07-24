@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+   <!-- Open Graph / Search Thumbnail -->
+   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta property="og:image:type" content="image/png" />
+   <meta property="og:image:width" content="512" />
+   <meta property="og:image:height" content="512" />
+   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GDPR și metadata documentelor: checklist rapid înainte de trimitere - DocInspector Blog</title>
   <meta name="description" content="Navigați conformitatea GDPR ușor. Aflați cum metadatele ascunse din documente pot crea riscuri și obțineți un checklist rapid pentru partajare sigură. DocInspector asigură scanare și curățare locală, cu respectarea confidențialității." />
-  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-checklist-rapid-inainte-de-trimitere" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/gdpr-document-metadata-checklist" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-checklist-rapid-inainte-de-trimitere" />
@@ -232,44 +238,6 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
-
-    /* ── PREMIUM TABLE STYLING ────────────────── */
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin: 2.2rem 0;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 22, 40, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    .tableContainer table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-    .tableContainer th {
-      background: rgba(6, 182, 212, 0.12);
-      color: #38bdf8;
-      font-weight: 700;
-      padding: 1.1rem 1.3rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
-      font-family: 'Outfit', sans-serif;
-    }
-    .tableContainer td {
-      padding: 1.1rem 1.3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .tableContainer tr:last-child td {
-      border-bottom: none;
-    }
-    .tableContainer tr:hover {
-      background: rgba(255, 255, 255, 0.015);
-    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -280,8 +248,12 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"GDPR și metadata documentelor: checklist rapid înainte de trimitere","description":"Navigați conformitatea GDPR ușor. Aflați cum metadatele ascunse din documente pot crea riscuri și obțineți un checklist rapid pentru partajare sigură. DocInspector asigură scanare și curățare locală, cu respectarea confidențialității.","url":"https://doc-inspector.com/ro/blog/gdpr-si-metadata-documentelor-checklist-rapid-inainte-de-trimitere","datePublished":"2026-05-25","dateModified":"2026-05-25","inLanguage":"ro-MD","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -289,7 +261,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente<br>& Audit</span>
         </span>
       </a>
 
@@ -301,7 +273,7 @@
         <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
-        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
 
       <div class="nav-actions">
@@ -316,7 +288,7 @@
             <a href="../../ru/blog/gdpr-i-metadannye-dokumentov-bystryy-chek-list-pered-otpravkoy" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -332,7 +304,8 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">GDPR și metadata documentelor: checklist rapid înainte de trimitere</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Introducere</h2><p>Într-o eră definită de reglementări stricte privind protecția datelor, cum ar fi GDPR, organizațiile se confruntă cu o presiune imensă pentru a proteja datele personale. În timp ce conținutul vizibil primește adesea cea mai mare atenție, un punct orb semnificativ, adesea trecut cu vederea, este reprezentat de metadatele documentelor. Aceste straturi ascunse de informații – încorporate în fișiere PDF, documente Word și foi de calcul Excel – pot dezvălui din greșeală date personale sensibile (PII), detalii proprietare sau chiar fluxuri de lucru interne, creând riscuri substanțiale de conformitate dacă nu sunt gestionate corect înainte ca documentele să fie partajate extern.</p><p>Ignorarea metadatelor poate duce la amenzi severe în conformitate cu GDPR, la breșe de date și la deteriorarea reputației. Fiecare informație, oricât de minoră ar părea, intră sub umbrela protecției datelor. Acest articol vă va ghida în înțelegerea implicațiilor metadatelor pentru conformitatea GDPR și vă va oferi un checklist practic pentru a vă asigura că documentele sunt verificate amănunțit înainte de a părăsi sistemul dumneavoastră local.</p><h2>Amprenta invizibilă a datelor: De ce metadatele contează pentru conformitatea GDPR</h2><p>Metadatele, adesea descrise ca „date despre date”, includ o multitudine de informații generate automat de aplicațiile software. Acestea pot varia de la numele autorului, datele de creare și modificare, istoricul reviziilor, comentarii și modificări urmărite, până la informații despre imprimantă, numele companiei și chiar etichete geografice pentru imaginile scanate. Deși extrem de utile pentru gestionarea internă a documentelor, aceste elemente pot deveni responsabilități atunci când documentele sunt partajate în afara organizației dumneavoastră, mai ales dacă conțin PII referitoare la subiecții datelor.</p><p>Luați în considerare un document legal partajat cu un avocat extern. Metadatele sale ar putea dezvălui numele tuturor recenzorilor interni, durata procesului de redactare sau chiar o versiune anterioară care conține informații sensibile neredactate. Pentru departamentele de resurse umane, partajarea unei foi de calcul aparent inofensive ar putea expune din greșeală numele angajaților, căi de rețea sau coduri interne de proiect încorporate în proprietățile sale. Astfel de divulgări pot fi o încălcare directă a principiilor GDPR, în special a celor legate de minimizarea datelor, limitarea stocării și responsabilitate.</p><h2>Elemente cheie de metadata de verificat înainte de partajare</h2><p>Înainte ca orice document să traverseze perimetrul organizațional, o revizuire meticuloasă a metadatelor sale nu este doar o bună practică, ci o cerință de conformitate. Diferite tipuri de documente prezintă riscuri diferite legate de metadate. De exemplu, un document Word ar putea păstra un istoric extins al reviziilor, inclusiv modificări respinse și comentarii care dezvăluie discuții interne sau opinii personale. Fișierele Excel pot ascunde foi întregi, intervale denumite sau formule care fac referire la date sensibile. Fișierele PDF, deși adesea considerate documente „finale”, pot conține în continuare informații despre autor, date de creare, fonturi încorporate și chiar straturi de text căutabile din procesele OCR care ar putea dezvălui PII.</p><p>În mod specific, ar trebui să căutați nume de autori, nume de companii, ultima modificare de către, text ascuns (în special în Word și Excel), comentarii, modificări urmărite, versiuni de documente, atribute de imprimantă și proprietăți personalizate ale documentelor. Oricare dintre aceste elemente ar putea duce la identificarea unei persoane sau la expunerea de informații comerciale confidențiale. Cheia este să abordați fiecare document cu mentalitatea că ascunde mai multe informații decât se vede la prima vedere.</p><h2>Simplificarea fluxului de lucru de conformitate pre-partajare cu DocInspector</h2><p>Inspectarea manuală a fiecărui document pentru metadate ascunse este o sarcină laborioasă, predispusă la erori și nesustenabilă. Aici devine inestimabil un instrument specializat precum DocInspector. DocInspector oferă o soluție robustă, bazată pe confidențialitate, pentru gestionarea securității și conformității documentelor la nivel local pe desktop-ul dumneavoastră Windows, asigurând zero expunere în cloud pentru fișierele dumneavoastră sensibile. Se integrează perfect în fluxul dumneavoastră de lucru, permițându-vă să abordați proactiv preocupările legate de metadatele GDPR.</p><p>Folosind DocInspector, puteți scana automat fișiere PDF, Word, Excel și documente scanate pentru o gamă largă de metadate. Vă permite să curățați informațiile sensibile, să reparați corupția documentelor care ar putea expune din greșeală date, să întăriți fișierele PDF pentru o securitate sporită și să efectuați OCR offline pe fișierele scanate, asigurându-vă că toate straturile de text sunt curate și controlate. Întregul proces are loc offline, garantând că datele dumneavoastră nu părăsesc niciodată mediul dumneavoastră securizat. Această capacitate este crucială pentru organizațiile care gestionează informații extrem de sensibile și respectă cerințele stricte de rezidență și confidențialitate a datelor în conformitate cu GDPR.</p><h2>Checklist-ul dvs. GDPR pentru partajarea documentelor</h2><ul><li>• **Identificați destinatarii și sensibilitatea datelor:** Înainte de partajare, înțelegeți clar cine va primi documentul și evaluați sensibilitatea conținutului său.</li><li>• **Revizuiți proprietățile documentului:** Verificați proprietățile standard ale documentului (Autor, Companie, Manager, Comentarii, Subiect, Cuvinte cheie) pentru orice PII sau date organizaționale sensibile.</li><li>• **Inspectați modificările urmărite și comentariile:** Asigurați-vă că toate modificările urmărite sunt acceptate/respinse și că toate comentariile sunt eliminate, deoarece acestea conțin adesea discuții interne sau identificatori personali.</li><li>• **Scanați pentru text ascuns și foi:** Verificați să nu existe text ascuns în fișierele Word sau PowerPoint și nici rânduri, coloane sau foi ascunse în Excel care ar putea conține date sensibile.</li><li>• **Verificați obiectele încorporate și link-urile:** Examinați orice obiecte încorporate sau hyperlink-uri, deoarece acestea pot conține propriile metadate sau pot face legătura cu resurse externe sensibile.</li><li>• **Utilizați DocInspector pentru curățarea cuprinzătoare a metadatelor:** Folosiți DocInspector pentru a identifica și elimina automat toate metadatele potențial sensibile din documentele dumneavoastră, asigurând o curățare amănunțită.</li><li>• **Întăriți fișierele PDF:** Dacă partajați un PDF, utilizați DocInspector pentru a-l întări, securizând în continuare documentul împotriva modificărilor neautorizate și asigurând integritatea metadatelor.</li><li>• **Asigurați procesarea offline:** Procesarea documentelor sensibile trebuie să se realizeze întotdeauna cu DocInspector la nivel local, garantând că nicio dată nu este transmisă către cloud sau servere externe.</li><li>• **Convertiți în PDF (dacă este cazul):** Pentru partajarea externă finală, luați în considerare conversia în PDF (după curățare) pentru a crea o versiune mai controlată și statică a documentului.</li></ul><h2>Concluzie</h2><p>Conformitatea GDPR nu înseamnă doar bifarea unor căsuțe; înseamnă încorporarea unei culturi a confidențialității datelor în fiecare proces organizațional, inclusiv gestionarea și partajarea documentelor. Ignorarea metadatelor este o neglijență critică ce poate avea consecințe profunde. Prin integrarea unei soluții robuste, centrate pe confidențialitate, precum DocInspector în fluxul dumneavoastră de lucru pre-partajare, nu numai că atenuați riscurile asociate cu metadatele ascunse, ci și consolidați angajamentul dumneavoastră față de protecția datelor. Gestionarea proactivă a metadatelor este o componentă indispensabilă a unei strategii puternice de conformitate GDPR, protejând atât organizația dumneavoastră, cât și subiecții datelor cu care interacționați.</p>
+      <p><em>💡 <strong>Unealtă rapidă:</strong> Acoperă permanent textul confidențial direct în browser folosind <a href="/ro/unelte/redactare-pdf-online">Redactare PDF Online</a>.</em></p>
+<h2>Introducere</h2><p>Într-o eră definită de reglementări stricte privind protecția datelor, cum ar fi GDPR, organizațiile se confruntă cu o presiune imensă pentru a proteja datele personale. În timp ce conținutul vizibil primește adesea cea mai mare atenție, un punct orb semnificativ, adesea trecut cu vederea, este reprezentat de metadatele documentelor. Aceste straturi ascunse de informații – încorporate în fișiere PDF, documente Word și foi de calcul Excel – pot dezvălui din greșeală date personale sensibile (PII), detalii proprietare sau chiar fluxuri de lucru interne, creând riscuri substanțiale de conformitate dacă nu sunt gestionate corect înainte ca documentele să fie partajate extern.</p><p>Ignorarea metadatelor poate duce la amenzi severe în conformitate cu GDPR, la breșe de date și la deteriorarea reputației. Fiecare informație, oricât de minoră ar părea, intră sub umbrela protecției datelor. Acest articol vă va ghida în înțelegerea implicațiilor metadatelor pentru conformitatea GDPR și vă va oferi un checklist practic pentru a vă asigura că documentele sunt verificate amănunțit înainte de a părăsi sistemul dumneavoastră local.</p><h2>Amprenta invizibilă a datelor: De ce metadatele contează pentru conformitatea GDPR</h2><p>Metadatele, adesea descrise ca „date despre date”, includ o multitudine de informații generate automat de aplicațiile software. Acestea pot varia de la numele autorului, datele de creare și modificare, istoricul reviziilor, comentarii și modificări urmărite, până la informații despre imprimantă, numele companiei și chiar etichete geografice pentru imaginile scanate. Deși extrem de utile pentru gestionarea internă a documentelor, aceste elemente pot deveni responsabilități atunci când documentele sunt partajate în afara organizației dumneavoastră, mai ales dacă conțin PII referitoare la subiecții datelor.</p><p>Luați în considerare un document legal partajat cu un avocat extern. Metadatele sale ar putea dezvălui numele tuturor recenzorilor interni, durata procesului de redactare sau chiar o versiune anterioară care conține informații sensibile neredactate. Pentru departamentele de resurse umane, partajarea unei foi de calcul aparent inofensive ar putea expune din greșeală numele angajaților, căi de rețea sau coduri interne de proiect încorporate în proprietățile sale. Astfel de divulgări pot fi o încălcare directă a principiilor GDPR, în special a celor legate de minimizarea datelor, limitarea stocării și responsabilitate.</p><h2>Elemente cheie de metadata de verificat înainte de partajare</h2><p>Înainte ca orice document să traverseze perimetrul organizațional, o revizuire meticuloasă a metadatelor sale nu este doar o bună practică, ci o cerință de conformitate. Diferite tipuri de documente prezintă riscuri diferite legate de metadate. De exemplu, un document Word ar putea păstra un istoric extins al reviziilor, inclusiv modificări respinse și comentarii care dezvăluie discuții interne sau opinii personale. Fișierele Excel pot ascunde foi întregi, intervale denumite sau formule care fac referire la date sensibile. Fișierele PDF, deși adesea considerate documente „finale”, pot conține în continuare informații despre autor, date de creare, fonturi încorporate și chiar straturi de text căutabile din procesele OCR care ar putea dezvălui PII.</p><p>În mod specific, ar trebui să căutați nume de autori, nume de companii, ultima modificare de către, text ascuns (în special în Word și Excel), comentarii, modificări urmărite, versiuni de documente, atribute de imprimantă și proprietăți personalizate ale documentelor. Oricare dintre aceste elemente ar putea duce la identificarea unei persoane sau la expunerea de informații comerciale confidențiale. Cheia este să abordați fiecare document cu mentalitatea că ascunde mai multe informații decât se vede la prima vedere.</p><h2>Simplificarea fluxului de lucru de conformitate pre-partajare cu DocInspector</h2><p>Inspectarea manuală a fiecărui document pentru metadate ascunse este o sarcină laborioasă, predispusă la erori și nesustenabilă. Aici devine inestimabil un instrument specializat precum DocInspector. DocInspector oferă o soluție robustă, bazată pe confidențialitate, pentru gestionarea securității și conformității documentelor la nivel local pe desktop-ul dumneavoastră Windows, asigurând zero expunere în cloud pentru fișierele dumneavoastră sensibile. Se integrează perfect în fluxul dumneavoastră de lucru, permițându-vă să abordați proactiv preocupările legate de metadatele GDPR.</p><p>Folosind DocInspector, puteți scana automat fișiere PDF, Word, Excel și documente scanate pentru o gamă largă de metadate. Vă permite să curățați informațiile sensibile, să reparați corupția documentelor care ar putea expune din greșeală date, să întăriți fișierele PDF pentru o securitate sporită și să efectuați OCR offline pe fișierele scanate, asigurându-vă că toate straturile de text sunt curate și controlate. Întregul proces are loc offline, garantând că datele dumneavoastră nu părăsesc niciodată mediul dumneavoastră securizat. Această capacitate este crucială pentru organizațiile care gestionează informații extrem de sensibile și respectă cerințele stricte de rezidență și confidențialitate a datelor în conformitate cu GDPR.</p><h2>Checklist-ul dvs. GDPR pentru partajarea documentelor</h2><ul><li>• **Identificați destinatarii și sensibilitatea datelor:** Înainte de partajare, înțelegeți clar cine va primi documentul și evaluați sensibilitatea conținutului său.</li><li>• **Revizuiți proprietățile documentului:** Verificați proprietățile standard ale documentului (Autor, Companie, Manager, Comentarii, Subiect, Cuvinte cheie) pentru orice PII sau date organizaționale sensibile.</li><li>• **Inspectați modificările urmărite și comentariile:** Asigurați-vă că toate modificările urmărite sunt acceptate/respinse și că toate comentariile sunt eliminate, deoarece acestea conțin adesea discuții interne sau identificatori personali.</li><li>• **Scanați pentru text ascuns și foi:** Verificați să nu existe text ascuns în fișierele Word sau PowerPoint și nici rânduri, coloane sau foi ascunse în Excel care ar putea conține date sensibile.</li><li>• **Verificați obiectele încorporate și link-urile:** Examinați orice obiecte încorporate sau hyperlink-uri, deoarece acestea pot conține propriile metadate sau pot face legătura cu resurse externe sensibile.</li><li>• **Utilizați DocInspector pentru curățarea cuprinzătoare a metadatelor:** Folosiți DocInspector pentru a identifica și elimina automat toate metadatele potențial sensibile din documentele dumneavoastră, asigurând o curățare amănunțită.</li><li>• **Întăriți fișierele PDF:** Dacă partajați un PDF, utilizați DocInspector pentru a-l întări, securizând în continuare documentul împotriva modificărilor neautorizate și asigurând integritatea metadatelor.</li><li>• **Asigurați procesarea offline:** Procesarea documentelor sensibile trebuie să se realizeze întotdeauna cu DocInspector la nivel local, garantând că nicio dată nu este transmisă către cloud sau servere externe.</li><li>• **Convertiți în PDF (dacă este cazul):** Pentru partajarea externă finală, luați în considerare conversia în PDF (după curățare) pentru a crea o versiune mai controlată și statică a documentului.</li></ul><h2>Concluzie</h2><p>Conformitatea GDPR nu înseamnă doar bifarea unor căsuțe; înseamnă încorporarea unei culturi a confidențialității datelor în fiecare proces organizațional, inclusiv gestionarea și partajarea documentelor. Ignorarea metadatelor este o neglijență critică ce poate avea consecințe profunde. Prin integrarea unei soluții robuste, centrate pe confidențialitate, precum DocInspector în fluxul dumneavoastră de lucru pre-partajare, nu numai că atenuați riscurile asociate cu metadatele ascunse, ci și consolidați angajamentul dumneavoastră față de protecția datelor. Gestionarea proactivă a metadatelor este o componentă indispensabilă a unei strategii puternice de conformitate GDPR, protejând atât organizația dumneavoastră, cât și subiecții datelor cu care interacționați.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"
@@ -348,8 +321,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
-        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
-        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+                <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
+<a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
         <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">

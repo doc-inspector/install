@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Open Graph / Search Thumbnail -->
+   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta property="og:image:type" content="image/png" />
+   <meta property="og:image:width" content="512" />
+   <meta property="og:image:height" content="512" />
+   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PDF Revision History Leak: Hidden Pages and Deleted Objects - DocInspector Blog</title>
   <meta name="description" content="Understand how PDF incremental updates and revision history retain deleted pages, previous text versions, and old objects in the document structure." />
-  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/en/blog/pdf-revision-history-leak" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/pdf-revision-history-leak" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/scurgerea-istoricului-de-revizuiri-pdf-pagini-ascunse" />
@@ -232,44 +238,6 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
-
-    /* ── PREMIUM TABLE STYLING ────────────────── */
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin: 2.2rem 0;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 22, 40, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    .tableContainer table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-    .tableContainer th {
-      background: rgba(6, 182, 212, 0.12);
-      color: #38bdf8;
-      font-weight: 700;
-      padding: 1.1rem 1.3rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
-      font-family: 'Outfit', sans-serif;
-    }
-    .tableContainer td {
-      padding: 1.1rem 1.3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .tableContainer tr:last-child td {
-      border-bottom: none;
-    }
-    .tableContainer tr:hover {
-      background: rgba(255, 255, 255, 0.015);
-    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -280,8 +248,12 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"PDF Revision History Leak: Hidden Pages and Deleted Objects","description":"Understand how PDF incremental updates and revision history retain deleted pages, previous text versions, and old objects in the document structure.","url":"https://doc-inspector.com/en/blog/pdf-revision-history-leak","datePublished":"2026-06-24","dateModified":"2026-06-24","inLanguage":"en-US","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -289,7 +261,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents & Audit Suite</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents<br>& Audit Suite</span>
         </span>
       </a>
 
@@ -298,7 +270,7 @@
         <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="../price" data-i18n="nav.price">Price</a>
         <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
-        <a href="../reports" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="../reports-and-feedback" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
         <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
@@ -332,16 +304,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">PDF Revision History Leak: Hidden Pages and Deleted Objects</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Overview</h2>
+      <h2 data-i18n="blog.section.overview">Overview</h2>
 <p>The Portable Document Format (PDF) supports a feature known as incremental saving. When a user edits a PDF document—such as deleting pages, modifying text, or removing images—and saves the file, many PDF editing programs do not rebuild the entire document from scratch. Instead, they append the new changes to the end of the file, leaving the original objects intact inside the file structure but marked as dereferenced or updated. This incremental update mechanism allows files to be saved faster, but it creates a significant security vulnerability: the entire revision history, including pages that were supposedly deleted and text that was modified, remains stored inside the PDF file and can be recovered with specialized tools.</p>
 
-<h2>What makes this issue important</h2>
+<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
 <p>Incremental update vulnerabilities lead to unintended data disclosure, commonly referred to as a revision history leak. Organizations frequently repurpose template documents or edit drafts to remove confidential client information before final distribution. If the document is saved incrementally, a recipient can inspect the physical structure of the PDF and recover the previous versions of the text, deleted tables, or redacted pages. This can expose sensitive negotiation terms, internal reviews, client names, and proprietary source code. Because this data exists as unlinked or previous-version objects within the file container, it is invisible during standard viewing but easily extractable through hex editors, parser scripts, or forensic software.</p>
 
-<h2>Practical approach</h2>
+<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
 <p>Preventing revision history leaks requires changing how documents are saved and finalized. The most direct method to eliminate incremental updates is to perform a full save or "Save As" operation that forces the PDF writer to rewrite the file completely, removing all inactive, dereferenced, and deleted objects from the file structure. Additionally, documents can be flattened, which merges layers and removes structural history, or exported to a standardized, clean PDF/A format. Before any document is distributed externally, it must undergo binary analysis to verify that the file size corresponds to the visible elements and that no dead object streams or prior updates are embedded in the PDF payload.</p>
 
-<h2>Practical checklist</h2>
+<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
 <ul>
   <li>Avoid relying on simple 'Save' operations after deleting pages or sensitive content from a PDF.</li>
   <li>Use 'Save As' or full reconstruction features in PDF editors to force a complete file rewrite.</li>
@@ -350,7 +322,7 @@
   <li>Inspect the physical file structure using analyzer tools to confirm the absence of prior incremental updates.</li>
 </ul>
 
-<h2>How DocInspector fits into this workflow</h2>
+<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
 <p>DocInspector provides automated, local analysis to protect your organization from revision history leaks. By parsing the underlying object structure of your PDF files offline, DocInspector quickly identifies incremental updates, dereferenced objects, and remnants of deleted pages that are still physically present in the file. Since the tool operates completely locally, you can audit your entire document archive without risking exposure of sensitive data to cloud services. DocInspector flags files containing hidden revision paths, enabling you to rebuild and sanitize them before publication, ensuring your outgoing files represent only the final, approved content.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
@@ -367,8 +339,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
-        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+                <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
+<a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
         <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">

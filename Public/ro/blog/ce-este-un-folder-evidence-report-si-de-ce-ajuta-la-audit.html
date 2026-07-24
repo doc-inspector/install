@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+   <!-- Open Graph / Search Thumbnail -->
+   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta property="og:image:type" content="image/png" />
+   <meta property="og:image:width" content="512" />
+   <meta property="og:image:height" content="512" />
+   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ce este un Folder Evidence Report și de ce ajută la audit - DocInspector Blog</title>
   <meta name="description" content="Raportul Folder Evidence simplifică auditurile prin compilarea datelor organizaționale. Află cum să îl folosești în siguranță cu funcțiile de scanare offline ale DocInspector." />
-  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/ro/blog/ce-este-un-folder-evidence-report-si-de-ce-ajuta-la-audit" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/folder-evidence-report-explained" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/ce-este-un-folder-evidence-report-si-de-ce-ajuta-la-audit" />
@@ -232,44 +238,6 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
-
-    /* ── PREMIUM TABLE STYLING ────────────────── */
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin: 2.2rem 0;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 22, 40, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    .tableContainer table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-    .tableContainer th {
-      background: rgba(6, 182, 212, 0.12);
-      color: #38bdf8;
-      font-weight: 700;
-      padding: 1.1rem 1.3rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
-      font-family: 'Outfit', sans-serif;
-    }
-    .tableContainer td {
-      padding: 1.1rem 1.3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .tableContainer tr:last-child td {
-      border-bottom: none;
-    }
-    .tableContainer tr:hover {
-      background: rgba(255, 255, 255, 0.015);
-    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -280,8 +248,12 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Ce este un Folder Evidence Report și de ce ajută la audit","description":"Raportul Folder Evidence simplifică auditurile prin compilarea datelor organizaționale. Află cum să îl folosești în siguranță cu funcțiile de scanare offline ale DocInspector.","url":"https://doc-inspector.com/ro/blog/ce-este-un-folder-evidence-report-si-de-ce-ajuta-la-audit","datePublished":"2026-05-28","dateModified":"2026-05-28","inLanguage":"ro-MD","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
@@ -289,7 +261,7 @@
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente<br>& Audit</span>
         </span>
       </a>
 
@@ -301,7 +273,7 @@
         <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
-        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
       </div>
 
       <div class="nav-actions">
@@ -316,7 +288,7 @@
             <a href="../../ru/blog/chto-takoe-folder-evidence-report-i-pochemu-on-pomogaet-auditu" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
+        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Download</a>
       </div>
 
       <button class="nav-toggle" aria-label="Menu">
@@ -332,7 +304,8 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Ce este un Folder Evidence Report și de ce ajută la audit</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Introducere</h2><p>Raportul Folder Evidence este un set de documente structurate care compilează date organizaționale, structuri de fișiere, jurnale de acces și metadate pentru suportul auditurilor de conformitate. În medii care gestionează documente sensibile ca PDF-urile, fișierele Word și înregistrarile scansionate, menținerea unui dovadă verificabilă devine critică. Acest raport servește simultan ca un șantier de audit organizatoric și un instrument de atenuare a riscurilor, în special atunci când se folosesc instrumente de scanare locale care pun accent pe suveranitatea datelor.</p><h2>Unde apăr risks de audit</h2><p>Instituțiile financiare, furnizorii de servicii medicale și firmele legale întâmpină adesea dificultăți atunci când echipa de audit solicită dovezi despre protocoalele de gestionare a documentelor. Fișierele organizate într-un mod nestructurat, metadatele ascunse și înregistrările digitale corupte creează lacune de conformitate. Absența procesării OCR în documentele scanate reduce încă mai mult posibilitatea indexării conținutului, ceea ce este esențial pentru căile de audit justificate.</p><h2>Cerințe esențiale pentru verificare</h2><p>În timpul auditurilor documentale, verificatorii au nevoie de asigurări că înregistrările organizației rămân neschimbate de la creare până la predare. Necesitatea vizibilității include: 1) Auditabilitate metadatelor fișierului (date, autori, revizuiri), 2) Documentare a lanțului de înmânrare, și 3) Dovezi tehnice de măsuri de securitate precum criptarea. Documentele scanate trebuie să demonstreze acuratețea OCR pentru căutarea textului, asigurându-se că fiecare pixel este trasabil în cadrul de audit.</p><h2>Flux de lucru pentru dovezi de încredere</h2><p>DocInspector se integrează în acest workflow oferind scanări PDF/Word/Excel fără cloud care repară corupția menținând timpii originali. Modulul său de curățare a metadatelor elimină datele ascunse fără a altera conținutul. Pentru înregistrările scanate din hârtie, motorul OCR creează text citit de mașină direct în fișierele locale. Aceasta păstrează principiile de prioritate pe confidențialitate, în timp ce produce dovezi de dosar conforme cu standardul ISO 27001.</p><h2>Checklist pentru raportul dosarului de dovezi</h2><ul><li>✓ Verifică că toate formatele de documente (.docx, .pdf, .xlsx) sunt incluse și actualizate</li><li>✓ Confirmă că metadatele conțin istoricul complet de proveniență fără date ascunse</li><li>✓ Aplică verificări de corupție utilizând instrumentele locale de reparare DocInspector</li><li>✓ Asigură-te că fișierele scanate au straturi OCR active pentru extragerea de text</li><li>✓ Arhivează dosarele în containere ZIP criptate pentru transmitere</li></ul><h2>Concluzie</h2><p>Implementarea unui workflow de raportare Folder Evidence cu funcțiile de inspectare a documentelor offline ale DocInspector asigură gata audithării, menținând în același timp confidențialitatea datelor. Atenția instrumentului la procesarea locală elimină vulnerabilitățile legate de cloud și oferă documentație de lanț de înmânrări verificabile pentru toate înregistrările digitale și scanate.</p>
+      <p><em>💡 <strong>Unealtă rapidă:</strong> Elimină metadatele ascunse din fișierele tale PDF în siguranță cu <a href="/ro/unelte/curatare-metadate-pdf">Curățare Metadate PDF</a>.</em></p>
+<h2>Introducere</h2><p>Raportul Folder Evidence este un set de documente structurate care compilează date organizaționale, structuri de fișiere, jurnale de acces și metadate pentru suportul auditurilor de conformitate. În medii care gestionează documente sensibile ca PDF-urile, fișierele Word și înregistrarile scansionate, menținerea unui dovadă verificabilă devine critică. Acest raport servește simultan ca un șantier de audit organizatoric și un instrument de atenuare a riscurilor, în special atunci când se folosesc instrumente de scanare locale care pun accent pe suveranitatea datelor.</p><h2>Unde apăr risks de audit</h2><p>Instituțiile financiare, furnizorii de servicii medicale și firmele legale întâmpină adesea dificultăți atunci când echipa de audit solicită dovezi despre protocoalele de gestionare a documentelor. Fișierele organizate într-un mod nestructurat, metadatele ascunse și înregistrările digitale corupte creează lacune de conformitate. Absența procesării OCR în documentele scanate reduce încă mai mult posibilitatea indexării conținutului, ceea ce este esențial pentru căile de audit justificate.</p><h2>Cerințe esențiale pentru verificare</h2><p>În timpul auditurilor documentale, verificatorii au nevoie de asigurări că înregistrările organizației rămân neschimbate de la creare până la predare. Necesitatea vizibilității include: 1) Auditabilitate metadatelor fișierului (date, autori, revizuiri), 2) Documentare a lanțului de înmânrare, și 3) Dovezi tehnice de măsuri de securitate precum criptarea. Documentele scanate trebuie să demonstreze acuratețea OCR pentru căutarea textului, asigurându-se că fiecare pixel este trasabil în cadrul de audit.</p><h2>Flux de lucru pentru dovezi de încredere</h2><p>DocInspector se integrează în acest workflow oferind scanări PDF/Word/Excel fără cloud care repară corupția menținând timpii originali. Modulul său de curățare a metadatelor elimină datele ascunse fără a altera conținutul. Pentru înregistrările scanate din hârtie, motorul OCR creează text citit de mașină direct în fișierele locale. Aceasta păstrează principiile de prioritate pe confidențialitate, în timp ce produce dovezi de dosar conforme cu standardul ISO 27001.</p><h2>Checklist pentru raportul dosarului de dovezi</h2><ul><li>✓ Verifică că toate formatele de documente (.docx, .pdf, .xlsx) sunt incluse și actualizate</li><li>✓ Confirmă că metadatele conțin istoricul complet de proveniență fără date ascunse</li><li>✓ Aplică verificări de corupție utilizând instrumentele locale de reparare DocInspector</li><li>✓ Asigură-te că fișierele scanate au straturi OCR active pentru extragerea de text</li><li>✓ Arhivează dosarele în containere ZIP criptate pentru transmitere</li></ul><h2>Concluzie</h2><p>Implementarea unui workflow de raportare Folder Evidence cu funcțiile de inspectare a documentelor offline ale DocInspector asigură gata audithării, menținând în același timp confidențialitatea datelor. Atenția instrumentului la procesarea locală elimină vulnerabilitățile legate de cloud și oferă documentație de lanț de înmânrări verificabile pentru toate înregistrările digitale și scanate.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"
@@ -348,8 +321,8 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
-        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
-        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+                <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
+<a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
         <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
