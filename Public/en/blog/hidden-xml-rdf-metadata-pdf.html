@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Open Graph / Search Thumbnail -->
-   <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta property="og:image:type" content="image/png" />
-   <meta property="og:image:width" content="512" />
-   <meta property="og:image:height" content="512" />
-   <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
-   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hidden XML &amp; RDF Metadata in PDF: The Silent Leak - DocInspector Blog</title>
@@ -248,29 +241,24 @@
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
   </script>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Hidden XML & RDF Metadata in PDF: The Silent Leak","description":"Learn how Extensible Metadata Platform (XMP) structures like XML and RDF store hidden history, author details, and edit paths in PDF files, and how to remove them.","url":"https://doc-inspector.com/en/blog/hidden-xml-rdf-metadata-pdf","datePublished":"2026-06-24","dateModified":"2026-06-24","inLanguage":"en-US","image":"https://doc-inspector.com/assets/white-theme-GUI.png","author":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"publisher":{"@type":"Organization","@id":"https://doc-inspector.com/#organization","name":"DocInspector","url":"https://doc-inspector.com","logo":"https://doc-inspector.com/assets/logo.png"},"isPartOf":{"@id":"https://doc-inspector.com/#website"}}]}</script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
-  <!-- Progress bar -->
-  <div id="progress-bar"></div>
 <header class="site-header">
   <div class="container">
     <nav class="navbar">
       <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
-        <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
-          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents<br>& Audit Suite</span>
+        <span>
+          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
+          <span class="brand-subtitle" data-i18n="brand.subtitle">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
       <div class="nav-links">
         <a href="../" data-i18n="nav.home">Home</a>
-        <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
         <a href="../price" data-i18n="nav.price">Price</a>
         <a href="../user-guide" data-i18n="nav.guide">User Guide</a>
-        <a href="../reports-and-feedback" data-i18n="nav.reports">Reports & Feedback</a>
+        <a href="../reports" data-i18n="nav.reports">Reports & Feedback</a>
         <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
         <a href="../contact" data-i18n="nav.contact">Contact</a>
         <a href="../download" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Download</a>
@@ -304,16 +292,16 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Hidden XML &amp; RDF Metadata in PDF: The Silent Leak</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2 data-i18n="blog.section.overview">Overview</h2>
+      <h2>Overview</h2>
 <p>Portable Document Format (PDF) files are often assumed to be static, digital equivalents of printed paper. However, behind the visual layer lies a complex, object-oriented data structure containing extensive hidden information. Among the most pervasive sources of metadata are Extensible Metadata Platform (XMP) schemas, which are structured using Extensible Markup Language (XML) and Resource Description Framework (RDF). Developed by Adobe, XMP allows applications to embed standardized metadata directly within the file container. While this metadata is highly useful for document management and workflow automation, it frequently contains sensitive details—such as document author identities, organization names, exact timestamps, creation history, software versions, and even local file paths—that are completely invisible to the average user viewing the document.</p>
 
-<h2 data-i18n="blog.section.whyMatters">What makes this issue important</h2>
+<h2>What makes this issue important</h2>
 <p>The silent leak of XML and RDF metadata poses significant security, privacy, and compliance risks. When organizations publish PDFs externally without sanitizing this underlying metadata, they inadvertently expose internal details that can be exploited by malicious actors. For example, local directory paths embedded in XMP metadata can reveal internal username structures, server names, and directory organization, which are valuable in reconnaissance phases of cyber attacks. Furthermore, metadata can contradict public disclosures or leak confidential collaboration details, such as when an external PR firm drafts a corporate press release, or when deleted sections of text remain cached within metadata streams. Under regulations like GDPR, HIPAA, and CCPA, releasing files containing personally identifiable information (PII) in the metadata is a compliance failure that can result in substantial regulatory penalties.</p>
 
-<h2 data-i18n="blog.section.practicalApproach">Practical approach</h2>
+<h2>Practical approach</h2>
 <p>Addressing the risks of XML and RDF metadata requires a structured approach to document sanitization prior to distribution. Rather than relying on manual checks, organizations must implement automated inspection and cleaning workflows. The first step is to establish a policy defining what metadata is permissible for external release. Next, documents must be scanned at a structural level to detect XMP packets, RDF metadata, and custom XML streams. Standard PDF viewers do not display these elements; specialized inspection tools must be used. Sanitization involves physically stripping these metadata streams from the PDF structure or replacing them with a standardized, anonymous template. It is critical that this process is executed locally on a secure system to avoid sending sensitive, uncleaned documents to external web-based utilities that might store or log the files.</p>
 
-<h2 data-i18n="blog.section.checklist">Practical checklist</h2>
+<h2>Practical checklist</h2>
 <ul>
   <li>Inspect all outgoing PDF files for the presence of embedded XMP and RDF metadata packets.</li>
   <li>Ensure that creator, author, producer, and company metadata fields are either cleared or standardized.</li>
@@ -322,7 +310,7 @@
   <li>Perform metadata cleaning offline on secure, local infrastructure to maintain strict data custody.</li>
 </ul>
 
-<h2 data-i18n="blog.section.howFits">How DocInspector fits into this workflow</h2>
+<h2>How DocInspector fits into this workflow</h2>
 <p>DocInspector provides a secure, fully offline solution for inspecting and sanitizing PDF metadata. Because it runs locally on your workstation, DocInspector ensures that sensitive corporate documents, legal filings, and financial reports are never uploaded to the cloud or external servers. Its powerful inspection engine scans PDFs at a binary level, detecting hidden XML and RDF metadata, custom XMP properties, and revision history. With DocInspector, teams can quickly analyze large batches of documents, identify compliance risks, and strip hidden metadata with confidence, ensuring complete privacy and professional document security before publication.</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
@@ -339,8 +327,7 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-                <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Security</a>
-<a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="../privacy" data-i18n="footer.privacy">Privacy Policy</a>
         <a href="../terms" data-i18n="footer.terms">Terms of Service</a>
         <a href="../refund" data-i18n="footer.refund">Refund Policy</a>
         <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
@@ -351,7 +338,7 @@
   </div>
 </footer>
 <script src="../../cookies.js"></script>
-<script src="../../i18n-dict.v2.js"></script>
+<script src="../../i18n-dict.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
 <script>
