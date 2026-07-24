@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pregătirea documentelor pentru arhivare pe termen lung - DocInspector Blog</title>
   <meta name="description" content="Află cum să pregătești documentele pentru arhivare pe termen lung cu ajutorul acestor pasiuni și al softului DocInspector." />
+  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/ro/blog/pregatirea-documentelor-pentru-arhivare-pe-termen-lung" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/long-term-document-archive-preparation" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/pregatirea-documentelor-pentru-arhivare-pe-termen-lung" />
@@ -231,6 +232,44 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
+
+    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .tableContainer {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.2rem 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .tableContainer table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .tableContainer th {
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      font-family: 'Outfit', sans-serif;
+    }
+    .tableContainer td {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .tableContainer tr:last-child td {
+      border-bottom: none;
+    }
+    .tableContainer tr:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -248,14 +287,15 @@
     <nav class="navbar">
       <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
-        <span>
-          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
+          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
         </span>
       </a>
 
       <div class="nav-links">
         <a href="../" data-i18n="nav.home">Acasă</a>
+        <a href="../unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
         <a href="../preturi" data-i18n="nav.price">Preț</a>
         <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
         <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
@@ -308,6 +348,7 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
+        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
         <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
         <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
@@ -319,7 +360,7 @@
   </div>
 </footer>
 <script src="../../cookies.js"></script>
-<script src="../../i18n-dict.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
 <script>

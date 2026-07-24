@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ce este procesarea în lot (batch) a documentelor și cum se implementează offline - DocInspector Blog</title>
-  <meta name="description" content="Află cum procesarea în lot (batch) a documentelor grupează fișierele în fluxuri automate pentru a accelera auditul, aplicarea de watermark, eliminarea metadatelor și OCR-ul local." />
+  <title>Ce este procesarea în lot (batch) a documentelor și cum se implementează online sau offline - DocInspector Blog</title>
+  <meta name="description" content="Află cum procesarea în lot (batch) a documentelor grupează fișierele în fluxuri automate. Folosește instrumentele online în browser sau aplicația desktop DocInspector pentru a accelera OCR-ul, filigranarea, eliminarea metadatelor și auditul." />
+  <meta property="og:site_name" content="DocInspector">
   <link rel="canonical" href="https://doc-inspector.com/ro/blog/procesarea-in-lot-a-documentelor-explicata" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/batch-document-processing-explained" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/procesarea-in-lot-a-documentelor-explicata" />
@@ -231,6 +232,44 @@
       border-right: 1px solid rgba(56, 189, 248, 0.05);
       border-bottom: 1px solid rgba(56, 189, 248, 0.05);
     }
+
+    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .tableContainer {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.2rem 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .tableContainer table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .tableContainer th {
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      font-family: 'Outfit', sans-serif;
+    }
+    .tableContainer td {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .tableContainer tr:last-child td {
+      border-bottom: none;
+    }
+    .tableContainer tr:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -248,14 +287,15 @@
     <nav class="navbar">
       <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
-        <span>
-          <span class="brand-name" data-i18n="brand.name">DocInspector</span><br>
-          <span class="brand-subtitle" data-i18n="brand.subtitle">Reparare, Batch Manager de documente & Audit</span>
+        <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
+          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
         </span>
       </a>
 
       <div class="nav-links">
         <a href="../" data-i18n="nav.home">Acasă</a>
+        <a href="../unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
         <a href="../preturi" data-i18n="nav.price">Preț</a>
         <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
         <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
@@ -290,10 +330,10 @@
     <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
        <span class="blog-category" data-i18n="blog.cat.education">Educație</span> | <time datetime="2026-07-24">2026-07-24</time>
     </div>
-    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Ce este procesarea în lot (batch) a documentelor și cum se implementează offline</h1>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Ce este procesarea în lot (batch) a documentelor și cum se implementează online sau offline</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
       <h2>Introducere</h2>
-<p>În activitatea zilnică a companiilor, gestionarea documentelor este o necesitate permanentă. Cu toate acestea, prelucrarea fișierelor unul câte unul — deschiderea manuală, verificarea, aplicarea de watermark-uri sau ștergerea metadatelor — reprezintă un blocaj major. Procesarea în lot (batch) a documentelor rezolvă această problemă prin gruparea fișierelor și rularea lor printr-un flux automatizat într-o singură trecere. Pentru echipele juridice, de contabilitate, departamentele medicale sau arhivele corporative mari, procesarea în lot este o funcție esențială pentru economisirea timpului și reducerea erorilor.</p>
+<p>În activitatea zilnică a companiilor, gestionarea documentelor este o necesitate permanentă. Cu toate acestea, prelucrarea fișierelor unul câte unul — deschiderea manuală, verificarea, aplicarea de watermark-uri sau ștergerea metadatelor — reprezintă un blocaj major. Procesarea în lot (batch) a documentelor rezolvă această problemă prin gruparea fișierelor și rularea lor printr-un flux automatizat într-o singură trecere. Fie că folosești instrumente online gratuite direct în browser sau o aplicație desktop dedicată, procesarea în lot este o funcție esențială pentru economisirea timpului și reducerea erorilor în echipele juridice, de contabilitate, departamentele medicale sau arhivele corporative mari.</p>
 
 <h2>Ce înseamnă de fapt procesarea în lot (batch)</h2>
 <p>Procesarea în lot a documentelor este gestionarea automatizată a volumelor mari de fișiere simultan, spre deosebire de prelucrarea secvențială sau manuală. În loc să efectueze operațiuni pe fiecare fișier în parte, un sistem batch aplică o secvență predefinită de acțiuni asupra unui set întreg de documente într-o singură rulare. Acest proces diferă de procesarea în timp real sau pe document individual, care necesită interacțiune umană continuă.</p>
@@ -332,8 +372,8 @@
   </table>
 </div>
 
-<h2>Cum funcționează un flux de procesare offline în lot</h2>
-<p>Pentru organizațiile care lucrează cu informații extrem de confidențiale (cum ar fi firmele de avocatură sau clinicile medicale), trimiterea fișierelor către API-uri cloud terțe reprezintă un risc major de securitate și neconformitate. Un flux local, complet offline, garantează confidențialitatea datelor, menținând un grad ridicat de automatizare. Procesul urmează o secvență structurată și repetabilă:</p>
+<h2>Cum funcționează un flux de procesare în lot</h2>
+<p>DocInspector oferă două moduri puternice de a rula fluxuri de documente în lot: **Instrumentele Online în Browser** și **Aplicația Desktop Offline**. Ambele abordări urmează o secvență structurată și repetabilă pentru a transforma fișierele brute în rezultate curate:</p>
 
 <div class="tableContainer">
   <table>
@@ -342,45 +382,45 @@
         <th>Etapă</th>
         <th>Nume etapă</th>
         <th>Descriere</th>
-        <th>Mecanism offline</th>
-        <th>Rolul automatizării</th>
+        <th>Flux Online (în Browser)</th>
+        <th>Flux Offline (Aplicație Desktop)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
         <td><strong>Preluare în masă</strong></td>
-        <td>Adunarea fișierelor țintă din directoare locale sau drive-uri de rețea într-o listă unică.</td>
-        <td>Scanare locală și maparea structurii de foldere.</td>
-        <td>Complet automatizat; detectează toate fișierele din subfoldere.</td>
+        <td>Adunarea fișierelor țintă într-o listă unică de procesare.</td>
+        <td>Trage și plasează mai multe fișiere direct în browserul tău web.</td>
+        <td>Trage și plasează directoare locale sau structuri întregi de foldere.</td>
       </tr>
       <tr>
         <td>2</td>
         <td><strong>Audit documente</strong></td>
-        <td>Scanarea fișierelor pentru a identifica formate, structuri corupte și metadate ascunse.</td>
-        <td>Parser local care citește proprietățile și flag-urile de securitate.</td>
-        <td>Complet automatizat; identifică fișierele riscante (JavaScript, macro-uri) în secunde.</td>
+        <td>Scanarea fișierelor pentru a identifica formate, structuri corupte și metadate.</td>
+        <td>Analiză instantanee în sandbox pentru detectarea riscurilor.</td>
+        <td>Parser local care extrage proprietățile și flag-urile de securitate.</td>
       </tr>
       <tr>
         <td>3</td>
         <td><strong>Procesare în lot</strong></td>
-        <td>Aplicarea acțiunilor: reparare, adăugare watermark, aplatizare sau eliminare metadate.</td>
+        <td>Aplicarea acțiunilor: reparare, watermark, aplatizare sau eliminare metadate.</td>
+        <td>Procesare securizată într-un sandbox VPS izolat din Germania (UE).</td>
         <td>Reconstrucție locală prin procesorul computerului.</td>
-        <td>Complet automatizat; modifică documentele conform parametrilor aleși.</td>
       </tr>
       <tr>
         <td>4</td>
         <td><strong>Verificare și logare</strong></td>
-        <td>Validarea rezultatelor și generarea unui raport complet (Excel sau log) al rulării.</td>
-        <td>Verificare locală de integritate și scriere fișier Excel.</td>
-        <td>Majoritar automatizat; creează un manifest clar, util pentru conformitate.</td>
+        <td>Validarea rezultatelor și pregătirea fișierelor pentru descărcare.</td>
+        <td>Fișierele procesate sunt comprimate într-o singură arhivă ZIP.</td>
+        <td>Verificare locală de integritate și scriere raport Excel.</td>
       </tr>
       <tr>
         <td>5</td>
-        <td><strong>Arhivare sau ștergere</strong></td>
-        <td>Salvarea documentelor curate local sau distrugerea securizată a fișierelor temporare expirate.</td>
-        <td>Scriere locală pe disc și algoritmi de shredding cu treceri multiple.</td>
-        <td>Complet automatizat; organizează documentele în folderele țintă sau șterge datele reziduale.</td>
+        <td><strong>Salvare și ștergere</strong></td>
+        <td>Salvarea documentelor curate și curățarea datelor temporare.</td>
+        <td>Toate fișierele sunt șterse definitiv de pe serverele noastre imediat după descărcare.</td>
+        <td>Scriere locală pe disc; opțiune de shredding securizat disponibilă.</td>
       </tr>
     </tbody>
   </table>
@@ -391,15 +431,15 @@
 
 <h2>Checklist practic pentru procesarea în lot</h2>
 <ul>
-  <li>Folosește întotdeauna o aplicație locală dacă documentele procesate conțin date sub incidența GDPR, HIPAA sau secrete comerciale.</li>
-  <li>Asigură-te că utilitarul ales păstrează ierarhia originală a folderelor pentru a evita sortarea manuală ulterioară.</li>
-  <li>Rulează un audit rapid înainte de a aplica modificări în masă (cum ar fi watermark-ul) pentru a verifica integritatea fișierelor.</li>
-  <li>Menține un raport detaliat sau un log Excel care să documenteze ce a fost procesat și dacă au existat erori.</li>
-  <li>Validează pragul de sensibilitate pe un lot de probă când folosești OCR sau funcția de eliminare a paginilor goale.</li>
+  <li>Pentru sarcini rapide, folosește instrumente online securizate în browser care nu necesită instalare sau cont.</li>
+  <li>Asigură-te că furnizorul online procesează fișierele într-un mediu protejat (cum ar fi un sandbox VPS european) și le șterge imediat după descărcare.</li>
+  <li>Dacă gestionezi date extrem de confidențiale sau sub reglementări stricte, folosește o aplicație desktop offline.</li>
+  <li>Menține un raport detaliat sau un log Excel care să documenteze ce a fost procesat și rezultatele.</li>
+  <li>Păstrează întotdeauna o copie de siguranță a documentelor brute înainte de rularea modificărilor automate.</li>
 </ul>
 
 <h2>Cum se integrează DocInspector în acest flux</h2>
-<p>DocInspector este o aplicație desktop profesională pentru Windows creată special pentru procesarea rapidă și locală în lot a documentelor. Funcționând 100% offline, DocInspector garantează că fișierele tale nu ating niciodată servere externe. Aplicația reunește trei module esențiale: PDF Repair (pentru reparare, adăugare watermark în masă și OCR offline), Audit & Security (pentру scanarea metadatelor ascunse, scripturilor active și shredding securizat) și Reporting (pentru generarea de rapoarte Excel de analiză a directoarelor). Este soluția offline optimă pentru avocați, contabili și echipe de conformitate care prelucrează volume mari de acte în siguranță.</p>
+<p>DocInspector oferă o suită completă de instrumente de procesare în lot concepută pentru orice tip de workflow. **Instrumentele noastre Online în Browser** reprezintă cea mai rapidă metodă de lucru: sunt complet gratuite, nu necesită crearea unui cont și îți permit să repari, aplici watermark, aplatizezi sau să ștergi metadatele în lot pentru până la 100 de fișiere pe zi. Toate fișierele online sunt procesate într-un sandbox izolat din Germania (UE) și șterse imediat pentru a-ți asigura confidențialitatea. Pentru volume mari sau cerințe stricte de conformitate, **Aplicația Desktop DocInspector** pentru Windows rulează toate modulele local pe PC-ul tău, fără conexiune la internet. Începe procesarea în lot a documentelor tale chiar astăzi pe doc-inspector.com!</p>
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
       <a href="../blog.html" id="back-blog-link"
@@ -415,6 +455,7 @@
     <div class="footer-inner">
       <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
+        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
         <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
         <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
         <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
@@ -426,7 +467,7 @@
   </div>
 </footer>
 <script src="../../cookies.js"></script>
-<script src="../../i18n-dict.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
 <script src="../../i18n.js"></script>
 <script src="../../scroll-fx.js?v=9"></script>
 <script>
