@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:site_name" content="DocInspector">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Remove PDF Signatures Online & Unlock Edit (Free) | DocInspector</title>
@@ -2669,6 +2670,8 @@ async function pollJobStatus(jobId, downloadName) {
           const total = parsed.total_files;
           const filename = parsed.current_file_name;
           const ops = parsed.operations || [];
+          const ORDER = { 'to-pdf': 0, 'pdfa': 1, 'removesigs': 2, 'rebuild': 3, 'redact': 4, 'flatten': 5, 'watermark': 6, 'sanitize': 7, 'encrypt': 8 };
+          ops.sort((a, b) => (ORDER[a] !== undefined ? ORDER[a] : 99) - (ORDER[b] !== undefined ? ORDER[b] : 99));
           const currentOp = parsed.current_op;
 
           let pct = 0;
@@ -2860,11 +2863,48 @@ async function pollJobStatus(jobId, downloadName) {
             }
           }
         }
-      } else if (data.status === 'completed') {
+            } else if (data.status === 'completed') {
         localStorage.removeItem('di_active_job_id');
         localStorage.removeItem('di_active_job_download_name');
         
-        await fetchStatus(); // Refresh daily limit
+        // Render all operations as DONE in rOpsContainer upon completion
+        const opsContainer = document.getElementById('rOpsContainer');
+        if (opsContainer) {
+          const lang = (window.location.pathname.includes('/ro/') || window.location.pathname.includes('unelte')) ? 'ro' : 
+                       ((window.location.pathname.includes('/ru/') || window.location.pathname.includes('onlayn')) ? 'ru' : 'en');
+          const opNames = {
+            en: { removesigs: "Remove Signatures", "to-pdf": "Convert Any Format to PDF", rebuild: "Rebuild & Repair PDF", redact: "Find & Redact", flatten: "Convert PDF to Image-only (Flatten)", watermark: "Add Watermark", sanitize: "Sanitize Metadata", encrypt: "Encrypt PDF" },
+            ro: { removesigs: "Elimină Semnăturile", rebuild: "Reconstruiește & Repară PDF", redact: "Găsește & Redactează", flatten: "Convertește PDF în Imagine (Aplatizare)", watermark: "Adaugă Filigran", sanitize: "Igienizează Metadate", encrypt: "Criptează PDF" },
+            ru: { removesigs: "Удаление подписей", rebuild: "Восстановление структуры PDF", redact: "Поиск и скрытие", flatten: "Преобразовать PDF в изображение (Растеризовать)", watermark: "Добавление водяного знака", sanitize: "Очистка метаданных", encrypt: "Шифрование PDF" }
+          };
+          const ORDER = { 'to-pdf': 0, 'pdfa': 1, 'removesigs': 2, 'rebuild': 3, 'redact': 4, 'flatten': 5, 'watermark': 6, 'sanitize': 7, 'encrypt': 8 };
+          const ops = [...selectedOps].sort((a, b) => (ORDER[a] !== undefined ? ORDER[a] : 99) - (ORDER[b] !== undefined ? ORDER[b] : 99));
+          
+          opsContainer.innerHTML = '';
+          ops.forEach(op => {
+            const name = (opNames[lang] && opNames[lang][op]) || op;
+            const stepRow = document.createElement('div');
+            stepRow.style.display = 'flex';
+            stepRow.style.alignItems = 'center';
+            stepRow.style.justifyContent = 'space-between';
+            stepRow.style.fontSize = '0.82rem';
+            
+            const statusText = lang === 'ro' ? 'Finalizat' : (lang === 'ru' ? 'Готово' : 'Done');
+            const statusColor = '#10b981';
+            const icon = "🟢";
+            
+            stepRow.innerHTML = `
+              <div style="display:flex; align-items:center; gap:0.5rem; color:#fff">
+                <span>${icon}</span>
+                <span>${name}</span>
+              </div>
+              <span style="color:${statusColor}; font-size:0.75rem; font-weight:700; text-transform:uppercase;">${statusText}</span>
+            `;
+            opsContainer.appendChild(stepRow);
+          });
+        }
+        
+        await fetchStatus(); // Refresh limit
         rSpin.style.display = 'none';
         rIcon.style.display = 'block';
         if (cancelBtn) cancelBtn.style.display = 'none';
