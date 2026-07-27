@@ -3,160 +3,311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit | DocInspector</title>
-  <meta name="description" content="Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css">
-  <style>
-    .article-container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 120px 20px 60px;
-    }
-    .article-body h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: #38bdf8;
-      margin: 2.8rem 0 1.2rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    .article-body h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #22d3ee;
-      margin: 2rem 0 1rem;
-    }
-    .article-body p {
-      font-size: 1.125rem;
-      line-height: 1.85;
-      color: #cbd5e1;
-      margin-bottom: 1.5rem;
-    }
-    .article-body ul, .article-body ol {
-      margin: 1.2rem 0 1.8rem 1.8rem;
-      color: #cbd5e1;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    .article-body li {
-      margin-bottom: 0.8rem;
-    }
-    
-    /* ── HIGH-CONTRAST CTA BOX & BUTTON ── */
-    .cta-box {
-      background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(6, 182, 212, 0.15) 100%);
-      border: 1px solid rgba(6, 182, 212, 0.4);
-      border-radius: 20px;
-      padding: 2.2rem;
-      margin: 3rem 0;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-box h3 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-    }
-    .cta-box p {
-      font-size: 1.05rem;
-      color: #e2e8f0;
-      margin-bottom: 1.8rem;
-    }
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-      color: #ffffff !important;
-      font-weight: 800;
-      font-size: 1.1rem;
-      padding: 1rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
-      transition: all 0.3s ease;
-      font-family: 'Outfit', sans-serif;
-      letter-spacing: 0.02em;
-    }
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.6);
-      background: linear-gradient(135deg, #0369a1 0%, #0891b2 100%);
-    }
-    .cta-btn svg {
-      width: 22px;
-      height: 22px;
-      fill: #ffffff;
-    }
-
-    .gdpr-box {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      border-radius: 16px;
-      padding: 1.8rem;
-      margin: 2.2rem 0;
-    }
-    .gdpr-box h4 {
-      color: #34d399;
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-    }
-
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin: 2.5rem 0;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(10, 22, 40, 0.8);
-    }
-    .tableContainer table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-      text-align: left;
-    }
-    .tableContainer th {
-      background: rgba(6, 182, 212, 0.18);
-      color: #38bdf8;
-      font-weight: 700;
-      padding: 1.1rem 1.4rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.4);
-    }
-    .tableContainer td {
-      padding: 1.1rem 1.4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-    }
-  </style>
+  <title>Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit - DocInspector Blog</title>
+  <meta name="description" content="Ghid complet pentru curățarea, aplatizarea și auditul dosarelor de documente înainte de expunerea în camerele de date virtuale VDR. Instrucțiuni pas cu pas pentru selecția în lot pe foldere, pipeline de procesare și arhivare ZIP." />
+  <meta property="og:site_name" content="DocInspector">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
+    "@type": "NewsArticle",
     "headline": "Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit",
-    "image": "https://doc-inspector.com/assets/white-theme-GUI.png",
+    "description": "Ghid complet pentru curățarea, aplatizarea și auditul dosarelor de documente înainte de expunerea în camerele de date virtuale VDR. Instrucțiuni pas cu pas pentru selecția în lot pe foldere, pipeline de procesare și arhivare ZIP.",
     "datePublished": "2026-07-27",
     "dateModified": "2026-07-27",
     "author": {
       "@type": "Organization",
-      "name": "DocInspector"
+      "name": "DocInspector",
+      "url": "https://doc-inspector.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DocInspector",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://doc-inspector.com/assets/logo.png"
+      }
+    },
+    "inLanguage": "ro",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente"
     }
   }
   </script>
-  <link rel="canonical" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente">
-  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization">
-  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente">
-  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov">
+  <link rel="canonical" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" />
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
+    .article-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.8rem;
+      color: #cbd5e1;
+    }
+    
+    /* Headings styling with glowing accent indicator */
+    .article-body h2, .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .article-body h2 {
+      font-size: 1.65rem;
+      border-left: 4px solid #06b6d4;
+      padding-left: 14px;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+    
+    .article-body h3 {
+      font-size: 1.35rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 10px;
+    }
+    
+    /* Lists fallback styling for standard HTML articles */
+    .article-body ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .article-body ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      line-height: 1.75;
+    }
+    
+    .article-body ul li::before {
+      content: "•";
+      color: #06b6d4;
+      font-weight: bold;
+      font-size: 1.3rem;
+      position: absolute;
+      left: 4px;
+      top: -2px;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+    }
+    
+    .article-body ol {
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: custom-counter;
+    }
+    
+    .article-body ol li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      line-height: 1.75;
+      counter-increment: custom-counter;
+    }
+    
+    .article-body ol li::before {
+      content: counter(custom-counter) ".";
+      color: #38bdf8;
+      font-weight: 700;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+    }
+    
+    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
+    .premium-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .workflow-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .workflow-step:hover {
+      background: rgba(6, 182, 212, 0.03);
+      border-color: rgba(6, 182, 212, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+    
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06b6d4, #38bdf8);
+      color: #0a1628;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    }
+    
+    .step-content {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
+    .premium-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.02);
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
+    }
+    
+    .checklist-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+    
+    .check-text {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+    
+    /* ── PREMIUM CALLOUT BOXES ── */
+    .topic-highlight {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
+      border-left: 4px solid #06b6d4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(6, 182, 212, 0.05);
+      border-right: 1px solid rgba(6, 182, 212, 0.05);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
+    }
+    
+    .conclusion-highlight {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
+      border-left: 4px solid #38bdf8;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2.2rem 0;
+      color: #e2e8f0;
+      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      border-top: 1px solid rgba(56, 189, 248, 0.05);
+      border-right: 1px solid rgba(56, 189, 248, 0.05);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    }
+
+    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .tableContainer {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.2rem 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .tableContainer table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .tableContainer th {
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      font-family: 'Outfit', sans-serif;
+    }
+    .tableContainer td {
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .tableContainer tr:last-child td {
+      border-bottom: none;
+    }
+    .tableContainer tr:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
+  </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
+  </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <header class="site-header">
@@ -165,20 +316,20 @@
       <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
-          <span class="brand-name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block;">DocInspector</span>
-          <span class="brand-subtitle" style="font-size: 0.65rem; color: #94a3b8; max-width: 220px; display: block;">Repair, Batch Manager of Documents & Audit Suite</span>
+          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Reparare, Batch Manager de documente & Audit</span>
         </span>
       </a>
 
       <div class="nav-links">
-        <a href="../">Home</a>
-        <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
-        <a href="../price">Price</a>
-        <a href="../user-guide">User Guide</a>
-        <a href="../reports">Reports & Feedback</a>
-        <a href="../blog" class="active">Blog</a>
-        <a href="../contact">Contact</a>
-        <a href="../download" class="btn btn-primary btn-sm mobile-only">Download</a>
+        <a href="../" data-i18n="nav.home">Acasă</a>
+        <a href="../unelte-online" style="color:#06b6d4;font-weight:700">🌐 Unelte Online</a>
+        <a href="../preturi" data-i18n="nav.price">Preț</a>
+        <a href="../ghid-utilizare" data-i18n="nav.guide">Ghid utilizare</a>
+        <a href="../rapoarte-feedback" data-i18n="nav.reports">Rapoarte & Feedback</a>
+        <a href="../blog" class="active" data-i18n="nav.blog">Blog</a>
+        <a href="../contact" data-i18n="nav.contact">Contact</a>
+        <a href="../descarca" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Descărcare</a>
       </div>
 
       <div class="nav-actions">
@@ -188,94 +339,172 @@
             <span class="chev">▾</span>
           </button>
           <div class="lang-menu">
-            <a href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" class="lang-item ">EN</a>
-            <a href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" class="lang-item active">RO</a>
-            <a href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" class="lang-item ">RU</a>
+            <a href="../../en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" class="lang-item" data-lang="en">EN</a>
+            <a href="../../ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" class="lang-item active" data-lang="ro">RO</a>
+            <a href="../../ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" class="lang-item" data-lang="ru">RU</a>
           </div>
         </div>
-        <a href="../download" class="btn btn-primary btn-sm desktop-only">Download</a>
+        <a href="../descarca" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Descărcare</a>
       </div>
+
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
 </header>
-<main class="container article-container">
+<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
+  <article class="reveal">
+    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
+       <span class="blog-category" data-i18n="blog.cat.security">Securitate</span> | <time datetime="2026-07-27">2026-07-27</time>
+    </div>
+    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit</h1>
+    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
+      <h2>Introducere</h2>
+<p>În tranzacțiile mari de Fuziuni și Achiziții (M&amp;A), pregătirea documentelor financiare, juridice, operaționale și brevetelor pentru Camerele de Date Virtuale (VDR) sau Cleanroom reprezintă o etapă critică de securitate. Vânzătorii trebuie să ofere acces potențialilor cumpărători, băncilor de investiții și auditorilor la mii de fișiere confidențiale. Cu toate acestea, expunerea fișierelor brute fără sanitizare poate duce la scurgerea de secrete comerciale, date cu caracter personal ale clienților și amenzi uriașe conform Regulamentului GDPR Articolul 83 (până la 20 de milioane de euro sau 4% din cifra de afaceri globală).</p>
 
-    <article class="reveal">
-      <div class="article-meta" style="margin-bottom:1rem;color:#94a3b8;font-size:0.95rem;">
-         <span class="blog-category">Securitate VDR & Audit</span> | <time datetime="2026-07-27">27 Iulie 2026</time>
-      </div>
-      <h1 style="font-family:'Outfit',sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;color:#ffffff;">Sanitizarea Documentelor pentru Camere de Date Virtuale (VDR) și Cleanroom: Ghid Pas cu Pas de Securizare în Lot și Audit</h1>
-      
-      <div class="article-body">
-        <p>La pregătirea arhivelor corporative pentru Camere de Date Virtuale (VDR) sau Cleanroom în tranzacții de fuziuni, audituri financiare sau runde de investiții, cerințele de securitate impun ca fiecare document să fie complet sanitizat, securizat și verificat. Partajarea fișierelor brute riscă expunerea datelor personale nesanitizate, a cifrelor financiare confidențiale sau a metadatelor ascunse. DocInspector oferă o suită completă de procesare în lot pentru sanitizarea, aplatizarea, filigranarea, criptarea și auditarea fișierelor dvs. într-o singură trecere.</p>
+<div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 16px; padding: 1.8rem; margin: 2.2rem 0;">
+  <h4 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin-top: 0; margin-bottom: 0.6rem;">🛡️ De ce este Conformitatea GDPR Esențială în M&amp;A Cleanroom</h4>
+  <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7; margin: 0;">Expunerea datelor personale nesanitizate (nume angajați, conturi bancare) sau a metadatelor ascunse (comentarii interne, amprente de software, coordonate GPS din fotografii) în timpul auditului due diligence încalcă reglementările internaționale. DocInspector oferă o <strong>Arhitectură cu Zero Retenție pe Server din UE (Germania)</strong> (fișierele sunt procesate în RAM și șterse definitiv imediat după descărcare), precum și o <strong>Aplicație Desktop 100% Offline pentru Windows</strong> pentru securitate absolută în medii Air-Gapped.</p>
+</div>
 
-        <div class="gdpr-box">
-          <h4>🛡️ Conformitate Stricta GDPR & Securitate Air-Gapped</h4>
-          <p>Procesarea fișierelor cu DocInspector garantează <strong>conformitate 100% GDPR</strong>. Arhitectura noastră de servere din UE procesează fișierele online în sandbox-uri RAM izolate cu ștergere instantanee la descărcare. Pentru fișierele corporative ultra-confidențiale, <strong>Aplicația Desktop DocInspector pentru Windows</strong> rulează 100% offline, fără conexiune la internet.</p>
-        </div>
+<h2>De ce este Necesară o Conductă de Procesare în Lot (Batch Pipeline)</h2>
+<p>Instrumentele tradiționale pentru PDF procesează doar câte un singur fișier pe rând. Într-un proces real de M&amp;A, echipele corporative trebuie să pregătească mii de documente organizate în directoare complexe cu sub-foldere pe mai multe niveluri (ex: <code>/Finante/2024/Q1/</code>, <code>/Juridic/Contracte/Furnizori/</code>). Procesarea manuală este lentă, plină de erori și extrem de costisitoare. DocInspector rezolvă această problemă prin <strong>Pipeline-ul Unificat de Procesare în Lot</strong>, executând operațiuni multiple de securitate pe întreaga structură de foldere într-o singură trecere automată, păstrând intactă ierarhia originală a directoarelor în arhiva ZIP descărcată.</p>
 
-        <h2>Conducta Completa de Securitate cu 11 Instrumente</h2>
-        <p>Pipeline-ul unificat DocInspector execută operațiuni multiple pe întregi structuri de directoare, menținând folderele originale în arhiva ZIP rezultată:</p>
+<h2>Descrierea Detaliată a celor 11 Instrumente de Securitate DocInspector</h2>
+<p>Iată ghidul complet pentru toate cele 11 operațiuni disponibile în engine-ul unificat DocInspector:</p>
 
-        <ol>
-          <li><strong>Conversie Orice Format în PDF:</strong> Conversie în lot Word (DOCX/DOC), Excel (XLSX/XLS/XLSM), PowerPoint (PPTX), TXT și imagini în PDF. (<a href="/ro/unelte/conversie-in-pdf-online" style="color:#38bdf8;text-decoration:underline;">Conversie în PDF Online</a>)</li>
+<ol>
+  <li><strong>Conversie Orice Format în PDF:</strong> Conversia în lot a fișierelor Word (DOCX/DOC), Excel (XLSX/XLS/XLSM), PowerPoint (PPTX/PPT), TXT și imagini (JPG/PNG/WEBP) în PDF-uri standard înainte de aplicarea acțiunilor de securitate. (<a href="/ro/unelte/conversie-in-pdf-online" style="color:#38bdf8;text-decoration:underline;">Conversie în PDF Online</a>)</li>
 
-          <li><strong>Arhivare PDF/A (ISO 19005):</strong> Transformare la standardele internaționale de arhivare legală PDF/A-1b, PDF/A-2b sau PDF/A-3b. (<a href="/ro/unelte/convertire-pdfa-online" style="color:#38bdf8;text-decoration:underline;">Convertire PDF/A Online</a>)</li>
+  <li><strong>Arhivare PDF/A (ISO 19005):</strong> Transformă PDF-urile în formate de arhivare legală conforme cu ISO 19005-1 (PDF/A-1b), ISO 19005-2 (PDF/A-2b) sau ISO 19005-3 (PDF/A-3b). Asigură fonturi încorporate, spații de culoare independente și metadate XMP standardizate pentru depuneri în instanță și arhive pe termen lung. (<a href="/ro/unelte/convertire-pdfa-online" style="color:#38bdf8;text-decoration:underline;">Convertire PDF/A Online</a>)</li>
 
-          <li><strong>Sanitizare Metadate:</strong> Ștergere definitivă tag-uri EXIF, autori, date creare și istoricul revizuirilor din PDF, DOCX, XLSX, PPTX, CSV, TXT, PNG, JPG. (<a href="/ro/unelte/curatare-metadate-pdf" style="color:#38bdf8;text-decoration:underline;">Curățare Metadate PDF</a>)</li>
+  <li><strong>Sanitizare Metadate:</strong> Șterge definitiv tag-urile EXIF ale camerelor foto, numele autorilor, datele de creare, amprentele software, istoricul de revizuiri și proprietățile sistemului de operare din fișiere PDF, DOCX, XLSX, PPTX, CSV, TXT, PNG și JPG. (<a href="/ro/unelte/curatare-metadate-pdf" style="color:#38bdf8;text-decoration:underline;">Curățare Metadate PDF</a>)</li>
 
-          <li><strong>Căutare & Redactare PII:</strong> Cenzurare ireversibilă date personale, CNP-uri, IBAN-uri și clauze secrete. (<a href="/ro/unelte/redactare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Redactare PDF Online</a>)</li>
+  <li><strong>Căutare &amp; Redactare PII:</strong> Cenzurează definitiv și ireversibil datele cu caracter personal, codurile numerice personale, conturile IBAN, salariile executive și clauzele secrete la nivel vectorial. (<a href="/ro/unelte/redactare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Redactare PDF Online</a>)</li>
 
-          <li><strong>Eliminare Semnături Digitale:</strong> Eliminare semnături digitale blocante (<code>/Sig</code> / <code>/Lock</code>). (<a href="/ro/unelte/eliminare-semnaturi-pdf" style="color:#38bdf8;text-decoration:underline;">Eliminare Semnături PDF</a>)</li>
+  <li><strong>Eliminare Semnături Digitale:</strong> Elimină semnăturile digitale blocante, certificările de securitate (<code>/Sig</code> / <code>/Lock</code>) și restricțiile de editare din PDF-uri vechi, restaurând editabilitatea pentru echipele de Due Diligence. (<a href="/ro/unelte/eliminare-semnaturi-pdf" style="color:#38bdf8;text-decoration:underline;">Eliminare Semnături PDF</a>)</li>
 
-          <li><strong>Reconstrucție & Reparare PDF + OCR Smart:</strong> Reparare structuri PDF corupte și OCR pentru scanări. (<a href="/ro/unelte/reparare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Reparare PDF Online</a>)</li>
+  <li><strong>Reconstrucție &amp; Reparare PDF + OCR Smart:</strong> Reconstruiește structurile PDF corupte sau ilizibile. Include un motor OCR integrat care transformă scanările PDF în documente căutabile și cu text selectabil. (<a href="/ro/unelte/reparare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Reparare PDF Online</a>)</li>
 
-          <li><strong>Adăugare Watermark:</strong> Filigran text diagonal (ex: <code>CONFIDENȚIAL — VDR CLEANROOM</code>). (<a href="/ro/unelte/adaugare-watermark-pdf-online" style="color:#38bdf8;text-decoration:underline;">Adăugare Watermark PDF</a>)</li>
+  <li><strong>Adăugare Watermark:</strong> Aplică un filigran text diagonal personalizat (ex: <code>CONFIDENȚIAL — M&amp;A DUE DILIGENCE</code>) pe toate paginile, cu opțiuni de ajustare a dimensiunii fontului, opacității și unghiului. (<a href="/ro/unelte/adaugare-watermark-pdf-online" style="color:#38bdf8;text-decoration:underline;">Adăugare Watermark PDF</a>)</li>
 
-          <li><strong>Criptare PDF (AES 256-bit):</strong> Protecție cu parolă și restricții pentru copiere/imprimare. (<a href="/ro/unelte/criptare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Criptare PDF Online</a>)</li>
+  <li><strong>Criptare PDF (AES 256-bit):</strong> Protejează PDF-urile cu parole puternice pe 256 de biți și setează restricții stricte pentru copierea textului, editare sau imprimare. (<a href="/ro/unelte/criptare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Criptare PDF Online</a>)</li>
 
-          <li><strong>Aplatizare PDF în Imagine:</strong> Paginile devin imagini 300 DPI; distruge straturile ascunse. (<a href="/ro/unelte/aplatizare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Aplatizare PDF Online</a>)</li>
+  <li><strong>Aplatizare PDF în Imagine:</strong> Transformă fiecare pagină a PDF-ului într-o imagine rasterizată de 300 DPI. Distruge toate straturile de text ascunse, adnotările vectoriale, scripturile și câmpurile de formular interactive. (<a href="/ro/unelte/aplatizare-pdf-online" style="color:#38bdf8;text-decoration:underline;">Aplatizare PDF Online</a>)</li>
 
-          <li><strong>Borderou Simplu PDF (Reestr):</strong> Raport sumar în Excel, PDF și CSV cu titluri și număr pagini. (<a href="/ro/unelte/borderou-pdf-online" style="color:#38bdf8;text-decoration:underline;">Borderou PDF Online</a>)</li>
+  <li><strong>Borderou Simplu PDF (Reestr):</strong> Generează un raport sumar al dosarului în format Excel (.xlsx), PDF și CSV, conținând titlurile documentelor, numărul de pagini per fișier și totalul general de pagini. (<a href="/ro/unelte/borderou-pdf-online" style="color:#38bdf8;text-decoration:underline;">Borderou PDF Online</a>)</li>
 
-          <li><strong>Borderou Avansat Audit (Hash-uri SHA-256):</strong> Raport avansat în Excel cu amprente criptografice SHA-256. (<a href="/ro/unelte/borderou-pdf-avansat" style="color:#38bdf8;text-decoration:underline;">Borderou Avansat Audit</a>)</li>
-        </ol>
+  <li><strong>Borderou Avansat Audit (Hash-uri SHA-256):</strong> Generează un raport complet de audit juridic în Excel cu numere de ordine, formate de fișier, dimensiuni exacte în octeți, amprente criptografice SHA-256 de integritate și starea de protecție. (<a href="/ro/unelte/borderou-pdf-avansat" style="color:#38bdf8;text-decoration:underline;">Borderou Avansat Audit</a>)</li>
+</ol>
 
-        <!-- HIGH CONTRAST CTA BOX -->
-        <div class="cta-box">
-          <h3>Sanitizează & Pregătește Documentele VDR Online Acum</h3>
-          <p>Procesează gratuit până la 100 de fișiere pe zi direct în browser. Conform GDPR cu ștergere instantanee de pe server după descărcare. Structura originală a folderelor este păstrată intactă în ZIP-ul rezultat.</p>
-          <a href="/ro/unelte-online" class="cta-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
-            <span>Deschide Uneltele Online DocInspector</span>
-          </a>
-        </div>
 
-        <h2>Păstrarea Structurii de Foldere & Arhivă ZIP</h2>
-        <p>DocInspector menține intactă structura dvs. de directoare pe mai multe niveluri (ex: <code>/VDR/Contracte/2024/</code>). Toate fișierele procesate sunt plasate în aceeași organizare de foldere în arhiva ZIP descărcată.</p>
+<div style="background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(6, 182, 212, 0.15) 100%); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 20px; padding: 2rem; margin: 2.5rem 0; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);">
+  <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 0; margin-bottom: 0.8rem;">Pregătește Documentele M&amp;A Online Acum</h3>
+  <p style="font-size: 1.05rem; color: #e2e8f0; margin-bottom: 1.5rem;">Procesează gratuit până la 100 de fișiere pe zi direct în browser. Conform GDPR cu ștergere instantanee de pe server după descărcare. Structura originală a folderelor este păstrată intactă în ZIP-ul rezultat.</p>
+  <a href="/ro/unelte-online" style="display: inline-flex; align-items: center; background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%); color: #ffffff !important; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 2.2rem; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4); letter-spacing: 0.02em;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="vertical-align:middle;margin-right:8px;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg> <span>Deschide Uneltele Online DocInspector</span>
+  </a>
+</div>
 
-        <h2>Concluzie</h2>
-        <p>Asigurați-vă că procesul de audit VDR este rapid, conform și complet securizat. Folosiți gratuit DocInspector online sau descurcați aplicația desktop 100% offline pentru Windows.</p>
-      </div>
 
-      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-        <a href="../blog" id="back-blog-link" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;text-decoration:none;">← Înapoi la toate articolele</a>
-      </div>
-    </article>
-    
+<h2>Ghid Pas cu Pas: Pregătirea unui Folder pentru Încărcare în M&amp;A Cleanroom</h2>
+<div class="tableContainer">
+  <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;">
+    <thead>
+      <tr style="background:rgba(6,182,212,0.15);color:#38bdf8;">
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Pas</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Acțiune</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Uneltă DocInspector</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Rezultat Obținut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 1</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Conversie în lot Office &amp; Imagini</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Conversie Orice Format în PDF</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Toate fișierele DOCX, XLSX, PPTX, TXT și Imaginile sunt transformate în PDF.</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 2</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Sanitizare Metadate &amp; EXIF</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Curățare Metadate PDF</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Numele autorilor, datele de creare și tag-urile GPS sunt eliminate definitiv.</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 3</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Cenzurare PII &amp; Salarii Confidențiale</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Redactare PDF Online</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Cenzurare ireversibilă la nivel de pixel a prețurilor și numelor de clienți.</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 4</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Aplatizare &amp; Eliminare Semnături</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Aplatizare PDF + Eliminare Semnături</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Restricțiile sunt eliminate; paginile devin imagini statice securizate.</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 5</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Watermark &amp; Arhivare ISO</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Watermark + Convertire PDF/A</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Filigran 'CONFIDENȚIAL' aplicat; conversie conformă cu ISO 19005.</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Pasul 6</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Generare Borderou Audit SHA-256</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Borderou Avansat Audit</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Raport Excel generat cu SHA-256 și număr total de pagini.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Păstrarea Ierarhiei Folderelor în Arhiva ZIP Rezultată</h2>
+<p>O mare problemă a convertoarelor online obișnuite este că amestecă toate fișierele încărcate dintr-un folder într-o listă haotică. DocInspector citește directoarele cu sub-foldere imbricate pe mai multe niveluri (ex: sub-foldere la 3 sau 4 niveluri adâncime) și împachetează toate fișierele procesate într-o arhivă ZIP care menține <strong>exact ierarhia originală a directoarelor</strong>. Cumpărătorii și auditorii pot inspecta imediat documentele curate fără a pierde ore întregi reorganizându-le.</p>
+
+<h2>Concluzie</h2>
+<p>Pregătirea documentelor pentru un M&amp;A Cleanroom sau VDR necesită viteză, precizie și securitate fără compromisuri. Combinând sanitizarea metadatelor, redactarea PII, arhivarea PDF/A și borderourile SHA-256 într-o singură rulare în lot, DocInspector vă garantează date protejate, conforme GDPR și pregătite pentru audit. Încearcă gratuit DocInspector online sau descarcă aplicația desktop pentru procesare 100% offline.</p>
+
+    </div>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <a href="../blog.html" id="back-blog-link"
+         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
+         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
+         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
+         data-i18n="blog.backToList">← Înapoi la toate articolele</a>
+    </div>
+  </article>
 </main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span>© 2025 DocInspector. All rights reserved.</span>
+      <span data-i18n="footer.copyright">© 2025 DocInspector – Toate drepturile rezervate</span>
       <div class="footer-links">
-        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;">🔒 Security</a>
-        <a href="../privacy">Privacy Policy</a>
-        <a href="../terms">Terms of Service</a>
-        <a href="../refund">Refund Policy</a>
+        <a href="../securitate" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Securitate</a>
+        <a href="../politica-de-confidentialitate" data-i18n="footer.privacy">Politica de Confidențialitate</a>
+        <a href="../termeni-si-conditii" data-i18n="footer.terms">Termeni și Condiții</a>
+        <a href="../politica-de-rambursare" data-i18n="footer.refund">Politica de Rambursare</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </footer>
+<script src="../../cookies.js"></script>
+<script src="../../i18n-dict.v2.js"></script>
+<script src="../../i18n.js"></script>
+<script src="../../scroll-fx.js?v=9"></script>
+<script>
+/* Restore the exact blog listing page the user came from (Back button fix) */
+(function(){
+  var saved = sessionStorage.getItem('blogListPage');
+  if (saved) {
+    var link = document.getElementById('back-blog-link');
+    if (link) link.href = saved;
+  }
+})();
+</script>
 </body>
 </html>
