@@ -120,12 +120,24 @@
   <div class="guide-section">
     <div class="guide-section-label">Поддерживаемые форматы</div>
     <div class="guide-formats"><span class="guide-format-tag">JPG</span><span class="guide-format-tag">PNG</span><span class="guide-format-tag">TIFF</span><span class="guide-format-tag">BMP</span><span class="guide-format-tag">отсканированный PDF</span>    </div>
+  
+  <div class="guide-section" style="margin-top: 2.2rem; margin-bottom: 0.8rem;">
+    <div class="guide-section-label">Пример результата</div>
   </div>
-  
-  
 
-    
-    
+  <div style="background: rgba(10, 22, 40, 0.6); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4); margin-bottom: 0.5rem; cursor: pointer;" onclick="openGuideLightbox(this.querySelector('img').src)" title="🔍 Нажмите на изображение для увеличения — Интерактивное превью">
+    <img src="../assets/guide-standalone-ocr.png" alt="Пример результата" style="width: 100%; height: auto; display: block; border-radius: 15px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.015)'" onmouseout="this.style.transform='scale(1)'">
+  </div>
+
+  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
+    🔍 Нажмите на изображение для увеличения — Интерактивное превью
+  </p>
+
+  <div class="guide-cta" style="margin-top: 2rem;">
+    <a href="../onlayn-instrumenty" class="guide-cta-btn">Открыть онлайн-инструмент &rarr;</a>
+  </div>
+</div>
+
 </main>
 <footer class="site-footer">
   <div class="container">
@@ -145,18 +157,10 @@
 </footer>
 <script src="../scroll-fx.js"></script>
 
-<script>
-function openGuideLightbox(src) {
-  var existing = document.getElementById('guide-lightbox-overlay');
-  if (existing) existing.remove();
-  var overlay = document.createElement('div');
-  overlay.id = 'guide-lightbox-overlay';
-  overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(4,13,26,0.92);backdrop-filter:blur(8px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;cursor:pointer;';
-  overlay.innerHTML = '<img src="' + src + '" style="max-width:95vw;max-height:92vh;border-radius:12px;box-shadow:0 12px 50px rgba(0,0,0,0.8);border:1px solid rgba(6,182,212,0.4);"><span style="position:absolute;top:20px;right:25px;color:#ffffff;font-size:2.5rem;font-weight:bold;cursor:pointer;">&times;</span>';
-  overlay.onclick = function() { overlay.remove(); };
-  document.body.appendChild(overlay);
-}
-</script>
+
+
+
+
 
 </body>
 </html>
