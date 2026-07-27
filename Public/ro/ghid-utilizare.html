@@ -698,7 +698,158 @@
           </div>
           <div class="kb-tools-grid">
             
-            
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🧹</div>
+                <h3 class="kb-tool-name">Curățare Metadate PDF</h3>
+              </div>
+              <p class="kb-tool-text">Scanează recursiv întreaga structură de foldere pentru a elimina proprietățile ascunse XMP/RDF, geotag-urile GPS, autorii și istoricul reviziilor. Suportă rularea concomitentă în lot cu alte operațiuni, fișierele fiind procesate unul câte unul și păstrându-și ierarhia originală. Fișierele care eșuează sunt izolate în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-sanitize-metadata" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/curatare-metadate-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🛡️</div>
+                <h3 class="kb-tool-name">Adăugare Filigran PDF</h3>
+              </div>
+              <p class="kb-tool-text">Incorporează filigrane text diagonale permanente direct în fluxul de conținut PDF pentru a preveni redistribuirea neautorizată. Procesează arbori de directoare pe mai multe niveluri în lot, menținând structura originală intactă. Funcționează secvențial cu alte operațiuni. Eșecurile sunt izolate în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-add-watermark" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/adaugare-watermark-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔒</div>
+                <h3 class="kb-tool-name">Criptare PDF cu AES-256</h3>
+              </div>
+              <p class="kb-tool-text">Protejează documentele sensibile folosind criptare securizată AES-256 biți de nivel militar. Definește permisiuni granulare pentru tipărire, editare și copiere. Se execută ca etapă finală în pipeline-ul de procesare în lot, păstrând structura folderelor intactă. Fișierele eșuate sunt salvate în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-encrypt-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/criptare-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">⬛</div>
+                <h3 class="kb-tool-name">Identificare & Redactare PII</h3>
+              </div>
+              <p class="kb-tool-text">Șterge definitiv cuvintele cheie private, informațiile personale sau numele specifice din straturile de text și OCR ale PDF-ului, aplatizând documentul. Poate fi legat în lot cu pre-conversii sau filigranare, rulând secvențial. Structura originală a folderelor este păstrată; eșecurile sunt izolate în 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-redact-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/redactare-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔨</div>
+                <h3 class="kb-tool-name">Aplatizare PDF în Imagine</h3>
+              </div>
+              <p class="kb-tool-text">Convertește câmpurile de formular interactive, casetele de selectare, semnăturile digitale și adnotările stratificate în conținut static, needitabil. Protejează documentele împotriva modificărilor. Rulează secvențial alături de alte acțiuni în lot. Păstrează ierarhia folderelor; erorile merg în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-flatten-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/aplatizare-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🩺</div>
+                <h3 class="kb-tool-name">Reparare & Reconstruire PDF</h3>
+              </div>
+              <p class="kb-tool-text">Reconstruiește PDF-urile corupte sau defecte din structura lor binară brută, recuperând referințele încrucișate și arborii de pagini. Include OCR Inteligent integrat pentru a detecta și prelucra paginile scanate. Rulează secvențial în lot, păstrând structura folderelor. Fișierele complet defecte sunt izolate în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-repair-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/reparare-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">✍️</div>
+                <h3 class="kb-tool-name">Eliminare Semnături Digitale</h3>
+              </div>
+              <p class="kb-tool-text">Elimină obiectele de semnătură criptografică și restricțiile bazate pe certificate din PDF-uri pentru a permite îmbinarea sau editarea. Aspectul vizual rămâne intact. Rulează în lot, executându-se înaintea cenzurării sau curățării metadatelor. Păstrează ierarhia folderelor; erorile merg în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-remove-signatures" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/eliminare-semnaturi-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">🔄</div>
+                <h3 class="kb-tool-name">Convertire în PDF</h3>
+              </div>
+              <p class="kb-tool-text">Transformă documente Word, foi de calcul Excel, prezentări PowerPoint și imagini în PDF-uri standard. Fișierele Excel primesc scalare Fit-to-Page automată. Poate fi legat în lot cu alte acțiuni (ex: filigranare) care rulează secvențial. Păstrează ierarhia folderelor; erorile merg în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-convert-to-pdf" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/conversie-in-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
+
+            <div class="kb-tool-item reveal">
+              <div class="kb-tool-header">
+                <div class="kb-tool-icon">👁️</div>
+                <h3 class="kb-tool-name">Extragere Text OCR</h3>
+              </div>
+              <p class="kb-tool-text">Aplică OCR Tesseract de înaltă precizie pentru a scana fișiere imagine și PDF-uri tip imagine, făcând textul căutabil și copiabil. Suportă engleză, română și rusă. Poate fi executat în lot, procesând fișierele unul câte unul și păstrând arborele original de directoare. Eșecurile sunt izolate în folderul 'error'.</p>
+              
+              <div style="display:flex; gap:10px; margin-top:auto; padding-top:1rem;">
+                <a href="user-guide-standalone-ocr" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; border:1px solid rgba(6,182,212,0.3); color:var(--cyan); font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.1)'" onmouseout="this.style.background='transparent'">
+                  Detalii Complete
+                </a>
+                <a href="unelte/reparare-pdf-online" style="flex:1; text-align:center; padding:10px 15px; border-radius:8px; background:linear-gradient(135deg, #06b6d4, #0891b2); color:#040d1a; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                  Deschide Unealta
+                </a>
+              </div>
+            </div>
 
             <div class="kb-tool-item reveal">
               <div class="kb-tool-header">
