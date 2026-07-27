@@ -72,3 +72,13 @@ Unlike single-function web utilities, DocInspector processes **entire directory 
 - **Passthrough Non-Processable File Copying**: Non-processable or raw files can be copied intact to the output folder, yielding a 100% complete dossier package.
 - **Automated 'Errors' Folder Isolation**: Any file encountering structural corruption or password locks is automatically moved into a dedicated `/Errors/` folder, letting you identify failed files instantly.
 - **Adjustable Workstation CPU Allocation**: (Desktop App) Throttle CPU/core usage during heavy batch runs so your PC remains fast and responsive for multitasking.
+
+
+## Pricing, Licensing & 3-Day Risk-Free Trial Model
+
+- **Free Web Online Version**: 100 files/day 100% free with no sign-up or credit card required.
+- **Desktop Application Free Trial**: Instant 3-day free trial on installation — runs full PRO version with zero feature limitations.
+- **Checkout & Subscription Flow**: When purchasing on website, users get **another 3-Day Risk-Free Trial ($0 charged today on checkout)**. No money is taken upfront. Users can cancel anytime during the 3 days with $0 charged.
+- **Unified Single License Key**: 1 license key unlocks BOTH the **Web Online Version** (enter key directly in browser) AND the **Desktop Application**.
+- **No Account / Zero Login Required**: No password or login account needed to purchase or activate.
+- **Automated Invoices**: Automated PDF invoice generation and instant receipt management.
