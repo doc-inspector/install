@@ -1,8 +1,24 @@
 {
-  "version": "2.2.6",
-  "last_update": "2026-06-25T16:00",
+  "version": "2.2.7",
+  "last_update": "2026-07-27T20:34",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.7",
+      "date": "July 27, 2026",
+      "changes_en": [
+        "PDF/A-2b Conversion Option: Added a new tool to convert PDF and Office documents directly to PDF/A-2b format with advanced settings (Smart OCR, auto-deskew, page-fitting, and orientation adjustments).",
+        "GUI Optimizations for Smaller Screens: Enabled layout text wrapping and automatic tooltip wrapping to ensure proper alignment and visibility on smaller displays (e.g., 14-inch screens)."
+      ],
+      "changes_ro": [
+        "Opțiune de Conversie în PDF/A-2b: S-a adăugat un nou instrument pentru a converti documentele PDF și Office direct în format PDF/A-2b cu setări avansate (Smart OCR, aliniere automată, potrivire în pagină și ajustare orientare).",
+        "Optimizări GUI pentru Ecrane Mici: S-a activat încadrarea textului din interfață și adaptarea automată a tooltip-urilor pentru a asigura afișarea corectă pe ecrane de dimensiuni reduse (ex. laptopuri de 14 inch)."
+      ],
+      "changes_ru": [
+        "Конвертация в PDF/A-2b: Добавлена новая функция для преобразования PDF и офисных документов напрямую в формат PDF/A-2b с расширенными настройками (Smart OCR, автовыравнивание, масштабирование под страницу и настройка ориентации).",
+        "Оптимизация интерфейса для небольших экранов: Включен автоперенос текста кнопок и всплывающих подсказок для корректного отображения интерфейса на экранах меньшего размера (например, 14-дюймовых ноутбуках)."
+      ]
+    },
     {
       "version": "2.2.6",
       "date": "June 25, 2026",
