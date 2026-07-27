@@ -360,110 +360,84 @@
     </div>
     <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту</h1>
     <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Обзор</h2>
-<p>При проведении сделок слияний и поглощений (M&amp;A) подготовка финансовых отчетов, юридических договоров, патентов и операционных данных для виртуальных комнат данных (VDR) или Cleanroom является критически важным этапом безопасности. Продавцы обязаны предоставить доступ покупателям, инвестиционным банкам и аудиторам к тысячам корпоративных файлов. Однако передача несырых документов создает риск утечки коммерческой тайны, персональных данных клиентов и штрафов по GDPR Статье 83 (до €20 млн или 4% от мирового оборота).</p>
+      <h2>Обзор: Риски безопасности в VDR</h2>
+<p>Виртуальные комнаты данных (VDR) являются основным механизмом обмена конфиденциальными корпоративными портфелями во время инвестиционных раундов, аудитов и лицензионных проверок. Однако платформы VDR фокусируются на правах доступа, а не на безопасности содержимого файлов. Неочищенные файлы в VDR могут раскрывать имя автора, иметь векторные черные прямоугольники, поверх которых остался выделяемый текст, или содержать блокирующие цифровые подписи.</p>
 
-<div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 16px; padding: 1.8rem; margin: 2.2rem 0;">
-  <h4 style="color: #34d399; font-size: 1.25rem; font-weight: 800; margin-top: 0; margin-bottom: 0.6rem;">🛡️ Почему соответствие GDPR критично в M&amp;A Cleanroom</h4>
-  <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7; margin: 0;">Раскрытие персональных данных сотрудников (PII), банковских реквизитов или скрытых метаданных (комментарии, версии, GPS-теги в фото) нарушает международные стандарты. DocInspector предлагает <strong>Архитектуру с Нулевым Сохранением Данных в ЕС (Германия)</strong> (файлы обрабатываются в оперативной памяти и стираются сразу после скачивания), а также <strong>ПК-приложение 100% Офлайн для Windows</strong> для защиты информации в изолированных Air-Gapped средах.</p>
+<div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; padding: 1.8rem; margin: 2.2rem 0;">
+  <h4 style="color: #38bdf8; font-size: 1.25rem; font-weight: 800; margin-top: 0; margin-bottom: 0.6rem;">🔒 Главные отличия очистки VDR от обычного редактирования PDF</h4>
+  <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7; margin: 0;">Обычные PDF-редакторы просто закрывают текст черным визуальным блоком, оставляя скрытый поиск по тексту под ним. Настоящая очистка VDR использует <strong>Уплотнение векторных слоев (300 DPI)</strong>, <strong>Удаление метаданных EXIF и версий</strong>, <strong>Снятие подписей и сертификатов</strong> и <strong>Стандартизацию архивирования PDF/A (ISO 19005)</strong>, чтобы гарантировать отсутствие извлекаемых данных.</p>
 </div>
 
-<h2>Почему необходим единый пакетный пайплайн обработки</h2>
-<p>Обычные PDF-утилиты обрабатывают файлы по одному. В реальных сделках M&amp;A нужно подготовить тысячи файлов, разложенных по вложенным папкам (например: <code>/Финансы/2024/Q1/</code>, <code>/Юристы/Договоры/Поставщики/</code>). Ручная работа затягивает процесс и ведет к ошибкам. DocInspector решает это с помощью <strong>Единого Пакетного Пайплайна</strong>, выполняя цепочку операций безопасности над всеми папками за один автоматический запуск с полным сохранением исходной структуры папок в ZIP-архиве.</p>
+<h2>4 столпа защиты документов для VDR</h2>
+<p>Перед загрузкой файлов в любую внешнюю систему VDR (Intralinks, Datasite, Ansarada) юридические отделы обязаны применить четыре базовых шага защиты:</p>
 
-<h2>Подробный обзор 11 инструментов безопасности DocInspector</h2>
+<h3>1. Уплотнение структуры (Растровое изображение 300 DPI)</h3>
+<p>Формы, комментарии и векторные объекты в PDF могут содержать историю изменений. Инструмент <a href="/ru/instrumenty/obiedinit-sloi-pdf" style="color:#38bdf8;text-decoration:underline;">Свести слои PDF</a> превращает каждую страницу в растровый снимок 300 DPI, делая текст полностью неизвлекаемым.</p>
 
-<ol>
-  <li><strong>Конвертация любого формата в PDF:</strong> Пакетная конвертация Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), TXT и изображений (JPG/PNG/WEBP) в PDF перед защитой. (<a href="/ru/instrumenty/konvertirovat-v-pdf-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF онлайн</a>)</li>
+<h3>2. Снятие цифровых подписей и сертификатов</h3>
+<p>Подписанные контракты часто содержат блокирующие сертификаты (<code>/Sig</code> и <code>/Lock</code>), не позволяющие объединять файлы. Инструмент <a href="/ru/instrumenty/udalit-cifrovye-podpisi" style="color:#38bdf8;text-decoration:underline;">Удалить подписи PDF</a> снимает блокировки без повреждения текста.</p>
 
-  <li><strong>Архивация PDF/A (ISO 19005):</strong> Преобразование PDF в международные архивные стандарты ISO 19005-1 (PDF/A-1b), ISO 19005-2 (PDF/A-2b) или ISO 19005-3 (PDF/A-3b) со встроенными шрифтами и XMP-метаданными. (<a href="/ru/instrumenty/convertirovat-v-pdfa-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF/A онлайн</a>)</li>
+<h3>3. Архивный стандарт ISO 19005 (PDF/A)</h3>
+<p>Документы в VDR должны открываться без ошибок спустя десятилетия. Конвертация в PDF/A-1b, PDF/A-2b или PDF/A-3b через инструмент <a href="/ru/instrumenty/convertirovat-v-pdfa-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF/A</a> внедряет шрифты и стандартизирует метаданные XMP.</p>
 
-  <li><strong>Очистка метаданных:</strong> Полное удаление тегов EXIF, авторов, дат создания, следов софта и историй правок из PDF, DOCX, XLSX, PPTX, CSV, TXT, PNG и JPG. (<a href="/ru/instrumenty/ochistka-metadannyh-pdf" style="color:#38bdf8;text-decoration:underline;">Очистка метаданных PDF</a>)</li>
-
-  <li><strong>Поиск и редактирование PII:</strong> Безвозвратное затирание персональных данных, номеров счетов, зарплат и коммерческих тайн на векторном уровне. (<a href="/ru/instrumenty/skryt-dannye-v-pdf" style="color:#38bdf8;text-decoration:underline;">Редактировать PDF онлайн</a>)</li>
-
-  <li><strong>Удаление цифровых подписей:</strong> Снятие цифровых подписей, блокировок (<code>/Sig</code> / <code>/Lock</code>) и ограничений на редактирование в старых PDF. (<a href="/ru/instrumenty/udalit-cifrovye-podpisi" style="color:#38bdf8;text-decoration:underline;">Удалить подписи PDF</a>)</li>
-
-  <li><strong>Восстановление PDF и Smart OCR:</strong> Исправление поврежденных структур PDF и OCR-распознавание сканов в текстовый слой. (<a href="/ru/instrumenty/vosstanovit-pdf-fayl" style="color:#38bdf8;text-decoration:underline;">Восстановить PDF онлайн</a>)</li>
-
-  <li><strong>Добавление водяного знака:</strong> Нанесение диагонального текста (например: <code>CONFIDENTIAL — M&amp;A DUE DILIGENCE</code>) с настройкой шрифта и прозрачности. (<a href="/ru/instrumenty/dobavit-vodyanoy-znak-pdf" style="color:#38bdf8;text-decoration:underline;">Водяной знак PDF</a>)</li>
-
-  <li><strong>Шифрование PDF (AES 256-бит):</strong> Защита паролем и ограничение прав на копирование текста или печать. (<a href="/ru/instrumenty/zashchitit-pdf-parolem" style="color:#38bdf8;text-decoration:underline;">Защитить PDF паролем</a>)</li>
-
-  <li><strong>Уплотнение PDF (Flatten):</strong> Преобразование страниц в растровые изображения 300 DPI. Уничтожает текстовые слои и интерактивные поля. (<a href="/ru/instrumenty/obiedinit-sloi-pdf" style="color:#38bdf8;text-decoration:underline;">Свести слои PDF</a>)</li>
-
-  <li><strong>Сводный реестр документов:</strong> Генерация отчетов в Excel, PDF и CSV с именами файлов и количеством страниц. (<a href="/ru/instrumenty/reestr-dokumentov-pdf" style="color:#38bdf8;text-decoration:underline;">Реестр документов PDF</a>)</li>
-
-  <li><strong>Расширенный реестр аудита (SHA-256):</strong> Полный аудит папок в Excel с хэшами SHA-256, размерами файлов и статусами защиты. (<a href="/ru/instrumenty/rasshirennyy-reestr-pdf" style="color:#38bdf8;text-decoration:underline;">Расширенный реестр PDF</a>)</li>
-</ol>
+<h3>4. Пакетная конвертация Office и аудит SHA-256</h3>
+<p>С помощью инструмента <a href="/ru/instrumenty/konvertirovat-v-pdf-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF</a> файлы Word (DOCX), Excel (XLSX), PowerPoint (PPTX) и TXT переводятся в PDF. По завершении DocInspector формирует <a href="/ru/instrumenty/rasshirennyy-reestr-pdf" style="color:#38bdf8;text-decoration:underline;">Расширенный реестр PDF</a> в Excel с хэшами SHA-256.</p>
 
 
 <div style="background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(6, 182, 212, 0.15) 100%); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 20px; padding: 2rem; margin: 2.5rem 0; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);">
-  <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 0; margin-bottom: 0.8rem;">Подготовьте документы M&amp;A онлайн прямо сейчас</h3>
-  <p style="font-size: 1.05rem; color: #e2e8f0; margin-bottom: 1.5rem;">Обрабатывайте бесплатно до 100 файлов в день прямо в браузере. Соответствие GDPR и немедленное удаление файлов с сервера после скачивания. Исходная структура папок сохраняется в ZIP-архиве.</p>
+  <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-top: 0; margin-bottom: 0.8rem;">Очистка и защита документов VDR онлайн</h3>
+  <p style="font-size: 1.05rem; color: #e2e8f0; margin-bottom: 1.5rem;">Очищайте метаданные, уплотняйте слои и снимайте блокирующие подписи до 100 файлов в день бесплатно. Нулевое сохранение данных на сервере и точный ZIP-архив.</p>
   <a href="/ru/onlayn-instrumenty" style="display: inline-flex; align-items: center; background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%); color: #ffffff !important; font-weight: 800; font-size: 1.1rem; padding: 0.9rem 2.2rem; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4); letter-spacing: 0.02em;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="vertical-align:middle;margin-right:8px;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg> <span>Открыть онлайн-инструменты DocInspector</span>
   </a>
 </div>
 
 
-<h2>Пошаговое руководство: Подготовка папки для загрузки в M&amp;A Cleanroom</h2>
+<h2>Сравнение защиты VDR и сохранение структуры папок</h2>
 <div class="tableContainer">
   <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;">
     <thead>
       <tr style="background:rgba(6,182,212,0.15);color:#38bdf8;">
-        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Шаг</th>
-        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Действие</th>
-        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Инструмент DocInspector</th>
-        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Полученный результат</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Требование безопасности VDR</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Устраняемый риск</th>
+        <th style="padding:12px 16px;border-bottom:2px solid rgba(6,182,212,0.3);">Действие DocInspector</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 1</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Пакетная конвертация Office и фото</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Конвертация любого формата в PDF</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Все файлы DOCX, XLSX, PPTX, TXT и фото переведены в PDF.</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Конвертация Office-файлов</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Word/Excel файлы с макросами и правками</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Пакетная конвертация DOCX/XLSX/PPTX в PDF</td>
       </tr>
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 2</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Очистка метаданных и EXIF</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Очистка метаданных PDF</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Авторы, даты и теги GPS полностью удалены из файлов.</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Удаление метаданных и EXIF</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Утечки имен ПК, авторов, дат и программ</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Очистка метаданных на всех форматах</td>
       </tr>
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 3</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Затирание PII и конфиденциальных цен</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Редактировать PDF онлайн</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Безвозвратное растровое скрытие цен и имен клиентов.</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Заблокированные подписи</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Невозможность свести подписанные договоры</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Снятие цифровых подписей и сертификатов</td>
       </tr>
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 4</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Уплотнение и удаление подписей</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Свести слои PDF + Снятие подписей</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Блокировки сняты; страницы превращены в растровые снимки.</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Утечки векторных скрытий</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Текст под черными блоками остается выделяемым</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Свести слои PDF (Растрирование 300 DPI)</td>
       </tr>
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 5</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Водяной знак и архивация ISO</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Водяной знак + Конвертация в PDF/A</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Нанесен штамп 'CONFIDENTIAL'; файлы приведены к стандарту ISO 19005.</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Шаг 6</strong></td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Генерация отчета с SHA-256</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Расширенный реестр PDF</td>
-        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Создан Excel-отчет с хэшами SHA-256 и подсчетом страниц.</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Долгосрочный стандарт VDR</strong></td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Отсутствие шрифтов на устройствах чтения</td>
+        <td style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06);">Конвертация в ISO 19005 PDF/A Стандарт</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<h2>Сохранение иерархии папок в итоговом ZIP-архиве</h2>
-<p>Главная проблема обычных онлайн-конвертеров заключается в том, что они перемешивают файлы из разных папок в один список. Пайплайн DocInspector считывает дерево папок любой вложенности и упаковывает готовые файлы в ZIP-архив с <strong>точным сохранением исходной структуры папок</strong>. Покупатели и аудиторы могут сразу приступить к изучению чистых документов без затрат времени на сортировку.</p>
+<h2>Гарантия точной структуры папок в ZIP</h2>
+<p>При перетаскивании сложной папки в DocInspector (онлайн или офлайн) наш движок полностью копирует структуру директорий (например: <code>/VDR_Пакет/01_Корпоративное/</code>, <code>/VDR_Пакет/02_Финансы/</code>) и сохраняет чистые PDF и Excel-отчеты в единый ZIP-архив. Никакой ручной раскладки файлов не требуется.</p>
 
 <h2>Заключение</h2>
-<p>Подготовка документов для M&amp;A Cleanroom или VDR требует скорости, точности и надежной защиты. Объединяя очистку метаданных, редактирование PII, архивацию PDF/A и реестры SHA-256 в один пакетный запуск, DocInspector гарантирует безопасность ваших данных и их готовность к аудиту. Попробуйте DocInspector бесплатно онлайн или скачайте ПК-приложение для работы 100% офлайн.</p>
+<p>Очистка документов перед загрузкой в VDR исключает утечки информации, гарантирует соблюдение GDPR и обеспечивает понятную цепочку аудита. Используйте DocInspector бесплатно онлайн или установите ПК-приложение 100% офлайн для Windows.</p>
 
     </div>
     <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
