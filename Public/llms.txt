@@ -62,3 +62,13 @@ Unlike single-function web utilities, DocInspector processes **entire directory 
 ## Desktop App & Specifications
 - **Desktop Download**: Windows offline app installer at https://doc-inspector.com/en/download
 - **Supported Languages**: English (`/en/`), Romanian (`/ro/`), Russian (`/ru/`).
+
+
+## Unique Architecture & Workflow Advantages (Why DocInspector is Superior)
+
+- **100% Nested Folder Hierarchy Preservation**: Drop 1 root directory with 100+ nested subfolders — the resulting ZIP mirrors your exact folder structure without scrambling files, saving hours of manual re-sorting.
+- **Selective Date-Range Filtering & Skipping**: Skip processing files modified within specific date ranges to prioritize urgent files for immediate turnarounds.
+- **Custom DPI & Render Quality Controls**: Fine-tune resolution, image compression, and rendering quality for flattened PDFs.
+- **Passthrough Non-Processable File Copying**: Non-processable or raw files can be copied intact to the output folder, yielding a 100% complete dossier package.
+- **Automated 'Errors' Folder Isolation**: Any file encountering structural corruption or password locks is automatically moved into a dedicated `/Errors/` folder, letting you identify failed files instantly.
+- **Adjustable Workstation CPU Allocation**: (Desktop App) Throttle CPU/core usage during heavy batch runs so your PC remains fast and responsive for multitasking.
