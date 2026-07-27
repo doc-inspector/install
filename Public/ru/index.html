@@ -1701,5 +1701,61 @@ function hiFaq(btn){var item=btn.closest('.hi-faq-item');var isOpen=item.classLi
 </script>
 <!-- ════════════════════════════════════════════════════════════════════ -->
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const dropArea = document.querySelector('.online-mockup') || document.querySelector('.mockup-dropzone');
+  if (!dropArea) return;
+
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+  });
+
+  dropArea.addEventListener('dragover', () => {
+    dropArea.style.borderColor = '#06b6d4';
+    dropArea.style.boxShadow = '0 0 25px rgba(6,182,212,0.4)';
+  });
+
+  dropArea.addEventListener('dragleave', () => {
+    dropArea.style.borderColor = '';
+    dropArea.style.boxShadow = '';
+  });
+
+  dropArea.addEventListener('drop', (e) => {
+    dropArea.style.borderColor = '';
+    dropArea.style.boxShadow = '';
+    const files = e.dataTransfer ? e.dataTransfer.files : null;
+    if (!files || !files.length) return;
+
+    try {
+      const dbRequest = indexedDB.open('DocInspectorDropDB', 1);
+      dbRequest.onupgradeneeded = (ev) => {
+        const db = ev.target.result;
+        if (!db.objectStoreNames.contains('pending_files')) {
+          db.createObjectStore('pending_files', { autoIncrement: true });
+        }
+      };
+      dbRequest.onsuccess = (ev) => {
+        const db = ev.target.result;
+        const tx = db.transaction('pending_files', 'readwrite');
+        const store = tx.objectStore('pending_files');
+        store.clear();
+        for (let i = 0; i < files.length; i++) {
+          store.add(files[i]);
+        }
+        tx.oncomplete = () => {
+          let target = 'tools-online';
+          if (window.location.pathname.includes('/ro/')) target = 'unelte-online';
+          else if (window.location.pathname.includes('/ru/')) target = 'onlayn-instrumenty';
+          window.location.href = target + '?auto_load=1';
+        };
+      };
+    } catch(err) {
+      window.location.href = 'tools-online';
+    }
+  });
+});
+</script>
+
 </body>
 </html>

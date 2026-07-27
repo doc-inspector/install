@@ -735,7 +735,7 @@
         <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
           <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Repair, Batch Manager of Documents<br>& Audit Suite</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Document Management, Security<br>& Audit Suite</span>
         </span>
       </a>
 
@@ -3006,6 +3006,47 @@ document.addEventListener('DOMContentLoaded', () => {
     resize();draw();
   })();
   </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.search.includes('auto_load=1')) {
+    try {
+      const dbRequest = indexedDB.open('DocInspectorDropDB', 1);
+      dbRequest.onsuccess = (ev) => {
+        const db = ev.target.result;
+        if (!db.objectStoreNames.contains('pending_files')) return;
+        const tx = db.transaction('pending_files', 'readwrite');
+        const store = tx.objectStore('pending_files');
+        const getAll = store.getAll();
+        getAll.onsuccess = () => {
+          const files = getAll.result;
+          if (files && files.length) {
+            store.clear();
+            setTimeout(() => {
+              if (typeof processUploadedFiles === 'function') {
+                processUploadedFiles(files);
+              } else if (typeof handleFiles === 'function') {
+                handleFiles(files);
+              } else {
+                try {
+                  const dt = new DataTransfer();
+                  files.forEach(f => dt.items.add(f));
+                  const inp = document.getElementById('file-input') || document.querySelector('input[type="file"]');
+                  if (inp) {
+                    inp.files = dt.files;
+                    inp.dispatchEvent(new Event('change', { bubbles: true }));
+                  }
+                } catch(err) {}
+              }
+            }, 300);
+          }
+        };
+      };
+    } catch(e) {}
+  }
+});
+</script>
 
 </body>
 </html>

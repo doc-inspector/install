@@ -2710,5 +2710,46 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
   </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.search.includes('auto_load=1')) {
+    try {
+      const dbRequest = indexedDB.open('DocInspectorDropDB', 1);
+      dbRequest.onsuccess = (ev) => {
+        const db = ev.target.result;
+        if (!db.objectStoreNames.contains('pending_files')) return;
+        const tx = db.transaction('pending_files', 'readwrite');
+        const store = tx.objectStore('pending_files');
+        const getAll = store.getAll();
+        getAll.onsuccess = () => {
+          const files = getAll.result;
+          if (files && files.length) {
+            store.clear();
+            setTimeout(() => {
+              if (typeof processUploadedFiles === 'function') {
+                processUploadedFiles(files);
+              } else if (typeof handleFiles === 'function') {
+                handleFiles(files);
+              } else {
+                try {
+                  const dt = new DataTransfer();
+                  files.forEach(f => dt.items.add(f));
+                  const inp = document.getElementById('file-input') || document.querySelector('input[type="file"]');
+                  if (inp) {
+                    inp.files = dt.files;
+                    inp.dispatchEvent(new Event('change', { bubbles: true }));
+                  }
+                } catch(err) {}
+              }
+            }, 300);
+          }
+        };
+      };
+    } catch(e) {}
+  }
+});
+</script>
+
 </body>
 </html>
