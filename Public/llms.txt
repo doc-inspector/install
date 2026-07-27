@@ -40,6 +40,7 @@ Most document tools process **one file with one tool**. DocInspector processes *
 - [Flatten PDF Online](https://doc-inspector.com/en/tools/flatten-pdf-online)
 - [PDF Bundle Summary](https://doc-inspector.com/en/tools/pdf-bundle-summary-online)
 - [Advanced PDF Bundle Report](https://doc-inspector.com/en/tools/advanced-pdf-bundle-report)
+- [Convert to PDF/A Online](https://doc-inspector.com/en/tools/convert-to-pdfa-online)
 
 ## Guides & Use Cases
 

@@ -67,6 +67,12 @@
       "type": "tool",
       "description": "Generate deep audit reports in Excel format with document numbers, titles, formats, file sizes, SHA-256 cryptographic hashes, protection status, and page totals.",
       "url": "https://doc-inspector.com/en/tools/advanced-pdf-bundle-report"
+    },
+    {
+      "name": "convert-to-pdfa-online",
+      "type": "tool",
+      "description": "Convert standard PDFs to ISO 19005 compliant PDF/A-1b, PDF/A-2b, or PDF/A-3b archival format for long-term legal and judicial compliance. PDF only.",
+      "url": "https://doc-inspector.com/en/tools/convert-to-pdfa-online"
     }
   ]
 }
