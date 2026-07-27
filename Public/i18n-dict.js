@@ -179,7 +179,7 @@ window.I18N = {
     "hero.footnote": "🌐 Online: Files processed securely and deleted in <5 min. 💻 Desktop: 100% Local processing. GDPR Native.",
     "hero.lead": "Process, convert, anonymize, and audit your documents instantly in your browser — 100% free with no sign-up or credit card required. DocInspector offers a complete suite of online tools for PDF &amp; PDF/A (ISO 19005) conversion, metadata cleaning, PII redaction, watermarking, signature removal, encryption, and Excel bundle reports. Need bulk offline folder processing, 20-column Deep Forensic Evidence Reports, or 3-Pass Secure File Shredding with destruction logs? Download our 100% private desktop application.",
     "hero.screenshotLabel": "Click to explore the professional GUI interface",
-    "hero.titleFull": "Free <span class=\"highlight\">Online Document Tools</span> &amp; Professional Conversion, Anonymization, Security &amp; Audit Suite."highlight\">Online Document Tools</span> &amp; Professional Batch Repair Suite.",
+    "hero.titleFull": "Free <span class=\"highlight\">Online Document Tools</span> &amp; Professional Conversion, Anonymization, Security &amp; Audit Suite."highlight\">Online Document Tools</span> &amp; Professional Conversion, Anonymization, Security &amp; Audit Suite.",
     "hscroll.batch.desc": "Convert, repair, flatten, and audit all at once. Set your options, hit run, walk away.",
     "hscroll.batch.title": "Batch Everything",
     "hscroll.enterprise.desc": "Handles thousands of files per run with minimal resource consumption. Built for workstation-grade performance.",
