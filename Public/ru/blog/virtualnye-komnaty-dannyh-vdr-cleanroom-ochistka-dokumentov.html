@@ -3,311 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту - DocInspector Blog</title>
-  <meta name="description" content="Руководство по очистке, уплотнению (flatten) и аудиту пакетов документов перед публикацией в VDR. Инструкции по пакетной загрузке папок, пайплайну обработки и структурированному ZIP-архиву." />
-  <meta property="og:site_name" content="DocInspector">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": "Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту",
-    "description": "Руководство по очистке, уплотнению (flatten) и аудиту пакетов документов перед публикацией в VDR. Инструкции по пакетной загрузке папок, пайплайну обработки и структурированному ZIP-архиву.",
-    "datePublished": "2026-07-27",
-    "dateModified": "2026-07-27",
-    "author": {
-      "@type": "Organization",
-      "name": "DocInspector",
-      "url": "https://doc-inspector.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "DocInspector",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://doc-inspector.com/assets/logo.png"
-      }
-    },
-    "inLanguage": "ru",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov"
-    }
-  }
-  </script>
-  <link rel="canonical" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" />
-  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" />
-  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" />
-  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" />
-  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" />
-  <link rel="stylesheet" href="../../style.css?v=12">
-  <link rel="icon" href="../../assets/logo.png">
+  <title>Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту | DocInspector</title>
+  <meta name="description" content="Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
   <style>
-    /* ── ARTICLE PREMIUM TYPOGRAPHY & SPACING ────────────────── */
-    .article-body {
-      font-family: 'Inter', sans-serif;
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .article-body h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin: 2.8rem 0 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .article-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #22d3ee;
+      margin: 2rem 0 1rem;
+    }
+    .article-body p {
       font-size: 1.125rem;
       line-height: 1.85;
       color: #cbd5e1;
+      margin-bottom: 1.5rem;
     }
-    
-    .article-body p {
-      margin-bottom: 1.8rem;
+    .article-body ul, .article-body ol {
+      margin: 1.2rem 0 1.8rem 1.8rem;
       color: #cbd5e1;
+      font-size: 1.1rem;
+      line-height: 1.8;
     }
-    
-    /* Headings styling with glowing accent indicator */
-    .article-body h2, .article-body h3 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      color: #ffffff;
-      margin-top: 2.8rem;
-      margin-bottom: 1.25rem;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    
-    .article-body h2 {
-      font-size: 1.65rem;
-      border-left: 4px solid #06b6d4;
-      padding-left: 14px;
-      text-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
-    }
-    
-    .article-body h3 {
-      font-size: 1.35rem;
-      border-left: 3px solid #38bdf8;
-      padding-left: 10px;
-    }
-    
-    /* Lists fallback styling for standard HTML articles */
-    .article-body ul {
-      margin-top: 0.5rem;
-      margin-bottom: 1.8rem;
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .article-body ul li {
-      position: relative;
+    .article-body li {
       margin-bottom: 0.8rem;
-      padding-left: 1.5rem;
-      line-height: 1.75;
     }
     
-    .article-body ul li::before {
-      content: "•";
-      color: #06b6d4;
-      font-weight: bold;
-      font-size: 1.3rem;
-      position: absolute;
-      left: 4px;
-      top: -2px;
-      text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
-    }
-    
-    .article-body ol {
-      margin-top: 0.5rem;
-      margin-bottom: 1.8rem;
-      padding-left: 0;
-      list-style: none;
-      counter-reset: custom-counter;
-    }
-    
-    .article-body ol li {
+    /* ── HIGH-CONTRAST CTA BOX & BUTTON ── */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(6, 182, 212, 0.15) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      border-radius: 20px;
+      padding: 2.2rem;
+      margin: 3rem 0;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
       position: relative;
-      margin-bottom: 0.8rem;
-      padding-left: 1.8rem;
-      line-height: 1.75;
-      counter-increment: custom-counter;
+      overflow: hidden;
     }
-    
-    .article-body ol li::before {
-      content: counter(custom-counter) ".";
-      color: #38bdf8;
-      font-weight: 700;
-      position: absolute;
-      left: 4px;
-      top: 0;
-      text-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
-    }
-    
-    /* ── PREMIUM INTERACTIVE WORKFLOW STEPS (Numbered) ── */
-    .premium-workflow {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      margin: 2rem 0;
-    }
-    
-    .workflow-step {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      padding: 1.25rem 1.5rem;
-      background: rgba(255, 255, 255, 0.015);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 14px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .workflow-step:hover {
-      background: rgba(6, 182, 212, 0.03);
-      border-color: rgba(6, 182, 212, 0.25);
-      transform: translateX(6px);
-      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
-    }
-    
-    .step-num {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #06b6d4, #38bdf8);
-      color: #0a1628;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .cta-box h3 {
+      font-size: 1.6rem;
       font-weight: 800;
-      font-size: 1rem;
-      box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
     }
-    
-    .step-content {
+    .cta-box p {
       font-size: 1.05rem;
-      line-height: 1.65;
       color: #e2e8f0;
+      margin-bottom: 1.8rem;
     }
-    
-    /* ── PREMIUM INTERACTIVE CHECKLISTS ── */
-    .premium-checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: rgba(6, 182, 212, 0.02);
-      border: 1px solid rgba(6, 182, 212, 0.12);
-      border-radius: 16px;
-      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.02);
-    }
-    
-    .checklist-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      transition: transform 0.2s ease;
-    }
-    
-    .checklist-item:hover {
-      transform: translateX(4px);
-    }
-    
-    .check-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(6, 182, 212, 0.12);
-      color: #38bdf8;
+    .cta-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.02em;
     }
-    
-    .check-text {
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: #e2e8f0;
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.6);
+      background: linear-gradient(135deg, #0369a1 0%, #0891b2 100%);
     }
-    
-    /* ── PREMIUM CALLOUT BOXES ── */
-    .topic-highlight {
-      background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.01) 100%);
-      border-left: 4px solid #06b6d4;
-      padding: 1.4rem 1.6rem;
-      border-radius: 0 16px 16px 0;
-      margin: 2.2rem 0;
-      color: #e2e8f0;
-      box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.03);
-      font-size: 1.125rem;
-      line-height: 1.8;
-      border-top: 1px solid rgba(6, 182, 212, 0.05);
-      border-right: 1px solid rgba(6, 182, 212, 0.05);
-      border-bottom: 1px solid rgba(6, 182, 212, 0.05);
-    }
-    
-    .conclusion-highlight {
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%);
-      border-left: 4px solid #38bdf8;
-      padding: 1.4rem 1.6rem;
-      border-radius: 0 16px 16px 0;
-      margin: 2.2rem 0;
-      color: #e2e8f0;
-      box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.03);
-      font-size: 1.125rem;
-      line-height: 1.8;
-      border-top: 1px solid rgba(56, 189, 248, 0.05);
-      border-right: 1px solid rgba(56, 189, 248, 0.05);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+    .cta-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
     }
 
-    /* ── PREMIUM TABLE STYLING ────────────────── */
+    .gdpr-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin: 2.2rem 0;
+    }
+    .gdpr-box h4 {
+      color: #34d399;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
     .tableContainer {
       width: 100%;
       overflow-x: auto;
-      margin: 2.2rem 0;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 22, 40, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      margin: 2.5rem 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(10, 22, 40, 0.8);
     }
     .tableContainer table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.95rem;
+      font-size: 1rem;
       text-align: left;
     }
     .tableContainer th {
-      background: rgba(6, 182, 212, 0.12);
+      background: rgba(6, 182, 212, 0.18);
       color: #38bdf8;
       font-weight: 700;
-      padding: 1.1rem 1.3rem;
-      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
-      font-family: 'Outfit', sans-serif;
+      padding: 1.1rem 1.4rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.4);
     }
     .tableContainer td {
-      padding: 1.1rem 1.3rem;
+      padding: 1.1rem 1.4rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       color: #cbd5e1;
-      line-height: 1.6;
-    }
-    .tableContainer tr:last-child td {
-      border-bottom: none;
-    }
-    .tableContainer tr:hover {
-      background: rgba(255, 255, 255, 0.015);
     }
   </style>
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wu1m2q0juc");
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту",
+    "image": "https://doc-inspector.com/assets/white-theme-GUI.png",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "author": {
+      "@type": "Organization",
+      "name": "DocInspector"
+    }
+  }
   </script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-80038W7D1J');
-  </script>
+  <link rel="canonical" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov">
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization">
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente">
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov">
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <header class="site-header">
@@ -316,20 +165,20 @@
       <a href="../" class="brand">
         <span class="brand-logo"><img src="../../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
         <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
-          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
-          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Ремонт, пакетный менеджер документов и аудит</span>
+          <span class="brand-name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block;">DocInspector</span>
+          <span class="brand-subtitle" style="font-size: 0.65rem; color: #94a3b8; max-width: 220px; display: block;">Repair, Batch Manager of Documents & Audit Suite</span>
         </span>
       </a>
 
       <div class="nav-links">
-        <a href="../" data-i18n="nav.home">Главная</a>
-        <a href="../onlayn-instrumenty" style="color:#06b6d4;font-weight:700">🌐 Онлайн Инструменты</a>
-        <a href="../tseny" data-i18n="nav.price">Цена</a>
-        <a href="../rukovodstvo" data-i18n="nav.guide">Руководство</a>
-        <a href="../otchety" data-i18n="nav.reports">Отчёты и отзывы</a>
-        <a href="../blog" class="active" data-i18n="nav.blog">Блог</a>
-        <a href="../kontakty" data-i18n="nav.contact">Контакты</a>
-        <a href="../skachat" class="btn btn-primary btn-sm mobile-only" data-i18n="nav.download">Скачать</a>
+        <a href="../">Home</a>
+        <a href="../tools-online" style="color:#06b6d4;font-weight:700">🌐 Online Tools</a>
+        <a href="../price">Price</a>
+        <a href="../user-guide">User Guide</a>
+        <a href="../reports">Reports & Feedback</a>
+        <a href="../blog" class="active">Blog</a>
+        <a href="../contact">Contact</a>
+        <a href="../download" class="btn btn-primary btn-sm mobile-only">Download</a>
       </div>
 
       <div class="nav-actions">
@@ -339,67 +188,94 @@
             <span class="chev">▾</span>
           </button>
           <div class="lang-menu">
-            <a href="../../en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" class="lang-item" data-lang="en">EN</a>
-            <a href="../../ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" class="lang-item" data-lang="ro">RO</a>
-            <a href="../../ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" class="lang-item active" data-lang="ru">RU</a>
+            <a href="https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization" class="lang-item ">EN</a>
+            <a href="https://doc-inspector.com/ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente" class="lang-item ">RO</a>
+            <a href="https://doc-inspector.com/ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov" class="lang-item active">RU</a>
           </div>
         </div>
-        <a href="../skachat" class="btn btn-primary btn-sm desktop-only" data-i18n="nav.download">Скачать</a>
+        <a href="../download" class="btn btn-primary btn-sm desktop-only">Download</a>
       </div>
-
-      <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </nav>
   </div>
 </header>
-<main class="container article-container section-gap" style="max-width:800px;margin:0 auto;padding-top:120px;">
-  <article class="reveal">
-    <div class="article-meta" style="margin-bottom:1rem;opacity:0.8;">
-       <span class="blog-category" data-i18n="blog.cat.security">Безопасность</span> | <time datetime="2026-07-27">2026-07-27</time>
-    </div>
-    <h1 style="font-family:Outfit,sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;">Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту</h1>
-    <div class="article-body" style="font-size:1.1rem;line-height:1.7;color:#cbd5e1;">
-      <h2>Обзор</h2><p>При публикации корпоративных пакетов в виртуальных комнатах данных (VDR) необходимо гарантировать отсутствие скрытых гео-тегов, ревизий и цифровых подписей.</p>
-    </div>
-    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <a href="../blog.html" id="back-blog-link"
-         style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;font-family:Inter,sans-serif;"
-         onmouseover="this.style.background='rgba(6,182,212,0.18)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 18px rgba(6,182,212,0.25)'"
-         onmouseout="this.style.background='rgba(6,182,212,0.08)';this.style.transform='';this.style.boxShadow=''"
-         data-i18n="blog.backToList">← Назад ко всем статьям</a>
-    </div>
-  </article>
+<main class="container article-container">
+
+    <article class="reveal">
+      <div class="article-meta" style="margin-bottom:1rem;color:#94a3b8;font-size:0.95rem;">
+         <span class="blog-category">Защита VDR и Аудит</span> | <time datetime="2026-07-27">27 Июля 2026</time>
+      </div>
+      <h1 style="font-family:'Outfit',sans-serif;font-size:2.5rem;margin-bottom:2rem;line-height:1.2;color:#ffffff;">Очистка документов для виртуальных комнат данных (VDR) и Cleanroom: Пошаговое руководство по пакетной защите и аудиту</h1>
+      
+      <div class="article-body">
+        <p>При подготовке корпоративных архивов для виртуальных комнат данных (VDR) или Cleanroom требования безопасности требуют очистки, защиты и аудита каждого документа. Передача сырых файлов ведет к риску утечки персональных данных и скрытых метаданных. DocInspector предлагает полный пакетный инструментарий для очистки, уплотнения, нанесения водяных знаков, шифрования и аудита файлов за один запуск.</p>
+
+        <div class="gdpr-box">
+          <h4>🛡️ Полное соответствие GDPR и Офлайн-безопасность</h4>
+          <p>Обработка файлов в DocInspector гарантирует <strong>100% соответствие GDPR</strong>. Наша архитектура серверов в ЕС обрабатывает файлы в оперативной памяти с немедленным удалением. Для особо важных документов <strong>ПК-приложение DocInspector для Windows</strong> работает 100% офлайн без подключения к сети.</p>
+        </div>
+
+        <h2>Пайплайн из 11 инструментов безопасности</h2>
+        <p>Единый пайплайн DocInspector выполняет множество операций над всеми папками с полным сохранением исходного дерева папок в ZIP-архиве:</p>
+
+        <ol>
+          <li><strong>Конвертация любого формата в PDF:</strong> Пакетная конвертация Word (DOCX/DOC), Excel (XLSX/XLS), PowerPoint (PPTX), TXT и фото в PDF. (<a href="/ru/instrumenty/konvertirovat-v-pdf-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF онлайн</a>)</li>
+
+          <li><strong>Архивация PDF/A (ISO 19005):</strong> Преобразование в архивные стандарты ISO 19005-1, ISO 19005-2 или ISO 19005-3. (<a href="/ru/instrumenty/convertirovat-v-pdfa-onlayn" style="color:#38bdf8;text-decoration:underline;">Конвертировать в PDF/A онлайн</a>)</li>
+
+          <li><strong>Очистка метаданных:</strong> Полное удаление тегов EXIF, авторов, дат создания и историй правок из PDF, DOCX, XLSX, PPTX, CSV, TXT, PNG, JPG. (<a href="/ru/instrumenty/ochistka-metadannyh-pdf" style="color:#38bdf8;text-decoration:underline;">Очистка метаданных PDF</a>)</li>
+
+          <li><strong>Поиск и редактирование PII:</strong> Безвозвратное затирание персональных данных, счетов и секретных условий. (<a href="/ru/instrumenty/skryt-dannye-v-pdf" style="color:#38bdf8;text-decoration:underline;">Редактировать PDF онлайн</a>)</li>
+
+          <li><strong>Удаление цифровых подписей:</strong> Снятие цифровых подписей и блокировок (<code>/Sig</code> / <code>/Lock</code>). (<a href="/ru/instrumenty/udalit-cifrovye-podpisi" style="color:#38bdf8;text-decoration:underline;">Удалить подписи PDF</a>)</li>
+
+          <li><strong>Восстановление PDF и Smart OCR:</strong> Исправление поврежденных PDF и OCR для сканов. (<a href="/ru/instrumenty/vosstanovit-pdf-fayl" style="color:#38bdf8;text-decoration:underline;">Восстановить PDF онлайн</a>)</li>
+
+          <li><strong>Добавление водяного знака:</strong> Нанесение текста (например: <code>CONFIDENTIAL — VDR CLEANROOM</code>). (<a href="/ru/instrumenty/dobavit-vodyanoy-znak-pdf" style="color:#38bdf8;text-decoration:underline;">Водяной знак PDF</a>)</li>
+
+          <li><strong>Шифрование PDF (AES 256-бит):</strong> Защита паролем и ограничение прав на печать/копирование. (<a href="/ru/instrumenty/zashchitit-pdf-parolem" style="color:#38bdf8;text-decoration:underline;">Защитить PDF паролем</a>)</li>
+
+          <li><strong>Уплотнение PDF (Flatten):</strong> Преобразование страниц в растр 300 DPI; уничтожение скрытых слоев. (<a href="/ru/instrumenty/obiedinit-sloi-pdf" style="color:#38bdf8;text-decoration:underline;">Свести слои PDF</a>)</li>
+
+          <li><strong>Сводный реестр документов:</strong> Отчеты в Excel, PDF и CSV с именами файлов и количеством страниц. (<a href="/ru/instrumenty/reestr-dokumentov-pdf" style="color:#38bdf8;text-decoration:underline;">Реестр документов PDF</a>)</li>
+
+          <li><strong>Расширенный реестр аудита (SHA-256):</strong> Полный аудит папок в Excel с хэшами SHA-256. (<a href="/ru/instrumenty/rasshirennyy-reestr-pdf" style="color:#38bdf8;text-decoration:underline;">Расширенный реестр PDF</a>)</li>
+        </ol>
+
+        <!-- HIGH CONTRAST CTA BOX -->
+        <div class="cta-box">
+          <h3>Подготовьте документы VDR онлайн прямо сейчас</h3>
+          <p>Обрабатывайте бесплатно до 100 файлов в день прямо в браузере. Соответствие GDPR и удаление файлов после скачивания. Исходная структура папок сохраняется в ZIP-архиве.</p>
+          <a href="/ru/onlayn-instrumenty" class="cta-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
+            <span>Открыть онлайн-инструменты DocInspector</span>
+          </a>
+        </div>
+
+        <h2>Сохранение структуры папок и итоговый ZIP-архив</h2>
+        <p>DocInspector сохраняет исходную структуру папок любой вложенности. Готовые файлы упаковываются в ZIP-архив с сохранением исходного дерева папок.</p>
+
+        <h2>Заключение</h2>
+        <p>Сделайте процесс аудита VDR быстрым и безопасным. Используйте DocInspector бесплатно онлайн или скачайте ПК-приложение 100% офлайн.</p>
+      </div>
+
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <a href="../blog" id="back-blog-link" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.35);border-radius:10px;color:#38bdf8;font-weight:600;text-decoration:none;">← Назад к статьям</a>
+      </div>
+    </article>
+    
 </main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-inner">
-      <span data-i18n="footer.copyright">© 2025 DocInspector — Все права защищены</span>
+      <span>© 2025 DocInspector. All rights reserved.</span>
       <div class="footer-links">
-        <a href="../bezopasnost" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(6,182,212,.15)'" onmouseout="this.style.background=''">🔒 Безопасность</a>
-        <a href="../politika-konfidentsialnosti" data-i18n="footer.privacy">Политика конфиденциальности</a>
-        <a href="../usloviya-ispolzovaniya" data-i18n="footer.terms">Условия использования</a>
-        <a href="../politika-vozvrata" data-i18n="footer.refund">Политика возврата</a>
-        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
-        </a>
+        <a href="../security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;">🔒 Security</a>
+        <a href="../privacy">Privacy Policy</a>
+        <a href="../terms">Terms of Service</a>
+        <a href="../refund">Refund Policy</a>
       </div>
     </div>
   </div>
 </footer>
-<script src="../../cookies.js"></script>
-<script src="../../i18n-dict.v2.js"></script>
-<script src="../../i18n.js"></script>
-<script src="../../scroll-fx.js?v=9"></script>
-<script>
-/* Restore the exact blog listing page the user came from (Back button fix) */
-(function(){
-  var saved = sessionStorage.getItem('blogListPage');
-  if (saved) {
-    var link = document.getElementById('back-blog-link');
-    if (link) link.href = saved;
-  }
-})();
-</script>
 </body>
 </html>
