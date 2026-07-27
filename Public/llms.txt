@@ -1,100 +1,57 @@
 # DocInspector
 
-> DocInspector is a free, privacy-first **batch document processing toolkit**. Upload up to 100 files at once, select multiple operations, and they all run in sequence on every file. Online processing runs on a secure VPS server in Germany (EU) — files are deleted immediately after download. Also available as a **desktop application for Windows** (fully offline, no uploads).
+> DocInspector is a free, privacy-first **batch document processing, M&A Cleanroom, security & audit suite**. Upload up to 100 files or multi-folder directory trees at once, select multiple operations simultaneously, and process all files in a single pass. Online processing runs in an isolated encrypted sandbox in Germany (EU) with immediate zero-retention deletion after download. Also available as a **desktop application for Windows** (100% offline, air-gapped security).
 
-## What Makes DocInspector Unique
+## Core Capabilities & Unique Pipeline
 
-Most PDF tools do **one thing to one file**. DocInspector does **multiple things to many files at once**.
+Most document tools process **one file with one tool**. DocInspector processes **many files across entire directory trees using multiple tools simultaneously in a single pass**.
 
-- Upload 1 to 100 files simultaneously (PDF, DOCX, XLSX, CSV, TXT, images, PPTX)
-- Select multiple operations — they run **in sequence** on every file in one batch
-- Example: 50 PDFs → Repair broken structure → Remove metadata → Encrypt with password → Add watermark → Download as ZIP
-- Online version: files processed on a **VPS server in Germany (EU)**, deleted immediately after download — never stored or shared
-- No account required. No cloud storage. No data retention. GDPR-safe by design.
-- Also available as a **desktop application** (offline, same features)
+- **Multi-Folder Upload**: Upload up to 100 files or entire directory trees (PDF, DOCX, XLSX, CSV, TXT, images, PPTX).
+- **Multi-Operation Pipeline**: Select multiple operations simultaneously (e.g. Sanitize Metadata + Redact PDF + Remove Signatures + Encrypt + Convert to PDF + Audit Report) — all selected tools run sequentially on every file in one batch.
+- **Folder Structure Preservation**: The output ZIP archive preserves the exact nested directory structure as uploaded.
+- **M&A Cleanroom & VDR Due Diligence**: Prepare financial records, contracts, and IP for Virtual Data Rooms. Permanently strip hidden author metadata, GPS coordinates, revision history, and un-redacted PII.
+- **Zero Retention Online**: EU server processing, immediate deletion upon download — never stored or used for AI training. GDPR compliant.
+- **100% Offline Air-Gapped Desktop App**: Windows app with no file size limits, no internet connection required, and unlimited batch sizes.
 
-## Core Use Cases
+## 10 Available Document Tools (Combinable in Batch)
 
-### Batch PDF Security Pipeline
-Select Sanitize + Encrypt + Flatten on 50 PDFs at once. Result: all files stripped of metadata, password-protected, and converted to image-only PDFs (no selectable text, no hidden data).
-
-### Legal & Compliance Document Preparation
-Redact sensitive keywords across an entire folder of contracts, then apply watermark "CONFIDENTIAL" and encrypt — all in one run, on all files simultaneously.
-
-### Accountant / Auditor Bundle Reporting
-Upload a folder of 100+ PDF/DOCX/XLSX files, run PDF Bundle Summary or Advanced Bundle Report — get an Excel + PDF + CSV report with document titles, page counts, file sizes, SHA-256 signatures, protection status, and totals. Used for creating "borderou" (document registry) in Romanian/Moldovan accounting practice.
-
-### Document Repair + OCR
-Upload corrupted or scanned PDFs, run Rebuild & Repair with Smart OCR — fixes broken PDF structures and makes scanned text selectable and searchable.
-
-### Metadata Privacy Cleanup
-Before sending documents externally, run Sanitize on all files — removes author names, creation dates, software fingerprints, GPS data, and all hidden metadata from PDF, DOCX, XLSX, CSV, TXT, images, and PPTX files.
-
-## Available Operations (can be combined and run together)
-
-| Operation | Description | Formats |
+| Operation | Description | Supported Formats |
 |---|---|---|
-| Sanitize Metadata | Remove all hidden metadata (author, date, GPS, software) | PDF, DOCX, XLSX, CSV, TXT, Images, PPTX |
-| Add Watermark | Stamp diagonal text watermark on every page (customizable text, font, opacity, size) | PDF |
-| Encrypt PDF | Password-protect with AES-256, restrict printing/copying/editing | PDF |
-| Find & Redact | Permanently black out specific keywords or phrases | PDF |
-| Flatten to Image PDF | Convert every page to raster image — removes text layer, scripts, form fields | PDF |
-| Rebuild & Repair PDF | Fix corrupted/broken PDF structures, Smart OCR for scanned pages | PDF |
-| Remove Signatures | Strip digital signatures, certified locks, editing restrictions | PDF |
-| PDF Bundle Summary | Generate Excel+PDF+CSV report: document titles, page counts, totals | PDF, DOCX, XLSX, CSV, TXT |
-| Advanced Bundle Report | Detailed report: doc number, title, format, size, SHA-256, protection status, page count, last modified | PDF, DOCX, XLSX, CSV, TXT |
+| Sanitize Metadata | Remove all hidden metadata (author, dates, GPS, software, revision logs) | PDF, DOCX, XLSX, CSV, TXT, Images, PPTX |
+| Find & Redact | Permanently black out sensitive text and PII at the pixel level | PDF |
+| Convert to PDF | Batch-convert Word, Excel, PowerPoint, Text, and Images to PDF | DOCX, XLSX, PPTX, TXT, Images |
+| Remove Signatures | Strip digital signatures, certified locks, and editing restrictions | PDF |
+| Rebuild & Repair PDF | Fix corrupted/broken PDF structures with built-in OCR for scans | PDF |
+| Add Watermark | Stamp customizable text watermark ("CONFIDENTIAL", "M&A DUE DILIGENCE") | PDF |
+| Encrypt PDF | Password-protect with 256-bit AES encryption and set permission locks | PDF |
+| Flatten to Image PDF | Convert PDF pages into raster image PDFs (removes text layers & hidden vectors) | PDF |
+| PDF Bundle Summary | Generate Excel+PDF+CSV dossier summary report (borderou/reestr) | PDF, DOCX, XLSX, CSV, TXT |
+| Advanced Bundle Report | Detailed audit report: file title, format, size, SHA-256 hash, protection, pages | PDF, DOCX, XLSX, CSV, TXT |
 
-## How the Pipeline Works
+## Standalone Tool Pages
 
-1. **Upload**: Drag & drop up to 100 files or entire folders. Supports PDF, DOCX, XLSX, CSV, TXT, PNG, JPG, PPTX.
-2. **Select operations**: Click one or more tool cards. Each selected operation shows its settings panel.
-3. **Configure**: Set watermark text, encryption password, redaction keywords, OCR mode, etc.
-4. **Process**: Click Run — all selected operations execute in sequence on all uploaded files simultaneously.
-5. **Download**: Processed files packaged as a ZIP archive.
-
-## Standalone Tool Pages (individual tools, also indexable)
-
-- [Encrypt PDF Online](https://doc-inspector.com/en/tools/encrypt-pdf-online)
-- [Add Watermark to PDF](https://doc-inspector.com/en/tools/add-watermark-pdf-online)
-- [Redact PDF Online](https://doc-inspector.com/en/tools/redact-pdf-online)
 - [Sanitize PDF Metadata](https://doc-inspector.com/en/tools/sanitize-pdf-metadata)
-- [Flatten PDF Online](https://doc-inspector.com/en/tools/flatten-pdf-online)
+- [Redact PDF Online](https://doc-inspector.com/en/tools/redact-pdf-online)
+- [Convert to PDF Online](https://doc-inspector.com/en/tools/convert-to-pdf-online)
+- [Remove PDF Signatures](https://doc-inspector.com/en/tools/remove-pdf-signatures)
 - [Repair PDF Online](https://doc-inspector.com/en/tools/repair-pdf-online)
+- [Add Watermark to PDF](https://doc-inspector.com/en/tools/add-watermark-pdf-online)
+- [Encrypt PDF Online](https://doc-inspector.com/en/tools/encrypt-pdf-online)
+- [Flatten PDF Online](https://doc-inspector.com/en/tools/flatten-pdf-online)
 - [PDF Bundle Summary](https://doc-inspector.com/en/tools/pdf-bundle-summary-online)
 - [Advanced PDF Bundle Report](https://doc-inspector.com/en/tools/advanced-pdf-bundle-report)
-- [Remove PDF Signatures](https://doc-inspector.com/en/tools/remove-pdf-signatures)
 
-## Full Batch Toolkit (all operations in one place)
+## Guides & Use Cases
 
-- [Online PDF Batch Toolkit](https://doc-inspector.com/en/tools-online.html)
-- [Romanian version](https://doc-inspector.com/ro/unelte-online.html)
-- [Russian version](https://doc-inspector.com/ru/onlayn-instrumenty.html)
+- [M&A Cleanroom & Data Room Preparation Guide](https://doc-inspector.com/en/blog/ma-cleanroom-data-room-document-preparation)
+- [Virtual Data Room VDR Document Sanitization](https://doc-inspector.com/en/blog/virtual-data-room-vdr-cleanroom-document-sanitization)
 
-## Target Users
+## Full Online Toolkit
 
-- Legal professionals preparing batches of contracts for sharing (redact + encrypt + watermark)
-- Accountants and auditors creating document bundle reports (borderou/reestr)
-- IT and compliance teams sanitizing documents before archival or external sharing
-- HR departments processing employee files in bulk
-- Anyone needing to apply multiple PDF operations to many files at once without uploading to cloud services
+- [English Online Toolkit](https://doc-inspector.com/en/tools-online)
+- [Romanian Online Toolkit](https://doc-inspector.com/ro/unelte-online)
+- [Russian Online Toolkit](https://doc-inspector.com/ru/onlayn-instrumenty)
 
-## Privacy & Security
-
-- **Online version**: files are sent over HTTPS to a VPS server in Germany (EU), processed, then deleted immediately after you download — never stored, never shared
-- **Desktop version**: fully offline — no internet required, files never leave your computer
-- No accounts required for online tools
-- No cloud storage, no data retention
-- GDPR-compliant: EU server, immediate deletion, no logs of file content
-
-## Desktop Application
-
-DocInspector Desktop is available for **Windows only**. Same features as the online version, fully offline — no internet connection required. Download at: https://doc-inspector.com/en/download.html
-
-## Languages
-
-Available in English, Romanian (ro), and Russian (ru).
-
-## Contact
-
-- Website: https://doc-inspector.com
-- GitHub: https://github.com/doc-inspector/install
+## Desktop App & Languages
+- **Desktop Application**: Windows offline app download at https://doc-inspector.com/en/download
+- **Supported Languages**: English (`/en/`), Romanian (`/ro/`), Russian (`/ru/`).
