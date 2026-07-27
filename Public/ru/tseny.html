@@ -131,15 +131,60 @@
       "description": "Professional Windows desktop application for batch PDF processing. Repair, sanitize metadata, watermark, encrypt, redact, flatten, remove signatures, generate audit reports, convert to PDF. Fully local — no upload, no internet required.",
       "image": "https://doc-inspector.com/assets/white-theme-GUI.png",
       "brand": {
-        "@type": "Organization",
-        "@id": "https://doc-inspector.com/#organization",
-        "name": "DocInspector",
-        "url": "https://doc-inspector.com",
-        "logo": "https://doc-inspector.com/assets/logo.png",
-        "sameAs": [
-          "https://doc-inspector.com"
-        ]
+        "@type": "Brand",
+        "name": "DocInspector"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Sebastian P."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Ho provato, abbastanza utile e veloce per l'elaborazione dei documenti, ho utilizzato sanitize, watermark, find and remove per nascondere alcuni dati e perfetto",
+          "datePublished": "2026-06-30"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Ivan P."
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Lucreaza bine, ar fi bine sa fie si o convertire automata in pdf la diferite formate, in rest foarte util instrument si versiunea gratuita pentru 100 documente pe zi foarte bun",
+          "datePublished": "2026-05-30"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Alex Parker"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Pretty good and useful batch, hope some more options appear soon",
+          "datePublished": "2026-06-13"
+        }
+      ],
       "url": "https://doc-inspector.com/ru/tseny",
       "offers": [
         {
@@ -149,7 +194,42 @@
           "priceCurrency": "EUR",
           "availability": "https://schema.org/InStock",
           "url": "https://doc-inspector.com/ru/tseny",
-          "description": "Basic toolkit — PDF repair, metadata sanitization, watermark, encryption, redaction, flatten. Batch processing up to 100 files."
+          "description": "Basic toolkit — PDF repair, metadata sanitization, watermark, encryption, redaction, flatten. Batch processing up to 100 files.",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["RO", "EU", "US"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": ["RO", "EU", "US"]
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -158,7 +238,42 @@
           "priceCurrency": "EUR",
           "availability": "https://schema.org/InStock",
           "url": "https://doc-inspector.com/ru/tseny",
-          "description": "Pro fully equipped suite — all Basic features plus folder-level audit reports, advanced PDF bundle analysis, risk scoring, multi-action batch pipelines."
+          "description": "Pro fully equipped suite — all Basic features plus folder-level audit reports, advanced PDF bundle analysis, risk scoring, multi-action batch pipelines.",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["RO", "EU", "US"],
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0.00",
+              "currency": "EUR"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": ["RO", "EU", "US"]
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          }
         }
       ]
     },

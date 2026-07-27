@@ -95,3 +95,17 @@
 /ru/tools/ocr-pdf.html /ru/user-guide-standalone-ocr 301
 /ru/tools/sanitize-pdf-metadata /ru/instrumenty/ochistka-metadannyh-pdf 301
 /ru/tools/sanitize-pdf-metadata.html /ru/instrumenty/ochistka-metadannyh-pdf 301
+
+# ── 4. M&A Cleanroom & VDR Blog Slug Redirects ──
+/en/blog/ma-data-room-preparation /en/blog/ma-cleanroom-data-room-document-preparation 301
+/en/blog/ma-data-room-preparation.html /en/blog/ma-cleanroom-data-room-document-preparation 301
+/ro/blog/data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor /ro/blog/ma-cleanroom-pregatirea-documentelor-data-room 301
+/ro/blog/data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor.html /ro/blog/ma-cleanroom-pregatirea-documentelor-data-room 301
+/ru/blog/data-room-dlya-ma-podgotovyte-dokumenty-pered-pokazom-investoram /ru/blog/ma-cleanroom-podgotovka-dokumentov-data-room 301
+/ru/blog/data-room-dlya-ma-podgotovyte-dokumenty-pered-pokazom-investoram.html /ru/blog/ma-cleanroom-podgotovka-dokumentov-data-room 301
+/en/blog/preparing-documents-virtual-data-rooms-vdr-ma /en/blog/virtual-data-room-vdr-cleanroom-document-sanitization 301
+/en/blog/preparing-documents-virtual-data-rooms-vdr-ma.html /en/blog/virtual-data-room-vdr-cleanroom-document-sanitization 301
+/ro/blog/pregatirea-documentelor-pentru-camere-date-virtuale-vdr-ma /ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente 301
+/ro/blog/pregatirea-documentelor-pentru-camere-date-virtuale-vdr-ma.html /ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente 301
+/ru/blog/podgotovka-dokumentov-dlya-virtualnyh-komnat-dannyh-vdr-ma /ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov 301
+/ru/blog/podgotovka-dokumentov-dlya-virtualnyh-komnat-dannyh-vdr-ma.html /ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov 301
