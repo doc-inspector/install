@@ -2761,5 +2761,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    try {
+      const dbRequest = indexedDB.open('DocInspectorDropDB', 1);
+      dbRequest.onsuccess = (ev) => {
+        const db = ev.target.result;
+        if (!db.objectStoreNames.contains('pending_files')) return;
+        const tx = db.transaction('pending_files', 'readwrite');
+        const store = tx.objectStore('pending_files');
+        const getAll = store.getAll();
+        getAll.onsuccess = () => {
+          const files = getAll.result;
+          if (files && files.length) {
+            store.clear();
+            if (typeof addFiles === 'function') {
+              addFiles(files);
+            } else if (typeof processUploadedFiles === 'function') {
+              processUploadedFiles(files);
+            } else if (typeof handleFiles === 'function') {
+              handleFiles(files);
+            } else {
+              const fileInput = document.getElementById('fileInput');
+              if (fileInput) {
+                try {
+                  const dt = new DataTransfer();
+                  files.forEach(f => dt.items.add(f));
+                  fileInput.files = dt.files;
+                  fileInput.dispatchEvent(new Event('change', { bubbles: true }));
+                } catch(e) {}
+              }
+            }
+          }
+        };
+      };
+    } catch (err) {}
+  }, 300);
+});
+</script>
+
 </body>
 </html>

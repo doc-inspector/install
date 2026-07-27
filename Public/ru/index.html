@@ -835,13 +835,13 @@
           <div class="slider-wrapper">
             <!-- Slide 0: Online Tools Mockup -->
             <a href="onlayn-instrumenty" class="hero-slide active" id="slide-online" style="text-decoration: none; color: inherit; display: flex; flex-direction: column;">
-              <div class="online-mockup">
+              <div class="online-mockup" data-target-url="onlayn-instrumenty">
                 <div class="mockup-header">
                   <div class="mockup-dots"><span></span><span></span><span></span></div>
                   <div class="mockup-address">doc-inspector.com/ru/onlayn-instrumenty</div>
                 </div>
                 <div class="mockup-body">
-                  <div class="mockup-dropzone">
+                  <div class="mockup-dropzone" data-target-url="onlayn-instrumenty">
                     <div class="drop-icon">🌐</div>
                     <div class="drop-title">Перетащите документы сюда</div>
                     <div class="drop-subtitle">PDF · Word · Excel (до 100 файлов в день бесплатно)</div>
@@ -1702,6 +1702,7 @@ function hiFaq(btn){var item=btn.closest('.hi-faq-item');var isOpen=item.classLi
 <!-- ════════════════════════════════════════════════════════════════════ -->
 
 
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const dropArea = document.querySelector('.online-mockup') || document.querySelector('.mockup-dropzone');
@@ -1712,22 +1713,77 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   dropArea.addEventListener('dragover', () => {
-    dropArea.style.borderColor = '#06b6d4';
-    dropArea.style.boxShadow = '0 0 25px rgba(6,182,212,0.4)';
+    dropArea.style.borderColor = '#22d3ee';
+    dropArea.style.boxShadow = '0 0 30px rgba(34, 211, 238, 0.4)';
   });
 
-  dropArea.addEventListener('dragleave', () => {
-    dropArea.style.borderColor = '';
-    dropArea.style.boxShadow = '';
+  ['dragleave', 'dragend'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => {
+      dropArea.style.borderColor = '';
+      dropArea.style.boxShadow = '';
+    });
   });
 
-  dropArea.addEventListener('drop', (e) => {
+  async function getAllFilesFromDrop(e) {
+    const items = e.dataTransfer ? e.dataTransfer.items : null;
+    if (!items || !items.length) {
+      return e.dataTransfer && e.dataTransfer.files ? Array.from(e.dataTransfer.files) : [];
+    }
+
+    const filePromises = [];
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.kind === 'file') {
+        const entry = item.webkitGetAsEntry ? item.webkitGetAsEntry() : null;
+        if (entry) {
+          filePromises.push(scanEntry(entry));
+        } else {
+          const f = item.getAsFile();
+          if (f) filePromises.push(Promise.resolve([f]));
+        }
+      }
+    }
+    const results = await Promise.all(filePromises);
+    return results.flat();
+  }
+
+  function scanEntry(entry) {
+    return new Promise((resolve) => {
+      if (entry.isFile) {
+        entry.file(file => resolve([file]), () => resolve([]));
+      } else if (entry.isDirectory) {
+        const dirReader = entry.createReader();
+        const readEntries = () => {
+          dirReader.readEntries(async (entries) => {
+            if (!entries.length) {
+              resolve([]);
+            } else {
+              const promises = entries.map(e => scanEntry(e));
+              const subResults = await Promise.all(promises);
+              resolve(subResults.flat());
+            }
+          }, () => resolve([]));
+        };
+        readEntries();
+      } else {
+        resolve([]);
+      }
+    });
+  }
+
+  dropArea.addEventListener('drop', async (e) => {
     dropArea.style.borderColor = '';
     dropArea.style.boxShadow = '';
-    const files = e.dataTransfer ? e.dataTransfer.files : null;
-    if (!files || !files.length) return;
+
+    const targetUrl = dropArea.getAttribute('data-target-url') || 'tools-online';
 
     try {
+      const files = await getAllFilesFromDrop(e);
+      if (!files || !files.length) {
+        window.location.href = targetUrl;
+        return;
+      }
+
       const dbRequest = indexedDB.open('DocInspectorDropDB', 1);
       dbRequest.onupgradeneeded = (ev) => {
         const db = ev.target.result;
@@ -1744,18 +1800,19 @@ document.addEventListener('DOMContentLoaded', () => {
           store.add(files[i]);
         }
         tx.oncomplete = () => {
-          let target = 'tools-online';
-          if (window.location.pathname.includes('/ro/')) target = 'unelte-online';
-          else if (window.location.pathname.includes('/ru/')) target = 'onlayn-instrumenty';
-          window.location.href = target + '?auto_load=1';
+          window.location.href = targetUrl;
         };
       };
-    } catch(err) {
-      window.location.href = 'tools-online';
+      dbRequest.onerror = () => {
+        window.location.href = targetUrl;
+      };
+    } catch (err) {
+      window.location.href = targetUrl;
     }
   });
 });
 </script>
+
 
 </body>
 </html>
