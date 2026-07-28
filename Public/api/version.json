@@ -8,15 +8,18 @@
       "date": "July 27, 2026",
       "changes_en": [
         "PDF/A-2b Conversion Option: Added a new tool to convert PDF and Office documents directly to PDF/A-2b format with advanced settings (Smart OCR, auto-deskew, page-fitting, and orientation adjustments).",
-        "GUI Optimizations for Smaller Screens: Enabled layout text wrapping and automatic tooltip wrapping to ensure proper alignment and visibility on smaller displays (e.g., 14-inch screens)."
+        "GUI Optimizations for Smaller Screens: Enabled layout text wrapping and automatic tooltip wrapping to ensure proper alignment and visibility on smaller displays (e.g., 14-inch screens).",
+        "Auto-Updater UX Improvements: Resolved a privilege context isolation issue that caused elevated auto-updater launches to display unlicensed status, and added localized post-install completion confirmations."
       ],
       "changes_ro": [
         "Opțiune de Conversie în PDF/A-2b: S-a adăugat un nou instrument pentru a converti documentele PDF și Office direct în format PDF/A-2b cu setări avansate (Smart OCR, aliniere automată, potrivire în pagină și ajustare orientare).",
-        "Optimizări GUI pentru Ecrane Mici: S-a activat încadrarea textului din interfață și adaptarea automată a tooltip-urilor pentru a asigura afișarea corectă pe ecrane de dimensiuni reduse (ex. laptopuri de 14 inch)."
+        "Optimizări GUI pentru Ecrane Mici: S-a activat încadrarea textului din interfață și adaptarea automată a tooltip-urilor pentru a asigura afișarea corectă pe ecrane de dimensiuni reduse (ex. laptopuri de 14 inch).",
+        "Îmbunătățiri UX Auto-Updater: S-a rezolvat problema izolării contextului privilegiat care cauza afișarea stării nelicențiate la lansările din auto-updater și s-au adăugat mesaje localizate de confirmare a finalizării."
       ],
       "changes_ru": [
         "Конвертация в PDF/A-2b: Добавлена новая функция для преобразования PDF и офисных документов напрямую в формат PDF/A-2b с расширенными настройками (Smart OCR, автовыравнивание, масштабирование под страницу и настройка ориентации).",
-        "Оптимизация интерфейса для небольших экранов: Включен автоперенос текста кнопок и всплывающих подсказок для корректного отображения интерфейса на экранах меньшего размера (например, 14-дюймовых ноутбуках)."
+        "Оптимизация интерфейса для небольших экранов: Включен автоперенос текста кнопок и всплывающих подсказок для корректного отображения интерфейса на экранах меньшего размера (например, 14-дюймовых ноутбуках).",
+        "Улучшения UX автообновления: Устранена проблема изоляции контекста прав, из-за которой при запуске из автообновления отображался статус без лицензии, и добавлены локализованные подтверждения завершения установки."
       ]
     },
     {
