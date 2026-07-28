@@ -1,8 +1,30 @@
 {
-  "version": "2.2.7",
-  "last_update": "2026-07-27T20:34",
+  "version": "2.2.8",
+  "last_update": "2026-07-28T20:00",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "2.2.8",
+      "date": "July 28, 2026",
+      "changes_en": [
+        "Settings Persistence Fix: Excluded new PDF/A settings classes from obfuscation to ensure language, theme, and window dimensions are properly saved and loaded on startup.",
+        "Roadmap Preview Visualization: Fixed a data-binding bug that caused text and step numbers to appear blank in the Processing Roadmap window after obfuscation.",
+        "High-Fidelity Document Preprocessing: Added server-parity Word (.docx) layout XML processing to prevent text/drawing overlap and fix header alignments on desktop conversions.",
+        "PDF/A Archival Robustness: Resolved a Ghostscript sandbox permission block by disabling SAFER mode for internal color profiles and fixed an Excel COM FitToPagesTall page-setup error."
+      ],
+      "changes_ro": [
+        "Remediere Persistență Setări: S-au exclus noile clase PDF/A din obfuscator pentru a asigura salvarea și încărcarea corectă a limbii, temei și dimensiunilor ferestrei la pornire.",
+        "Vizualizare Traseu Pipeline: S-a remediat un bug de legare a datelor care cauza afișarea goală a textelor și numerelor în fereastra Processing Roadmap după obfuscation.",
+        "Pre-procesare Documente Word: S-a adăugat alinierea layout-ului XML (allowOverlap și indents în headere) pentru Word (.docx), asigurând o conversie fidelă și prevenind suprapunerea textelor.",
+        "Stabilitate Conversie PDF/A: S-a rezolvat blocajul de permisiuni Ghostscript prin modul NOSAFER pentru profilele ICC și s-a corectat eroarea Excel COM FitToPagesTall."
+      ],
+      "changes_ru": [
+        "Сохранение настроек: Новые классы параметров PDF/A исключены из обфускатора для корректного сохранения языка, темы и размеров окна при запуске.",
+        "Отображение карты выполнения: Исправлена ошибка привязки данных, из-за которой тексты и номера шагов отображались пустыми в окне Processing Roadmap после обфускации.",
+        "Качественное преобразование документов: Добавлена серверная обработка XML-разметки Word (.docx) для предотвращения наложения текста и рисунков при конвертации.",
+        "Надежность PDF/A: Устранен блокировщик разрешений Ghostscript с помощью режима NOSAFER для профилей ICC и исправлена ошибка Excel COM FitToPagesTall."
+      ]
+    },
     {
       "version": "2.2.7",
       "date": "July 27, 2026",
