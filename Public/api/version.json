@@ -1,10 +1,10 @@
 {
-  "version": "2.2.8",
+  "version": "2.2.9",
   "last_update": "2026-07-28T20:00",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
     {
-      "version": "2.2.8",
+      "version": "2.2.9",
       "date": "July 28, 2026",
       "changes_en": [
         "Settings Persistence Fix: Excluded new PDF/A settings classes from obfuscation to ensure language, theme, and window dimensions are properly saved and loaded on startup.",
