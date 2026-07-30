@@ -4,6 +4,13 @@
 # All high-priority tool & page redirects MUST be placed at top.
 # ════════════════════════════════════════════════════
 
+# ── 0. ROOT & INDEX.HTML Proper 301 Redirects (replace JS/meta-refresh) ──
+# These fix "Page with redirect" in Google Search Console for the root domain
+/index.html          /en/                         301
+/en/index.html       /en/                         301
+/ro/index.html       /ro/                         301
+/ru/index.html       /ru/                         301
+
 # ── 1. Main Page Root Redirects (No lang -> EN) ──
 /price               /en/price                    301
 /user-guide          /en/user-guide               301
