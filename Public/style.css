@@ -1747,3 +1747,18 @@ hr.plan-divider { border: none; border-top: 1px solid var(--border); margin: 1.6
 .article-body a:hover {
   color: #22d3ee !important;
 }
+
+/* Pro Badge style for User Guide */
+.pro-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fbbf24; /* Amber text */
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
