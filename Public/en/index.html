@@ -750,6 +750,25 @@
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/" />
+  <!-- Language auto-detection: runs only when user arrives from root / redirect -->
+  <!-- Google bot does NOT get redirected (it has no browser language) -->
+  <script>
+    (function() {
+      // Only redirect if user came from root (no referrer or same-site root)
+      var ref = document.referrer;
+      var isFromRoot = !ref || ref === 'https://doc-inspector.com/' || ref === 'http://doc-inspector.com/';
+      if (isFromRoot) {
+        var lang = navigator.language || navigator.userLanguage || 'en';
+        lang = lang.toLowerCase();
+        if (lang.startsWith('ro')) {
+          window.location.replace('/ro/');
+        } else if (lang.startsWith('ru')) {
+          window.location.replace('/ru/');
+        }
+        // If EN or other: stay on /en/ — no redirect needed
+      }
+    })();
+  </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0">
 <div class="page">

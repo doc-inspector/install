@@ -6,6 +6,7 @@
 
 # ── 0. ROOT & INDEX.HTML Proper 301 Redirects (replace JS/meta-refresh) ──
 # These fix "Page with redirect" in Google Search Console for the root domain
+/                    /en/                         301
 /index.html          /en/                         301
 /en/index.html       /en/                         301
 /ro/index.html       /ro/                         301
