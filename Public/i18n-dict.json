@@ -508,7 +508,9 @@
     "ug.aud.c5.p": "Strip cryptographic signatures, certified locks, and editing restriction blocks from signed PDF documents.",
     "ug.aud.c5.l1": "Removes Certified locks to allow document modification.",
     "ug.aud.c5.l2": "Strips signature fields and annotation blocks.",
-    "ug.aud.c5.l3": "Pro / Trial tier exclusive feature."
+    "ug.aud.c5.l3": "Pro / Trial tier exclusive feature.",
+    "p.aud.shredder": "Secure File Shredder",
+    "p.aud.shredder.d": "(available only in application)"
   },
   "RO": {
     "blog.docinspector-boosting-productivity.body": "<h2>Introducere în DocInspector</h2><p>DocInspector este o soluție de gestionare a documentelor de ultimă generație, proiectată pentru a simplifica și accelera fluxurile de documente. Cu interfața sa intuitivă și funcțiile robuste, permite echipelor să colaboreze mai eficient și să ia decizii informate mai rapid. În acest articol, vom explora beneficiile cheie ale utilizării DocInspector și cum poate crește productivitatea în diverse industrii.</p><h2>Optimizarea fluxurilor de documente</h2><p>DocInspector oferă o gamă de unelte pentru a automatiza și optimiza procesele de documente, de la creare și editare la aprobare și arhivare. Funcționalitatea sa avansată de căutare și fluxuri de lucru personalizabile permit utilizatorilor să găsească și să gestioneze rapid documentele, reducând timpul petrecut pe sarcini manuale. În plus, platforma oferă colaborare în timp real și controlul versiunilor, asigurând că toți membrii echipei lucrează cu documentele cele mai actualizate.</p><h2>Îmbunătățirea colaborării în echipă</h2><p>DocInspector facilitează o comunicare și o colaborare fără probleme între membrii echipei, indiferent de locația sau dispozitivul utilizat. Sistemul său de notificări și funcțiile de atribuire a sarcinilor permit echipelor să rămână informate și pe drumul cel bun, în timp ce integrarea cu instrumentele populare de productivitate îmbunătățește experiența generală a utilizatorului. Prin furnizarea unei platforme centralizate pentru gestionarea documentelor, DocInspector ajută echipele să lucreze mai coerent și să își atingă obiectivele mai eficient.</p>",
@@ -1018,7 +1020,9 @@
     "ug.aud.c5.p": "Elimina semnaturile criptografice, blocajele de certificare si restrictionarile de editare din documentele PDF.",
     "ug.aud.c5.l1": "Elimina blocajele de certificare pentru a permite modificarea.",
     "ug.aud.c5.l2": "Sterge campurile si blocurile de adnotare pentru semnatura.",
-    "ug.aud.c5.l3": "Functie exclusiva pentru nivelurile Pro / Trial."
+    "ug.aud.c5.l3": "Functie exclusiva pentru nivelurile Pro / Trial.",
+    "p.aud.shredder": "Distrugere securizată fișiere",
+    "p.aud.shredder.d": "(disponibil doar în aplicație)"
   },
   "RU": {
     "blog.docinspector-boosting-productivity.body": "<h2>Введение в DocInspector</h2><p>DocInspector - это современное решение для управления документами, предназначенное для упрощения и ускорения документооборота. Благодаря интуитивно понятному интерфейсу и мощным функциям, он позволяет командам работать более эффективно и принимать обоснованные решения быстрее. В этой статье мы рассмотрим основные преимущества использования DocInspector и то, как он может повысить производительность в различных отраслях.</p><h2>Оптимизация документооборота</h2><p>DocInspector предлагает ряд инструментов для автоматизации и оптимизации документных процессов, от создания и редактирования до утверждения и архивации. Его расширенная функция поиска и настраиваемые рабочие процессы позволяют пользователям быстро находить и управлять документами, сокращая время, затрачиваемое на ручные задачи. Кроме того, платформа обеспечивает сотрудничество в режиме реального времени и контроль версий, гарантируя, что все члены команды работают с самыми актуальными документами.</p><h2>Улучшение командной работы</h2><p>DocInspector облегчает бесперебойную связь и сотрудничество между членами команды, независимо от их местонахождения или устройства. Его система уведомлений и функции назначения задач позволяют командам оставаться в курсе и на правильном пути, а интеграция с популярными инструментами повышения производительности улучшает общий пользовательский опыт. Предоставляя централизованную платформу для управления документами, DocInspector помогает командам работать более сплоченно и достигать своих целей более эффективно.</p>",
@@ -1527,6 +1531,8 @@
     "ug.aud.c5.p": "Удаление криптографических подписей, сертификационных замков и ограничений на редактирование из PDF файлов.",
     "ug.aud.c5.l1": "Снимает блокировки сертификации для возможности изменения документов.",
     "ug.aud.c5.l2": "Удаляет поля цифровой подписи и аннотационные блоки.",
-    "ug.aud.c5.l3": "Функция доступна только в версиях Pro и Trial."
+    "ug.aud.c5.l3": "Функция доступна только в версиях Pro и Trial.",
+    "p.aud.shredder": "Безопасное уничтожение файлов",
+    "p.aud.shredder.d": "(доступно только в приложении)"
   }
 }
