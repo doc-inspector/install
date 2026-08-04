@@ -1,8 +1,21 @@
 {
-  "version": "2.2.9",
-  "last_update": "2026-07-28T20:00",
+  "version": "3.0.0",
+  "last_update": "2026-08-04T15:00",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "3.0.0",
+      "date": "August 4, 2026",
+      "changes_en": [
+        "Large PDF Redaction Stability Fix: Resolved a Windows OS command line length limit crash when merging large multi-page PDF redactions by processing and merging page chunks in batches of 50."
+      ],
+      "changes_ro": [
+        "Corecție stabilitate redactare PDF-uri mari: S-a rezolvat crash-ul cauzat de limita maximă a liniei de comandă Windows la fuziunea PDF-urilor mari, prin îmbinarea paginilor în loturi securizate de câte 50."
+      ],
+      "changes_ru": [
+        "Исправление стабильности при разметке больших PDF: Устранена критическая ошибка превышения лимита символов командной строки Windows при сборке больших многостраничных документов путем объединения страниц группами по 50."
+      ]
+    },
     {
       "version": "2.2.9",
       "date": "July 28, 2026",
