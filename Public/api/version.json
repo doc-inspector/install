@@ -1,8 +1,21 @@
 {
-  "version": "3.0.0",
-  "last_update": "2026-08-04T15:00",
+  "version": "3.0.1",
+  "last_update": "2026-08-04T18:05",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "3.0.1",
+      "date": "August 4, 2026",
+      "changes_en": [
+        "Bug Report Integration: Added a professional in-app bug and feedback reporting dialog with automated diagnostic logs and file attachment uploads securely sent using Cloudflare R2 and Resend."
+      ],
+      "changes_ro": [
+        "Integrare Raportare Erori: S-a adăugat o fereastră dedicată pentru raportarea erorilor și feedback direct din aplicație, incluzând transmiterea log-urilor și atașarea de fișiere stocate securizat prin Cloudflare R2 și Resend."
+      ],
+      "changes_ru": [
+        "Интеграция отправки отчетов об ошибках: Добавлено профессиональное диалоговое окно для отправки отзывов и баг-репортов прямо из приложения с автоматической выгрузкой системных логов и файлов через Cloudflare R2 и Resend."
+      ]
+    },
     {
       "version": "3.0.0",
       "date": "August 4, 2026",
