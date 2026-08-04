@@ -2,7 +2,25 @@ export async function onRequestPost(context) {
   const { request, env } = context;
 
   try {
-    // 1. Simple Security Check: verify client secret header
+    // 1. Origin Security Check: if Origin header exists, verify it matches allowed domains
+    const origin = request.headers.get("Origin");
+    if (origin) {
+      const allowedOrigins = [
+        "https://doc-inspector.com",
+        "https://www.doc-inspector.com",
+        "http://localhost",
+        "http://127.0.0.1"
+      ];
+      const isAllowed = allowedOrigins.some(o => origin.startsWith(o));
+      if (!isAllowed) {
+        return new Response(JSON.stringify({ error: "Access Denied: Forbidden Origin" }), {
+          status: 403,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+    }
+
+    // 2. Client Secret Authorization Check
     const clientSecret = request.headers.get("X-DocInspector-Secret");
     if (clientSecret !== "DocInspector_WPF_Client_2026_Secure") {
       return new Response(JSON.stringify({ error: "Unauthorized access" }), {
@@ -11,14 +29,33 @@ export async function onRequestPost(context) {
       });
     }
 
-    // 2. Parse Multipart Form Data
+    // 3. IP-based Rate Limiting (using optional RATE_LIMIT_KV binding)
+    const clientIp = request.headers.get("CF-Connecting-IP") || "unknown";
+    if (env.RATE_LIMIT_KV) {
+      const currentHour = new Date().toISOString().substring(0, 13); // "YYYY-MM-DDTHH"
+      const limitKey = `rl_${clientIp}_${currentHour}`;
+      
+      const countVal = await env.RATE_LIMIT_KV.get(limitKey);
+      const count = countVal ? parseInt(countVal, 10) : 0;
+      
+      if (count >= 3) {
+        return new Response(JSON.stringify({ error: "Rate limit exceeded. Maximum 3 reports per hour." }), {
+          status: 429,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+      
+      // Store count and set TTL for 1 hour (3600 seconds)
+      await env.RATE_LIMIT_KV.put(limitKey, (count + 1).toString(), { expirationTtl: 3600 });
+    }
+
+    // 4. Parse Multipart Form Data
     const formData = await request.formData();
     const message = formData.get("message") || "";
     const systemInfo = formData.get("systemInfo") || "";
     const logs = formData.get("logs") || "";
     const licenseKey = formData.get("licenseKey") || "Unlicensed / Trial";
     
-    // Support files from C# (files / file) and HTML forms (attachment)
     const fileFields = [
       ...formData.getAll("files"),
       ...formData.getAll("file"),
@@ -28,10 +65,10 @@ export async function onRequestPost(context) {
     const attachments = [];
     let totalSize = 0;
 
-    // 3. Process attachments
+    // 5. Process attachments
     for (const file of fileFields) {
       if (file && file instanceof File && file.size > 0) {
-        // Limit individual file size to 20MB
+        // Individual file limit: 20MB
         if (file.size > 20 * 1024 * 1024) {
           return new Response(JSON.stringify({ error: `File ${file.name} exceeds the 20MB limit` }), {
             status: 400,
@@ -40,7 +77,7 @@ export async function onRequestPost(context) {
         }
 
         totalSize += file.size;
-        // Limit total attachments size to 50MB to prevent overloading R2
+        // Total files limit: 50MB
         if (totalSize > 50 * 1024 * 1024) {
           return new Response(JSON.stringify({ error: "Total attachment size exceeds the 50MB limit" }), {
             status: 400,
@@ -48,7 +85,6 @@ export async function onRequestPost(context) {
           });
         }
 
-        // Generate a unique clean filename
         const cleanFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
         const fileKey = `bug_${Date.now()}_${cleanFileName}`;
 
@@ -57,7 +93,6 @@ export async function onRequestPost(context) {
           httpMetadata: { contentType: file.type }
         });
 
-        // Store details
         attachments.push({
           name: file.name,
           sizeMb: (file.size / 1024 / 1024).toFixed(2),
@@ -66,7 +101,7 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 4. Construct Attachments HTML Block
+    // 6. Construct Attachments HTML Block
     let attachmentsHtml = '<p style="color: #777;">None</p>';
     if (attachments.length > 0) {
       attachmentsHtml = '<ul style="padding-left: 20px; margin: 10px 0;">';
@@ -81,7 +116,7 @@ export async function onRequestPost(context) {
       attachmentsHtml += '</ul>';
     }
 
-    // 5. Construct Email HTML Content
+    // 7. Construct Email HTML Content
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
         <h2 style="color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 8px; margin-top: 0;">DocInspector Bug Report (v3.0.1)</h2>
@@ -102,7 +137,7 @@ export async function onRequestPost(context) {
       </div>
     `;
 
-    // 6. Send Email via Resend API
+    // 8. Send Email via Resend API
     const emailPayload = {
       from: env.SENDER_EMAIL,
       to: env.RECEIVER_EMAIL,
