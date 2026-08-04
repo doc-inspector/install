@@ -38,8 +38,8 @@ export async function onRequestPost(context) {
       const countVal = await env.RATE_LIMIT_KV.get(limitKey);
       const count = countVal ? parseInt(countVal, 10) : 0;
       
-      if (count >= 30) {
-        return new Response(JSON.stringify({ error: "Rate limit exceeded. Maximum 30 reports per hour." }), {
+      if (count >= 3) {
+        return new Response(JSON.stringify({ error: "Rate limit exceeded. Maximum 3 reports per hour." }), {
           status: 429,
           headers: { "Content-Type": "application/json" }
         });
