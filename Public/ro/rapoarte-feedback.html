@@ -633,5 +633,49 @@
     }, {passive:true});
   })();
   </script>
+  <script>
+  (function() {
+    const reportForm = document.getElementById('reportForm');
+    if (reportForm) {
+      reportForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+
+        // Map form fields
+        formData.append('systemInfo', 'Submitted via DocInspector Website Form (RO)');
+        formData.append('licenseKey', 'Website Visitor / Form');
+
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerText;
+        btn.innerText = 'Se trimite...';
+        btn.disabled = true;
+
+        try {
+          const response = await fetch('/api/report-bug', {
+            method: 'POST',
+            headers: {
+              'X-DocInspector-Secret': 'DocInspector_WPF_Client_2026_Secure'
+            },
+            body: formData
+          });
+
+          if (response.ok) {
+            window.location.href = '/ro/multumim.html';
+          } else {
+            const err = await response.json();
+            alert('Eroare: ' + (err.error || 'Trimiterea a eșuat.'));
+          }
+        } catch (error) {
+          alert('A apărut o eroare de rețea. Vă rugăm să încercați din nou.');
+        } finally {
+          btn.innerText = originalText;
+          btn.disabled = false;
+        }
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
