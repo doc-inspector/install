@@ -1,8 +1,21 @@
 {
-  "version": "3.0.1",
-  "last_update": "2026-08-04T18:05",
+  "version": "3.0.2",
+  "last_update": "2026-08-18T13:35",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "3.0.2",
+      "date": "August 18, 2026",
+      "changes_en": [
+        "Watermark Opacity Enhancements: Updated the watermark settings dialog to display and accept opacity in percentage values (0-100%) with an interactive slider and manual text input, matching professional PDF standards."
+      ],
+      "changes_ro": [
+        "Optimizare Opacitate Watermark: S-a actualizat fereastra de setări watermark pentru a afișa și accepta opacitatea în procente (0-100%), adăugând un slider interactiv și un câmp de introducere manuală a valorii."
+      ],
+      "changes_ru": [
+        "Оптимизация прозрачности водяного знака: Обновлено диалоговое окно настроек водяного знака для отображения и ввода прозрачности в процентах (0-100%) с интерактивным слайдером и ручным вводом."
+      ]
+    },
     {
       "version": "3.0.1",
       "date": "August 4, 2026",
