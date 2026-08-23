@@ -1,8 +1,21 @@
 {
-  "version": "3.0.2",
-  "last_update": "2026-08-18T13:35",
+  "version": "3.0.3",
+  "last_update": "2026-08-24T02:20",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "3.0.3",
+      "date": "August 24, 2026",
+      "changes_en": [
+        "GUI Screen Sizing & Counting Optimizations: Added automatic screen working area clamping on startup to prevent cut-offs on 14-inch laptops. Corrected pipeline execution logs so that the final summary window displays the exact unique files count instead of cumulative step-by-step numbers."
+      ],
+      "changes_ro": [
+        "Optimizări GUI și Contorizare Fișiere: S-a adăugat limitarea automată la spațiul util de lucru al ecranului la pornire pentru a preveni decuparea butoanelor pe ecrane mici (ex. laptopuri de 14 inch). S-a corectat raportul final de progres pentru a afișa numărul exact de fișiere unice procesate în loc de suma cumulativă a pașilor din pipeline."
+      ],
+      "changes_ru": [
+        "Оптимизация интерфейса и подсчета файлов: Добавлено автоматическое ограничение размера окна под рабочую область экрана при запуске для предотвращения скрытия кнопок на экранах небольших ноутбуков (14 дюймов). Исправлен итоговый отчет выполнения для отображения точного количества уникальных файлов вместо накопительной суммы шагов конвейера."
+      ]
+    },
     {
       "version": "3.0.2",
       "date": "August 18, 2026",
