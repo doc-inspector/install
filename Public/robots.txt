@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*?*
 
-# Full AI Engines & LLM Web Crawler Access
 User-agent: GPTBot
 Allow: /
 
@@ -20,37 +21,7 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Bytespider
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
 User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Diffbot
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: Cohere-ai
-Allow: /
-
-User-agent: Omgilibot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: Anthropic-ai
 Allow: /
 
 Sitemap: https://doc-inspector.com/sitemap.xml

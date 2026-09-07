@@ -334,6 +334,68 @@
 
 <!-- ── TRANSLATION & REDIRECT LOGIC ──────────────────────── -->
 <script>
+  // Smart dynamic router for legacy / misplaced URLs
+  (function tryAutoRedirect() {
+    try {
+      let path = window.location.pathname;
+      if (!path || path === '/' || path === '/404' || path === '/404.html') return;
+      
+      // Strip trailing .html or index.html
+      let clean = path.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '');
+      
+      // Direct mapping table for legacy paths and cross-language aliases
+      const routeMap = {
+        // Direct root files
+        '/price': '/en/price',
+        '/user-guide': '/en/user-guide',
+        '/reports': '/en/reports',
+        '/contact': '/en/contact',
+        '/download': '/en/download',
+        '/security': '/en/security',
+        '/privacy': '/en/privacy',
+        '/terms': '/en/terms',
+        '/refund': '/en/refund',
+        '/blog': '/en/blog',
+        '/tools-online': '/en/tools-online',
+        
+        // Romanian legacy / English aliases
+        '/ro/price': '/ro/preturi',
+        '/ro/user-guide': '/ro/ghid-utilizare',
+        '/ro/reports': '/ro/rapoarte-feedback',
+        '/ro/download': '/ro/descarca',
+        '/ro/security': '/ro/securitate',
+        '/ro/privacy': '/ro/politica-de-confidentialitate',
+        '/ro/terms': '/ro/termeni-si-conditii',
+        '/ro/refund': '/ro/politica-de-rambursare',
+        '/ro/tools-online': '/ro/unelte-online',
+        
+        // Russian legacy / English aliases
+        '/ru/price': '/ru/tseny',
+        '/ru/user-guide': '/ru/rukovodstvo',
+        '/ru/reports': '/ru/otchety',
+        '/ru/download': '/ru/skachat',
+        '/ru/security': '/ru/bezopasnost',
+        '/ru/privacy': '/ru/politika-konfidentsialnosti',
+        '/ru/terms': '/ru/usloviya-ispolzovaniya',
+        '/ru/refund': '/ru/politika-vozvrata',
+        '/ru/tools-online': '/ru/onlayn-instrumenty'
+      };
+      
+      if (routeMap[clean]) {
+        window.location.replace(routeMap[clean] + window.location.search + window.location.hash);
+        return;
+      }
+      
+      // If path had .html or trailing index.html, redirect to clean URL
+      if (clean !== path && clean !== '') {
+        window.location.replace(clean + window.location.search + window.location.hash);
+        return;
+      }
+    } catch (e) {
+      console.warn("Auto-redirect check failed:", e);
+    }
+  })();
+
   // Complete dynamic translation catalog
   const translations = {
     en: {
@@ -359,17 +421,17 @@
         refund: "Refund Policy"
       },
       paths: {
-        home: "/en/index.html",
-        price: "/en/price.html",
-        guide: "/en/user-guide.html",
-        reports: "/en/reports.html",
-        blog: "/en/blog.html",
-        contact: "/en/contact.html",
-        download: "/en/download.html",
-        security: "/en/security.html",
-        privacy: "/en/privacy.html",
-        terms: "/en/terms.html",
-        refund: "/en/refund.html"
+        home: "/en/",
+        price: "/en/price",
+        guide: "/en/user-guide",
+        reports: "/en/reports",
+        blog: "/en/blog",
+        contact: "/en/contact",
+        download: "/en/download",
+        security: "/en/security",
+        privacy: "/en/privacy",
+        terms: "/en/terms",
+        refund: "/en/refund"
       }
     },
     ro: {
@@ -395,17 +457,17 @@
         refund: "Politica de rambursare"
       },
       paths: {
-        home: "/ro/index.html",
-        price: "/ro/preturi.html",
-        guide: "/ro/ghid-utilizare.html",
-        reports: "/ro/rapoarte-feedback.html",
-        blog: "/ro/blog.html",
-        contact: "/ro/contact.html",
-        download: "/ro/descarca.html",
-        security: "/ro/securitate.html",
-        privacy: "/ro/politica-de-confidentialitate.html",
-        terms: "/ro/termeni-si-conditii.html",
-        refund: "/ro/politica-de-rambursare.html"
+        home: "/ro/",
+        price: "/ro/preturi",
+        guide: "/ro/ghid-utilizare",
+        reports: "/ro/rapoarte-feedback",
+        blog: "/ro/blog",
+        contact: "/ro/contact",
+        download: "/ro/descarca",
+        security: "/ro/securitate",
+        privacy: "/ro/politica-de-confidentialitate",
+        terms: "/ro/termeni-si-conditii",
+        refund: "/ro/politica-de-rambursare"
       }
     },
     ru: {
@@ -431,17 +493,17 @@
         refund: "Политика возврата"
       },
       paths: {
-        home: "/ru/index.html",
-        price: "/ru/tseny.html",
-        guide: "/ru/rukovodstvo.html",
-        reports: "/ru/otchety.html",
-        blog: "/ru/blog.html",
-        contact: "/ru/kontakty.html",
-        download: "/ru/skachat.html",
-        security: "/en/security.html",
-        privacy: "/ru/politika-konfidentsialnosti.html",
-        terms: "/ru/usloviya-ispolzovaniya.html",
-        refund: "/ru/politika-vozvrata.html"
+        home: "/ru/",
+        price: "/ru/tseny",
+        guide: "/ru/rukovodstvo",
+        reports: "/ru/otchety",
+        blog: "/ru/blog",
+        contact: "/ru/kontakty",
+        download: "/ru/skachat",
+        security: "/ru/bezopasnost",
+        privacy: "/ru/politika-konfidentsialnosti",
+        terms: "/ru/usloviya-ispolzovaniya",
+        refund: "/ru/politika-vozvrata"
       }
     }
   };
@@ -490,7 +552,7 @@
       <a href="${t.paths.reports}">${t.nav.reports}</a>
       <a href="${t.paths.blog}">${t.nav.blog}</a>
       <a href="${t.paths.contact}">${t.nav.contact}</a>
-      <a href="${t.paths.download}" class="btn btn-primary btn-sm mobile-only">Download</a>
+      <a href="${t.paths.download}" class="btn btn-primary btn-sm mobile-only">${t.btnDownload}</a>
     `;
 
     // Header CTA
@@ -561,10 +623,12 @@
 
     // Visual scroll indicator simulation (decorational)
     const progressBar = document.getElementById('progress-bar');
-    progressBar.style.width = '100%';
-    setTimeout(() => {
-      progressBar.style.opacity = '0';
-    }, 400);
+    if (progressBar) {
+      progressBar.style.width = '100%';
+      setTimeout(() => {
+        progressBar.style.opacity = '0';
+      }, 400);
+    }
   });
 </script>
 </body>

@@ -1,97 +1,73 @@
 # ════════════════════════════════════════════════════
 # Cloudflare Pages redirects — DocInspector
 # CRITICAL: Cloudflare Pages enforces a strict 100 rules limit!
-# All high-priority tool & page redirects MUST be placed at top.
+# Clean single-hop 301 redirects for GSC compliance
 # ════════════════════════════════════════════════════
 
-# ── 1. Main Page Root Redirects (No lang -> EN) ──
+# ── 1. ROOT & INDEX.HTML ──
+/                    /en/                         301
+/index.html          /en/                         301
+/en/index.html       /en/                         301
+/ro/index.html       /ro/                         301
+/ru/index.html       /ru/                         301
+
+# ── 2. Root Aliases (No Language Prefix -> EN) ──
 /price               /en/price                    301
 /user-guide          /en/user-guide               301
-/reports             /en/reports-and-feedback     301
+/reports             /en/reports                  301
 /download            /en/download                 301
 /tools-online        /en/tools-online             301
+/free-online-document-tools /en/tools-online      301
 /blog                /en/blog                     301
 /blog/*              /en/blog/:splat              301
-/blog.html           /en/blog                     301
 /security            /en/security                 301
 /privacy             /en/privacy                  301
 /terms               /en/terms                    301
 /refund              /en/refund                   301
+/contact             /en/contact                  301
 
-# ── 2. Main Page Localized Redirects ──
+# ── 3. Romanian Page Aliases (GSC 404 Fixes) ──
 /ro/price            /ro/preturi                  301
 /ro/user-guide       /ro/ghid-utilizare           301
 /ro/reports          /ro/rapoarte-feedback        301
 /ro/download         /ro/descarca                 301
+/ro/privacy          /ro/politica-de-confidentialitate 301
+/ro/terms            /ro/termeni-si-conditii      301
+/ro/refund           /ro/politica-de-rambursare   301
 /ro/tools-online     /ro/unelte-online            301
-/ro/free-online-document-tools /ro/unelte-online 301
+/ro/free-online-document-tools /ro/unelte-online  301
+/ro/tools            /ro/unelte-online            301
+/ro/tools/*          /ro/unelte-online            301
 
+# ── 4. Russian Page Aliases (GSC 404 Fixes) ──
 /ru/price            /ru/tseny                    301
 /ru/user-guide       /ru/rukovodstvo              301
 /ru/reports          /ru/otchety                  301
 /ru/download         /ru/skachat                  301
+/ru/privacy          /ru/politika-konfidentsialnosti 301
+/ru/terms            /ru/usloviya-ispolzovaniya   301
+/ru/refund           /ru/politika-vozvrata        301
+/ru/contact          /ru/kontakty                 301
 /ru/tools-online     /ru/onlayn-instrumenty       301
 /ru/free-online-document-tools /ru/onlayn-instrumenty 301
+/ru/tools            /ru/onlayn-instrumenty       301
+/ru/tools/*          /ru/onlayn-instrumenty       301
 
-/en/reports          /en/reports-and-feedback     301
-/en/reports.html     /en/reports-and-feedback     301
+# ── 5. User Guides Old Path Aliases (GSC 404 Fixes) ──
+/en/user-guide-audit /en/user-guide-advanced-borderou 301
+/en/user-guide-pdf-repair /en/user-guide-repair-pdf 301
+/en/user-guide-reporting /en/user-guide-bundle-summary 301
+/ro/user-guide-audit /ro/user-guide-advanced-borderou 301
+/ro/user-guide-pdf-repair /ro/user-guide-repair-pdf 301
+/ro/user-guide-reporting /ro/user-guide-bundle-summary 301
+/ru/user-guide-audit /ru/user-guide-advanced-borderou 301
+/ru/user-guide-pdf-repair /ru/user-guide-repair-pdf 301
+/ru/user-guide-reporting /ru/user-guide-bundle-summary 301
 
-# ── 3. High-Priority Tool Redirects (GSC 404 Fixes) ──
-/en/tools/remove-digital-signatures /en/tools/remove-pdf-signatures 301
-/en/tools/remove-digital-signatures.html /en/tools/remove-pdf-signatures 301
-/en/tools/repair-corrupt-pdf /en/tools/repair-pdf-online 301
-/en/tools/repair-corrupt-pdf.html /en/tools/repair-pdf-online 301
-/en/tools/flatten-pdf /en/tools/flatten-pdf-online 301
-/en/tools/flatten-pdf.html /en/tools/flatten-pdf-online 301
-/en/tools/add-watermark-pdf /en/tools/add-watermark-pdf-online 301
-/en/tools/add-watermark-pdf.html /en/tools/add-watermark-pdf-online 301
-/en/tools/redact-pdf-text /en/tools/redact-pdf-online 301
-/en/tools/redact-pdf-text.html /en/tools/redact-pdf-online 301
-/en/tools/convert-to-pdf /en/tools/convert-to-pdf-online 301
-/en/tools/convert-to-pdf.html /en/tools/convert-to-pdf-online 301
-/en/tools/iso-19005-pdfa-archiver /en/tools/convert-to-pdfa-online 301
-/en/tools/iso-19005-pdfa-archiver.html /en/tools/convert-to-pdfa-online 301
-/en/tools/ocr-pdf /en/user-guide-standalone-ocr 301
-/en/tools/ocr-pdf.html /en/user-guide-standalone-ocr 301
-
-/ro/tools/encrypt-pdf /ro/unelte/criptare-pdf-online 301
-/ro/tools/encrypt-pdf.html /ro/unelte/criptare-pdf-online 301
-/ro/tools/repair-corrupt-pdf /ro/unelte/reparare-pdf-online 301
-/ro/tools/repair-corrupt-pdf.html /ro/unelte/reparare-pdf-online 301
-/ro/tools/add-watermark-pdf /ro/unelte/adaugare-watermark-pdf-online 301
-/ro/tools/add-watermark-pdf.html /ro/unelte/adaugare-watermark-pdf-online 301
-/ro/tools/ocr-pdf /ro/user-guide-standalone-ocr 301
-/ro/tools/ocr-pdf.html /ro/user-guide-standalone-ocr 301
-/ro/tools/redact-pdf-text /ro/unelte/redactare-pdf-online 301
-/ro/tools/redact-pdf-text.html /ro/unelte/redactare-pdf-online 301
-/ro/tools/flatten-pdf /ro/unelte/aplatizare-pdf-online 301
-/ro/tools/flatten-pdf.html /ro/unelte/aplatizare-pdf-online 301
-/ro/tools/remove-digital-signatures /ro/unelte/eliminare-semnaturi-pdf 301
-/ro/tools/remove-digital-signatures.html /ro/unelte/eliminare-semnaturi-pdf 301
-/ro/tools/convert-to-pdf /ro/unelte/conversie-in-pdf-online 301
-/ro/tools/convert-to-pdf.html /ro/unelte/conversie-in-pdf-online 301
-/ro/tools/iso-19005-pdfa-archiver /ro/unelte/convertire-pdfa-online 301
-/ro/tools/iso-19005-pdfa-archiver.html /ro/unelte/convertire-pdfa-online 301
-/ro/tools/sanitize-pdf-metadata /ro/unelte/curatare-metadate-pdf 301
-/ro/tools/sanitize-pdf-metadata.html /ro/unelte/curatare-metadate-pdf 301
-
-/ru/tools/redact-pdf-text /ru/instrumenty/skryt-dannye-v-pdf 301
-/ru/tools/redact-pdf-text.html /ru/instrumenty/skryt-dannye-v-pdf 301
-/ru/tools/repair-corrupt-pdf /ru/instrumenty/vosstanovit-pdf-fayl 301
-/ru/tools/repair-corrupt-pdf.html /ru/instrumenty/vosstanovit-pdf-fayl 301
-/ru/tools/remove-digital-signatures /ru/instrumenty/udalit-cifrovye-podpisi 301
-/ru/tools/remove-digital-signatures.html /ru/instrumenty/udalit-cifrovye-podpisi 301
-/ru/tools/encrypt-pdf /ru/instrumenty/zashchitit-pdf-parolem 301
-/ru/tools/encrypt-pdf.html /ru/instrumenty/zashchitit-pdf-parolem 301
-/ru/tools/add-watermark-pdf /ru/instrumenty/dobavit-vodyanoy-znak-pdf 301
-/ru/tools/add-watermark-pdf.html /ru/instrumenty/dobavit-vodyanoy-znak-pdf 301
-/ru/tools/iso-19005-pdfa-archiver /ru/instrumenty/convertirovat-v-pdfa-onlayn 301
-/ru/tools/iso-19005-pdfa-archiver.html /ru/instrumenty/convertirovat-v-pdfa-onlayn 301
-/ru/tools/flatten-pdf /ru/instrumenty/obiedinit-sloi-pdf 301
-/ru/tools/flatten-pdf.html /ru/instrumenty/obiedinit-sloi-pdf 301
-/ru/tools/convert-to-pdf /ru/instrumenty/konvertirovat-v-pdf-onlayn 301
-/ru/tools/convert-to-pdf.html /ru/instrumenty/konvertirovat-v-pdf-onlayn 301
-/ru/tools/ocr-pdf /ru/user-guide-standalone-ocr 301
-/ru/tools/ocr-pdf.html /ru/user-guide-standalone-ocr 301
-/ru/tools/sanitize-pdf-metadata /ru/instrumenty/ochistka-metadannyh-pdf 301
-/ru/tools/sanitize-pdf-metadata.html /ru/instrumenty/ochistka-metadannyh-pdf 301
+# ── 6. Blog Slug Migrations ──
+/en/blog/ma-data-room-preparation /en/blog/ma-cleanroom-data-room-document-preparation 301
+/ro/blog/data-room-pentru-ma-pregateste-documentele-inainte-sa-le-expui-investitorilor /ro/blog/ma-cleanroom-pregatirea-documentelor-data-room 301
+/ru/blog/data-room-dlya-ma-podgotovyte-dokumenty-pered-pokazom-investoram /ru/blog/ma-cleanroom-podgotovka-dokumentov-data-room 301
+/en/blog/preparing-documents-virtual-data-rooms-vdr-ma /en/blog/virtual-data-room-vdr-cleanroom-document-sanitization 301
+/ro/blog/pregatirea-documentelor-pentru-camere-date-virtuale-vdr-ma /ro/blog/camere-date-virtuale-vdr-cleanroom-sanitizare-documente 301
+/ru/blog/podgotovka-dokumentov-dlya-virtualnyh-komnat-dannyh-vdr-ma /ru/blog/virtualnye-komnaty-dannyh-vdr-cleanroom-ochistka-dokumentov 301
