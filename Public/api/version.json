@@ -1,8 +1,36 @@
 {
-  "version": "3.0.3",
-  "last_update": "2026-08-24T02:20",
+  "version": "3.0.4",
+  "last_update": "2026-09-07T18:30",
   "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
   "history": [
+    {
+      "version": "3.0.4",
+      "date": "September 7, 2026",
+      "changes_en": [
+        "Document Stream Pipeline Engine: Each file now flows independently through all chosen tools end-to-end, dramatically increasing processing speed and eliminating stage-by-stage waiting times.",
+        "Processing Speed Profiles: Added dynamic concurrency settings with intuitive presets — Auto (Smart Balance), Maximum (100% CPU), Fast (8 files), and Background Mode (2 files) to keep your PC responsive.",
+        "Smart Resume Capability: Automatically detects previously completed files if a run is stopped or interrupted, allowing you to seamlessly continue from where you left off without reprocessing.",
+        "Per-File Fault Isolation: If a heavy or corrupted file encounters a timeout or error, it is safely isolated into skipped/errors folders without stopping or affecting other files in the batch.",
+        "Processing Manifest Report: Automatically exports an organized Excel report (Processing_Manifest.xlsx) after batch runs with detailed per-file audit status, durations, and timestamps.",
+        "Direct Issue Reporting: Added a 1-click 'Report Issues' button directly on the processing completion screen for faster feedback and support."
+      ],
+      "changes_ro": [
+        "Motor de Procesare Document-Centric: Fiecare fișier trece acum direct prin toate uneltele selectate cap-coadă, crescând substanțial viteza și eliminând timpii morți dintre pași.",
+        "Profiluri pentru Viteza de Procesare: S-a adăugat control dinamic al numărului de fișiere procesate simultan — Automat (Echilibrat), Maxim (100% CPU), Rapid (8 fișiere) și Mod Fundal (2 fișiere) pentru a menține PC-ul fluid.",
+        "Reluare Inteligentă (Smart Resume): Detectează automat fișierele deja finalizate în cazul întreruperii procesului, permițând continuarea instantă de unde ați rămas fără reprocesare.",
+        "Izolare Individuală a Erorilor: În cazul unui fișier deteriorat sau supradimensionat, acesta este izolat automat în skipped/errors fără a opri sau afecta restul documentelor din coadă.",
+        "Raport Excel al Procesării: Generează automat un raport de audit structurat (Processing_Manifest.xlsx) la finalul procesării cu starea și durata pentru fiecare document.",
+        "Raportare Rapidă a Problemelor: S-a adăugat butonul direct 'Raportează probleme' în ecranul de finalizare pentru suport tehnic instant."
+      ],
+      "changes_ru": [
+        "Потоковый движок обработки документов: Каждый документ теперь обрабатывается независимо от начала до конца через все выбранные инструменты, что значительно ускоряет работу и исключает задержки.",
+        "Профили скорости обработки: Добавлена гибкая настройка параллельной обработки — Автоматически (Баланс), Максимум (100% CPU), Быстро (8 файлов) и Фоновый режим (2 файла) для комфортной работы за компьютером.",
+        "Умное возобновление (Smart Resume): При остановке или перезапуске приложение автоматически определяет уже готовые файлы и предлагает продолжить работу без повторной обработки.",
+        "Изоляция ошибок по каждому файлу: Если поврежденный или сложный файл вызывает сбой, он безопасно перемещается в папку skipped/errors, не прерывая обработку остальных документов.",
+        "Отчет манифеста в Excel: Автоматическое создание подробного Excel-отчета (Processing_Manifest.xlsx) после завершения с точным статусом и длительностью обработки каждого файла.",
+        "Быстрая отправка отчетов: Добавлена кнопка 'Сообщить об ошибке' прямо на финальном экране обработки для оперативной связи с поддержкой."
+      ]
+    },
     {
       "version": "3.0.3",
       "date": "August 24, 2026",
