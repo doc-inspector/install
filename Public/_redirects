@@ -25,6 +25,7 @@
 /terms               /en/terms                    301
 /refund              /en/refund                   301
 /contact             /en/contact                  301
+/order-success        /en/order-success            301
 
 # ── 3. Romanian Page Aliases (GSC 404 Fixes) ──
 /ro/price            /ro/preturi                  301
