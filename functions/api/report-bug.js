@@ -33,8 +33,7 @@ export async function onRequestPost(context) {
     const clientIp = request.headers.get("CF-Connecting-IP") || "unknown";
     if (env.RATE_LIMIT_KV) {
       const currentHour = new Date().toISOString().substring(0, 13); // "YYYY-MM-DDTHH"
-      const limitKey = 
-l__;
+      const limitKey = `ratelimit_${clientIp}_${currentHour}`;
       
       const countVal = await env.RATE_LIMIT_KV.get(limitKey);
       const count = countVal ? parseInt(countVal, 10) : 0;
@@ -73,7 +72,7 @@ l__;
       if (file && file instanceof File && file.size > 0) {
         // Individual file limit: 20MB
         if (file.size > 20 * 1024 * 1024) {
-          return new Response(JSON.stringify({ error: File  exceeds the 20MB limit }), {
+          return new Response(JSON.stringify({ error: `File ${file.name} exceeds the 20MB limit` }), {
             status: 400,
             headers: { "Content-Type": "application/json" }
           });
@@ -89,7 +88,7 @@ l__;
         }
 
         const cleanFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
-        const fileKey = ug__;
+        const fileKey = `bug_${Date.now()}_${Math.random().toString(36).substring(2, 8)}_${cleanFileName}`;
 
         // Upload to R2 Bucket
         if (env.BUG_REPORTS_BUCKET) {
@@ -97,66 +96,75 @@ l__;
             httpMetadata: { contentType: file.type }
           });
 
+          const tokenParam = encodeURIComponent("Vlad$$395");
           attachments.push({
             name: file.name,
             sizeMb: (file.size / 1024 / 1024).toFixed(2),
-            url: https://doc-inspector.com/api/download-bug?file=
+            url: `https://doc-inspector.com/api/download-bug?file=${encodeURIComponent(fileKey)}&token=${tokenParam}`
           });
         }
       }
     }
 
-    // 6. Construct Attachments HTML Block
+    // 6. Construct Attachments HTML Block (Sent ONLY to Admin)
     let attachmentsHtml = '<p style="color: #777;">None</p>';
     if (attachments.length > 0) {
       attachmentsHtml = '<ul style="padding-left: 20px; margin: 10px 0;">';
       for (const att of attachments) {
-        attachmentsHtml += 
+        attachmentsHtml += `
           <li style="margin-bottom: 8px;">
-            <a href="" style="color: #0078d4; text-decoration: none; font-weight: bold;">Download </a> 
-            <span style="color: #666; font-size: 12.5px;">( MB)</span>
+            <a href="${att.url}" style="color: #0078d4; text-decoration: none; font-weight: bold;">Download ${att.name}</a> 
+            <span style="color: #666; font-size: 12.5px;">(${att.sizeMb} MB - Securizat &amp; expira in 7 zile)</span>
           </li>
-        ;
+        `;
       }
       attachmentsHtml += '</ul>';
     }
 
     // 7. Construct Admin Notification Email HTML Content
-    const htmlContent = 
+    const htmlContent = `
       <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
         <h2 style="color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 8px; margin-top: 0;">DocInspector Bug Report</h2>
         
-        <p><strong>License Status:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
-        <p><strong>User Email:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
-        <p><strong>Language:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
+        <p><strong>License Status:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${licenseKey}</span></p>
+        <p><strong>User Email:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${clientEmail || "Not provided"}</span></p>
+        <p><strong>Language:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${lang.toUpperCase()}</span></p>
         
         <p><strong>User Description:</strong></p>
-        <div style="background: #f9f9f9; border-left: 4px solid #0078d4; padding: 12px; margin: 10px 0; font-style: italic; white-space: pre-wrap;"></div>
+        <div style="background: #f9f9f9; border-left: 4px solid #0078d4; padding: 12px; margin: 10px 0; font-style: italic; white-space: pre-wrap;">${message}</div>
         
         <p><strong>System Details:</strong></p>
-        <pre style="background: #f4f4f4; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; white-space: pre-wrap; font-family: Consolas, monospace;"></pre>
+        <pre style="background: #f4f4f4; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; white-space: pre-wrap; font-family: Consolas, monospace;">${systemInfo}</pre>
         
-        <p><strong>Attachments ():</strong></p>
-        
+        <p><strong>Attachments (${attachments.length}):</strong></p>
+        ${attachmentsHtml}
         
         <p><strong>Application Logs:</strong></p>
-        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 4px; font-size: 12px; max-height: 350px; overflow-y: auto; font-family: Consolas, monospace; white-space: pre-wrap;"></pre>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 4px; font-size: 12px; max-height: 350px; overflow-y: auto; font-family: Consolas, monospace; white-space: pre-wrap;">${logs || "No logs attached."}</pre>
       </div>
-    ;
+    `;
 
     // 8. Send Email to Admin via Resend API
     const emailPayload = {
-      from: env.SENDER_EMAIL || "DocInspector <support@doc-inspector.com>",
+      from: env.SENDER_EMAIL || "DocInspector Support <support@doc-inspector.com>",
       to: env.RECEIVER_EMAIL || "support@doc-inspector.com",
-      reply_to: clientEmail || undefined,
-      subject: [Bug Report] DocInspector - ,
+      reply_to: clientEmail || "support@doc-inspector.com",
+      subject: `[Bug Report] DocInspector - ${message.substring(0, 50)}...`,
       html: htmlContent
     };
+
+    const resendApiKey = env.RESEND_API_KEY;
+    if (!resendApiKey) {
+      return new Response(JSON.stringify({ error: "Missing RESEND_API_KEY in environment variables" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
 
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": Bearer ,
+        "Authorization": `Bearer ${resendApiKey}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(emailPayload)
@@ -164,7 +172,7 @@ l__;
 
     if (!resendResponse.ok) {
       const errorText = await resendResponse.text();
-      return new Response(JSON.stringify({ error: Failed to send email:  }), {
+      return new Response(JSON.stringify({ error: `Failed to send email: ${errorText}` }), {
         status: 502,
         headers: { "Content-Type": "application/json" }
       });
@@ -177,7 +185,7 @@ l__;
 
       if (lang === "ro") {
         autoReplySubject = "Confirmare primire raport eroare — DocInspector";
-        autoReplyHtml = 
+        autoReplyHtml = `
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
               <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
@@ -196,10 +204,10 @@ l__;
               © 2026 DocInspector. Toate drepturile rezervate.
             </div>
           </div>
-        ;
+        `;
       } else if (lang === "ru") {
         autoReplySubject = "Подтверждение получения отчета об ошибке — DocInspector";
-        autoReplyHtml = 
+        autoReplyHtml = `
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
               <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
@@ -218,10 +226,10 @@ l__;
               © 2026 DocInspector. Все права защищены.
             </div>
           </div>
-        ;
+        `;
       } else {
         autoReplySubject = "Bug Report Confirmation — DocInspector";
-        autoReplyHtml = 
+        autoReplyHtml = `
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
               <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
@@ -240,20 +248,20 @@ l__;
               © 2026 DocInspector. All rights reserved.
             </div>
           </div>
-        ;
+        `;
       }
 
       try {
         await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
-            "Authorization": Bearer ,
+            "Authorization": `Bearer ${resendApiKey}`,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
             from: env.SENDER_EMAIL || "DocInspector Support <support@doc-inspector.com>",
             to: clientEmail,
-            reply_to: env.RECEIVER_EMAIL || "support@doc-inspector.com",
+            reply_to: "support@doc-inspector.com",
             subject: autoReplySubject,
             html: autoReplyHtml
           })
@@ -269,7 +277,7 @@ l__;
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ error: Internal Server Error:  }), {
+    return new Response(JSON.stringify({ error: `Internal Server Error: ${error.message}` }), {
       status: 500,
       headers: { "Content-Type": "application/json" }
     });
