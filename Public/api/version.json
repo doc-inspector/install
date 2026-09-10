@@ -1,321 +1,321 @@
 {
-    "version":  "3.0.5",
-    "last_update":  "2026-09-10T16:01",
-    "download_url":  "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
-    "history":  [
-                    {
-                        "version":  "3.0.5",
-                        "date":  "September 10, 2026",
-                        "changes_en":  [
-                                           "In-Document Comments \u0026 Highlights Removal: Added dedicated \u0027Comments \u0026 Highlights\u0027 option in Sanitize Docs settings that thoroughly strips visual annotations (/Annots, sticky notes, highlights, ink, popups, and sidebar comment threads in PDFs, as well as Word comments and highlights).",
-                                           "Refined File Description Metadata Removal: Renamed previous comments metadata toggle to \u0027File Description\u0027 for clear distinction between document properties and visual page annotations.",
-                                           "100% Self-Contained Offline Deployment: Embedded complete .NET 8 desktop runtime eliminating any external framework prompts."
-                                       ],
-                        "changes_ro":  [
-                                           "Eliminare Comentarii \u0026 Evidentieri din Document: S-a adaugat optiunea dedicata \u0027Comentarii \u0026 Evidentieri\u0027 in setarile de Sanitizare pentru eliminarea completa a adnotarilor vizuale (/Annots, notite, evidentieri, popups si firul lateral de comentarii din PDF-uri, precum si comentarii si evidentieri Word).",
-                                           "Clarificare Descriere Fisier (Metadate): Optiunea anterioara de comentarii a fost redenumita in \u0027Descriere fisier\u0027 pentru o distinctie clara intre proprietatile de fisier si adnotarile vizuale din pagini.",
-                                           "Instalare 100% Independenta (Self-Contained): Runtime-ul .NET 8 este inclus complet in installer, eliminand orice solicitare de descarcare sau dependenta externa."
-                                       ],
-                        "changes_ru":  [
-                                           "Удаление комментариев и выделений из документов: Добавлена специальная опция \u0027Комментарии и выделения\u0027 в настройках санитации для полного удаления визуальных аннотаций (/Annots, стикеров, маркеров выделения, всплывающих окон и боковой панели комментариев в PDF, а также комментариев и выделений в Word).",
-                                           "Уточнение метаданных \u0027Описание файла\u0027: Предыдущий переключатель комментариев переименован в \u0027Описание файла\u0027 для четкого разделения свойств метаданных и визуальных аннотаций.",
-                                           "100% Автономная установка (Self-Contained): Полный .NET 8 Desktop Runtime встроен в установщик, исключая любые запросы на загрузку компонентов."
-                                       ]
-                    },
-                    {
-                        "version":  "3.0.4",
-                        "date":  "September 7, 2026",
-                        "changes_en":  [
-                                           "Document Stream Pipeline Engine: Each file now flows independently through all chosen tools end-to-end, dramatically increasing processing speed and eliminating stage-by-stage waiting times.",
-                                           "Processing Speed Profiles: Added dynamic concurrency settings with intuitive presets — Auto (Smart Balance), Maximum (100% CPU), Fast (8 files), and Background Mode (2 files) to keep your PC responsive.",
-                                           "Smart Resume Capability: Automatically detects previously completed files if a run is stopped or interrupted, allowing you to seamlessly continue from where you left off without reprocessing.",
-                                           "Per-File Fault Isolation: If a heavy or corrupted file encounters a timeout or error, it is safely isolated into skipped/errors folders without stopping or affecting other files in the batch.",
-                                           "Processing Manifest Report: Automatically exports an organized Excel report (Processing_Manifest.xlsx) after batch runs with detailed per-file audit status, durations, and timestamps.",
-                                           "Direct Issue Reporting: Added a 1-click \u0027Report Issues\u0027 button directly on the processing completion screen for faster feedback and support."
-                                       ],
-                        "changes_ro":  [
-                                           "Motor de Procesare Document-Centric: Fiecare fișier trece acum direct prin toate uneltele selectate cap-coadă, crescând substanțial viteza și eliminând timpii morți dintre pași.",
-                                           "Profiluri pentru Viteza de Procesare: S-a adăugat control dinamic al numărului de fișiere procesate simultan — Automat (Echilibrat), Maxim (100% CPU), Rapid (8 fișiere) și Mod Fundal (2 fișiere) pentru a menține PC-ul fluid.",
-                                           "Reluare Inteligentă (Smart Resume): Detectează automat fișierele deja finalizate în cazul întreruperii procesului, permițând continuarea instantă de unde ați rămas fără reprocesare.",
-                                           "Izolare Individuală a Erorilor: În cazul unui fișier deteriorat sau supradimensionat, acesta este izolat automat în skipped/errors fără a opri sau afecta restul documentelor din coadă.",
-                                           "Raport Excel al Procesării: Generează automat un raport de audit structurat (Processing_Manifest.xlsx) la finalul procesării cu starea și durata pentru fiecare document.",
-                                           "Raportare Rapidă a Problemelor: S-a adăugat butonul direct \u0027Raportează probleme\u0027 în ecranul de finalizare pentru suport tehnic instant."
-                                       ],
-                        "changes_ru":  [
-                                           "Потоковый движок обработки документов: Каждый документ теперь обрабатывается независимо от начала до конца через все выбранные инструменты, что значительно ускоряет работу и исключает задержки.",
-                                           "Профили скорости обработки: Добавлена гибкая настройка параллельной обработки — Автоматически (Баланс), Максимум (100% CPU), Быстро (8 файлов) и Фоновый режим (2 файла) для комфортной работы за компьютером.",
-                                           "Умное возобновление (Smart Resume): При остановке или перезапуске приложение автоматически определяет уже готовые файлы и предлагает продолжить работу без повторной обработки.",
-                                           "Изоляция ошибок по каждому файлу: Если поврежденный или сложный файл вызывает сбой, он безопасно перемещается в папку skipped/errors, не прерывая обработку остальных документов.",
-                                           "Отчет манифеста в Excel: Автоматическое создание подробного Excel-отчета (Processing_Manifest.xlsx) после завершения с точным статусом и длительностью обработки каждого файла.",
-                                           "Быстрая отправка отчетов: Добавлена кнопка \u0027Сообщить об ошибке\u0027 прямо на финальном экране обработки для оперативной связи с поддержкой."
-                                       ]
-                    },
-                    {
-                        "version":  "3.0.3",
-                        "date":  "August 24, 2026",
-                        "changes_en":  [
-                                           "GUI Screen Sizing \u0026 Counting Optimizations: Added automatic screen working area clamping on startup to prevent cut-offs on 14-inch laptops. Corrected pipeline execution logs so that the final summary window displays the exact unique files count instead of cumulative step-by-step numbers."
-                                       ],
-                        "changes_ro":  [
-                                           "Optimizări GUI și Contorizare Fișiere: S-a adăugat limitarea automată la spațiul util de lucru al ecranului la pornire pentru a preveni decuparea butoanelor pe ecrane mici (ex. laptopuri de 14 inch). S-a corectat raportul final de progres pentru a afișa numărul exact de fișiere unice procesate în loc de suma cumulativă a pașilor din pipeline."
-                                       ],
-                        "changes_ru":  [
-                                           "Оптимизация интерфейса и подсчета файлов: Добавлено автоматическое ограничение размера окна под рабочую область экрана при запуске для предотвращения скрытия кнопок на экранах небольших ноутбуков (14 дюймов). Исправлен итоговый отчет выполнения для отображения точного количества уникальных файлов вместо накопительной суммы шагов конвейера."
-                                       ]
-                    },
-                    {
-                        "version":  "3.0.2",
-                        "date":  "August 18, 2026",
-                        "changes_en":  [
-                                           "Watermark Opacity Enhancements: Updated the watermark settings dialog to display and accept opacity in percentage values (0-100%) with an interactive slider and manual text input, matching professional PDF standards."
-                                       ],
-                        "changes_ro":  [
-                                           "Optimizare Opacitate Watermark: S-a actualizat fereastra de setări watermark pentru a afișa și accepta opacitatea în procente (0-100%), adăugând un slider interactiv și un câmp de introducere manuală a valorii."
-                                       ],
-                        "changes_ru":  [
-                                           "Оптимизация прозрачности водяного знака: Обновлено диалоговое окно настроек водяного знака для отображения и ввода прозрачности в процентах (0-100%) с интерактивным слайдером и ручным вводом."
-                                       ]
-                    },
-                    {
-                        "version":  "3.0.1",
-                        "date":  "August 4, 2026",
-                        "changes_en":  [
-                                           "Bug Report Integration: Added a professional in-app bug and feedback reporting dialog with automated diagnostic logs and file attachment uploads securely sent using Cloudflare R2 and Resend."
-                                       ],
-                        "changes_ro":  [
-                                           "Integrare Raportare Erori: S-a adăugat o fereastră dedicată pentru raportarea erorilor și feedback direct din aplicație, incluzând transmiterea log-urilor și atașarea de fișiere stocate securizat prin Cloudflare R2 și Resend."
-                                       ],
-                        "changes_ru":  [
-                                           "Интеграция отправки отчетов об ошибках: Добавлено профессиональное диалоговое окно для отправки отзывов и баг-репортов прямо из приложения с автоматической выгрузкой системных логов и файлов через Cloudflare R2 и Resend."
-                                       ]
-                    },
-                    {
-                        "version":  "3.0.0",
-                        "date":  "August 4, 2026",
-                        "changes_en":  [
-                                           "Large PDF Redaction Stability Fix: Resolved a Windows OS command line length limit crash when merging large multi-page PDF redactions by processing and merging page chunks in batches of 50."
-                                       ],
-                        "changes_ro":  [
-                                           "Corecție stabilitate redactare PDF-uri mari: S-a rezolvat crash-ul cauzat de limita maximă a liniei de comandă Windows la fuziunea PDF-urilor mari, prin îmbinarea paginilor în loturi securizate de câte 50."
-                                       ],
-                        "changes_ru":  [
-                                           "Исправление стабильности при разметке больших PDF: Устранена критическая ошибка превышения лимита символов командной строки Windows при сборке больших многостраничных документов путем объединения страниц группами по 50."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.9",
-                        "date":  "July 28, 2026",
-                        "changes_en":  [
-                                           "Settings Persistence Fix: Excluded new PDF/A settings classes from obfuscation to ensure language, theme, and window dimensions are properly saved and loaded on startup.",
-                                           "Roadmap Preview Visualization: Fixed a data-binding bug that caused text and step numbers to appear blank in the Processing Roadmap window after obfuscation.",
-                                           "High-Fidelity Document Preprocessing: Added server-parity Word (.docx) layout XML processing to prevent text/drawing overlap and fix header alignments on desktop conversions.",
-                                           "PDF/A Archival Robustness: Resolved a Ghostscript sandbox permission block by disabling SAFER mode for internal color profiles and fixed an Excel COM FitToPagesTall page-setup error."
-                                       ],
-                        "changes_ro":  [
-                                           "Remediere Persistență Setări: S-au exclus noile clase PDF/A din obfuscator pentru a asigura salvarea și încărcarea corectă a limbii, temei și dimensiunilor ferestrei la pornire.",
-                                           "Vizualizare Traseu Pipeline: S-a remediat un bug de legare a datelor care cauza afișarea goală a textelor și numerelor în fereastra Processing Roadmap după obfuscation.",
-                                           "Pre-procesare Documente Word: S-a adăugat alinierea layout-ului XML (allowOverlap și indents în headere) pentru Word (.docx), asigurând o conversie fidelă și prevenind suprapunerea textelor.",
-                                           "Stabilitate Conversie PDF/A: S-a rezolvat blocajul de permisiuni Ghostscript prin modul NOSAFER pentru profilele ICC și s-a corectat eroarea Excel COM FitToPagesTall."
-                                       ],
-                        "changes_ru":  [
-                                           "Сохранение настроек: Новые классы параметров PDF/A исключены из обфускатора для корректного сохранения языка, темы и размеров окна при запуске.",
-                                           "Отображение карты выполнения: Исправлена ошибка привязки данных, из-за которой тексты и номера шагов отображались пустыми в окне Processing Roadmap после обфускации.",
-                                           "Качественное преобразование документов: Добавлена серверная обработка XML-разметки Word (.docx) для предотвращения наложения текста и рисунков при конвертации.",
-                                           "Надежность PDF/A: Устранен блокировщик разрешений Ghostscript с помощью режима NOSAFER для профилей ICC и исправлена ошибка Excel COM FitToPagesTall."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.7",
-                        "date":  "July 27, 2026",
-                        "changes_en":  [
-                                           "PDF/A-2b Conversion Option: Added a new tool to convert PDF and Office documents directly to PDF/A-2b format with advanced settings (Smart OCR, auto-deskew, page-fitting, and orientation adjustments).",
-                                           "GUI Optimizations for Smaller Screens: Enabled layout text wrapping and automatic tooltip wrapping to ensure proper alignment and visibility on smaller displays (e.g., 14-inch screens).",
-                                           "Auto-Updater UX Improvements: Resolved a privilege context isolation issue that caused elevated auto-updater launches to display unlicensed status, and added localized post-install completion confirmations."
-                                       ],
-                        "changes_ro":  [
-                                           "Opțiune de Conversie în PDF/A-2b: S-a adăugat un nou instrument pentru a converti documentele PDF și Office direct în format PDF/A-2b cu setări avansate (Smart OCR, aliniere automată, potrivire în pagină și ajustare orientare).",
-                                           "Optimizări GUI pentru Ecrane Mici: S-a activat încadrarea textului din interfață și adaptarea automată a tooltip-urilor pentru a asigura afișarea corectă pe ecrane de dimensiuni reduse (ex. laptopuri de 14 inch).",
-                                           "Îmbunătățiri UX Auto-Updater: S-a rezolvat problema izolării contextului privilegiat care cauza afișarea stării nelicențiate la lansările din auto-updater și s-au adăugat mesaje localizate de confirmare a finalizării."
-                                       ],
-                        "changes_ru":  [
-                                           "Конвертация в PDF/A-2b: Добавлена новая функция для преобразования PDF и офисных документов напрямую в формат PDF/A-2b с расширенными настройками (Smart OCR, автовыравнивание, масштабирование под страницу и настройка ориентации).",
-                                           "Оптимизация интерфейса для небольших экранов: Включен автоперенос текста кнопок и всплывающих подсказок для корректного отображения интерфейса на экранах меньшего размера (например, 14-дюймовых ноутбуках).",
-                                           "Улучшения UX автообновления: Устранена проблема изоляции контекста прав, из-за которой при запуске из автообновления отображался статус без лицензии, и добавлены локализованные подтверждения завершения установки."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.6",
-                        "date":  "June 25, 2026",
-                        "changes_en":  [
-                                           "Smart Rebuild \u0026 OCR Optimization: Made ImageMagick pre-rasterization (\u0027Enhance OCR accuracy\u0027) optional, allowing significantly faster OCR runs when unchecked. Default settings now have Smart Rebuild enabled and Enhance OCR disabled.",
-                                           "Remove Digital Signatures Card: Extracted digital signature stripping into a standalone pipeline step (runs as Step 1) and card, restricted to Pro and Trial tiers.",
-                                           "GUI Help button redirect: Updated help action to redirect users directly to localized website guide sections based on current interface language.",
-                                           "Pricing and Guide Updates: Added standalone \u0027Remove Digital Signatures\u0027 tool and page, updated pricing tables, sitemaps, and robots.txt."
-                                       ],
-                        "changes_ro":  [
-                                           "Optimizare Smart Rebuild și OCR: Rasterizarea prealabilă cu ImageMagick (\u0027Crește precizia OCR\u0027) a fost făcută opțională, accelerând semnificativ procesul OCR când este debifată. Implicit, Smart Rebuild este activat, iar \u0027Crește precizia OCR\u0027 este dezactivată.",
-                                           "Instrument dedicat Eliminare Semnături Digitale: Semnăturile digitale au fost separate într-un pas de sine stătător în pipeline (rulat ca Pasul 1) și card separat, fiind o funcționalitate Pro/Trial.",
-                                           "Redirecționare buton Help: Butonul de ajutor din aplicație redirecționează utilizatorul direct către secțiunea de ghid corespunzătoare în limba selectată în interfață.",
-                                           "Actualizări Prețuri și Ghiduri: S-a adăugat noul instrument online \u0027Eliminare Semnături Digitale\u0027, s-au actualizat tabelele de prețuri, sitemaps și robots.txt."
-                                       ],
-                        "changes_ru":  [
-                                           "Оптимизация Smart Rebuild и OCR: Предварительная растеризация через ImageMagick (\u0027Повысить точность OCR\u0027) сделана опциональной, что значительно ускоряет OCR, если флажок снят. По умолчанию Smart Rebuild включен, а \u0027Повысить точность\u0027 отключена.",
-                                           "Отдельный инструмент удаления цифровых подписей: Извлечено удаление цифровых подписей в отдельный шаг конвейера (выполняется как Шаг 1) и отдельную карточку, доступную только в версиях Pro и Trial.",
-                                           "Перенаправление кнопки Справка: Кнопка помощи в приложении теперь открывает соответствующий раздел руководства на сайте в зависимости от языка интерфейса.",
-                                           "Обновление цен и руководств: Добавлен новый онлайн-инструмент удаления цифровых подписей, обновлены таблицы цен, sitemaps и robots.txt."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.5",
-                        "date":  "June 24, 2026",
-                        "changes_en":  [
-                                           "Enhance OCR Accuracy option: Added an optional \u0027Enhance OCR accuracy\u0027 checkbox in Rebuild Settings. When checked, it pre-rasterizes scanned pages using ImageMagick at the user-selected DPI, resolving character recognition regressions and line-select issues on low-res or tilted scans.",
-                                           "Remove Digital Signatures option: Added a checkbox in Sanitize Settings to strip digital signatures and restrictions from PDF documents without full rebuild or OCR.",
-                                           "Encryption engine file copy fix: Prevented non-PDF files from being lost during encryption pipeline stages; they are now correctly copied to the destination folder."
-                                       ],
-                        "changes_ro":  [
-                                           "Opțiunea Crește precizia OCR: S-a adăugat o bifă pentru a pre-procesa paginile scanate prin ImageMagick la DPI-ul selectat de utilizator, îmbunătățind recunoașterea caracterelor și corectând problemele de selectare a rândurilor întregi.",
-                                           "Eliminare Semnături Digitale: S-a adăugat o opțiune în setările de Sanitizare pentru a elimina semnăturile digitale și restricțiile din PDF-uri fără a fi necesară reconstrucția completă.",
-                                           "Corecție copiere fișiere non-PDF: Fișierele care nu sunt PDF (imagini, Excel, Word) nu mai sunt pierdute atunci când este activată criptarea, fiind copiate corect în folderul de destinație."
-                                       ],
-                        "changes_ru":  [
-                                           "Повышение точности OCR: Добавлен параметр для предварительной обработки страниц с помощью ImageMagick с выбранным пользователем разрешением DPI, что значительно улучшает распознавание текста на сканах.",
-                                           "Удаление цифровых подписей: Добавлена опция в настройках очистки (Sanitize) для удаления подписей и ограничений в документах PDF без полного распознавания.",
-                                           "Исправление копирования не-PDF файлов: Не-PDF файлы (изображения, документы Excel и Word) больше не теряются при шифровании и корректно копируются в выходную папку."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.4",
-                        "date":  "June 24, 2026",
-                        "changes_en":  [
-                                           "Rebuild OCR Engine Optimization: Implemented a fast path for 1-page and fully scanned documents, increasing OCR speed by up to 50% by eliminating redundant page-by-page split/merge processes.",
-                                           "High-Fidelity Rendering: Configured ImageMagick and Ghostscript to render with 95% JPEG quality (-quality 95 and -dJPEGQ=95), drastically reducing generation loss when combining multiple pipeline options."
-                                       ],
-                        "changes_ro":  [
-                                           "Optimizare Rebuild OCR: S-a implementat o cale rapidă (Fast Path) pentru documentele de 1 pagină sau scanate complet, mărind viteza de procesare OCR cu până la 50% prin eliminarea buclei lente pagină-cu-pagină.",
-                                           "Randare de Înaltă Calitate: S-au configurat ImageMagick și Ghostscript pentru a folosi o calitate de 95% la compresia JPEG, reducând la minimum degradarea calității textului la selectarea simultană a mai multor instrumente."
-                                       ],
-                        "changes_ru":  [
-                                           "Оптимизация восстановления (OCR): Внедрен быстрый путь для одностраничных и полностью отсканированных документов, увеличивающий скорость OCR до 50% за счет исключения разделения страниц.",
-                                           "Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю чёткости текста при совмещении операций."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.3",
-                        "date":  "June 23, 2026",
-                        "changes_en":  [
-                                           "Self-Contained Installer: Removed system-wide .NET 8 Desktop Runtime check, making the installer completely standalone.",
-                                           "Licensing Verification Fix: Switched silent startup check to the validation endpoint to prevent exceeding activation limits, and added protections to prevent local cache wiping on temporary network/server glitches.",
-                                           "Deactivate License Button: Added a \u0027Remove License\u0027 button in the application to easily free up activation slots and transfer licenses between devices."
-                                       ],
-                        "changes_ro":  [
-                                           "Instalare Independentă (Self-Contained): S-a eliminat verificarea și descărcarea .NET 8 Desktop Runtime din installer, facilitând instalarea offline.",
-                                           "Corecție validare licență: S-a schimbat verificarea de la pornire pentru a apela endpoint-ul de validare (nu cel de activare), prevenind blocajele cauzate de limitele de activare și erorile temporare de conexiune.",
-                                           "Dezactivare Licență: S-a adăugat butonul \u0027Remove License\u0027 în aplicație pentru a elibera manual slotul de activare și a permite mutarea licenței pe alt PC."
-                                       ],
-                        "changes_ru":  [
-                                           "Автономный установщик: Удалена системная проверка .NET 8 Runtime, так как все файлы включены в сборку.",
-                                           "Исправление проверки лицензии: Переключена тихая проверка при запуске на метод валидации, чтобы избежать исчерпания лимитов активации и случайной очистки кэша при сбоях сети.",
-                                           "Деактивация лицензии: Добавлена кнопка \u0027Remove License\u0027 для освобождения слота активации и быстрого переноса на другой ПК."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.2",
-                        "date":  "June 17, 2026",
-                        "changes_en":  [
-                                           "Smart Rebuild \u0026 OCR: Added settings gear to Rebuild \u0026 Repair. It now performs page-by-page text copyability checks and skips OCR on pages that already contain selectable text, dramatically increasing speed and preserving vector quality.",
-                                           "Licensing Limits Enforced: Basic license holders now have a 1,000 files/day limit enforced on both web and desktop, and are limited to a single processing action per run (all tools remain fully active).",
-                                           "GUI Improvements: Confined DPI selections to 200, 250, 300, 350, and 400 DPI."
-                                       ],
-                        "changes_ro":  [
-                                           "Reconstrucție Inteligentă: S-a adăugat o rotiță de setări pentru Reconstruire și Reparare PDF. Sistemul verifică pagină cu pagină dacă textul este deja copiabil, evitând OCR-ul acolo unde nu este necesar, ceea ce mărește viteza considerabil și păstrează calitatea originală.",
-                                           "Limitări Licență Basic: Pentru utilizatorii Basic s-a introdus o limită zilnică de 1.000 de fișiere (atât online cât și pe desktop) și restricția de a selecta o singură operațiune la o rulare (toate uneltele rămân active).",
-                                           "Ajustări interfață: Lista de opțiuni DPI în interfață a fost restrânsă exact la: 200, 250, 300, 350 și 400 DPI."
-                                       ],
-                        "changes_ru":  [
-                                           "Режим Умного Восстановления: Добавлена шестерёнка настроек для восстановления PDF. Теперь система проверяет каждую страницу на наличие копируемого текста, пропуская OCR там, где текст уже распознан, что значительно ускоряет работу и сохраняет исходное качество.",
-                                           "Ограничения лицензии Basic: Для пользователей Basic введен дневной лимит в 1000 файлов (в веб-версии и на ПК) и ограничение на запуск только одной операции за раз (все инструменты остаются доступными).",
-                                           "Изменения в интерфейсе: Список выбора DPI в интерфейсе ограничен следующими значениями: 200, 250, 300, 350 и 400 DPI."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.1",
-                        "date":  "March 23, 2026",
-                        "changes_en":  [
-                                           "Metadata Leak Fortified: Expanded exact PDF XMP streams definitions (Author, Producer, Creator), so Sanitize now leaves files strictly bare even on individual selection checkboxes.",
-                                           "Unclaimed File Logic Alignment: Unclaimed items now participate in full sanitize buffers fully back to back.",
-                                           "Visual Roadmap alignment: Modified the Roadmap simulator triggers so it correctly lists Sanitize corresponding with execution linear streams flawlessly.",
-                                           "License Parameter Fix: Resolved length limits absolute."
-                                       ],
-                        "changes_ro":  [
-                                           "Fortificarea scurgerilor de metadate: Au fost extinse definițiile exacte ale fluxurilor PDF XMP (Author, Producer, Creator), astfel încât funcția Sanitize să lase acum fișierele complet curate, chiar și în cazul selecției individuale prin checkbox-uri.",
-                                           "Alinierea logicii fișierelor neatribuite: Elementele neatribuite participă acum complet la bufferele de sanitizare, consecutiv și fără întreruperi.",
-                                           "Alinierea foii de parcurs vizuale: Au fost modificate trigger-ele simulatorului Roadmap, astfel încât acesta să afișeze corect Sanitize, în corespondență perfectă cu fluxurile liniare de execuție.",
-                                           "Corectarea parametrului de licență: Limitele absolute de lungime au fost rezolvate."
-                                       ],
-                        "changes_ru":  [
-                                           "Усилена защита от утечки метаданных: были расширены точные определения потоков PDF XMP (Author, Producer, Creator), поэтому функция Sanitize теперь оставляет файлы полностью очищенными, даже при индивидуальном выборе через флажки.",
-                                           "Выравнивание логики необработанных файлов: необработанные элементы теперь полностью участвуют в буферах санитизации последовательно, без разрывов.",
-                                           "Выравнивание визуальной дорожной карты: были изменены триггеры симулятора Roadmap, чтобы он корректно отображал Sanitize в точном соответствии с линейными потоками выполнения.",
-                                           "Исправление параметра лицензии: абсолютные ограничения длины устранены."
-                                       ]
-                    },
-                    {
-                        "version":  "2.2.0",
-                        "date":  "March 17, 2026",
-                        "changes_en":  [
-                                           "   Performance Improvements:",
-                                           "Fixed OCR Micro-thrashing: Lifted static image memory cap thresholds in OcrEngine.cs that choked 600 DPI processing into loop-stuck disk buffers.",
-                                           "Dynamic Buffering: Processes safely utilize available total RAM dynamically scaling with host workstation power."
-                                       ],
-                        "changes_ro":  [
-                                           "   Îmbunătățiri de performanță:",
-                                           "S-a remediat micro-thrashing-ul OCR: au fost ridicate pragurile statice ale limitelor de memorie pentru imagini în OcrEngine.cs, care sufocau procesarea la 600 DPI și o blocau în bucle de buffering pe disc.",
-                                           "Bufferizare dinamică: procesele pot utiliza în siguranță memoria RAM totală disponibilă, scalându-se dinamic în funcție de puterea stației de lucru gazdă."
-                                       ],
-                        "changes_ru":  [
-                                           "   Улучшения производительности:",
-                                           "Исправлен micro-thrashing OCR: были повышены статические пороги лимитов памяти для изображений в OcrEngine.cs, которые перегружали обработку 600 DPI и приводили к зацикливанию буферов на диске.",
-                                           "Динамическая буферизация: процессы могут безопасно использовать всю доступную оперативную память, динамически масштабируясь в зависимости от мощности хостовой рабочей станции."
-                                       ]
-                    },
-                    {
-                        "version":  "2.1.9",
-                        "date":  "March 13, 2026",
-                        "changes_en":  [
-                                           "Fixed progress bar visibility for reporting options (PDF Bundle Summary, Advanced Bundle Report, Folder Evidence Report).",
-                                           "Optimized installer size by removing redundant binary files.",
-                                           "Added real-time progress tracking for batch tasks."
-                                       ],
-                        "changes_ro":  [
-                                           "S-a corectat vizibilitatea barei de progres pentru opțiunile de raportare.",
-                                           "Dimensiunea kit-ului de instalare a fost optimizată prin eliminarea fișierelor binare redundante.",
-                                           "S-a adăugat urmărirea progresului în timp real pentru sarcinile batch."
-                                       ],
-                        "changes_ru":  [
-                                           "Исправлена видимость индикатора выполнения для отчетов.",
-                                           "Оптимизирован размер установщика за счет удаления лишних файлов.",
-                                           "Добавлено отслеживание выполнения задач в реальном времени."
-                                       ]
-                    },
-                    {
-                        "version":  "2.1.8",
-                        "date":  "March 12, 2026",
-                        "changes_en":  [
-                                           "Initial release with batch document repair and auditing.",
-                                           "Preserved folder trees in output.",
-                                           "Local-only processing for GDPR compliance."
-                                       ],
-                        "changes_ro":  [
-                                           "Lansare inițială cu repararea și auditarea documentelor în batch.",
-                                           "Păstrarea arborilor de directoare în output.",
-                                           "Procesare locală pentru conformitate GDPR."
-                                       ],
-                        "changes_ru":  [
-                                           "Первый выпуск с пакетным восстановлением и аудитом документов.",
-                                           "Сохранение структуры папок в выводе.",
-                                           "Локальная обработка для соответствия GDPR."
-                                       ]
-                    }
-                ]
+  "version": "3.0.5",
+  "last_update": "2026-09-10T16:05",
+  "download_url": "https://github.com/doc-inspector/install/releases/download/last_update/DocInspector_Setup.exe",
+  "history": [
+    {
+      "version": "3.0.5",
+      "date": "September 10, 2026",
+      "changes_en": [
+        "In-Document Comments & Highlights Removal: Added dedicated 'Comments & Highlights' option in Sanitize Docs settings that thoroughly strips visual annotations (/Annots, sticky notes, highlights, ink, popups, and sidebar comment threads in PDFs, as well as Word comments and highlights).",
+        "Refined File Description Metadata Removal: Renamed previous comments metadata toggle to 'File Description' for clear distinction between document properties and visual page annotations.",
+        "100% Self-Contained Offline Deployment: Embedded complete .NET 8 desktop runtime eliminating any external framework prompts."
+      ],
+      "changes_ro": [
+        "Eliminare Comentarii & Evidențieri din Document: S-a adăugat opțiunea dedicată 'Comentarii & Evidențieri' în setările de Sanitizare pentru eliminarea completă a adnotărilor vizuale (/Annots, notițe, evidențieri, popups și firul lateral de comentarii din PDF-uri, precum și comentarii și evidențieri Word).",
+        "Clarificare Descriere Fișier (Metadate): Opțiunea anterioară de comentarii a fost redenumită în 'Descriere fișier' pentru o distincție clară între proprietățile de fișier și adnotările vizuale din pagini.",
+        "Instalare 100% Independentă (Self-Contained): Runtime-ul .NET 8 este inclus complet în installer, eliminând orice solicitare de descărcare sau dependență externă."
+      ],
+      "changes_ru": [
+        "Удаление комментариев и выделений из документов: Добавлена специальная опция 'Комментарии и выделения' в настройках санитации для полного удаления визуальных аннотаций (/Annots, стикеров, маркеров выделения, всплывающих окон и боковой панели комментариев в PDF, а также комментариев и выделений в Word).",
+        "Уточнение метаданных 'Описание файла': Предыдущий переключатель комментариев переименован в 'Описание файла' для четкого разделения свойств метаданных и визуальных аннотаций.",
+        "100% Автономная установка (Self-Contained): Полный .NET 8 Desktop Runtime встроен в установщик, исключая любые запросы на загрузку компонентов."
+      ]
+    },
+    {
+      "version": "3.0.4",
+      "date": "September 7, 2026",
+      "changes_en": [
+        "Document Stream Pipeline Engine: Each file now flows independently through all chosen tools end-to-end, dramatically increasing processing speed and eliminating stage-by-stage waiting times.",
+        "Processing Speed Profiles: Added dynamic concurrency settings with intuitive presets — Auto (Smart Balance), Maximum (100% CPU), Fast (8 files), and Background Mode (2 files) to keep your PC responsive.",
+        "Smart Resume Capability: Automatically detects previously completed files if a run is stopped or interrupted, allowing you to seamlessly continue from where you left off without reprocessing.",
+        "Per-File Fault Isolation: If a heavy or corrupted file encounters a timeout or error, it is safely isolated into skipped/errors folders without stopping or affecting other files in the batch.",
+        "Processing Manifest Report: Automatically exports an organized Excel report (Processing_Manifest.xlsx) after batch runs with detailed per-file audit status, durations, and timestamps.",
+        "Direct Issue Reporting: Added a 1-click 'Report Issues' button directly on the processing completion screen for faster feedback and support."
+      ],
+      "changes_ro": [
+        "Motor de Procesare Document-Centric: Fiecare fișier trece acum direct prin toate uneltele selectate cap-coadă, crescând substanțial viteza și eliminând timpii morți dintre pași.",
+        "Profiluri pentru Viteza de Procesare: S-a adăugat control dinamic al numărului de fișiere procesate simultan — Automat (Echilibrat), Maxim (100% CPU), Rapid (8 fișiere) și Mod Fundal (2 fișiere) pentru a menține PC-ul fluid.",
+        "Reluare Inteligentă (Smart Resume): Detectează automat fișierele deja finalizate în cazul întreruperii procesului, permițând continuarea instantă de unde ați rămas fără reprocesare.",
+        "Izolare Individuală a Erorilor: În cazul unui fișier deteriorat sau supradimensionat, acesta este izolat automat în skipped/errors fără a opri sau afecta restul documentelor din coadă.",
+        "Raport Excel al Procesării: Generează automat un raport de audit structurat (Processing_Manifest.xlsx) la finalul procesării cu starea și durata pentru fiecare document.",
+        "Raportare Rapidă a Problemelor: S-a adăugat butonul direct 'Raportează probleme' în ecranul de finalizare pentru suport tehnic instant."
+      ],
+      "changes_ru": [
+        "Потоковый движок обработки документов: Каждый документ теперь обрабатывается независимо от начала до конца через все выбранные инструменты, что значительно ускоряет работу и исключает задержки.",
+        "Профили скорости обработки: Добавлена гибкая настройка параллельной обработки — Автоматически (Баланс), Максимум (100% CPU), Быстро (8 файлов) и Фоновый режим (2 файла) для комфортной работы за компьютером.",
+        "Умное возобновление (Smart Resume): При остановке или перезапуске приложение автоматически определяет уже готовые файлы и предлагает продолжить работу без повторной обработки.",
+        "Изоляция ошибок по каждому файлу: Если поврежденный или сложный файл вызывает сбой, он безопасно перемещается в папку skipped/errors, не прерывая обработку остальных документов.",
+        "Отчет манифеста в Excel: Автоматическое создание подробного Excel-отчета (Processing_Manifest.xlsx) после завершения с точным статусом и длительностью обработки каждого файла.",
+        "Быстрая отправка отчетов: Добавлена кнопка 'Сообщить об ошибке' прямо на финальном экране обработки для оперативной связи с поддержкой."
+      ]
+    },
+    {
+      "version": "3.0.3",
+      "date": "August 24, 2026",
+      "changes_en": [
+        "GUI Screen Sizing & Counting Optimizations: Added automatic screen working area clamping on startup to prevent cut-offs on 14-inch laptops. Corrected pipeline execution logs so that the final summary window displays the exact unique files count instead of cumulative step-by-step numbers."
+      ],
+      "changes_ro": [
+        "Optimizări GUI și Contorizare Fișiere: S-a adăugat limitarea automată la spațiul util de lucru al ecranului la pornire pentru a preveni decuparea butoanelor pe ecrane mici (ex. laptopuri de 14 inch). S-a corectat raportul final de progres pentru a afișa numărul exact de fișiere unice procesate în loc de suma cumulativă a pașilor din pipeline."
+      ],
+      "changes_ru": [
+        "Оптимизация интерфейса и подсчета файлов: Добавлено автоматическое ограничение размера окна под рабочую область экрана при запуске для предотвращения скрытия кнопок на экранах небольших ноутбуков (14 дюймов). Исправлен итоговый отчет выполнения для отображения точного количества уникальных файлов вместо накопительной суммы шагов конвейера."
+      ]
+    },
+    {
+      "version": "3.0.2",
+      "date": "August 18, 2026",
+      "changes_en": [
+        "Watermark Opacity Enhancements: Updated the watermark settings dialog to display and accept opacity in percentage values (0-100%) with an interactive slider and manual text input, matching professional PDF standards."
+      ],
+      "changes_ro": [
+        "Optimizare Opacitate Watermark: S-a actualizat fereastra de setări watermark pentru a afișa și accepta opacitatea în procente (0-100%), adăugând un slider interactiv și un câmp de introducere manuală a valorii."
+      ],
+      "changes_ru": [
+        "Оптимизация прозрачности водяного знака: Обновлено диалоговое окно настроек водяного знака для отображения и ввода прозрачности в процентах (0-100%) с интерактивным слайдером и ручным вводом."
+      ]
+    },
+    {
+      "version": "3.0.1",
+      "date": "August 4, 2026",
+      "changes_en": [
+        "Bug Report Integration: Added a professional in-app bug and feedback reporting dialog with automated diagnostic logs and file attachment uploads securely sent using Cloudflare R2 and Resend."
+      ],
+      "changes_ro": [
+        "Integrare Raportare Erori: S-a adăugat o fereastră dedicată pentru raportarea erorilor și feedback direct din aplicație, incluzând transmiterea log-urilor și atașarea de fișiere stocate securizat prin Cloudflare R2 și Resend."
+      ],
+      "changes_ru": [
+        "Интеграция отправки отчетов об ошибках: Добавлено профессиональное диалоговое окно для отправки отзывов и баг-репортов прямо из приложения с автоматической выгрузкой системных логов и файлов через Cloudflare R2 и Resend."
+      ]
+    },
+    {
+      "version": "3.0.0",
+      "date": "August 4, 2026",
+      "changes_en": [
+        "Large PDF Redaction Stability Fix: Resolved a Windows OS command line length limit crash when merging large multi-page PDF redactions by processing and merging page chunks in batches of 50."
+      ],
+      "changes_ro": [
+        "Corecție stabilitate redactare PDF-uri mari: S-a rezolvat crash-ul cauzat de limita maximă a liniei de comandă Windows la fuziunea PDF-urilor mari, prin îmbinarea paginilor în loturi securizate de câte 50."
+      ],
+      "changes_ru": [
+        "Исправление стабильности при разметке больших PDF: Устранена критическая ошибка превышения лимита символов командной строки Windows при сборке больших многостраничных документов путем объединения страниц группами по 50."
+      ]
+    },
+    {
+      "version": "2.2.9",
+      "date": "July 28, 2026",
+      "changes_en": [
+        "Settings Persistence Fix: Excluded new PDF/A settings classes from obfuscation to ensure language, theme, and window dimensions are properly saved and loaded on startup.",
+        "Roadmap Preview Visualization: Fixed a data-binding bug that caused text and step numbers to appear blank in the Processing Roadmap window after obfuscation.",
+        "High-Fidelity Document Preprocessing: Added server-parity Word (.docx) layout XML processing to prevent text/drawing overlap and fix header alignments on desktop conversions.",
+        "PDF/A Archival Robustness: Resolved a Ghostscript sandbox permission block by disabling SAFER mode for internal color profiles and fixed an Excel COM FitToPagesTall page-setup error."
+      ],
+      "changes_ro": [
+        "Remediere Persistență Setări: S-au exclus noile clase PDF/A din obfuscator pentru a asigura salvarea și încărcarea corectă a limbii, temei și dimensiunilor ferestrei la pornire.",
+        "Vizualizare Traseu Pipeline: S-a remediat un bug de legare a datelor care cauza afișarea goală a textelor și numerelor în fereastra Processing Roadmap după obfuscation.",
+        "Pre-procesare Documente Word: S-a adăugat alinierea layout-ului XML (allowOverlap și indents în headere) pentru Word (.docx), asigurând o conversie fidelă și prevenind suprapunerea textelor.",
+        "Stabilitate Conversie PDF/A: S-a rezolvat blocajul de permisiuni Ghostscript prin modul NOSAFER pentru profilele ICC și s-a corectat eroarea Excel COM FitToPagesTall."
+      ],
+      "changes_ru": [
+        "Сохранение настроек: Новые классы параметров PDF/A исключены из обфускатора для корректного сохранения языка, темы и размеров окна при запуске.",
+        "Отображение карты выполнения: Исправлена ошибка привязки данных, из-за которой тексты и номера шагов отображались пустыми в окне Processing Roadmap после обфускации.",
+        "Качественное преобразование документов: Добавлена серверная обработка XML-разметки Word (.docx) для предотвращения наложения текста и рисунков при конвертации.",
+        "Надежность PDF/A: Устранен блокировщик разрешений Ghostscript с помощью режима NOSAFER для профилей ICC и исправлена ошибка Excel COM FitToPagesTall."
+      ]
+    },
+    {
+      "version": "2.2.7",
+      "date": "July 27, 2026",
+      "changes_en": [
+        "PDF/A-2b Conversion Option: Added a new tool to convert PDF and Office documents directly to PDF/A-2b format with advanced settings (Smart OCR, auto-deskew, page-fitting, and orientation adjustments).",
+        "GUI Optimizations for Smaller Screens: Enabled layout text wrapping and automatic tooltip wrapping to ensure proper alignment and visibility on smaller displays (e.g., 14-inch screens).",
+        "Auto-Updater UX Improvements: Resolved a privilege context isolation issue that caused elevated auto-updater launches to display unlicensed status, and added localized post-install completion confirmations."
+      ],
+      "changes_ro": [
+        "Opțiune de Conversie în PDF/A-2b: S-a adăugat un nou instrument pentru a converti documentele PDF și Office direct în format PDF/A-2b cu setări avansate (Smart OCR, aliniere automată, potrivire în pagină și ajustare orientare).",
+        "Optimizări GUI pentru Ecrane Mici: S-a activat încadrarea textului din interfață și adaptarea automată a tooltip-urilor pentru a asigura afișarea corectă pe ecrane de dimensiuni reduse (ex. laptopuri de 14 inch).",
+        "Îmbunătățiri UX Auto-Updater: S-a rezolvat problema izolării contextului privilegiat care cauza afișarea stării nelicențiate la lansările din auto-updater și s-au adăugat mesaje localizate de confirmare a finalizării."
+      ],
+      "changes_ru": [
+        "Конвертация в PDF/A-2b: Добавлена новая функция для преобразования PDF и офисных документов напрямую в формат PDF/A-2b с расширенными настройками (Smart OCR, автовыравнивание, масштабирование под страницу и настройка ориентации).",
+        "Оптимизация интерфейса для небольших экранов: Включен автоперенос текста кнопок и всплывающих подсказок для корректного отображения интерфейса на экранах меньшего размера (например, 14-дюймовых ноутбуках).",
+        "Улучшения UX автообновления: Устранена проблема изоляции контекста прав, из-за которой при запуске из автообновления отображался статус без лицензии, и добавлены локализованные подтверждения завершения установки."
+      ]
+    },
+    {
+      "version": "2.2.6",
+      "date": "June 25, 2026",
+      "changes_en": [
+        "Smart Rebuild & OCR Optimization: Made ImageMagick pre-rasterization ('Enhance OCR accuracy') optional, allowing significantly faster OCR runs when unchecked. Default settings now have Smart Rebuild enabled and Enhance OCR disabled.",
+        "Remove Digital Signatures Card: Extracted digital signature stripping into a standalone pipeline step (runs as Step 1) and card, restricted to Pro and Trial tiers.",
+        "GUI Help button redirect: Updated help action to redirect users directly to localized website guide sections based on current interface language.",
+        "Pricing and Guide Updates: Added standalone 'Remove Digital Signatures' tool and page, updated pricing tables, sitemaps, and robots.txt."
+      ],
+      "changes_ro": [
+        "Optimizare Smart Rebuild și OCR: Rasterizarea prealabilă cu ImageMagick ('Crește precizia OCR') a fost făcută opțională, accelerând semnificativ procesul OCR când este debifată. Implicit, Smart Rebuild este activat, iar 'Crește precizia OCR' este dezactivată.",
+        "Instrument dedicat Eliminare Semnături Digitale: Semnăturile digitale au fost separate într-un pas de sine stătător în pipeline (rulat ca Pasul 1) și card separat, fiind o funcționalitate Pro/Trial.",
+        "Redirecționare buton Help: Butonul de ajutor din aplicație redirecționează utilizatorul direct către secțiunea de ghid corespunzătoare în limba selectată în interfață.",
+        "Actualizări Prețuri și Ghiduri: S-a adăugat noul instrument online 'Eliminare Semnături Digitale', s-au actualizat tabelele de prețuri, sitemaps și robots.txt."
+      ],
+      "changes_ru": [
+        "Оптимизация Smart Rebuild и OCR: Предварительная растеризация через ImageMagick ('Повысить точность OCR') сделана опциональной, что значительно ускоряет OCR, если флажок снят. По умолчанию Smart Rebuild включен, а 'Повысить точность' отключена.",
+        "Отдельный инструмент удаления цифровых подписей: Извлечено удаление цифровых подписей в отдельный шаг конвейера (выполняется как Шаг 1) и отдельную карточку, доступную только в версиях Pro и Trial.",
+        "Перенаправление кнопки Справка: Кнопка помощи в приложении теперь открывает соответствующий раздел руководства на сайте в зависимости от языка интерфейса.",
+        "Обновление цен и руководств: Добавлен новый онлайн-инструмент удаления цифровых подписей, обновлены таблицы цен, sitemaps и robots.txt."
+      ]
+    },
+    {
+      "version": "2.2.5",
+      "date": "June 24, 2026",
+      "changes_en": [
+        "Enhance OCR Accuracy option: Added an optional 'Enhance OCR accuracy' checkbox in Rebuild Settings. When checked, it pre-rasterizes scanned pages using ImageMagick at the user-selected DPI, resolving character recognition regressions and line-select issues on low-res or tilted scans.",
+        "Remove Digital Signatures option: Added a checkbox in Sanitize Settings to strip digital signatures and restrictions from PDF documents without full rebuild or OCR.",
+        "Encryption engine file copy fix: Prevented non-PDF files from being lost during encryption pipeline stages; they are now correctly copied to the destination folder."
+      ],
+      "changes_ro": [
+        "Opțiunea Crește precizia OCR: S-a adăugat o bifă pentru a pre-procesa paginile scanate prin ImageMagick la DPI-ul selectat de utilizator, îmbunătățind recunoașterea caracterelor și corectând problemele de selectare a rândurilor întregi.",
+        "Eliminare Semnături Digitale: S-a adăugat o opțiune în setările de Sanitizare pentru a elimina semnăturile digitale și restricțiile din PDF-uri fără a fi necesară reconstrucția completă.",
+        "Corecție copiere fișiere non-PDF: Fișierele care nu sunt PDF (imagini, Excel, Word) nu mai sunt pierdute atunci când este activată criptarea, fiind copiate corect în folderul de destinație."
+      ],
+      "changes_ru": [
+        "Повышение точности OCR: Добавлен параметр для предварительной обработки страниц с помощью ImageMagick с выбранным пользователем разрешением DPI, что значительно улучшает распознавание текста на сканах.",
+        "Удаление цифровых подписей: Добавлена опция в настройках очистки (Sanitize) для удаления подписей и ограничений в документах PDF без полного распознавания.",
+        "Исправление копирования не-PDF файлов: Не-PDF файлы (изображения, документы Excel и Word) больше не теряются при шифровании и корректно копируются в выходную папку."
+      ]
+    },
+    {
+      "version": "2.2.4",
+      "date": "June 24, 2026",
+      "changes_en": [
+        "Rebuild OCR Engine Optimization: Implemented a fast path for 1-page and fully scanned documents, increasing OCR speed by up to 50% by eliminating redundant page-by-page split/merge processes.",
+        "High-Fidelity Rendering: Configured ImageMagick and Ghostscript to render with 95% JPEG quality (-quality 95 and -dJPEGQ=95), drastically reducing generation loss when combining multiple pipeline options."
+      ],
+      "changes_ro": [
+        "Optimizare Rebuild OCR: S-a implementat o cale rapidă (Fast Path) pentru documentele de 1 pagină sau scanate complet, mărind viteza de procesare OCR cu până la 50% prin eliminarea buclei lente pagină-cu-pagină.",
+        "Randare de Înaltă Calitate: S-au configurat ImageMagick și Ghostscript pentru a folosi o calitate de 95% la compresia JPEG, reducând la minimum degradarea calității textului la selectarea simultană a mai multor instrumente."
+      ],
+      "changes_ru": [
+        "Оптимизация восстановления (OCR): Внедрен быстрый путь для одностраничных и полностью отсканированных документов, увеличивающий скорость OCR до 50% за счет исключения разделения страниц.",
+        "Высокое качество рендеринга: Настроены ImageMagick и Ghostscript для сохранения изображений с качеством JPEG 95%, что минимизирует потерю чёткости текста при совмещении операций."
+      ]
+    },
+    {
+      "version": "2.2.3",
+      "date": "June 23, 2026",
+      "changes_en": [
+        "Self-Contained Installer: Removed system-wide .NET 8 Desktop Runtime check, making the installer completely standalone.",
+        "Licensing Verification Fix: Switched silent startup check to the validation endpoint to prevent exceeding activation limits, and added protections to prevent local cache wiping on temporary network/server glitches.",
+        "Deactivate License Button: Added a 'Remove License' button in the application to easily free up activation slots and transfer licenses between devices."
+      ],
+      "changes_ro": [
+        "Instalare Independentă (Self-Contained): S-a eliminat verificarea și descărcarea .NET 8 Desktop Runtime din installer, facilitând instalarea offline.",
+        "Corecție validare licență: S-a schimbat verificarea de la pornire pentru a apela endpoint-ul de validare (nu cel de activare), prevenind blocajele cauzate de limitele de activare și erorile temporare de conexiune.",
+        "Dezactivare Licență: S-a adăugat butonul 'Remove License' în aplicație pentru a elibera manual slotul de activare și a permite mutarea licenței pe alt PC."
+      ],
+      "changes_ru": [
+        "Автономный установщик: Удалена системная проверка .NET 8 Runtime, так как все файлы включены в сборку.",
+        "Исправление проверки лицензии: Переключена тихая проверка при запуске на метод валидации, чтобы избежать исчерпания лимитов активации и случайной очистки кэша при сбоях сети.",
+        "Деактивация лицензии: Добавлена кнопка 'Remove License' для освобождения слота активации и быстрого переноса на другой ПК."
+      ]
+    },
+    {
+      "version": "2.2.2",
+      "date": "June 17, 2026",
+      "changes_en": [
+        "Smart Rebuild & OCR: Added settings gear to Rebuild & Repair. It now performs page-by-page text copyability checks and skips OCR on pages that already contain selectable text, dramatically increasing speed and preserving vector quality.",
+        "Licensing Limits Enforced: Basic license holders now have a 1,000 files/day limit enforced on both web and desktop, and are limited to a single processing action per run (all tools remain fully active).",
+        "GUI Improvements: Confined DPI selections to 200, 250, 300, 350, and 400 DPI."
+      ],
+      "changes_ro": [
+        "Reconstrucție Inteligentă: S-a adăugat o rotiță de setări pentru Reconstruire și Reparare PDF. Sistemul verifică pagină cu pagină dacă textul este deja copiabil, evitând OCR-ul acolo unde nu este necesar, ceea ce mărește viteza considerabil și păstrează calitatea originală.",
+        "Limitări Licență Basic: Pentru utilizatorii Basic s-a introdus o limită zilnică de 1.000 de fișiere (atât online cât și pe desktop) și restricția de a selecta o singură operațiune la o rulare (toate uneltele rămân active).",
+        "Ajustări interfață: Lista de opțiuni DPI în interfață a fost restrânsă exact la: 200, 250, 300, 350 și 400 DPI."
+      ],
+      "changes_ru": [
+        "Режим Умного Восстановления: Добавлена шестерёнка настроек для восстановления PDF. Теперь система проверяет каждую страницу на наличие копируемого текста, пропуская OCR там, где текст уже распознан, что значительно ускоряет работу и сохраняет исходное качество.",
+        "Ограничения лицензии Basic: Для пользователей Basic введен дневной лимит в 1000 файлов (в веб-версии и на ПК) и ограничение на запуск только одной операции за раз (все инструменты остаются доступными).",
+        "Изменения в интерфейсе: Список выбора DPI в интерфейсе ограничен следующими значениями: 200, 250, 300, 350 и 400 DPI."
+      ]
+    },
+    {
+      "version": "2.2.1",
+      "date": "March 23, 2026",
+      "changes_en": [
+        "Metadata Leak Fortified: Expanded exact PDF XMP streams definitions (Author, Producer, Creator), so Sanitize now leaves files strictly bare even on individual selection checkboxes.",
+        "Unclaimed File Logic Alignment: Unclaimed items now participate in full sanitize buffers fully back to back.",
+        "Visual Roadmap alignment: Modified the Roadmap simulator triggers so it correctly lists Sanitize corresponding with execution linear streams flawlessly.",
+        "License Parameter Fix: Resolved length limits absolute."
+      ],
+      "changes_ro": [
+        "Fortificarea scurgerilor de metadate: Au fost extinse definițiile exacte ale fluxurilor PDF XMP (Author, Producer, Creator), astfel încât funcția Sanitize să lase acum fișierele complet curate, chiar și în cazul selecției individuale prin checkbox-uri.",
+        "Alinierea logicii fișierelor neatribuite: Elementele neatribuite participă acum complet la bufferele de sanitizare, consecutiv și fără întreruperi.",
+        "Alinierea foii de parcurs vizuale: Au fost modificate trigger-ele simulatorului Roadmap, astfel încât acesta să afișeze corect Sanitize, în corespondență perfectă cu fluxurile liniare de execuție.",
+        "Corectarea parametrului de licență: Limitele absolute de lungime au fost rezolvate."
+      ],
+      "changes_ru": [
+        "Усилена защита от утечки метаданных: были расширены точные определения потоков PDF XMP (Author, Producer, Creator), поэтому функция Sanitize теперь оставляет файлы полностью очищенными, даже при индивидуальном выборе через флажки.",
+        "Выравнивание логики необработанных файлов: необработанные элементы теперь полностью участвуют в буферах санитизации последовательно, без разрывов.",
+        "Выравнивание визуальной дорожной карты: были изменены триггеры симулятора Roadmap, чтобы он корректно отображал Sanitize в точном соответствии с линейными потоками выполнения.",
+        "Исправление параметра лицензии: абсолютные ограничения длины устранены."
+      ]
+    },
+    {
+      "version": "2.2.0",
+      "date": "March 17, 2026",
+      "changes_en": [
+        "   Performance Improvements:",
+        "Fixed OCR Micro-thrashing: Lifted static image memory cap thresholds in OcrEngine.cs that choked 600 DPI processing into loop-stuck disk buffers.",
+        "Dynamic Buffering: Processes safely utilize available total RAM dynamically scaling with host workstation power."
+      ],
+      "changes_ro": [
+        "   Îmbunătățiri de performanță:",
+        "S-a remediat micro-thrashing-ul OCR: au fost ridicate pragurile statice ale limitelor de memorie pentru imagini în OcrEngine.cs, care sufocau procesarea la 600 DPI și o blocau în bucle de buffering pe disc.",
+        "Bufferizare dinamică: procesele pot utiliza în siguranță memoria RAM totală disponibilă, scalându-se dinamic în funcție de puterea stației de lucru gazdă."
+      ],
+      "changes_ru": [
+        "   Улучшения производительности:",
+        "Исправлен micro-thrashing OCR: были повышены статические пороги лимитов памяти для изображений в OcrEngine.cs, которые перегружали обработку 600 DPI и приводили к зацикливанию буферов на диске.",
+        "Динамическая буферизация: процессы могут безопасно использовать всю доступную оперативную память, динамически масштабируясь в зависимости от мощности хостовой рабочей станции."
+      ]
+    },
+    {
+      "version": "2.1.9",
+      "date": "March 13, 2026",
+      "changes_en": [
+        "Fixed progress bar visibility for reporting options (PDF Bundle Summary, Advanced Bundle Report, Folder Evidence Report).",
+        "Optimized installer size by removing redundant binary files.",
+        "Added real-time progress tracking for batch tasks."
+      ],
+      "changes_ro": [
+        "S-a corectat vizibilitatea barei de progres pentru opțiunile de raportare.",
+        "Dimensiunea kit-ului de instalare a fost optimizată prin eliminarea fișierelor binare redundante.",
+        "S-a adăugat urmărirea progresului în timp real pentru sarcinile batch."
+      ],
+      "changes_ru": [
+        "Исправлена видимость индикатора выполнения для отчетов.",
+        "Оптимизирован размер установщика за счет удаления лишних файлов.",
+        "Добавлено отслеживание выполнения задач в реальном времени."
+      ]
+    },
+    {
+      "version": "2.1.8",
+      "date": "March 12, 2026",
+      "changes_en": [
+        "Initial release with batch document repair and auditing.",
+        "Preserved folder trees in output.",
+        "Local-only processing for GDPR compliance."
+      ],
+      "changes_ro": [
+        "Lansare inițială cu repararea și auditarea documentelor în batch.",
+        "Păstrarea arborilor de directoare în output.",
+        "Procesare locală pentru conformitate GDPR."
+      ],
+      "changes_ru": [
+        "Первый выпуск с пакетным восстановлением и аудитом документов.",
+        "Сохранение структуры папок в выводе.",
+        "Локальная обработка для соответствия GDPR."
+      ]
+    }
+  ]
 }
