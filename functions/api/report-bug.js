@@ -145,11 +145,14 @@ export async function onRequestPost(context) {
     `;
 
     // 8. Send Email to Admin via Resend API
+    const cleanSnippet = message.replace(/[\r\n\t]+/g, " ").trim().substring(0, 50);
+    const emailSubject = `[Bug Report] DocInspector - ${cleanSnippet || "User Feedback"}`;
+
     const emailPayload = {
       from: env.SENDER_EMAIL || "DocInspector Support <support@doc-inspector.com>",
       to: env.RECEIVER_EMAIL || "support@doc-inspector.com",
       reply_to: clientEmail || "support@doc-inspector.com",
-      subject: `[Bug Report] DocInspector - ${message.substring(0, 50)}...`,
+      subject: emailSubject,
       html: htmlContent
     };
 
