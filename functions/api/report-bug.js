@@ -33,13 +33,14 @@ export async function onRequestPost(context) {
     const clientIp = request.headers.get("CF-Connecting-IP") || "unknown";
     if (env.RATE_LIMIT_KV) {
       const currentHour = new Date().toISOString().substring(0, 13); // "YYYY-MM-DDTHH"
-      const limitKey = `rl_${clientIp}_${currentHour}`;
+      const limitKey = 
+l__;
       
       const countVal = await env.RATE_LIMIT_KV.get(limitKey);
       const count = countVal ? parseInt(countVal, 10) : 0;
       
-      if (count >= 3) {
-        return new Response(JSON.stringify({ error: "Rate limit exceeded. Maximum 3 reports per hour." }), {
+      if (count >= 5) {
+        return new Response(JSON.stringify({ error: "Rate limit exceeded. Maximum 5 reports per hour." }), {
           status: 429,
           headers: { "Content-Type": "application/json" }
         });
@@ -55,7 +56,7 @@ export async function onRequestPost(context) {
     const systemInfo = formData.get("systemInfo") || "";
     const logs = formData.get("logs") || "";
     const licenseKey = formData.get("licenseKey") || "Unlicensed / Trial";
-    const clientEmail = formData.get("email") || "";
+    const clientEmail = (formData.get("email") || "").trim();
     const lang = (formData.get("lang") || "en").toLowerCase();
     
     const fileFields = [
@@ -72,7 +73,7 @@ export async function onRequestPost(context) {
       if (file && file instanceof File && file.size > 0) {
         // Individual file limit: 20MB
         if (file.size > 20 * 1024 * 1024) {
-          return new Response(JSON.stringify({ error: `File ${file.name} exceeds the 20MB limit` }), {
+          return new Response(JSON.stringify({ error: File  exceeds the 20MB limit }), {
             status: 400,
             headers: { "Content-Type": "application/json" }
           });
@@ -88,18 +89,20 @@ export async function onRequestPost(context) {
         }
 
         const cleanFileName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
-        const fileKey = `bug_${Date.now()}_${cleanFileName}`;
+        const fileKey = ug__;
 
         // Upload to R2 Bucket
-        await env.BUG_REPORTS_BUCKET.put(fileKey, file.stream(), {
-          httpMetadata: { contentType: file.type }
-        });
+        if (env.BUG_REPORTS_BUCKET) {
+          await env.BUG_REPORTS_BUCKET.put(fileKey, file.stream(), {
+            httpMetadata: { contentType: file.type }
+          });
 
-        attachments.push({
-          name: file.name,
-          sizeMb: (file.size / 1024 / 1024).toFixed(2),
-          url: `https://doc-inspector.com/api/download-bug?file=${fileKey}`
-        });
+          attachments.push({
+            name: file.name,
+            sizeMb: (file.size / 1024 / 1024).toFixed(2),
+            url: https://doc-inspector.com/api/download-bug?file=
+          });
+        }
       }
     }
 
@@ -108,52 +111,52 @@ export async function onRequestPost(context) {
     if (attachments.length > 0) {
       attachmentsHtml = '<ul style="padding-left: 20px; margin: 10px 0;">';
       for (const att of attachments) {
-        attachmentsHtml += `
+        attachmentsHtml += 
           <li style="margin-bottom: 8px;">
-            <a href="${att.url}" style="color: #0078d4; text-decoration: none; font-weight: bold;">Download ${att.name}</a> 
-            <span style="color: #666; font-size: 12.5px;">(${att.sizeMb} MB)</span>
+            <a href="" style="color: #0078d4; text-decoration: none; font-weight: bold;">Download </a> 
+            <span style="color: #666; font-size: 12.5px;">( MB)</span>
           </li>
-        `;
+        ;
       }
       attachmentsHtml += '</ul>';
     }
 
-    // 7. Construct Email HTML Content
-    const htmlContent = `
+    // 7. Construct Admin Notification Email HTML Content
+    const htmlContent = 
       <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-        <h2 style="color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 8px; margin-top: 0;">DocInspector Bug Report (v3.0.1)</h2>
+        <h2 style="color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 8px; margin-top: 0;">DocInspector Bug Report</h2>
         
-        <p><strong>License Status:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${licenseKey}</span></p>
-        <p><strong>User Email:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${clientEmail || "Not provided"}</span></p>
-        <p><strong>Language:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;">${lang.toUpperCase()}</span></p>
+        <p><strong>License Status:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
+        <p><strong>User Email:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
+        <p><strong>Language:</strong> <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 4px; font-weight: bold;"></span></p>
         
         <p><strong>User Description:</strong></p>
-        <div style="background: #f9f9f9; border-left: 4px solid #0078d4; padding: 12px; margin: 10px 0; font-style: italic; white-space: pre-wrap;">${message || "No description provided."}</div>
+        <div style="background: #f9f9f9; border-left: 4px solid #0078d4; padding: 12px; margin: 10px 0; font-style: italic; white-space: pre-wrap;"></div>
         
         <p><strong>System Details:</strong></p>
-        <pre style="background: #f4f4f4; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; white-space: pre-wrap; font-family: Consolas, monospace;">${systemInfo || "N/A"}</pre>
+        <pre style="background: #f4f4f4; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; white-space: pre-wrap; font-family: Consolas, monospace;"></pre>
         
-        <p><strong>Attachments (${attachments.length}):</strong></p>
-        ${attachmentsHtml}
+        <p><strong>Attachments ():</strong></p>
+        
         
         <p><strong>Application Logs:</strong></p>
-        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 4px; font-size: 12px; max-height: 350px; overflow-y: auto; font-family: Consolas, monospace; white-space: pre-wrap;">${logs || "No logs attached."}</pre>
+        <pre style="background: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 4px; font-size: 12px; max-height: 350px; overflow-y: auto; font-family: Consolas, monospace; white-space: pre-wrap;"></pre>
       </div>
-    `;
+    ;
 
-    // 8. Send Email via Resend API
+    // 8. Send Email to Admin via Resend API
     const emailPayload = {
-      from: env.SENDER_EMAIL,
-      to: env.RECEIVER_EMAIL,
+      from: env.SENDER_EMAIL || "DocInspector <support@doc-inspector.com>",
+      to: env.RECEIVER_EMAIL || "support@doc-inspector.com",
       reply_to: clientEmail || undefined,
-      subject: `[Bug Report] DocInspector - ${licenseKey}`,
+      subject: [Bug Report] DocInspector - ,
       html: htmlContent
     };
 
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+        "Authorization": Bearer ,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(emailPayload)
@@ -161,98 +164,103 @@ export async function onRequestPost(context) {
 
     if (!resendResponse.ok) {
       const errorText = await resendResponse.text();
-      return new Response(JSON.stringify({ error: `Failed to send email: ${errorText}` }), {
+      return new Response(JSON.stringify({ error: Failed to send email:  }), {
         status: 502,
         headers: { "Content-Type": "application/json" }
       });
     }
 
     // 9. Send Localized Auto-Reply Confirmation to Client via Resend API
-    if (clientEmail) {
-      let autoReplySubject = "Bug report confirmation - DocInspector";
+    if (clientEmail && clientEmail.includes("@")) {
+      let autoReplySubject = "";
       let autoReplyHtml = "";
 
       if (lang === "ro") {
-        autoReplySubject = "Confirmare înregistrare sesizare - DocInspector";
-        autoReplyHtml = `
+        autoReplySubject = "Confirmare primire raport eroare — DocInspector";
+        autoReplyHtml = 
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
-              <img src="https://doc-inspector.com/assets/logo.png" alt="DocInspector Logo" style="width: 55px; height: 55px; vertical-align: middle; margin-bottom: 8px;" />
-              <h1 style="color: #22d3ee; margin: 0; font-size: 22px; font-weight: 800;">DocInspector</h1>
+              <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
+              <p style="color: #94a3b8; font-size: 13px; margin: 4px 0 0 0;">Centru de Suport Tehnic</p>
             </div>
             <div style="padding: 32px; background: #ffffff; line-height: 1.6;">
               <h2 style="color: #0f172a; margin-top: 0; font-size: 20px; font-weight: 700;">Bună ziua,</h2>
               <p style="font-size: 15px; color: #334155;">Am primit cu succes raportul dumneavoastră de eroare / feedback.</p>
-              <p style="font-size: 15px; color: #334155;">Echipa noastră tehnică analizează detaliile trimise și vom reveni cu un răspuns sau o rezolvare în cel mai scurt timp posibil.</p>
+              <p style="font-size: 15px; color: #334155;">Echipa noastră tehnică analizează deja datele de diagnostic și fișierele trimise. Vom reveni cu un răspuns detaliat sau o soluție în cel mai scurt timp posibil.</p>
               <div style="margin: 24px 0; padding: 16px; background: #f8fafc; border-left: 4px solid #06b6d4; border-radius: 4px; font-size: 14px; color: #475569;">
-                Dacă aveți detalii suplimentare de adăugat, puteți răspunde direct la acest email.
+                💡 <strong>Notă:</strong> Dacă doriți să adăugați detalii sau capturi de ecran suplimentare, puteți răspunde direct la acest email.
               </div>
-              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">Cu respect,<br /><strong>Echipa DocInspector Support</strong></p>
+              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">Cu respect,<br /><strong>Echipa DocInspector Support</strong><br /><a href="https://doc-inspector.com" style="color: #0284c7; text-decoration: none;">https://doc-inspector.com</a></p>
             </div>
             <div style="background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0;">
               © 2026 DocInspector. Toate drepturile rezervate.
             </div>
           </div>
-        `;
+        ;
       } else if (lang === "ru") {
-        autoReplySubject = "Подтверждение получения отчета - DocInspector";
-        autoReplyHtml = `
+        autoReplySubject = "Подтверждение получения отчета об ошибке — DocInspector";
+        autoReplyHtml = 
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
-              <img src="https://doc-inspector.com/assets/logo.png" alt="DocInspector Logo" style="width: 55px; height: 55px; vertical-align: middle; margin-bottom: 8px;" />
-              <h1 style="color: #22d3ee; margin: 0; font-size: 22px; font-weight: 800;">DocInspector</h1>
+              <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
+              <p style="color: #94a3b8; font-size: 13px; margin: 4px 0 0 0;">Центр технической поддержки</p>
             </div>
             <div style="padding: 32px; background: #ffffff; line-height: 1.6;">
               <h2 style="color: #0f172a; margin-top: 0; font-size: 20px; font-weight: 700;">Здравствуйте,</h2>
-              <p style="font-size: 15px; color: #334155;">Мы успешно получили ваш отчет об ошибке / отзыв.</p>
-              <p style="font-size: 15px; color: #334155;">Наша техническая команда уже анализирует предоставленные данные, и мы свяжемся с вами в ближайшее время с решением или ответом.</p>
+              <p style="font-size: 15px; color: #334155;">Мы успешно получили ваш отчет об ошибке / обратную связь.</p>
+              <p style="font-size: 15px; color: #334155;">Наша техническая команда уже анализирует диагностические данные и логи приложения. Мы свяжемся с вами с решением или ответом в кратчайшие сроки.</p>
               <div style="margin: 24px 0; padding: 16px; background: #f8fafc; border-left: 4px solid #06b6d4; border-radius: 4px; font-size: 14px; color: #475569;">
-                Если у вас есть дополнительные сведения, вы можете ответить прямо на это письмо.
+                💡 <strong>Примечание:</strong> Если вы хотите добавить дополнительную информацию или скриншоты, просто ответьте на это письмо.
               </div>
-              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">С уважением,<br /><strong>Служба поддержки DocInspector</strong></p>
+              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">С уважением,<br /><strong>Команда поддержки DocInspector</strong><br /><a href="https://doc-inspector.com" style="color: #0284c7; text-decoration: none;">https://doc-inspector.com</a></p>
             </div>
             <div style="background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0;">
               © 2026 DocInspector. Все права защищены.
             </div>
           </div>
-        `;
+        ;
       } else {
-        autoReplySubject = "Bug report confirmation - DocInspector";
-        autoReplyHtml = `
+        autoReplySubject = "Bug Report Confirmation — DocInspector";
+        autoReplyHtml = 
           <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="background: #0a1628; padding: 24px; text-align: center; border-bottom: 3px solid #06b6d4;">
-              <img src="https://doc-inspector.com/assets/logo.png" alt="DocInspector Logo" style="width: 55px; height: 55px; vertical-align: middle; margin-bottom: 8px;" />
-              <h1 style="color: #22d3ee; margin: 0; font-size: 22px; font-weight: 800;">DocInspector</h1>
+              <h1 style="color: #22d3ee; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">DocInspector Pro</h1>
+              <p style="color: #94a3b8; font-size: 13px; margin: 4px 0 0 0;">Technical Support Desk</p>
             </div>
             <div style="padding: 32px; background: #ffffff; line-height: 1.6;">
               <h2 style="color: #0f172a; margin-top: 0; font-size: 20px; font-weight: 700;">Hello,</h2>
               <p style="font-size: 15px; color: #334155;">We have successfully received your bug report / feedback.</p>
-              <p style="font-size: 15px; color: #334155;">Our technical team is reviewing the details you sent, and we will get back to you with a resolution or response as soon as possible.</p>
+              <p style="font-size: 15px; color: #334155;">Our engineering team is already analyzing the diagnostic logs and system details. We will get back to you with an update or resolution as quickly as possible.</p>
               <div style="margin: 24px 0; padding: 16px; background: #f8fafc; border-left: 4px solid #06b6d4; border-radius: 4px; font-size: 14px; color: #475569;">
-                If you have any additional information to add, you can reply directly to this email.
+                💡 <strong>Note:</strong> If you have any additional information or screenshots to share, feel free to reply directly to this email.
               </div>
-              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">Best regards,<br /><strong>DocInspector Support Team</strong></p>
+              <p style="font-size: 15px; color: #334155; margin-bottom: 0;">Best regards,<br /><strong>DocInspector Support Team</strong><br /><a href="https://doc-inspector.com" style="color: #0284c7; text-decoration: none;">https://doc-inspector.com</a></p>
             </div>
             <div style="background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0;">
               © 2026 DocInspector. All rights reserved.
             </div>
           </div>
-        `;
+        ;
       }
 
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          from: env.SENDER_EMAIL,
-          to: clientEmail,
-          subject: autoReplySubject,
-          html: autoReplyHtml
-        })
-      });
+      try {
+        await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": Bearer ,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            from: env.SENDER_EMAIL || "DocInspector Support <support@doc-inspector.com>",
+            to: clientEmail,
+            reply_to: env.RECEIVER_EMAIL || "support@doc-inspector.com",
+            subject: autoReplySubject,
+            html: autoReplyHtml
+          })
+        });
+      } catch (err) {
+        console.error("Auto-reply email error:", err);
+      }
     }
 
     return new Response(JSON.stringify({ success: true, message: "Report submitted successfully" }), {
@@ -261,7 +269,7 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ error: `Internal Server Error: ${error.message}` }), {
+    return new Response(JSON.stringify({ error: Internal Server Error:  }), {
       status: 500,
       headers: { "Content-Type": "application/json" }
     });
