@@ -385,7 +385,7 @@
 
   <div class="guide-section">
     <div class="guide-section-label">Решение DocInspector</div>
-    <p class="guide-section-text">Интеллектуально анализирует первые страницы документов с помощью быстрого извлечения текста и OCR, определяя тип документа (Жалоба, Решение, Договор, Счет), организацию/сторону, исходящий номер и дату. Автоматически переименовывает файлы по заданному шаблону (например, Жалоба_Пограничная_Полиция_142_2026-03-15.pdf), сохраняя порядок в папках.</p>
+    <p class="guide-section-text">Интеллектуально анализирует первые страницы документов с помощью быстрого извлечения текста и OCR, определяя тип документа (Жалоба, Решение, Договор, Счет), организацию/сторону, исходящий номер и дату. Автоматически переименовывает файлы по заданному шаблону (например, Договор_Министерство_Финансов_142_2026-03-15.pdf), сохраняя порядок в папках.</p>
   </div>
 
   <!-- INTERACTIVE SIMULATOR SECTION -->
@@ -400,15 +400,15 @@
             <div class="demo-control-group">
               <label class="demo-label">Категория документа:</label>
               <select id="renameTypeSelect" class="demo-select" onchange="updateRenameDemo()">
-                <option value="Plangere">Complaint / Plângere / Жалоба</option>
-                <option value="Factura">Invoice / Factură / Счет</option>
-                <option value="Decizie">Court Ruling / Decizie / Решение</option>
-                <option value="Contract">Contract / Contract / Договор</option>
+                <option value="Договор" selected>Договор</option>
+                <option value="Счет">Счет-фактура</option>
+                <option value="Решение">Судебное Решение</option>
+                <option value="Жалоба">Жалоба</option>
               </select>
             </div>
             <div class="demo-control-group">
               <label class="demo-label">Организация / Эмитент:</label>
-              <input type="text" id="renameEntityInput" class="demo-input" value="Politia_Frontiera" oninput="updateRenameDemo()">
+              <input type="text" id="renameEntityInput" class="demo-input" value="Министерство_Финансов" oninput="updateRenameDemo()">
             </div>
           </div>
           <div class="demo-preview-stage">
@@ -420,7 +420,7 @@
               <div class="rename-arrow">⬇ Автоматическое извлечение текста через Smart OCR ⬇</div>
               <div class="rename-row new">
                 <span class="rename-tag tag-new">🟢 Умное стандартизированное имя:</span>
-                <code class="rename-filename" id="renamedOutputDisplay">Plangere_Politia_Frontiera_No142_2026-10-13.pdf</code>
+                <code class="rename-filename" id="renamedOutputDisplay">Договор_Министерство_Финансов_No142_2026-10-13.pdf</code>
               </div>
             </div>
           </div>

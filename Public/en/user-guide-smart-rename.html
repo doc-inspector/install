@@ -385,7 +385,7 @@
 
   <div class="guide-section">
     <div class="guide-section-label">The Solution</div>
-    <p class="guide-section-text">Intelligently inspects the first pages of documents using high-speed text extraction and OCR to detect the document category (e.g. Complaint, Decision, Contract, Invoice), the issuing authority or party, the registration number, and the official date. Automatically renames files into a structured, readable pattern (e.g. Complaint_Border_Police_No142_2026-03-15.pdf) while preserving original folders.</p>
+    <p class="guide-section-text">Intelligently inspects the first pages of documents using high-speed text extraction and OCR to detect the document category (e.g. Complaint, Decision, Contract, Invoice), the issuing authority or party, the registration number, and the official date. Automatically renames files into a structured, readable pattern (e.g. Contract_Ministry_of_Finance_No142_2026-03-15.pdf) while preserving original folders.</p>
   </div>
 
   <!-- INTERACTIVE SIMULATOR SECTION -->
@@ -400,15 +400,15 @@
             <div class="demo-control-group">
               <label class="demo-label">Document Category:</label>
               <select id="renameTypeSelect" class="demo-select" onchange="updateRenameDemo()">
-                <option value="Plangere">Complaint / Plângere / Жалоба</option>
-                <option value="Factura">Invoice / Factură / Счет</option>
-                <option value="Decizie">Court Ruling / Decizie / Решение</option>
-                <option value="Contract">Contract / Contract / Договор</option>
+                <option value="Contract" selected>Contract / Agreement</option>
+                <option value="Invoice">Invoice</option>
+                <option value="Decision">Court Ruling / Decision</option>
+                <option value="Complaint">Complaint</option>
               </select>
             </div>
             <div class="demo-control-group">
               <label class="demo-label">Issuer / Institution:</label>
-              <input type="text" id="renameEntityInput" class="demo-input" value="Politia_Frontiera" oninput="updateRenameDemo()">
+              <input type="text" id="renameEntityInput" class="demo-input" value="Ministry_of_Finance" oninput="updateRenameDemo()">
             </div>
           </div>
           <div class="demo-preview-stage">
@@ -420,7 +420,7 @@
               <div class="rename-arrow">⬇ Automated Smart OCR Content Extraction ⬇</div>
               <div class="rename-row new">
                 <span class="rename-tag tag-new">🟢 Smart Renamed Output:</span>
-                <code class="rename-filename" id="renamedOutputDisplay">Plangere_Politia_Frontiera_No142_2026-10-13.pdf</code>
+                <code class="rename-filename" id="renamedOutputDisplay">Contract_Ministry_of_Finance_No142_2026-10-13.pdf</code>
               </div>
             </div>
           </div>

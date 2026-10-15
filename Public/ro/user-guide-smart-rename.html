@@ -385,7 +385,7 @@
 
   <div class="guide-section">
     <div class="guide-section-label">Soluția DocInspector</div>
-    <p class="guide-section-text">Analizează inteligent primele pagini ale documentelor prin extragere rapidă de text și OCR pentru a identifica tipul actului (ex: Cerere, Decizie, Contract, Factură, Plângere), instituția sau partea emitentă, numărul de înregistrare și data. Redenumește automat fișierele într-un format structurat și ordonat (ex: Plangere_Politia_Frontiera_142_2026-03-15.pdf), păstrând ierarhia folderelor intactă.</p>
+    <p class="guide-section-text">Analizează inteligent primele pagini ale documentelor prin extragere rapidă de text și OCR pentru a identifica tipul actului (ex: Cerere, Decizie, Contract, Factură, Plângere), instituția sau partea emitentă, numărul de înregistrare și data. Redenumește automat fișierele într-un format structurat și ordonat (ex: Contract_Ministerul_Finantelor_142_2026-03-15.pdf), păstrând ierarhia folderelor intactă.</p>
   </div>
 
   <!-- INTERACTIVE SIMULATOR SECTION -->
@@ -400,15 +400,15 @@
             <div class="demo-control-group">
               <label class="demo-label">Tip Document:</label>
               <select id="renameTypeSelect" class="demo-select" onchange="updateRenameDemo()">
-                <option value="Plangere">Complaint / Plângere / Жалоба</option>
-                <option value="Factura">Invoice / Factură / Счет</option>
-                <option value="Decizie">Court Ruling / Decizie / Решение</option>
-                <option value="Contract">Contract / Contract / Договор</option>
+                <option value="Contract" selected>Contract</option>
+                <option value="Factura">Factură</option>
+                <option value="Decizie">Decizie</option>
+                <option value="Plangere">Plângere</option>
               </select>
             </div>
             <div class="demo-control-group">
               <label class="demo-label">Instituție / Emitent:</label>
-              <input type="text" id="renameEntityInput" class="demo-input" value="Politia_Frontiera" oninput="updateRenameDemo()">
+              <input type="text" id="renameEntityInput" class="demo-input" value="Ministerul_Finantelor" oninput="updateRenameDemo()">
             </div>
           </div>
           <div class="demo-preview-stage">
@@ -420,7 +420,7 @@
               <div class="rename-arrow">⬇ Extragere Automată de Conținut prin Smart OCR ⬇</div>
               <div class="rename-row new">
                 <span class="rename-tag tag-new">🟢 Nume Inteligent Generat:</span>
-                <code class="rename-filename" id="renamedOutputDisplay">Plangere_Politia_Frontiera_No142_2026-10-13.pdf</code>
+                <code class="rename-filename" id="renamedOutputDisplay">Contract_Ministerul_Finantelor_No142_2026-10-13.pdf</code>
               </div>
             </div>
           </div>
