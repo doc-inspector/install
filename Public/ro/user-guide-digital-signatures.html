@@ -11,8 +11,8 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semnare Digitală Multiplă — DocInspector Guide</title>
-  <meta name="description" content="Semnează digital în masă sute de fișiere PDF folosind token-uri USB (MoldSign, STISC, SafeNet, eIDAS) sau certificate PFX cu poziționare inteligentă pe text.">  
+  <title>Verificare și Eliminare Semnături Digitale PDF în Masă — Ghid DocInspector</title>
+  <meta name="description" content="Verifică certificatele și elimină blocajele impuse de semnăturile digitale expirate sau invalide pe loturi mari de fișiere PDF. Prelucrare 100% locală și sigură.">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=13">
@@ -306,18 +306,147 @@
       border-radius: 8px;
     }
 
+  
+    /* ── SEO FAQ & Related Tools ── */
+    .guide-faq-wrap { margin-top: 32px; }
+    .guide-faq-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+    }
+    .guide-faq-item:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      background: rgba(15, 23, 42, 0.8);
+      transform: translateY(-1px);
+    }
+    .guide-faq-q {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guide-faq-a {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .guide-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .guide-related-card {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+    .guide-related-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      background: rgba(6, 182, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    .guide-related-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #22d3ee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .guide-related-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0;
+    }
+
   </style>
 
+  <meta name="keywords" content="eliminare semnatura digitala pdf, verificare certificate pdf in masa, deblocare pdf semnat, semnatura electronica moldSign, stisc, eIDAS">
   <link rel="icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="shortcut icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="https://doc-inspector.com/assets/logo.png">
   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png">
-  <meta property="og:site_name" content="DocInspector" />
   <link rel="canonical" href="https://doc-inspector.com/ro/user-guide-digital-signatures" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide-digital-signatures" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/user-guide-digital-signatures" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/user-guide-digital-signatures" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide-digital-signatures" />
+  <meta property="og:site_name" content="DocInspector" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Verificare și Eliminare Semnături Digitale PDF în Masă — Ghid DocInspector" />
+  <meta property="og:description" content="Verifică certificatele și elimină blocajele impuse de semnăturile digitale expirate sau invalide pe loturi mari de fișiere PDF. Prelucrare 100% locală și sigură." />
+  <meta property="og:url" content="https://doc-inspector.com/ro/user-guide-digital-signatures" />
+  <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Verificare și Eliminare Semnături Digitale PDF în Masă — Ghid DocInspector" />
+  <meta name="twitter:description" content="Verifică certificatele și elimină blocajele impuse de semnăturile digitale expirate sau invalide pe loturi mari de fișiere PDF. Prelucrare 100% locală și sigură." />
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Eliminarea semnăturii afectează conținutul sau calitatea textului din PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nu. DocInspector elimină exclusiv dicționarul criptografic de blocare și restricțiile asociate, păstrând toate paginile, textul și elementele vizuale perfect intacte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sunt suportate token-urile USB hardware de semnătură electronică?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, aplicația integrează suport complet pentru token-uri USB PKCS#11 (MoldSign, STISC, SafeNet, eIDAS) și certificate software PFX/P12."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Prelucrarea fișierelor se face offline sau necesită conexiune la internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Toate verificările și deblocările de fișiere se execută 100% local pe stația dumneavoastră de lucru, garantând confidențialitatea deplină a actelor."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DocInspector - Verificare și Eliminare Semnături Digitale PDF în Masă",
+  "operatingSystem": "Windows 10, Windows 11, Windows Server",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "15.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://doc-inspector.com/ro/preturi"
+  },
+  "description": "Verifică certificatele și elimină blocajele impuse de semnăturile digitale expirate sau invalide pe loturi mari de fișiere PDF. Prelucrare 100% locală și sigură.",
+  "url": "https://doc-inspector.com/ro/user-guide-digital-signatures"
+}
+  </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden;font-family:Inter,sans-serif">
 <div class="mesh-bg"></div>
@@ -463,6 +592,44 @@
     </div>
   </div>
     
+    <!-- SEO FAQ SECTION -->
+  <div class="guide-section">
+    <div class="guide-section-label">Întrebări Frecvente (FAQ)</div>
+    <div class="guide-faq-wrap">
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Eliminarea semnăturii afectează conținutul sau calitatea textului din PDF?</div>
+        <p class="guide-faq-a">Nu. DocInspector elimină exclusiv dicționarul criptografic de blocare și restricțiile asociate, păstrând toate paginile, textul și elementele vizuale perfect intacte.</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Sunt suportate token-urile USB hardware de semnătură electronică?</div>
+        <p class="guide-faq-a">Da, aplicația integrează suport complet pentru token-uri USB PKCS#11 (MoldSign, STISC, SafeNet, eIDAS) și certificate software PFX/P12.</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Prelucrarea fișierelor se face offline sau necesită conexiune la internet?</div>
+        <p class="guide-faq-a">Toate verificările și deblocările de fișiere se execută 100% local pe stația dumneavoastră de lucru, garantând confidențialitatea deplină a actelor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED TOOLS -->
+  <div class="guide-section">
+    <div class="guide-section-label">Instrumente Conexe Recomandate</div>
+    <div class="guide-related-grid">
+      <a href="user-guide-bates-numbering" class="guide-related-card">
+        <div class="guide-related-title"><span>🏷️</span> Numerotare Bates</div>
+        <p class="guide-related-desc">Paginare continuă dosare & ștampilare probe</p>
+      </a>
+      <a href="user-guide-iso-19005-pdfa-archiving" class="guide-related-card">
+        <div class="guide-related-title"><span>🏛️</span> Convertor Arhivare PDF/A</div>
+        <p class="guide-related-desc">Păstrare probe conform standardului ISO</p>
+      </a>
+      <a href="user-guide-clean-blank-pages" class="guide-related-card">
+        <div class="guide-related-title"><span>📄</span> Eliminare Pagini Albe</div>
+        <p class="guide-related-desc">Curățare automată scanări goale duplex</p>
+      </a>
+    </div>
+  </div>
+
   <div class="guide-cta" style="margin-top: 2.5rem; text-align: center;">
     <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 10px;">
       <span style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; border-radius: 50px; background: rgba(251, 191, 36, 0.12); border: 1.5px dashed rgba(251, 191, 36, 0.45); color: #fbbf24; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em;">

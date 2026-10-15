@@ -11,8 +11,8 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprimare & Optimizare PDF — DocInspector Guide</title>
-  <meta name="description" content="Reduce dimensiunea PDF-urilor cu până la 95% pentru portaluri de judecată și email prin recompresie de fluxuri, ajustare DPI și curățare obiecte.">  
+  <title>Compresie și Optimizare PDF Offline — Micșorare Dimensiune în Masă | DocInspector</title>
+  <meta name="description" content="Reduce dimensiunea fișierelor PDF cu până la 90% pentru încărcare pe portalul instanțelor și transmitere pe email. Control DPI și optimizare 100% offline.">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=13">
@@ -306,18 +306,147 @@
       border-radius: 8px;
     }
 
+  
+    /* ── SEO FAQ & Related Tools ── */
+    .guide-faq-wrap { margin-top: 32px; }
+    .guide-faq-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+    }
+    .guide-faq-item:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      background: rgba(15, 23, 42, 0.8);
+      transform: translateY(-1px);
+    }
+    .guide-faq-q {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guide-faq-a {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .guide-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .guide-related-card {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+    .guide-related-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      background: rgba(6, 182, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    .guide-related-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #22d3ee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .guide-related-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0;
+    }
+
   </style>
 
+  <meta name="keywords" content="compresie pdf offline, micsorare dimensiune pdf in masa, reducere mb pdf portal instanta, optimizare fisiere scanate mari, compresor pdf windows">
   <link rel="icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="shortcut icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="https://doc-inspector.com/assets/logo.png">
   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png">
-  <meta property="og:site_name" content="DocInspector" />
   <link rel="canonical" href="https://doc-inspector.com/ro/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide-compress-pdf" />
+  <meta property="og:site_name" content="DocInspector" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Compresie și Optimizare PDF Offline — Micșorare Dimensiune în Masă | DocInspector" />
+  <meta property="og:description" content="Reduce dimensiunea fișierelor PDF cu până la 90% pentru încărcare pe portalul instanțelor și transmitere pe email. Control DPI și optimizare 100% offline." />
+  <meta property="og:url" content="https://doc-inspector.com/ro/user-guide-compress-pdf" />
+  <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Compresie și Optimizare PDF Offline — Micșorare Dimensiune în Masă | DocInspector" />
+  <meta name="twitter:description" content="Reduce dimensiunea fișierelor PDF cu până la 90% pentru încărcare pe portalul instanțelor și transmitere pe email. Control DPI și optimizare 100% offline." />
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Paginile comprimate își păstrează claritatea pentru instanțe și autorități?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. Profilurile de optimizare (150 DPI sau 250 DPI) sunt calibrate special pentru a menține textul perfect lizibil, eliminând doar datele redundante din imagini."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cât de mult poate fi redusă mărimea unui fișier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pentru scanările brute de 300+ DPI sau fișierele voluminoase, reducerea este în mod uzual între 60% și 90%, încadrându-se rapid sub limitele de email (10-25 MB)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Datele mele confidențiale părăsesc vreodată calculatorul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Niciodată. Motorul de compresie rulează exclusiv pe procesorul dumneavoastră local, fără vreo conexiune la servere externe."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DocInspector - Compresie și Optimizare PDF Offline",
+  "operatingSystem": "Windows 10, Windows 11, Windows Server",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "15.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://doc-inspector.com/ro/preturi"
+  },
+  "description": "Reduce dimensiunea fișierelor PDF cu până la 90% pentru încărcare pe portalul instanțelor și transmitere pe email. Control DPI și optimizare 100% offline.",
+  "url": "https://doc-inspector.com/ro/user-guide-compress-pdf"
+}
+  </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden;font-family:Inter,sans-serif">
 <div class="mesh-bg"></div>
@@ -464,6 +593,44 @@
     </div>
   </div>
     
+    <!-- SEO FAQ SECTION -->
+  <div class="guide-section">
+    <div class="guide-section-label">Întrebări Frecvente (FAQ)</div>
+    <div class="guide-faq-wrap">
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Paginile comprimate își păstrează claritatea pentru instanțe și autorități?</div>
+        <p class="guide-faq-a">Da. Profilurile de optimizare (150 DPI sau 250 DPI) sunt calibrate special pentru a menține textul perfect lizibil, eliminând doar datele redundante din imagini.</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Cât de mult poate fi redusă mărimea unui fișier?</div>
+        <p class="guide-faq-a">Pentru scanările brute de 300+ DPI sau fișierele voluminoase, reducerea este în mod uzual între 60% și 90%, încadrându-se rapid sub limitele de email (10-25 MB).</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Datele mele confidențiale părăsesc vreodată calculatorul?</div>
+        <p class="guide-faq-a">Niciodată. Motorul de compresie rulează exclusiv pe procesorul dumneavoastră local, fără vreo conexiune la servere externe.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED TOOLS -->
+  <div class="guide-section">
+    <div class="guide-section-label">Instrumente Conexe Recomandate</div>
+    <div class="guide-related-grid">
+      <a href="user-guide-clean-blank-pages" class="guide-related-card">
+        <div class="guide-related-title"><span>📄</span> Eliminare Pagini Albe</div>
+        <p class="guide-related-desc">Ștergere foi albe din scanări de birou</p>
+      </a>
+      <a href="user-guide-iso-19005-pdfa-archiving" class="guide-related-card">
+        <div class="guide-related-title"><span>🏛️</span> Convertor Arhivare PDF/A</div>
+        <p class="guide-related-desc">Păstrare probe conform standardului ISO</p>
+      </a>
+      <a href="user-guide-repair-pdf" class="guide-related-card">
+        <div class="guide-related-title"><span>🩺</span> Reparare PDF</div>
+        <p class="guide-related-desc">Reconstrucție fișiere deteriorate și corupte</p>
+      </a>
+    </div>
+  </div>
+
   <div class="guide-cta" style="margin-top: 2.5rem; text-align: center;">
     <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 10px;">
       <span style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; border-radius: 50px; background: rgba(251, 191, 36, 0.12); border: 1.5px dashed rgba(251, 191, 36, 0.45); color: #fbbf24; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em;">

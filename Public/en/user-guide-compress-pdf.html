@@ -11,8 +11,8 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF Compressor & Optimizer — DocInspector Guide</title>
-  <meta name="description" content="Reduce massive PDF file sizes up to 95% for court portals and email sharing through stream compression, DPI downsampling, and object deduplication.">  
+  <title>Compress & Optimize PDF Offline — Batch DPI & File Size Reducer | DocInspector</title>
+  <meta name="description" content="Shrink oversized PDF files by up to 90% for email attachments and court upload portals. Offline DPI downsampling, stream deduplication, and font subsetting.">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=13">
@@ -306,18 +306,147 @@
       border-radius: 8px;
     }
 
+  
+    /* ── SEO FAQ & Related Tools ── */
+    .guide-faq-wrap { margin-top: 32px; }
+    .guide-faq-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+    }
+    .guide-faq-item:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      background: rgba(15, 23, 42, 0.8);
+      transform: translateY(-1px);
+    }
+    .guide-faq-q {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guide-faq-a {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .guide-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .guide-related-card {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+    .guide-related-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      background: rgba(6, 182, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    .guide-related-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #22d3ee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .guide-related-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0;
+    }
+
   </style>
 
+  <meta name="keywords" content="compress pdf offline windows, batch reduce pdf file size, downsample pdf dpi, email pdf compressor software, court portal pdf size reducer">
   <link rel="icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="shortcut icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="https://doc-inspector.com/assets/logo.png">
   <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png">
-  <meta property="og:site_name" content="DocInspector" />
   <link rel="canonical" href="https://doc-inspector.com/en/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/user-guide-compress-pdf" />
   <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide-compress-pdf" />
+  <meta property="og:site_name" content="DocInspector" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Compress & Optimize PDF Offline — Batch DPI & File Size Reducer | DocInspector" />
+  <meta property="og:description" content="Shrink oversized PDF files by up to 90% for email attachments and court upload portals. Offline DPI downsampling, stream deduplication, and font subsetting." />
+  <meta property="og:url" content="https://doc-inspector.com/en/user-guide-compress-pdf" />
+  <meta property="og:image" content="https://doc-inspector.com/assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Compress & Optimize PDF Offline — Batch DPI & File Size Reducer | DocInspector" />
+  <meta name="twitter:description" content="Shrink oversized PDF files by up to 90% for email attachments and court upload portals. Offline DPI downsampling, stream deduplication, and font subsetting." />
+  <meta name="twitter:image" content="https://doc-inspector.com/assets/logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will my compressed PDFs remain readable for court submissions and legal compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DocInspector uses professional resampling profiles (e.g. 150 DPI or 250 DPI) specifically calibrated to preserve crisp typography while reducing bulky image streams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can file sizes be reduced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Heavily uncompressed 300+ DPI scanner dumps and unoptimized exports typically see file size reductions between 60% and 92% without loss of document legibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this compression tool truly offline and safe for confidential documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, processing is performed entirely by your local CPU. No document is ever transmitted over the network, ensuring strict data security."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DocInspector - Compress & Optimize PDF Offline",
+  "operatingSystem": "Windows 10, Windows 11, Windows Server",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "15.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://doc-inspector.com/en/price"
+  },
+  "description": "Shrink oversized PDF files by up to 90% for email attachments and court upload portals. Offline DPI downsampling, stream deduplication, and font subsetting.",
+  "url": "https://doc-inspector.com/en/user-guide-compress-pdf"
+}
+  </script>
 </head>
 <body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden;font-family:Inter,sans-serif">
 <div class="mesh-bg"></div>
@@ -464,6 +593,44 @@
     </div>
   </div>
     
+    <!-- SEO FAQ SECTION -->
+  <div class="guide-section">
+    <div class="guide-section-label">Frequently Asked Questions</div>
+    <div class="guide-faq-wrap">
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Will my compressed PDFs remain readable for court submissions and legal compliance?</div>
+        <p class="guide-faq-a">Yes. DocInspector uses professional resampling profiles (e.g. 150 DPI or 250 DPI) specifically calibrated to preserve crisp typography while reducing bulky image streams.</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> How much can file sizes be reduced?</div>
+        <p class="guide-faq-a">Heavily uncompressed 300+ DPI scanner dumps and unoptimized exports typically see file size reductions between 60% and 92% without loss of document legibility.</p>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q"><span>❓</span> Is this compression tool truly offline and safe for confidential documents?</div>
+        <p class="guide-faq-a">Yes, processing is performed entirely by your local CPU. No document is ever transmitted over the network, ensuring strict data security.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED TOOLS -->
+  <div class="guide-section">
+    <div class="guide-section-label">Related Legal & Document Tools</div>
+    <div class="guide-related-grid">
+      <a href="user-guide-clean-blank-pages" class="guide-related-card">
+        <div class="guide-related-title"><span>📄</span> Clean Blank Pages</div>
+        <p class="guide-related-desc">Purge empty white sheets from scanner dumps</p>
+      </a>
+      <a href="user-guide-iso-19005-pdfa-archiving" class="guide-related-card">
+        <div class="guide-related-title"><span>🏛️</span> PDF/A Archival Converter</div>
+        <p class="guide-related-desc">ISO-compliant long-term evidence preservation</p>
+      </a>
+      <a href="user-guide-repair-pdf" class="guide-related-card">
+        <div class="guide-related-title"><span>🩺</span> Repair & Rebuild PDF</div>
+        <p class="guide-related-desc">Rebuild corrupted tables and object streams</p>
+      </a>
+    </div>
+  </div>
+
   <div class="guide-cta" style="margin-top: 2.5rem; text-align: center;">
     <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 10px;">
       <span style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; border-radius: 50px; background: rgba(251, 191, 36, 0.12); border: 1.5px dashed rgba(251, 191, 36, 0.45); color: #fbbf24; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em;">
