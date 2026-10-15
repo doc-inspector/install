@@ -103,6 +103,39 @@
     .plan-cta .btn { width:100%; justify-content:center; border-radius:50px; padding:.85rem 2rem; font-size:1rem; }
     .win-hint { display:flex; justify-content:center; align-items:center; gap:.4rem; margin-top:.9rem; opacity:.7; font-size:.8rem; }
     .win-hint img { width:11px; height:11px; filter:brightness(0) invert(1); }
+  
+    /* ── Side-by-Side Compare Table ── */
+    .compare-section { margin-top: 5rem; padding-top: 2rem; }
+    .compare-table-wrap {
+      background: rgba(6,182,212,0.03); border: 1px solid var(--border);
+      border-radius: 20px; overflow-x: auto; margin-top: 2.5rem; max-width: 960px; margin-left: auto; margin-right: auto;
+    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .compare-table thead th {
+      padding: 1.2rem 1.5rem; text-align: left; font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 0.95rem; color: var(--text-white);
+      background: rgba(6,182,212,0.06); border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child { width: 40%; }
+    .compare-table thead th:not(:first-child) { text-align: center; }
+    .compare-table tbody td {
+      padding: 0.85rem 1.5rem; border-bottom: 1px solid rgba(6,182,212,0.06); color: var(--text-muted);
+    }
+    .compare-table tbody td:not(:first-child) { text-align: center; }
+    .compare-table tbody tr:hover { background: rgba(6,182,212,0.04); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table .cat-row td {
+      font-weight: 700; color: var(--cyan); font-size: 0.78rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding-top: 1.4rem; background: rgba(6,182,212,0.03);
+    }
+    .yes { color: #4ade80; font-weight: 600; }
+    .partial { color: #fbbf24; font-weight: 600; }
+    .no { color: #475569; }
+    @media(max-width:700px) {
+      .compare-table { font-size: 0.78rem; }
+      .compare-table thead th, .compare-table tbody td { padding: 0.7rem 0.8rem; }
+    }
+
   </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -449,6 +482,15 @@ class="pricing-section" style="position:relative;overflow:hidden;">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.5">Criptare</strong> <span class="li-dim" data-i18n="p.pro.aud.5.d">pentru pachetele finale de probe</span></span></li>
             <li class="dim"><span class="f-dash">–</span><span data-i18n="p.aud.6">Elimină semnăturile digitale</span></li>
           </ul>
+          <div class="fg-group-label">MANAGEMENT JURIDIC &amp; INTELIGENT</div>
+          <ul class="plan-features">
+            <li class="dim"><span class="f-dash">–</span><span>Numerotare Bates &amp; Ștampilare Juridică</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Redenumire Inteligentă Documente</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Anonimizare Inteligentă &amp; GDPR</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Eliminare Pagini Albe</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Compresie &amp; Optimizare PDF</span></li>
+          </ul>
+
         </article>
 
         <!-- PRO -->
@@ -479,14 +521,18 @@ class="pricing-section" style="position:relative;overflow:hidden;">
 
           <hr class="plan-divider">
 
-          <div class="fg-group-label" data-i18n="p.pro.inc2">ÎN PLUS ÎN PRO</div>
+                              <div class="fg-group-label" data-i18n="p.pro.inc2">ÎN PLUS ÎN PRO</div>
           <ul class="plan-features">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.pdf.pdfa">Convertor de Arhivare PDF/A</strong> <span class="li-dim" data-i18n="p.pdf.pdfa.d">(arhivare pe termen lung conformă ISO)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Numerotare Bates &amp; Ștampilare Juridică</strong> <span class="li-dim">(indexare dosare juridice, prefixe &amp; paginare)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Redenumire Inteligentă Documente</strong> <span class="li-dim">(recunoaștere Smart OCR &amp; tipare metadate)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Anonimizare Inteligentă &amp; GDPR</strong> <span class="li-dim">(mascare în masă CNP, IBAN &amp; tipare proprii)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Eliminare Pagini Albe</strong> <span class="li-dim">(detecție automată &amp; ștergere scanări goale)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Compresie &amp; Optimizare PDF</strong> <span class="li-dim">(control avansat DPI &amp; micșorare dimensiune)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Verificare &amp; Eliminare Semnături Digitale</strong> <span class="li-dim" data-i18n="p.aud.6.d">(elimină blocajele de certificare și restricțiile)</span></span></li>
             <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.2">Raport avansat pachet</strong> <span class="li-dim" data-i18n="p.pro.rep.2.d">(indexare extinsă documente &amp; nr. pagini)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Raport evidență folder</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">pentru arbori întregi de foldere</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.4">Găsește &amp; redactează</strong> <span class="li-dim" data-i18n="p.pro.aud.4.d">conținut sensibil din PDF-uri</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Elimină semnăturile digitale</strong> <span class="li-dim" data-i18n="p.aud.6.d">(elimină blocajele de certificare și restricțiile)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Distrugere securizată fișiere</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(disponibil doar în aplicație)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Raport evidență folder</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">(audit recursiv arbori întregi de foldere)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Distrugere securizată fișiere</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(standard DoD 5220.22-M)</span></span></li>
             <li><span class="f-check">⚡</span><span><strong style="color: var(--cyan);">Mai multe instrumente Pro în curând</strong> <span class="li-dim">(actualizări incluse)</span></span></li>
           </ul>
 
@@ -504,7 +550,84 @@ class="pricing-section" style="position:relative;overflow:hidden;">
         <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn btn-primary" style="background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.5); color: #fff; padding: 12px 28px; font-weight: 600;" target="_blank" rel="noopener" data-i18n="price.manage.btn">Gestionare Abonament</a>
       </div>
 
-      <!-- LIMITS DETAIL SECTION -->
+            <!-- TABEL COMPARATIV CARACTERISTICI -->
+      <div class="compare-section" id="compare">
+        <header class="section-header" style="text-align: center; margin-bottom: 2rem;">
+          <div class="section-eyebrow" style="font-size: 0.8rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase;">Comparativ</div>
+          <h2 class="section-title text-gradient" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;">Comparare Caracteristici</h2>
+          <p class="section-subtitle" style="color: var(--text-muted); font-size: 1rem; max-width: 650px; margin: 0 auto;">Vezi exact ce oferă fiecare platformă — alege instrumentul potrivit pentru fluxul tău de lucru.</p>
+        </header>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Caracteristică</th>
+                <th>🌐 Unelte în Browser / Web</th>
+                <th>🖥️ Aplicație Desktop</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- General -->
+              <tr class="cat-row"><td colspan="3">General</td></tr>
+              <tr><td>Preț</td><td class="yes">Free Tier: €0 · Basic: €9.99/lună · Pro: €15/lună</td><td class="partial">Trial 3 zile: €0 · Basic: €9.99/lună · Pro: €15/lună</td></tr>
+              <tr><td>Necesită Instalare</td><td class="yes">Nu — funcționează direct în browser</td><td class="partial">Kit instalare Windows (.exe)</td></tr>
+              <tr><td>Funcționează Offline</td><td class="no">Nu — necesită conexiune internet</td><td class="yes">Da ✓ — funcționează complet offline</td></tr>
+              <tr><td>Necesită Cheie de Licență</td><td class="yes">Nu pentru Free Tier · Da pentru Basic &amp; Pro</td><td class="partial">Da (pentru activare)</td></tr>
+
+              <!-- Processing -->
+              <tr class="cat-row"><td colspan="3">Procesare Fișiere</td></tr>
+              <tr><td>Procesare PDF</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Procesare DOCX / Word</td><td class="partial">Free, Basic, Pro: Doar curățare metadate</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Procesare XLSX / Excel</td><td class="partial">Free, Basic, Pro: Doar curățare metadate</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Procesare Imagine (JPG, PNG, TIFF)</td><td class="partial">Free, Basic, Pro: Curățare metadate și conversie în PDF</td><td class="yes">✓ Trial, Basic &amp; Pro (curățare, conversie, batch)</td></tr>
+              <tr><td>Dimensiune maximă fișier</td><td class="partial">Free: 25 MB · Basic/Pro: 100 MB per fișier</td><td class="yes">Nelimitat (fără limită de dimensiune)</td></tr>
+              <tr><td>Fișiere maxime pe sesiune (upload run)</td><td class="partial">Free: Limitat de cota zilnică (100) · Basic: Limitat de cota zilnică (1.000) · Pro: max. 1.300 / run</td><td class="yes">Nelimitat (fără limită per sesiune)</td></tr>
+              <tr><td>Limită zilnică procesare</td><td class="partial">Free: 100/zi · Basic: 1.000/zi · Pro: Rulări Nelimitate</td><td class="yes">Nelimitat (fără limită zilnică pentru Trial, Basic sau Pro)</td></tr>
+              <tr><td>Pipeline Multi-Acțiune (batch)</td><td class="no">Free &amp; Basic: o singură acțiune · Pro: multi-acțiune</td><td class="yes">Trial &amp; Basic: o singură acțiune · Pro: pipeline multi-acțiune</td></tr>
+
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Unelte Principale PDF</td></tr>
+              <tr><td>Eliminare semnături digitale</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Sanitizare metadate</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Reparare &amp; Reconstrucție PDF (+ OCR integrat)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Adăugare filigran (Watermark)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Criptare PDF (AES-256)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Redactare text sensibil (permanentă)</td><td class="partial">✓ Doar Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Aplatizare PDF (Flatten to Image)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Convertor de Arhivare PDF/A</td><td class="partial">✓ Doar Pro</td><td class="partial">✓ Doar Pro</td></tr>
+
+              <!-- Management Juridic & Documentar Inteligent -->
+              <tr class="cat-row"><td colspan="3">Management Juridic &amp; Documentar Inteligent</td></tr>
+              <tr><td>Verificare &amp; Eliminare Semnături Digitale</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Local &amp; În Masă)</td></tr>
+              <tr><td>Numerotare Bates &amp; Ștampilare Juridică</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Prefixe, Paginare &amp; Poziționare)</td></tr>
+              <tr><td>Anonimizare Inteligentă &amp; Redactare GDPR</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Regex, CNP, IBAN &amp; Tipare Personalizate)</td></tr>
+              <tr><td>Redenumire Inteligentă Documente</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Smart OCR &amp; Tipare de Conținut)</td></tr>
+              <tr><td>Eliminare Pagini Albe / Goale</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Detectare &amp; Curățare Scanări Albe)</td></tr>
+              <tr><td>Compresie &amp; Optimizare PDF</td><td class="partial">În Curând ⏳</td><td class="yes">✓ Licență Pro (Control Avansat DPI &amp; Dimensiune)</td></tr>
+
+              <!-- Raportare & Evidenta -->
+              <tr class="cat-row"><td colspan="3">Raportare &amp; Evidență</td></tr>
+              <tr><td>Rezumat Pachet PDF (Borderou simplu)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Borderou Avansat (PDF/Word/Excel)</td><td class="partial">✓ Doar Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Raport Folder Evidence (structură directoare)</td><td class="no">— Indisponibil online</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Conversii Formate</td></tr>
+              <tr><td>Conversie orice format în PDF (Word, Excel, Imagini)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Avansat — Doar pe Desktop</td></tr>
+              <tr><td>OCR Standalone (scanare foldere întregi)</td><td class="yes">✓ Free, Basic &amp; Pro (integrat)</td><td class="yes">✓ Trial, Basic &amp; Pro (OCR recursiv)</td></tr>
+              <tr><td>Scanare recursivă foldere</td><td class="no">—</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Ștergere securizată fișiere (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+<!-- LIMITS DETAIL SECTION -->
       <div style="margin-top: 5rem; text-align: center;">
         <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-white);" data-i18n="price.limits.title">Limite de Utilizare Zilnică și Procesare</h2>
         <div style="max-width: 860px; margin: 0 auto; background: var(--bg-glass); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; overflow-x: auto;">

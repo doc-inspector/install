@@ -103,6 +103,39 @@
     .plan-cta .btn { width:100%; justify-content:center; border-radius:50px; padding:.85rem 2rem; font-size:1rem; }
     .win-hint { display:flex; justify-content:center; align-items:center; gap:.4rem; margin-top:.9rem; opacity:.7; font-size:.8rem; }
     .win-hint img { width:11px; height:11px; filter:brightness(0) invert(1); }
+  
+    /* ── Side-by-Side Compare Table ── */
+    .compare-section { margin-top: 5rem; padding-top: 2rem; }
+    .compare-table-wrap {
+      background: rgba(6,182,212,0.03); border: 1px solid var(--border);
+      border-radius: 20px; overflow-x: auto; margin-top: 2.5rem; max-width: 960px; margin-left: auto; margin-right: auto;
+    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .compare-table thead th {
+      padding: 1.2rem 1.5rem; text-align: left; font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 0.95rem; color: var(--text-white);
+      background: rgba(6,182,212,0.06); border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child { width: 40%; }
+    .compare-table thead th:not(:first-child) { text-align: center; }
+    .compare-table tbody td {
+      padding: 0.85rem 1.5rem; border-bottom: 1px solid rgba(6,182,212,0.06); color: var(--text-muted);
+    }
+    .compare-table tbody td:not(:first-child) { text-align: center; }
+    .compare-table tbody tr:hover { background: rgba(6,182,212,0.04); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table .cat-row td {
+      font-weight: 700; color: var(--cyan); font-size: 0.78rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding-top: 1.4rem; background: rgba(6,182,212,0.03);
+    }
+    .yes { color: #4ade80; font-weight: 600; }
+    .partial { color: #fbbf24; font-weight: 600; }
+    .no { color: #475569; }
+    @media(max-width:700px) {
+      .compare-table { font-size: 0.78rem; }
+      .compare-table thead th, .compare-table tbody td { padding: 0.7rem 0.8rem; }
+    }
+
   </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -449,6 +482,15 @@ class="pricing-section" style="position:relative;overflow:hidden;">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.5">Encryption</strong> <span class="li-dim" data-i18n="p.pro.aud.5.d">for final evidence packages</span></span></li>
             <li class="dim"><span class="f-dash">–</span><span data-i18n="p.aud.6">Remove digital signatures</span></li>
           </ul>
+          <div class="fg-group-label">SMART LEGAL &amp; MANAGEMENT</div>
+          <ul class="plan-features">
+            <li class="dim"><span class="f-dash">–</span><span>Bates Numbering &amp; Legal Stamping</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Smart Document Rename</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Auto-Anonymization / GDPR Redaction</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Clean Blank Pages (Empty Scanner Sheets)</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Compress &amp; Optimize PDF</span></li>
+          </ul>
+
         </article>
 
         <!-- PRO -->
@@ -479,14 +521,18 @@ class="pricing-section" style="position:relative;overflow:hidden;">
 
           <hr class="plan-divider">
 
-          <div class="fg-group-label" data-i18n="p.pro.inc2">EXTRA IN PRO</div>
+                              <div class="fg-group-label" data-i18n="p.pro.inc2">EXTRA IN PRO</div>
           <ul class="plan-features">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.pdf.pdfa">PDF/A Archival Converter</strong> <span class="li-dim" data-i18n="p.pdf.pdfa.d">(ISO-compliant long-term archiving)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Bates Numbering &amp; Legal Stamping</strong> <span class="li-dim">(case indexing, prefixes &amp; page counts)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Smart Document Rename</strong> <span class="li-dim">(smart OCR &amp; content-based pattern extraction)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Auto-Anonymization &amp; PII Redaction</strong> <span class="li-dim">(bulk GDPR, CNP, IBAN &amp; custom regex masking)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Clean Blank Pages</strong> <span class="li-dim">(auto-detect and delete empty scanner sheets)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Compress &amp; Optimize PDF</strong> <span class="li-dim">(advanced DPI control &amp; stream shrinkage)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Digital Signature Inspector &amp; Strip</strong> <span class="li-dim" data-i18n="p.aud.6.d">(remove certified locks &amp; restriction blocks)</span></span></li>
             <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.2">Advanced bundle report</strong> <span class="li-dim" data-i18n="p.pro.rep.2.d">(extended document indexing &amp; page counts)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Folder evidence report</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">for full trees</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.4">Find &amp; redact</strong> <span class="li-dim" data-i18n="p.pro.aud.4.d">sensitive content in PDFs</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Remove digital signatures</strong> <span class="li-dim" data-i18n="p.aud.6.d">(strip certified locks and restriction blocks)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Secure File Shredder</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(available only in application)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Folder evidence report</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">(recursive full directory audit)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Secure File Shredder</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(DoD 5220.22-M sanitization)</span></span></li>
             <li><span class="f-check">⚡</span><span><strong style="color: var(--cyan);">More Pro tools coming soon</strong> <span class="li-dim">(regular updates included)</span></span></li>
           </ul>
           <div class="fg-group-label" data-i18n="p.pro.multi">MULTI-ACTION RUNS</div>
@@ -503,7 +549,84 @@ class="pricing-section" style="position:relative;overflow:hidden;">
         <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn btn-primary" style="background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.5); color: #fff; padding: 12px 28px; font-weight: 600;" target="_blank" rel="noopener" data-i18n="price.manage.btn">Manage Subscription</a>
       </div>
 
-      <!-- LIMITS DETAIL SECTION -->
+            <!-- FEATURE COMPARISON TABLE (DESKTOP VS WEB) -->
+      <div class="compare-section" id="compare">
+        <header class="section-header" style="text-align: center; margin-bottom: 2rem;">
+          <div class="section-eyebrow" style="font-size: 0.8rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase;">Side-by-Side</div>
+          <h2 class="section-title text-gradient" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;">Feature Comparison</h2>
+          <p class="section-subtitle" style="color: var(--text-muted); font-size: 1rem; max-width: 650px; margin: 0 auto;">See exactly what each platform offers — choose the right tool for your workflow.</p>
+        </header>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>🌐 Browser / Web Tools</th>
+                <th>🖥️ Desktop App</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- General -->
+              <tr class="cat-row"><td colspan="3">General</td></tr>
+              <tr><td>Price</td><td class="yes">Free Tier: €0 · Basic: €9.99/mo · Pro: €15/mo</td><td class="partial">3-day Trial: €0 · Basic: €9.99/mo · Pro: €15/mo</td></tr>
+              <tr><td>Installation Required</td><td class="yes">None — works in any browser</td><td class="partial">Windows Installer (.exe)</td></tr>
+              <tr><td>Works Offline</td><td class="no">No — requires internet</td><td class="yes">Yes ✓ — fully air-gapped capable</td></tr>
+              <tr><td>License Key Required</td><td class="yes">No for Free Tier · Yes for Basic &amp; Pro</td><td class="partial">Yes (for activation)</td></tr>
+
+              <!-- Processing -->
+              <tr class="cat-row"><td colspan="3">File Processing</td></tr>
+              <tr><td>PDF Processing</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>DOCX / Word Processing</td><td class="partial">Free, Basic, Pro: Sanitize metadata only</td><td class="yes">✓ Trial, Basic &amp; Pro (sanitize, convert, batch)</td></tr>
+              <tr><td>XLSX / Excel Processing</td><td class="partial">Free, Basic, Pro: Sanitize metadata only</td><td class="yes">✓ Trial, Basic &amp; Pro (sanitize, convert, batch)</td></tr>
+              <tr><td>Image Processing (JPG, PNG, TIFF)</td><td class="partial">Free, Basic, Pro: Sanitize &amp; convert to PDF</td><td class="yes">✓ Trial, Basic &amp; Pro (sanitize, convert, batch)</td></tr>
+              <tr><td>Max File Size</td><td class="partial">Free: 25 MB · Basic/Pro: 100 MB per file</td><td class="yes">Unlimited (no file size limits)</td></tr>
+              <tr><td>Max Files per Upload Run</td><td class="partial">Free: Capped by daily limit (100) · Basic: Capped by daily limit (1,000) · Pro: up to 1,300 per run</td><td class="yes">Unlimited (no per-run limits)</td></tr>
+              <tr><td>Daily Processing Limit</td><td class="partial">Free: 100/day · Basic: 1,000/day · Pro: Unlimited runs</td><td class="yes">Unlimited (no daily limits for Trial, Basic, or Pro)</td></tr>
+              <tr><td>Multi-Action Pipeline (batch operations)</td><td class="no">Free &amp; Basic: single action · Pro: multi-action</td><td class="yes">Trial &amp; Basic: single action · Pro: multi-action pipeline</td></tr>
+
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Core PDF Tools (Browser &amp; Desktop)</td></tr>
+              <tr><td>Remove Digital Signatures</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Sanitize Metadata</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Repair &amp; Rebuild PDF (+ built-in OCR)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Add Watermark</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Encrypt PDF (AES-256)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Redact Sensitive Text</td><td class="partial">✓ Pro only</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Flatten to Image-Only PDF</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>PDF/A Archival Converter</td><td class="partial">✓ Pro only</td><td class="partial">✓ Pro only</td></tr>
+
+              <!-- Smart Legal & Document Management -->
+              <tr class="cat-row"><td colspan="3">Smart Legal &amp; Document Management</td></tr>
+              <tr><td>Digital Signature Inspector &amp; Removal</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Local &amp; Batch)</td></tr>
+              <tr><td>Bates Numbering &amp; Legal Stamping</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Prefixes, Paging &amp; Custom Layout)</td></tr>
+              <tr><td>Auto-Anonymization &amp; PII Redaction (GDPR)</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Regex, CNP, IBAN &amp; Custom Rules)</td></tr>
+              <tr><td>Smart Document Rename</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Smart OCR &amp; Content Patterns)</td></tr>
+              <tr><td>Clean Blank Pages (Empty Scanner Sheets)</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Auto-detect &amp; Purge Empty Pages)</td></tr>
+              <tr><td>Compress &amp; Optimize PDF</td><td class="partial">Coming Soon ⏳</td><td class="yes">✓ Pro License (Advanced DPI &amp; Size Reduction)</td></tr>
+
+              <!-- Reporting -->
+              <tr class="cat-row"><td colspan="3">Reporting &amp; Evidence</td></tr>
+              <tr><td>PDF Bundle Summary (Borderou)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Advanced Bundle Report (PDF/Word/Excel)</td><td class="partial">✓ Pro only</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Folder Evidence Report (full directory tree)</td><td class="no">— Not available online</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Format Conversions</td></tr>
+              <tr><td>Convert format to PDF (Word, Excel, Images)</td><td class="yes">✓ Free, Basic &amp; Pro</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Advanced — Desktop Only</td></tr>
+              <tr><td>OCR Standalone (scan entire folders)</td><td class="yes">✓ Free, Basic &amp; Pro (built-in)</td><td class="yes">✓ Trial, Basic &amp; Pro (recursive folder OCR)</td></tr>
+              <tr><td>Recursive Folder Scan</td><td class="no">—</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+              <tr><td>Secure File Deletion (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Trial, Basic &amp; Pro</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+<!-- LIMITS DETAIL SECTION -->
       <div style="margin-top: 5rem; text-align: center;">
         <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-white);" data-i18n="price.limits.title">Daily Usage &amp; Processing Limits</h2>
         <div style="max-width: 860px; margin: 0 auto; background: var(--bg-glass); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; overflow-x: auto;">

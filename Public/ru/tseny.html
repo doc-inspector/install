@@ -103,6 +103,39 @@
     .plan-cta .btn { width:100%; justify-content:center; border-radius:50px; padding:.85rem 2rem; font-size:1rem; }
     .win-hint { display:flex; justify-content:center; align-items:center; gap:.4rem; margin-top:.9rem; opacity:.7; font-size:.8rem; }
     .win-hint img { width:11px; height:11px; filter:brightness(0) invert(1); }
+  
+    /* ── Side-by-Side Compare Table ── */
+    .compare-section { margin-top: 5rem; padding-top: 2rem; }
+    .compare-table-wrap {
+      background: rgba(6,182,212,0.03); border: 1px solid var(--border);
+      border-radius: 20px; overflow-x: auto; margin-top: 2.5rem; max-width: 960px; margin-left: auto; margin-right: auto;
+    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .compare-table thead th {
+      padding: 1.2rem 1.5rem; text-align: left; font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 0.95rem; color: var(--text-white);
+      background: rgba(6,182,212,0.06); border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child { width: 40%; }
+    .compare-table thead th:not(:first-child) { text-align: center; }
+    .compare-table tbody td {
+      padding: 0.85rem 1.5rem; border-bottom: 1px solid rgba(6,182,212,0.06); color: var(--text-muted);
+    }
+    .compare-table tbody td:not(:first-child) { text-align: center; }
+    .compare-table tbody tr:hover { background: rgba(6,182,212,0.04); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table .cat-row td {
+      font-weight: 700; color: var(--cyan); font-size: 0.78rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding-top: 1.4rem; background: rgba(6,182,212,0.03);
+    }
+    .yes { color: #4ade80; font-weight: 600; }
+    .partial { color: #fbbf24; font-weight: 600; }
+    .no { color: #475569; }
+    @media(max-width:700px) {
+      .compare-table { font-size: 0.78rem; }
+      .compare-table thead th, .compare-table tbody td { padding: 0.7rem 0.8rem; }
+    }
+
   </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -449,6 +482,15 @@ class="pricing-section" style="position:relative;overflow:hidden;">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.5">Шифрование</strong> <span class="li-dim" data-i18n="p.pro.aud.5.d">для финальных пакетов</span></span></li>
             <li class="dim"><span class="f-dash">–</span><span data-i18n="p.aud.6">Удалить цифровые подписи</span></li>
           </ul>
+          <div class="fg-group-label">ЮРИДИЧЕСКИЙ И УМНЫЙ ДОКУМЕНТООБОРОТ</div>
+          <ul class="plan-features">
+            <li class="dim"><span class="f-dash">–</span><span>Нумерация Бейтса и штамповка</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Умное переименование документов</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Умная анонимизация и защита ПДн</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Удаление пустых страниц</span></li>
+            <li class="dim"><span class="f-dash">–</span><span>Сжатие и оптимизация PDF</span></li>
+          </ul>
+
         </article>
 
         <!-- PRO -->
@@ -479,14 +521,18 @@ class="pricing-section" style="position:relative;overflow:hidden;">
 
           <hr class="plan-divider">
 
-          <div class="fg-group-label" data-i18n="p.pro.inc2">ДОПОЛНИТЕЛЬНО В PRO</div>
+                              <div class="fg-group-label" data-i18n="p.pro.inc2">ДОПОЛНИТЕЛЬНО В PRO</div>
           <ul class="plan-features">
             <li><span class="f-check">✔</span><span><strong data-i18n="p.pdf.pdfa">Архивный конвертер PDF/A</strong> <span class="li-dim" data-i18n="p.pdf.pdfa.d">(долговременное архивирование по ISO)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Нумерация Бейтса и штамповка</strong> <span class="li-dim">(судебная индексация, префиксы и сквозная нумерация)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Умное переименование документов</strong> <span class="li-dim">(распознавание текста Smart OCR и шаблоны по контенту)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Умная анонимизация и защита ПДн</strong> <span class="li-dim">(маскирование паспортных данных, счетов, номеров)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Удаление пустых страниц</strong> <span class="li-dim">(автоматическое удаление белых листов со сканера)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong>Сжатие и оптимизация PDF</strong> <span class="li-dim">(контроль DPI и глубокое уменьшение веса)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Проверка и снятие цифровых подписей</strong> <span class="li-dim" data-i18n="p.aud.6.d">(снятие сертифицированных блокировок)</span></span></li>
             <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.2">Расширенный отчёт</strong> <span class="li-dim" data-i18n="p.pro.rep.2.d">(глубокое индексирование &amp; подсчет страниц)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Отчёт о содержимом папки</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">для полного дерева папок</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.4">Найти и удалить</strong> <span class="li-dim" data-i18n="p.pro.aud.4.d">конфиденциального контента в PDF</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.6">Удалить цифровые подписи</strong> <span class="li-dim" data-i18n="p.aud.6.d">(снять сертифицированные блокировки)</span></span></li>
-            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Безопасное уничтожение файлов</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(доступно только в приложении)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.rep.3">Отчёт о содержимом папки</strong> <span class="li-dim" data-i18n="p.pro.rep.3.d">(аудит дерева каталогов)</span></span></li>
+            <li><span class="f-check">✔</span><span><strong data-i18n="p.aud.shredder">Безопасное уничтожение файлов</strong> <span class="li-dim" data-i18n="p.aud.shredder.d">(стандарт DoD 5220.22-M)</span></span></li>
             <li><span class="f-check">⚡</span><span><strong style="color: var(--cyan);">Новые Pro-инструменты в ближайшее время</strong> <span class="li-dim">(регулярные обновления включены)</span></span></li>
           </ul>
 
@@ -504,7 +550,84 @@ class="pricing-section" style="position:relative;overflow:hidden;">
         <a href="https://doc-inspector.lemonsqueezy.com/billing" class="btn btn-primary" style="background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.5); color: #fff; padding: 12px 28px; font-weight: 600;" target="_blank" rel="noopener" data-i18n="price.manage.btn">Управление подпиской</a>
       </div>
 
-      <!-- LIMITS DETAIL SECTION -->
+            <!-- ТАБЛИЦА СРАВНЕНИЯ ХАРАКТЕРИСТИК -->
+      <div class="compare-section" id="compare">
+        <header class="section-header" style="text-align: center; margin-bottom: 2rem;">
+          <div class="section-eyebrow" style="font-size: 0.8rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase;">Сравнение</div>
+          <h2 class="section-title text-gradient" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;">Сравнение характеристик</h2>
+          <p class="section-subtitle" style="color: var(--text-muted); font-size: 1rem; max-width: 650px; margin: 0 auto;">Посмотрите, что именно предлагает каждая платформа — выберите подходящий инструмент для вашей работы.</p>
+        </header>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Функция</th>
+                <th>🌐 Браузерные / Веб-инструменты</th>
+                <th>🖥️ Настольное приложение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- General -->
+              <tr class="cat-row"><td colspan="3">Общие</td></tr>
+              <tr><td>Цена</td><td class="yes">Бесплатно: €0 · Basic: €9.99/мес · Pro: €15/мес</td><td class="partial">Пробная версия 3 дня: €0 · Basic: €9.99/мес · Pro: €15/мес</td></tr>
+              <tr><td>Требуется установка</td><td class="yes">Нет — работает в любом браузере</td><td class="partial">Установщик Windows (.exe)</td></tr>
+              <tr><td>Работает офлайн</td><td class="no">Нет — требуется интернет</td><td class="yes">Да ✓ — полностью автономен</td></tr>
+              <tr><td>Лицензионный ключ</td><td class="yes">Нет для Free · Да для Basic и Pro</td><td class="partial">Да (для активации)</td></tr>
+
+              <!-- Processing -->
+              <tr class="cat-row"><td colspan="3">Обработка файлов</td></tr>
+              <tr><td>Обработка PDF</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Обработка DOCX / Word</td><td class="partial">Free, Basic, Pro: Только очистка метаданных</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетная)</td></tr>
+              <tr><td>Обработка XLSX / Excel</td><td class="partial">Free, Basic, Pro: Только очистка метаданных</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетная)</td></tr>
+              <tr><td>Обработка изображений (JPG, PNG, TIFF)</td><td class="partial">Free, Basic, Pro: Очистка и конвертация в PDF</td><td class="yes">✓ Trial, Basic и Pro (очистка, конвертация, пакетная)</td></tr>
+              <tr><td>Макс. размер файла</td><td class="partial">Free: 25 МБ · Basic/Pro: 100 МБ на файл</td><td class="yes">Без ограничений (нет лимитов размера)</td></tr>
+              <tr><td>Макс. файлов за сеанс</td><td class="partial">Free: Лимит в день (100) · Basic: Лимит в день (1 000) · Pro: до 1 300 за раз</td><td class="yes">Без ограничений (нет лимита на сеанс)</td></tr>
+              <tr><td>Дневной лимит</td><td class="partial">Free: 100/день · Basic: 1 000/день · Pro: Без ограничений</td><td class="yes">Без ограничений (нет дневных лимитов для Trial, Basic или Pro)</td></tr>
+              <tr><td>Мульти-операции (пакетные)</td><td class="no">Free и Basic: 1 действие · Pro: Мульти-операции</td><td class="yes">Trial и Basic: 1 действие · Pro: Мульти-операции</td></tr>
+
+              <!-- Core PDF Tools -->
+              <tr class="cat-row"><td colspan="3">Основные инструменты PDF</td></tr>
+              <tr><td>Удаление цифровых подписей</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Очистка метаданных</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Восстановление PDF (+ встроенный OCR)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Добавление водяного знака</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Шифрование PDF (AES-256)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Редактирование конфиденциального текста</td><td class="partial">✓ Только Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Сведение PDF (Только изображение)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Конвертер в PDF/A</td><td class="partial">✓ Только Pro</td><td class="partial">✓ Только Pro</td></tr>
+
+              <!-- Юридические и продвинутые инструменты -->
+              <tr class="cat-row"><td colspan="3">Юридические и продвинутые инструменты</td></tr>
+              <tr><td>Проверка и снятие цифровых подписей</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Локально и пакетно)</td></tr>
+              <tr><td>Нумерация Бейтса и штамповка</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Префиксы, сквозная нумерация)</td></tr>
+              <tr><td>Умная анонимизация и защита ПДн</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Regex, персональные данные, шаблоны)</td></tr>
+              <tr><td>Умное переименование документов</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Smart OCR и шаблоны по контенту)</td></tr>
+              <tr><td>Удаление пустых страниц со сканера</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Автоматическая очистка белых листов)</td></tr>
+              <tr><td>Сжатие и оптимизация PDF</td><td class="partial">Скоро ⏳</td><td class="yes">✓ Лицензия Pro (Управление DPI и уменьшение веса)</td></tr>
+
+              <!-- Отчетность и доказательства -->
+              <tr class="cat-row"><td colspan="3">Отчетность и доказательства</td></tr>
+              <tr><td>Краткий отчет по пакету (Borderou)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Расширенный отчет (PDF/Word/Excel)</td><td class="partial">✓ Только Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Отчет по дереву папок</td><td class="no">— Недоступно онлайн</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+
+              <!-- Conversions -->
+              <tr class="cat-row"><td colspan="3">Конвертация форматов</td></tr>
+              <tr><td>Конвертация в PDF (Word, Excel, Изображения)</td><td class="yes">✓ Free, Basic и Pro</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+
+              <!-- Desktop-Only Advanced -->
+              <tr class="cat-row"><td colspan="3">Расширенные (только Desktop)</td></tr>
+              <tr><td>Standalone OCR (сканирование папок)</td><td class="yes">✓ Free, Basic и Pro (встроенный)</td><td class="yes">✓ Trial, Basic и Pro (рекурсивный)</td></tr>
+              <tr><td>Рекурсивное сканирование папок</td><td class="no">—</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+              <tr><td>Безопасное удаление файлов (DoD Shredder)</td><td class="no">—</td><td class="yes">✓ Trial, Basic и Pro</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+<!-- LIMITS DETAIL SECTION -->
       <div style="margin-top: 5rem; text-align: center;">
         <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-white);" data-i18n="price.limits.title">Лимиты ежедневного использования и обработки</h2>
         <div style="max-width: 860px; margin: 0 auto; background: var(--bg-glass); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; overflow-x: auto;">
