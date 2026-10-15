@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18436611503"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18436611503');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Blank Pages in Scans — DocInspector Guide</title>
+  <meta name="description" content="Automated blank and empty page removal for duplex scanner feeds with smart noise filtering, punch-hole detection, and 100% text protection.">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=13">
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wu1m2q0juc");</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-80038W7D1J"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-80038W7D1J");</script>
+  <style>
+    .mesh-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+    .mesh-bg::before{content:"";position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(6,182,212,.07) 0%,transparent 65%);top:-200px;left:-200px;animation:meshMove1 18s ease-in-out infinite alternate}
+    .mesh-bg::after{content:"";position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(99,102,241,.06) 0%,transparent 65%);bottom:-100px;right:-100px;animation:meshMove2 22s ease-in-out infinite alternate}
+    @keyframes meshMove1{0%{transform:translate(0,0) scale(1)}100%{transform:translate(200px,150px) scale(1.3)}}
+    @keyframes meshMove2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-180px,-120px) scale(1.2)}}
+    .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.4}
+    .orb-1{width:400px;height:400px;background:rgba(6,182,212,.08);top:10%;left:5%;animation:orbFloat 12s ease-in-out infinite}
+    .orb-2{width:300px;height:300px;background:rgba(139,92,246,.07);top:50%;right:8%;animation:orbFloat 16s ease-in-out infinite reverse}
+    .orb-3{width:250px;height:250px;background:rgba(16,185,129,.06);bottom:20%;left:25%;animation:orbFloat 14s ease-in-out infinite 2s}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+    .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(6,182,212,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(6,182,212,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%)}
+    .guide-page-wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:120px 20px 80px}
+    .guide-hero{text-align:center;margin-bottom:60px}
+    .guide-icon{font-size:4.5rem;margin-bottom:20px;display:block;filter:drop-shadow(0 0 30px rgba(6,182,212,.5))}
+    .guide-title{font-family:"Outfit",sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;background:linear-gradient(135deg,#fff 0%,#06b6d4 50%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:0 0 16px;letter-spacing:-.03em}
+    .guide-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .guide-badge{padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(6,182,212,.35);color:#22d3ee;background:rgba(6,182,212,.08)}
+    .guide-section{background:rgba(6,182,212,.03);border:1px solid rgba(6,182,212,.15);border-radius:16px;padding:32px;margin-bottom:24px;transition:border-color .3s}
+    .guide-section:hover{border-color:rgba(6,182,212,.3)}
+    .guide-section-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#06b6d4;margin-bottom:12px}
+    .guide-section-text{color:#cbd5e1;line-height:1.75;font-size:.97rem;margin:0}
+    .guide-steps{list-style:none;padding:0;margin:0}
+    .guide-formats{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .guide-format-tag{padding:4px 12px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.82rem;font-weight:500}
+    .guide-cta{text-align:center;margin-top:48px}
+
+    /* ── INTERACTIVE DEMO COMPONENT ── */
+    .interactive-demo-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 182, 212, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      padding: 28px;
+      margin: 28px 0;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.4), 0 0 28px rgba(6,182,212,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .demo-control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .demo-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+    }
+    .demo-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .demo-pill {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .demo-pill:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      color: #f1f5f9;
+      transform: translateY(-1px);
+    }
+    .demo-pill.active {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(8, 145, 178, 0.35));
+      border-color: #22d3ee;
+      color: #67e8f9;
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+    }
+    .demo-input, .demo-select {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .demo-input:focus, .demo-select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+    .demo-preview-stage {
+      background: #020617;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+    }
+
+    /* Digital Signature Widget */
+    .sig-stamp-box {
+      border: 2px solid #059669;
+      background: rgba(6, 78, 59, 0.25);
+      border-radius: 12px;
+      padding: 18px;
+      color: #e2e8f0;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+    }
+    .sig-stamp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .sig-shield { font-size: 2rem; }
+    .sig-name { font-weight: 800; font-size: 1.05rem; color: #34d399; }
+    .sig-meta { font-size: 0.78rem; color: #94a3b8; }
+    .sig-stamp-body { font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 12px; }
+    .sig-stamp-status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #6ee7b7;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Bates Numbering Widget */
+    .bates-page-mockup {
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 8px;
+      padding: 28px 24px;
+      min-height: 220px;
+      position: relative;
+      font-family: 'Times New Roman', serif;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .bates-stamp-tag {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #b91c1c;
+      background: rgba(254, 226, 226, 0.85);
+      border: 1px solid #dc2626;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.08em;
+      transition: all 0.3s ease;
+    }
+    .bates-stamp-tag.pos-top-right { top: 16px; right: 16px; }
+    .bates-stamp-tag.pos-bottom-right { bottom: 16px; right: 16px; }
+    .bates-stamp-tag.pos-bottom-center { bottom: 16px; left: 50%; transform: translateX(-50%); }
+    .doc-mockup-header { font-weight: bold; font-size: 0.82rem; border-bottom: 2px solid #334155; padding-bottom: 8px; margin-bottom: 14px; text-align: center; }
+    .doc-mockup-line { height: 8px; background: #cbd5e1; border-radius: 4px; margin-bottom: 10px; }
+    .doc-mockup-footer { margin-top: 28px; font-size: 0.72rem; color: #64748b; text-align: center; font-style: italic; }
+
+    /* GDPR / PII Widget */
+    .pii-doc-mockup {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+    .pii-doc-title { font-weight: 800; font-size: 0.9rem; color: #38bdf8; margin-bottom: 10px; }
+    .pii-token {
+      transition: all 0.3s ease;
+      font-weight: 600;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .pii-token.masked {
+      background: #000000 !important;
+      color: transparent !important;
+      user-select: none;
+      box-shadow: 0 0 6px rgba(0,0,0,0.8);
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .pii-status-banner {
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #67e8f9;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* Smart Rename Widget */
+    .rename-box { display: flex; flex-direction: column; gap: 14px; }
+    .rename-row {
+      padding: 14px 18px;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .rename-row.old { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); }
+    .rename-row.new { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 0 16px rgba(16, 185, 129, 0.1); }
+    .rename-tag { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+    .tag-old { background: #7f1d1d; color: #fca5a5; }
+    .tag-new { background: #064e3b; color: #6ee7b7; }
+    .rename-filename { font-family: 'Courier New', monospace; font-size: 0.95rem; font-weight: 700; color: #f8fafc; }
+    .rename-arrow { text-align: center; color: #38bdf8; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* Blank Pages Widget */
+    .blank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+    .blank-page-card {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .blank-page-card.kept { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.04); }
+    .blank-page-card.removed { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.04); opacity: 0.85; }
+    .bpc-thumb {
+      height: 100px;
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 10px 8px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .bpc-thumb.empty { background: #f8fafc; }
+    .bpc-hole { width: 8px; height: 8px; border-radius: 50%; background: #475569; position: absolute; top: 12px; left: 8px; }
+    .bpc-dust { width: 3px; height: 3px; border-radius: 50%; background: #94a3b8; position: absolute; top: 50px; right: 20px; }
+    .bpc-line { height: 4px; background: #334155; border-radius: 2px; margin-bottom: 6px; }
+    .bpc-stamp { font-size: 0.55rem; color: #b91c1c; border: 1px solid #b91c1c; padding: 1px 4px; font-weight: 800; border-radius: 2px; display: inline-block; margin-top: 10px; }
+    .bpc-title { font-size: 0.75rem; font-weight: 700; color: #e2e8f0; }
+    .bpc-badge { font-size: 0.68rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
+    .badge-kept { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-removed { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+    /* Compression Gauge Widget */
+    .comp-gauge-card { display: flex; flex-direction: column; gap: 16px; }
+    .comp-gauge-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .comp-col { flex: 1; min-width: 140px; }
+    .comp-metric-label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px; }
+    .comp-metric-value { font-size: 1.6rem; font-weight: 900; font-family: 'Outfit', sans-serif; }
+    .text-red { color: #f87171; }
+    .text-green { color: #34d399; }
+    .comp-bar-bg { height: 10px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; margin-top: 6px; }
+    .comp-bar-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
+    .fill-old { background: #ef4444; }
+    .fill-new { background: #10b981; }
+    .comp-reduction-badge {
+      font-size: 1.4rem;
+      font-weight: 900;
+      font-family: 'Outfit', sans-serif;
+      padding: 8px 18px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid #10b981;
+      color: #34d399;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    }
+    .comp-status-note {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #38bdf8;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+  </style>
+
+  <link rel="icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
+  <link rel="shortcut icon" href="https://doc-inspector.com/assets/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://doc-inspector.com/assets/logo.png">
+  <meta name="thumbnail" content="https://doc-inspector.com/assets/logo.png">
+  <meta property="og:site_name" content="DocInspector" />
+  <link rel="canonical" href="https://doc-inspector.com/en/user-guide-clean-blank-pages" />
+  <link rel="alternate" hreflang="en" href="https://doc-inspector.com/en/user-guide-clean-blank-pages" />
+  <link rel="alternate" hreflang="ro" href="https://doc-inspector.com/ro/user-guide-clean-blank-pages" />
+  <link rel="alternate" hreflang="ru" href="https://doc-inspector.com/ru/user-guide-clean-blank-pages" />
+  <link rel="alternate" hreflang="x-default" href="https://doc-inspector.com/en/user-guide-clean-blank-pages" />
+</head>
+<body style="background:#0a1628;color:#e2e8f0;overflow-x:hidden;font-family:Inter,sans-serif">
+<div class="mesh-bg"></div>
+<div class="grid-lines"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div id="progress-bar"></div>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="./" class="brand">
+        <span class="brand-logo"><img src="../assets/logo.png" alt="DocInspector" width="38" height="38"></span>
+        <span style="display: flex; flex-direction: column; gap: 0px; line-height: 1.1;">
+          <span class="brand-name" data-i18n="brand.name" style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #22d3ee; display: block; line-height: 1.0; margin: 0;">DocInspector</span>
+          <span class="brand-subtitle" data-i18n-html="brand.subtitle" style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.02em; max-width: 220px; line-height: 1.15; display: block; margin: 2px 0 0 0;">Document Conversion, Security, Anonymization &amp; Audit Suite</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="./">Home</a>
+        <a href="tools-online">🌐 Online Tools</a>
+        <a href="price">Price</a>
+        <a href="user-guide" style="color:#06b6d4;font-weight:700">User Guide</a>
+        <a href="reports-and-feedback">Reports & Feedback</a>
+        <a href="blog">Blog</a>
+        <a href="contact">Contact</a>
+        <a href="download" class="btn btn-primary btn-sm mobile-only">Download</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-dropdown">
+          <button class="lang-btn" aria-label="Language">
+            <span class="lang-pill">EN</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="lang-menu">
+            <a href="../en/user-guide-clean-blank-pages" class="lang-item active" data-lang="en">EN</a>
+            <a href="../ro/user-guide-clean-blank-pages" class="lang-item" data-lang="ro">RO</a>
+            <a href="../ru/user-guide-clean-blank-pages" class="lang-item" data-lang="ru">RU</a>
+          </div>
+        </div>
+        <a href="download" class="btn btn-primary btn-sm desktop-only">Download</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="guide-page-wrap">
+  <div class="guide-hero">
+    <span class="guide-icon">📑</span>
+    <h1 class="guide-title">Clean Blank Pages in Scans</h1>
+    <div class="guide-badges">
+      <span class="guide-badge">Duplex Scanner Cleanup</span>
+      <span class="guide-badge">Smart Noise Threshold</span>
+      <span class="guide-badge">100% Text Protection</span>
+    </div>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-label">The Problem</div>
+    <p class="guide-section-text">High-speed duplex scanners feed every sheet double-sided, creating hundreds of useless blank pages in your PDF files. Worse, faint punch holes, staple marks, paper translucency, or scanner dust fool naive tools into keeping empty pages or deleting pages with faint print.</p>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-label">The Solution</div>
+    <p class="guide-section-text">Employs intelligent computer vision density analysis to detect genuine blank pages while distinguishing them from scanner noise, paper fiber textures, and punch holes. The algorithm guarantees 100% protection for any page containing readable text, handwriting, barcodes, or stamps. Cleans thousands of pages in seconds, dramatically reducing file size and page count.</p>
+  </div>
+
+  <!-- INTERACTIVE SIMULATOR SECTION -->
+  <div class="guide-section" style="border-color: rgba(6,182,212,0.35); background: rgba(6,182,212,0.04);">
+    <div class="guide-section-label" style="display:flex; align-items:center; gap:8px;">
+      <span>⚡</span> Interactive Duplex Scanner Page Filter
+    </div>
+    <p class="guide-section-text" style="margin-bottom:18px;">Adjust the scanner sensitivity slider to see real-time blank page identification and text protection:</p>
+
+        <div class="interactive-demo-card">
+          <div class="demo-controls">
+            <div class="demo-control-group">
+              <label class="demo-label">Scanner Noise Filter Threshold:</label>
+              <div class="demo-pill-group">
+                <button type="button" class="demo-pill" onclick="setBlankSensitivity('low', this)">Low (Sensitive)</button>
+                <button type="button" class="demo-pill active" onclick="setBlankSensitivity('med', this)">Medium (Balanced - Default)</button>
+                <button type="button" class="demo-pill" onclick="setBlankSensitivity('high', this)">High (Dark Texture / Old Paper)</button>
+              </div>
+            </div>
+          </div>
+          <div class="demo-preview-stage">
+            <div class="blank-grid">
+              <div class="blank-page-card kept">
+                <div class="bpc-thumb">
+                  <div class="bpc-line" style="width:85%"></div>
+                  <div class="bpc-line" style="width:70%"></div>
+                  <div class="bpc-line" style="width:90%"></div>
+                  <div class="bpc-stamp">STAMP</div>
+                </div>
+                <div class="bpc-title">Page 1 (Front)</div>
+                <div class="bpc-badge badge-kept">✓ Kept (Contains Text)</div>
+              </div>
+              <div class="blank-page-card removed">
+                <div class="bpc-thumb empty">
+                  <div class="bpc-hole"></div>
+                  <div class="bpc-dust"></div>
+                </div>
+                <div class="bpc-title">Page 2 (Reverse)</div>
+                <div class="bpc-badge badge-removed">🗑️ Auto-Removed (Blank Page)</div>
+              </div>
+              <div class="blank-page-card kept">
+                <div class="bpc-thumb">
+                  <div class="bpc-line" style="width:90%"></div>
+                  <div class="bpc-line" style="width:80%"></div>
+                  <div class="bpc-line" style="width:65%"></div>
+                </div>
+                <div class="bpc-title">Page 3 (Annex)</div>
+                <div class="bpc-badge badge-kept">✓ Kept (Contains Text)</div>
+              </div>
+              <div class="blank-page-card removed">
+                <div class="bpc-thumb empty">
+                  <div class="bpc-dust"></div>
+                </div>
+                <div class="bpc-title">Page 4 (Empty Back)</div>
+                <div class="bpc-badge badge-removed">🗑️ Auto-Removed (Blank Page)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          function setBlankSensitivity(lvl, btn) {
+            btn.parentElement.querySelectorAll('.demo-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        </script>
+        
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-label">How It Works — Step by Step</div>
+    <ul class="guide-steps">
+<li style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#040d1a;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;">1</span><span style="color:#cbd5e1;font-size:.95rem;line-height:1.6;">Set the scanner noise threshold (Low, Medium Balanced, or High for dark textures).</span></li><li style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#040d1a;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;">2</span><span style="color:#cbd5e1;font-size:.95rem;line-height:1.6;">Enable Punch Hole & Margin Ignore to filter out binder hole shadows and scanner bed borders.</span></li><li style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#040d1a;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;">3</span><span style="color:#cbd5e1;font-size:.95rem;line-height:1.6;">Ensure Strict Text Protection is active to prevent any page with text or barcodes from being deleted.</span></li><li style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#040d1a;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;">4</span><span style="color:#cbd5e1;font-size:.95rem;line-height:1.6;">Select your batch of multi-page scanned PDFs or duplex feeds.</span></li><li style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;"><span style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#040d1a;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;">5</span><span style="color:#cbd5e1;font-size:.95rem;line-height:1.6;">Execute the clean-up — empty reverse pages are removed cleanly while critical pages remain intact.</span></li>
+    </ul>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-label">Supported Formats</div>
+    <div class="guide-formats">
+      <span class="guide-format-tag">PDF</span>
+      <span class="guide-format-tag">TIFF Multi-Page</span>
+    </div>
+  </div>
+    
+  <div class="guide-cta" style="margin-top: 2.5rem; text-align: center;">
+    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 10px;">
+      <span style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; border-radius: 50px; background: rgba(251, 191, 36, 0.12); border: 1.5px dashed rgba(251, 191, 36, 0.45); color: #fbbf24; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em;">
+        ⏳ Online Tool: Coming Soon (Desktop Batch Engine Active)
+      </span>
+      <span style="font-size: 0.84rem; color: #94a3b8; max-width: 580px; line-height: 1.5;">Full browser-based cloud tool is in testing. Available immediately in DocInspector Pro for desktop.</span>
+      <a href="download" style="margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; color: #22d3ee; font-weight: 700; text-decoration: none; font-size: 0.9rem;">
+        📥 Download DocInspector Pro Desktop &rarr;
+      </a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>© 2025 DocInspector. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="security" style="display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .75rem;border-radius:50px;border:1px solid rgba(6,182,212,.4);color:#67e8f9;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s">&#x1F512; Security</a>
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Terms of Service</a>
+        <a href="refund">Refund Policy</a>
+        <a href="https://www.tiktok.com/@docinspector" target="_blank" rel="noopener" class="tiktok-link" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-.88-.07A6.26 6.26 0 0 0 3.23 15.2 6.26 6.26 0 0 0 9.49 21.5a6.27 6.27 0 0 0 6.27-6.27V8.77a8.16 8.16 0 0 0 3.83.96V6.28a4.84 4.84 0 0 1-1-.09l1 .5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../scroll-fx.js"></script>
+
+<script>
+  // Mobile Nav Toggle
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
+</script>
+</body>
+</html>
