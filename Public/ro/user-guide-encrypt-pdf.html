@@ -138,19 +138,30 @@
 
 
   
-    <div style="margin: 2.5rem 0 1.5rem 0;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;">
-        📸 Rezultat Exemplu
-      </h3>
-      <figure class="example-image-container" onclick="openLightbox(this)" style="cursor: pointer; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(6,182,212,0.25); background: rgba(15, 23, 42, 0.6); margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        <img src="../assets/guide-encrypt-pdf.png" alt="Rezultat Exemplu" style="width: 100%; display: block; height: auto;" />
-        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          🔍 Click pentru Mărire
+        <div class="guide-visual-stage">
+      <div class="guide-visual-topbar">
+        <div class="guide-topbar-dots"><span class="guide-topbar-dot r"></span><span class="guide-topbar-dot y"></span><span class="guide-topbar-dot g"></span></div>
+        <div class="guide-topbar-title"><span>🔐</span> Securizare Criptografică Militară AES-256 GCM și Control Permisiuni</div>
+        <span class="guide-topbar-badge">✓ CRIPTAT (AES-256)</span>
+      </div>
+      <div class="guide-visual-canvas">
+        <div class="guide-canvas-grid-2">
+          <div class="visual-pane neutral">
+            <div class="visual-pane-tag"><span>🔑 Suită Criptografică</span><span style="color:#fbbf24;">CONFORM FIPS 197</span></div>
+            <div class="visual-metric-row"><span>Algoritm:</span><span class="visual-metric-val" style="color:#34d399;">AES-256 Biți GCM</span></div>
+            <div class="visual-metric-row"><span>Derivare Cheie:</span><span class="visual-metric-val" style="color:#38bdf8;">PBKDF2 SHA-256 (100.000 iterații)</span></div>
+            <div class="visual-metric-row"><span>Criptare Metadate:</span><span class="visual-metric-val" style="color:#34d399;">Totală (Zero Scurgere Info)</span></div>
+            <div class="visual-metric-row"><span>Rezistență Atac Forță Brută:</span><span class="visual-metric-val" style="color:#34d399;">Imposibil Matematic</span></div>
+          </div>
+          <div class="visual-pane neutral">
+            <div class="visual-pane-tag"><span>🔒 Blocare Permisiuni Acces</span><span style="color:#38bdf8;">POLITICĂ APLICATĂ</span></div>
+            <div class="visual-metric-row"><span>Tipărire Document:</span><span class="visual-metric-val" style="color:#ef4444;">INTERZISĂ (0 DPI)</span></div>
+            <div class="visual-metric-row"><span>Copiere Text &amp; Imagini:</span><span class="visual-metric-val" style="color:#ef4444;">INTERZISĂ (Blocată)</span></div>
+            <div class="visual-metric-row"><span>Modificare Conținut:</span><span class="visual-metric-val" style="color:#ef4444;">BLOCATĂ (Doar-Citire)</span></div>
+            <div class="visual-metric-row"><span>Reorganizare Pagini:</span><span class="visual-metric-val" style="color:#ef4444;">BLOCATĂ</span></div>
+          </div>
         </div>
-      </figure>
-  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
-    🔍 Apasă pe imagine pentru mărire — Previzualizare Interactivă
-  </p>
+      </div>
     </div>
     
 <div class="guide-cta" style="margin-top: 2rem;">

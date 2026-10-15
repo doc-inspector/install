@@ -138,19 +138,46 @@
 
 
   
-    <div style="margin: 2.5rem 0 1.5rem 0;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;">
-        📸 Example Result
-      </h3>
-      <figure class="example-image-container" onclick="openLightbox(this)" style="cursor: pointer; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(6,182,212,0.25); background: rgba(15, 23, 42, 0.6); margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        <img src="../assets/guide-convert-to-pdf.png" alt="Example Result" style="width: 100%; display: block; height: auto;" />
-        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          🔍 Click to Enlarge
+        <div class="guide-visual-stage">
+      <div class="guide-visual-topbar">
+        <div class="guide-topbar-dots"><span class="guide-topbar-dot r"></span><span class="guide-topbar-dot y"></span><span class="guide-topbar-dot g"></span></div>
+        <div class="guide-topbar-title"><span>📑</span> High-Fidelity Batch Office-to-PDF Standardized Rendering</div>
+        <span class="guide-topbar-badge">✓ BATCH COMPLETED</span>
+      </div>
+      <div class="guide-visual-canvas">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div class="visual-metric-row" style="background:rgba(6,182,212,0.06); border:1px solid rgba(6,182,212,0.2); padding:10px 14px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.1rem;">📄</span>
+              <div><strong>Financial_Audit_2026.docx</strong> (Word Document)</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:0.75rem; color:#94a3b8;">14 Pages • Tables &amp; Charts</span>
+              <span class="visual-metric-val" style="color:#34d399;">→ Financial_Audit_2026.pdf (100% Vector)</span>
+            </div>
+          </div>
+          <div class="visual-metric-row" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2); padding:10px 14px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.1rem;">📊</span>
+              <div><strong>Annual_Budget_Model.xlsx</strong> (Excel Workbook)</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:0.75rem; color:#94a3b8;">6 Sheets • Auto-Fit Grid</span>
+              <span class="visual-metric-val" style="color:#34d399;">→ Annual_Budget_Model.pdf (Clean Margins)</span>
+            </div>
+          </div>
+          <div class="visual-metric-row" style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); padding:10px 14px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:1.1rem;">🖼️</span>
+              <div><strong>Scanned_Deed_Evidence.tiff</strong> (Multi-Page Scan)</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:0.75rem; color:#94a3b8;">300 DPI • Monochrome</span>
+              <span class="visual-metric-val" style="color:#34d399;">→ Scanned_Deed_Evidence.pdf (Searchable OCR)</span>
+            </div>
+          </div>
         </div>
-      </figure>
-  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
-    🔍 Click image to enlarge — Interactive Screenshot Preview
-  </p>
+      </div>
     </div>
     
 <div class="guide-cta" style="margin-top: 2rem;">

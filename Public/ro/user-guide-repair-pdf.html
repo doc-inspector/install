@@ -138,19 +138,36 @@
 
 
   
-    <div style="margin: 2.5rem 0 1.5rem 0;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;">
-        📸 Rezultat Exemplu
-      </h3>
-      <figure class="example-image-container" onclick="openLightbox(this)" style="cursor: pointer; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(6,182,212,0.25); background: rgba(15, 23, 42, 0.6); margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        <img src="../assets/guide-repair-pdf.png" alt="Rezultat Exemplu" style="width: 100%; display: block; height: auto;" />
-        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          🔍 Click pentru Mărire
+        <div class="guide-visual-stage">
+      <div class="guide-visual-topbar">
+        <div class="guide-topbar-dots"><span class="guide-topbar-dot r"></span><span class="guide-topbar-dot y"></span><span class="guide-topbar-dot g"></span></div>
+        <div class="guide-topbar-title"><span>⚡</span> Reconstrucție Flux Binar PDF și Tabel Referințe Încrucișate</div>
+        <span class="guide-topbar-badge">✓ 100% REPARAT</span>
+      </div>
+      <div class="guide-visual-canvas">
+        <div class="guide-canvas-grid-2">
+          <div class="visual-pane before">
+            <div class="visual-pane-tag"><span>❌ Flux PDF Deteriorat</span><span style="font-size:0.7rem; color:#f87171;">EROARE: 0x80040154</span></div>
+            <div class="visual-metric-row"><span>Tabel XREF:</span><span class="visual-metric-val" style="color:#ef4444;">CORUPT (Offset Lipsă)</span></div>
+            <div class="visual-metric-row"><span>Dicționar Trailer:</span><span class="visual-metric-val" style="color:#ef4444;">TRUNCHIAT / INACCESIBIL</span></div>
+            <div class="visual-metric-row"><span>Decompresie Flux:</span><span class="visual-metric-val" style="color:#f59e0b;">Eroare Flate la octetul 40.112</span></div>
+            <div class="visual-metric-row"><span>Stare Deschidere:</span><span class="visual-metric-val" style="color:#ef4444;">"Fișier corupt - imposibil de deschis"</span></div>
+            <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); border-radius:8px; padding:8px 12px; font-family:monospace; font-size:0.75rem; color:#fca5a5; margin-top:4px;">
+              ! Diagnostic Binar: %PDF-1.4 ... [Eroare: Referință catalog /Root lipsă]
+            </div>
+          </div>
+          <div class="visual-pane after">
+            <div class="visual-pane-tag"><span>✓ Structură Document Reconstituită</span><span style="font-size:0.7rem; color:#34d399;">TEST INTEGRITATE VALIDAT</span></div>
+            <div class="visual-metric-row"><span>XREF Reconstruit:</span><span class="visual-metric-val" style="color:#34d399;">1.420 Obiecte Reindexate</span></div>
+            <div class="visual-metric-row"><span>Catalog Rădăcină:</span><span class="visual-metric-val" style="color:#34d399;">Reconstituit &amp; Conectat</span></div>
+            <div class="visual-metric-row"><span>Pagini Recuperate:</span><span class="visual-metric-val" style="color:#38bdf8;">18 din 18 Pagini Recuperate</span></div>
+            <div class="visual-metric-row"><span>Strat Text OCR:</span><span class="visual-metric-val" style="color:#34d399;">Activ (Compatibil UTF-8)</span></div>
+            <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:8px 12px; font-family:monospace; font-size:0.75rem; color:#86efac; margin-top:4px;">
+              ✓ Flux validat: trailer &lt;&lt; /Size 1421 /Root 1 0 R &gt;&gt; %%EOF
+            </div>
+          </div>
         </div>
-      </figure>
-  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
-    🔍 Apasă pe imagine pentru mărire — Previzualizare Interactivă
-  </p>
+      </div>
     </div>
     
 <div class="guide-cta" style="margin-top: 2rem;">

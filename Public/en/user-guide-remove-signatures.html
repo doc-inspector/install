@@ -138,19 +138,30 @@
 
 
   
-    <div style="margin: 2.5rem 0 1.5rem 0;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;">
-        📸 Example Result
-      </h3>
-      <figure class="example-image-container" onclick="openLightbox(this)" style="cursor: pointer; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(6,182,212,0.25); background: rgba(15, 23, 42, 0.6); margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        <img src="../assets/guide-remove-signatures.png" alt="Example Result" style="width: 100%; display: block; height: auto;" />
-        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          🔍 Click to Enlarge
+        <div class="guide-visual-stage">
+      <div class="guide-visual-topbar">
+        <div class="guide-topbar-dots"><span class="guide-topbar-dot r"></span><span class="guide-topbar-dot y"></span><span class="guide-topbar-dot g"></span></div>
+        <div class="guide-topbar-title"><span>✍️</span> Digital Signature Field Stripper without Stream Corruption</div>
+        <span class="guide-topbar-badge">✓ SAFELY STRIPPED</span>
+      </div>
+      <div class="guide-visual-canvas">
+        <div class="guide-canvas-grid-2">
+          <div class="visual-pane before">
+            <div class="visual-pane-tag"><span>⚠️ Locked Signature Fields</span><span style="font-size:0.7rem; color:#f59e0b;">BLOCKING MODIFICATION</span></div>
+            <div class="visual-metric-row"><span>Digital Signature 1:</span><span class="visual-metric-val" style="color:#f59e0b;">X.509 RSA Certificate (Expired)</span></div>
+            <div class="visual-metric-row"><span>DocMDP Lock Status:</span><span class="visual-metric-val" style="color:#ef4444;">Read-Only Lock Active</span></div>
+            <div class="visual-metric-row"><span>Visual Signature Box:</span><span class="visual-metric-val" style="color:#cbd5e1;">AcroForm /Sig Widget Present</span></div>
+            <div class="visual-metric-row"><span>Re-signing Feasibility:</span><span class="visual-metric-val" style="color:#ef4444;">BLOCKED (Cryptographic conflict)</span></div>
+          </div>
+          <div class="visual-pane after">
+            <div class="visual-pane-tag"><span>✓ Clean Document Stream</span><span style="font-size:0.7rem; color:#34d399;">READY FOR NEW WORKFLOWS</span></div>
+            <div class="visual-metric-row"><span>Signature Objects:</span><span class="visual-metric-val" style="color:#34d399;">Purged from /Annots array</span></div>
+            <div class="visual-metric-row"><span>ByteRange Dictionary:</span><span class="visual-metric-val" style="color:#34d399;">Safely Decoupled</span></div>
+            <div class="visual-metric-row"><span>Document Tree:</span><span class="visual-metric-val" style="color:#38bdf8;">100% Intact &amp; Validated</span></div>
+            <div class="visual-metric-row"><span>Fresh Signing:</span><span class="visual-metric-val" style="color:#34d399;">UNBLOCKED (Clean Canvas)</span></div>
+          </div>
         </div>
-      </figure>
-  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
-    🔍 Click image to enlarge — Interactive Screenshot Preview
-  </p>
+      </div>
     </div>
     
 <div class="guide-cta" style="margin-top: 2rem;">

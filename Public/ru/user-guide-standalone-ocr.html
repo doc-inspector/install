@@ -129,19 +129,32 @@
 
 
   
-    <div style="margin: 2.5rem 0 1.5rem 0;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;">
-        📸 Пример результата
-      </h3>
-      <figure class="example-image-container" onclick="openLightbox(this)" style="cursor: pointer; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(6,182,212,0.25); background: rgba(15, 23, 42, 0.6); margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        <img src="../assets/guide-standalone-ocr.png" alt="Пример результата" style="width: 100%; display: block; height: auto;" />
-        <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-          🔍 Нажмите для увеличения
+        <div class="guide-visual-stage">
+      <div class="guide-visual-topbar">
+        <div class="guide-topbar-dots"><span class="guide-topbar-dot r"></span><span class="guide-topbar-dot y"></span><span class="guide-topbar-dot g"></span></div>
+        <div class="guide-topbar-title"><span>🔍</span> Высокоскоростное распознавание OCR с картой уверенности и поиском</div>
+        <span class="guide-topbar-badge">✓ 99.4% ТОЧНОСТЬ</span>
+      </div>
+      <div class="guide-visual-canvas">
+        <div class="guide-canvas-grid-2">
+          <div class="visual-pane before">
+            <div class="visual-pane-tag"><span>📷 Скан-картинка (Без поиска)</span><span style="font-size:0.7rem; color:#94a3b8;">РАСТР 300 DPI</span></div>
+            <div style="background:#07101e; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:12px; font-style:italic; font-family:serif; color:#94a3b8; filter:blur(0.3px);">
+              "Договор коммерческой аренды от 15 марта 2026 года между Министерством Финансов и..."
+            </div>
+            <div class="visual-metric-row"><span>Выделение текста:</span><span class="visual-metric-val" style="color:#ef4444;">НЕТ (Только пиксели)</span></div>
+            <div class="visual-metric-row"><span>Поиск по тексту:</span><span class="visual-metric-val" style="color:#ef4444;">НЕВОЗМОЖЕН</span></div>
+          </div>
+          <div class="visual-pane after">
+            <div class="visual-pane-tag"><span>✓ Поисковый текстовый слой UTF-8</span><span style="font-size:0.7rem; color:#34d399;">ВЫСОКАЯ ТОЧНОСТЬ</span></div>
+            <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.3); border-radius:6px; padding:12px; font-family:monospace; color:#a7f3d0; font-size:0.8rem;">
+              Договор коммерческой аренды от 15 марта 2026 года между Министерством Финансов и...
+            </div>
+            <div class="visual-metric-row"><span>Выделение текста:</span><span class="visual-metric-val" style="color:#34d399;">100% копирование и поиск</span></div>
+            <div class="visual-metric-row"><span>Распознано слов:</span><span class="visual-metric-val" style="color:#38bdf8;">1,842 слова (UTF-8)</span></div>
+          </div>
         </div>
-      </figure>
-  <p style="text-align: center; font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 0.4rem; margin-bottom: 2.5rem;">
-    🔍 Нажмите на изображение для увеличения — Интерактивное превью
-  </p>
+      </div>
     </div>
     
 <div class="guide-cta" style="margin-top: 2rem;">
